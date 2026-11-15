@@ -1,0 +1,803 @@
+{
+  "metadata": {
+    "project": "Grammar Quest",
+    "purpose": "Verified source-based curriculum map for Classes 9 and 10 across four supplied English grammar textbooks.",
+    "analysisScope": "Research and curriculum mapping only; strictly separates Grammar topics from Composition, Vocabulary, Reading, and Writing sections.",
+    "sourceTextbooksCount": 4,
+    "mvpModules": [
+      {
+        "moduleId": "module-1-sentence-basics",
+        "missionName": "Repair the Broken Message",
+        "coreTopic": "Sentence Basics: Subject and Predicate"
+      },
+      {
+        "moduleId": "module-2-tenses",
+        "missionName": "Journey Through Time",
+        "coreTopic": "Tenses: Time and Verb Forms"
+      },
+      {
+        "moduleId": "module-3-subject-verb-agreement",
+        "missionName": "The Grammar Detective",
+        "coreTopic": "Subject-Verb Agreement"
+      }
+    ]
+  },
+  "textbooks": [
+    {
+      "id": "assam-new-method-9-10",
+      "fileName": "English_A_New_Method_English_Grammar_Hindi_Class_IX-X_compressed_d43290ce.pdf",
+      "exactTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "innerTitle": "A NEW METHOD ENGLISH GRAMMAR : A textbook on English Grammar in Hindi for class IX & X",
+      "boardOrAuthority": "Board of Secondary Education, Assam (SEBA) — Approved (Vide No. SEBA/EU/TXB/10/Hindi/395, dated 24.04.74); cover carries Assam Government free distribution imprint (माध्यमिक शिक्षा विभाग, असम सरकार).",
+      "publisher": "Asom Rastrabhasha Prachar Samiti, Guwahati",
+      "author": "Shivjee Sinha (L.O.G. Hindi High School, Guwahati)",
+      "classLevels": [9, 10],
+      "classSplitProvidedInBook": false,
+      "subject": "English Grammar",
+      "editionHistory": "1st Edition 1974; 5th Edition 2016; 10th Edition 2022; 11th Edition 2023 (verified latest edition in PDF).",
+      "mediumOfInstruction": "Hindi explanations with English grammatical terms, examples, and exercises.",
+      "totalPdfPages": 354,
+      "pageOffsetRule": "Book page N = PDF page N + 9 for Chapters 1–23 (Book pp. 1–344 = PDF pp. 10–353; PDF p. 354 is back cover).",
+      "readabilityStatus": "All 354 PDF pages verified readable; minor printing typos noted in content-gaps.md.",
+      "chapters": {
+        "grammar": [
+          {
+            "chapter": "Chapter 1: Sentence (वाक्य)",
+            "bookPages": "1-17",
+            "pdfPages": "10-26",
+            "sections": [
+              "Lesson 1: What is a Sentence? (Word order & complete sense, pp. 1-2)",
+              "Lesson 2: Subject (उद्देश्य) and Predicate (विधेय); understood 'you' in imperatives; Finite verb defined via Subject's Number & Person (pp. 2-3)",
+              "Lesson 3: Adjuncts (pp. 4-5)",
+              "Lesson 4: Kinds of Sentences by structure + 6 Kinds of Subject + 9 Subject Adjuncts (pp. 5-6)",
+              "Lesson 5: The Predicate, Transitive/Intransitive verbs, Objects (Direct, Indirect, Cognate, Reflexive, Adverbial, Retained) (pp. 6-8)",
+              "Lesson 6: Complements and Sentence enlargement (pp. 8-9)",
+              "Lesson 7: Complex Sentences (p. 10)",
+              "Lesson 8: Compound Sentences (pp. 11-12)",
+              "Lesson 9: Functional types (Declarative, Interrogative, Imperative, Optative, Exclamatory) + Conditionals (pp. 12-17)"
+            ]
+          },
+          {
+            "chapter": "Chapter 2: Phrases and Clauses",
+            "bookPages": "18-24",
+            "pdfPages": "27-33"
+          },
+          {
+            "chapter": "Chapter 3: Transformation of Sentences",
+            "bookPages": "25-39",
+            "pdfPages": "34-48",
+            "notes": "Affirmative/Negative, Affirmative/Interrogative, Question tags (lists 'amn't' on p. 26), Exclamatory/Assertive."
+          },
+          {
+            "chapter": "Chapter 4: Nouns",
+            "bookPages": "40-63",
+            "pdfPages": "49-72",
+            "notes": "Countable/Uncountable, Number rules, SVA with plural-form singular nouns and plural-only nouns in Exercise 4 (pp. 50-51), Gender, Case."
+          },
+          {
+            "chapter": "Chapter 5: Pronouns",
+            "bookPages": "64-73",
+            "pdfPages": "73-82",
+            "notes": "9 kinds of pronouns; SVA rules for 'and', 'each/every', 'either...or/neither...nor', 'each of/neither of' (pp. 66-67) & Error Exercise 2 (p. 73)."
+          },
+          {
+            "chapter": "Chapter 6: Determinatives",
+            "bookPages": "74-101",
+            "pdfPages": "83-110",
+            "notes": "Articles (Rule 14 p. 80: 'The Secretary and Headmaster is coming' vs 'The Secretary and the Headmaster are coming'), Adjectives (p. 84: 'Many a man' + singular vs 'A great many men' + plural), Phrases, Apposition."
+          },
+          {
+            "chapter": "Chapter 7: Clauses",
+            "bookPages": "102-112",
+            "pdfPages": "111-121"
+          },
+          {
+            "chapter": "Chapter 8: Analysis (Clause Analysis)",
+            "bookPages": "113-119",
+            "pdfPages": "122-128"
+          },
+          {
+            "chapter": "Chapter 9: Tense (काल)",
+            "bookPages": "120-147",
+            "pdfPages": "129-156",
+            "sections": [
+              "Lesson 1: Time vs Tense (pp. 120-121)",
+              "Lesson 2: Explicit 3-Tense model — Present, Past, Future (pp. 121-123)",
+              "Lesson 3: 12 Tenses — Indefinite/Simple, Continuous/Progressive, Perfect/Non-Progressive, Perfect Continuous/Perfect Progressive (pp. 123-126)",
+              "Lesson 4: Strong, Weak, Invariant, and Mixed Verbs (pp. 126-133)",
+              "Lesson 5: Conjugation tables across all 12 tenses and persons/numbers (pp. 134-137)",
+              "Lesson 6: Tense uses, non-continuous stative verbs, for/since, 15 Common Errors, exercises (pp. 137-147)"
+            ]
+          },
+          {
+            "chapter": "Chapter 10: Special Verbs",
+            "bookPages": "148-185",
+            "pdfPages": "157-194",
+            "notes": "Finite vs Non-finite & 24 Anomalous Finites (pp. 148-159), Non-conclusive verbs (pp. 159-161), Inchoative verbs (pp. 161-165), Phrasal/Group verbs (pp. 166-185)."
+          },
+          {
+            "chapter": "Chapter 11: Voice",
+            "bookPages": "186-193",
+            "pdfPages": "195-202"
+          },
+          {
+            "chapter": "Chapter 12: Conjunctives and Relatives",
+            "bookPages": "194-204",
+            "pdfPages": "203-213",
+            "notes": "Includes 'Bread and butter is/are' item in Ex. A item 10 (p. 201)."
+          },
+          {
+            "chapter": "Chapter 13: Adverbials",
+            "bookPages": "205-213",
+            "pdfPages": "214-222"
+          },
+          {
+            "chapter": "Chapter 14: Position of Prepositions",
+            "bookPages": "214-241",
+            "pdfPages": "223-250"
+          },
+          {
+            "chapter": "Chapter 15: Reported Speech",
+            "bookPages": "242-259",
+            "pdfPages": "251-268"
+          },
+          {
+            "chapter": "Chapter 16: Transformation",
+            "bookPages": "260-281",
+            "pdfPages": "269-290"
+          },
+          {
+            "chapter": "Chapter 17: Punctuation",
+            "bookPages": "282-289",
+            "pdfPages": "291-298"
+          }
+        ],
+        "composition_vocabulary_skills": [
+          {
+            "chapter": "Chapter 18: Synonyms",
+            "bookPages": "290-300",
+            "pdfPages": "299-309"
+          },
+          {
+            "chapter": "Chapter 19: Antonyms",
+            "bookPages": "301-306",
+            "pdfPages": "310-315"
+          },
+          {
+            "chapter": "Chapter 20: Similarly Pronounced & Compound Words",
+            "bookPages": "307-313",
+            "pdfPages": "316-322"
+          },
+          {
+            "chapter": "Chapter 21: Phrases & Idioms",
+            "bookPages": "314-332",
+            "pdfPages": "323-341"
+          },
+          {
+            "chapter": "Chapter 22: Single-Word Substitution",
+            "bookPages": "333-341",
+            "pdfPages": "342-350"
+          },
+          {
+            "chapter": "Chapter 23: Diminutives",
+            "bookPages": "342-344",
+            "pdfPages": "351-353"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pseb-grammar-in-use-9",
+      "fileName": "PSEB-Class-9-English-Grammar-and-Compostion-Textbook-2021-22_1872056b.pdf",
+      "exactTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "boardOrAuthority": "Punjab School Education Board (PSEB), S.A.S. Nagar (Mohali)",
+      "authors": "Dr. D.V. Jindal and Mrs. Harjit Vasudeva",
+      "vettedAndEditedBy": "Vetted by Dr. Gurupdesh Singh; Edited by Manoj Kumar",
+      "classLevels": [9],
+      "classSplitProvidedInBook": true,
+      "subject": "English Grammar and Composition",
+      "editionHistory": "Edition 2021-22 (verified on title/copyright page).",
+      "mediumOfInstruction": "English",
+      "totalPdfPages": 168,
+      "pageOffsetRule": "Book page N = PDF page N + 6 (Book pp. 1-162 = PDF pp. 7-168).",
+      "readabilityStatus": "All 168 PDF pages verified readable; minor printing typos noted in content-gaps.md.",
+      "chapters": {
+        "grammar": [
+          {
+            "chapter": "Chapter 1: Determiners",
+            "bookPages": "1-11",
+            "pdfPages": "7-17"
+          },
+          {
+            "chapter": "Chapter 2: Modals",
+            "bookPages": "12-26",
+            "pdfPages": "18-32"
+          },
+          {
+            "chapter": "Chapter 3: Prepositions",
+            "bookPages": "27-40",
+            "pdfPages": "33-46"
+          },
+          {
+            "chapter": "Chapter 4: Conjunctions",
+            "bookPages": "41-52",
+            "pdfPages": "47-58",
+            "notes": "Includes conditional sentences table under 'If' (p. 43)."
+          },
+          {
+            "chapter": "Chapter 5: Simple and Complex Sentences",
+            "bookPages": "53-60",
+            "pdfPages": "59-66",
+            "notes": "Briefly defines a simple sentence as having 'one subject and one predicate' with two underlined examples (p. 53) before focusing on Simple/Complex clauses."
+          },
+          {
+            "chapter": "Chapter 6: Voice",
+            "bookPages": "61-73",
+            "pdfPages": "67-79"
+          },
+          {
+            "chapter": "Chapter 7: Narration",
+            "bookPages": "74-87",
+            "pdfPages": "80-93"
+          },
+          {
+            "chapter": "Chapter 8: Non-Finites",
+            "bookPages": "88-93",
+            "pdfPages": "94-99"
+          },
+          {
+            "chapter": "Chapter 9: Tenses (Concord and Sequence)",
+            "bookPages": "94-104",
+            "pdfPages": "100-110",
+            "sections": [
+              "Section 1: Use of Tenses — 12 traditional tenses across Present, Past, Future × Indefinite, Continuous, Perfect, Perfect Continuous (pp. 94-97)",
+              "Section 2: Concord — Agreement of the Verb with Subject (13 numbered rules + Exceptions, pp. 97-100)",
+              "Section 3: Sequence of Tenses (pp. 100-102)",
+              "Exercises 1-6 (pp. 102-104)"
+            ]
+          }
+        ],
+        "composition_vocabulary_skills": [
+          {
+            "chapter": "Composition Ch. 1: Vocabulary (Context, Parts of Speech, Synonyms, Antonyms, Homonyms, Word Formation)",
+            "bookPages": "105-129",
+            "pdfPages": "111-135"
+          },
+          {
+            "chapter": "Composition Ch. 2: Reading Skills (Prose Passages & Poems)",
+            "bookPages": "130-136",
+            "pdfPages": "136-142"
+          },
+          {
+            "chapter": "Composition Ch. 3: Writing Skills-I (Note-Making, E-mail, Informal & Formal Letters)",
+            "bookPages": "137-157",
+            "pdfPages": "143-163"
+          },
+          {
+            "chapter": "Composition Ch. 4: Writing Skills-II (Paragraph Writing: People, Places, Events, Procedures)",
+            "bookPages": "158-162",
+            "pdfPages": "164-168"
+          }
+        ]
+      }
+    },
+    {
+      "id": "odisha-learn-practise-9",
+      "fileName": "79_-_OD_ENGLISH_ENGLISHGRAMMAR_CLASS9_TERM1_af53874d.pdf",
+      "exactTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "boardOrAuthority": "Board of Secondary Education, Odisha",
+      "authors": "Dr. Suman Mahapatra (Reviewer), Dr. Narayan Chandra Dash, Dr. Sridhar Mohapatra, Sri Biswanath Mishra, Baidyanath Rout (Co-ordinator)",
+      "classLevels": [9],
+      "classSplitProvidedInBook": true,
+      "subject": "English Grammar",
+      "editionHistory": "New Edition: 2012, 2019 (copyright page p. 2 leaves 'Printed at :' and 'Price : Rs.' blank).",
+      "mediumOfInstruction": "English",
+      "totalPdfPages": 152,
+      "pageOffsetRule": "Book page N = PDF page N + 6 (Book pp. 1-146 = PDF pp. 7-152).",
+      "filenameCaveat": "Filename includes 'TERM1', but internal TOC and Preface confirm it is the complete 12-chapter Class IX grammar textbook.",
+      "readabilityStatus": "All 152 PDF pages verified readable directly; minor printing typos noted in content-gaps.md.",
+      "chapters": {
+        "grammar": [
+          {
+            "chapter": "Chapter 1: Parts of a Sentence",
+            "bookPages": "1-26",
+            "pdfPages": "7-32",
+            "sections": [
+              "A. Word order (pp. 1-4)",
+              "B. Subject and Predicate — single/multi-word, head-word, split interrogatives, understood 'you' in imperatives, omitted 'it/is' in exclamatory (pp. 5-7, Activities 1-9)",
+              "C. Word Classes — Noun, Pronoun, Adjective, Verb, Adverb, Preposition, Conjunction, Interjection (pp. 8-22)",
+              "D. Types of Sentences — Simple sentences: Declarative, Interrogative, Imperative, Exclamatory (pp. 23-26)"
+            ]
+          },
+          {
+            "chapter": "Chapter 2: Verbs",
+            "bookPages": "27-32",
+            "pdfPages": "33-38",
+            "notes": "Main vs Auxiliary verbs (Primary & Modal), multi-word verb groups, introductory SVA table on p. 32."
+          },
+          {
+            "chapter": "Chapter 3: Time and Tense",
+            "bookPages": "33-61",
+            "pdfPages": "39-67",
+            "notes": "Explicitly teaches a 2-Tense model (Present & Past; 'there is no future tense in English'), 3 Time phases, 3 verb forms (v, v-ed, -ed/-en), 8 Tense x Aspect combinations, plus Future Time expressions (pp. 57-61)."
+          },
+          {
+            "chapter": "Chapter 4: Auxiliaries",
+            "bookPages": "62-73",
+            "pdfPages": "68-79"
+          },
+          {
+            "chapter": "Chapter 5: The Noun Phrase",
+            "bookPages": "74-77",
+            "pdfPages": "80-83"
+          },
+          {
+            "chapter": "Chapter 6: Pre and Post Modifiers in the Noun Phrase",
+            "bookPages": "78-81",
+            "pdfPages": "84-87"
+          },
+          {
+            "chapter": "Chapter 7: Countables and Uncountables",
+            "bookPages": "82-91",
+            "pdfPages": "88-97",
+            "notes": "Includes SVA rules for singular/plural countables, uncountables, pair nouns (p. 85 Act. 4), collective & plural-only nouns (p. 86), and -s-ending uncountables like Mathematics/Diabetes (pp. 88-89)."
+          },
+          {
+            "chapter": "Chapter 8: Determiners",
+            "bookPages": "92-103",
+            "pdfPages": "98-109",
+            "notes": "Includes Quantifier SVA rules (p. 93) and 'The rich/blind' + plural verb (pp. 98-99)."
+          },
+          {
+            "chapter": "Chapter 9: Adjectives",
+            "bookPages": "104-116",
+            "pdfPages": "110-122"
+          },
+          {
+            "chapter": "Chapter 10: Adverbs and Adverbials",
+            "bookPages": "117-134",
+            "pdfPages": "123-140"
+          },
+          {
+            "chapter": "Chapter 11: Negatives and Interrogatives",
+            "bookPages": "135-140",
+            "pdfPages": "141-146",
+            "notes": "Explicitly notes 'I'm not' (not 'I amn't') on p. 136."
+          },
+          {
+            "chapter": "Chapter 12: The Predicate Phrase",
+            "bookPages": "141-146",
+            "pdfPages": "147-152",
+            "notes": "Intransitive vs Transitive verb patterns (S+V, S+V+C, S+V+O, S+V+O+O, S+V+O+C, S+V+A)."
+          }
+        ],
+        "composition_vocabulary_skills": []
+      }
+    },
+    {
+      "id": "odisha-learn-practise-10",
+      "fileName": "94_-_OD_ENGLISH_ENGLISHGRAMMAR_CLASS10_TERM1_8fb300ea.pdf",
+      "exactTitle": "Learn and Practise Grammar Class - X",
+      "boardOrAuthority": "Board of Secondary Education, Odisha",
+      "authors": "Dr. Sridhar Mohapatra (Reviewer), Dr. Golak Bihari Sahoo, Dr. Bijaya Kumar Nanda, Sri Surendranath Mohapatra, Sri Baidyanath Rout (Co-ordinator)",
+      "classLevels": [10],
+      "classSplitProvidedInBook": true,
+      "subject": "English Grammar",
+      "editionHistory": "New Edition: ୨୦୧୩ (2013), ୨୦୧୯ (2019) in Odia script on copyright page p. 2 ('Printed at :' and 'Price :' blank).",
+      "mediumOfInstruction": "English",
+      "totalPdfPages": 128,
+      "pageOffsetRule": "Book page N = PDF page N + 6 (Book pp. 1-122 = PDF pp. 7-128).",
+      "filenameCaveat": "Filename includes 'TERM1', but internal TOC and Preface confirm it is the complete 10-chapter Class X grammar workbook building on Class IX Volume 1.",
+      "readabilityStatus": "All 128 PDF pages verified readable directly; Odia-script edition digits invisible to ASCII text extractors; minor printing typos noted in content-gaps.md.",
+      "chapters": {
+        "grammar": [
+          {
+            "chapter": "Chapter 1: Tense Revisited",
+            "bookPages": "1-12",
+            "pdfPages": "7-18",
+            "notes": "Reaffirms 2 defined tenses (Present & Past) + 3 phases of time; covers Present Time, 6 ways of expressing Past Time, and 5 ways of expressing Future Time."
+          },
+          {
+            "chapter": "Chapter 2: Types of Sentences",
+            "bookPages": "13-22",
+            "pdfPages": "19-28",
+            "notes": "Finite verb/clause definition, Simple sentences (4 types + SV, SVO, SVOO, SVC, SVOC patterns pp. 14-15), Compound sentences, Complex sentences."
+          },
+          {
+            "chapter": "Chapter 3: Subject – Verb Agreement",
+            "bookPages": "23-30",
+            "pdfPages": "29-36",
+            "notes": "Core rule (Number & Person) + 16 numbered rules (1a-16) and Activities 1-3."
+          },
+          {
+            "chapter": "Chapter 4: Non-Finite Verb Forms",
+            "bookPages": "31-38",
+            "pdfPages": "37-44",
+            "notes": "Links finite verb = subject agreement vs non-finite = no agreement (p. 31); covers to+v, bare φ+v, -en, -ing."
+          },
+          {
+            "chapter": "Chapter 5: Prepositions",
+            "bookPages": "39-57",
+            "pdfPages": "45-63"
+          },
+          {
+            "chapter": "Chapter 6: Phrasal Verbs",
+            "bookPages": "58-70",
+            "pdfPages": "64-76"
+          },
+          {
+            "chapter": "Chapter 7: Noun Clauses and Relative Clauses",
+            "bookPages": "71-81",
+            "pdfPages": "77-87"
+          },
+          {
+            "chapter": "Chapter 8: Adverb Clauses",
+            "bookPages": "82-89",
+            "pdfPages": "88-95",
+            "notes": "Includes Conditionals (pp. 84-86) and Sentence Types review (pp. 86-89)."
+          },
+          {
+            "chapter": "Chapter 9: The Passive",
+            "bookPages": "90-105",
+            "pdfPages": "96-111"
+          },
+          {
+            "chapter": "Chapter 10: Direct and Indirect Speech",
+            "bookPages": "106-122",
+            "pdfPages": "112-128"
+          }
+        ],
+        "composition_vocabulary_skills": []
+      }
+    }
+  ],
+  "topics": [
+    {
+      "id": "od9-ch1-subject-predicate",
+      "topicName": "Parts of a Sentence: Subject and Predicate",
+      "class": [9],
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "chapterOrSection": "Chapter 1: Parts of a Sentence (Sections A & B)",
+      "bookPages": "1-7",
+      "pdfPages": "7-13",
+      "teaches": "Meaningful word order; Subject as who/what the sentence is about and Predicate as what is said about the Subject; single-word vs multi-word Subjects/Predicates; identifying the head-word (noun in Subject, verb in Predicate); split predicates in interrogatives ('Have you finished your work?'); understood 'you' in imperatives; omitted 'it/is' in exclamatory sentences.",
+      "examples": [
+        "Ashok was a great king.",
+        "The boys in our school play football.",
+        "Stop! -> (You) Stop!",
+        "What a beautiful flower! -> (It is) a beautiful flower!"
+      ],
+      "exerciseTypes": [
+        "Word unscrambling into meaningful sentences (Act. 1)",
+        "Inserting missing words",
+        "Matching/identifying Subject and Predicate",
+        "Marking head-words in multi-word Subjects and Predicates (Act. 4-7)",
+        "Identifying understood Subjects in imperatives/questions (Act. 8-9)"
+      ],
+      "mvpModuleMapping": "module-1-sentence-basics"
+    },
+    {
+      "id": "assam-ch1-subject-predicate",
+      "topicName": "Sentence, Subject and Predicate, Enlargement & Predicate Elements",
+      "class": [9, 10],
+      "sourceTextbookId": "assam-new-method-9-10",
+      "chapterOrSection": "Chapter 1: Sentence (Lessons 1-6)",
+      "bookPages": "1-9",
+      "pdfPages": "10-18",
+      "teaches": "Sentence as ordered words making complete sense; Subject (उद्देश्य) and Predicate (विधेय); Finite verb defined as verb governed by Subject's Number and Person; understood 'you' in imperatives; 6 Kinds of Subject and 9 Subject Adjuncts; Predicate breakdown into Finite Verb, Transitive/Intransitive, Objects (Direct, Indirect, Cognate, Reflexive, Adverbial, Retained), and Complements.",
+      "examples": [
+        "Birds fly.",
+        "The sun rises in the east.",
+        "Sit down. (Subject: you understood)",
+        "The old man living in that hut gave me a book."
+      ],
+      "exerciseTypes": [
+        "Bilingual rule explanation",
+        "Splitting sentences into Subject, Adjuncts, Verb, Object, and Complement",
+        "Translation-assisted and structural identification exercises"
+      ],
+      "mvpModuleMapping": "module-1-sentence-basics"
+    },
+    {
+      "id": "pseb9-ch5-simple-sentence-subject-predicate",
+      "topicName": "Simple and Complex Sentences (Subject & Predicate mention)",
+      "class": [9],
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "chapterOrSection": "Chapter 5: Simple and Complex Sentences",
+      "bookPages": "53-60",
+      "pdfPages": "59-66",
+      "teaches": "Briefly states 'A simple sentence has one subject and one predicate' on p. 53 with two underlined examples before moving directly to clause identification and sentence transformation.",
+      "examples": [
+        "He went to market.",
+        "The train was late by two hours."
+      ],
+      "exerciseTypes": [
+        "Clause identification",
+        "Joining/transforming simple and complex sentences"
+      ],
+      "mvpModuleMapping": "module-1-sentence-basics"
+    },
+    {
+      "id": "od10-ch2-sentence-types-finite-clause",
+      "topicName": "Types of Sentences (Finite Verb, Simple Sentence Patterns, Compound & Complex)",
+      "class": [10],
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "chapterOrSection": "Chapter 2: Types of Sentences",
+      "bookPages": "13-22",
+      "pdfPages": "19-28",
+      "teaches": "Assumes prior Subject/Predicate knowledge; defines finite verb and clause; classifies Simple sentences by function (Declarative, Interrogative, Imperative, Exclamatory) and structure patterns (SV, SVO, SVOO, SVC, SVOC); Compound and Complex sentences.",
+      "examples": [
+        "The night is dark. (SVC)",
+        "They elected him president. (SVOC)"
+      ],
+      "exerciseTypes": [
+        "Sentence pattern labelling",
+        "Classifying Simple/Compound/Complex sentences",
+        "Clause transformation activities"
+      ],
+      "mvpModuleMapping": "module-1-sentence-basics"
+    },
+    {
+      "id": "od9-ch3-time-and-tense",
+      "topicName": "Time and Tense (Two-Tense Model)",
+      "class": [9],
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "chapterOrSection": "Chapter 3: Time and Tense",
+      "bookPages": "33-61",
+      "pdfPages": "39-67",
+      "teaches": "Distinguishes Time (Past, Present, Future) from Tense; teaches that English verbs have ONLY TWO TENSES (Present and Past) and 'there is no future tense in English'; explains 3 verb forms (v, v-ed, -ed/-en), 8 Tense x Aspect combinations (Simple, Progressive, Perfect, Perfect Progressive in Present & Past), stative/non-progressive verbs (p. 43), for/since, used to/would, and ways to express Future Time (modals, be going to + v, Present Progressive, Present Simple, be about to, will be v-ing, will have v-en, be + to + infinitive).",
+      "examples": [
+        "The sun rises in the east. (Present Simple - universal truth)",
+        "I am writing a letter now. (Present Progressive)",
+        "The train leaves at 5 p.m. tomorrow. (Present Simple for future time)",
+        "We are going to visit Puri next week. (Future time expression)"
+      ],
+      "exerciseTypes": [
+        "Fill in blanks with correct verb forms",
+        "Matching time reference to tense/aspect form",
+        "Correcting stative verbs misused in progressive form",
+        "Dialogue completion"
+      ],
+      "mvpModuleMapping": "module-2-tenses"
+    },
+    {
+      "id": "od10-ch1-tense-revisited",
+      "topicName": "Tense Revisited",
+      "class": [10],
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "chapterOrSection": "Chapter 1: Tense Revisited",
+      "bookPages": "1-12",
+      "pdfPages": "7-18",
+      "teaches": "Reaffirms the 2-tense (Present & Past) + 3-time model from Class IX; consolidates Present Simple/Progressive for Present Time, 6 ways of expressing Past Time (Past Simple, Past Progressive, Present Perfect, Present Perfect Progressive, Past Perfect, Past Perfect Progressive), and 5 ways of expressing Future Time (will/shall, be going to, Present Progressive, Present Simple, be about to / will be v-ing / will have v-en).",
+      "examples": [
+        "When we reached the station, the train had already left.",
+        "I have lived here for ten years.",
+        "It is going to rain."
+      ],
+      "exerciseTypes": [
+        "Contextual gap-filling",
+        "Choosing between Past Simple and Present Perfect / Past Perfect",
+        "Future time sentence completion"
+      ],
+      "mvpModuleMapping": "module-2-tenses"
+    },
+    {
+      "id": "pseb9-ch9-sec1-use-of-tenses",
+      "topicName": "Use of Tenses & Sequence of Tenses (12-Tense Model)",
+      "class": [9],
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "chapterOrSection": "Chapter 9: Tenses (Concord and Sequence) — Sections 1 & 3",
+      "bookPages": "94-97, 100-104",
+      "pdfPages": "100-103, 106-110",
+      "teaches": "Uses traditional 3-Tense x 4-Aspect = 12-Tense framework (Present, Past, Future x Indefinite, Continuous, Perfect, Perfect Continuous); summarises usage rules and signal adverbs, assuming basic conjugation is already known; teaches Sequence of Tenses between principal and subordinate clauses.",
+      "examples": [
+        "Water boils at 100 degrees Celsius. (Present Indefinite)",
+        "She had finished her homework before I arrived. (Past Perfect)",
+        "He said that honesty is the best policy. (Sequence of Tenses exception)"
+      ],
+      "exerciseTypes": [
+        "Fill in the blanks with correct tense of bracketed verbs (Ex. 1 p. 102)"
+      ],
+      "mvpModuleMapping": "module-2-tenses"
+    },
+    {
+      "id": "assam-ch9-tense",
+      "topicName": "Tense (Time vs Tense, 3 Tenses, 12 Sub-types, Conjugation & Errors)",
+      "class": [9, 10],
+      "sourceTextbookId": "assam-new-method-9-10",
+      "chapterOrSection": "Chapter 9: Tense (काल) (Lessons 1-6)",
+      "bookPages": "120-147",
+      "pdfPages": "129-156",
+      "teaches": "Distinguishes Time (समय) from Tense (काल) in L1, then explicitly teaches a 3-Tense model (Present, Past, Future) divided into 12 sub-tenses (dual labels: Indefinite/Simple, Continuous/Progressive, Perfect/Non-Progressive, Perfect Continuous/Perfect Progressive); details Strong, Weak, Invariant, and Mixed verbs; gives full person/number conjugation tables; lists stative non-continuous verbs, for/since, and 15 common errors.",
+      "examples": [
+        "The earth moves round the sun.",
+        "I have been reading since morning.",
+        "Tomorrow is Sunday. / He leaves for Delhi tomorrow."
+      ],
+      "exerciseTypes": [
+        "Verb-form conjugation drills",
+        "Translation (Hindi to English)",
+        "Fill in blanks with correct tense",
+        "Error correction (15 common error patterns)"
+      ],
+      "mvpModuleMapping": "module-2-tenses"
+    },
+    {
+      "id": "od9-ch2-ch7-ch8-intro-sva",
+      "topicName": "Introductory Subject-Verb Agreement (Basic, Count/Uncount, Pair & Quantifier Rules)",
+      "class": [9],
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "chapterOrSection": "Chapter 2 (p. 32), Chapter 7 (pp. 83-89), Chapter 8 (p. 93, 98-99)",
+      "bookPages": "32, 83-89, 93, 98-99",
+      "pdfPages": "38, 89-95, 99, 104-105",
+      "teaches": "Foundational person/number verb table ('I am, We/You/They are, He/She/Mina is, The teacher and the students are, The cow eats, Cows eat', p. 32) explicitly noting full SVA comes later; singular/plural agreement with countables vs uncountables (p. 83), pair nouns vs 'a pair of' (p. 85), collective & 'police/people/cattle' (p. 86), '-s' singular uncountables like Mathematics/Diabetes (pp. 88-89), quantifiers (p. 93), and 'The rich/blind' + plural verb (pp. 98-99).",
+      "examples": [
+        "The teacher and the students are in the classroom.",
+        "My trousers are new. / A pair of trousers is on the bed.",
+        "The police have caught the thief.",
+        "Mathematics is an interesting subject."
+      ],
+      "exerciseTypes": [
+        "Choosing correct verb forms in Activities (Ch. 7 Act. 4, Ch. 8)",
+        "Identifying countable/uncountable verb agreement"
+      ],
+      "mvpModuleMapping": "module-3-subject-verb-agreement"
+    },
+    {
+      "id": "od10-ch3-subject-verb-agreement",
+      "topicName": "Subject – Verb Agreement (16 Formal Rules)",
+      "class": [10],
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "chapterOrSection": "Chapter 3: Subject – Verb Agreement (and Ch. 4 p. 31 Finite Verb note)",
+      "bookPages": "23-31",
+      "pdfPages": "29-37",
+      "teaches": "Core Number & Person rule plus 16 numbered rules: (1a) preparatory 'there', (1b) 'it', (2) plural sums/distances/weights as single unit, (3a) 'and' denoting single notion, (3b) 'and' compound plural, (4a) collective nouns unit vs individuals, (4b) police/people/poultry/cattle, (5) uncountables (clothing/food/furniture/scenery), (6) intervening phrases/clauses, (7a) either/neither/none of (+ informal plural note), (7b) each/one of, (7c) no/some, (7d) 'and' with one vs two determiners, (8) fractions/percentages, (9a) a lot of/some of, (9b) a crowd/herd/group of, (9c) a number of vs the number of, (10) -s nouns (Statistics/Physics/News/Measles), (11) clause subjects, (12a) with/as well as/together with, (12b) not only...but also/either...or/neither...nor nearer subject, (13) pair nouns vs 'a pair of', (14) The rich/blind, (15) plural titles/country names (Gulliver's Travels/United States), (16) relative pronoun antecedents. Note: Ch. 3 Act. 3(i) p. 30 tests tag 'I am young and strong, (amn't / aren't)?'.",
+      "examples": [
+        "Ten kilometres is a long walk.",
+        "Bread and butter is a wholesome food.",
+        "The number of students in our class is forty.",
+        "Neither the teacher nor the students were present."
+      ],
+      "exerciseTypes": [
+        "Choosing correct verb from pairs (Activities 1-3)",
+        "Error spotting and agreement completion"
+      ],
+      "mvpModuleMapping": "module-3-subject-verb-agreement"
+    },
+    {
+      "id": "pseb9-ch9-sec2-concord",
+      "topicName": "Concord: Agreement of the Verb with Subject (13 Rules + Exceptions)",
+      "class": [9],
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "chapterOrSection": "Chapter 9: Tenses (Concord and Sequence) — Section 2",
+      "bookPages": "97-100, 102-104",
+      "pdfPages": "103-106, 108-110",
+      "teaches": "13 numbered concord rules + exceptions: Number/Person & head-noun matching; 'and' plural vs single idea/same person/'each & every'; 'or/either...or/neither...nor' (singular, plural last, nearest person); 'with'; 'not only...but also'; 'there'; 'either/neither/each/everyone/one of' strictly singular; plural-form singular nouns (Mathematics/Politics/wages/news/United States/Gulliver's Travels); collective nouns; relative pronoun antecedent; sums of money.",
+      "examples": [
+        "The quality of these apples is good.",
+        "Slow and steady wins the race.",
+        "Each boy and each girl was given a prize.",
+        "He as well as his friends is responsible."
+      ],
+      "exerciseTypes": [
+        "Selecting between verb options in sentences (Exercises 2-6, pp. 102-104)"
+      ],
+      "mvpModuleMapping": "module-3-subject-verb-agreement"
+    },
+    {
+      "id": "assam-fragmented-sva",
+      "topicName": "Scattered Subject-Verb Agreement Rules (No Standalone Chapter)",
+      "class": [9, 10],
+      "sourceTextbookId": "assam-new-method-9-10",
+      "chapterOrSection": "Ch. 1 (p. 3), Ch. 4 (pp. 50-51), Ch. 5 (pp. 66-67, 73), Ch. 6 (pp. 80, 84), Ch. 9 (pp. 134-137), Ch. 12 (p. 201)",
+      "bookPages": "3, 50-51, 66-67, 73, 80, 84, 134-137, 201",
+      "pdfPages": "12, 59-60, 75-76, 82, 89, 93, 143-146, 210",
+      "teaches": "No standalone SVA chapter; rules distributed across: Finite verb agreeing with Subject Number/Person (Ch. 1 p. 3); cattle/people/police vs mathematics/physics/news (Ch. 4 Ex. 4 pp. 50-51); distributive pronouns 'each/every/either...or/neither...nor/each of/neither of' strictly singular (Ch. 5 pp. 66-67, 73); 'The Secretary and Headmaster is' vs 'The Secretary and the Headmaster are' (Ch. 6 p. 80); 'Many a man' vs 'A great many men' (Ch. 6 p. 84); 'Bread and butter is/are' test item (Ch. 12 p. 201).",
+      "examples": [
+        "The Secretary and Headmaster is coming.",
+        "The Secretary and the Headmaster are coming.",
+        "Many a man has done this.",
+        "Neither of the two boys was present."
+      ],
+      "exerciseTypes": [
+        "Noun number/verb agreement drills (Ch. 4 Ex. 4)",
+        "Pronoun error correction (Ch. 5 Ex. 2)"
+      ],
+      "mvpModuleMapping": "module-3-subject-verb-agreement"
+    },
+    {
+      "id": "additional-grammar-topics-non-mvp",
+      "topicName": "Non-MVP Grammar Topics Across the Four Textbooks",
+      "class": [9, 10],
+      "sourceTextbookId": "all-four-textbooks",
+      "chapterOrSection": "Various chapters (see textbooks[].chapters.grammar)",
+      "bookPages": "See per-book chapter ranges",
+      "pdfPages": "See per-book chapter ranges",
+      "teaches": "Comprehensive Class 9-10 grammar outside the 3 MVP modules: Determiners & Articles; Auxiliaries & Modals (plus Assam 24 Anomalous Finites); Noun Phrases, Pre/Post-Modifiers, Countables & Uncountables; Adjectives & Comparison; Adverbs, Adverbials & Negative Inversion; Prepositions & Phrasal/Group Verbs; Non-Finites; Conjunctions; Simple, Compound & Complex Sentences; Noun, Relative & Adverb Clauses; Conditionals; Active & Passive Voice; Direct & Indirect (Reported) Speech; Negatives, Interrogatives, Question Tags & Transformation of Sentences; Clause Analysis; Punctuation.",
+      "examples": [],
+      "exerciseTypes": [
+        "Gap filling",
+        "Sentence transformation",
+        "Voice/narration conversion",
+        "Clause analysis",
+        "Error correction"
+      ],
+      "mvpModuleMapping": "out-of-mvp-scope"
+    }
+  ],
+  "classLevelMapping": {
+    "class9": {
+      "odishaClass9": "Covers foundational grammar in 12 chapters: Parts of a Sentence (Word order, Subject & Predicate, Word Classes, 4 Sentence Types), Verbs (Main/Auxiliary + introductory SVA table), Time and Tense (2-Tense model + Future Time), Auxiliaries, Noun Phrase & Modifiers, Countables & Uncountables (incl. pair/collective/-s noun SVA), Determiners (quantifier SVA), Adjectives, Adverbs/Adverbials, Negatives/Interrogatives, and Predicate Phrase patterns.",
+      "psebClass9": "Covers 9 grammar chapters: Determiners, Modals, Prepositions, Conjunctions, Simple & Complex Sentences (brief 1-line Subject/Predicate mention), Voice, Narration, Non-Finites, and Tenses (12 traditional tenses + 13 Concord rules + Sequence of Tenses), followed by Composition (Vocabulary, Reading, Letters/E-mails, Paragraphs).",
+      "assamCombined9_10": "Single combined Classes IX & X textbook with no explicit Class 9 vs Class 10 chapter split."
+    },
+    "class10": {
+      "odishaClass10": "Builds directly on Class 9 in 10 chapters: Tense Revisited (consolidating 2-tense + 3-time mastery), Types of Sentences (Finite verb/clauses, SV-SVOC patterns, Compound/Complex), dedicated Subject-Verb Agreement (16 formal rules), Non-Finite Verb Forms, Prepositions, Phrasal Verbs, Noun & Relative Clauses, Adverb Clauses & Conditionals, The Passive, and Direct & Indirect Speech.",
+      "psebClass10": "No Class 10 PSEB textbook was supplied among the uploaded sources (gap documented in content-gaps.md).",
+      "assamCombined9_10": "Shares all 17 grammar chapters and 6 vocabulary chapters across Classes 9 and 10 without grade-level differentiation."
+    }
+  },
+  "mvpModuleSourceMap": {
+    "module-1-sentence-basics": {
+      "title": "Repair the Broken Message — Sentence Basics (Subject & Predicate)",
+      "primarySources": [
+        "Odisha Class IX, Ch. 1 'Parts of a Sentence' Sec. A-B (Book pp. 1-7 / PDF pp. 7-13)",
+        "Assam Classes IX-X, Ch. 1 'Sentence' L1-L6 (Book pp. 1-9 / PDF pp. 10-18)"
+      ],
+      "secondarySources": [
+        "PSEB Class IX, Ch. 5 'Simple and Complex Sentences' (Book p. 53 / PDF p. 59 — brief mention only)",
+        "Odisha Class X, Ch. 2 'Types of Sentences' (Book pp. 13-15 / PDF pp. 19-21 — finite verb & SV/SVO/SVC/SVOC progression)"
+      ],
+      "coverageNote": "Only Odisha Class IX and Assam IX-X explicitly teach Subject & Predicate decomposition. Odisha Class X assumes it; PSEB Class IX mentions it in one sentence."
+    },
+    "module-2-tenses": {
+      "title": "Journey Through Time — Tenses (Time and Verb Forms)",
+      "primarySources": [
+        "Odisha Class IX, Ch. 3 'Time and Tense' (Book pp. 33-61 / PDF pp. 39-67)",
+        "Odisha Class X, Ch. 1 'Tense Revisited' (Book pp. 1-12 / PDF pp. 7-18)",
+        "PSEB Class IX, Ch. 9 Sec. 1 & 3 'Use of Tenses & Sequence of Tenses' (Book pp. 94-97, 100-104 / PDF pp. 100-103, 106-110)",
+        "Assam Classes IX-X, Ch. 9 'Tense' (Book pp. 120-147 / PDF pp. 129-156)"
+      ],
+      "coverageNote": "All 4 books cover tenses extensively, but split cleanly into two grammatical models (Odisha 2-Tense + 3-Time vs PSEB/Assam 3-Tense / 12-Tense)."
+    },
+    "module-3-subject-verb-agreement": {
+      "title": "The Grammar Detective — Subject-Verb Agreement",
+      "primarySources": [
+        "Odisha Class X, Ch. 3 'Subject – Verb Agreement' (Book pp. 23-30 / PDF pp. 29-36; Ch. 4 p. 31)",
+        "PSEB Class IX, Ch. 9 Sec. 2 'Concord: Agreement of the Verb with Subject' (Book pp. 97-100, 102-104 / PDF pp. 103-106, 108-110)"
+      ],
+      "secondarySources": [
+        "Odisha Class IX, Ch. 2 (p. 32), Ch. 7 (pp. 83-89), Ch. 8 (pp. 93, 98-99)",
+        "Assam Classes IX-X, scattered across Ch. 1 (p. 3), Ch. 4 (pp. 50-51), Ch. 5 (pp. 66-67, 73), Ch. 6 (pp. 80, 84), Ch. 12 (p. 201)"
+      ],
+      "coverageNote": "Dedicated SVA chapters exist in PSEB Class IX and Odisha Class X. Odisha Class IX gives introductory/noun-class rules; Assam IX-X scatters rules across chapters without a dedicated SVA unit."
+    }
+  },
+  "verifiedConflictsAndNotes": [
+    {
+      "conflictId": "tense-model-2-vs-12",
+      "description": "Odisha Class IX (Ch. 3 pp. 33-34) and Class X (Ch. 1 p. 1) teach that English verbs have only 2 tenses (Present & Past) and no future tense; PSEB Class IX (Ch. 9 p. 94) and Assam IX-X (Ch. 9 pp. 121-126) teach 3 tenses and 12 sub-tenses (Present/Past/Future x 4 aspects).",
+      "handlingPolicy": "Never silently merge. Document both models transparently and align Grammar Quest teaching notes by board/class expectation."
+    },
+    {
+      "conflictId": "aspect-and-verb-notation",
+      "description": "Odisha uses Simple/Progressive and v/v-ed/v-en/φ+v; PSEB uses Indefinite/Continuous and V1/V2/V3; Assam uses dual labels plus Strong/Weak/Mixed verbs, Anomalous Finites, and Non-conclusive verbs.",
+      "handlingPolicy": "Expose equivalent terminology badges clearly without contradicting either board."
+    },
+    {
+      "conflictId": "tag-contraction-amnt-vs-arent",
+      "description": "Odisha Class IX Ch. 11 p. 136 states \"I'm not\" (not \"I amn't\"), whereas Assam Ch. 3 p. 26 lists \"amn't\" and Odisha Class X Ch. 3 Act. 3(i) p. 30 tests \"I am young and strong, (amn't / aren't)?\".",
+      "handlingPolicy": "Teach standard \"aren't I?\" in MVP practice/assessment and flag the internal Odisha IX vs X/Assam discrepancy in content-gaps.md."
+    },
+    {
+      "conflictId": "neither-none-plural-vs-singular",
+      "description": "Odisha Class X Ch. 3 Rule 7a (p. 26) notes informal conversational plural verbs after 'neither of / none of / either of', while PSEB Class IX (p. 99) and Assam (pp. 66-67, 73) require singular verbs strictly.",
+      "handlingPolicy": "Teach formal singular agreement as the standard exam/MVP rule while explicitly noting Odisha Class X's informal usage caveat."
+    },
+    {
+      "conflictId": "predicate-complement-vs-adjunct",
+      "description": "Odisha Class IX Ch. 12 (pp. 141, 144) labels locative adverbials like 'in the garage' in 'He kept the car in the garage' as Complement (C) in VG+O+C+(Adjunct), whereas Assam Ch. 1 & 13 classify location phrases as Adjuncts/Adverbials.",
+      "handlingPolicy": "Keep Module 1 focused on Subject vs Predicate boundary and head-words rather than advanced Clause Element disputes."
+    }
+  ]
+}

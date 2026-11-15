@@ -1,0 +1,182 @@
+/**
+ * ============================================================================
+ * GRAMMAR QUEST — GLOBAL STYLES
+ * ============================================================================
+ * Base typography, accessible focus indicators, tabular numbers for progress
+ * metrics, and reduced-motion safeguards.
+ * ============================================================================
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--gq-font-sans);
+  color: var(--gq-color-charcoal);
+  background-color: var(--gq-color-canvas);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: clip;
+  font-family: var(--gq-font-sans);
+  font-weight: 400;
+  font-size: var(--gq-text-base);
+  line-height: var(--gq-leading-normal);
+  color: var(--gq-color-charcoal);
+  background-color: var(--gq-color-canvas);
+}
+
+/* Inter SemiBold 600 utility for headings */
+.font-heading {
+  font-family: var(--gq-font-sans);
+  font-weight: 600;
+  color: var(--gq-color-navy);
+  letter-spacing: -0.015em;
+}
+
+/* Inter UI utility */
+.font-ui {
+  font-family: var(--gq-font-sans);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accessible focus-visible outline across keyboard navigation */
+:where(button, a, input, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--gq-color-navy);
+  outline-offset: 2px;
+}
+
+/* Ensure crisp touch tap response */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 2D Character System Micro-Animations (strictly non-blocking, reduced-motion safe) */
+@keyframes gq-eye-blink {
+  0%, 44%, 48%, 94%, 100% {
+    transform: scaleY(1);
+  }
+  46%, 96% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes gq-mouth-talk {
+  0%, 100% {
+    transform: scaleY(0.75);
+  }
+  50% {
+    transform: scaleY(1.18);
+  }
+}
+
+@keyframes gq-hand-wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-7deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes gq-arm-point {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.gq-anim-blink .gq-char-eyes,
+.gq-anim-idle .gq-char-eyes {
+  animation: gq-eye-blink 5.2s ease-in-out infinite;
+}
+
+.gq-anim-talk .gq-char-mouth-talk {
+  animation: gq-mouth-talk 0.42s ease-in-out infinite;
+}
+
+.gq-anim-wave .gq-char-arm-wave,
+.gq-anim-wave .gq-char-arm-gesture {
+  animation: gq-hand-wave 1.5s ease-in-out infinite;
+}
+
+.gq-anim-point .gq-char-arm-point {
+  animation: gq-arm-point 1.1s ease-in-out infinite;
+}
+
+/* Scroll-for-More Hint Keyframe Animations (compositor-friendly, zero JS timers) */
+@keyframes gq-scroll-pill-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes gq-scroll-chevron-bounce {
+  0%, 100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes gq-scroll-ring-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(27, 37, 89, 0.28);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(27, 37, 89, 0);
+  }
+}
+
+.gq-scroll-pill {
+  animation: gq-scroll-pill-float 2.2s ease-in-out infinite;
+}
+
+.gq-scroll-chevron {
+  animation: gq-scroll-chevron-bounce 1.2s ease-in-out infinite;
+}
+
+.gq-scroll-ring {
+  animation: gq-scroll-ring-pulse 2.2s ease-out infinite;
+}
+
+/* Respect user reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .gq-scroll-pill,
+  .gq-scroll-chevron,
+  .gq-scroll-ring {
+    animation: none !important;
+  }
+}
+

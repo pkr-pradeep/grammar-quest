@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+@import "./styles/global.css";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-gq-turquoise: #8dece0;
+  --color-gq-sunshine: #ffc64b;
+  --color-gq-orange: #f59b19;
+  --color-gq-cream: #fff1d5;
+  --color-gq-navy: #263a70;
+  --color-gq-coral: #f36f68;
+}

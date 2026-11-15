@@ -1,0 +1,6 @@
+{
+  "name": "Grammar Quest",
+  "description": "Responsive English grammar learning application for Classes 9 and 10 with interactive missions and local device progress.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

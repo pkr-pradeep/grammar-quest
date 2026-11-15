@@ -1,0 +1,128 @@
+/**
+ * ============================================================================
+ * GRAMMAR QUEST — DESIGN SYSTEM TOKENS
+ * ============================================================================
+ * Authoritative design tokens establishing a cohesive, accessible visual
+ * identity across all screens for Classes 9 and 10.
+ *
+ * Principles:
+ * 1. Controlled, cheerful Indian educational palette anchored by Deep Navy
+ *    (#263A70) for primary legibility and Warm-White / Cream surfaces.
+ * 2. Strict WCAG AA contrast compliance: bright accents (Turquoise #8DECE0,
+ *    Sunshine #FFC64B) always pair with Deep Navy (#263A70) text, never white.
+ * 3. Consistent 4/8/12/16/24/32 px spacing rhythm and restrained elevation.
+ * 4. Separate semantic grammar-category tokens reserved for the teaching
+ *    engine (always paired with text labels and icons, never colour-only).
+ * ============================================================================
+ */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. Brand & Core Surface Palette
+     ------------------------------------------------------------------------ */
+  --gq-color-turquoise: #8dece0;
+  --gq-color-turquoise-soft: #d9faf5;
+  --gq-color-turquoise-strong: #1fa89a;
+
+  --gq-color-sunshine: #ffc64b;
+  --gq-color-sunshine-soft: #fff4d6;
+  --gq-color-sunshine-hover: #f7b831;
+
+  --gq-color-orange: #f59b19;
+  --gq-color-orange-soft: #fdecd2;
+
+  --gq-color-cream: #fff1d5;
+  --gq-color-cream-subtle: #fffaf0;
+
+  --gq-color-navy: #263a70;
+  --gq-color-navy-hover: #1d2d59;
+  --gq-color-navy-muted: #4b5c8a;
+
+  --gq-color-coral: #f36f68;
+  --gq-color-coral-soft: #fee8e7;
+
+  /* Neutrals */
+  --gq-color-white: #ffffff;
+  --gq-color-canvas: #fdfcf9;
+  --gq-color-charcoal: #333333;
+  --gq-color-muted: #5a6478;
+  --gq-color-border: #e5e2d9;
+  --gq-color-border-strong: #cfc9ba;
+
+  /* ------------------------------------------------------------------------
+     2. Reserved Semantic Grammar Teaching Category Tokens
+     (Always paired with text labels/icons in future teaching engine screens)
+     ------------------------------------------------------------------------ */
+  --gq-grammar-noun-bg: #e0f2fe;
+  --gq-grammar-noun-fg: #0369a1;
+  --gq-grammar-verb-bg: #dcfce7;
+  --gq-grammar-verb-fg: #15803d;
+  --gq-grammar-adj-bg: #ffedd5;
+  --gq-grammar-adj-fg: #c2410c;
+  --gq-grammar-adv-bg: #f3e8ff;
+  --gq-grammar-adv-fg: #7e22ce;
+  --gq-grammar-pronoun-bg: #ccfbf1;
+  --gq-grammar-pronoun-fg: #0f766e;
+  --gq-grammar-det-bg: #fce7f3;
+  --gq-grammar-det-fg: #be185d;
+  --gq-grammar-prep-bg: #fee2e2;
+  --gq-grammar-prep-fg: #b91c1c;
+  --gq-grammar-conj-bg: #fef9c3;
+  --gq-grammar-conj-fg: #a16207;
+
+  /* ------------------------------------------------------------------------
+     3. Typography (Inter: 400 Regular, 500 Medium, 600 SemiBold)
+     ------------------------------------------------------------------------ */
+  --gq-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Type Scale */
+  --gq-text-xs: 0.75rem;      /* 12px */
+  --gq-text-sm: 0.875rem;     /* 14px */
+  --gq-text-base: 1rem;       /* 16px */
+  --gq-text-lg: 1.125rem;     /* 18px */
+  --gq-text-xl: 1.375rem;     /* 22px */
+  --gq-text-2xl: 1.75rem;     /* 28px */
+  --gq-text-3xl: 2.125rem;    /* 34px */
+
+  /* Line Heights */
+  --gq-leading-tight: 1.25;
+  --gq-leading-snug: 1.35;
+  --gq-leading-normal: 1.55;
+
+  /* ------------------------------------------------------------------------
+     4. Spacing Scale (4 / 8 / 12 / 16 / 24 / 32 px)
+     ------------------------------------------------------------------------ */
+  --gq-space-1: 0.25rem;  /* 4px */
+  --gq-space-2: 0.5rem;   /* 8px */
+  --gq-space-3: 0.75rem;  /* 12px */
+  --gq-space-4: 1rem;     /* 16px */
+  --gq-space-6: 1.5rem;   /* 24px */
+  --gq-space-8: 2rem;     /* 32px */
+
+  /* ------------------------------------------------------------------------
+     5. Radius & Elevation
+     ------------------------------------------------------------------------ */
+  --gq-radius-sm: 0.5rem;   /* 8px — small badges / inner chips */
+  --gq-radius-md: 0.875rem; /* 14px — buttons / inputs */
+  --gq-radius-lg: 1.25rem;  /* 20px — standard cards */
+  --gq-radius-xl: 1.5rem;   /* 24px — hero / feature panels */
+  --gq-radius-full: 9999px;
+
+  --gq-shadow-card: 0 2px 10px -2px rgba(38, 58, 112, 0.06), 0 1px 3px rgba(38, 58, 112, 0.04);
+  --gq-shadow-elevated: 0 10px 24px -6px rgba(38, 58, 112, 0.1), 0 2px 6px rgba(38, 58, 112, 0.05);
+
+  /* ------------------------------------------------------------------------
+     6. Motion Timing
+     ------------------------------------------------------------------------ */
+  --gq-duration-fast: 150ms;
+  --gq-duration-base: 240ms;
+  --gq-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ------------------------------------------------------------------------
+     7. Layout Dimensions
+     ------------------------------------------------------------------------ */
+  --gq-header-height: 64px;
+  --gq-mobile-header-height: 54px;
+  --gq-mobile-nav-height: 60px;
+  --gq-container-max: 1120px;
+}

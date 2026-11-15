@@ -1,0 +1,1361 @@
+{
+  "lessonId": "c10-lesson-sentence-basics",
+  "missionId": "c10-mission-01",
+  "classLevel": 10,
+  "moduleId": "module-1-sentence-basics",
+  "moduleTitle": "Sentence Basics",
+  "missionTitle": "Repair the Broken Message",
+  "topic": "Subject and Predicate",
+  "estimatedMinutes": 8,
+  "situationBrief": {
+    "title": "Repairing Class 10 Assembly Notices",
+    "description": "Wind scattered the notices for the Class 10 Science and Heritage Exhibition across the courtyard. Help Mira, Arjun, and Gyan rebuild every message.",
+    "characterId": "arjun",
+    "characterExpression": "curious"
+  },
+  "storyIntro": {
+    "sceneTitle": "Scattered Exhibition Notices in the Courtyard",
+    "settingLabel": "School Courtyard",
+    "scatteredFragments": [
+      "The little boy ...",
+      "... plays cricket.",
+      "ISRO scientists ...",
+      "... are reading books."
+    ],
+    "beats": [
+      {
+        "id": "c10-beat-1",
+        "speaker": "mira",
+        "expression": "surprised",
+        "pose": "pointing",
+        "sceneFocus": "mira-notices",
+        "actionLabel": "Notices the torn board",
+        "dialogue": "Our Class 10 morning assembly board lost half its cards in the wind! Only scattered phrases remain on the pins."
+      },
+      {
+        "id": "c10-beat-2",
+        "speaker": "arjun",
+        "expression": "curious",
+        "pose": "exploring",
+        "sceneFocus": "arjun-picks-up",
+        "actionLabel": "Checks a torn strip",
+        "dialogue": "This strip only reads '... plays cricket.' Without knowing who we are speaking about, the notice cannot communicate a full clause.",
+        "cardPreviewText": "... plays cricket."
+      },
+      {
+        "id": "c10-beat-3",
+        "speaker": "gyan",
+        "expression": "explaining",
+        "pose": "explaining",
+        "sceneFocus": "gyan-explains",
+        "actionLabel": "Sets the structure goal",
+        "dialogue": "To restore every notice accurately, let us pair each Subject head-noun with its finite-verb Predicate. Ready to rebuild the board?"
+      }
+    ]
+  },
+  "learningObjectives": {
+    "grammarOutcomes": [
+      "Identify full Subjects, head-words, and Predicates across simple and enlarged Class 10 sentences.",
+      "Spot finite verbs inside Predicates and recognise understood '(You)' in imperatives.",
+      "See how Predicates extend into Verb + Object or Verb + Complement patterns."
+    ],
+    "knowledgeOutcome": "Explore Indian scientific, agricultural, and historical contexts through accurate sentence structure."
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od10-ch2",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 2: Types of Sentences",
+      "bookPages": "13-15",
+      "pdfPages": "19-21",
+      "provenance": "textbook-derived",
+      "note": "Builds on Class IX Subject/Predicate knowledge to analyse finite verbs and SV, SVO, SVOO, SVC, SVOC patterns."
+    },
+    {
+      "id": "src-od9-ch1-bridge",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Chapter 1: Parts of a Sentence (Sections A & B)",
+      "bookPages": "1-7",
+      "pdfPages": "7-13",
+      "provenance": "textbook-derived",
+      "note": "Class IX foundational Subject/Predicate definition, head-words, and understood 'you' in imperatives."
+    },
+    {
+      "id": "src-assam-ch1-10",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Chapter 1: Sentence (Lessons 1-6)",
+      "bookPages": "1-9",
+      "pdfPages": "10-18",
+      "provenance": "textbook-derived",
+      "note": "Combined Classes IX-X explanation of Subject, Predicate, finite verb agreement, Objects, and Complements."
+    },
+    {
+      "id": "src-supp-bridge-10",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Practice",
+      "bookTitle": "Class 10 Structural Bridge (Supplementary)",
+      "chapter": "Visual Sentence Lab",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Original courtyard mission narrative and Subject/Predicate bridge for Class 10 learners, since Odisha Class X assumes this foundation from Class IX."
+    }
+  ],
+  "activeRelationshipTypes": [
+    "determiner-noun",
+    "adjective-noun",
+    "verb-subject",
+    "preposition-relation"
+  ],
+  "sentences": [
+    {
+      "id": "sent-boy-cricket-10",
+      "title": "Core Model Sentence",
+      "rawText": "The little boy plays cricket.",
+      "contextTag": "Core Structure",
+      "note": "Clear SVO (Subject + Verb + Object) model connecting Class 9 basics with Class 10 clause patterns.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Identifies a specific boy.",
+          "grammaticalRoleExplanation": "Determiner opening the Subject noun phrase."
+        },
+        {
+          "id": "t2",
+          "text": "little",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the boy.",
+          "grammaticalRoleExplanation": "Pre-modifier inside the Subject."
+        },
+        {
+          "id": "t3",
+          "text": "boy",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who performs the action.",
+          "grammaticalRoleExplanation": "Head-word of the Subject; controls the singular finite verb 'plays'."
+        },
+        {
+          "id": "t4",
+          "text": "plays",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Expresses the action.",
+          "grammaticalRoleExplanation": "Finite verb beginning the Predicate 'plays cricket'."
+        },
+        {
+          "id": "t5",
+          "text": "cricket",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names the game played.",
+          "grammaticalRoleExplanation": "Direct Object inside the Predicate (S + V + O pattern).",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "grp-subj-10a",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["t1", "t2", "t3"],
+          "questionPrompt": "Who are we talking about?",
+          "plainExplanation": "'The little boy' is the Subject.",
+          "textbookRule": "A simple sentence contains one finite clause made of a Subject and a Predicate containing the finite verb (Assam IX-X Ch. 1 p. 3; Odisha X Ch. 2 p. 13).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-assam-ch1-10", "src-od10-ch2"]
+        },
+        {
+          "id": "grp-pred-10a",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["t4", "t5"],
+          "questionPrompt": "What is said about the subject?",
+          "plainExplanation": "'plays cricket' is the Predicate (Verb + Object).",
+          "textbookRule": "In an S + V + O pattern, the finite verb and its object together form the Predicate (Odisha Class X, Ch. 2, pp. 14-15).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel-det-10",
+          "type": "determiner-noun",
+          "label": "Determiner → Head-Noun",
+          "fromTokenIds": ["t1"],
+          "toTokenIds": ["t3"],
+          "explanation": "'The' specifies the head-noun 'boy' inside the Subject.",
+          "activeInLesson": true
+        },
+        {
+          "id": "rel-adj-10",
+          "type": "adjective-noun",
+          "label": "Adjective → Head-Noun",
+          "fromTokenIds": ["t2"],
+          "toTokenIds": ["t3"],
+          "explanation": "'little' modifies 'boy' before the finite verb begins.",
+          "activeInLesson": true
+        },
+        {
+          "id": "rel-vs-10",
+          "type": "verb-subject",
+          "label": "Head-Noun ↔ Finite Verb",
+          "fromTokenIds": ["t3"],
+          "toTokenIds": ["t4"],
+          "explanation": "The singular head-noun 'boy' determines the singular finite verb 'plays'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The little boy",
+        "subjectHeadWord": "boy",
+        "predicateText": "plays cricket",
+        "predicateHeadWord": "plays",
+        "patternNote": "Subject + Verb + Object (S + V + O)"
+      }
+    },
+    {
+      "id": "sent-students-reading-10",
+      "title": "Guided Discovery Sentence",
+      "rawText": "The students are reading books.",
+      "contextTag": "School Library",
+      "note": "Requires learners to locate the Subject and compound finite verb phrase ('are reading') before viewing the explanation.",
+      "tokens": [
+        {
+          "id": "sr10-1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the group of students.",
+          "grammaticalRoleExplanation": "Opens the Subject phrase 'The students'."
+        },
+        {
+          "id": "sr10-2",
+          "text": "students",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Plural noun naming who is doing the action.",
+          "grammaticalRoleExplanation": "Plural head-noun governing the finite auxiliary 'are'."
+        },
+        {
+          "id": "sr10-3",
+          "text": "are",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Finite Auxiliary Verb",
+          "meaningInSentence": "Shows present continuous time and plural agreement.",
+          "grammaticalRoleExplanation": "Starts the Predicate right after the Subject."
+        },
+        {
+          "id": "sr10-4",
+          "text": "reading",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Participle Verb",
+          "meaningInSentence": "Names the ongoing reading action.",
+          "grammaticalRoleExplanation": "Pairs with 'are' inside the finite Predicate."
+        },
+        {
+          "id": "sr10-5",
+          "text": "books",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names what the students read.",
+          "grammaticalRoleExplanation": "Direct Object completing the S + V + O Predicate.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "grp-subj-sr10",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["sr10-1", "sr10-2"],
+          "questionPrompt": "Who are we talking about?",
+          "plainExplanation": "'The students' is the complete Subject.",
+          "textbookRule": "The Subject names the person or group spoken about before the finite verb begins (Assam IX-X Ch. 1 p. 2).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-assam-ch1-10"]
+        },
+        {
+          "id": "grp-pred-sr10",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["sr10-3", "sr10-4", "sr10-5"],
+          "questionPrompt": "What is said about the students?",
+          "plainExplanation": "'are reading books' is the Predicate containing the verb group 'are reading' + Direct Object 'books'.",
+          "textbookRule": "In S + V + O clauses, the finite verb phrase and object together make up the Predicate (Odisha Class X, Ch. 2, pp. 14-15).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel-sr10-vs",
+          "type": "verb-subject",
+          "label": "Head-Noun ↔ Finite Verb",
+          "fromTokenIds": ["sr10-2"],
+          "toTokenIds": ["sr10-3", "sr10-4"],
+          "explanation": "Plural head-noun 'students' governs the finite auxiliary 'are' inside 'are reading'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The students",
+        "subjectHeadWord": "students",
+        "predicateText": "are reading books",
+        "predicateHeadWord": "are reading",
+        "patternNote": "Subject + Verb Phrase + Direct Object (S + V + O)"
+      }
+    },
+    {
+      "id": "sent-students-science-10",
+      "title": "Class 10 Comparison",
+      "rawText": "The diligent students in Class 10 read science books.",
+      "contextTag": "Classroom Science",
+      "note": "Demonstrates an enlarged Subject with a prepositional modifier ('in Class 10') governing a plural finite verb ('read').",
+      "tokens": [
+        {
+          "id": "s1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the specific group of students.",
+          "grammaticalRoleExplanation": "Determiner opening the enlarged Subject."
+        },
+        {
+          "id": "s2",
+          "text": "diligent",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Means careful and hardworking.",
+          "grammaticalRoleExplanation": "Adjective describing 'students' inside the Subject."
+        },
+        {
+          "id": "s3",
+          "text": "students",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the plural group doing the reading.",
+          "grammaticalRoleExplanation": "Head-word of the Subject; it is plural ('students'), not singular."
+        },
+        {
+          "id": "s4",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "subject",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Introduces which class the students belong to.",
+          "grammaticalRoleExplanation": "Starts the post-modifier 'in Class 10' inside the Subject."
+        },
+        {
+          "id": "s5",
+          "text": "Class 10",
+          "category": "noun",
+          "groupRole": "subject",
+          "roleLabel": "Noun Phrase",
+          "meaningInSentence": "Specifies their grade level.",
+          "grammaticalRoleExplanation": "Completes the prepositional phrase describing 'students'."
+        },
+        {
+          "id": "s6",
+          "text": "read",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Shows their regular action.",
+          "grammaticalRoleExplanation": "Plural finite verb starting the Predicate 'read science books'."
+        },
+        {
+          "id": "s7",
+          "text": "science",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Classifier Noun",
+          "meaningInSentence": "Tells what kind of books they read.",
+          "grammaticalRoleExplanation": "Modifies 'books' inside the Predicate object."
+        },
+        {
+          "id": "s8",
+          "text": "books",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names what they read.",
+          "grammaticalRoleExplanation": "Direct Object completing the Predicate.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "grp-subj-10b",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s1", "s2", "s3", "s4", "s5"],
+          "questionPrompt": "Who are we talking about?",
+          "plainExplanation": "'The diligent students in Class 10' is the complete Subject, with 'students' as its head-word.",
+          "textbookRule": "Prepositional phrases following a noun stay inside the Subject; the head-noun ('students') governs the finite verb (Assam IX-X Ch. 1 pp. 3-6; Odisha IX Ch. 1 p. 6).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-assam-ch1-10", "src-od9-ch1-bridge"]
+        },
+        {
+          "id": "grp-pred-10b",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s6", "s7", "s8"],
+          "questionPrompt": "What is said about them?",
+          "plainExplanation": "'read science books' is the Predicate.",
+          "textbookRule": "The Predicate starts at the finite verb 'read' and includes the Direct Object 'science books' (Odisha Class X, Ch. 2, pp. 14-15).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel-prep-10b",
+          "type": "preposition-relation",
+          "label": "Post-modifier → Head-Noun",
+          "fromTokenIds": ["s4", "s5"],
+          "toTokenIds": ["s3"],
+          "explanation": "'in Class 10' specifies which 'students', staying inside the Subject before the verb.",
+          "activeInLesson": true
+        },
+        {
+          "id": "rel-vs-10b",
+          "type": "verb-subject",
+          "label": "Head-Noun ↔ Finite Verb",
+          "fromTokenIds": ["s3"],
+          "toTokenIds": ["s6"],
+          "explanation": "Plural head-noun 'students' (not 'Class 10') locks onto the finite verb 'read'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The diligent students in Class 10",
+        "subjectHeadWord": "students",
+        "predicateText": "read science books",
+        "predicateHeadWord": "read",
+        "patternNote": "Enlarged Subject + Predicate (Finite Verb + Object)"
+      }
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "c10-step-01",
+      "stepNumber": 1,
+      "type": "show-sentence",
+      "visualMode": "plain-sentence",
+      "title": "Understand the Complete Sentence",
+      "badgeLabel": "Stage 2 · Complete Sentence",
+      "shortPrompt": "Words combine in S + V + O order to share one clear clause.",
+      "explanation": "'The little boy plays cricket.' communicates a complete message. Tap any word to see its role and meaning.",
+      "characterId": "arjun",
+      "characterExpression": "happy",
+      "sentenceId": "sent-boy-cricket-10",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-10"]
+    },
+    {
+      "id": "c10-step-02",
+      "stepNumber": 2,
+      "type": "highlight-group",
+      "visualMode": "group-bracket",
+      "title": "Discover the Subject",
+      "badgeLabel": "Stage 3 · Discover Subject",
+      "shortPrompt": "Ask: Who are we talking about?",
+      "explanation": "'The little boy' forms the complete Subject group before the finite verb begins.",
+      "characterId": "mira",
+      "characterExpression": "curious",
+      "sentenceId": "sent-boy-cricket-10",
+      "focusGroupRole": "subject",
+      "focusTokenIds": ["t1", "t2", "t3"],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch1-bridge", "src-assam-ch1-10"]
+    },
+    {
+      "id": "c10-step-03",
+      "stepNumber": 3,
+      "type": "explain-meaning",
+      "visualMode": "meaning-callout",
+      "visualCallout": {
+        "question": "Who are we talking about?",
+        "label": "'The little boy' (Head-Noun: 'boy')",
+        "detail": "'boy' is the Subject head-noun controlling the singular finite verb 'plays'. Without the Subject, the clause has no anchor.",
+        "targetTokenIds": ["t1", "t2", "t3"],
+        "targetGroupRole": "subject"
+      },
+      "title": "Understand the Subject's Meaning",
+      "badgeLabel": "Stage 4 · Subject Meaning",
+      "shortPrompt": "Spotting the true Subject head-noun prepares you for Agreement and Tenses.",
+      "explanation": "'The' and 'little' modify 'boy', keeping the whole phrase anchored as the Subject.",
+      "characterId": "gyan",
+      "characterExpression": "thinking",
+      "sentenceId": "sent-boy-cricket-10",
+      "focusGroupRole": "subject",
+      "focusTokenIds": ["t3"],
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-assam-ch1-10", "src-supp-bridge-10"]
+    },
+    {
+      "id": "c10-step-04",
+      "stepNumber": 4,
+      "type": "highlight-group",
+      "visualMode": "group-bracket",
+      "title": "Discover the Predicate",
+      "badgeLabel": "Stage 5 · Discover Predicate",
+      "shortPrompt": "Ask: What is said about the little boy?",
+      "explanation": "'plays cricket' is the Predicate. It starts at the finite verb 'plays' and includes the Direct Object 'cricket'.",
+      "characterId": "arjun",
+      "characterExpression": "explaining",
+      "sentenceId": "sent-boy-cricket-10",
+      "focusGroupRole": "predicate",
+      "focusTokenIds": ["t4", "t5"],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od9-ch1-bridge"]
+    },
+    {
+      "id": "c10-step-05",
+      "stepNumber": 5,
+      "type": "reveal-structure",
+      "visualMode": "structure-split",
+      "title": "Understand the Complete Structure",
+      "badgeLabel": "Stage 6 · Noticeboard Assembly",
+      "shortPrompt": "Subject ('The little boy') + Predicate ('plays cricket') = complete S + V + O clause.",
+      "explanation": "Pinned together on the noticeboard, Subject and Predicate express a complete, grammatical statement.",
+      "characterId": "mira",
+      "characterExpression": "happy",
+      "sentenceId": "sent-boy-cricket-10",
+      "showStructureSplit": true,
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2"]
+    },
+    {
+      "id": "c10-step-06",
+      "stepNumber": 6,
+      "type": "interact-explore",
+      "visualMode": "guided-explore",
+      "guidedChallenge": {
+        "promptSubject": "Step 1: Tap the Subject in 'The students are reading books.'",
+        "promptPredicate": "Step 2: Now tap the Predicate (include the auxiliary 'are' + main verb + object).",
+        "subjectTokenIds": ["sr10-1", "sr10-2"],
+        "predicateTokenIds": ["sr10-3", "sr10-4", "sr10-5"],
+        "subjectFeedback": "Select who the clause speaks about before the finite auxiliary verb 'are': 'The students'.",
+        "predicateFeedback": "Begin at the finite auxiliary verb 'are' and include 'reading' and 'books'.",
+        "unlockedExplanation": "Accurate! 'The students' is the Subject, and 'are reading books' is the Predicate (Verb Phrase + Direct Object)."
+      },
+      "title": "Explore Another Example",
+      "badgeLabel": "Stage 7 · Guided Discovery",
+      "shortPrompt": "Identify Subject and Predicate first to reveal the structural analysis.",
+      "explanation": "Try locating both parts in 'The students are reading books.' before inspecting the breakdown.",
+      "characterId": "arjun",
+      "characterExpression": "thinking",
+      "sentenceId": "sent-students-reading-10",
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od10-ch2", "src-supp-bridge-10"]
+    },
+    {
+      "id": "c10-step-07",
+      "stepNumber": 7,
+      "type": "compare-example",
+      "visualMode": "compare-dual",
+      "title": "Enlarged Subjects & Agreement Bridge",
+      "badgeLabel": "Stage 7 · Compare",
+      "shortPrompt": "Post-modifiers after a noun stay inside the Subject.",
+      "explanation": "Compare with 'The diligent students in Class 10 read science books.' Notice plural 'students' (not 'Class 10') governs 'read'.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "sent-boy-cricket-10",
+      "comparisonSentenceId": "sent-students-science-10",
+      "allowFreeExplore": true,
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-assam-ch1-10", "src-od9-ch1-bridge"]
+    }
+  ],
+  "wordLabActivities": [
+    {
+      "id": "c10-lab-identify",
+      "kind": "identify-both",
+      "title": "A. Identify Subject & Predicate",
+      "instruction": "First tap all words in the complete Subject, then tap all words in the Predicate.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-assam-ch1-10", "src-od9-ch1-bridge"],
+      "sentence": {
+        "id": "lab-sent-athletes",
+        "title": "Exhibition Notice",
+        "rawText": "The young athletes from Manipur win medals every year.",
+        "contextTag": "Indian Sports",
+        "tokens": [
+          {
+            "id": "a1",
+            "text": "The",
+            "category": "determiner",
+            "groupRole": "subject",
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Points to the specific athletes.",
+            "grammaticalRoleExplanation": "Determiner inside the Subject."
+          },
+          {
+            "id": "a2",
+            "text": "young",
+            "category": "adjective",
+            "groupRole": "subject",
+            "roleLabel": "Adjective",
+            "meaningInSentence": "Describes the athletes.",
+            "grammaticalRoleExplanation": "Pre-modifier inside the Subject."
+          },
+          {
+            "id": "a3",
+            "text": "athletes",
+            "category": "noun",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Head-Noun",
+            "meaningInSentence": "Main noun naming who the sentence is about.",
+            "grammaticalRoleExplanation": "Plural head-word controlling 'win'."
+          },
+          {
+            "id": "a4",
+            "text": "from",
+            "category": "preposition",
+            "groupRole": "subject",
+            "roleLabel": "Preposition",
+            "meaningInSentence": "Links the athletes to their state.",
+            "grammaticalRoleExplanation": "Starts the post-modifier inside the Subject."
+          },
+          {
+            "id": "a5",
+            "text": "Manipur",
+            "category": "noun",
+            "groupRole": "subject",
+            "roleLabel": "Proper Noun",
+            "meaningInSentence": "Names the Indian state.",
+            "grammaticalRoleExplanation": "Completes the Subject modifier 'from Manipur'."
+          },
+          {
+            "id": "a6",
+            "text": "win",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Finite Verb",
+            "meaningInSentence": "Action verb starting the Predicate.",
+            "grammaticalRoleExplanation": "Starts the Predicate 'win medals every year'."
+          },
+          {
+            "id": "a7",
+            "text": "medals",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Direct Object",
+            "meaningInSentence": "Names what they win.",
+            "grammaticalRoleExplanation": "Object inside the Predicate."
+          },
+          {
+            "id": "a8",
+            "text": "every",
+            "category": "determiner",
+            "groupRole": "predicate",
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Part of the time phrase.",
+            "grammaticalRoleExplanation": "Adverbial inside the Predicate."
+          },
+          {
+            "id": "a9",
+            "text": "year",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Time Noun",
+            "meaningInSentence": "Tells how often they win.",
+            "grammaticalRoleExplanation": "Completes the Predicate.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "The young athletes from Manipur",
+          "subjectHeadWord": "athletes",
+          "predicateText": "win medals every year",
+          "predicateHeadWord": "win"
+        }
+      },
+      "subjectTokenIds": ["a1", "a2", "a3", "a4", "a5"],
+      "predicateTokenIds": ["a6", "a7", "a8", "a9"],
+      "correctFeedback": "Excellent! 'The young athletes from Manipur' is the enlarged Subject, and 'win medals every year' is the Predicate.",
+      "incorrectSubjectFeedback": "Include the post-modifier 'from Manipur' because it tells which athletes we mean—stop right before the finite verb 'win'.",
+      "incorrectPredicateFeedback": "Select all words from the finite verb 'win' through 'year.' to form the Predicate.",
+      "hint": "Find the finite verb ('win') first; everything before it belongs to the Subject, and everything from 'win' onward is the Predicate."
+    },
+    {
+      "id": "c10-lab-categorise",
+      "kind": "categorise",
+      "title": "B. Categorise Subject & Predicate Clauses",
+      "instruction": "Assign each notice strip to Subject or Predicate.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-10"],
+      "categories": [
+        {
+          "id": "subject",
+          "label": "Subject",
+          "helperText": "Who or what the statement is about"
+        },
+        {
+          "id": "predicate",
+          "label": "Predicate",
+          "helperText": "Finite verb + object/complement"
+        }
+      ],
+      "items": [
+        {
+          "id": "c10-cat-1",
+          "text": "ISRO engineers in Bengaluru",
+          "correctCategory": "subject",
+          "explanation": "Noun group with head-word 'engineers' and modifier 'in Bengaluru' — no finite verb yet."
+        },
+        {
+          "id": "c10-cat-2",
+          "text": "designed a reliable weather satellite",
+          "correctCategory": "predicate",
+          "explanation": "Begins with the finite verb 'designed' + Direct Object."
+        },
+        {
+          "id": "c10-cat-3",
+          "text": "A balanced meal of rice, dal, and greens",
+          "correctCategory": "subject",
+          "explanation": "Names the healthy meal being discussed."
+        },
+        {
+          "id": "c10-cat-4",
+          "text": "is essential for growing teenagers",
+          "correctCategory": "predicate",
+          "explanation": "Begins with the linking verb 'is' + Subject Complement."
+        }
+      ],
+      "completeFeedback": "Accurate work! You separated both action (S+V+O) and linking (S+V+C) Predicates cleanly from enlarged Subjects."
+    },
+    {
+      "id": "c10-lab-build",
+      "kind": "sentence-construction",
+      "title": "C. Construct an Accurate Heritage Sentence",
+      "instruction": "Arrange these tiles to form a clear sentence with Subject first and Predicate second.",
+      "promptContext": "Hint: Who is the sentence about, and what finite verb starts the Predicate?",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch2"],
+      "tiles": [
+        { "id": "h3", "text": "Jhansi", "groupRole": "predicate", "category": "noun" },
+        { "id": "h1", "text": "Rani Lakshmibai", "groupRole": "subject", "category": "noun" },
+        { "id": "h4", "text": "with courage.", "groupRole": "predicate", "category": "preposition" },
+        { "id": "h2", "text": "defended", "groupRole": "predicate", "category": "verb" }
+      ],
+      "correctOrderIds": ["h1", "h2", "h3", "h4"],
+      "subjectText": "Rani Lakshmibai",
+      "predicateText": "defended Jhansi with courage.",
+      "correctFeedback": "Well structured! 'Rani Lakshmibai' (Subject) + 'defended Jhansi with courage.' (Predicate: Verb + Object + Adverbial).",
+      "incorrectFeedback": "Start with the Subject ('Rani Lakshmibai'), followed by the finite verb ('defended'), object ('Jhansi'), and manner ('with courage.')."
+    },
+    {
+      "id": "c10-lab-replace",
+      "kind": "word-replacement",
+      "title": "D. Replace the Finite Verb & Observe Shift",
+      "instruction": "Swap the verb 'plays' in 'The little boy plays cricket.' to see how the Predicate changes meaning while keeping agreement.",
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-supp-bridge-10"],
+      "beforeText": "The little boy",
+      "afterText": "cricket.",
+      "originalWord": "plays",
+      "slotGroupRole": "predicate",
+      "options": [
+        {
+          "id": "r10-1",
+          "word": "plays",
+          "category": "verb",
+          "meaningEffect": "Means the boy actively takes part in the game.",
+          "roleImpactNote": "Singular finite verb matching 'boy' in the Predicate.",
+          "isGrammatical": true
+        },
+        {
+          "id": "r10-2",
+          "word": "practises",
+          "category": "verb",
+          "meaningEffect": "Shifts the meaning to regular training and skill-building.",
+          "roleImpactNote": "Remains a singular transitive finite verb taking the object 'cricket'.",
+          "isGrammatical": true
+        },
+        {
+          "id": "r10-3",
+          "word": "enjoys",
+          "category": "verb",
+          "meaningEffect": "Focuses on the boy's appreciation of the sport.",
+          "roleImpactNote": "Still agrees with the singular head-noun 'boy' inside the Subject.",
+          "isGrammatical": true
+        }
+      ],
+      "takeaway": "Replacing the finite verb transforms what the Predicate says about the Subject while preserving the S + V + O pattern."
+    },
+    {
+      "id": "c10-lab-missing",
+      "kind": "missing-words",
+      "title": "E. Supply the Missing Predicate",
+      "instruction": "Select the option with a finite verb to complete this science notice.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-10"],
+      "sentenceBeforeBlank": "Clean drinking water from the filter",
+      "sentenceAfterBlank": ".",
+      "missingRole": "predicate",
+      "options": [
+        {
+          "id": "m10-1",
+          "text": "stored in covered steel vessels",
+          "isCorrect": false,
+          "feedback": "Without a finite verb like 'is', 'stored in covered steel vessels' is only a participial modifier—not a full Predicate."
+        },
+        {
+          "id": "m10-2",
+          "text": "keeps every student hydrated during assembly",
+          "isCorrect": true,
+          "feedback": "Correct! The finite verb 'keeps' agrees with the singular head-noun 'water' and completes the Predicate."
+        },
+        {
+          "id": "m10-3",
+          "text": "for all Class 9 and Class 10 rooms",
+          "isCorrect": false,
+          "feedback": "This prepositional phrase has no verb, so it cannot act as a Predicate."
+        }
+      ]
+    },
+    {
+      "id": "c10-lab-error",
+      "kind": "error-identification",
+      "title": "F. Diagnose the Structural Error",
+      "instruction": "Identify what makes this assembly draft ungrammatical.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-10"],
+      "brokenSentence": "The science models prepared by Class 10 students.",
+      "repairedSentence": "The science models prepared by Class 10 students won first prize.",
+      "question": "Why is 'The science models prepared by Class 10 students.' incomplete?",
+      "options": [
+        {
+          "id": "e10-1",
+          "label": "'prepared' is a past participle modifier, so the sentence has no finite verb / Predicate.",
+          "isCorrect": true,
+          "feedback": "Exact diagnosis! 'prepared by Class 10 students' modifies 'models' inside the Subject. Adding a finite verb such as 'won first prize' creates the Predicate."
+        },
+        {
+          "id": "e10-2",
+          "label": "'students' cannot appear at the end of a sentence.",
+          "isCorrect": false,
+          "feedback": "Nouns can appear at the end of sentences. The issue is that no finite verb states what happened to the models."
+        },
+        {
+          "id": "e10-3",
+          "label": "A sentence cannot begin with 'The'.",
+          "isCorrect": false,
+          "feedback": "Determiners like 'The' commonly open Subjects; the missing part here is the Predicate."
+        }
+      ]
+    }
+  ],
+  "independentPractice": [
+    {
+      "id": "c10-ind-1",
+      "mode": "dual-identify",
+      "cueLevel": "gentle",
+      "cueText": "Light cue: 'Rice and dal' work together as a compound Subject before 'give'.",
+      "title": "Balanced Lunch Notice",
+      "instruction": "Select the Subject first, then select the Predicate.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-10"],
+      "sentence": {
+        "id": "ind-c10-1",
+        "title": "Independent Sentence 1",
+        "rawText": "Rice and dal give steady strength to growing students.",
+        "contextTag": "Healthy Diet",
+        "tokens": [
+          {
+            "id": "rd1",
+            "text": "Rice",
+            "category": "noun",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Subject Noun",
+            "meaningInSentence": "Names the first staple food.",
+            "grammaticalRoleExplanation": "First part of the compound Subject."
+          },
+          {
+            "id": "rd2",
+            "text": "and",
+            "category": "conjunction",
+            "groupRole": "subject",
+            "roleLabel": "Conjunction",
+            "meaningInSentence": "Connects 'Rice' and 'dal'.",
+            "grammaticalRoleExplanation": "Joins both nouns inside the Subject."
+          },
+          {
+            "id": "rd3",
+            "text": "dal",
+            "category": "noun",
+            "groupRole": "subject",
+            "roleLabel": "Subject Noun",
+            "meaningInSentence": "Names protein-rich lentils.",
+            "grammaticalRoleExplanation": "Completes the plural compound Subject 'Rice and dal'."
+          },
+          {
+            "id": "rd4",
+            "text": "give",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Finite Verb",
+            "meaningInSentence": "Shows what rice and dal provide.",
+            "grammaticalRoleExplanation": "Plural finite verb starting the Predicate."
+          },
+          {
+            "id": "rd5",
+            "text": "steady",
+            "category": "adjective",
+            "groupRole": "predicate",
+            "roleLabel": "Adjective",
+            "meaningInSentence": "Describes the lasting strength.",
+            "grammaticalRoleExplanation": "Part of the Direct Object."
+          },
+          {
+            "id": "rd6",
+            "text": "strength",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Direct Object",
+            "meaningInSentence": "Names what the meal supplies.",
+            "grammaticalRoleExplanation": "Object inside the Predicate."
+          },
+          {
+            "id": "rd7",
+            "text": "to",
+            "category": "preposition",
+            "groupRole": "predicate",
+            "roleLabel": "Preposition",
+            "meaningInSentence": "Shows who receives the strength.",
+            "grammaticalRoleExplanation": "Part of the Predicate."
+          },
+          {
+            "id": "rd8",
+            "text": "growing",
+            "category": "adjective",
+            "groupRole": "predicate",
+            "roleLabel": "Adjective",
+            "meaningInSentence": "Describes the students.",
+            "grammaticalRoleExplanation": "Part of the Predicate."
+          },
+          {
+            "id": "rd9",
+            "text": "students",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Noun",
+            "meaningInSentence": "Names the learners.",
+            "grammaticalRoleExplanation": "Completes the Predicate.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Rice and dal",
+          "subjectHeadWord": "Rice and dal",
+          "predicateText": "give steady strength to growing students",
+          "predicateHeadWord": "give"
+        }
+      },
+      "subjectTokenIds": ["rd1", "rd2", "rd3"],
+      "predicateTokenIds": ["rd4", "rd5", "rd6", "rd7", "rd8", "rd9"],
+      "successFeedback": "Accurate! 'Rice and dal' is the compound Subject governing the plural finite verb 'give'.",
+      "retrySubjectFeedback": "Select all three words 'Rice and dal' before the finite verb 'give'.",
+      "retryPredicateFeedback": "Select every word from the finite verb 'give' through 'students.'."
+    },
+    {
+      "id": "c10-ind-2",
+      "mode": "dual-identify",
+      "cueLevel": "minimal",
+      "cueText": "Spot the linking verb ('is') to divide the enlarged Subject from its S+V+C Predicate.",
+      "title": "Morning Health Advisory",
+      "instruction": "Tap the complete Subject, then tap the complete Predicate.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-10"],
+      "sentence": {
+        "id": "ind-c10-2",
+        "title": "Independent Sentence 2",
+        "rawText": "A balanced breakfast with fresh fruit is essential before school.",
+        "contextTag": "Healthy Routine",
+        "tokens": [
+          {
+            "id": "bf1",
+            "text": "A",
+            "category": "determiner",
+            "groupRole": "subject",
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Opens the Subject phrase.",
+            "grammaticalRoleExplanation": "Determiner inside the Subject."
+          },
+          {
+            "id": "bf2",
+            "text": "balanced",
+            "category": "adjective",
+            "groupRole": "subject",
+            "roleLabel": "Adjective",
+            "meaningInSentence": "Describes the breakfast.",
+            "grammaticalRoleExplanation": "Pre-modifier inside the Subject."
+          },
+          {
+            "id": "bf3",
+            "text": "breakfast",
+            "category": "noun",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Head-Noun",
+            "meaningInSentence": "Main noun naming what we talk about.",
+            "grammaticalRoleExplanation": "Singular head-noun governing 'is'."
+          },
+          {
+            "id": "bf4",
+            "text": "with",
+            "category": "preposition",
+            "groupRole": "subject",
+            "roleLabel": "Preposition",
+            "meaningInSentence": "Adds detail about what is in the breakfast.",
+            "grammaticalRoleExplanation": "Starts post-modifier 'with fresh fruit' inside the Subject."
+          },
+          {
+            "id": "bf5",
+            "text": "fresh",
+            "category": "adjective",
+            "groupRole": "subject",
+            "roleLabel": "Adjective",
+            "meaningInSentence": "Describes the fruit.",
+            "grammaticalRoleExplanation": "Inside the Subject modifier."
+          },
+          {
+            "id": "bf6",
+            "text": "fruit",
+            "category": "noun",
+            "groupRole": "subject",
+            "roleLabel": "Noun",
+            "meaningInSentence": "Names wholesome morning food.",
+            "grammaticalRoleExplanation": "Ends the enlarged Subject."
+          },
+          {
+            "id": "bf7",
+            "text": "is",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Linking Finite Verb",
+            "meaningInSentence": "Links the Subject to 'essential'.",
+            "grammaticalRoleExplanation": "Starts the S + V + C Predicate."
+          },
+          {
+            "id": "bf8",
+            "text": "essential",
+            "category": "adjective",
+            "groupRole": "predicate",
+            "roleLabel": "Subject Complement",
+            "meaningInSentence": "Means necessary.",
+            "grammaticalRoleExplanation": "Complement inside the Predicate."
+          },
+          {
+            "id": "bf9",
+            "text": "before",
+            "category": "preposition",
+            "groupRole": "predicate",
+            "roleLabel": "Preposition",
+            "meaningInSentence": "Shows when breakfast is needed.",
+            "grammaticalRoleExplanation": "Time adverbial inside the Predicate."
+          },
+          {
+            "id": "bf10",
+            "text": "school",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Noun",
+            "meaningInSentence": "Names the school day.",
+            "grammaticalRoleExplanation": "Completes the Predicate.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "A balanced breakfast with fresh fruit",
+          "subjectHeadWord": "breakfast",
+          "predicateText": "is essential before school",
+          "predicateHeadWord": "is"
+        }
+      },
+      "subjectTokenIds": ["bf1", "bf2", "bf3", "bf4", "bf5", "bf6"],
+      "predicateTokenIds": ["bf7", "bf8", "bf9", "bf10"],
+      "successFeedback": "Well done! 'A balanced breakfast with fresh fruit' is the enlarged Subject (head-noun 'breakfast'), and 'is essential before school' is the Predicate.",
+      "retrySubjectFeedback": "'with fresh fruit' modifies 'breakfast' inside the Subject—stop right before the linking verb 'is'.",
+      "retryPredicateFeedback": "Start at the linking verb 'is' and include 'essential before school.'."
+    },
+    {
+      "id": "c10-ind-3",
+      "mode": "dual-identify",
+      "cueLevel": "none",
+      "title": "Science Exhibition Card",
+      "instruction": "On your own: separate the complete Subject from the Predicate.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-10"],
+      "sentence": {
+        "id": "ind-c10-3",
+        "title": "Independent Sentence 3",
+        "rawText": "ISRO scientists in Bengaluru launched the weather satellite.",
+        "contextTag": "Indian Space Science",
+        "tokens": [
+          {
+            "id": "is1",
+            "text": "ISRO",
+            "category": "noun",
+            "groupRole": "subject",
+            "roleLabel": "Classifier Noun",
+            "meaningInSentence": "Identifies India's space agency.",
+            "grammaticalRoleExplanation": "Pre-modifier inside the Subject."
+          },
+          {
+            "id": "is2",
+            "text": "scientists",
+            "category": "noun",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Head-Noun",
+            "meaningInSentence": "Names the people doing the action.",
+            "grammaticalRoleExplanation": "Subject head-noun."
+          },
+          {
+            "id": "is3",
+            "text": "in",
+            "category": "preposition",
+            "groupRole": "subject",
+            "roleLabel": "Preposition",
+            "meaningInSentence": "Shows where they work.",
+            "grammaticalRoleExplanation": "Starts 'in Bengaluru' inside the Subject."
+          },
+          {
+            "id": "is4",
+            "text": "Bengaluru",
+            "category": "noun",
+            "groupRole": "subject",
+            "roleLabel": "Proper Noun",
+            "meaningInSentence": "Names the Indian city.",
+            "grammaticalRoleExplanation": "Ends the enlarged Subject."
+          },
+          {
+            "id": "is5",
+            "text": "launched",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Finite Verb",
+            "meaningInSentence": "Shows the completed launch action.",
+            "grammaticalRoleExplanation": "Starts the Predicate."
+          },
+          {
+            "id": "is6",
+            "text": "the",
+            "category": "determiner",
+            "groupRole": "predicate",
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Points to the satellite.",
+            "grammaticalRoleExplanation": "Inside the Predicate Direct Object."
+          },
+          {
+            "id": "is7",
+            "text": "weather",
+            "category": "adjective",
+            "groupRole": "predicate",
+            "roleLabel": "Modifier Noun",
+            "meaningInSentence": "Tells what kind of satellite.",
+            "grammaticalRoleExplanation": "Inside the Direct Object."
+          },
+          {
+            "id": "is8",
+            "text": "satellite",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Direct Object",
+            "meaningInSentence": "Names the spacecraft launched.",
+            "grammaticalRoleExplanation": "Completes the S + V + O Predicate.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "ISRO scientists in Bengaluru",
+          "subjectHeadWord": "scientists",
+          "predicateText": "launched the weather satellite",
+          "predicateHeadWord": "launched"
+        }
+      },
+      "subjectTokenIds": ["is1", "is2", "is3", "is4"],
+      "predicateTokenIds": ["is5", "is6", "is7", "is8"],
+      "successFeedback": "Clean analysis! 'ISRO scientists in Bengaluru' is the enlarged Subject, and 'launched the weather satellite' is the S+V+O Predicate.",
+      "retrySubjectFeedback": "Keep 'in Bengaluru' attached to 'ISRO scientists' inside the Subject before 'launched'.",
+      "retryPredicateFeedback": "Select from the finite verb 'launched' through 'satellite.'."
+    },
+    {
+      "id": "c10-ind-4",
+      "mode": "imperative-check",
+      "cueLevel": "none",
+      "title": "Exhibition Duty Card",
+      "instruction": "Examine this imperative notice and choose the accurate structural analysis.",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch1-bridge", "src-od10-ch2"],
+      "sentence": {
+        "id": "ind-c10-4",
+        "title": "Imperative Notice",
+        "rawText": "Check every notice on the board carefully.",
+        "contextTag": "School Duty",
+        "tokens": [
+          {
+            "id": "im10-1",
+            "text": "Check",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Imperative Finite Verb",
+            "meaningInSentence": "Gives a direct instruction.",
+            "grammaticalRoleExplanation": "Opens the Predicate when 'You' is understood."
+          },
+          {
+            "id": "im10-2",
+            "text": "every",
+            "category": "determiner",
+            "groupRole": "predicate",
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Modifies 'notice'.",
+            "grammaticalRoleExplanation": "Part of the Predicate."
+          },
+          {
+            "id": "im10-3",
+            "text": "notice",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Direct Object",
+            "meaningInSentence": "Names what to check.",
+            "grammaticalRoleExplanation": "Part of the Predicate."
+          },
+          {
+            "id": "im10-4",
+            "text": "on",
+            "category": "preposition",
+            "groupRole": "predicate",
+            "roleLabel": "Preposition",
+            "meaningInSentence": "Shows location.",
+            "grammaticalRoleExplanation": "Part of the Predicate."
+          },
+          {
+            "id": "im10-5",
+            "text": "the",
+            "category": "determiner",
+            "groupRole": "predicate",
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Points to the noticeboard.",
+            "grammaticalRoleExplanation": "Part of the Predicate."
+          },
+          {
+            "id": "im10-6",
+            "text": "board",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Noun",
+            "meaningInSentence": "Names the noticeboard.",
+            "grammaticalRoleExplanation": "Part of the Predicate."
+          },
+          {
+            "id": "im10-7",
+            "text": "carefully",
+            "category": "adverb",
+            "groupRole": "predicate",
+            "roleLabel": "Adverb",
+            "meaningInSentence": "Tells how to check.",
+            "grammaticalRoleExplanation": "Completes the Predicate.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "(You) — understood",
+          "subjectHeadWord": "You",
+          "predicateText": "Check every notice on the board carefully",
+          "predicateHeadWord": "Check"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": ["im10-1", "im10-2", "im10-3", "im10-4", "im10-5", "im10-6", "im10-7"],
+      "imperativeQuestion": "How do Subject and Predicate work in this imperative clause?",
+      "imperativeOptions": [
+        {
+          "id": "imp10-1",
+          "label": "'every notice' is the Subject because it is a noun phrase.",
+          "isCorrect": false,
+          "feedback": "'every notice' receives the action of checking—it is the Direct Object inside the Predicate."
+        },
+        {
+          "id": "imp10-2",
+          "label": "The Subject is understood '(You)', and 'Check every notice on the board carefully.' is the Predicate.",
+          "isCorrect": true,
+          "feedback": "Spot on! Imperative sentences omit the spoken Subject '(You)' while retaining a complete Predicate starting with the verb 'Check' (Odisha IX Ch. 1 p. 7; Odisha X Ch. 2 p. 13)."
+        },
+        {
+          "id": "imp10-3",
+          "label": "An imperative sentence has no Predicate.",
+          "isCorrect": false,
+          "feedback": "An imperative sentence starts directly with its finite verb ('Check'), making the spoken command a complete Predicate."
+        }
+      ],
+      "successFeedback": "Strong grasp! You recognised the understood '(You)' Subject in an imperative sentence."
+    }
+  ],
+  "completionSummary": {
+    "headline": "Class 10 Noticeboard Restored!",
+    "celebrationMessage": "Mira, Arjun, and Gyan have pinned every repaired notice back on the courtyard board. You mastered Subject, Predicate, and finite verbs across simple and enlarged sentences!",
+    "learnedPoints": [
+      "A complete clause pairs a Subject (who/what we talk about) with a Predicate containing a finite verb.",
+      "Prepositional modifiers after a noun stay inside the Subject, while the Subject head-noun controls the finite verb.",
+      "Imperative notices keep an understood '(You)' Subject and express the Predicate starting directly with the verb."
+    ],
+    "repairedMessages": [
+      "The little boy plays cricket.",
+      "The students are reading books.",
+      "ISRO scientists in Bengaluru launched the weather satellite.",
+      "Check every notice on the board carefully."
+    ],
+    "rewardLabel": "Class 10 Structure Star & Balanced Harvest Badge"
+  }
+}
