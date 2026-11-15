@@ -75,7 +75,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
               ].join(' ')}
             >
               {isDone ? <Check className="w-3.5 h-3.5 shrink-0" aria-hidden="true" /> : null}
-              <span>{LAB_SHORT_LABELS[idx] ?? `Task ${idx + 1}`}</span>
+              <span>{act.tabLabel ?? LAB_SHORT_LABELS[idx] ?? `Task ${idx + 1}`}</span>
             </button>
           );
         })}
@@ -182,7 +182,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
               <p className="text-xs sm:text-sm text-[#263A70]">
                 {hasIndependentPractice
                   ? 'You are ready to try new sentences on your own in Independent Practice.'
-                  : 'You explored every Subject and Predicate tool.'}
+                  : 'You explored every interactive grammar tool in this lab.'}
               </p>
             </div>
           </div>

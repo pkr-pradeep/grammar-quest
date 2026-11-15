@@ -1,0 +1,182 @@
+{
+  "assessmentId": "c9-mission-02-assessment",
+  "missionId": "c9-mission-02",
+  "classLevel": 9,
+  "moduleId": "module-2-tenses",
+  "moduleTitle": "Tenses",
+  "topic": "Time and Verb Forms",
+  "missionTitle": "Journey Through Time",
+  "title": "Mission 2 Assessment: Time and Verb Forms",
+  "subtitle": "Answer all 10 questions to check your understanding of Time, Tense, and verb forms. You can review every answer before submitting.",
+  "questions": [
+    {
+      "id": "c9-m2-aq-01",
+      "questionText": "Look at the timetable notice: 'The morning assembly _____ at 8:15 a.m. every weekday.' Which verb form fits best?",
+      "options": [
+        { "id": "a", "text": "begin" },
+        { "id": "b", "text": "begins" },
+        { "id": "c", "text": "is beginning" },
+        { "id": "d", "text": "began" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'every weekday' describes a regular daily routine, so Present Simple ('begins') matches the singular Subject 'The morning assembly'.",
+      "learningObjectiveId": "present-simple-vs-progressive",
+      "learningObjective": "Present habits vs ongoing actions",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 2
+    },
+    {
+      "id": "c9-m2-aq-02",
+      "questionText": "In the sentence 'The train to Puri leaves at 6:00 a.m. tomorrow', what real-world time does the Present Simple verb 'leaves' express?",
+      "options": [
+        { "id": "a", "text": "An action already finished yesterday" },
+        { "id": "b", "text": "A scheduled future event on an official timetable" },
+        { "id": "c", "text": "An ongoing action happening right this second" },
+        { "id": "d", "text": "A mental state that never changes" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Time and verb form are distinct: the Present Simple form 'leaves' is used with 'tomorrow' to communicate a fixed future timetable.",
+      "learningObjectiveId": "time-vs-verb-form",
+      "learningObjective": "Distinguishing Time from Verb Form",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 1
+    },
+    {
+      "id": "c9-m2-aq-03",
+      "questionText": "Mira whispers in the library: 'Look! Arjun _____ a colourful map of Kaziranga right now.' Choose the right verb phrase.",
+      "options": [
+        { "id": "a", "text": "draws" },
+        { "id": "b", "text": "drew" },
+        { "id": "c", "text": "is drawing" },
+        { "id": "d", "text": "has drew" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "'Look!' and 'right now' show an action in progress at the moment of speaking, requiring Present Progressive ('is drawing').",
+      "learningObjectiveId": "present-simple-vs-progressive",
+      "learningObjective": "Present habits vs ongoing actions",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c9-m2-aq-04",
+      "questionText": "Which sentence uses a state (non-progressive) verb accurately?",
+      "options": [
+        { "id": "a", "text": "Rohan is knowing all the capitals of India." },
+        { "id": "b", "text": "This brass telescope is belonging to our science lab." },
+        { "id": "c", "text": "Deepa understands how solar panels produce electricity." },
+        { "id": "d", "text": "We are liking fresh mangoes after sports practice." }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Stative verbs such as 'understand', 'know', 'belong', and 'like' express states rather than physical actions, so they stay in Simple form ('understands').",
+      "learningObjectiveId": "stative-verbs-no-ing",
+      "learningObjective": "Using stative verbs without -ing",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c9-m2-aq-05",
+      "questionText": "Read the eco-club log: 'Last Saturday, our volunteers _____ forty mango saplings along the boundary wall.' Choose the accurate verb.",
+      "options": [
+        { "id": "a", "text": "plant" },
+        { "id": "b", "text": "planted" },
+        { "id": "c", "text": "have planted" },
+        { "id": "d", "text": "are planting" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'Last Saturday' names a finished past time, so Past Simple ('planted') is required rather than Present Perfect or Present Simple.",
+      "learningObjectiveId": "past-simple-vs-perfect",
+      "learningObjective": "Past Simple vs Present Perfect",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 5
+    },
+    {
+      "id": "c9-m2-aq-06",
+      "questionText": "Arjun points to the tidy shelves and says, 'Look, the monitor _____ all the science journals already.' Which verb completes the sentence?",
+      "options": [
+        { "id": "a", "text": "has arranged" },
+        { "id": "b", "text": "arranged yesterday" },
+        { "id": "c", "text": "is arrange" },
+        { "id": "d", "text": "will arranged" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "'already' and the visible present result ('Look, the shelves are tidy') call for Present Perfect ('has arranged').",
+      "learningObjectiveId": "past-simple-vs-perfect",
+      "learningObjective": "Past Simple vs Present Perfect",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 6
+    },
+    {
+      "id": "c9-m2-aq-07",
+      "questionText": "Select the sentence that correctly communicates a planned future event for next week.",
+      "options": [
+        { "id": "a", "text": "Our class will visited the planetarium next Friday." },
+        { "id": "b", "text": "Our class is going to visit the planetarium next Friday." },
+        { "id": "c", "text": "Our class visited the planetarium next Friday." },
+        { "id": "d", "text": "Our class has visit the planetarium next Friday." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'is going to visit' properly expresses a planned future event ('next Friday'). Option (a) wrongly puts a past verb after 'will', and (c) uses a past verb.",
+      "learningObjectiveId": "future-time-expressions",
+      "learningObjective": "Expressing future time accurately",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 7
+    },
+    {
+      "id": "c9-m2-aq-08",
+      "questionText": "Which time word fits naturally into the blank: 'Meera has practised Odissi dance _____ 2021.'?",
+      "options": [
+        { "id": "a", "text": "yesterday" },
+        { "id": "b", "text": "tomorrow" },
+        { "id": "c", "text": "since" },
+        { "id": "d", "text": "ago" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "'since 2021' marks the starting point of an action continuing up to now with Present Perfect ('has practised'). 'yesterday' and 'ago' belong to Past Simple.",
+      "learningObjectiveId": "time-vs-verb-form",
+      "learningObjective": "Distinguishing Time from Verb Form",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 6
+    },
+    {
+      "id": "c9-m2-aq-09",
+      "questionText": "Find the grammatical error in this noticeboard slip: 'Yesterday evening, our kabaddi team has won the inter-school match.'",
+      "options": [
+        { "id": "a", "text": "Plural 'team' cannot take 'has'; it should be 'have'." },
+        { "id": "b", "text": "Present Perfect ('has won') clashes with a definite finished past time ('Yesterday evening'); use Past Simple ('won')." },
+        { "id": "c", "text": "'won' should be changed to 'winning'." },
+        { "id": "d", "text": "There is no error in the sentence." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Definite past time markers such as 'Yesterday evening' require Past Simple ('won'), not Present Perfect ('has won').",
+      "learningObjectiveId": "tense-error-diagnosis",
+      "learningObjective": "Diagnosing tense and verb-form errors",
+      "difficulty": "stretch",
+      "recommendedStage": "guided"
+    },
+    {
+      "id": "c9-m2-aq-10",
+      "questionText": "Read the weather note: 'Water freezes at zero degrees Celsius, and warm air _____ upwards.' Complete the scientific truth.",
+      "options": [
+        { "id": "a", "text": "rose" },
+        { "id": "b", "text": "is rising" },
+        { "id": "c", "text": "rises" },
+        { "id": "d", "text": "has risen" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "General scientific truths always stay in Present Simple ('rises' matching singular 'warm air').",
+      "learningObjectiveId": "stative-verbs-no-ing",
+      "learningObjective": "Timeless facts & stative forms",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 2
+    }
+  ]
+}

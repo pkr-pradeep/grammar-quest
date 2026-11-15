@@ -61,7 +61,7 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
   onBackToHome,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
-  const feedback = getAchievementMessage(evaluation.percentage);
+  const feedback = getAchievementMessage(evaluation.percentage, attempt.topic);
   const formattedTime = formatSubmittedTimestamp(attempt.submittedAt);
 
   return (

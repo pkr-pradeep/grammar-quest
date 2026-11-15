@@ -23,6 +23,8 @@ export interface SpeakerTheme {
   name: string;
   solid: string;
   tint: string;
+  border: string;
+  ringRgba: string;
   roleLabel: string;
   pointerLeft: string;
 }
@@ -33,6 +35,8 @@ export const SPEAKER_THEMES: Record<CharacterId, SpeakerTheme> = {
     name: 'Mira',
     solid: '#C94A3A',
     tint: '#FDE6E1',
+    border: '#F2B8B0',
+    ringRgba: 'rgba(201, 74, 58, 0.42)',
     roleLabel: 'Student',
     pointerLeft: '12%',
   },
@@ -41,6 +45,8 @@ export const SPEAKER_THEMES: Record<CharacterId, SpeakerTheme> = {
     name: 'Arjun',
     solid: '#0F7F76',
     tint: '#DDF4F0',
+    border: '#A2DDD4',
+    ringRgba: 'rgba(15, 127, 118, 0.42)',
     roleLabel: 'Student',
     pointerLeft: '28%',
   },
@@ -49,6 +55,8 @@ export const SPEAKER_THEMES: Record<CharacterId, SpeakerTheme> = {
     name: 'Gyan',
     solid: '#5B43C2',
     tint: '#ECE6FB',
+    border: '#CBBDF3',
+    ringRgba: 'rgba(91, 67, 194, 0.42)',
     roleLabel: 'Robot guide',
     pointerLeft: '87%',
   },
@@ -58,8 +66,11 @@ export interface SpeakerPortraitProps {
   characterId: CharacterId;
   expression?: CharacterExpression;
   pose?: CharacterPose;
+  sizePx?: number;
+  ringWidthPx?: number;
   animatePop?: boolean;
   isTalking?: boolean;
+  floatGentle?: boolean;
   popDelayMs?: number;
   className?: string;
 }
@@ -68,8 +79,11 @@ export const SpeakerPortrait: React.FC<SpeakerPortraitProps> = ({
   characterId,
   expression = 'happy',
   pose,
+  sizePx: circleSizePx = 44,
+  ringWidthPx = 2.5,
   animatePop = true,
   isTalking = false,
+  floatGentle = false,
   popDelayMs = 0,
   className = '',
 }) => {
@@ -82,40 +96,48 @@ export const SpeakerPortrait: React.FC<SpeakerPortraitProps> = ({
         ? 'reading'
         : 'explaining');
 
-  const positionClass =
-    characterId === 'mira'
-      ? '-top-[20px]'
-      : characterId === 'arjun'
-        ? '-top-[16px]'
-        : '-top-[36px]';
-  const sizePx = characterId === 'gyan' ? 82 : 96;
+  const scale = circleSizePx / 44;
+  const charSizePx = Math.round((characterId === 'gyan' ? 82 : 96) * scale);
+  const topOffsetPx = Math.round(
+    (characterId === 'mira' ? -20 : characterId === 'arjun' ? -16 : -36) * scale,
+  );
 
   return (
     <div
       aria-hidden="true"
-      className={[isTalking ? 'gq-story-talk-bob' : '', 'shrink-0', className]
+      className={[
+        isTalking ? 'gq-story-talk-bob' : '',
+        floatGentle ? 'gq-guide-portrait-float' : '',
+        'shrink-0',
+        className,
+      ]
         .filter(Boolean)
         .join(' ')}
     >
       <div
         className={[
-          'relative w-[44px] h-[44px] rounded-full overflow-hidden bg-[#FFFDF8]',
+          'relative rounded-full overflow-hidden bg-[#FFFDF8]',
           animatePop ? 'gq-story-portrait-pop' : '',
         ]
           .filter(Boolean)
           .join(' ')}
         style={{
-          border: `2.5px solid ${theme.solid}`,
+          width: `${circleSizePx}px`,
+          height: `${circleSizePx}px`,
+          border: `${ringWidthPx}px solid ${theme.solid}`,
           animationDelay: animatePop && popDelayMs > 0 ? `${popDelayMs}ms` : undefined,
         }}
       >
-        <div className={`absolute left-1/2 -translate-x-1/2 ${positionClass}`}>
+        <div
+          className="absolute left-1/2 -translate-x-1/2"
+          style={{ top: `${topOffsetPx}px` }}
+        >
           <Character
             characterId={characterId}
             pose={resolvedPose}
             expression={expression}
             animationState="none"
-            size={sizePx}
+            size={charSizePx}
             flipHorizontal={characterId === 'gyan'}
           />
         </div>

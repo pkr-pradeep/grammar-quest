@@ -1,0 +1,180 @@
+{
+  "assessmentId": "c10-mission-03-assessment",
+  "missionId": "c10-mission-03",
+  "classLevel": 10,
+  "moduleId": "module-3-subject-verb-agreement",
+  "moduleTitle": "Subject–Verb Agreement",
+  "topic": "Matching Subjects and Verbs",
+  "missionTitle": "The Grammar Detective",
+  "title": "Mission 3 Assessment: Subject–Verb Agreement",
+  "subtitle": "Answer all 10 senior detective questions covering Odisha Class X and Assam concordance rules. Review your choices before submitting.",
+  "questions": [
+    {
+      "id": "c10-m3-aq-01",
+      "questionText": "Compare the opening articles carefully: 'The number of solar lamps in our village _____ increased steadily, while a number of households _____ installing rooftop panels.'",
+      "options": [
+        { "id": "a", "text": "have / is" },
+        { "id": "b", "text": "has / are" },
+        { "id": "c", "text": "are / are" },
+        { "id": "d", "text": "has / is" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'The number of + plural noun' denotes ONE single figure/count (singular 'has'), whereas 'a number of + plural noun' means 'many/several' (plural 'are').",
+      "learningObjectiveId": "core-number-person-concord",
+      "learningObjective": "Distinguishing 'the number of' vs 'a number of'",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 1
+    },
+    {
+      "id": "c10-m3-aq-02",
+      "questionText": "Read the water conservation report: 'Two-thirds of the rainwater _____ stored safely, and two-thirds of the tanks _____ already full.'",
+      "options": [
+        { "id": "a", "text": "are / is" },
+        { "id": "b", "text": "is / is" },
+        { "id": "c", "text": "is / are" },
+        { "id": "d", "text": "are / are" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "With fractions and percentages, check the noun AFTER 'of': uncountable 'rainwater' takes singular 'is', while plural countable 'tanks' takes plural 'are'.",
+      "learningObjectiveId": "intervening-phrases-trap",
+      "learningObjective": "Fractions and percentages with countable vs uncountable nouns",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c10-m3-aq-03",
+      "questionText": "Examine both collective noun clues: 'The selection committee _____ unanimous in its decision, whereas the debate jury _____ divided in their opinions.'",
+      "options": [
+        { "id": "a", "text": "was / were" },
+        { "id": "b", "text": "were / was" },
+        { "id": "c", "text": "were / were" },
+        { "id": "d", "text": "was / was" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "'unanimous in its decision' shows the committee acting as ONE unit (singular 'was'); 'divided in their opinions' shows individual members disagreeing (plural 'were').",
+      "learningObjectiveId": "core-number-person-concord",
+      "learningObjective": "Collective nouns as a single unit vs individuals",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 2
+    },
+    {
+      "id": "c10-m3-aq-04",
+      "questionText": "Trace the relative pronoun antecedent: 'Meera is one of the Class 10 students who _____ selected for the national science exhibition.'",
+      "options": [
+        { "id": "a", "text": "has been" },
+        { "id": "b", "text": "is" },
+        { "id": "c", "text": "was" },
+        { "id": "d", "text": "have been" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Inside 'one of the students who...', the relative pronoun 'who' refers to plural 'students', so the clause verb must be plural ('have been').",
+      "learningObjectiveId": "intervening-phrases-trap",
+      "learningObjective": "Relative pronoun antecedent concord",
+      "difficulty": "stretch",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c10-m3-aq-05",
+      "questionText": "Select the accurate sentence combining 'the + adjective' and plural-form titles:",
+      "options": [
+        { "id": "a", "text": "The brave is remembered with pride, and Gulliver's Travels are an exciting book." },
+        { "id": "b", "text": "The brave are remembered with pride, and Gulliver's Travels is an exciting book." },
+        { "id": "c", "text": "The brave was remembered with pride, and Gulliver's Travels were an exciting book." },
+        { "id": "d", "text": "The brave is remembered with pride, and Gulliver's Travels is an exciting book." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Odisha Class X Rules 14 & 15: 'The + adjective' denoting a class of people ('The brave') takes a plural verb ('are'), whereas one book title ('Gulliver's Travels') takes a singular verb ('is').",
+      "learningObjectiveId": "tricky-nouns-and-indefinites",
+      "learningObjective": "'The + adjective' classes & plural-form titles",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 5
+    },
+    {
+      "id": "c10-m3-aq-06",
+      "questionText": "Choose the verb matching the nearer subject: 'Not only the coach but also the young sprinters _____ preparing for the state meet.'",
+      "options": [
+        { "id": "a", "text": "is" },
+        { "id": "b", "text": "are" },
+        { "id": "c", "text": "was" },
+        { "id": "d", "text": "has been" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "With 'not only...but also', the verb agrees with the NEARER Subject ('the young sprinters' → plural 'are').",
+      "learningObjectiveId": "correlative-and-with-joiners",
+      "learningObjective": "Correlative joiners ('not only...but also') vs 'with'",
+      "difficulty": "foundation",
+      "recommendedStage": "guided"
+    },
+    {
+      "id": "c10-m3-aq-07",
+      "questionText": "Compare 'with' and single-determiner titles: 'The poet and freedom thinker, with his followers, _____ addressing the gathering.'",
+      "options": [
+        { "id": "a", "text": "were" },
+        { "id": "b", "text": "are" },
+        { "id": "c", "text": "is" },
+        { "id": "d", "text": "have been" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "One 'The' ('The poet and freedom thinker') names ONE person, and phrases introduced by 'with' do not alter the first Subject's singular number → 'is'.",
+      "learningObjectiveId": "compound-and-single-idea",
+      "learningObjective": "Single-determiner compound titles with 'with'-phrases",
+      "difficulty": "stretch",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 6
+    },
+    {
+      "id": "c10-m3-aq-08",
+      "questionText": "Which sentence uses the uncountable noun 'furniture' and 'Many a' accurately according to Odisha Class X & Assam rules?",
+      "options": [
+        { "id": "a", "text": "The classroom furniture are brand new, and many a student admire it." },
+        { "id": "b", "text": "The classroom furniture is brand new, and many a student admires it." },
+        { "id": "c", "text": "The classroom furnitures are brand new, and many a student admire it." },
+        { "id": "d", "text": "The classroom furniture is brand new, and many a students admires it." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'furniture' is an uncountable singular noun ('is'), and 'many a + singular noun' ('many a student') takes a singular verb ('admires').",
+      "learningObjectiveId": "tricky-nouns-and-indefinites",
+      "learningObjective": "Uncountable nouns & 'many a + singular noun'",
+      "difficulty": "standard",
+      "recommendedStage": "guided"
+    },
+    {
+      "id": "c10-m3-aq-09",
+      "questionText": "In a Class 10 board exam, which verb is the formal standard choice for: 'Neither of the laboratories _____ unlocked yet.'?",
+      "options": [
+        { "id": "a", "text": "is" },
+        { "id": "b", "text": "are" },
+        { "id": "c", "text": "were" },
+        { "id": "d", "text": "have been" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Formal grammar and board exams expect singular 'is' after 'neither of + plural noun'. (Odisha Class X Rule 7a notes plural may occur in casual conversation, so know the formal rule clearly.)",
+      "learningObjectiveId": "tricky-nouns-and-indefinites",
+      "learningObjective": "Formal vs conversational caveat for 'neither of'",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 6
+    },
+    {
+      "id": "c10-m3-aq-10",
+      "questionText": "Diagnose the agreement error in this notice: 'The police is investigating why five thousand rupees were missing from the trophy fund.'",
+      "options": [
+        { "id": "a", "text": "'police' takes plural 'are', while 'five thousand rupees' as one sum takes singular 'was'." },
+        { "id": "b", "text": "Only 'five thousand rupees' is wrong; 'The police is' is correct." },
+        { "id": "c", "text": "Both 'is' and 'were' are completely accurate." },
+        { "id": "d", "text": "'police' takes 'was' and 'rupees' takes 'are'." }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Both verbs were flipped! Always-plural 'police' requires 'are investigating', whereas one total sum of money ('five thousand rupees') takes singular 'was missing'.",
+      "learningObjectiveId": "agreement-error-diagnosis",
+      "learningObjective": "Diagnosing flipped SVA errors in complex sentences",
+      "difficulty": "stretch",
+      "recommendedStage": "practice"
+    }
+  ]
+}

@@ -17,6 +17,9 @@ import {
   createDefaultProgress,
   loadStudentProgress,
   markMissionCompleted,
+  markMissionStarted,
+  markPracticeCompleted,
+  markTeachingCompleted,
   saveSelectedClass,
 } from './storage/progressRepository';
 import { loadAllAssessmentAttempts } from './storage/assessmentRepository';
@@ -242,6 +245,27 @@ export default function App() {
     setActiveSection('missions');
   };
 
+  const handleRecordMissionStarted = async (lesson: GrammarLessonDefinition) => {
+    const result = await markMissionStarted(lesson.missionId);
+    setProgress(result.progress);
+    setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
+  };
+
+  const handleRecordTeachingCompleted = async (lesson: GrammarLessonDefinition) => {
+    const result = await markTeachingCompleted(lesson.missionId);
+    setProgress(result.progress);
+    setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
+  };
+
+  const handleRecordPracticeCompleted = async (
+    lesson: GrammarLessonDefinition,
+    kind: 'guided' | 'independent',
+  ) => {
+    const result = await markPracticeCompleted(lesson.missionId, kind);
+    setProgress(result.progress);
+    setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
+  };
+
   const handleRecordMissionCompleted = async (lesson: GrammarLessonDefinition) => {
     const result = await markMissionCompleted(lesson.missionId);
     setProgress(result.progress);
@@ -274,6 +298,11 @@ export default function App() {
           onPhaseChange={handleLessonPhaseChange}
           onAssessmentSubmitted={handleAssessmentSubmitted}
           onExit={handleExitLesson}
+          onRecordMissionStarted={(lesson) => void handleRecordMissionStarted(lesson)}
+          onRecordTeachingCompleted={(lesson) => void handleRecordTeachingCompleted(lesson)}
+          onRecordPracticeCompleted={(lesson, kind) =>
+            void handleRecordPracticeCompleted(lesson, kind)
+          }
           onRecordMissionCompleted={(lesson) => void handleRecordMissionCompleted(lesson)}
           onCompleteLessonPractice={(lesson) => void handleCompleteLessonPractice(lesson)}
         />

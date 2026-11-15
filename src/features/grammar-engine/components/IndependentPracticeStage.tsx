@@ -42,6 +42,8 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   const [phaseById, setPhaseById] = useState<Record<string, 'subject' | 'predicate' | 'done'>>({});
   const [subjSelById, setSubjSelById] = useState<Record<string, string[]>>({});
   const [predSelById, setPredSelById] = useState<Record<string, string[]>>({});
+  const [targetSelById, setTargetSelById] = useState<Record<string, string[]>>({});
+  const [targetConfirmedById, setTargetConfirmedById] = useState<Record<string, boolean>>({});
   const [impChoiceById, setImpChoiceById] = useState<Record<string, string | null>>({});
   const [feedbackById, setFeedbackById] = useState<
     Record<string, { status: 'correct' | 'try-again'; title: string; message: string } | null>
@@ -53,6 +55,8 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   const currentPhase = phaseById[currentItem.id] ?? 'subject';
   const subjSel = subjSelById[currentItem.id] ?? [];
   const predSel = predSelById[currentItem.id] ?? [];
+  const targetSel = targetSelById[currentItem.id] ?? [];
+  const targetConfirmed = Boolean(targetConfirmedById[currentItem.id]);
   const impChoice = impChoiceById[currentItem.id] ?? null;
   const feedback = feedbackById[currentItem.id] ?? null;
   const allSolved = items.length > 0 && items.every((item) => solvedIds.includes(item.id));
@@ -63,6 +67,16 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   };
 
   const toggleToken = (tokenId: string) => {
+    if (currentItem.mode === 'token-and-choice') {
+      if (targetConfirmed || currentPhase === 'done') return;
+      setFeedbackById((prev) => ({ ...prev, [currentItem.id]: null }));
+      const next = targetSel.includes(tokenId)
+        ? targetSel.filter((id) => id !== tokenId)
+        : [...targetSel, tokenId];
+      setTargetSelById((prev) => ({ ...prev, [currentItem.id]: next }));
+      return;
+    }
+
     if (currentItem.mode !== 'dual-identify' || currentPhase === 'done') return;
     setFeedbackById((prev) => ({ ...prev, [currentItem.id]: null }));
 
@@ -77,6 +91,32 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
         ? predSel.filter((id) => id !== tokenId)
         : [...predSel, tokenId];
       setPredSelById((prev) => ({ ...prev, [currentItem.id]: next }));
+    }
+  };
+
+  const handleCheckTargetTokens = () => {
+    const expected = currentItem.targetTokenIds ?? [];
+    if (sameIds(targetSel, expected)) {
+      setTargetConfirmedById((prev) => ({ ...prev, [currentItem.id]: true }));
+      setFeedbackById((prev) => ({
+        ...prev,
+        [currentItem.id]: {
+          status: 'correct',
+          title: 'Key word spotted!',
+          message: 'Now choose the correct explanation or verb form below.',
+        },
+      }));
+    } else {
+      setFeedbackById((prev) => ({
+        ...prev,
+        [currentItem.id]: {
+          status: 'try-again',
+          title: 'Look closely at the sentence',
+          message:
+            currentItem.retrySubjectFeedback ??
+            'Tap the exact word or clue specified in the prompt above.',
+        },
+      }));
     }
   };
 
@@ -147,7 +187,10 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
         ...prev,
         [currentItem.id]: {
           status: 'try-again',
-          title: 'Think about who hears this instruction',
+          title:
+            currentItem.mode === 'imperative-check'
+              ? 'Think about who hears this instruction'
+              : 'Look again at the time clue or Subject',
           message: opt.feedback,
         },
       }));
@@ -158,6 +201,8 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
     setPhaseById((prev) => ({ ...prev, [currentItem.id]: 'subject' }));
     setSubjSelById((prev) => ({ ...prev, [currentItem.id]: [] }));
     setPredSelById((prev) => ({ ...prev, [currentItem.id]: [] }));
+    setTargetSelById((prev) => ({ ...prev, [currentItem.id]: [] }));
+    setTargetConfirmedById((prev) => ({ ...prev, [currentItem.id]: false }));
     setImpChoiceById((prev) => ({ ...prev, [currentItem.id]: null }));
     setFeedbackById((prev) => ({ ...prev, [currentItem.id]: null }));
   };
@@ -316,8 +361,104 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
               </div>
             ) : null}
           </>
+        ) : currentItem.mode === 'token-and-choice' ? (
+          <div className="space-y-3">
+            <div
+              className={[
+                'rounded-[12px] border px-3 py-2 flex items-center gap-2 text-xs font-semibold',
+                !targetConfirmed
+                  ? 'bg-[#FFF4D6] border-[#F59B19] text-[#263A70]'
+                  : 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]',
+              ].join(' ')}
+            >
+              <Layers className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              <span>
+                {!targetConfirmed
+                  ? (currentItem.targetPrompt ?? 'Step 1: Tap the key word(s) in the sentence')
+                  : currentPhase === 'done'
+                    ? 'Sentence check completed!'
+                    : 'Step 2: Choose the right option below'}
+              </span>
+            </div>
+
+            <div className="rounded-[16px] bg-[#FDFCF9] border border-[#E5E2D9] p-3.5 sm:p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                {currentItem.sentence.tokens.map((token, idx) => {
+                  const isTarget =
+                    targetConfirmed && (currentItem.targetTokenIds ?? []).includes(token.id);
+                  const isSelectedNow = !targetConfirmed && targetSel.includes(token.id);
+                  return (
+                    <WordToken
+                      key={token.id}
+                      token={token}
+                      index={idx}
+                      isSelected={isSelectedNow}
+                      isHighlighted={isTarget}
+                      showCategoryBadge={currentPhase === 'done'}
+                      showHeadWordMarker={currentPhase === 'done'}
+                      animateEntrance={false}
+                      onSelect={(t) => toggleToken(t.id)}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
+            {!targetConfirmed ? (
+              <div className="flex flex-wrap items-center gap-2.5">
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={handleCheckTargetTokens}
+                  disabled={targetSel.length === 0}
+                >
+                  Check Word
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleResetCurrent}
+                  disabled={targetSel.length === 0}
+                  leftIcon={<RotateCcw className="w-4 h-4" />}
+                >
+                  Reset
+                </Button>
+              </div>
+            ) : (
+              <div className="space-y-2.5">
+                {currentItem.imperativeQuestion ? (
+                  <p className="text-sm font-semibold text-[#263A70]">
+                    {currentItem.imperativeQuestion}
+                  </p>
+                ) : null}
+                <div className="space-y-2">
+                  {currentItem.imperativeOptions?.map((opt) => {
+                    const isSelected = impChoice === opt.id;
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => handlePickImperative(opt.id)}
+                        aria-pressed={isSelected}
+                        className={[
+                          'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors cursor-pointer',
+                          isSelected
+                            ? opt.isCorrect
+                              ? 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]'
+                              : 'bg-[#FEE8E7] border-[#F36F68] text-[#263A70]'
+                            : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
+                        ].join(' ')}
+                      >
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         ) : (
-          /* Imperative Sentence Structure Check */
+          /* Imperative Check or Choice-Diagnose */
           <div className="space-y-3">
             <div className="rounded-[16px] bg-[#FDFCF9] border border-[#E5E2D9] p-3.5 sm:p-4">
               <p className="text-base sm:text-lg font-semibold text-[#263A70]">

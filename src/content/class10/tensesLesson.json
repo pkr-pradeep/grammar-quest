@@ -1,0 +1,1303 @@
+{
+  "lessonId": "c10-lesson-tenses",
+  "missionId": "c10-mission-02",
+  "classLevel": 10,
+  "moduleId": "module-2-tenses",
+  "moduleTitle": "Tenses",
+  "missionTitle": "Journey Through Time",
+  "topic": "Time and Verb Forms",
+  "estimatedMinutes": 8,
+  "situationBrief": {
+    "title": "Revisiting the School Archive Timeline",
+    "description": "Class 10 students are editing the annual school archive. Earlier events, unfinished durations, sequence of tenses, and five ways of expressing future time need careful repair.",
+    "characterId": "mira",
+    "characterExpression": "curious"
+  },
+  "storyIntro": {
+    "sceneVariant": "records-timeline",
+    "sceneTitle": "The Annual School Archive",
+    "settingLabel": "School Library Desk",
+    "previewSectionTitle": "Archive entries needing timeline checks",
+    "cardPreviewLabel": "Archive slip",
+    "scatteredFragments": [
+      "Before we arrived, the assembly ...",
+      "She said that honesty was/is ...",
+      "The train leaves at 6 a.m.",
+      "By 5 p.m., we will have ..."
+    ],
+    "highlightFragments": [
+      "had already begun",
+      "universal truth",
+      "scheduled future",
+      "earlier past"
+    ],
+    "beats": [
+      {
+        "id": "c10-m2-beat-1",
+        "speaker": "mira",
+        "expression": "surprised",
+        "pose": "pointing",
+        "sceneFocus": "mira-notices",
+        "actionLabel": "Reads two past events in one sentence",
+        "dialogue": "Look at this archive sentence: 'When we reached the hall, the science quiz already started.' Two past actions happened—which one happened FIRST?"
+      },
+      {
+        "id": "c10-m2-beat-2",
+        "speaker": "arjun",
+        "expression": "curious",
+        "pose": "exploring",
+        "sceneFocus": "arjun-picks-up",
+        "actionLabel": "Checks reported statements and future plans",
+        "dialogue": "And look at the next slip: 'Our teacher said that the earth moved round the sun.' Wait—does the earth still move round the sun today?",
+        "cardPreviewText": "When we reached the hall, the quiz had started."
+      },
+      {
+        "id": "c10-m2-beat-3",
+        "speaker": "gyan",
+        "expression": "explaining",
+        "pose": "explaining",
+        "sceneFocus": "gyan-explains",
+        "actionLabel": "Unlocks Class 10 timeline mastery",
+        "dialogue": "In Class 10, we master how Past Simple differs from Present Perfect and Past Perfect ('earlier past'), how Sequence of Tenses handles universal truths, and how five future forms express plans, timetables, and predictions!"
+      }
+    ]
+  },
+  "learningObjectives": {
+    "grammarOutcomes": [
+      "Select accurately among the 6 ways of expressing Past Time—especially Past Simple vs Present Perfect and Past Perfect for an earlier past event.",
+      "Apply Sequence of Tenses across main and subordinate clauses, including the universal-truth exception.",
+      "Choose purposefully among future-time forms ('will', 'be going to', Present Progressive, Present Simple timetable, and 'will have + V3')."
+    ],
+    "knowledgeOutcome": "Audit Indian school archives, ISRO science talks, railway timetables, and community eco-drives with precision."
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od10-ch1",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 1: Tense Revisited",
+      "bookPages": "1-12",
+      "pdfPages": "7-18",
+      "provenance": "textbook-derived",
+      "note": "Consolidates the 2-tense + 3-time model, Present Time, 6 ways of expressing Past Time (including Past Perfect for earlier past and Present Perfect with 'for/since'), and 5 ways of expressing Future Time."
+    },
+    {
+      "id": "src-assam-ch9-c10",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Chapter 9: Tense (Lessons 1-6)",
+      "bookPages": "120-147",
+      "pdfPages": "129-156",
+      "provenance": "textbook-derived",
+      "note": "Combined Classes IX & X resource teaching 3-Tense / 12-sub-tense labels, stative non-continuous verbs, 'for/since', and 15 common tense error corrections."
+    },
+    {
+      "id": "src-pseb9-seq",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 9 Sec. 1 & 3: Use of Tenses & Sequence of Tenses",
+      "bookPages": "94-97, 100-104",
+      "pdfPages": "100-103, 106-110",
+      "provenance": "textbook-derived",
+      "note": "Cross-board reference for Sequence of Tenses and universal-truth exception (Note: no Class 10 PSEB textbook was supplied among sources)."
+    },
+    {
+      "id": "src-m2-c10-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Class 10 Timeline & Board-Model Bridge (Supplementary)",
+      "chapter": "Tense Revisited Synthesis",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Synthesises Odisha X Tense Revisited with Assam IX-X and notes explicitly that PSEB Class X was not supplied."
+    }
+  ],
+  "activeRelationshipTypes": [
+    "verb-subject",
+    "adverb-verb",
+    "conjunction-elements"
+  ],
+  "sentences": [
+    {
+      "id": "m2c10-sent-past-perfect",
+      "title": "Earlier Past Event",
+      "rawText": "When we reached the hall, the quiz had already begun.",
+      "contextTag": "Sequence of Two Past Events",
+      "note": "Past Perfect ('had + V3') marks the action that happened BEFORE another past action ('reached').",
+      "tokens": [
+        {
+          "id": "c10s1-t1",
+          "text": "When",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Time Conjunction",
+          "meaningInSentence": "Links two past actions in sequence.",
+          "grammaticalRoleExplanation": "Introduces the later past event 'we reached'.",
+          "linkedTokenIds": ["c10s1-t3", "c10s1-t8", "c10s1-t10"]
+        },
+        {
+          "id": "c10s1-t2",
+          "text": "we",
+          "category": "pronoun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Pronoun",
+          "meaningInSentence": "Names the arriving group.",
+          "grammaticalRoleExplanation": "Subject of the time clause."
+        },
+        {
+          "id": "c10s1-t3",
+          "text": "reached",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Past Simple (Later Event)",
+          "meaningInSentence": "Shows the second past action.",
+          "grammaticalRoleExplanation": "Past Simple marks the point in the past after the quiz started.",
+          "linkedTokenIds": ["c10s1-t8", "c10s1-t10"]
+        },
+        {
+          "id": "c10s1-t4",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the hall.",
+          "grammaticalRoleExplanation": "Introduces 'hall'."
+        },
+        {
+          "id": "c10s1-t5",
+          "text": "hall",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun",
+          "meaningInSentence": "Names the venue.",
+          "grammaticalRoleExplanation": "Object of 'reached'.",
+          "punctuationAfter": ","
+        },
+        {
+          "id": "c10s1-t6",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the school quiz.",
+          "grammaticalRoleExplanation": "Introduces Subject 'quiz'."
+        },
+        {
+          "id": "c10s1-t7",
+          "text": "quiz",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the event that began first.",
+          "grammaticalRoleExplanation": "Main clause Subject.",
+          "linkedTokenIds": ["c10s1-t8", "c10s1-t10"]
+        },
+        {
+          "id": "c10s1-t8",
+          "text": "had",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Past Perfect Auxiliary",
+          "meaningInSentence": "Pushes the action further back in past time.",
+          "grammaticalRoleExplanation": "'had + begun' expresses the earlier of two past events.",
+          "linkedTokenIds": ["c10s1-t3", "c10s1-t10"]
+        },
+        {
+          "id": "c10s1-t9",
+          "text": "already",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adverb",
+          "meaningInSentence": "Emphasises earlier completion.",
+          "grammaticalRoleExplanation": "Sits neatly between 'had' and 'begun'."
+        },
+        {
+          "id": "c10s1-t10",
+          "text": "begun",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V3)",
+          "meaningInSentence": "Shows the first action was complete before arrival.",
+          "grammaticalRoleExplanation": "Past participle of begin (begin / began / begun).",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["c10s1-t8", "c10s1-t3"],
+          "verbMeta": {
+            "timeCommunicated": "Earlier Past (Before 'reached')",
+            "verbForm": "Past Perfect (had + V3)",
+            "whyAppropriate": "When two actions happen in the past, the earlier one takes Past Perfect ('had begun') and the later one takes Past Simple ('reached')."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "id": "c10s1-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["c10s1-t6", "c10s1-t7"],
+          "questionPrompt": "What had already started?",
+          "plainExplanation": "'the quiz' is the main clause Subject.",
+          "textbookRule": "Past Perfect is used for the earlier of two past actions (Odisha X Ch. 1 p. 6; PSEB IX p. 96; Assam p. 142).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch1", "src-pseb9-seq", "src-assam-ch9-c10"]
+        },
+        {
+          "id": "c10s1-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["c10s1-t1", "c10s1-t2", "c10s1-t3", "c10s1-t4", "c10s1-t5", "c10s1-t8", "c10s1-t9", "c10s1-t10"],
+          "questionPrompt": "Which action happened earlier?",
+          "plainExplanation": "'had already begun' happened before 'we reached the hall'.",
+          "textbookRule": "Earlier past = had + V3; later past = V2.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch1"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "c10s1-rel-1",
+          "type": "adverb-verb",
+          "label": "reached ↔ had begun",
+          "fromTokenIds": ["c10s1-t3"],
+          "toTokenIds": ["c10s1-t10"],
+          "explanation": "'had begun' occurred earlier in the past than 'reached'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "the quiz",
+        "subjectHeadWord": "quiz",
+        "predicateText": "had already begun (when we reached the hall)",
+        "predicateHeadWord": "had begun",
+        "patternNote": "Two past events → Earlier: Past Perfect ('had begun'), Later: Past Simple ('reached')."
+      }
+    },
+    {
+      "id": "m2c10-sent-duration",
+      "title": "Action Continuing Until Now",
+      "rawText": "Dr. Nair has taught physics here for twelve years.",
+      "contextTag": "Present Perfect / Duration",
+      "note": "Present Perfect ('has/have + V3') or Present Perfect Progressive covers duration up to now with 'for' or 'since'.",
+      "tokens": [
+        {
+          "id": "c10s2-t1",
+          "text": "Dr. Nair",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the physics teacher.",
+          "grammaticalRoleExplanation": "Singular Subject taking 'has'.",
+          "linkedTokenIds": ["c10s2-t2", "c10s2-t3"]
+        },
+        {
+          "id": "c10s2-t2",
+          "text": "has",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Present Auxiliary",
+          "meaningInSentence": "Anchors the period up to today.",
+          "grammaticalRoleExplanation": "Pairs with 'taught'."
+        },
+        {
+          "id": "c10s2-t3",
+          "text": "taught",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V3)",
+          "meaningInSentence": "Expresses teaching across twelve years until today.",
+          "grammaticalRoleExplanation": "Past participle of teach.",
+          "linkedTokenIds": ["c10s2-t6", "c10s2-t7", "c10s2-t8"],
+          "verbMeta": {
+            "timeCommunicated": "Past Starting Point Continuing to Present",
+            "verbForm": "Present Perfect (has + V3)",
+            "whyAppropriate": "'for twelve years' marks a duration continuing into the present—Past Simple ('taught') would imply he stopped, and Present Simple ('teaches') ignores the 12-year span."
+          }
+        },
+        {
+          "id": "c10s2-t4",
+          "text": "physics",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun (Object)",
+          "meaningInSentence": "Names the subject taught.",
+          "grammaticalRoleExplanation": "Object of 'has taught'."
+        },
+        {
+          "id": "c10s2-t5",
+          "text": "here",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Place Adverb",
+          "meaningInSentence": "At this school.",
+          "grammaticalRoleExplanation": "Modifies 'has taught'."
+        },
+        {
+          "id": "c10s2-t6",
+          "text": "for",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Duration Preposition",
+          "meaningInSentence": "Measures total length of time.",
+          "grammaticalRoleExplanation": "Use 'for' + length of time (twelve years); use 'since' + starting point (2014).",
+          "linkedTokenIds": ["c10s2-t3"]
+        },
+        {
+          "id": "c10s2-t7",
+          "text": "twelve",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Number Modifier",
+          "meaningInSentence": "Counts the years.",
+          "grammaticalRoleExplanation": "Modifies 'years'."
+        },
+        {
+          "id": "c10s2-t8",
+          "text": "years",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Duration Noun",
+          "meaningInSentence": "Completes the time span.",
+          "grammaticalRoleExplanation": "Object of 'for'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["c10s2-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "c10s2-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["c10s2-t1"],
+          "questionPrompt": "Who has taught here?",
+          "plainExplanation": "'Dr. Nair' is the Subject.",
+          "textbookRule": "Present Perfect / Present Perfect Progressive links a past start to the present via 'for' (period) or 'since' (point) (Odisha X pp. 4-5; Assam pp. 139-140).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch1", "src-assam-ch9-c10"]
+        },
+        {
+          "id": "c10s2-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["c10s2-t2", "c10s2-t3", "c10s2-t4", "c10s2-t5", "c10s2-t6", "c10s2-t7", "c10s2-t8"],
+          "questionPrompt": "How long has he taught here?",
+          "plainExplanation": "'has taught ... for twelve years' connects 12 years ago to today.",
+          "textbookRule": "Avoid 'is teaching here for twelve years'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch1", "src-assam-ch9-c10"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "c10s2-rel-1",
+          "type": "adverb-verb",
+          "label": "for twelve years → has taught",
+          "fromTokenIds": ["c10s2-t6"],
+          "toTokenIds": ["c10s2-t3"],
+          "explanation": "'for twelve years' calls for Present Perfect ('has taught') or Present Perfect Progressive ('has been teaching').",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Dr. Nair",
+        "subjectHeadWord": "Dr. Nair",
+        "predicateText": "has taught physics here for twelve years",
+        "predicateHeadWord": "has taught",
+        "patternNote": "Length of time continuing to now ('for twelve years') → Present Perfect."
+      }
+    },
+    {
+      "id": "m2c10-sent-sequence",
+      "title": "Sequence of Tenses Exception",
+      "rawText": "Our teacher explained that the earth moves round the sun.",
+      "contextTag": "Universal Truth in Reported Clause",
+      "note": "Although 'explained' is Past Simple, the reported fact stays Present Simple ('moves') because it is always true.",
+      "tokens": [
+        {
+          "id": "c10s3-t1",
+          "text": "Our",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to our teacher.",
+          "grammaticalRoleExplanation": "Modifies 'teacher'."
+        },
+        {
+          "id": "c10s3-t2",
+          "text": "teacher",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who explained.",
+          "grammaticalRoleExplanation": "Main Subject.",
+          "linkedTokenIds": ["c10s3-t3"]
+        },
+        {
+          "id": "c10s3-t3",
+          "text": "explained",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Reporting Verb",
+          "meaningInSentence": "Shows the explanation happened in the past.",
+          "grammaticalRoleExplanation": "Normally triggers past in subordinate clause—except for universal truths!",
+          "linkedTokenIds": ["c10s3-t7"]
+        },
+        {
+          "id": "c10s3-t4",
+          "text": "that",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Clause Connector",
+          "meaningInSentence": "Introduces what the teacher explained.",
+          "grammaticalRoleExplanation": "Subordinating conjunction."
+        },
+        {
+          "id": "c10s3-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies Earth.",
+          "grammaticalRoleExplanation": "Introduces 'earth'."
+        },
+        {
+          "id": "c10s3-t6",
+          "text": "earth",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Clause Subject",
+          "meaningInSentence": "Names our planet.",
+          "grammaticalRoleExplanation": "Singular subject of the 'that'-clause.",
+          "linkedTokenIds": ["c10s3-t7"]
+        },
+        {
+          "id": "c10s3-t7",
+          "text": "moves",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Present Simple (Universal Truth)",
+          "meaningInSentence": "Expresses a scientific fact true past, present, and future.",
+          "grammaticalRoleExplanation": "Universal truths keep Present Simple even after a past main verb.",
+          "linkedTokenIds": ["c10s3-t3", "c10s3-t6"],
+          "verbMeta": {
+            "timeCommunicated": "Timeless Universal Fact",
+            "verbForm": "Present Simple (Sequence Exception)",
+            "whyAppropriate": "Even though 'explained' is Past, scientific laws and universal truths keep Present Simple ('moves')."
+          }
+        },
+        {
+          "id": "c10s3-t8",
+          "text": "round",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows orbit path.",
+          "grammaticalRoleExplanation": "Links 'moves' and 'the sun'."
+        },
+        {
+          "id": "c10s3-t9",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the sun.",
+          "grammaticalRoleExplanation": "Introduces 'sun'."
+        },
+        {
+          "id": "c10s3-t10",
+          "text": "sun",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun",
+          "meaningInSentence": "Names the star at the centre.",
+          "grammaticalRoleExplanation": "Object of 'round'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "c10s3-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["c10s3-t1", "c10s3-t2"],
+          "questionPrompt": "Who explained?",
+          "plainExplanation": "'Our teacher' is the Subject.",
+          "textbookRule": "Under Sequence of Tenses, a universal truth or habitual fact stays in Present Simple even when the reporting verb is Past (PSEB IX p. 101).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-seq", "src-assam-ch9-c10"]
+        },
+        {
+          "id": "c10s3-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["c10s3-t3", "c10s3-t4", "c10s3-t5", "c10s3-t6", "c10s3-t7", "c10s3-t8", "c10s3-t9", "c10s3-t10"],
+          "questionPrompt": "Why does 'moves' stay in Present Simple?",
+          "plainExplanation": "Because Earth still orbits the sun—universal truths do not shift to Past.",
+          "textbookRule": "Say 'moves', not 'moved'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-seq"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "c10s3-rel-1",
+          "type": "verb-subject",
+          "label": "moves ← earth",
+          "fromTokenIds": ["c10s3-t7"],
+          "toTokenIds": ["c10s3-t6"],
+          "explanation": "'moves' keeps Present Simple for a timeless scientific truth.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Our teacher",
+        "subjectHeadWord": "teacher",
+        "predicateText": "explained that the earth moves round the sun",
+        "predicateHeadWord": "explained",
+        "patternNote": "Past reporting verb + Universal truth → Present Simple ('moves')."
+      }
+    },
+    {
+      "id": "m2c10-sent-future-ways",
+      "title": "Five Ways to Express Future Time",
+      "rawText": "By 5 p.m., the volunteers will have sorted all the books.",
+      "contextTag": "Completed Future Milestone",
+      "note": "Future Perfect ('will have + V3') shows an action completed BEFORE a set future deadline ('By 5 p.m.').",
+      "tokens": [
+        {
+          "id": "c10s4-t1",
+          "text": "By",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Deadline Preposition",
+          "meaningInSentence": "Sets a future cutoff point.",
+          "grammaticalRoleExplanation": "'By + future time' commonly cues Future Perfect.",
+          "linkedTokenIds": ["c10s4-t5", "c10s4-t7"]
+        },
+        {
+          "id": "c10s4-t2",
+          "text": "5 p.m.",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Future Deadline",
+          "meaningInSentence": "Marks the exact deadline ahead.",
+          "grammaticalRoleExplanation": "Completes 'By 5 p.m.'.",
+          "punctuationAfter": ",",
+          "linkedTokenIds": ["c10s4-t5", "c10s4-t7"]
+        },
+        {
+          "id": "c10s4-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the student helpers.",
+          "grammaticalRoleExplanation": "Introduces 'volunteers'."
+        },
+        {
+          "id": "c10s4-t4",
+          "text": "volunteers",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the students sorting books.",
+          "grammaticalRoleExplanation": "Subject head-noun."
+        },
+        {
+          "id": "c10s4-t5",
+          "text": "will",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Future Modal",
+          "meaningInSentence": "Looks ahead to 5 p.m.",
+          "grammaticalRoleExplanation": "Starts Future Perfect 'will have sorted'.",
+          "linkedTokenIds": ["c10s4-t6", "c10s4-t7"]
+        },
+        {
+          "id": "c10s4-t6",
+          "text": "have",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Perfect Auxiliary",
+          "meaningInSentence": "Marks completion by the deadline.",
+          "grammaticalRoleExplanation": "Pairs with past participle 'sorted'."
+        },
+        {
+          "id": "c10s4-t7",
+          "text": "sorted",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V3)",
+          "meaningInSentence": "Shows sorting will be finished by 5 p.m.",
+          "grammaticalRoleExplanation": "Head verb of Future Perfect.",
+          "linkedTokenIds": ["c10s4-t1", "c10s4-t2"],
+          "verbMeta": {
+            "timeCommunicated": "Completed Before Future Deadline",
+            "verbForm": "will have + V3 (Future Perfect)",
+            "whyAppropriate": "'By 5 p.m.' highlights that the work will be finished before that clock time."
+          }
+        },
+        {
+          "id": "c10s4-t8",
+          "text": "all",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Means every book.",
+          "grammaticalRoleExplanation": "Pre-determiner before 'the books'."
+        },
+        {
+          "id": "c10s4-t9",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the books.",
+          "grammaticalRoleExplanation": "Determiner."
+        },
+        {
+          "id": "c10s4-t10",
+          "text": "books",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun (Object)",
+          "meaningInSentence": "Names the items sorted.",
+          "grammaticalRoleExplanation": "Direct object.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "c10s4-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["c10s4-t3", "c10s4-t4"],
+          "questionPrompt": "Who will finish sorting?",
+          "plainExplanation": "'the volunteers' is the Subject.",
+          "textbookRule": "Odisha X Ch. 1 (pp. 8-12) teaches 5 ways of expressing future time, including 'will have + V3' for completion before a future deadline.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch1", "src-pseb9-seq"]
+        },
+        {
+          "id": "c10s4-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["c10s4-t1", "c10s4-t2", "c10s4-t5", "c10s4-t6", "c10s4-t7", "c10s4-t8", "c10s4-t9", "c10s4-t10"],
+          "questionPrompt": "What will be finished by 5 p.m.?",
+          "plainExplanation": "'will have sorted all the books' shows future completion.",
+          "textbookRule": "Future deadline ('By 5 p.m.') + completion → 'will have + V3'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch1"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "c10s4-rel-1",
+          "type": "adverb-verb",
+          "label": "By 5 p.m. → will have sorted",
+          "fromTokenIds": ["c10s4-t1"],
+          "toTokenIds": ["c10s4-t7"],
+          "explanation": "'By 5 p.m.' marks a deadline before which sorting finishes.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "the volunteers",
+        "subjectHeadWord": "volunteers",
+        "predicateText": "By 5 p.m., ... will have sorted all the books",
+        "predicateHeadWord": "will have sorted",
+        "patternNote": "Future deadline ('By + time') → 'will have + V3'."
+      }
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "c10-m2-step-1",
+      "stepNumber": 1,
+      "type": "show-sentence",
+      "visualMode": "timeline-shift",
+      "title": "Two Events in the Past",
+      "badgeLabel": "Stage 1 · Earlier Past",
+      "shortPrompt": "When two actions happen in the past, which happened first?",
+      "explanation": "Odisha Class X 'Tense Revisited' highlights 6 ways to express Past Time. When one past event ('the quiz began') finished BEFORE another past event ('we reached the hall'), use Past Perfect ('had begun') for the earlier event and Past Simple ('reached') for the later one.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m2c10-sent-past-perfect",
+      "focusTokenIds": ["c10s1-t3", "c10s1-t8", "c10s1-t10"],
+      "timelineData": {
+        "activePhase": "past",
+        "timeLabel": "Past Before Another Past",
+        "verbPhrase": "had already begun",
+        "verbFormLabel": "Past Perfect (had + V3)",
+        "aspectLabel": "Earlier Past",
+        "timeMarkerWords": ["When we reached", "already"],
+        "grammarNote": "Action 1 (quiz starts) → Action 2 (we arrive) → Now. Action 1 takes 'had + V3'; Action 2 takes Past Simple.",
+        "contrastExample": {
+          "incorrectText": "When we reached the hall, the quiz already began.",
+          "correctText": "When we reached the hall, the quiz had already begun.",
+          "reason": "Use 'had + V3' ('had begun') to make clear which past action occurred first."
+        }
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1", "src-pseb9-seq"]
+    },
+    {
+      "id": "c10-m2-step-2",
+      "stepNumber": 2,
+      "type": "explain-role",
+      "visualMode": "timeline-shift",
+      "title": "Past Simple vs Present Perfect",
+      "badgeLabel": "Stage 2 · Past vs Present Link",
+      "shortPrompt": "Finished yesterday ('V2') vs continuing up to now ('has/have + V3').",
+      "explanation": "Compare 'Dr. Nair taught here in 2014' (Past Simple: finished past point) with 'Dr. Nair has taught physics here for twelve years' (Present Perfect: started in the past and still true today!).",
+      "characterId": "mira",
+      "characterExpression": "curious",
+      "sentenceId": "m2c10-sent-duration",
+      "focusTokenIds": ["c10s2-t2", "c10s2-t3", "c10s2-t6", "c10s2-t8"],
+      "timelineData": {
+        "activePhase": "present",
+        "timeLabel": "Duration Up to Present",
+        "verbPhrase": "has taught",
+        "verbFormLabel": "Present Perfect (has + V3)",
+        "aspectLabel": "Past-to-Present Link",
+        "timeMarkerWords": ["for twelve years", "since 2014"],
+        "grammarNote": "'for' measures a period (twelve years); 'since' marks a starting point (2014). Never use Present Simple ('teaches') with 'for twelve years'."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1", "src-assam-ch9-c10"]
+    },
+    {
+      "id": "c10-m2-step-3",
+      "stepNumber": 3,
+      "type": "explain-meaning",
+      "visualMode": "timeline-shift",
+      "title": "'For' vs 'Since' & Present Perfect Continuous",
+      "badgeLabel": "Stage 3 · Unbroken Action",
+      "shortPrompt": "How do 'for' and 'since' choose between period and starting point?",
+      "explanation": "Both 'has taught ... for twelve years' and 'has been teaching ... since 2014' connect past to present. Remember: 'for' takes a count of time (two hours, twelve years), while 'since' takes a fixed starting point (morning, Monday, 2014).",
+      "characterId": "arjun",
+      "characterExpression": "happy",
+      "sentenceId": "m2c10-sent-duration",
+      "focusTokenIds": ["c10s2-t6", "c10s2-t7", "c10s2-t8"],
+      "timelineData": {
+        "activePhase": "present",
+        "timeLabel": "For (Period) vs Since (Start Point)",
+        "verbPhrase": "has taught / has been teaching",
+        "verbFormLabel": "has + V3 / has been + V-ing",
+        "aspectLabel": "Duration to Now",
+        "timeMarkerWords": ["for twelve years", "since 2014"],
+        "grammarNote": "Avoid the common error 'is teaching for twelve years'—duration continuing from past to now requires Perfect or Perfect Continuous.",
+        "contrastExample": {
+          "incorrectText": "Dr. Nair is teaching physics here for twelve years.",
+          "correctText": "Dr. Nair has taught physics here for twelve years.",
+          "reason": "Present Continuous ('is teaching') cannot span a 12-year duration back into the past."
+        }
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1", "src-assam-ch9-c10"]
+    },
+    {
+      "id": "c10-m2-step-4",
+      "stepNumber": 4,
+      "type": "compare-example",
+      "visualMode": "timeline-shift",
+      "title": "Sequence of Tenses & Universal Truths",
+      "badgeLabel": "Stage 4 · Sequence Rule",
+      "shortPrompt": "When does a past main verb NOT pull the next verb into the past?",
+      "explanation": "Usually, a past reporting verb ('explained', 'said') pulls the subordinate clause into past tense. HOWEVER, if the subordinate clause states a universal truth or scientific fact—like 'the earth moves round the sun'—it stays in Present Simple!",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m2c10-sent-sequence",
+      "focusTokenIds": ["c10s3-t3", "c10s3-t7"],
+      "timelineData": {
+        "activePhase": "present",
+        "timeLabel": "Timeless Fact Inside Past Report",
+        "verbPhrase": "moves",
+        "verbFormLabel": "Present Simple (Exception)",
+        "aspectLabel": "Sequence of Tenses",
+        "grammarNote": "Scientific truths and proverbs ('Honesty is the best policy') stay Present Simple even after 'said' or 'explained'.",
+        "contrastExample": {
+          "incorrectText": "Our teacher explained that the earth moved round the sun.",
+          "correctText": "Our teacher explained that the earth moves round the sun.",
+          "reason": "The orbit of the earth is permanently true, so Present Simple ('moves') is preserved."
+        }
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-seq", "src-assam-ch9-c10"]
+    },
+    {
+      "id": "c10-m2-step-5",
+      "stepNumber": 5,
+      "type": "highlight-group",
+      "visualMode": "timeline-shift",
+      "title": "Five Ways to Express Future Time",
+      "badgeLabel": "Stage 5 · Future Expressions",
+      "shortPrompt": "'will', 'going to', Present Progressive, Present Simple, and 'will have + V3'.",
+      "explanation": "Class 10 distinguishes shades of future meaning: (1) 'will + V1' for decisions/promises/predictions, (2) 'be going to' for prior intentions/clear signs, (3) Present Progressive for personal arrangements, (4) Present Simple for timetables, and (5) 'will have + V3' for completion by a future deadline.",
+      "characterId": "mira",
+      "characterExpression": "happy",
+      "sentenceId": "m2c10-sent-future-ways",
+      "focusTokenIds": ["c10s4-t1", "c10s4-t2", "c10s4-t5", "c10s4-t6", "c10s4-t7"],
+      "timelineData": {
+        "activePhase": "future",
+        "timeLabel": "Completed Before Future Cutoff",
+        "verbPhrase": "will have sorted",
+        "verbFormLabel": "will have + V3",
+        "aspectLabel": "Future Perfect",
+        "timeMarkerWords": ["By 5 p.m.", "by next Friday"],
+        "grammarNote": "'By 5 p.m.' signals that sorting finishes BEFORE 5 p.m., calling for 'will have + V3'.",
+        "boardModelNote": "Odisha Class X lists these as 5 Future Time expressions; Assam IX-X teaches 'will/shall + have + V3' as Future Perfect. (Note: no Class 10 PSEB book was supplied in sources.)"
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1", "src-assam-ch9-c10", "src-m2-c10-bridge"]
+    },
+    {
+      "id": "c10-m2-step-6",
+      "stepNumber": 6,
+      "type": "show-relationship",
+      "visualMode": "timeline-shift",
+      "title": "Choosing 'going to' vs 'will' vs Timetable",
+      "badgeLabel": "Stage 6 · Intention vs Schedule",
+      "shortPrompt": "Look at the clue: dark clouds ('going to'), timetable ('leaves'), or deadline ('will have').",
+      "explanation": "Don't automatically pick 'will' for every future sentence! Look for clues: dark monsoon clouds = evidence ('It is going to rain'); fixed railway schedule = Present Simple ('The Puri Express leaves at 8 a.m.'); 'by 5 p.m.' = 'will have sorted'.",
+      "characterId": "arjun",
+      "characterExpression": "explaining",
+      "sentenceId": "m2c10-sent-future-ways",
+      "comparisonSentenceId": "m2c10-sent-past-perfect",
+      "focusTokenIds": ["c10s4-t5", "c10s4-t6", "c10s4-t7"],
+      "timelineData": {
+        "activePhase": "future",
+        "timeLabel": "Matching Future Clue to Verb Form",
+        "verbPhrase": "will have sorted",
+        "verbFormLabel": "Future Deadline Match",
+        "aspectLabel": "Context Choice",
+        "timeMarkerWords": ["By 5 p.m."],
+        "grammarNote": "Always read the surrounding clue—evidence, timetable, or deadline—before choosing the future verb form."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1"]
+    },
+    {
+      "id": "c10-m2-step-7",
+      "stepNumber": 7,
+      "type": "reveal-structure",
+      "visualMode": "timeline-shift",
+      "title": "Checking Stative & Irregular Verb Forms",
+      "badgeLabel": "Stage 7 · Form Check",
+      "shortPrompt": "Watch out for V3 forms ('begun', 'written', 'eaten') and stative verbs.",
+      "explanation": "After 'had', 'has/have', or 'will have', always use the V3 past participle—'had begun' (never 'had began'), 'has written' (never 'has wrote'). And keep stative verbs ('belong', 'know', 'own') out of '-ing'.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m2c10-sent-past-perfect",
+      "focusTokenIds": ["c10s1-t8", "c10s1-t10"],
+      "timelineData": {
+        "activePhase": "past",
+        "timeLabel": "Irregular V3 Accuracy",
+        "verbPhrase": "had already begun",
+        "verbFormLabel": "had + begun (V3, not began)",
+        "aspectLabel": "Past Perfect",
+        "grammarNote": "Key V3 forms: begin → began → begun; write → wrote → written; eat → ate → eaten; leave → left → left.",
+        "contrastExample": {
+          "incorrectText": "The quiz had already began before we arrived.",
+          "correctText": "The quiz had already begun before we arrived.",
+          "reason": "After 'had', use the past participle V3 ('begun'), not V2 ('began')."
+        }
+      },
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od10-ch1", "src-assam-ch9-c10", "src-m2-c10-bridge"]
+    },
+    {
+      "id": "c10-m2-step-8",
+      "stepNumber": 8,
+      "type": "interact-explore",
+      "visualMode": "free-explore",
+      "allowFreeExplore": true,
+      "title": "Inspect Timeline Links Before Guided Lab",
+      "badgeLabel": "Stage 8 · Explore",
+      "shortPrompt": "Tap any word to inspect its role and verb-form note, then open Guided Practice.",
+      "explanation": "Tap 'reached', 'had', or 'begun' above to review how each word locks into the past timeline. Next, head to the Word Laboratory to practise Class 10 timeline repairs!",
+      "characterId": "gyan",
+      "characterExpression": "celebrating",
+      "sentenceId": "m2c10-sent-past-perfect",
+      "focusTokenIds": ["c10s1-t3", "c10s1-t8", "c10s1-t10"],
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-m2-c10-bridge"]
+    }
+  ],
+  "wordLabActivities": [
+    {
+      "id": "c10-m2-lab-a",
+      "kind": "identify-group",
+      "tabLabel": "A. Earlier Past",
+      "title": "A. Spot the Earlier Past Verb Phrase",
+      "instruction": "Tap the TWO words that form the Past Perfect verb showing which event happened FIRST.",
+      "targetRole": "predicate",
+      "correctTitle": "Earlier past verb spotted!",
+      "incorrectTitle": "Look for 'had + past participle'",
+      "hideRoleGroupsOnSuccess": true,
+      "sentence": {
+        "id": "c10-m2-lab-a-sent",
+        "title": "Lab Challenge A",
+        "rawText": "Before the monsoon arrived, farmers had repaired the canals.",
+        "contextTag": "Agriculture",
+        "tokens": [
+          { "id": "c10m2a-t1", "text": "Before", "category": "conjunction", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Conjunction", "meaningInSentence": "Time connector.", "grammaticalRoleExplanation": "Introduces later past event." },
+          { "id": "c10m2a-t2", "text": "the", "category": "determiner", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "Specifies monsoon.", "grammaticalRoleExplanation": "Determiner." },
+          { "id": "c10m2a-t3", "text": "monsoon", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "Rainy season.", "grammaticalRoleExplanation": "Clause subject." },
+          { "id": "c10m2a-t4", "text": "arrived", "category": "verb", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Past Simple", "meaningInSentence": "Later past action.", "grammaticalRoleExplanation": "V2.", "punctuationAfter": "," },
+          { "id": "c10m2a-t5", "text": "farmers", "category": "noun", "groupRole": "subject", "isHeadWord": true, "roleLabel": "Subject", "meaningInSentence": "Who repaired canals.", "grammaticalRoleExplanation": "Main Subject." },
+          { "id": "c10m2a-t6", "text": "had", "category": "verb", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Past Perfect Auxiliary", "meaningInSentence": "Marks earlier past.", "grammaticalRoleExplanation": "Helper for V3." },
+          { "id": "c10m2a-t7", "text": "repaired", "category": "verb", "groupRole": "predicate", "isHeadWord": true, "roleLabel": "Past Participle", "meaningInSentence": "Action completed first.", "grammaticalRoleExplanation": "V3." },
+          { "id": "c10m2a-t8", "text": "the", "category": "determiner", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "Specifies canals.", "grammaticalRoleExplanation": "Determiner." },
+          { "id": "c10m2a-t9", "text": "canals", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "Water channels.", "grammaticalRoleExplanation": "Object.", "punctuationAfter": "." }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "farmers",
+          "subjectHeadWord": "farmers",
+          "predicateText": "had repaired the canals",
+          "predicateHeadWord": "had repaired"
+        }
+      },
+      "correctTokenIds": ["c10m2a-t6", "c10m2a-t7"],
+      "correctFeedback": "Exact! 'had repaired' happened first, before 'the monsoon arrived'.",
+      "incorrectFeedback": "Tap only the two words of the earlier past verb phrase: 'had' and 'repaired'.",
+      "hint": "Which two-word verb tells what the farmers finished BEFORE the rains arrived?",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch1"]
+    },
+    {
+      "id": "c10-m2-lab-b",
+      "kind": "categorise",
+      "tabLabel": "B. Time Links",
+      "title": "B. Sort by Time Relationship",
+      "instruction": "Place each phrase into Earlier Past, Continuing to Now, or Future Milestone.",
+      "promptText": "1. Tap a phrase card, then tap the matching timeline role:",
+      "categories": [
+        { "id": "past", "label": "Earlier Past", "helperText": "had + V3", "tone": "past" },
+        { "id": "present", "label": "To Present", "helperText": "has/have + V3", "tone": "present" },
+        { "id": "future", "label": "Future Ahead", "helperText": "will have / going to", "tone": "future" }
+      ],
+      "items": [
+        { "id": "c10m2b-1", "text": "had already left before noon", "correctCategory": "past", "explanation": "'had left' precedes another past point." },
+        { "id": "c10m2b-2", "text": "has lived in Pune since 2019", "correctCategory": "present", "explanation": "'has lived ... since' connects 2019 to now." },
+        { "id": "c10m2b-3", "text": "will have finished by sunset", "correctCategory": "future", "explanation": "'will have finished by' marks a future deadline." },
+        { "id": "c10m2b-4", "text": "had never seen snow before 2022", "correctCategory": "past", "explanation": "'had never seen before 2022' is earlier past." },
+        { "id": "c10m2b-5", "text": "have practised chess for three years", "correctCategory": "present", "explanation": "'have practised for' spans up to now." },
+        { "id": "c10m2b-6", "text": "is going to rain soon", "correctCategory": "future", "explanation": "'is going to rain' predicts near future from signs." }
+      ],
+      "completeFeedback": "Clean sorting! You distinguished Past Perfect, Present Perfect, and Future forms effortlessly.",
+      "incorrectFeedback": "Check the auxiliary: 'had' = Earlier Past; 'has/have' = Continuing to Now; 'will have / is going to' = Future.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch1"]
+    },
+    {
+      "id": "c10-m2-lab-c",
+      "kind": "sentence-construction",
+      "tabLabel": "C. Build",
+      "title": "C. Assemble a Sequence-of-Tenses Sentence",
+      "instruction": "Arrange the tiles to show a past report of a universal scientific truth.",
+      "promptContext": "Keep the scientific truth in Present Simple!",
+      "tiles": [
+        { "id": "c10m2c-1", "text": "Galileo", "groupRole": "subject", "category": "noun" },
+        { "id": "c10m2c-2", "text": "proved", "groupRole": "predicate", "category": "verb" },
+        { "id": "c10m2c-3", "text": "that the earth", "groupRole": "predicate", "category": "noun" },
+        { "id": "c10m2c-4", "text": "revolves", "groupRole": "predicate", "category": "verb" },
+        { "id": "c10m2c-5", "text": "round the sun.", "groupRole": "predicate", "category": "preposition" }
+      ],
+      "correctOrderIds": ["c10m2c-1", "c10m2c-2", "c10m2c-3", "c10m2c-4", "c10m2c-5"],
+      "subjectText": "Galileo",
+      "predicateText": "proved that the earth revolves round the sun.",
+      "part1Label": "Main Subject",
+      "part2Label": "Past Verb + Timeless Fact",
+      "correctFeedback": "Exact! 'proved' is Past Simple, while 'revolves' stays Present Simple because it is an enduring scientific truth.",
+      "incorrectFeedback": "Begin with 'Galileo proved', then 'that the earth revolves round the sun.'",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-seq", "src-assam-ch9-c10"]
+    },
+    {
+      "id": "c10-m2-lab-d",
+      "kind": "word-replacement",
+      "tabLabel": "D. Future Shades",
+      "title": "D. Compare Future Time Expressions",
+      "instruction": "Tap at least two future forms to see how meaning shifts between prediction, fixed plan, and timetable.",
+      "beforeText": "The science exhibition",
+      "afterText": "at 9:00 a.m. tomorrow.",
+      "originalWord": "opens",
+      "slotGroupRole": "predicate",
+      "slotLabel": "Future Expression Slot:",
+      "options": [
+        {
+          "id": "c10m2d-1",
+          "word": "opens",
+          "category": "verb",
+          "meaningEffect": "Presents the opening as a fixed official timetable.",
+          "roleImpactNote": "Present Simple for scheduled future.",
+          "isGrammatical": true
+        },
+        {
+          "id": "c10m2d-2",
+          "word": "is going to open",
+          "category": "verb",
+          "meaningEffect": "Highlights a pre-planned intention.",
+          "roleImpactNote": "be going to + base verb.",
+          "isGrammatical": true
+        },
+        {
+          "id": "c10m2d-3",
+          "word": "will open",
+          "category": "verb",
+          "meaningEffect": "States a direct future announcement.",
+          "roleImpactNote": "Modal 'will' + base verb.",
+          "isGrammatical": true
+        }
+      ],
+      "takeaway": "English expresses future time in multiple accurate ways depending on whether you mean a timetable, plan, or announcement.",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1"]
+    },
+    {
+      "id": "c10-m2-lab-e",
+      "kind": "missing-words",
+      "tabLabel": "E. Complete",
+      "title": "E. Choose Between Past Simple & Present Perfect",
+      "instruction": "Select the verb form that fits the time phrase 'since last Monday'.",
+      "sentenceBeforeBlank": "Our school library",
+      "sentenceAfterBlank": "over two hundred science books since last Monday.",
+      "missingRole": "predicate",
+      "incorrectTitle": "Check the 'since' time connection",
+      "options": [
+        {
+          "id": "c10m2e-1",
+          "text": "catalogued",
+          "isCorrect": false,
+          "feedback": "Past Simple ('catalogued') cuts the event off in the past and does not pair naturally with 'since last Monday'."
+        },
+        {
+          "id": "c10m2e-2",
+          "text": "has catalogued",
+          "isCorrect": true,
+          "feedback": "Exact! 'since last Monday' connects that starting day right up to now, calling for Present Perfect ('has catalogued')."
+        },
+        {
+          "id": "c10m2e-3",
+          "text": "will catalogued",
+          "isCorrect": false,
+          "feedback": "Never combine 'will' with a past '-ed' form, and 'since last Monday' runs from the past up to now."
+        }
+      ],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1", "src-assam-ch9-c10"]
+    },
+    {
+      "id": "c10-m2-lab-f",
+      "kind": "error-identification",
+      "tabLabel": "F. Fix Error",
+      "title": "F. Repair the Archive Tense Clash",
+      "instruction": "Inspect this flawed archive entry and select the accurate diagnosis.",
+      "draftBadgeLabel": "Flawed Archive Entry",
+      "brokenSentence": "When we reached the station, the train already left ten minutes ago.",
+      "repairedSentence": "When we reached the station, the train had already left.",
+      "question": "Why must 'already left' become 'had already left' here?",
+      "options": [
+        {
+          "id": "c10m2f-1",
+          "label": "The train leaving happened earlier than our past arrival ('reached'), requiring Past Perfect ('had left').",
+          "isCorrect": true,
+          "feedback": "Spot on! Earlier of two past events uses Past Perfect ('had left'), not Past Simple."
+        },
+        {
+          "id": "c10m2f-2",
+          "label": "It should be 'is leaving' because trains follow a daily timetable.",
+          "isCorrect": false,
+          "feedback": "Look at 'reached': this reports a specific past incident, not a general timetable."
+        },
+        {
+          "id": "c10m2f-3",
+          "label": "It should be 'has left' to connect with our past arrival.",
+          "isCorrect": false,
+          "feedback": "To step further back from a Past Simple anchor ('reached'), use Past Perfect ('had left'), not Present Perfect."
+        }
+      ],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1", "src-pseb9-seq"]
+    }
+  ],
+  "independentPractice": [
+    {
+      "id": "c10-m2-ind-1",
+      "mode": "token-and-choice",
+      "cueLevel": "gentle",
+      "cueText": "Tap the time clue showing which deadline comes first, then select the matching verb.",
+      "title": "Challenge 1: Future Deadline Mastery",
+      "instruction": "Identify the deadline clue, then choose the accurate future verb form.",
+      "targetPrompt": "Step 1: Tap the two words setting the future deadline",
+      "targetTokenIds": ["c10m2i1-t1", "c10m2i1-t2"],
+      "sentence": {
+        "id": "c10-m2-ind1-sent",
+        "title": "Independent Check 1",
+        "rawText": "By 2030, Indian scientists [?] solar sensors across every campus.",
+        "contextTag": "ISRO & Solar Science",
+        "tokens": [
+          { "id": "c10m2i1-t1", "text": "By", "category": "preposition", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Preposition", "meaningInSentence": "Sets deadline.", "grammaticalRoleExplanation": "Deadline clue." },
+          { "id": "c10m2i1-t2", "text": "2030", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Future Year", "meaningInSentence": "Target year.", "grammaticalRoleExplanation": "Deadline year.", "punctuationAfter": "," },
+          { "id": "c10m2i1-t3", "text": "Indian", "category": "adjective", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Adjective", "meaningInSentence": "Describes scientists.", "grammaticalRoleExplanation": "Modifier." },
+          { "id": "c10m2i1-t4", "text": "scientists", "category": "noun", "groupRole": "subject", "isHeadWord": true, "roleLabel": "Subject", "meaningInSentence": "Researchers.", "grammaticalRoleExplanation": "Subject." },
+          { "id": "c10m2i1-t5", "text": "[?]", "category": "verb", "groupRole": "predicate", "isHeadWord": true, "roleLabel": "Verb Slot", "meaningInSentence": "Future completion.", "grammaticalRoleExplanation": "Verb." },
+          { "id": "c10m2i1-t6", "text": "solar", "category": "adjective", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Adjective", "meaningInSentence": "Relating to the sun.", "grammaticalRoleExplanation": "Modifier." },
+          { "id": "c10m2i1-t7", "text": "sensors", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "Instruments.", "grammaticalRoleExplanation": "Object." },
+          { "id": "c10m2i1-t8", "text": "across", "category": "preposition", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Preposition", "meaningInSentence": "Location.", "grammaticalRoleExplanation": "Preposition." },
+          { "id": "c10m2i1-t9", "text": "every", "category": "determiner", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "Each.", "grammaticalRoleExplanation": "Determiner." },
+          { "id": "c10m2i1-t10", "text": "campus", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "School grounds.", "grammaticalRoleExplanation": "Object.", "punctuationAfter": "." }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Indian scientists",
+          "subjectHeadWord": "scientists",
+          "predicateText": "will have installed solar sensors across every campus",
+          "predicateHeadWord": "will have installed"
+        }
+      },
+      "subjectTokenIds": ["c10m2i1-t3", "c10m2i1-t4"],
+      "predicateTokenIds": ["c10m2i1-t1", "c10m2i1-t2", "c10m2i1-t5", "c10m2i1-t6", "c10m2i1-t7", "c10m2i1-t8", "c10m2i1-t9", "c10m2i1-t10"],
+      "imperativeQuestion": "Step 2: Which verb form expresses completion before 2030?",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "have installed", "isCorrect": false, "feedback": "'have installed' is Present Perfect (up to now), whereas 2030 lies in the future." },
+        { "id": "opt-b", "label": "will have installed", "isCorrect": true, "feedback": "Exact! 'By + future year' pairs with 'will have + V3' to show completion by that deadline." },
+        { "id": "opt-c", "label": "installed", "isCorrect": false, "feedback": "'installed' puts the event in the past, not by 2030." }
+      ],
+      "successFeedback": "Clean match between 'By 2030' and 'will have installed'.",
+      "retrySubjectFeedback": "Tap 'By' and '2030' at the start of the sentence.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch1"]
+    },
+    {
+      "id": "c10-m2-ind-2",
+      "mode": "choice-diagnose",
+      "cueLevel": "minimal",
+      "cueText": "Notice the dark monsoon clouds—present evidence points to what is about to happen.",
+      "title": "Challenge 2: Evidence-Based Future Prediction",
+      "instruction": "Pick the most natural future-time expression.",
+      "sentence": {
+        "id": "c10-m2-ind2-sent",
+        "title": "Independent Check 2",
+        "rawText": "Look at those dark monsoon clouds! It _____ soon.",
+        "contextTag": "Weather Observation",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "It",
+          "subjectHeadWord": "It",
+          "predicateText": "is going to rain soon",
+          "predicateHeadWord": "is going to rain"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Which form best fits visible present evidence?",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "is going to rain", "isCorrect": true, "feedback": "Spot on! Odisha Class X teaches 'be going to + V1' for predictions backed by visible present evidence (dark clouds)." },
+        { "id": "opt-b", "label": "rained", "isCorrect": false,
+          "feedback": "'rained' is Past Simple, whereas 'soon' points to the near future." },
+        { "id": "opt-c", "label": "has rained", "isCorrect": false, "feedback": "'has rained' describes already-fallen rain, not clouds about to pour soon." }
+      ],
+      "successFeedback": "'is going to rain' captures prediction from present evidence.",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch1"]
+    },
+    {
+      "id": "c10-m2-ind-3",
+      "mode": "choice-diagnose",
+      "cueLevel": "none",
+      "title": "Challenge 3: Unfamiliar Sentence Audit",
+      "instruction": "Evaluate which sentence obeys both Earlier Past and Irregular V3 rules.",
+      "sentence": {
+        "id": "c10-m2-ind3-sent",
+        "title": "Independent Check 3",
+        "rawText": "Select the completely accurate sentence:",
+        "contextTag": "Archive Final Check",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "The speaker",
+          "subjectHeadWord": "speaker",
+          "predicateText": "reminded us that honesty brings lasting respect",
+          "predicateHeadWord": "reminded"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Which option is completely grammatical?",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "By the time Arjun arrived, Mira had already wrote the notice.", "isCorrect": false, "feedback": "After 'had', use V3 ('written'), not V2 ('wrote')." },
+        { "id": "opt-b", "label": "The speaker reminded us that honesty brings lasting respect.", "isCorrect": true, "feedback": "Accurate! 'reminded' is Past Simple, while the timeless moral truth stays in Present Simple ('brings')." },
+        { "id": "opt-c", "label": "Our science club is having twenty microscopes since 2020.", "isCorrect": false, "feedback": "Possession ('have') + 'since 2020' requires 'has had', not 'is having'." }
+      ],
+      "successFeedback": "Outstanding Class 10 timeline accuracy!",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch1", "src-pseb9-seq", "src-assam-ch9-c10"]
+    }
+  ],
+  "completionSummary": {
+    "sceneVariant": "records-timeline",
+    "headline": "Archive Timeline Verified! Mission 2 Complete!",
+    "celebrationMessage": "You helped Mira, Arjun, and Gyan restore every Class 10 archive record across Past, Present, and Future!",
+    "learnedPoints": [
+      "Earlier of two past actions takes Past Perfect ('had + V3'); duration continuing to now with 'for/since' takes Present Perfect / Perfect Continuous.",
+      "Under Sequence of Tenses, universal truths and scientific laws remain in Present Simple even after a past reporting verb.",
+      "English expresses future time using 'will', 'be going to' (evidence/intent), Present Progressive (plans), Present Simple (timetables), and 'will have + V3' (deadlines)."
+    ],
+    "restoredSectionLabel": "Verified School Archive Timeline",
+    "repairedMessages": [
+      "When we reached the hall, the quiz had already begun.",
+      "Dr. Nair has taught physics here for twelve years.",
+      "Our teacher explained that the earth moves round the sun.",
+      "By 5 p.m., the volunteers will have sorted all the books."
+    ],
+    "rewardLabel": "Time Master Badge Earned"
+  }
+}

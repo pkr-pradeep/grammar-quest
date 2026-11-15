@@ -11,21 +11,34 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { Columns2, Layers, MessageSquare, RotateCcw, Sparkles } from 'lucide-react';
+import {
+  AlertTriangle,
+  BookOpen,
+  CheckCircle2,
+  Clock,
+  Layers,
+  Link2,
+  ListTree,
+  MessageSquare,
+  RotateCcw,
+  ShieldCheck,
+} from 'lucide-react';
 import type {
+  AgreementLockVisualData,
   GuidedExploreChallenge,
   RelationshipType,
   SentenceDefinition,
   SentenceToken,
   StepVisualCallout,
   StepVisualMode,
+  TimelinePhase,
+  TimelineVisualData,
   WordGroupRole,
   WordRelationship,
 } from '../../../schemas/grammarEngine.schema';
 import { Button } from '../../../components';
 import { WordToken } from './WordToken';
 import { WordGroup } from './WordGroup';
-import { GrammarHighlight } from './GrammarHighlight';
 import { PracticeFeedback } from './PracticeFeedback';
 import { WordInspectorPopup } from './WordInspectorPopup';
 import {
@@ -44,6 +57,9 @@ export interface SentenceVisualizerProps {
   visualMode?: StepVisualMode;
   visualCallout?: StepVisualCallout;
   guidedChallenge?: GuidedExploreChallenge;
+  timelineData?: TimelineVisualData;
+  agreementData?: AgreementLockVisualData;
+  dimmedTokenIds?: string[];
   sentence: SentenceDefinition;
   comparisonSentence?: SentenceDefinition | null;
   allowedRelationshipTypes?: RelationshipType[];
@@ -68,13 +84,10 @@ export interface SentenceVisualizerProps {
 
 const EMPTY_STRING_LIST: string[] = [];
 
-const WORD_LAB_PREVIEW_PILLS = [
-  'A. Identify Subject & Predicate',
-  'B. Sort Cards',
-  'C. Build Sentence',
-  'D. Swap Word',
-  'E. Complete Notice',
-  'F. Fix Fragment',
+const TIMELINE_PHASES: { id: TimelinePhase; label: string; sub: string }[] = [
+  { id: 'past', label: 'Past', sub: 'Before now' },
+  { id: 'present', label: 'Present', sub: 'Now / Habit' },
+  { id: 'future', label: 'Future', sub: 'After now' },
 ];
 
 function sameTokenIds(a: string[], b: string[]): boolean {
@@ -88,6 +101,9 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
   visualMode = 'plain-sentence',
   visualCallout,
   guidedChallenge,
+  timelineData,
+  agreementData,
+  dimmedTokenIds = EMPTY_STRING_LIST,
   sentence,
   comparisonSentence = null,
   allowedRelationshipTypes,
@@ -99,7 +115,6 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
   showStructureSplit,
   showCompare,
   showRelationships = true,
-  allowFreeExplore = false,
   isPaused = false,
   animationSeed = 0,
   onSelectToken,
@@ -120,12 +135,18 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
     status: 'correct' | 'try-again';
     text: string;
   } | null>(null);
+  const [linksExpanded, setLinksExpanded] = useState(false);
+  const [showBoardModelNote, setShowBoardModelNote] = useState(false);
+  const [showContrastCard, setShowContrastCard] = useState(false);
 
   useEffect(() => {
     setGuidedPhase('subject');
     setGuidedSubjIds([]);
     setGuidedPredIds([]);
     setGuidedFeedback(null);
+    setLinksExpanded(false);
+    setShowBoardModelNote(false);
+    setShowContrastCard(false);
   }, [stepId, sentence.id]);
 
   const activeGroup = highlightedGroupRole
@@ -156,18 +177,14 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
 
   const showArcPadding = activeRelIds.length > 0;
   const isHeadwordSpotlight = visualMode === 'headword-spotlight';
-  const showGroupBracket =
-    visualMode === 'group-bracket' || visualMode === 'meaning-callout';
-  const bracketRole: WordGroupRole | null = showGroupBracket
-    ? highlightedGroupRole ?? visualCallout?.targetGroupRole ?? 'subject'
-    : null;
 
   const selectedTokenIdInPrimary =
     selectedTokenInfo?.sentenceId === sentence.id ? selectedTokenInfo.token.id : null;
-  const selectedTokenIdInCompare =
-    comparisonSentence && selectedTokenInfo?.sentenceId === comparisonSentence.id
-      ? selectedTokenInfo.token.id
-      : null;
+  const linkedTokenIdSet = new Set(
+    selectedTokenInfo?.sentenceId === sentence.id
+      ? (selectedTokenInfo.token.linkedTokenIds ?? [])
+      : [],
+  );
 
   const isGuidedLocked =
     visualMode === 'guided-explore' && Boolean(guidedChallenge) && guidedPhase !== 'unlocked';
@@ -224,113 +241,245 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
     }
   };
 
+  const availableRelationships = sentence.relationships.filter(
+    (r) => r.activeInLesson && (!allowedRelationshipTypes || allowedRelationshipTypes.includes(r.type)),
+  );
+
+  // Build compact Result Card data strictly from existing step, concept-chip, and sentence data
+  const resultCardConfig = (() => {
+    if (activeRelationship) {
+      const linkedFrom = new Set(activeRelationship.fromTokenIds);
+      const linkedTo = new Set(activeRelationship.toTokenIds);
+      return {
+        conceptLabel: `WORD LINK · ${activeRelationship.label}`,
+        targetSentence: sentence,
+        sentenceLabel: sentence.title,
+        explanation: activeRelationship.explanation,
+        highlightMode: 'relationship' as const,
+        linkedFrom,
+        linkedTo,
+        modifierIds: EMPTY_STRING_LIST,
+      };
+    }
+
+    if (showCompare && comparisonSentence) {
+      const prepRel = comparisonSentence.relationships.find(
+        (r) => r.type === 'preposition-relation',
+      );
+      return {
+        conceptLabel: 'COMPARE',
+        targetSentence: comparisonSentence,
+        sentenceLabel: `Compare · ${comparisonSentence.contextTag}`,
+        explanation:
+          comparisonSentence.note ??
+          `${comparisonSentence.structureSummary.subjectText} (Subject) + ${comparisonSentence.structureSummary.predicateText} (Predicate).`,
+        highlightMode: 'both' as const,
+        linkedFrom: new Set<string>(),
+        linkedTo: new Set<string>(),
+        modifierIds: prepRel?.fromTokenIds ?? EMPTY_STRING_LIST,
+      };
+    }
+
+    if (showStructureSplit) {
+      return {
+        conceptLabel: 'STRUCTURE',
+        targetSentence: sentence,
+        sentenceLabel: sentence.title,
+        explanation:
+          sentence.structureSummary.patternNote ??
+          `'${sentence.structureSummary.subjectText}' (Subject) + '${sentence.structureSummary.predicateText}' (Predicate).`,
+        highlightMode: 'both' as const,
+        linkedFrom: new Set<string>(),
+        linkedTo: new Set<string>(),
+        modifierIds: EMPTY_STRING_LIST,
+      };
+    }
+
+    if (highlightedGroupRole === 'subject') {
+      return {
+        conceptLabel: 'SUBJECT',
+        targetSentence: sentence,
+        sentenceLabel: sentence.title,
+        explanation:
+          visualMode === 'meaning-callout' && visualCallout?.targetGroupRole === 'subject'
+            ? visualCallout.detail
+            : subjectGroup?.plainExplanation ??
+              `'${sentence.structureSummary.subjectText}' names who or what the sentence is about.`,
+        highlightMode: 'subject' as const,
+        linkedFrom: new Set<string>(),
+        linkedTo: new Set<string>(),
+        modifierIds: EMPTY_STRING_LIST,
+      };
+    }
+
+    if (highlightedGroupRole === 'predicate') {
+      return {
+        conceptLabel: 'PREDICATE',
+        targetSentence: sentence,
+        sentenceLabel: sentence.title,
+        explanation:
+          visualMode === 'meaning-callout' && visualCallout?.targetGroupRole === 'predicate'
+            ? visualCallout.detail
+            : predicateGroup?.plainExplanation ??
+              `'${sentence.structureSummary.predicateText}' tells what is said about the Subject.`,
+        highlightMode: 'predicate' as const,
+        linkedFrom: new Set<string>(),
+        linkedTo: new Set<string>(),
+        modifierIds: EMPTY_STRING_LIST,
+      };
+    }
+
+    if (timelineData) {
+      return {
+        conceptLabel: `TIME & VERB FORM · ${timelineData.timeLabel.toUpperCase()}`,
+        targetSentence: sentence,
+        sentenceLabel: sentence.title,
+        explanation: timelineData.grammarNote,
+        highlightMode: 'none' as const,
+        linkedFrom: new Set<string>(),
+        linkedTo: new Set<string>(),
+        modifierIds: EMPTY_STRING_LIST,
+      };
+    }
+
+    if (agreementData) {
+      return {
+        conceptLabel: 'SUBJECT–VERB LOCK',
+        targetSentence: sentence,
+        sentenceLabel: sentence.title,
+        explanation: agreementData.ruleSummary,
+        highlightMode: 'none' as const,
+        linkedFrom: new Set<string>(),
+        linkedTo: new Set<string>(),
+        modifierIds: EMPTY_STRING_LIST,
+      };
+    }
+
+    return {
+      conceptLabel: 'COMPLETE SENTENCE',
+      targetSentence: sentence,
+      sentenceLabel: sentence.title,
+      explanation:
+        visualCallout?.detail ??
+        sentence.note ??
+        'Tap any word above, or select Subject, Predicate, or Structure.',
+      highlightMode: 'none' as const,
+      linkedFrom: new Set<string>(),
+      linkedTo: new Set<string>(),
+      modifierIds: EMPTY_STRING_LIST,
+    };
+  })();
+
+  const modifierIdSet = new Set(resultCardConfig.modifierIds);
+
   return (
     <div className="space-y-2.5 sm:space-y-3">
-      {/* Zone C: Interactive Sentence Workspace */}
+      {/* Zone C: Interactive Starter Sentence Workspace */}
       <section
         aria-label="Interactive sentence workspace"
-        className="rounded-[16px] bg-white border border-[#E5E2D9] p-3 sm:p-4 space-y-3"
+        className="rounded-[18px] bg-white border border-[#E5E2D9] p-3.5 sm:p-4 space-y-3 shadow-[var(--gq-shadow-card)]"
       >
-        {/* Top Row: Title + Compact Quick Controls */}
+        {/* Header Title */}
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-[#263A70]">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-[15px] sm:text-base font-bold text-[#1B2559]">
               {sentence.title}
             </span>
-            <span className="text-[11px] text-[#4B5C8A]">
+            <span className="text-xs text-[#4B5C8A]">
               {isGuidedLocked ? '· Guided challenge' : '· Tap any word'}
             </span>
           </div>
 
-          {!isGuidedLocked ? (
-            <div className="flex flex-wrap items-center gap-1.5">
-              <button
-                type="button"
-                onClick={() =>
-                  onSelectGroup(highlightedGroupRole === 'subject' ? null : 'subject')
-                }
-                aria-pressed={highlightedGroupRole === 'subject'}
-                className={[
-                  'inline-flex items-center gap-1 min-h-[34px] px-2.5 py-1 rounded-[10px] border text-xs font-medium transition-colors cursor-pointer whitespace-nowrap',
-                  highlightedGroupRole === 'subject'
-                    ? 'bg-[#FFC64B] border-[#EAB030] text-[#263A70]'
-                    : 'bg-[#FDFCF9] border-[#CFC9BA] text-[#263A70] hover:bg-[#FFF4D6]',
-                ].join(' ')}
-              >
-                <Layers className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-                <span>Subject</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() =>
-                  onSelectGroup(highlightedGroupRole === 'predicate' ? null : 'predicate')
-                }
-                aria-pressed={highlightedGroupRole === 'predicate'}
-                className={[
-                  'inline-flex items-center gap-1 min-h-[34px] px-2.5 py-1 rounded-[10px] border text-xs font-medium transition-colors cursor-pointer whitespace-nowrap',
-                  highlightedGroupRole === 'predicate'
-                    ? 'bg-[#8DECE0] border-[#65D8CA] text-[#263A70]'
-                    : 'bg-[#FDFCF9] border-[#CFC9BA] text-[#263A70] hover:bg-[#D9FAF5]',
-                ].join(' ')}
-              >
-                <MessageSquare className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-                <span>Predicate</span>
-              </button>
-
-              {(allowFreeExplore || showStructureSplit) ? (
-                <button
-                  type="button"
-                  onClick={onToggleStructureSplit}
-                  aria-pressed={showStructureSplit}
-                  className={[
-                    'inline-flex items-center gap-1 min-h-[34px] px-2.5 py-1 rounded-[10px] border text-xs font-medium transition-colors cursor-pointer whitespace-nowrap',
-                    showStructureSplit
-                      ? 'bg-[#263A70] border-[#263A70] text-white'
-                      : 'bg-[#FDFCF9] border-[#CFC9BA] text-[#263A70] hover:bg-[#F5F2EA]',
-                  ].join(' ')}
-                >
-                  <span>Structure</span>
-                </button>
-              ) : null}
-
-              {comparisonSentence && onToggleCompare ? (
-                <button
-                  type="button"
-                  onClick={onToggleCompare}
-                  aria-pressed={showCompare}
-                  className={[
-                    'inline-flex items-center gap-1 min-h-[34px] px-2.5 py-1 rounded-[10px] border text-xs font-medium transition-colors cursor-pointer whitespace-nowrap',
-                    showCompare
-                      ? 'bg-[#FFF1D5] border-[#F59B19] text-[#263A70]'
-                      : 'bg-[#FDFCF9] border-[#CFC9BA] text-[#263A70] hover:bg-[#FFF9EC]',
-                  ].join(' ')}
-                >
-                  <Columns2 className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-                  <span>Compare</span>
-                </button>
-              ) : null}
-
-              {(selectedTokenInfo || highlightedGroupRole || selectedRelationshipId) ? (
-                <button
-                  type="button"
-                  onClick={() => {
-                    onCloseTokenPopup();
-                    onSelectGroup(null);
-                    onSelectRelationship(null);
-                  }}
-                  aria-label="Reset selection"
-                  className="inline-flex items-center gap-1 min-h-[34px] px-2 py-1 rounded-[10px] text-xs font-medium text-[#4B5C8A] hover:text-[#263A70] cursor-pointer whitespace-nowrap"
-                >
-                  <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
-                  <span className="hidden sm:inline">Reset</span>
-                </button>
-              ) : null}
-            </div>
+          {!isGuidedLocked &&
+          (selectedTokenInfo || highlightedGroupRole || selectedRelationshipId) ? (
+            <button
+              type="button"
+              onClick={() => {
+                onCloseTokenPopup();
+                onSelectGroup(null);
+                onSelectRelationship(null);
+              }}
+              aria-label="Reset selection"
+              className="inline-flex items-center gap-1 min-h-[32px] px-2 py-1 rounded-[9px] text-xs font-medium text-[#4B5C8A] hover:text-[#1B2559] cursor-pointer whitespace-nowrap"
+            >
+              <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Reset</span>
+            </button>
           ) : null}
         </div>
 
-        {/* Guided Explore Prompt Banner (before explanation is unlocked) */}
+        {/* Concept Chips (2x2 clean grid on mobile, inline wrap on larger screens) */}
+        {!isGuidedLocked ? (
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() =>
+                onSelectGroup(highlightedGroupRole === 'subject' ? null : 'subject')
+              }
+              aria-pressed={highlightedGroupRole === 'subject'}
+              className={[
+                'inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-1.5 rounded-[12px] border text-xs sm:text-[13px] font-semibold transition-colors cursor-pointer whitespace-nowrap',
+                highlightedGroupRole === 'subject'
+                  ? 'bg-[#FFC64B] border-[#EAB030] text-[#1B2559]'
+                  : 'bg-[#FDFCF9] border-[#CFC9BA] text-[#1B2559] hover:bg-[#FFF4D6]',
+              ].join(' ')}
+            >
+              <Layers className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              <span>Subject</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() =>
+                onSelectGroup(highlightedGroupRole === 'predicate' ? null : 'predicate')
+              }
+              aria-pressed={highlightedGroupRole === 'predicate'}
+              className={[
+                'inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-1.5 rounded-[12px] border text-xs sm:text-[13px] font-semibold transition-colors cursor-pointer whitespace-nowrap',
+                highlightedGroupRole === 'predicate'
+                  ? 'bg-[#8DECE0] border-[#65D8CA] text-[#1B2559]'
+                  : 'bg-[#FDFCF9] border-[#CFC9BA] text-[#1B2559] hover:bg-[#D9FAF5]',
+              ].join(' ')}
+            >
+              <MessageSquare className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              <span>Predicate</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={onToggleStructureSplit}
+              aria-pressed={showStructureSplit}
+              className={[
+                'inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-1.5 rounded-[12px] border text-xs sm:text-[13px] font-semibold transition-colors cursor-pointer whitespace-nowrap',
+                showStructureSplit
+                  ? 'bg-[#1B2559] border-[#1B2559] text-white'
+                  : 'bg-[#FDFCF9] border-[#CFC9BA] text-[#1B2559] hover:bg-[#F5F2EA]',
+              ].join(' ')}
+            >
+              <ListTree className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              <span>Structure</span>
+            </button>
+
+            {comparisonSentence && onToggleCompare ? (
+              <button
+                type="button"
+                onClick={onToggleCompare}
+                aria-pressed={showCompare}
+                className={[
+                  'inline-flex items-center justify-center gap-1.5 min-h-[40px] px-3 py-1.5 rounded-[12px] border text-xs sm:text-[13px] font-semibold transition-colors cursor-pointer whitespace-nowrap',
+                  showCompare
+                    ? 'bg-[#1B2559] border-[#1B2559] text-white'
+                    : 'bg-[#FDFCF9] border-[#CFC9BA] text-[#1B2559] hover:bg-[#F5F2EA]',
+                ].join(' ')}
+              >
+                <BookOpen className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                <span>Compare</span>
+              </button>
+            ) : null}
+          </div>
+        ) : null}
+
+        {/* Guided Explore Prompt Banner (Step 6 before unlocking) */}
         {isGuidedLocked && guidedChallenge ? (
           <div
             className={[
@@ -358,7 +507,7 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
           ref={stageRef}
           className={[
             'relative pb-1',
-            showArcPadding && !isGuidedLocked ? 'pt-9' : 'pt-1.5',
+            showArcPadding && !isGuidedLocked ? 'pt-9' : 'pt-1',
           ].join(' ')}
         >
           <div
@@ -378,13 +527,26 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
                     : guidedPhase === 'unlocked'
                       ? token.groupRole
                       : null
-                  : highlightedGroupRole;
+                  : showStructureSplit
+                    ? token.groupRole
+                    : highlightedGroupRole;
 
               const isStepFocus = !isGuidedLocked && focusTokenIds.includes(token.id);
+              const isLinkedToSelected = !isGuidedLocked && linkedTokenIdSet.has(token.id);
               const isFocused =
-                !isGuidedLocked && (isStepFocus || highlightedByRelationship.has(token.id));
+                !isGuidedLocked &&
+                (isStepFocus ||
+                  highlightedByRelationship.has(token.id) ||
+                  isLinkedToSelected);
               const isSpotlight = isHeadwordSpotlight && isStepFocus;
-              const isDimmed = isHeadwordSpotlight && !isStepFocus && !isSelected;
+              const isDimmed =
+                (isHeadwordSpotlight && !isStepFocus && !isSelected) ||
+                (!isGuidedLocked &&
+                  !isStepFocus &&
+                  !isSelected &&
+                  !isLinkedToSelected &&
+                  (dimmedTokenIds.includes(token.id) ||
+                    (visualMode === 'agreement-lock' && Boolean(token.isInterveningModifier))));
 
               return (
                 <WordToken
@@ -498,9 +660,7 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
           </div>
         ) : null}
 
-        {/* Distinct Step Visual Cues */}
-
-        {/* Visual Mode: split-blueprint (Step 2) */}
+        {/* Visual Mode: split-blueprint (kept compact inside Starter card when active) */}
         {visualMode === 'split-blueprint' && visualCallout ? (
           <motion.div
             key={`${stepId}-${animationSeed}`}
@@ -508,7 +668,7 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
             initial={prefersReducedMotion ? false : { opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.22 }}
-            className="grid grid-cols-2 gap-2 pt-1"
+            className="grid grid-cols-2 gap-2 pt-0.5"
           >
             <div className="rounded-[12px] border-2 border-dashed border-[#F59B19] bg-[#FFF9EC] px-2.5 py-2 text-center">
               <p className="text-[11px] font-semibold text-[#A15C00]">Part 1 · Subject</p>
@@ -521,270 +681,311 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
           </motion.div>
         ) : null}
 
-        {/* Visual Mode: group-bracket (Discover Subject / Discover Predicate) */}
-        {visualMode === 'group-bracket' && bracketRole ? (
+        {/* Visual Mode: Interactive Timeline Card (Mission 2) */}
+        {timelineData ? (
           <motion.div
-            key={`${stepId}-${animationSeed}`}
-            data-testid="step-group-bracket"
-            initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.2 }}
-            className={[
-              'rounded-[12px] border-2 px-3 py-2 flex flex-wrap items-center justify-between gap-2',
-              bracketRole === 'subject'
-                ? 'border-[#F59B19] bg-[#FFF4D6]'
-                : 'border-[#1FA89A] bg-[#D9FAF5]',
-            ].join(' ')}
-          >
-            <div className="flex items-center gap-2 min-w-0">
-              <span
-                className={[
-                  'px-2 py-0.5 rounded-[7px] text-[11px] font-semibold whitespace-nowrap',
-                  bracketRole === 'subject'
-                    ? 'bg-[#FFC64B] text-[#263A70]'
-                    : 'bg-[#8DECE0] text-[#263A70]',
-                ].join(' ')}
-              >
-                {bracketRole === 'subject' ? 'Subject Group' : 'Predicate Group'}
-              </span>
-              <span className="text-xs sm:text-sm font-semibold text-[#263A70]">
-                “
-                {(bracketRole === 'subject' ? subjectTokens : predicateTokens)
-                  .map((t) => t.text)
-                  .join(' ')}
-                ”
-              </span>
-            </div>
-            <span className="text-[11px] font-medium text-[#4B5C8A]">
-              {(bracketRole === 'subject' ? subjectTokens : predicateTokens).length} words together
-            </span>
-          </motion.div>
-        ) : null}
-
-        {/* Visual Mode: meaning-callout or headword-spotlight */}
-        {(visualMode === 'meaning-callout' || visualMode === 'headword-spotlight') &&
-        visualCallout ? (
-          <motion.div
-            key={`${stepId}-${animationSeed}`}
-            data-testid="step-visual-callout"
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
+            key={`${stepId}-timeline-${animationSeed}`}
+            data-testid="step-timeline-card"
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="relative pt-2"
+            transition={{ duration: 0.22 }}
+            className="rounded-[14px] border border-[#E5E2D9] bg-[#FDFCF9] p-3 space-y-2.5"
           >
-            <svg
-              aria-hidden="true"
-              width="28"
-              height="14"
-              viewBox="0 0 28 14"
-              className={[
-                'block',
-                visualCallout.targetGroupRole === 'predicate' ? 'ml-auto mr-12' : 'ml-8',
-              ].join(' ')}
-            >
-              <path
-                d="M14 0 L24 14 L4 14 Z"
-                fill={visualCallout.targetGroupRole === 'predicate' ? '#D9FAF5' : '#FFF1D5'}
-                stroke={visualCallout.targetGroupRole === 'predicate' ? '#1FA89A' : '#F59B19'}
-                strokeWidth="1.5"
-              />
-            </svg>
-
-            <div
-              className={[
-                'rounded-[12px] border-2 px-3 py-2.5 space-y-1',
-                visualCallout.targetGroupRole === 'predicate'
-                  ? 'bg-[#D9FAF5] border-[#1FA89A]'
-                  : 'bg-[#FFF1D5] border-[#F59B19]',
-              ].join(' ')}
-            >
-              <div className="flex flex-wrap items-center gap-1.5">
-                {visualCallout.question ? (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[7px] bg-[#263A70] text-white text-[11px] font-semibold">
-                    <Sparkles className="w-3 h-3 shrink-0" aria-hidden="true" />
-                    <span>{visualCallout.question}</span>
-                  </span>
-                ) : null}
-                <span className="text-xs font-semibold text-[#263A70]">
-                  {visualCallout.label}
-                </span>
-              </div>
-              <p className="text-xs text-[#333333] leading-snug">{visualCallout.detail}</p>
+            {/* 3-Node Time Bar */}
+            <div className="grid grid-cols-3 gap-1.5" role="group" aria-label="Time phase on timeline">
+              {TIMELINE_PHASES.map((phaseItem) => {
+                const isActive = timelineData.activePhase === phaseItem.id;
+                const activeClasses =
+                  phaseItem.id === 'past'
+                    ? 'bg-[#FFF4D6] border-[#F59B19] text-[#263A70]'
+                    : phaseItem.id === 'present'
+                      ? 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]'
+                      : 'bg-[#ECE6FB] border-[#5B43C2] text-[#263A70]';
+                return (
+                  <div
+                    key={phaseItem.id}
+                    className={[
+                      'rounded-[10px] border-2 px-2 py-1.5 text-center transition-colors',
+                      isActive ? activeClasses : 'bg-white border-[#E5E2D9] opacity-65 text-[#4B5C8A]',
+                    ].join(' ')}
+                  >
+                    <p className="text-[11px] font-bold uppercase tracking-wide flex items-center justify-center gap-1">
+                      {isActive ? <Clock className="w-3 h-3 shrink-0" aria-hidden="true" /> : null}
+                      <span>{phaseItem.label}</span>
+                    </p>
+                    <p className="text-[10px] font-medium leading-tight">{phaseItem.sub}</p>
+                  </div>
+                );
+              })}
             </div>
-          </motion.div>
-        ) : null}
 
-        {/* Progressive Structure Reveal + Animated Noticeboard Strip (Stage 6 & toggled) */}
-        {showStructureSplit ? (
-          <div className="space-y-2.5 pt-0.5">
-            {visualMode === 'structure-split' ? (
-              <div
-                key={`board-${stepId}-${animationSeed}`}
-                className="rounded-[14px] border-2 border-[#C97E39] bg-[#F9E9C6] px-3 py-2.5 space-y-1.5"
-              >
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-[#8A4D00]">
-                  Pinned on the school noticeboard
+            {/* Active Verb & Time Marker Summary */}
+            <div className="flex flex-wrap items-center justify-between gap-2 rounded-[10px] bg-white border border-[#E5E2D9] px-3 py-2">
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-[#4B5C8A]">
+                  {timelineData.timeLabel}
                 </p>
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <motion.span
-                    initial={prefersReducedMotion || isPaused ? false : { opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[9px] bg-[#FFC64B] border border-[#263A70] text-xs sm:text-sm font-semibold text-[#263A70]"
-                  >
-                    <span>{sentence.structureSummary.subjectText}</span>
-                  </motion.span>
-                  <span className="text-xs font-bold text-[#263A70]" aria-hidden="true">
-                    +
+                <p className="text-sm font-bold text-[#1B2559]">
+                  Verb: <span className="text-[#0F7F76]">{timelineData.verbPhrase}</span>{' '}
+                  <span className="text-xs font-semibold text-[#4B5C8A]">
+                    ({timelineData.verbFormLabel})
                   </span>
-                  <motion.span
-                    initial={prefersReducedMotion || isPaused ? false : { opacity: 0, x: 12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.28, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[9px] bg-[#8DECE0] border border-[#263A70] text-xs sm:text-sm font-semibold text-[#263A70]"
+                </p>
+              </div>
+              {timelineData.aspectLabel ? (
+                <span className="px-2.5 py-0.5 rounded-[8px] bg-[#ECE6FB] text-[#5B43C2] text-[11px] font-bold whitespace-nowrap">
+                  {timelineData.aspectLabel}
+                </span>
+              ) : null}
+            </div>
+
+            {timelineData.timeMarkerWords && timelineData.timeMarkerWords.length > 0 ? (
+              <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                <span className="font-semibold text-[#4B5C8A]">Time clues:</span>
+                {timelineData.timeMarkerWords.map((marker) => (
+                  <span
+                    key={marker}
+                    className="px-2 py-0.5 rounded-[7px] bg-[#FFF4D6] border border-[#F2DFB6] font-semibold text-[#263A70]"
                   >
-                    <span>{sentence.structureSummary.predicateText}.</span>
-                  </motion.span>
-                </div>
+                    {marker}
+                  </span>
+                ))}
               </div>
             ) : null}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              <WordGroup
-                role="subject"
-                tokens={subjectTokens}
-                questionPrompt={subjectGroup?.questionPrompt}
-                explanation={subjectGroup?.plainExplanation}
-                headWord={sentence.structureSummary.subjectHeadWord}
-                isActive={highlightedGroupRole === 'subject'}
-                onSelectGroup={(role) =>
-                  onSelectGroup(highlightedGroupRole === role ? null : role)
-                }
-              />
-              <WordGroup
-                role="predicate"
-                tokens={predicateTokens}
-                questionPrompt={predicateGroup?.questionPrompt}
-                explanation={predicateGroup?.plainExplanation}
-                headWord={sentence.structureSummary.predicateHeadWord}
-                isActive={highlightedGroupRole === 'predicate'}
-                onSelectGroup={(role) =>
-                  onSelectGroup(highlightedGroupRole === role ? null : role)
-                }
-              />
-            </div>
-          </div>
+            {/* Optional Toggles for Contrast Error vs Correct & Textbook Naming Bridge */}
+            {timelineData.contrastExample || timelineData.boardModelNote ? (
+              <div className="flex flex-wrap items-center gap-2">
+                {timelineData.contrastExample ? (
+                  <button
+                    type="button"
+                    onClick={() => setShowContrastCard((v) => !v)}
+                    aria-expanded={showContrastCard}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#9E2A25] hover:underline py-1 cursor-pointer"
+                  >
+                    <AlertTriangle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                    <span>{showContrastCard ? 'Hide common mistake' : 'See common mistake'}</span>
+                  </button>
+                ) : null}
+                {timelineData.boardModelNote ? (
+                  <button
+                    type="button"
+                    onClick={() => setShowBoardModelNote((v) => !v)}
+                    aria-expanded={showBoardModelNote}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#5B43C2] hover:underline py-1 cursor-pointer"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                    <span>{showBoardModelNote ? 'Hide textbook naming note' : 'How textbooks name this'}</span>
+                  </button>
+                ) : null}
+              </div>
+            ) : null}
+
+            {showContrastCard && timelineData.contrastExample ? (
+              <div className="rounded-[10px] bg-white border border-[#E5E2D9] p-2.5 space-y-1.5 text-xs">
+                <p className="text-[#9E2A25] font-semibold">
+                  Avoid: <span className="line-through">{timelineData.contrastExample.incorrectText}</span>
+                </p>
+                <p className="text-[#0E5A42] font-semibold flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                  <span>Correct: {timelineData.contrastExample.correctText}</span>
+                </p>
+                <p className="text-[#4B5C8A]">{timelineData.contrastExample.reason}</p>
+              </div>
+            ) : null}
+
+            {showBoardModelNote && timelineData.boardModelNote ? (
+              <div className="rounded-[10px] bg-[#ECE6FB]/60 border border-[#5B43C2]/30 p-2.5 text-xs text-[#263A70] leading-snug">
+                <strong className="font-bold text-[#5B43C2]">Textbook Naming Bridge: </strong>
+                {timelineData.boardModelNote}
+              </div>
+            ) : null}
+          </motion.div>
         ) : null}
 
-        {/* Interactive Relationships */}
-        {!isGuidedLocked && showRelationships && sentence.relationships.length > 0 ? (
-          <RelationshipList
-            relationships={sentence.relationships}
-            tokens={sentence.tokens}
-            allowedTypes={allowedRelationshipTypes}
-            selectedRelationshipId={selectedRelationshipId}
-            onSelectRelationship={onSelectRelationship}
-          />
-        ) : null}
-
-        {/* Visual Mode: practice-ready */}
-        {visualMode === 'practice-ready' ? (
-          <div
-            data-testid="step-practice-preview"
-            className="rounded-[12px] bg-[#F8F6F0] border border-[#E5E2D9] p-2.5 space-y-1.5"
+        {/* Visual Mode: Subject-Verb Agreement Lock Card (Mission 3) */}
+        {agreementData ? (
+          <motion.div
+            key={`${stepId}-agreement-${animationSeed}`}
+            data-testid="step-agreement-card"
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.22 }}
+            className="rounded-[14px] border border-[#E5E2D9] bg-[#FDFCF9] p-3 space-y-2.5"
           >
-            <p className="text-[11px] font-semibold text-[#263A70]">
-              Guided Practice Activities Next:
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {WORD_LAB_PREVIEW_PILLS.map((pill) => (
-                <span
-                  key={pill}
-                  className="px-2 py-0.5 rounded-[7px] bg-white border border-[#E5E2D9] text-[11px] font-medium text-[#263A70]"
-                >
-                  {pill}
-                </span>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="rounded-[10px] bg-[#FFF4D6] border border-[#F59B19] px-3 py-2">
+                <p className="text-[10px] font-bold uppercase tracking-wide text-[#A15C00]">
+                  Real Subject Head
+                </p>
+                <p className="text-sm font-bold text-[#1B2559]">{agreementData.subjectHeadText}</p>
+                <p className="text-[11px] font-medium text-[#4B5C8A]">
+                  {agreementData.subjectNumberPerson}
+                </p>
+              </div>
+              <div className="rounded-[10px] bg-[#D9FAF5] border border-[#1FA89A] px-3 py-2">
+                <p className="text-[10px] font-bold uppercase tracking-wide text-[#0F766E]">
+                  Locked Verb
+                </p>
+                <p className="text-sm font-bold text-[#1B2559] flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#0F7F76] shrink-0" aria-hidden="true" />
+                  <span>{agreementData.verbText}</span>
+                </p>
+                <p className="text-[11px] font-medium text-[#4B5C8A]">
+                  {agreementData.verbFormTag}
+                </p>
+              </div>
             </div>
+
+            {agreementData.interveningText ? (
+              <div className="rounded-[10px] bg-[#F5F2EA] border border-dashed border-[#CFC9BA] px-3 py-1.5 text-xs text-[#4B5C8A]">
+                <strong className="text-[#263A70]">Ignore in-between words:</strong>{' '}
+                <span className="italic">{agreementData.interveningText}</span>
+              </div>
+            ) : null}
+
+            {(agreementData.contrastIncorrectText || agreementData.informalUsageNote) ? (
+              <div className="flex flex-wrap items-center gap-3">
+                {agreementData.contrastIncorrectText ? (
+                  <button
+                    type="button"
+                    onClick={() => setShowContrastCard((v) => !v)}
+                    aria-expanded={showContrastCard}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#9E2A25] hover:underline py-1 cursor-pointer"
+                  >
+                    <AlertTriangle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                    <span>{showContrastCard ? 'Hide common trap' : 'See common trap'}</span>
+                  </button>
+                ) : null}
+              </div>
+            ) : null}
+
+            {showContrastCard && agreementData.contrastIncorrectText ? (
+              <div className="rounded-[10px] bg-white border border-[#E5E2D9] p-2.5 space-y-1 text-xs">
+                <p className="text-[#9E2A25] font-semibold">
+                  Avoid: <span className="line-through">{agreementData.contrastIncorrectText}</span>
+                </p>
+                {agreementData.contrastReason ? (
+                  <p className="text-[#4B5C8A]">{agreementData.contrastReason}</p>
+                ) : null}
+              </div>
+            ) : null}
+
+            {agreementData.informalUsageNote ? (
+              <div className="rounded-[10px] bg-[#ECE6FB]/60 border border-[#5B43C2]/30 p-2.5 text-xs text-[#263A70] leading-snug">
+                <strong className="font-bold text-[#5B43C2]">Exam vs Conversational Note: </strong>
+                {agreementData.informalUsageNote}
+              </div>
+            ) : null}
+          </motion.div>
+        ) : null}
+
+        {/* Collapsible Word Links Trigger (keeps 390x844 clean while preserving link arcs) */}
+        {!isGuidedLocked && showRelationships && availableRelationships.length > 0 ? (
+          <div className="pt-0.5 space-y-2">
+            <button
+              type="button"
+              onClick={() => setLinksExpanded((prev) => !prev)}
+              aria-expanded={linksExpanded}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#4B5C8A] hover:text-[#1B2559] py-1 cursor-pointer"
+            >
+              <Link2 className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              <span>
+                {linksExpanded
+                  ? 'Hide word connections'
+                  : `Word connections (${availableRelationships.length})`}
+              </span>
+            </button>
+
+            {linksExpanded ? (
+              <RelationshipList
+                relationships={sentence.relationships}
+                tokens={sentence.tokens}
+                allowedTypes={allowedRelationshipTypes}
+                selectedRelationshipId={selectedRelationshipId}
+                onSelectRelationship={onSelectRelationship}
+              />
+            ) : null}
           </div>
         ) : null}
       </section>
 
-      {/* Two-Sentence Comparison Panel (Compact with clickable WordTokens!) */}
-      {showCompare && comparisonSentence ? (
+      {/* Compact Result Card directly below Starter Sentence */}
+      {!isGuidedLocked ? (
         <section
-          aria-label="Comparison sentence"
-          className="rounded-[16px] bg-[#FFFDF8] border border-[#F2DFB6] p-3 sm:p-4 space-y-2.5"
+          aria-label="Sentence breakdown result"
+          className="rounded-[18px] bg-white border border-[#E5E2D9] p-3.5 sm:p-4 space-y-2 shadow-[var(--gq-shadow-card)]"
         >
-          <div className="flex flex-wrap items-center justify-between gap-1.5">
-            <span className="text-xs font-semibold text-[#A15C00]">
-              Compare · {comparisonSentence.contextTag}
-            </span>
-            <span className="text-[11px] text-[#4B5C8A]">
-              Tap any word to inspect
-            </span>
+          <p className="text-[11px] font-bold uppercase tracking-[0.06em] text-[#4B5C8A]">
+            {resultCardConfig.conceptLabel}
+          </p>
+
+          {/* Highlighted Example Sentence (every word clickable to open WordInspectorPopup) */}
+          <div className="flex flex-wrap items-center gap-x-1 gap-y-1.5 leading-relaxed">
+            {resultCardConfig.targetSentence.tokens.map((token) => {
+              const mode = resultCardConfig.highlightMode;
+              const isSubjectHighlight =
+                (mode === 'subject' || mode === 'both') &&
+                token.groupRole === 'subject';
+              const isPredicateHighlight =
+                (mode === 'predicate' || mode === 'both') &&
+                token.groupRole === 'predicate';
+              const isLinkFrom =
+                mode === 'relationship' && resultCardConfig.linkedFrom.has(token.id);
+              const isLinkTo =
+                mode === 'relationship' && resultCardConfig.linkedTo.has(token.id);
+              const isModifierBorder =
+                (isSubjectHighlight && modifierIdSet.has(token.id)) || isLinkFrom;
+
+              let highlightStyle: React.CSSProperties | undefined;
+              if (isSubjectHighlight || isLinkFrom) {
+                highlightStyle = {
+                  backgroundColor: '#FDEBC0',
+                  borderColor: isModifierBorder ? '#E5B24A' : 'transparent',
+                };
+              } else if (isPredicateHighlight || isLinkTo) {
+                highlightStyle = {
+                  backgroundColor: '#D7F5EE',
+                  borderColor: mode === 'predicate' || isLinkTo ? '#0F7F76' : 'transparent',
+                };
+              }
+
+              const isHighlightedToken = Boolean(highlightStyle);
+
+              return (
+                <button
+                  key={token.id}
+                  type="button"
+                  onClick={() =>
+                    onSelectToken(
+                      token,
+                      resultCardConfig.targetSentence.id,
+                      resultCardConfig.sentenceLabel,
+                    )
+                  }
+                  style={highlightStyle}
+                  aria-label={`Inspect word ${token.text}`}
+                  className={[
+                    'inline-flex items-center px-1.5 py-0.5 rounded-[7px] border text-[15px] sm:text-base transition-colors cursor-pointer',
+                    isHighlightedToken
+                      ? 'font-bold text-[#1B2559] hover:brightness-95'
+                      : 'border-transparent font-medium text-[#263A70] hover:bg-[#F5F2EA]',
+                  ].join(' ')}
+                >
+                  <span>
+                    {token.text}
+                    {token.punctuationAfter ?? ''}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-            {comparisonSentence.tokens.map((token, idx) => (
-              <WordToken
-                key={token.id}
-                token={token}
-                index={idx}
-                isSelected={selectedTokenIdInCompare === token.id}
-                highlightedGroupRole={highlightedGroupRole}
-                showCategoryBadge
-                showHeadWordMarker
-                animateEntrance={false}
-                isPaused={isPaused}
-                onSelect={(tok) =>
-                  onSelectToken(
-                    tok,
-                    comparisonSentence.id,
-                    `Compare · ${comparisonSentence.contextTag}`,
-                  )
-                }
-              />
-            ))}
-          </div>
-
-          {/* Slim Subject + Predicate summary pills (keeps page compact) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
-            <div className="rounded-[10px] bg-[#FFF4D6] border border-[#F2DFB6] px-2.5 py-1.5 flex items-center justify-between gap-2">
-              <span className="font-semibold text-[#A15C00]">Subject:</span>
-              <span className="font-medium text-[#263A70] truncate">
-                {comparisonSentence.structureSummary.subjectText}
-              </span>
-            </div>
-            <div className="rounded-[10px] bg-[#D9FAF5] border border-[#A8E8DF] px-2.5 py-1.5 flex items-center justify-between gap-2">
-              <span className="font-semibold text-[#137268]">Predicate:</span>
-              <span className="font-medium text-[#263A70] truncate">
-                {comparisonSentence.structureSummary.predicateText}
-              </span>
-            </div>
-          </div>
+          <p className="text-[13px] sm:text-sm text-[#4B5C8A] leading-snug">
+            {resultCardConfig.explanation}
+          </p>
         </section>
       ) : null}
-
-      {/* Zone D: Compact Contextual Cue (Group/Relationship highlight or lightweight prompt) */}
-      <section aria-label="Teaching feedback">
-        {activeRelationship ? (
-          <GrammarHighlight
-            label={activeRelationship.label}
-            detail={activeRelationship.explanation}
-          />
-        ) : activeGroup && visualMode !== 'meaning-callout' ? (
-          <GrammarHighlight
-            groupRole={activeGroup.role}
-            label={`${activeGroup.label} (${activeGroup.questionPrompt})`}
-            detail={activeGroup.plainExplanation}
-          />
-        ) : (
-          <div className="rounded-[12px] bg-[#F8F6F0] border border-[#E5E2D9] px-3 py-2 text-xs text-[#4B5C8A]">
-            Tap any word above to see its role in a popup.
-          </div>
-        )}
-      </section>
 
       {/* Word Inspector Popup Modal */}
       <WordInspectorPopup

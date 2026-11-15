@@ -1,0 +1,182 @@
+{
+  "assessmentId": "c10-mission-02-assessment",
+  "missionId": "c10-mission-02",
+  "classLevel": 10,
+  "moduleId": "module-2-tenses",
+  "moduleTitle": "Tenses",
+  "topic": "Time and Verb Forms",
+  "missionTitle": "Journey Through Time",
+  "title": "Mission 2 Assessment: Time and Verb Forms (Class 10)",
+  "subtitle": "Answer all 10 questions on Past Time sequences, Present Perfect duration, Sequence of Tenses, and Future Time expressions.",
+  "questions": [
+    {
+      "id": "c10-m2-aq-01",
+      "questionText": "When we reached the railway platform, the Konark Express _____ already _____.",
+      "options": [
+        { "id": "a", "text": "has / left" },
+        { "id": "b", "text": "had / left" },
+        { "id": "c", "text": "is / leaving" },
+        { "id": "d", "text": "will / leave" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Between two past actions, the earlier action (the train leaving) takes Past Perfect ('had left'), while the later arrival takes Past Simple ('reached').",
+      "learningObjectiveId": "past-simple-vs-perfect",
+      "learningObjective": "Past Simple vs Past Perfect (earlier past)",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 1
+    },
+    {
+      "id": "c10-m2-aq-02",
+      "questionText": "Choose the accurate sentence expressing an unbroken duration from the past up to today:",
+      "options": [
+        { "id": "a", "text": "Dr. Sen is teaching chemistry here since 2016." },
+        { "id": "b", "text": "Dr. Sen has been teaching chemistry here since 2016." },
+        { "id": "c", "text": "Dr. Sen taught chemistry here since 2016." },
+        { "id": "d", "text": "Dr. Sen teaches chemistry here since 2016." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'since 2016' marks a starting point continuing into the present, requiring Present Perfect or Present Perfect Progressive ('has been teaching').",
+      "learningObjectiveId": "time-vs-verb-form",
+      "learningObjective": "Connecting past start to present time",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c10-m2-aq-03",
+      "questionText": "Which option completes this reported universal truth accurately? 'In yesterday's assembly, our principal reminded us that light _____ faster than sound.'",
+      "options": [
+        { "id": "a", "text": "travelled" },
+        { "id": "b", "text": "was travelling" },
+        { "id": "c", "text": "travels" },
+        { "id": "d", "text": "had travelled" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Under the Sequence of Tenses, universal truths and scientific laws stay in Present Simple ('travels') even when the reporting verb ('reminded') is in the past.",
+      "learningObjectiveId": "present-simple-vs-progressive",
+      "learningObjective": "Sequence of Tenses & universal truths",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c10-m2-aq-04",
+      "questionText": "By 4:30 p.m. tomorrow, the student volunteers _____ all the saplings along the canal.",
+      "options": [
+        { "id": "a", "text": "will have planted" },
+        { "id": "b", "text": "planted" },
+        { "id": "c", "text": "are planted" },
+        { "id": "d", "text": "have planted" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "'By 4:30 p.m. tomorrow' sets a future deadline before which the action completes, expressed by 'will have + V3' ('will have planted').",
+      "learningObjectiveId": "future-time-expressions",
+      "learningObjective": "Future time expressions & deadlines",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 5
+    },
+    {
+      "id": "c10-m2-aq-05",
+      "questionText": "Pointing to dark monsoon clouds overhead, Arjun says, 'Take your umbrella—it _____ very soon.' Which future form matches visible present evidence?",
+      "options": [
+        { "id": "a", "text": "rained" },
+        { "id": "b", "text": "is going to rain" },
+        { "id": "c", "text": "has rained" },
+        { "id": "d", "text": "rains" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Odisha Class X highlights 'be going to + base verb' when present physical signs (dark clouds) show what is about to happen.",
+      "learningObjectiveId": "future-time-expressions",
+      "learningObjective": "Future time expressions & evidence",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 6
+    },
+    {
+      "id": "c10-m2-aq-06",
+      "questionText": "Read the sentence: 'While Mira was sketching the banyan tree, a sudden breeze _____ her notebook.' Choose the accurate verb.",
+      "options": [
+        { "id": "a", "text": "had blown" },
+        { "id": "b", "text": "blew" },
+        { "id": "c", "text": "is blowing" },
+        { "id": "d", "text": "blows" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "When an ongoing past background action ('was sketching') is interrupted by a short event, the interrupting action uses Past Simple ('blew').",
+      "learningObjectiveId": "past-simple-vs-perfect",
+      "learningObjective": "Past Progressive vs Past Simple",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 2
+    },
+    {
+      "id": "c10-m2-aq-07",
+      "questionText": "Identify the sentence that uses a stative verb correctly without breaking tense rules.",
+      "options": [
+        { "id": "a", "text": "Our school library has owned these rare manuscripts since 1998." },
+        { "id": "b", "text": "Our school library is owning these rare manuscripts since 1998." },
+        { "id": "c", "text": "Everyone in Class 10 is knowing the solar system diagram." },
+        { "id": "d", "text": "These fresh mangoes are costing less in summer." }
+      ],
+      "correctOptionId": "a",
+      "explanation": "State verbs ('own', 'know', 'cost') avoid '-ing' progressive forms. 'has owned ... since 1998' accurately uses Present Perfect for duration up to now.",
+      "learningObjectiveId": "stative-verbs-no-ing",
+      "learningObjective": "Stative verbs with duration",
+      "difficulty": "stretch",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 7
+    },
+    {
+      "id": "c10-m2-aq-08",
+      "questionText": "Which pair of clues correctly distinguishes 'for' from 'since'?",
+      "options": [
+        { "id": "a", "text": "'for 2020' and 'since three years'" },
+        { "id": "b", "text": "'for three years' and 'since 2020'" },
+        { "id": "c", "text": "'for Monday' and 'since two hours'" },
+        { "id": "d", "text": "'for morning' and 'since five days'" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'for' is used with a measured duration ('for three years'), while 'since' is used with a specific starting point ('since 2020').",
+      "learningObjectiveId": "time-vs-verb-form",
+      "learningObjective": "For vs Since time expressions",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c10-m2-aq-09",
+      "questionText": "Spot the error in this Class 10 archive draft: 'Before the chief guest arrived, the choir had already sang the welcome song.'",
+      "options": [
+        { "id": "a", "text": "'arrived' should be 'has arrived'." },
+        { "id": "b", "text": "After 'had', the past participle 'sung' (V3) must be used instead of Past Simple 'sang' (V2)." },
+        { "id": "c", "text": "'Before' should be replaced by 'Tomorrow'." },
+        { "id": "d", "text": "The verb 'had' should be 'have'." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Past Perfect requires 'had + V3': sing (V1) → sang (V2) → sung (V3), so 'had already sung' is correct.",
+      "learningObjectiveId": "tense-error-diagnosis",
+      "learningObjective": "Diagnosing irregular V3 and tense errors",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 7
+    },
+    {
+      "id": "c10-m2-aq-10",
+      "questionText": "Compare these two notices: (1) 'The bus leaves at 7:00 a.m. tomorrow.' (2) 'I am meeting the science coach at 4:00 p.m. tomorrow.' Why are BOTH accurate?",
+      "options": [
+        { "id": "a", "text": "Present Simple expresses a fixed public timetable, while Present Progressive expresses a personal arrangement in future time." },
+        { "id": "b", "text": "Both sentences actually refer to yesterday morning." },
+        { "id": "c", "text": "English has no verb forms for public timetables." },
+        { "id": "d", "text": "'tomorrow' forces every sentence to become Past Simple." }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Odisha Class X Ch. 1 explicitly shows how Present Simple expresses official schedules/timetables and Present Progressive expresses arranged personal future plans.",
+      "learningObjectiveId": "present-simple-vs-progressive",
+      "learningObjective": "Timetables vs planned future arrangements",
+      "difficulty": "stretch",
+      "recommendedStage": "guided"
+    }
+  ]
+}

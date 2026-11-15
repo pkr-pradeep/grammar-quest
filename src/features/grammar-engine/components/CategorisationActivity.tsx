@@ -9,10 +9,10 @@
  */
 
 import React, { useState } from 'react';
-import { Layers, MessageSquare, RotateCcw } from 'lucide-react';
+import { Clock, Layers, MessageSquare, RotateCcw, ShieldCheck } from 'lucide-react';
 import type {
   CategoriseActivity as CategoriseActivityData,
-  WordGroupRole,
+  CategoriseBucketTone,
 } from '../../../schemas/grammarEngine.schema';
 import { Button } from '../../../components';
 import { WordTile } from './WordTile';
@@ -23,6 +23,39 @@ export interface CategorisationActivityProps {
   onSolved?: () => void;
 }
 
+const BUCKET_STYLES: Record<
+  CategoriseBucketTone | 'default',
+  { box: string; Icon: React.ComponentType<{ className?: string }> }
+> = {
+  subject: { box: 'bg-[#FFF4D6] border-[#F59B19]', Icon: Layers },
+  predicate: { box: 'bg-[#D9FAF5] border-[#1FA89A]', Icon: MessageSquare },
+  past: { box: 'bg-[#FFF4D6] border-[#F59B19]', Icon: Clock },
+  present: { box: 'bg-[#D9FAF5] border-[#1FA89A]', Icon: Clock },
+  future: { box: 'bg-[#ECE6FB] border-[#5B43C2]', Icon: Clock },
+  singular: { box: 'bg-[#FFF4D6] border-[#F59B19]', Icon: ShieldCheck },
+  plural: { box: 'bg-[#D9FAF5] border-[#1FA89A]', Icon: Layers },
+  default: { box: 'bg-[#D9FAF5] border-[#1FA89A]', Icon: MessageSquare },
+};
+
+function resolveBucketTone(
+  catId: string,
+  explicitTone?: CategoriseBucketTone,
+): CategoriseBucketTone {
+  if (explicitTone) return explicitTone;
+  if (
+    catId === 'subject' ||
+    catId === 'predicate' ||
+    catId === 'past' ||
+    catId === 'present' ||
+    catId === 'future' ||
+    catId === 'singular' ||
+    catId === 'plural'
+  ) {
+    return catId;
+  }
+  return 'predicate';
+}
+
 export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
   activity,
   onSolved,
@@ -30,12 +63,12 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
   const [selectedItemId, setSelectedItemId] = useState<string | null>(
     activity.items[0]?.id ?? null,
   );
-  const [placements, setPlacements] = useState<Record<string, WordGroupRole | undefined>>({});
+  const [placements, setPlacements] = useState<Record<string, string | undefined>>({});
   const [checked, setChecked] = useState(false);
 
   const unplacedItems = activity.items.filter((item) => !placements[item.id]);
 
-  const handleAssignCategory = (category: WordGroupRole) => {
+  const handleAssignCategory = (category: string) => {
     if (!selectedItemId) return;
     setChecked(false);
     setPlacements((prev) => {
@@ -76,6 +109,9 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
   const allCorrect =
     allPlaced && activity.items.every((item) => placements[item.id] === item.correctCategory);
 
+  const gridColsClass =
+    activity.categories.length === 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2';
+
   return (
     <div className="space-y-4">
       <div className="space-y-1">
@@ -89,7 +125,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-2.5">
         <p className="text-xs font-semibold text-[#4B5C8A]">
           {unplacedItems.length > 0
-            ? '1. Tap a phrase card below, then tap Subject or Predicate:'
+            ? (activity.promptText ?? '1. Tap a card below, then tap the matching group:')
             : 'All cards placed! Tap any placed card to move it back, or check your sorting.'}
         </p>
 
@@ -106,14 +142,11 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       </div>
 
       {/* Category Buckets */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className={`grid grid-cols-1 ${gridColsClass} gap-3`}>
         {activity.categories.map((cat) => {
           const itemsInCat = activity.items.filter((it) => placements[it.id] === cat.id);
-          const Icon = cat.id === 'subject' ? Layers : MessageSquare;
-          const bucketStyle =
-            cat.id === 'subject'
-              ? 'bg-[#FFF4D6] border-[#F59B19]'
-              : 'bg-[#D9FAF5] border-[#1FA89A]';
+          const resolvedTone = resolveBucketTone(cat.id, cat.tone);
+          const { box: bucketStyle, Icon } = BUCKET_STYLES[resolvedTone] ?? BUCKET_STYLES.default;
 
           return (
             <div
@@ -154,7 +187,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
                       <WordTile
                         key={item.id}
                         text={isWrongAfterCheck ? `${item.text} (Move)` : item.text}
-                        tone={cat.id}
+                        tone={resolvedTone}
                         onClick={() => handleUnplace(item.id)}
                         ariaLabel={`Remove ${item.text} from ${cat.label}`}
                       />
@@ -194,8 +227,11 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
         ) : (
           <PracticeFeedback
             status="try-again"
-            title="One or more cards belong in the other group"
-            message="Look for the verb: phrases starting with an action or linking verb belong in the Predicate; phrases naming who or what belong in the Subject. Tap any marked card to move it."
+            title="One or more cards belong in another group"
+            message={
+              activity.incorrectFeedback ??
+              'Check each clue word or verb form carefully, then tap any marked card to move it.'
+            }
           />
         )
       ) : null}

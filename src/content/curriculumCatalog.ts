@@ -109,14 +109,14 @@ export const CURRICULUM_TOPIC_CATALOG: CurriculumCategoryGroup[] = [
         categoryId: 'cat-verbs-agreement',
         classLevels: [9, 10],
         sourceSummary: 'Odisha IX Ch. 3 · X Ch. 1 · PSEB IX Ch. 9 · Assam Ch. 9',
-        status: 'upcoming',
+        status: 'ready',
         missionIdByClass: {
           9: 'c9-mission-02',
           10: 'c10-mission-02',
         },
         missionNumber: 'Mission 02',
         missionTitle: 'Journey Through Time',
-        estimatedMinutes: 7,
+        estimatedMinutes: 8,
       },
       {
         id: 'topic-sva',
@@ -124,14 +124,14 @@ export const CURRICULUM_TOPIC_CATALOG: CurriculumCategoryGroup[] = [
         categoryId: 'cat-verbs-agreement',
         classLevels: [9, 10],
         sourceSummary: 'Odisha X Ch. 3 · PSEB IX Ch. 9 · Odisha IX Ch. 2, 7, 8',
-        status: 'upcoming',
+        status: 'ready',
         missionIdByClass: {
           9: 'c9-mission-03',
           10: 'c10-mission-03',
         },
         missionNumber: 'Mission 03',
         missionTitle: 'The Grammar Detective',
-        estimatedMinutes: 7,
+        estimatedMinutes: 8,
       },
       {
         id: 'topic-auxiliaries-modals',

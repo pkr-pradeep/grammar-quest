@@ -27,12 +27,25 @@ export interface PlaceholderMissionSummary {
   isPlaceholder?: boolean;
 }
 
+export interface MissionProgressDetail {
+  missionId: string;
+  started: boolean;
+  teachingStagesCompleted: boolean;
+  guidedPracticeCompleted: boolean;
+  independentPracticeCompleted: boolean;
+  completed: boolean;
+  startedAt: string | null;
+  completedAt: string | null;
+  updatedAt: string;
+}
+
 export interface StudentProgressRecord {
   id: 'default-learner';
   selectedClass: ClassLevel;
   completedMissionIds: string[];
   activeMissionId: string | null;
   totalPilotMissions: number;
+  missionProgressById?: Record<string, MissionProgressDetail>;
   updatedAt: string;
 }
 

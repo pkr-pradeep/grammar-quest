@@ -54,6 +54,13 @@ export interface SourceReference {
   note: string;
 }
 
+export interface VerbTokenMeta {
+  timeCommunicated: string;
+  verbForm: string;
+  whyAppropriate: string;
+  subjectLinkNote?: string;
+}
+
 export interface SentenceToken {
   id: string;
   text: string;
@@ -64,6 +71,9 @@ export interface SentenceToken {
   meaningInSentence: string;
   grammaticalRoleExplanation: string;
   punctuationAfter?: string;
+  verbMeta?: VerbTokenMeta;
+  linkedTokenIds?: string[];
+  isInterveningModifier?: boolean;
 }
 
 export interface WordGroupDefinition {
@@ -131,7 +141,39 @@ export type StepVisualMode =
   | 'compare-dual'
   | 'guided-explore'
   | 'free-explore'
-  | 'practice-ready';
+  | 'practice-ready'
+  | 'timeline-shift'
+  | 'agreement-lock';
+
+export type TimelinePhase = 'past' | 'present' | 'future';
+
+export interface TimelineVisualData {
+  activePhase: TimelinePhase;
+  timeLabel: string;
+  verbPhrase: string;
+  verbFormLabel: string;
+  aspectLabel?: string;
+  timeMarkerWords?: string[];
+  grammarNote: string;
+  boardModelNote?: string;
+  contrastExample?: {
+    incorrectText: string;
+    correctText: string;
+    reason: string;
+  };
+}
+
+export interface AgreementLockVisualData {
+  subjectHeadText: string;
+  subjectNumberPerson: string;
+  verbText: string;
+  verbFormTag: string;
+  interveningText?: string;
+  ruleSummary: string;
+  contrastIncorrectText?: string;
+  contrastReason?: string;
+  informalUsageNote?: string;
+}
 
 export interface GuidedExploreChallenge {
   promptSubject: string;
@@ -158,6 +200,9 @@ export interface TeachingStep {
   visualMode?: StepVisualMode;
   visualCallout?: StepVisualCallout;
   guidedChallenge?: GuidedExploreChallenge;
+  timelineData?: TimelineVisualData;
+  agreementData?: AgreementLockVisualData;
+  dimmedTokenIds?: string[];
   title: string;
   badgeLabel: string;
   shortPrompt: string;
@@ -189,13 +234,14 @@ export interface BaseWordLabActivity {
     | 'word-replacement'
     | 'missing-words'
     | 'error-identification';
+  tabLabel?: string;
   title: string;
   instruction: string;
   provenance: KnowledgeProvenance;
   sourceRefIds: string[];
 }
 
-/** A. Identify the group (select Subject or Predicate tokens inside a sentence) */
+/** A. Identify the group (select Subject, Predicate, Verb, or Clue tokens inside a sentence) */
 export interface IdentifyGroupActivity extends BaseWordLabActivity {
   kind: 'identify-group';
   targetRole: WordGroupRole;
@@ -204,6 +250,9 @@ export interface IdentifyGroupActivity extends BaseWordLabActivity {
   correctFeedback: string;
   incorrectFeedback: string;
   hint: string;
+  correctTitle?: string;
+  incorrectTitle?: string;
+  hideRoleGroupsOnSuccess?: boolean;
 }
 
 /** A2. Identify both Subject and Predicate tokens inside one sentence */
@@ -218,19 +267,35 @@ export interface IdentifyBothActivity extends BaseWordLabActivity {
   hint: string;
 }
 
-/** B. Categorise (place word groups into Subject vs Predicate categories) */
+export type CategoriseBucketTone =
+  | 'subject'
+  | 'predicate'
+  | 'past'
+  | 'present'
+  | 'future'
+  | 'singular'
+  | 'plural';
+
+/** B. Categorise (place cards into Subject/Predicate, Time buckets, or Agreement buckets) */
 export interface CategoriseItem {
   id: string;
   text: string;
-  correctCategory: WordGroupRole;
+  correctCategory: string;
   explanation: string;
 }
 
 export interface CategoriseActivity extends BaseWordLabActivity {
   kind: 'categorise';
-  categories: { id: WordGroupRole; label: string; helperText: string }[];
+  promptText?: string;
+  categories: {
+    id: string;
+    label: string;
+    helperText: string;
+    tone?: CategoriseBucketTone;
+  }[];
   items: CategoriseItem[];
   completeFeedback: string;
+  incorrectFeedback?: string;
 }
 
 /** C. Sentence construction (arrange scrambled word tiles to build a sentence) */
@@ -248,6 +313,8 @@ export interface SentenceConstructionActivity extends BaseWordLabActivity {
   correctOrderIds: string[];
   subjectText: string;
   predicateText: string;
+  part1Label?: string;
+  part2Label?: string;
   correctFeedback: string;
   incorrectFeedback: string;
 }
@@ -268,11 +335,12 @@ export interface WordReplacementActivity extends BaseWordLabActivity {
   afterText: string;
   originalWord: string;
   slotGroupRole: WordGroupRole;
+  slotLabel?: string;
   options: WordReplacementOption[];
   takeaway: string;
 }
 
-/** E. Missing words (complete a sentence with an appropriate Subject or Predicate) */
+/** E. Missing words (complete a sentence with an appropriate word/verb/phrase) */
 export interface MissingWordOption {
   id: string;
   text: string;
@@ -285,6 +353,7 @@ export interface MissingWordsActivity extends BaseWordLabActivity {
   sentenceBeforeBlank: string;
   sentenceAfterBlank: string;
   missingRole: WordGroupRole;
+  incorrectTitle?: string;
   options: MissingWordOption[];
 }
 
@@ -298,6 +367,7 @@ export interface ErrorIdentificationOption {
 
 export interface ErrorIdentificationActivity extends BaseWordLabActivity {
   kind: 'error-identification';
+  draftBadgeLabel?: string;
   brokenSentence: string;
   repairedSentence: string;
   question: string;
@@ -313,6 +383,8 @@ export type WordLabActivity =
   | MissingWordsActivity
   | ErrorIdentificationActivity;
 
+export type StorySceneVariant = 'noticeboard' | 'records-timeline' | 'detective-board';
+
 export interface StoryBeat {
   id: string;
   speaker: CharacterId;
@@ -325,9 +397,13 @@ export interface StoryBeat {
 }
 
 export interface MissionStoryIntro {
+  sceneVariant?: StorySceneVariant;
   sceneTitle: string;
   settingLabel: string;
+  previewSectionTitle?: string;
+  cardPreviewLabel?: string;
   scatteredFragments: string[];
+  highlightFragments?: string[];
   beats: StoryBeat[];
 }
 
@@ -340,7 +416,7 @@ export interface IndependentPracticeOption {
 
 export interface IndependentPracticeItem {
   id: string;
-  mode: 'dual-identify' | 'imperative-check';
+  mode: 'dual-identify' | 'imperative-check' | 'choice-diagnose' | 'token-and-choice';
   cueLevel: 'gentle' | 'minimal' | 'none';
   cueText?: string;
   title: string;
@@ -348,6 +424,8 @@ export interface IndependentPracticeItem {
   sentence: SentenceDefinition;
   subjectTokenIds: string[];
   predicateTokenIds: string[];
+  targetTokenIds?: string[];
+  targetPrompt?: string;
   imperativeQuestion?: string;
   imperativeOptions?: IndependentPracticeOption[];
   successFeedback: string;
@@ -358,9 +436,11 @@ export interface IndependentPracticeItem {
 }
 
 export interface MissionCompletionSummary {
+  sceneVariant?: StorySceneVariant;
   headline: string;
   celebrationMessage: string;
   learnedPoints: string[];
+  restoredSectionLabel?: string;
   repairedMessages: string[];
   rewardLabel: string;
 }

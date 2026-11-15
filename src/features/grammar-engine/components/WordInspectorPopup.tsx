@@ -117,6 +117,30 @@ export const WordInspectorPopup: React.FC<WordInspectorPopupProps> = ({
           {token.meaningInSentence} {token.grammaticalRoleExplanation}
         </div>
 
+        {/* Optional Tense / Agreement Breakdown (Missions 2 & 3) */}
+        {token.verbMeta ? (
+          <div className="rounded-[14px] bg-[#FDFCF9] border border-[#E5E2D9] p-3 space-y-1.5 text-xs">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="font-semibold text-[#4B5C8A]">Time communicated:</span>
+              <span className="font-bold text-[#263A70]">{token.verbMeta.timeCommunicated}</span>
+            </div>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="font-semibold text-[#4B5C8A]">Verb form:</span>
+              <span className="font-bold text-[#0F7F76]">{token.verbMeta.verbForm}</span>
+            </div>
+            <p className="text-[#333333] pt-1 border-t border-[#E5E2D9] leading-snug">
+              <strong className="text-[#263A70]">Why this fits: </strong>
+              {token.verbMeta.whyAppropriate}
+            </p>
+            {token.verbMeta.subjectLinkNote ? (
+              <p className="text-[#4B5C8A] leading-snug">
+                <strong className="text-[#263A70]">Subject link: </strong>
+                {token.verbMeta.subjectLinkNote}
+              </p>
+            ) : null}
+          </div>
+        ) : null}
+
         {/* Explicit Close Footer Button */}
         <div className="flex justify-end pt-0.5">
           <button

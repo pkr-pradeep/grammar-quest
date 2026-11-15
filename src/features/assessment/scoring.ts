@@ -62,6 +62,64 @@ const OBJECTIVE_DEFAULT_STAGE: Record<
     actionLabel: 'Revisit Independent Practice Challenges',
     stage: 'practice',
   },
+  'time-vs-verb-form': {
+    actionLabel: 'Revisit Timeline: Time vs Verb Form',
+    stage: 'learn',
+    stepNumber: 2,
+  },
+  'present-simple-vs-progressive': {
+    actionLabel: 'Revisit Present Habit vs Ongoing Action',
+    stage: 'learn',
+    stepNumber: 3,
+  },
+  'stative-verbs-no-ing': {
+    actionLabel: 'Revisit Stative Verbs & Common Errors',
+    stage: 'learn',
+    stepNumber: 5,
+  },
+  'past-simple-vs-perfect': {
+    actionLabel: 'Revisit Past & Perfect Time Links',
+    stage: 'learn',
+    stepNumber: 6,
+  },
+  'future-time-expressions': {
+    actionLabel: 'Revisit Expressing Future Time',
+    stage: 'learn',
+    stepNumber: 7,
+  },
+  'tense-error-diagnosis': {
+    actionLabel: 'Revisit Guided Time & Tense Lab',
+    stage: 'guided',
+  },
+  'core-number-person-concord': {
+    actionLabel: 'Revisit Subject–Verb Concord Lock',
+    stage: 'learn',
+    stepNumber: 2,
+  },
+  'intervening-phrases-trap': {
+    actionLabel: 'Revisit Intervening Phrases Trap',
+    stage: 'learn',
+    stepNumber: 3,
+  },
+  'compound-and-single-idea': {
+    actionLabel: 'Revisit Compound & Single-Idea Subjects',
+    stage: 'learn',
+    stepNumber: 4,
+  },
+  'correlative-and-with-joiners': {
+    actionLabel: 'Revisit Either/Or & As Well As Rules',
+    stage: 'learn',
+    stepNumber: 5,
+  },
+  'tricky-nouns-and-indefinites': {
+    actionLabel: 'Revisit Tricky Nouns & Indefinites',
+    stage: 'learn',
+    stepNumber: 6,
+  },
+  'agreement-error-diagnosis': {
+    actionLabel: 'Revisit Guided Detective Lab',
+    stage: 'guided',
+  },
 };
 
 /**
@@ -102,16 +160,13 @@ export function computeRevisionRecommendations(
 
   questions.forEach((question, index) => {
     const result = results[index];
+    const defaults = OBJECTIVE_DEFAULT_STAGE[question.learningObjectiveId];
     const current = statsByObjective.get(question.learningObjectiveId) ?? {
       objectiveLabel: question.learningObjective,
       total: 0,
       missed: 0,
-      recommendedStage:
-        question.recommendedStage ??
-        OBJECTIVE_DEFAULT_STAGE[question.learningObjectiveId].stage,
-      recommendedStepNumber:
-        question.recommendedStepNumber ??
-        OBJECTIVE_DEFAULT_STAGE[question.learningObjectiveId].stepNumber,
+      recommendedStage: question.recommendedStage ?? defaults.stage,
+      recommendedStepNumber: question.recommendedStepNumber ?? defaults.stepNumber,
     };
 
     current.total += 1;
@@ -207,22 +262,23 @@ export function evaluateAssessment(
   };
 }
 
-export function getAchievementMessage(percentage: number): {
+export function getAchievementMessage(
+  percentage: number,
+  topicLabel = 'this grammar topic',
+): {
   headline: string;
   message: string;
 } {
   if (percentage === 100) {
     return {
       headline: 'Outstanding Mastery!',
-      message:
-        'You answered every question accurately. Mira, Arjun, and Gyan say you are ready to build clear, complete notices anywhere!',
+      message: `You answered every question accurately. Mira, Arjun, and Gyan say you have mastered ${topicLabel}!`,
     };
   }
   if (percentage >= 80) {
     return {
-      headline: 'Strong Sentence Sense!',
-      message:
-        'Well done! You clearly understand Subjects and Predicates. A quick look at any missed items below will make your foundation even stronger.',
+      headline: 'Strong Grammar Sense!',
+      message: `Well done! You have a solid grasp of ${topicLabel}. A quick look at any missed items below will make your foundation even stronger.`,
     };
   }
   if (percentage >= 50) {
@@ -234,7 +290,6 @@ export function getAchievementMessage(percentage: number): {
   }
   return {
     headline: 'Every Attempt Helps You Grow!',
-    message:
-      'Thank you for completing the full assessment. Use the clear explanations and revision links below to explore Subject and Predicate step by step.',
+    message: `Thank you for completing the full assessment. Use the clear explanations and revision links below to explore ${topicLabel} step by step.`,
   };
 }

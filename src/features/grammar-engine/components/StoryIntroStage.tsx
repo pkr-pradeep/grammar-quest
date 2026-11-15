@@ -165,34 +165,43 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
         {/* 2D Courtyard & Noticeboard Scene (with Story spotlight + per-scene effects) */}
         <CourtyardNoticeboardScene
           mode="scattered"
+          sceneVariant={storyIntro.sceneVariant ?? 'noticeboard'}
           sceneFocus={activeBeat.sceneFocus}
           isPaused={isPaused}
           isTyping={isActivelyTyping}
           animationSeed={animationSeed}
         />
 
-        {/* Scattered Torn Strips Preview */}
+        {/* Scattered Strips / Clues Preview */}
         <div className="rounded-[14px] bg-white border border-[#E5E2D9] px-3 py-2.5 space-y-1.5">
           <div className="flex items-center justify-between gap-2 text-[11px] font-semibold text-[#4B5C8A]">
-            <span>Torn noticeboard scraps ({missionTitle})</span>
+            <span>
+              {storyIntro.previewSectionTitle ?? `Torn noticeboard scraps (${missionTitle})`}
+            </span>
             <span className="tabular-nums">
               Scene {beatIndex + 1} of {beats.length}
             </span>
           </div>
           <div className="flex flex-wrap gap-1.5">
             {storyIntro.scatteredFragments.map((fragment, idx) => {
-              const isCricketChip = fragment.toLowerCase().includes('plays cricket');
-              const isSubjectChip = fragment.toLowerCase().includes('the little boy');
+              const lower = fragment.toLowerCase();
+              const customHighlights = storyIntro.highlightFragments ?? [];
+              const isCustomMatch =
+                customHighlights.length > 0 &&
+                customHighlights.some((h) => lower.includes(h.toLowerCase()));
+              const isCricketChip = lower.includes('plays cricket');
+              const isSubjectChip = lower.includes('the little boy');
               const pulseInScene2 =
-                activeBeat.sceneFocus === 'arjun-picks-up' && isCricketChip;
+                activeBeat.sceneFocus === 'arjun-picks-up' &&
+                (isCricketChip || isCustomMatch);
               const pulseInScene3 =
                 activeBeat.sceneFocus === 'gyan-explains' &&
-                (isCricketChip || isSubjectChip);
+                (isCricketChip || isSubjectChip || isCustomMatch);
 
               const pulseClass =
                 !prefersReducedMotion && (pulseInScene2 || (pulseInScene3 && isCricketChip))
                   ? 'gq-story-chip-glow-teal'
-                  : !prefersReducedMotion && pulseInScene3 && isSubjectChip
+                  : !prefersReducedMotion && pulseInScene3 && (isSubjectChip || isCustomMatch)
                     ? 'gq-story-chip-glow-amber'
                     : '';
 
@@ -203,7 +212,7 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
                     'px-2.5 py-1 rounded-[9px] border text-xs font-medium transition-colors',
                     pulseInScene2 || (pulseInScene3 && isCricketChip)
                       ? 'bg-[#DDF4F0] border-[#0F7F76] text-[#263A70] font-semibold'
-                      : pulseInScene3 && isSubjectChip
+                      : pulseInScene3 && (isSubjectChip || isCustomMatch)
                         ? 'bg-[#FFF4D6] border-[#D97706] text-[#263A70] font-semibold'
                         : idx % 2 === 0
                           ? 'bg-[#FFF4D6] border-[#F2DFB6] text-[#263A70]'
@@ -354,7 +363,7 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
                 .join(' ')}
               style={{ borderColor: theme.solid }}
             >
-              Scrap on the ground:{' '}
+              {storyIntro.cardPreviewLabel ?? 'Scrap on the ground:'}{' '}
               <span style={{ color: theme.solid }}>{activeBeat.cardPreviewText}</span>
             </div>
           ) : null}

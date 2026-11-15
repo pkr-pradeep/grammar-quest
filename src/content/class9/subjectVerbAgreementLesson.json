@@ -1,0 +1,1224 @@
+{
+  "lessonId": "c9-lesson-subject-verb-agreement",
+  "missionId": "c9-mission-03",
+  "classLevel": 9,
+  "moduleId": "module-3-subject-verb-agreement",
+  "moduleTitle": "Subject–Verb Agreement",
+  "missionTitle": "The Grammar Detective",
+  "topic": "Matching Subjects and Verbs",
+  "estimatedMinutes": 8,
+  "situationBrief": {
+    "title": "The Case of the Mismatched Verbs",
+    "description": "Mira, Arjun, and Gyan are checking school club reports and event posters. Words squeezed between the Subject and verb are tricking students into picking the wrong verb!",
+    "characterId": "mira",
+    "characterExpression": "curious"
+  },
+  "storyIntro": {
+    "sceneVariant": "detective-board",
+    "sceneTitle": "The Grammar Detective Board",
+    "settingLabel": "School Noticeboard Room",
+    "previewSectionTitle": "Clues pinned to the detective board",
+    "cardPreviewLabel": "Detective clue",
+    "scatteredFragments": [
+      "The basket of ripe mangoes are ...",
+      "Each of the runners were ...",
+      "Mathematics are ...",
+      "Rice and dal are wholesome ..."
+    ],
+    "highlightFragments": [
+      "basket (sing.) → is",
+      "Each (sing.) → was",
+      "Mathematics → is",
+      "single meal → is"
+    ],
+    "beats": [
+      {
+        "id": "c9-m3-beat-1",
+        "speaker": "mira",
+        "expression": "surprised",
+        "pose": "pointing",
+        "sceneFocus": "mira-notices",
+        "actionLabel": "Spots a tricky poster error",
+        "dialogue": "Look at this school kitchen notice: 'The basket of ripe mangoes are fresh.' Why did someone write 'are' when there is only ONE basket?"
+      },
+      {
+        "id": "c9-m3-beat-2",
+        "speaker": "arjun",
+        "expression": "curious",
+        "pose": "exploring",
+        "sceneFocus": "arjun-picks-up",
+        "actionLabel": "Reads three more suspect slips",
+        "dialogue": "Wait—look at these slips too! 'Mathematics are fun', 'Each of the runners were fast', and 'Neither Ravi nor his friends is here.' How do we spot the real Subject every time?",
+        "cardPreviewText": "The basket of ripe mangoes are fresh."
+      },
+      {
+        "id": "c9-m3-beat-3",
+        "speaker": "gyan",
+        "expression": "explaining",
+        "pose": "explaining",
+        "sceneFocus": "gyan-explains",
+        "actionLabel": "Activates the Concord Magnifier",
+        "dialogue": "A finite verb must match the TRUE Subject head-word in Number and Person—never the nearby nouns in between! Grab your magnifying glass and solve all six clues!"
+      }
+    ]
+  },
+  "learningObjectives": {
+    "grammarOutcomes": [
+      "Lock finite verbs to the true Subject head-noun in Number (singular/plural) and Person, ignoring intervening 'of'-phrases.",
+      "Distinguish compound plural Subjects ('Mira and Arjun are') from single-idea pairs ('Rice and dal is') and one-determiner titles.",
+      "Apply concord rules accurately for 'with / as well as', 'either...or / neither...nor', plural-form singular nouns ('Mathematics'), 'police/cattle', and 'each of / neither of'."
+    ],
+    "knowledgeOutcome": "Audit school sports logs, healthy mid-day meal posters, and library invitations like a sharp Grammar Detective."
+  },
+  "sourceReferences": [
+    {
+      "id": "src-pseb9-concord",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 9 Sec. 2: Concord — Agreement of the Verb with Subject",
+      "bookPages": "97-100, 102-104",
+      "pdfPages": "103-106, 108-110",
+      "provenance": "textbook-derived",
+      "note": "Teaches 13 numbered concord rules + exceptions: head-noun matching across 'of'-phrases, 'and' compound vs single idea, 'each/every', 'either...or/neither...nor', 'with', 'there', 'each/everyone/neither of' singular, '-s' singular nouns, and sums/units."
+    },
+    {
+      "id": "src-od9-sva-intro",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Ch. 2 (p. 32), Ch. 7 (pp. 83-89), Ch. 8 (pp. 93, 98-99)",
+      "bookPages": "32, 83-89, 93, 98-99",
+      "pdfPages": "38, 89-95, 99, 104-105",
+      "provenance": "textbook-derived",
+      "note": "Covers foundational person/number verb table, countable/uncountable agreement, pair nouns vs 'a pair of', 'police/people/cattle', '-s' singular subjects like Mathematics, and quantifier SVA."
+    },
+    {
+      "id": "src-assam-sva",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Ch. 1 (p. 3), Ch. 4 (pp. 50-51), Ch. 5 (pp. 66-67, 73), Ch. 6 (pp. 80, 84), Ch. 12 (p. 201)",
+      "bookPages": "3, 50-51, 66-67, 73, 80, 84, 201",
+      "pdfPages": "12, 59-60, 75-76, 82, 89, 93, 210",
+      "provenance": "textbook-derived",
+      "note": "Scattered SVA rules: finite verb governed by Subject's Number/Person, 'cattle/police' vs 'mathematics/news', distributive pronouns singular, one vs two articles, 'Many a man'."
+    },
+    {
+      "id": "src-od10-ch3-ref",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 3: Subject – Verb Agreement (Rule 7a caveat)",
+      "bookPages": "26",
+      "pdfPages": "32",
+      "provenance": "textbook-derived",
+      "note": "Referenced for Odisha Class X's informal conversational plural note on 'neither of / none of' while teaching formal singular concord in Class 9."
+    },
+    {
+      "id": "src-m3-c9-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Class 9 Concord Consolidation Bridge (Supplementary)",
+      "chapter": "Detective Concord Synthesis",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Consolidates PSEB IX's 13 formal concord rules with Odisha IX's introductory rules and Assam's scattered chapters because Odisha Class IX defers standalone SVA to Class X."
+    }
+  ],
+  "activeRelationshipTypes": [
+    "verb-subject",
+    "preposition-relation",
+    "conjunction-elements"
+  ],
+  "sentences": [
+    {
+      "id": "m3c9-sent-intervening",
+      "title": "Clue 1: Intervening 'of'-Phrase Trap",
+      "rawText": "The basket of ripe mangoes is on the table.",
+      "contextTag": "School Kitchen Poster",
+      "note": "Ignore the prepositional phrase 'of ripe mangoes': the real Subject head-noun is singular 'basket'.",
+      "tokens": [
+        {
+          "id": "m3c9s1-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to one specific basket.",
+          "grammaticalRoleExplanation": "Introduces 'basket'."
+        },
+        {
+          "id": "m3c9s1-t2",
+          "text": "basket",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "True Subject Head (Singular)",
+          "meaningInSentence": "Names the one container—this word controls the verb!",
+          "grammaticalRoleExplanation": "Singular head-noun of the Subject; takes singular verb 'is'.",
+          "linkedTokenIds": ["m3c9s1-t6"]
+        },
+        {
+          "id": "m3c9s1-t3",
+          "text": "of",
+          "category": "preposition",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Intervening Modifier",
+          "meaningInSentence": "Begins a describing phrase inside the Subject.",
+          "grammaticalRoleExplanation": "Prepositional phrases like 'of ripe mangoes' NEVER control the verb!"
+        },
+        {
+          "id": "m3c9s1-t4",
+          "text": "ripe",
+          "category": "adjective",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Intervening Modifier",
+          "meaningInSentence": "Describes the mangoes inside.",
+          "grammaticalRoleExplanation": "Part of the intervening phrase 'of ripe mangoes'."
+        },
+        {
+          "id": "m3c9s1-t5",
+          "text": "mangoes",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Trap Noun (Inside 'of'-phrase)",
+          "meaningInSentence": "Plural noun, but NOT the Subject head!",
+          "grammaticalRoleExplanation": "Object of preposition 'of'—cannot decide the verb."
+        },
+        {
+          "id": "m3c9s1-t6",
+          "text": "is",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Singular Verb",
+          "meaningInSentence": "States where the basket is.",
+          "grammaticalRoleExplanation": "Matches singular 'basket', not plural 'mangoes'.",
+          "linkedTokenIds": ["m3c9s1-t2"],
+          "verbMeta": {
+            "timeCommunicated": "Present State",
+            "verbForm": "Singular Linking Verb ('is')",
+            "whyAppropriate": "Only ONE basket is on the table; 'of ripe mangoes' is just an intervening modifier.",
+            "subjectLinkNote": "Locked to singular head-noun 'basket'."
+          }
+        },
+        {
+          "id": "m3c9s1-t7",
+          "text": "on",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows location.",
+          "grammaticalRoleExplanation": "Preposition."
+        },
+        {
+          "id": "m3c9s1-t8",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies table.",
+          "grammaticalRoleExplanation": "Determiner."
+        },
+        {
+          "id": "m3c9s1-t9",
+          "text": "table",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun",
+          "meaningInSentence": "Where the basket sits.",
+          "grammaticalRoleExplanation": "Object of 'on'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "m3c9s1-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m3c9s1-t1", "m3c9s1-t2", "m3c9s1-t3", "m3c9s1-t4", "m3c9s1-t5"],
+          "questionPrompt": "What is the single head-noun?",
+          "plainExplanation": "'basket' is the singular head-noun; 'of ripe mangoes' describes it.",
+          "textbookRule": "When a noun/pronoun is joined to other words by a preposition ('of', 'in'), the verb agrees with the FIRST/head Subject noun (PSEB IX p. 97).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-concord"]
+        },
+        {
+          "id": "m3c9s1-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m3c9s1-t6", "m3c9s1-t7", "m3c9s1-t8", "m3c9s1-t9"],
+          "questionPrompt": "Which verb locks to 'basket'?",
+          "plainExplanation": "'is on the table' agrees with singular 'basket'.",
+          "textbookRule": "Use singular 'is', not 'are'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-concord"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m3c9s1-rel-1",
+          "type": "verb-subject",
+          "label": "is ← basket",
+          "fromTokenIds": ["m3c9s1-t6"],
+          "toTokenIds": ["m3c9s1-t2"],
+          "explanation": "'is' locks directly to singular 'basket', skipping over 'of ripe mangoes'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The basket of ripe mangoes",
+        "subjectHeadWord": "basket",
+        "predicateText": "is on the table",
+        "predicateHeadWord": "is",
+        "patternNote": "Singular head ('basket') + intervening plural ('mangoes') → singular verb 'is'."
+      }
+    },
+    {
+      "id": "m3c9-sent-single-idea",
+      "title": "Clue 2: Single-Idea Pair With 'and'",
+      "rawText": "Rice and dal is a wholesome meal.",
+      "contextTag": "Mid-Day Meal Chart",
+      "note": "Two nouns joined by 'and' normally take a plural verb, EXCEPT when they express ONE single meal or idea.",
+      "tokens": [
+        {
+          "id": "m3c9s2-t1",
+          "text": "Rice",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Single-Idea Pair (Part 1)",
+          "meaningInSentence": "Combined with dal as one dish.",
+          "grammaticalRoleExplanation": "Together with 'and dal', expresses one single meal.",
+          "linkedTokenIds": ["m3c9s2-t4"]
+        },
+        {
+          "id": "m3c9s2-t2",
+          "text": "and",
+          "category": "conjunction",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Conjunction",
+          "meaningInSentence": "Joins two items into one meal.",
+          "grammaticalRoleExplanation": "Single-idea compound Subject."
+        },
+        {
+          "id": "m3c9s2-t3",
+          "text": "dal",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Single-Idea Pair (Part 2)",
+          "meaningInSentence": "Served together with rice as one meal.",
+          "grammaticalRoleExplanation": "Completes the single notion 'Rice and dal'.",
+          "linkedTokenIds": ["m3c9s2-t4"]
+        },
+        {
+          "id": "m3c9s2-t4",
+          "text": "is",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Singular Verb",
+          "meaningInSentence": "Treats 'Rice and dal' as one wholesome meal.",
+          "grammaticalRoleExplanation": "Singular verb for a single-idea pair.",
+          "linkedTokenIds": ["m3c9s2-t1", "m3c9s2-t3"],
+          "verbMeta": {
+            "timeCommunicated": "General Truth",
+            "verbForm": "Singular Verb ('is')",
+            "whyAppropriate": "Two items forming one combined meal/notion ('rice and dal', 'slow and steady') take a singular verb."
+          }
+        },
+        {
+          "id": "m3c9s2-t5",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Shows it is ONE meal.",
+          "grammaticalRoleExplanation": "Singular article 'a' confirms the single-idea reading."
+        },
+        {
+          "id": "m3c9s2-t6",
+          "text": "wholesome",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Nutritious and healthy.",
+          "grammaticalRoleExplanation": "Modifies 'meal'."
+        },
+        {
+          "id": "m3c9s2-t7",
+          "text": "meal",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Singular Complement",
+          "meaningInSentence": "One combined dish.",
+          "grammaticalRoleExplanation": "Noun complement.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "m3c9s2-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m3c9s2-t1", "m3c9s2-t2", "m3c9s2-t3"],
+          "questionPrompt": "Are these two separate things or one meal?",
+          "plainExplanation": "'Rice and dal' names one single meal.",
+          "textbookRule": "When two nouns joined by 'and' suggest one single idea or dish, they take a singular verb (PSEB IX p. 98; Assam p. 201).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-concord", "src-assam-sva"]
+        },
+        {
+          "id": "m3c9s2-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m3c9s2-t4", "m3c9s2-t5", "m3c9s2-t6", "m3c9s2-t7"],
+          "questionPrompt": "Which verb matches one meal?",
+          "plainExplanation": "'is a wholesome meal' uses singular 'is'.",
+          "textbookRule": "Compare: 'Mira and Arjun ARE teammates' (two people) vs 'Rice and dal IS a wholesome meal' (one dish).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-concord"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m3c9s2-rel-1",
+          "type": "verb-subject",
+          "label": "is ← Rice and dal",
+          "fromTokenIds": ["m3c9s2-t4"],
+          "toTokenIds": ["m3c9s2-t1", "m3c9s2-t3"],
+          "explanation": "One combined dish takes singular 'is'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Rice and dal",
+        "subjectHeadWord": "Rice and dal",
+        "predicateText": "is a wholesome meal",
+        "predicateHeadWord": "is",
+        "patternNote": "Two nouns expressing ONE combined idea → singular verb ('is')."
+      }
+    },
+    {
+      "id": "m3c9-sent-correlative",
+      "title": "Clue 3: Neither...Nor Nearest Subject",
+      "rawText": "Neither the captain nor the players were late.",
+      "contextTag": "Sports Track",
+      "note": "With 'either...or' or 'neither...nor', the verb agrees with the NEARER subject ('players').",
+      "tokens": [
+        {
+          "id": "m3c9s3-t1",
+          "text": "Neither",
+          "category": "conjunction",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Correlative Conjunction",
+          "meaningInSentence": "Pairs with 'nor'.",
+          "grammaticalRoleExplanation": "First half of 'neither...nor'."
+        },
+        {
+          "id": "m3c9s3-t2",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Introduces first subject.",
+          "grammaticalRoleExplanation": "Further from the verb."
+        },
+        {
+          "id": "m3c9s3-t3",
+          "text": "captain",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Farther Subject (Singular)",
+          "meaningInSentence": "First subject, further from the verb.",
+          "grammaticalRoleExplanation": "Do not match the verb to 'captain' when 'players' is nearer."
+        },
+        {
+          "id": "m3c9s3-t4",
+          "text": "nor",
+          "category": "conjunction",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Correlative Conjunction",
+          "meaningInSentence": "Points to the nearer subject.",
+          "grammaticalRoleExplanation": "Look right after 'nor' for the controlling noun."
+        },
+        {
+          "id": "m3c9s3-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Introduces 'players'.",
+          "grammaticalRoleExplanation": "Determiner."
+        },
+        {
+          "id": "m3c9s3-t6",
+          "text": "players",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Nearest Subject (Plural)",
+          "meaningInSentence": "Closest noun to the verb—controls agreement!",
+          "grammaticalRoleExplanation": "Plural noun nearest to the verb requires plural 'were'.",
+          "linkedTokenIds": ["m3c9s3-t7"]
+        },
+        {
+          "id": "m3c9s3-t7",
+          "text": "were",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Plural Past Verb",
+          "meaningInSentence": "Matches nearest plural subject 'players'.",
+          "grammaticalRoleExplanation": "Plural verb agreed with nearer noun.",
+          "linkedTokenIds": ["m3c9s3-t6"],
+          "verbMeta": {
+            "timeCommunicated": "Past State",
+            "verbForm": "Plural Past Verb ('were')",
+            "whyAppropriate": "With 'neither...nor', always place the plural noun nearer the verb and lock the verb to that nearer subject ('players → were')."
+          }
+        },
+        {
+          "id": "m3c9s3-t8",
+          "text": "late",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Punctuality.",
+          "grammaticalRoleExplanation": "Subject complement.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "m3c9s3-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m3c9s3-t1", "m3c9s3-t2", "m3c9s3-t3", "m3c9s3-t4", "m3c9s3-t5", "m3c9s3-t6"],
+          "questionPrompt": "Which noun sits closest to the verb?",
+          "plainExplanation": "'players' (plural) sits right next to the verb.",
+          "textbookRule": "When one subject is singular and the other plural joined by 'either...or / neither...nor', place the plural subject nearer and use a plural verb; when both differ in person, match the nearer one (PSEB IX p. 98).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-concord"]
+        },
+        {
+          "id": "m3c9s3-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m3c9s3-t7", "m3c9s3-t8"],
+          "questionPrompt": "Which verb agrees with 'players'?",
+          "plainExplanation": "'were late' locks to plural 'players'.",
+          "textbookRule": "Nearest-subject proximity rule for 'or / nor'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-concord"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m3c9s3-rel-1",
+          "type": "verb-subject",
+          "label": "were ← players",
+          "fromTokenIds": ["m3c9s3-t7"],
+          "toTokenIds": ["m3c9s3-t6"],
+          "explanation": "'were' agrees with the nearer plural Subject 'players'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Neither the captain nor the players",
+        "subjectHeadWord": "players",
+        "predicateText": "were late",
+        "predicateHeadWord": "were",
+        "patternNote": "Contrast 'with / as well as' (FIRST subject wins) vs 'neither...nor' (NEARER subject wins)."
+      }
+    },
+    {
+      "id": "m3c9-sent-each-of",
+      "title": "Clue 4: 'Each of / Neither of' & '-s' Singulars",
+      "rawText": "Each of the students has a library card.",
+      "contextTag": "Library Desk",
+      "note": "Words like 'each', 'every', 'everyone', 'one of', and 'neither of' select ONE individual at a time, taking a singular verb.",
+      "tokens": [
+        {
+          "id": "m3c9s4-t1",
+          "text": "Each",
+          "category": "pronoun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Distributive Pronoun (Singular)",
+          "meaningInSentence": "Means every single student considered one by one.",
+          "grammaticalRoleExplanation": "Always singular—locks the verb to 'has'.",
+          "linkedTokenIds": ["m3c9s4-t5"]
+        },
+        {
+          "id": "m3c9s4-t2",
+          "text": "of",
+          "category": "preposition",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Introduces the group.",
+          "grammaticalRoleExplanation": "Intervening phrase."
+        },
+        {
+          "id": "m3c9s4-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the students.",
+          "grammaticalRoleExplanation": "Determiner."
+        },
+        {
+          "id": "m3c9s4-t4",
+          "text": "students",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Trap Plural (After 'of')",
+          "meaningInSentence": "Plural group, NOT the head-word!",
+          "grammaticalRoleExplanation": "Object of 'of'—never controls the verb."
+        },
+        {
+          "id": "m3c9s4-t5",
+          "text": "has",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Singular Verb",
+          "meaningInSentence": "Shows possession for each individual.",
+          "grammaticalRoleExplanation": "Agrees with singular 'Each', never 'students'.",
+          "linkedTokenIds": ["m3c9s4-t1"],
+          "verbMeta": {
+            "timeCommunicated": "Present Possession",
+            "verbForm": "Singular Verb ('has')",
+            "whyAppropriate": "'Each of + plural noun' always focuses on one person at a time, so use singular 'has'."
+          }
+        },
+        {
+          "id": "m3c9s4-t6",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "One card per student.",
+          "grammaticalRoleExplanation": "Singular article."
+        },
+        {
+          "id": "m3c9s4-t7",
+          "text": "library",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Type of card.",
+          "grammaticalRoleExplanation": "Modifier."
+        },
+        {
+          "id": "m3c9s4-t8",
+          "text": "card",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun (Object)",
+          "meaningInSentence": "Library pass.",
+          "grammaticalRoleExplanation": "Object.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "m3c9s4-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m3c9s4-t1", "m3c9s4-t2", "m3c9s4-t3", "m3c9s4-t4"],
+          "questionPrompt": "Which word controls the verb?",
+          "plainExplanation": "'Each' is singular, even though 'students' is plural.",
+          "textbookRule": "'Each, every, either, neither, everyone, one of + plural noun' take a singular verb formally (PSEB IX p. 99; Assam pp. 66-67).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-concord", "src-assam-sva"]
+        },
+        {
+          "id": "m3c9s4-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m3c9s4-t5", "m3c9s4-t6", "m3c9s4-t7", "m3c9s4-t8"],
+          "questionPrompt": "Which verb fits 'Each'?",
+          "plainExplanation": "'has a library card' uses singular 'has'.",
+          "textbookRule": "Use singular 'has', not 'have'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-pseb9-concord"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m3c9s4-rel-1",
+          "type": "verb-subject",
+          "label": "has ← Each",
+          "fromTokenIds": ["m3c9s4-t5"],
+          "toTokenIds": ["m3c9s4-t1"],
+          "explanation": "'has' locks onto singular 'Each', ignoring 'of the students'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Each of the students",
+        "subjectHeadWord": "Each",
+        "predicateText": "has a library card",
+        "predicateHeadWord": "has",
+        "patternNote": "'Each / Every / One of / Neither of' + plural noun → formal singular verb."
+      }
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "c9-m3-step-1",
+      "stepNumber": 1,
+      "type": "show-sentence",
+      "visualMode": "agreement-lock",
+      "title": "Rule 1: Number & Person Lock",
+      "badgeLabel": "Stage 1 · Core Concord",
+      "shortPrompt": "A finite verb locks onto the true Subject head-noun—never nearby trap words!",
+      "explanation": "Every detective begins here: find the TRUE Subject head-noun and lock the verb to its Number (singular vs plural) and Person. In 'The basket of ripe mangoes is on the table', 'of ripe mangoes' is just extra description—the real Subject is ONE 'basket', so the verb is 'is'!",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c9-sent-intervening",
+      "focusTokenIds": ["m3c9s1-t2", "m3c9s1-t6"],
+      "agreementData": {
+        "subjectHeadText": "basket",
+        "subjectNumberPerson": "Singular (3rd person)",
+        "verbText": "is",
+        "verbFormTag": "Singular Verb",
+        "interveningText": "of ripe mangoes",
+        "ruleSummary": "Ignore prepositional phrases ('of...', 'in...', 'from...') between Subject head and verb.",
+        "contrastIncorrectText": "The basket of ripe mangoes are on the table.",
+        "contrastReason": "'mangoes' sits inside 'of ripe mangoes' and cannot control the verb."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord", "src-od9-sva-intro", "src-m3-c9-bridge"]
+    },
+    {
+      "id": "c9-m3-step-2",
+      "stepNumber": 2,
+      "type": "explain-role",
+      "visualMode": "agreement-lock",
+      "title": "Rule 2: Intervening Phrases Trap",
+      "badgeLabel": "Stage 2 · Preposition Trap",
+      "shortPrompt": "Cross out 'of...' or 'with...' in your mind to hear the true Subject + Verb pair.",
+      "explanation": "Try covering 'of ripe mangoes' with your finger: 'The basket ... is on the table' sounds right immediately! This trick also works with 'The quality of these apples is good' and 'The captain, with his teammates, was cheered'.",
+      "characterId": "mira",
+      "characterExpression": "happy",
+      "sentenceId": "m3c9-sent-intervening",
+      "focusTokenIds": ["m3c9s1-t2", "m3c9s1-t6"],
+      "dimmedTokenIds": ["m3c9s1-t3", "m3c9s1-t4", "m3c9s1-t5"],
+      "agreementData": {
+        "subjectHeadText": "basket",
+        "subjectNumberPerson": "Singular Noun",
+        "verbText": "is",
+        "verbFormTag": "Singular Verb",
+        "interveningText": "of ripe mangoes (dimmed out!)",
+        "ruleSummary": "With 'with', 'as well as', or 'together with', the FIRST Subject controls the verb: 'The teacher, as well as the students, is happy.'"
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-step-3",
+      "stepNumber": 3,
+      "type": "explain-meaning",
+      "visualMode": "agreement-lock",
+      "title": "Rule 3: Compound 'and' vs Single Idea",
+      "badgeLabel": "Stage 3 · Compound vs Single Idea",
+      "shortPrompt": "Two separate things ('Mira and Arjun are') vs one combined idea ('Rice and dal is').",
+      "explanation": "Normally, 'and' adds two Subjects together into a plural ('Mira and Arjun ARE teammates'). But when a traditional pair expresses ONE single meal or idea—like 'Rice and dal is a wholesome meal' or 'Slow and steady wins the race'—use a singular verb!",
+      "characterId": "arjun",
+      "characterExpression": "curious",
+      "sentenceId": "m3c9-sent-single-idea",
+      "focusTokenIds": ["m3c9s2-t1", "m3c9s2-t3", "m3c9s2-t4"],
+      "agreementData": {
+        "subjectHeadText": "Rice and dal",
+        "subjectNumberPerson": "One combined meal (Singular notion)",
+        "verbText": "is",
+        "verbFormTag": "Singular Verb",
+        "ruleSummary": "Also note one determiner = one person ('The poet and singer IS here'), whereas two determiners = two people ('The poet and the singer ARE here').",
+        "contrastIncorrectText": "Rice and dal are a wholesome meal.",
+        "contrastReason": "Notice 'a wholesome meal'—one singular meal calls for 'is'."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord", "src-assam-sva"]
+    },
+    {
+      "id": "c9-m3-step-4",
+      "stepNumber": 4,
+      "type": "compare-example",
+      "visualMode": "agreement-lock",
+      "title": "Rule 4: Either...Or & Neither...Nor",
+      "badgeLabel": "Stage 4 · Nearest Subject",
+      "shortPrompt": "With 'or / nor', the verb locks onto the subject closest to it!",
+      "explanation": "Compare joiners carefully: 'with / as well as' follows the FIRST subject, whereas 'either...or' and 'neither...nor' follow the NEAREST subject! Here, plural 'players' stands right before the verb, so we choose 'were'.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c9-sent-correlative",
+      "comparisonSentenceId": "m3c9-sent-intervening",
+      "focusTokenIds": ["m3c9s3-t6", "m3c9s3-t7"],
+      "dimmedTokenIds": ["m3c9s3-t2", "m3c9s3-t3"],
+      "agreementData": {
+        "subjectHeadText": "players (nearest)",
+        "subjectNumberPerson": "Plural (closer to verb)",
+        "verbText": "were",
+        "verbFormTag": "Plural Verb",
+        "interveningText": "the captain (further away)",
+        "ruleSummary": "When subjects of different number/person join with 'either...or / neither...nor', place the plural subject closer and match the nearest subject."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-step-5",
+      "stepNumber": 5,
+      "type": "highlight-group",
+      "visualMode": "agreement-lock",
+      "title": "Rule 5: 'Each / Every / One of / Neither of'",
+      "badgeLabel": "Stage 5 · Indefinites",
+      "shortPrompt": "Even before 'of the students', 'Each / Everyone / Neither of' takes a singular verb formally.",
+      "explanation": "Detectives watch for words ending or starting with one/each: 'Each of the students has', 'One of my friends lives', 'Neither of the answers is correct'. Always test 'Each ... has' rather than getting fooled by 'students'!",
+      "characterId": "mira",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c9-sent-each-of",
+      "focusTokenIds": ["m3c9s4-t1", "m3c9s4-t5"],
+      "dimmedTokenIds": ["m3c9s4-t2", "m3c9s4-t3", "m3c9s4-t4"],
+      "agreementData": {
+        "subjectHeadText": "Each",
+        "subjectNumberPerson": "Distributive Singular",
+        "verbText": "has",
+        "verbFormTag": "Singular Verb",
+        "interveningText": "of the students",
+        "ruleSummary": "PSEB IX and Assam IX-X strictly require a singular verb with 'each of / one of / neither of / either of'.",
+        "contrastIncorrectText": "Each of the students have a library card.",
+        "contrastReason": "'Each' refers to one student at a time, so singular 'has' is required.",
+        "informalUsageNote": "Odisha Class X Rule 7a notes that plural verbs sometimes appear after 'neither of / none of' in casual speech, but formal grammar and exams expect the singular verb."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord", "src-assam-sva", "src-od10-ch3-ref"]
+    },
+    {
+      "id": "c9-m3-step-6",
+      "stepNumber": 6,
+      "type": "show-relationship",
+      "visualMode": "agreement-lock",
+      "title": "Rule 6: '-s' Singulars vs Always-Plural Nouns",
+      "badgeLabel": "Stage 6 · Tricky Nouns",
+      "shortPrompt": "'Mathematics IS' (one subject), while 'police / cattle ARE' and 'a pair of scissors IS'!",
+      "explanation": "Don't judge by '-s' alone! Subjects/news ending in '-s' ('Mathematics', 'Physics', 'news') are SINGULAR ('Mathematics is fascinating'). Meanwhile, 'police', 'people', and 'cattle' have no '-s' yet take PLURAL verbs ('The police have arrived'). And 'My scissors are sharp' vs 'A pair of scissors is on the desk'!",
+      "characterId": "arjun",
+      "characterExpression": "happy",
+      "sentenceId": "m3c9-sent-intervening",
+      "focusTokenIds": ["m3c9s1-t2", "m3c9s1-t6"],
+      "agreementData": {
+        "subjectHeadText": "Mathematics / news / a pair of...",
+        "subjectNumberPerson": "Singular in meaning",
+        "verbText": "is / has",
+        "verbFormTag": "Singular vs 'police/cattle ARE'",
+        "ruleSummary": "Also remember unit sums ('Ten kilometres IS a long walk') and preparatory 'there' ('There ARE forty desks' vs 'There IS a clock'). Note: Odisha Class IX introduces noun-class SVA across Ch. 2, 7, 8 and defers full SVA to Class 10, so this module bridges all three boards cleanly."
+      },
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od9-sva-intro", "src-pseb9-concord", "src-assam-sva", "src-m3-c9-bridge"]
+    },
+    {
+      "id": "c9-m3-step-7",
+      "stepNumber": 7,
+      "type": "reveal-structure",
+      "visualMode": "agreement-lock",
+      "title": "Rule 7: Preparatory 'There' & Unit Quantities",
+      "badgeLabel": "Stage 7 · 'There' & Units",
+      "shortPrompt": "With 'There is / There are', look AFTER the verb to find the real Subject!",
+      "explanation": "In 'There are twenty benches in the room', 'There' is only an introducer—the real Subject 'twenty benches' sits after the verb! Meanwhile, plural amounts seen as ONE whole unit—'Five hundred rupees is enough' or 'Ten kilometres is a long walk'—take a singular verb.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c9-sent-single-idea",
+      "focusTokenIds": ["m3c9s2-t1", "m3c9s2-t3", "m3c9s2-t4"],
+      "agreementData": {
+        "subjectHeadText": "Real Subject after 'There' / Unit sum",
+        "subjectNumberPerson": "Check actual noun or whole unit",
+        "verbText": "is / are",
+        "verbFormTag": "Matches true head",
+        "ruleSummary": "'There IS a neem tree' (singular) vs 'There ARE five neem trees' (plural); 'Ten kilometres IS a good morning walk' (one single distance)."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-step-8",
+      "stepNumber": 8,
+      "type": "interact-explore",
+      "visualMode": "free-explore",
+      "allowFreeExplore": true,
+      "title": "Inspect Concord Links Before Detective Lab",
+      "badgeLabel": "Stage 8 · Explore",
+      "shortPrompt": "Tap 'Each', 'students', or 'has' above to see the lock note, then enter Guided Practice.",
+      "explanation": "Tap any word above to inspect its role and Subject-Verb lock. When ready, head into the Grammar Detective Lab to catch every verb trap!",
+      "characterId": "gyan",
+      "characterExpression": "celebrating",
+      "sentenceId": "m3c9-sent-each-of",
+      "focusTokenIds": ["m3c9s4-t1", "m3c9s4-t5"],
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-m3-c9-bridge"]
+    }
+  ],
+  "wordLabActivities": [
+    {
+      "id": "c9-m3-lab-a",
+      "kind": "identify-group",
+      "tabLabel": "A. Head Noun",
+      "title": "A. Tap the True Controlling Subject Head",
+      "instruction": "Ignore the 'of'-phrase! Tap ONLY the ONE word that controls the verb.",
+      "targetRole": "subject",
+      "correctTitle": "True Subject head found!",
+      "incorrectTitle": "Don't get fooled by the noun inside the 'of'-phrase!",
+      "hideRoleGroupsOnSuccess": true,
+      "sentence": {
+        "id": "c9-m3-lab-a-sent",
+        "title": "Detective Clue A",
+        "rawText": "The quality of these fresh mangoes is wonderful.",
+        "contextTag": "Orchard Inspection",
+        "tokens": [
+          { "id": "c9m3a-t1", "text": "The", "category": "determiner", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "Specifies quality.", "grammaticalRoleExplanation": "Determiner." },
+          { "id": "c9m3a-t2", "text": "quality", "category": "noun", "groupRole": "subject", "isHeadWord": true, "roleLabel": "True Subject Head", "meaningInSentence": "Singular noun controlling 'is'.", "grammaticalRoleExplanation": "Controls the verb." },
+          { "id": "c9m3a-t3", "text": "of", "category": "preposition", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Preposition", "meaningInSentence": "Starts modifier.", "grammaticalRoleExplanation": "Preposition." },
+          { "id": "c9m3a-t4", "text": "these", "category": "determiner", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "Points to mangoes.", "grammaticalRoleExplanation": "Determiner." },
+          { "id": "c9m3a-t5", "text": "fresh", "category": "adjective", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Adjective", "meaningInSentence": "Freshness.", "grammaticalRoleExplanation": "Adjective." },
+          { "id": "c9m3a-t6", "text": "mangoes", "category": "noun", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Trap Noun", "meaningInSentence": "Inside 'of'-phrase.", "grammaticalRoleExplanation": "Not head-noun." },
+          { "id": "c9m3a-t7", "text": "is", "category": "verb", "groupRole": "predicate", "isHeadWord": true, "roleLabel": "Singular Verb", "meaningInSentence": "Agrees with 'quality'.", "grammaticalRoleExplanation": "Singular verb." },
+          { "id": "c9m3a-t8", "text": "wonderful", "category": "adjective", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Adjective", "meaningInSentence": "Describes quality.", "grammaticalRoleExplanation": "Complement.", "punctuationAfter": "." }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "The quality of these fresh mangoes",
+          "subjectHeadWord": "quality",
+          "predicateText": "is wonderful",
+          "predicateHeadWord": "is"
+        }
+      },
+      "correctTokenIds": ["c9m3a-t2"],
+      "correctFeedback": "Sharp detective work! 'quality' (singular) controls 'is', even though 'mangoes' is plural.",
+      "incorrectFeedback": "Tap ONLY the single head-noun before 'of' that controls 'is'.",
+      "hint": "Ask: What IS wonderful—the mangoes or their quality?",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-lab-b",
+      "kind": "categorise",
+      "tabLabel": "B. Sort Verbs",
+      "title": "B. Sort Subjects Into Singular Verb vs Plural Verb",
+      "instruction": "Tap each Subject card, then sort whether it takes a Singular Verb (is/was/has) or Plural Verb (are/were/have).",
+      "promptText": "1. Tap a Subject card below, then tap Singular Verb or Plural Verb:",
+      "categories": [
+        { "id": "singular", "label": "Takes Singular Verb", "helperText": "is / was / has", "tone": "singular" },
+        { "id": "plural", "label": "Takes Plural Verb", "helperText": "are / were / have", "tone": "plural" }
+      ],
+      "items": [
+        { "id": "c9m3b-1", "text": "Mathematics", "correctCategory": "singular", "explanation": "Subject names ending in '-s' take singular verbs." },
+        { "id": "c9m3b-2", "text": "The cattle in the meadow", "correctCategory": "plural", "explanation": "'cattle' is always plural." },
+        { "id": "c9m3b-3", "text": "Neither of the boys (formal)", "correctCategory": "singular", "explanation": "Formally takes a singular verb." },
+        { "id": "c9m3b-4", "text": "A pair of scissors", "correctCategory": "singular", "explanation": "'A pair of...' is one pair (singular)." },
+        { "id": "c9m3b-5", "text": "The police", "correctCategory": "plural", "explanation": "'police' always takes a plural verb." },
+        { "id": "c9m3b-6", "text": "Mira and Arjun", "correctCategory": "plural", "explanation": "Two distinct people joined by 'and' take a plural verb." }
+      ],
+      "completeFeedback": "Every tricky Subject sorted with zero traps missed!",
+      "incorrectFeedback": "Watch out for '-s' singulars ('Mathematics'), 'a pair of', and always-plural nouns ('police', 'cattle'). Tap marked cards to move them.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-sva-intro", "src-pseb9-concord", "src-assam-sva"]
+    },
+    {
+      "id": "c9-m3-lab-c",
+      "kind": "sentence-construction",
+      "tabLabel": "C. Build",
+      "title": "C. Assemble an 'As Well As' Sentence",
+      "instruction": "Arrange the tiles so the verb agrees with the FIRST subject ('The coach'), ignoring 'as well as the players'.",
+      "promptContext": "'as well as' keeps focus on the first Subject.",
+      "tiles": [
+        { "id": "c9m3c-1", "text": "The coach,", "groupRole": "subject", "category": "noun" },
+        { "id": "c9m3c-2", "text": "as well as", "groupRole": "subject", "category": "conjunction" },
+        { "id": "c9m3c-3", "text": "the players,", "groupRole": "subject", "category": "noun" },
+        { "id": "c9m3c-4", "text": "is", "groupRole": "predicate", "category": "verb" },
+        { "id": "c9m3c-5", "text": "ready for practice.", "groupRole": "predicate", "category": "adjective" }
+      ],
+      "correctOrderIds": ["c9m3c-1", "c9m3c-2", "c9m3c-3", "c9m3c-4", "c9m3c-5"],
+      "subjectText": "The coach, as well as the players,",
+      "predicateText": "is ready for practice.",
+      "part1Label": "First Subject Controls ('The coach')",
+      "part2Label": "Singular Predicate ('is...')",
+      "correctFeedback": "Exact! Phrases introduced by 'with / as well as' do not make a singular Subject plural.",
+      "incorrectFeedback": "Order: 'The coach,' + 'as well as' + 'the players,' + 'is' + 'ready for practice.'",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-lab-d",
+      "kind": "word-replacement",
+      "tabLabel": "D. Swap Link",
+      "title": "D. Swap One Determiner, Flip the Verb!",
+      "instruction": "Tap both options to see how repeating 'the' turns one person into two people.",
+      "beforeText": "The Secretary and",
+      "afterText": "attending today's meeting.",
+      "originalWord": "Principal is",
+      "slotGroupRole": "predicate",
+      "slotLabel": "Determiner + Verb Shift:",
+      "options": [
+        {
+          "id": "c9m3d-1",
+          "word": "Principal is",
+          "category": "verb",
+          "meaningEffect": "ONE determiner ('The') means ONE person holding both posts → singular 'is'.",
+          "roleImpactNote": "One person = singular verb.",
+          "isGrammatical": true
+        },
+        {
+          "id": "c9m3d-2",
+          "word": "the Principal are",
+          "category": "verb",
+          "meaningEffect": "TWO determiners ('The ... and the ...') mean TWO separate people → plural 'are'.",
+          "roleImpactNote": "Two people = plural verb.",
+          "isGrammatical": true
+        }
+      ],
+      "takeaway": "One 'the' = one person ('is'); two 'the's = two distinct people ('are')!",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-assam-sva", "src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-lab-e",
+      "kind": "missing-words",
+      "tabLabel": "E. Complete",
+      "title": "E. Complete the Neither...Nor Invitation",
+      "instruction": "Look closely at the subject closest to the blank and pick the matching verb.",
+      "sentenceBeforeBlank": "Neither Arjun nor his cousins",
+      "sentenceAfterBlank": "visited Kaziranga before.",
+      "missingRole": "predicate",
+      "incorrectTitle": "Check the nearer subject ('his cousins')",
+      "options": [
+        {
+          "id": "c9m3e-1",
+          "text": "has",
+          "isCorrect": false,
+          "feedback": "'Arjun' is singular, but 'his cousins' (plural) is closer to the blank and controls the verb!"
+        },
+        {
+          "id": "c9m3e-2",
+          "text": "have",
+          "isCorrect": true,
+          "feedback": "Spot on! With 'neither...nor', plural 'his cousins' is nearer the verb, taking 'have'."
+        },
+        {
+          "id": "c9m3e-3",
+          "text": "is",
+          "isCorrect": false,
+          "feedback": "'is' does not form Present Perfect with 'visited', and 'his cousins' is plural."
+        }
+      ],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-lab-f",
+      "kind": "error-identification",
+      "tabLabel": "F. Fix Error",
+      "title": "F. Diagnose the Distance & Indefinite Trap",
+      "instruction": "Read the flawed school sports card and select the accurate fix.",
+      "draftBadgeLabel": "Suspect Detective Case",
+      "brokenSentence": "Ten kilometres are a long distance to walk without water.",
+      "repairedSentence": "Ten kilometres is a long distance to walk without water.",
+      "question": "Why should 'are' change to 'is' here?",
+      "options": [
+        {
+          "id": "c9m3f-1",
+          "label": "'Ten kilometres' is treated as ONE single total distance, so it takes singular 'is'.",
+          "isCorrect": true,
+          "feedback": "Accurate diagnosis! Sums of money, distances, and weights viewed as one whole take a singular verb."
+        },
+        {
+          "id": "c9m3f-2",
+          "label": "'kilometres' has an '-s', so it must stay 'are'.",
+          "isCorrect": false,
+          "feedback": "Even though 'kilometres' ends in '-s', the whole phrase names one single distance ('a long distance')."
+        },
+        {
+          "id": "c9m3f-3",
+          "label": "Nothing is wrong; numbers larger than one always take 'are'.",
+          "isCorrect": false,
+          "feedback": "Unit totals like 'Ten kilometres' and 'Five hundred rupees' take singular verbs when treated as one amount."
+        }
+      ],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord"]
+    }
+  ],
+  "independentPractice": [
+    {
+      "id": "c9-m3-ind-1",
+      "mode": "token-and-choice",
+      "cueLevel": "gentle",
+      "cueText": "Tap the ONE true Subject head-noun before selecting the matching verb.",
+      "title": "Challenge 1: Spot the Head-Noun Past the Trap",
+      "instruction": "Ignore the 'of'-phrase, tap the real Subject word, then choose the right verb.",
+      "targetPrompt": "Step 1: Tap the single head-noun that controls the verb",
+      "targetTokenIds": ["c9m3i1-t2"],
+      "sentence": {
+        "id": "c9-m3-ind1-sent",
+        "title": "Independent Check 1",
+        "rawText": "A bunch of fresh yellow bananas [?] on the kitchen shelf.",
+        "contextTag": "Healthy Nutrition",
+        "tokens": [
+          { "id": "c9m3i1-t1", "text": "A", "category": "determiner", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "One.", "grammaticalRoleExplanation": "Singular article." },
+          { "id": "c9m3i1-t2", "text": "bunch", "category": "noun", "groupRole": "subject", "isHeadWord": true, "roleLabel": "Subject Head", "meaningInSentence": "One bunch.", "grammaticalRoleExplanation": "Controls the verb." },
+          { "id": "c9m3i1-t3", "text": "of", "category": "preposition", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Preposition", "meaningInSentence": "Introduces modifier.", "grammaticalRoleExplanation": "Preposition." },
+          { "id": "c9m3i1-t4", "text": "fresh", "category": "adjective", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Adjective", "meaningInSentence": "Fresh.", "grammaticalRoleExplanation": "Modifier." },
+          { "id": "c9m3i1-t5", "text": "yellow", "category": "adjective", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Adjective", "meaningInSentence": "Colour.", "grammaticalRoleExplanation": "Modifier." },
+          { "id": "c9m3i1-t6", "text": "bananas", "category": "noun", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Trap Noun", "meaningInSentence": "Inside 'of'-phrase.", "grammaticalRoleExplanation": "Not head." },
+          { "id": "c9m3i1-t7", "text": "[?]", "category": "verb", "groupRole": "predicate", "isHeadWord": true, "roleLabel": "Verb Slot", "meaningInSentence": "Missing verb.", "grammaticalRoleExplanation": "Verb." },
+          { "id": "c9m3i1-t8", "text": "on", "category": "preposition", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Preposition", "meaningInSentence": "Place.", "grammaticalRoleExplanation": "Preposition." },
+          { "id": "c9m3i1-t9", "text": "the", "category": "determiner", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "Determiner.", "grammaticalRoleExplanation": "Determiner." },
+          { "id": "c9m3i1-t10", "text": "kitchen", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "Kitchen.", "grammaticalRoleExplanation": "Modifier." },
+          { "id": "c9m3i1-t11", "text": "shelf", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "Shelf.", "grammaticalRoleExplanation": "Object.", "punctuationAfter": "." }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "A bunch of fresh yellow bananas",
+          "subjectHeadWord": "bunch",
+          "predicateText": "is on the kitchen shelf",
+          "predicateHeadWord": "is"
+        }
+      },
+      "subjectTokenIds": ["c9m3i1-t1", "c9m3i1-t2", "c9m3i1-t3", "c9m3i1-t4", "c9m3i1-t5", "c9m3i1-t6"],
+      "predicateTokenIds": ["c9m3i1-t7", "c9m3i1-t8", "c9m3i1-t9", "c9m3i1-t10", "c9m3i1-t11"],
+      "imperativeQuestion": "Step 2: Which verb completes the sentence?",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "is", "isCorrect": true, "feedback": "Exact! Singular 'bunch' locks the verb to 'is'." },
+        { "id": "opt-b", "label": "are", "isCorrect": false, "feedback": "Watch out—'bananas' is inside 'of fresh yellow bananas'; 'A bunch' is singular." },
+        { "id": "opt-c", "label": "were", "isCorrect": false, "feedback": "'were' is plural, whereas 'A bunch' is singular." }
+      ],
+      "successFeedback": "Clean match between singular 'bunch' and 'is'!",
+      "retrySubjectFeedback": "Tap ONLY the word 'bunch' before 'of'.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-ind-2",
+      "mode": "choice-diagnose",
+      "cueLevel": "minimal",
+      "cueText": "Remember: 'Each boy and each girl...' repeats 'each'!",
+      "title": "Challenge 2: 'Each' & 'Every' Rule",
+      "instruction": "Select the verb that fits 'Each boy and each girl'.",
+      "sentence": {
+        "id": "c9-m3-ind2-sent",
+        "title": "Independent Check 2",
+        "rawText": "Each boy and each girl in the choir _____ given a certificate.",
+        "contextTag": "Annual Day",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Each boy and each girl in the choir",
+          "subjectHeadWord": "Each",
+          "predicateText": "was given a certificate",
+          "predicateHeadWord": "was"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Which verb completes the sentence accurately?",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "were", "isCorrect": false, "feedback": "Even though 'and' joins two nouns, 'Each' keeps the Subject singular!" },
+        { "id": "opt-b", "label": "was", "isCorrect": true, "feedback": "Spot on! PSEB IX explicitly teaches 'Each boy and each girl was given a prize'—'each/every' makes the Subject singular." },
+        { "id": "opt-c", "label": "are", "isCorrect": false, "feedback": "'are' is plural, whereas 'Each' takes a singular verb." }
+      ],
+      "successFeedback": "'Each' and 'Every' always call for a singular verb.",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-pseb9-concord"]
+    },
+    {
+      "id": "c9-m3-ind-3",
+      "mode": "choice-diagnose",
+      "cueLevel": "none",
+      "title": "Challenge 3: Unfamiliar Case Audit",
+      "instruction": "Find the ONE sentence with zero Subject–Verb Agreement errors.",
+      "sentence": {
+        "id": "c9-m3-ind3-sent",
+        "title": "Independent Check 3",
+        "rawText": "Which school notice is grammatically correct?",
+        "contextTag": "Final Detective Test",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "One of the eco-club members",
+          "subjectHeadWord": "One",
+          "predicateText": "waters the garden every morning",
+          "predicateHeadWord": "waters"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Choose the accurate sentence:",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "One of the eco-club members water the garden every morning.", "isCorrect": false, "feedback": "'One' is singular, so the verb needs '-s' ('waters')." },
+        { "id": "opt-b", "label": "One of the eco-club members waters the garden every morning.", "isCorrect": true, "feedback": "Correct! 'One (of the members)' is singular, locking onto 'waters'." },
+        { "id": "opt-c", "label": "The news about tomorrow's solar fair are exciting.", "isCorrect": false, "feedback": "'news' ends in '-s' but is always singular ('is exciting')." }
+      ],
+      "successFeedback": "Case closed! You solved all three detective challenges on your own.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-pseb9-concord", "src-assam-sva"]
+    }
+  ],
+  "completionSummary": {
+    "sceneVariant": "detective-board",
+    "headline": "Case Solved! Mission 3 Complete!",
+    "celebrationMessage": "You helped Mira, Arjun, and Gyan lock every Subject head-noun to its true verb!",
+    "learnedPoints": [
+      "Finite verbs agree with the TRUE Subject head-word in Number and Person, ignoring prepositional phrases like 'of ripe mangoes'.",
+      "Normal 'and' pairs are plural, while single-idea pairs ('Rice and dal is') and single-determiner titles take singular verbs.",
+      "'with / as well as' follows the FIRST subject; 'either...or / neither...nor' follows the NEAREST subject; 'each / one of / neither of' and '-s' subjects like 'Mathematics / news' take singular verbs formally."
+    ],
+    "restoredSectionLabel": "Verified Detective Concord Cases",
+    "repairedMessages": [
+      "The basket of ripe mangoes is on the table.",
+      "Rice and dal is a wholesome meal.",
+      "Neither the captain nor the players were late.",
+      "Each of the students has a library card."
+    ],
+    "rewardLabel": "Grammar Detective Badge Earned"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "assessmentId": "c9-mission-03-assessment",
+  "missionId": "c9-mission-03",
+  "classLevel": 9,
+  "moduleId": "module-3-subject-verb-agreement",
+  "moduleTitle": "Subject–Verb Agreement",
+  "topic": "Matching Subjects and Verbs",
+  "missionTitle": "The Grammar Detective",
+  "title": "Mission 3 Assessment: Subject–Verb Agreement",
+  "subtitle": "Answer all 10 detective questions to check your mastery of Subject–Verb Agreement. You can review every answer before submitting.",
+  "questions": [
+    {
+      "id": "c9-m3-aq-01",
+      "questionText": "Check this school orchard notice: 'The basket of fresh green mangoes _____ ready for the morning assembly.' Which verb matches the true Subject?",
+      "options": [
+        { "id": "a", "text": "are" },
+        { "id": "b", "text": "were" },
+        { "id": "c", "text": "is" },
+        { "id": "d", "text": "have" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Ignore the intervening phrase 'of fresh green mangoes'. The true Subject head-noun is singular 'basket', so the verb is singular 'is'.",
+      "learningObjectiveId": "intervening-phrases-trap",
+      "learningObjective": "Ignoring intervening 'of'-phrases",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 2
+    },
+    {
+      "id": "c9-m3-aq-02",
+      "questionText": "Read the mid-day meal poster: 'Rice and dal _____ served hot as a wholesome meal every afternoon.' Choose the accurate verb.",
+      "options": [
+        { "id": "a", "text": "is" },
+        { "id": "b", "text": "are" },
+        { "id": "c", "text": "were" },
+        { "id": "d", "text": "have" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "'Rice and dal' here expresses ONE combined dish ('a wholesome meal'), so it takes a singular verb ('is').",
+      "learningObjectiveId": "compound-and-single-idea",
+      "learningObjective": "Compound subjects vs single-idea pairs",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c9-m3-aq-03",
+      "questionText": "Compare the determiners carefully: 'The Secretary and Headmaster _____ presiding over today's prize distribution.' Which verb fits?",
+      "options": [
+        { "id": "a", "text": "are" },
+        { "id": "b", "text": "were" },
+        { "id": "c", "text": "have" },
+        { "id": "d", "text": "is" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "There is only ONE 'The' ('The Secretary and Headmaster'), meaning one person holds both roles, so singular 'is' is required.",
+      "learningObjectiveId": "compound-and-single-idea",
+      "learningObjective": "One vs two determiners in compound titles",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c9-m3-aq-04",
+      "questionText": "Complete the sports log: 'The captain, as well as the twelve players, _____ arrived on the ground.'",
+      "options": [
+        { "id": "a", "text": "have" },
+        { "id": "b", "text": "has" },
+        { "id": "c", "text": "are" },
+        { "id": "d", "text": "were" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "When subjects are joined by 'as well as' or 'with', the verb agrees with the FIRST Subject ('The captain' → singular 'has').",
+      "learningObjectiveId": "correlative-and-with-joiners",
+      "learningObjective": "Concord with 'with / as well as' vs 'neither...nor'",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 2
+    },
+    {
+      "id": "c9-m3-aq-05",
+      "questionText": "Choose the verb that agrees with the nearer subject: 'Neither Mira nor her classmates _____ visited the science museum yet.'",
+      "options": [
+        { "id": "a", "text": "has" },
+        { "id": "b", "text": "is" },
+        { "id": "c", "text": "have" },
+        { "id": "d", "text": "was" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "With 'neither...nor' and 'either...or', the verb locks onto the NEARER subject ('her classmates', plural), taking plural 'have'.",
+      "learningObjectiveId": "correlative-and-with-joiners",
+      "learningObjective": "Nearest-subject agreement in 'neither...nor'",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c9-m3-aq-06",
+      "questionText": "Which formal school notice follows standard Class 9 textbook concord for 'neither of'?",
+      "options": [
+        { "id": "a", "text": "Neither of the two answers are clear enough." },
+        { "id": "b", "text": "Neither of the two answers is clear enough." },
+        { "id": "c", "text": "Neither of the two answers were clear enough." },
+        { "id": "d", "text": "Neither of the two answers have been clear." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Formally (PSEB IX & Assam IX–X), 'neither of / each of / one of + plural noun' takes a singular verb ('is'). (Note: Odisha X mentions plural occurs in casual speech, but formal grammar expects singular.)",
+      "learningObjectiveId": "tricky-nouns-and-indefinites",
+      "learningObjective": "Indefinites ('each of', 'neither of') & tricky nouns",
+      "difficulty": "stretch",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 5
+    },
+    {
+      "id": "c9-m3-aq-07",
+      "questionText": "Inspect these four sentences about '-s' nouns and always-plural nouns. Which one is completely accurate?",
+      "options": [
+        { "id": "a", "text": "Mathematics are my sister's favourite subject." },
+        { "id": "b", "text": "The latest news from the ISRO centre are exciting." },
+        { "id": "c", "text": "The cattle was grazing near the river bank." },
+        { "id": "d", "text": "A pair of sharp scissors is lying on the craft desk." }
+      ],
+      "correctOptionId": "d",
+      "explanation": "'A pair of scissors' refers to one pair, so it takes singular 'is'. 'Mathematics' and 'news' are singular ('is'), whereas 'cattle' is plural ('were').",
+      "learningObjectiveId": "tricky-nouns-and-indefinites",
+      "learningObjective": "'-s' singulars vs always-plural nouns",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 6
+    },
+    {
+      "id": "c9-m3-aq-08",
+      "questionText": "In a preparatory 'There' sentence, look after the verb for the real Subject: 'There _____ forty wooden desks in Room 4.'",
+      "options": [
+        { "id": "a", "text": "is" },
+        { "id": "b", "text": "are" },
+        { "id": "c", "text": "was" },
+        { "id": "d", "text": "has" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "In 'There...' sentences, the real Subject follows the verb. Because 'forty wooden desks' is plural, use plural 'are'.",
+      "learningObjectiveId": "core-number-person-concord",
+      "learningObjective": "Matching verb to true Subject number and person",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 7
+    },
+    {
+      "id": "c9-m3-aq-09",
+      "questionText": "Complete the sports day record: 'Five kilometres _____ a brisk morning walk for our trekking team.'",
+      "options": [
+        { "id": "a", "text": "is" },
+        { "id": "b", "text": "are" },
+        { "id": "c", "text": "were" },
+        { "id": "d", "text": "have" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Distances, sums of money, and weights seen as ONE single unit ('a brisk morning walk') take a singular verb ('is').",
+      "learningObjectiveId": "core-number-person-concord",
+      "learningObjective": "Unit quantities treated as one whole",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 7
+    },
+    {
+      "id": "c9-m3-aq-10",
+      "questionText": "Diagnose the agreement error in this classroom slip: 'Every student in both sections have submitted the science notebook.'",
+      "options": [
+        { "id": "a", "text": "'sections' should be singular 'section'." },
+        { "id": "b", "text": "'Every student' is singular, so 'have' must change to singular 'has'." },
+        { "id": "c", "text": "'submitted' should change to 'submitting'." },
+        { "id": "d", "text": "The sentence has no error." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Subjects beginning with 'Every' or 'Each' always act as singular, ignoring 'in both sections'; thus 'have' must be corrected to 'has'.",
+      "learningObjectiveId": "agreement-error-diagnosis",
+      "learningObjective": "Diagnosing and explaining Subject–Verb Agreement errors",
+      "difficulty": "stretch",
+      "recommendedStage": "guided"
+    }
+  ]
+}

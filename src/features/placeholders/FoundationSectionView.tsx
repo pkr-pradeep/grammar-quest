@@ -29,8 +29,30 @@ import type {
 } from '../../schemas/lesson.schema';
 import type { AssessmentAttemptRecord } from '../../schemas/assessment.schema';
 import { PLACEHOLDER_CLASS_CONTENT } from '../../content/placeholderDashboard';
+import { getMissionProgressDetail } from '../../storage/progressRepository';
 import { Badge, Button, Card, MissionIllustration, Progress } from '../../components';
 import { TopicExplorer } from '../missions/TopicExplorer';
+
+const GUIDE_TOPIC_DETAILS: Record<
+  string,
+  { missionIndex: number; summary: string }
+> = {
+  'guide-subject-predicate': {
+    missionIndex: 0,
+    summary:
+      'The Subject names who or what the sentence is about. The Predicate tells what is said about the Subject and contains the finite verb.',
+  },
+  'guide-tenses': {
+    missionIndex: 1,
+    summary:
+      'Time (Past, Present, Future) and Tense work together to show when an action happens and whether it is habitual, ongoing, or completed.',
+  },
+  'guide-sva': {
+    missionIndex: 2,
+    summary:
+      'A finite verb locks onto the true Subject head-word in Number and Person, ignoring intervening words and phrases.',
+  },
+};
 
 interface FoundationSectionViewProps {
   section: Exclude<AppSection, 'home'>;
@@ -59,8 +81,6 @@ export const FoundationSectionView: React.FC<FoundationSectionViewProps> = ({
 }) => {
   const classContent = PLACEHOLDER_CLASS_CONTENT[selectedClass];
   const allMissions = [classContent.featuredMission, ...classContent.plannedTracks];
-  const mission1Attempt =
-    assessmentAttemptsByMission[classContent.featuredMission.id] ?? null;
   const completedInClass = progress.completedMissionIds.filter((id) =>
     id.startsWith(`c${selectedClass}-`),
   ).length;
@@ -182,32 +202,32 @@ export const FoundationSectionView: React.FC<FoundationSectionViewProps> = ({
 
           <div className="flex flex-col gap-3">
             {classContent.guideTopics.map((topic, index) => {
-              const isSubjectPredicate = topic.id === 'guide-subject-predicate';
+              const guideMeta = GUIDE_TOPIC_DETAILS[topic.id];
+              const targetMission = guideMeta
+                ? allMissions[guideMeta.missionIndex]
+                : undefined;
+              const isReady = Boolean(targetMission && targetMission.status === 'ready');
               return (
                 <Card key={topic.id} surface="white" padding="md" className="space-y-2">
                   <div className="flex items-center justify-between gap-2">
                     <Badge tone="sunshine">Topic 0{index + 1}</Badge>
-                    <Badge tone={isSubjectPredicate ? 'turquoise' : 'neutral'}>
-                      {isSubjectPredicate ? 'Interactive Lesson Ready' : 'Coming soon'}
+                    <Badge tone={isReady ? 'turquoise' : 'neutral'}>
+                      {isReady ? 'Interactive Lesson Ready' : 'Coming soon'}
                     </Badge>
                   </div>
                   <h2 className="font-heading text-base sm:text-lg font-semibold text-[#263A70] pt-1">
                     {topic.title}
                   </h2>
                   <p className="text-sm text-[#4B5C8A]">
-                    {isSubjectPredicate
-                      ? 'The Subject names who or what the sentence is about. The Predicate tells what is said about the Subject and contains the finite verb.'
-                      : topic.summary}
+                    {guideMeta ? guideMeta.summary : topic.summary}
                   </p>
-                  {isSubjectPredicate ? (
+                  {isReady && targetMission ? (
                     <div className="pt-1">
                       <Button
                         variant="primary"
                         size="sm"
                         leftIcon={<PlayCircle className="w-4 h-4" />}
-                        onClick={() =>
-                          onStartLesson(classContent.featuredMission.id, selectedClass)
-                        }
+                        onClick={() => onStartLesson(targetMission.id, selectedClass)}
                       >
                         Open Interactive Lesson
                       </Button>
@@ -253,59 +273,108 @@ export const FoundationSectionView: React.FC<FoundationSectionViewProps> = ({
             </div>
           )}
 
-          {/* Formal Assessment Status Card */}
-          <div className="rounded-[16px] bg-[#FDFCF9] border border-[#E5E2D9] p-4 space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <p className="text-xs font-medium text-[#4B5C8A]">
-                  {classContent.featuredMission.missionNumber} · {classContent.featuredMission.topicLabel}
-                </p>
-                <h2 className="font-heading text-base font-semibold text-[#263A70]">
-                  {classContent.featuredMission.title} Assessment
-                </h2>
-              </div>
+          {/* Per-Mission Progress & Formal Assessment Status Cards */}
+          <div className="space-y-3">
+            {allMissions.map((mission) => {
+              const attempt = assessmentAttemptsByMission[mission.id] ?? null;
+              const detail = getMissionProgressDetail(progress, mission.id);
+              const milestones = [
+                { label: 'Started', done: detail.started },
+                { label: 'Learn', done: detail.teachingStagesCompleted },
+                { label: 'Guided', done: detail.guidedPracticeCompleted },
+                { label: 'Practice', done: detail.independentPracticeCompleted },
+                { label: 'Completed', done: detail.completed },
+              ];
 
-              {mission1Attempt?.status === 'submitted' &&
-              mission1Attempt.score !== null &&
-              mission1Attempt.percentage !== null ? (
-                <Badge tone="turquoise">
-                  {mission1Attempt.score}/{mission1Attempt.totalQuestions} ·{' '}
-                  {mission1Attempt.percentage}%
-                </Badge>
-              ) : mission1Attempt?.status === 'in-progress' ? (
-                <Badge tone="sunshine">In progress</Badge>
-              ) : (
-                <Badge tone="neutral">Not submitted</Badge>
-              )}
-            </div>
+              return (
+                <div
+                  key={mission.id}
+                  className="rounded-[16px] bg-[#FDFCF9] border border-[#E5E2D9] p-4 space-y-3"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <p className="text-xs font-medium text-[#4B5C8A]">
+                        {mission.missionNumber} · {mission.topicLabel}
+                      </p>
+                      <h2 className="font-heading text-base font-semibold text-[#263A70]">
+                        {mission.title}
+                      </h2>
+                    </div>
 
-            {mission1Attempt?.status === 'submitted' &&
-            mission1Attempt.revisionRecommendations.length > 0 ? (
-              <p className="text-xs text-[#4B5C8A]">
-                Revision focus areas:{' '}
-                {mission1Attempt.revisionRecommendations
-                  .map((r) => r.objectiveLabel)
-                  .join(', ')}
-                .
-              </p>
-            ) : null}
+                    {attempt?.status === 'submitted' &&
+                    attempt.score !== null &&
+                    attempt.percentage !== null ? (
+                      <Badge tone="turquoise">
+                        {attempt.score}/{attempt.totalQuestions} · {attempt.percentage}%
+                      </Badge>
+                    ) : attempt?.status === 'in-progress' ? (
+                      <Badge tone="sunshine">Test in progress</Badge>
+                    ) : detail.completed ? (
+                      <Badge tone="turquoise">Lesson completed</Badge>
+                    ) : detail.started ? (
+                      <Badge tone="sunshine">Lesson in progress</Badge>
+                    ) : (
+                      <Badge tone="neutral">Not started</Badge>
+                    )}
+                  </div>
 
-            {onOpenAssessment ? (
-              <Button
-                variant={mission1Attempt?.status === 'submitted' ? 'secondary' : 'primary'}
-                size="sm"
-                leftIcon={<ClipboardCheck className="w-4 h-4" />}
-                onClick={() =>
-                  onOpenAssessment(classContent.featuredMission.id, selectedClass)
-                }
-              >
-                {mission1Attempt?.status === 'submitted'
-                  ? 'View Read-Only Results'
-                  : mission1Attempt?.status === 'in-progress'
-                    ? 'Resume Assessment'
-                    : 'Take Mission 1 Assessment'}
-              </Button>
-            ) : null}
+                  {/* Step-by-step Milestone Summary */}
+                  <div className="flex flex-wrap gap-1.5" aria-label="Lesson milestones">
+                    {milestones.map((m) => (
+                      <span
+                        key={m.label}
+                        className={[
+                          'px-2.5 py-0.5 rounded-full text-[11px] font-semibold border',
+                          m.done
+                            ? 'bg-[#E2F5EE] border-[#A8E8DF] text-[#0E5A42]'
+                            : 'bg-white border-[#E5E2D9] text-[#6B6557]',
+                        ].join(' ')}
+                      >
+                        {m.done ? '✓ ' : ''}
+                        {m.label}
+                      </span>
+                    ))}
+                  </div>
+
+                  {attempt?.status === 'submitted' &&
+                  attempt.revisionRecommendations.length > 0 ? (
+                    <p className="text-xs text-[#4B5C8A]">
+                      Revision focus areas:{' '}
+                      {attempt.revisionRecommendations
+                        .map((r) => r.objectiveLabel)
+                        .join(', ')}
+                      .
+                    </p>
+                  ) : null}
+
+                  <div className="flex flex-wrap gap-2">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      leftIcon={<PlayCircle className="w-4 h-4" />}
+                      onClick={() => onStartLesson(mission.id, selectedClass)}
+                    >
+                      {detail.completed ? 'Review Lesson' : detail.started ? 'Continue Lesson' : 'Start Lesson'}
+                    </Button>
+
+                    {onOpenAssessment ? (
+                      <Button
+                        variant={attempt?.status === 'submitted' ? 'secondary' : 'primary'}
+                        size="sm"
+                        leftIcon={<ClipboardCheck className="w-4 h-4" />}
+                        onClick={() => onOpenAssessment(mission.id, selectedClass)}
+                      >
+                        {attempt?.status === 'submitted'
+                          ? 'View Read-Only Results'
+                          : attempt?.status === 'in-progress'
+                            ? 'Resume Assessment'
+                            : `Take ${mission.missionNumber} Assessment`}
+                      </Button>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <div className="flex items-start gap-2 pt-2 border-t border-[#E5E2D9] text-xs text-[#4B5C8A]">

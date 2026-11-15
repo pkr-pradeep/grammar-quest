@@ -12,7 +12,7 @@
  * ============================================================================
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import {
   ArrowLeft,
@@ -52,6 +52,12 @@ export interface GrammarTeachingEngineProps {
   onPhaseChange?: (phase: EnginePhase) => void;
   onAssessmentSubmitted?: (attempt: AssessmentAttemptRecord) => void;
   onExit: () => void;
+  onRecordMissionStarted?: (lesson: GrammarLessonDefinition) => void;
+  onRecordTeachingCompleted?: (lesson: GrammarLessonDefinition) => void;
+  onRecordPracticeCompleted?: (
+    lesson: GrammarLessonDefinition,
+    kind: 'guided' | 'independent',
+  ) => void;
   onRecordMissionCompleted?: (lesson: GrammarLessonDefinition) => void;
   onCompleteLessonPractice: (lesson: GrammarLessonDefinition) => void;
 }
@@ -63,6 +69,9 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
   onPhaseChange,
   onAssessmentSubmitted,
   onExit,
+  onRecordMissionStarted,
+  onRecordTeachingCompleted,
+  onRecordPracticeCompleted,
   onRecordMissionCompleted,
   onCompleteLessonPractice,
 }) => {
@@ -92,6 +101,21 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
     stepNumber?: number;
     nonce: number;
   }>({ nonce: 0 });
+  const [isLearnModalOpen, setIsLearnModalOpen] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (phase !== 'learn') {
+      setIsLearnModalOpen(false);
+    }
+  }, [phase]);
+
+  useEffect(() => {
+    const el = headerRef.current as (HTMLElement & { inert: boolean }) | null;
+    if (el) {
+      el.inert = isLearnModalOpen;
+    }
+  }, [isLearnModalOpen]);
 
   const updatePhase = (nextPhase: EnginePhase) => {
     setPhase(nextPhase);
@@ -99,6 +123,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
   };
 
   useEffect(() => {
+    onRecordMissionStarted?.(lesson);
     if (initialPhase) {
       const target = resolveInitialPhase();
       setPhase(target);
@@ -129,6 +154,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
   const visibleTabs = phaseTabs.filter((t) => t.visible);
 
   const handleFinishIndependent = () => {
+    onRecordPracticeCompleted?.(lesson, 'independent');
     setCompletionUnlocked(true);
     if (hasCompletionSummary) {
       // Save progress locally in IndexedDB ONLY after completing the mission stages!
@@ -164,7 +190,11 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
       className="min-h-[100dvh] flex flex-col bg-[#FDFCF9]"
     >
       {/* Zone A: Single Compact Sticky Lesson Header (Zero Duplicate App Bar) */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-[#E5E2D9]">
+      <header
+        ref={headerRef}
+        aria-hidden={isLearnModalOpen || undefined}
+        className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-[#E5E2D9]"
+      >
         <div className="max-w-[920px] mx-auto px-3 sm:px-6 pt-2 pb-1.5 space-y-1.5">
           <div className="flex items-center justify-between gap-2 min-h-[40px]">
             <div className="flex items-center gap-2 min-w-0">
@@ -238,7 +268,11 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
           lesson={lesson}
           initialStepNumber={learnJump.stepNumber}
           stepJumpNonce={learnJump.nonce}
-          onCompleteSequence={() => updatePhase('guided')}
+          onCompleteSequence={() => {
+            onRecordTeachingCompleted?.(lesson);
+            updatePhase('guided');
+          }}
+          onGuideModalOpenChange={setIsLearnModalOpen}
         />
       ) : null}
 
@@ -249,6 +283,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
             hasIndependentPractice={hasIndependent}
             onBackToLesson={() => updatePhase('learn')}
             onFinishMissionPractice={() => {
+              onRecordPracticeCompleted?.(lesson, 'guided');
               if (hasIndependent) {
                 updatePhase('practice');
               } else {
@@ -301,13 +336,15 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
         </div>
       ) : null}
 
-      <ScrollMoreHint
-        label="Scroll for more"
-        ariaLabel="Scroll down to see more"
-        fadeColor="#FDFCF9"
-        bottomOffsetMode={phase === 'story' || phase === 'learn' ? 'lesson-nav' : 'none'}
-        recheckKey={phase}
-      />
+      {phase !== 'learn' ? (
+        <ScrollMoreHint
+          label="Scroll for more"
+          ariaLabel="Scroll down to see more"
+          fadeColor="#FDFCF9"
+          bottomOffsetMode={phase === 'story' ? 'lesson-nav' : 'none'}
+          recheckKey={phase}
+        />
+      ) : null}
     </motion.div>
   );
 };

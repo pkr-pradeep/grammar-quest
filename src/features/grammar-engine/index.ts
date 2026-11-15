@@ -29,6 +29,15 @@ export {
   type ExplanationPanelProps,
 } from './components/ExplanationPanel';
 export {
+  GuideNotePopup,
+  type GuideNotePopupProps,
+  type GuidePopupPhase,
+} from './components/GuideNotePopup';
+export {
+  FloatingGuideButton,
+  type FloatingGuideButtonProps,
+} from './components/FloatingGuideButton';
+export {
   TeachingSequence,
   type TeachingSequenceProps,
 } from './components/TeachingSequence';

@@ -40,8 +40,11 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
 
   return (
     <div className="space-y-4">
-      {/* Repaired Courtyard Noticeboard Celebration Scene */}
-      <CourtyardNoticeboardScene mode="repaired" />
+      {/* Repaired Courtyard Scene */}
+      <CourtyardNoticeboardScene
+        mode="repaired"
+        sceneVariant={summary.sceneVariant ?? 'noticeboard'}
+      />
 
       {/* Completion Summary Card */}
       <section
@@ -109,10 +112,10 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
           </ul>
         </div>
 
-        {/* Repaired Noticeboard Messages */}
+        {/* Repaired Messages / Records */}
         <div className="space-y-2">
           <p className="text-xs font-semibold text-[#4B5C8A]">
-            Messages restored on the school noticeboard:
+            {summary.restoredSectionLabel ?? 'Messages restored on the school noticeboard:'}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {summary.repairedMessages.map((msg) => (

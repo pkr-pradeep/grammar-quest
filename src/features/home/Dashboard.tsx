@@ -18,6 +18,7 @@ import type {
 } from '../../schemas/lesson.schema';
 import type { AssessmentAttemptRecord } from '../../schemas/assessment.schema';
 import { PLACEHOLDER_CLASS_CONTENT } from '../../content/placeholderDashboard';
+import { getMissionProgressDetail } from '../../storage/progressRepository';
 import {
   Badge,
   Button,
@@ -53,8 +54,6 @@ export const Dashboard: React.FC<DashboardProps> = ({
 }) => {
   const classContent = PLACEHOLDER_CLASS_CONTENT[selectedClass];
   const allMissions = [classContent.featuredMission, ...classContent.plannedTracks];
-  const mission1Attempt =
-    assessmentAttemptsByMission[classContent.featuredMission.id] ?? null;
 
   const completedInClass = progress.completedMissionIds.filter((id) =>
     id.startsWith(`c${selectedClass}-`),
@@ -152,7 +151,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <div className="flex flex-col gap-3">
             {allMissions.map((mission, index) => {
               const isPrimaryCard = index === 0;
-              const isCompleted = progress.completedMissionIds.includes(mission.id);
+              const missionProgress = getMissionProgressDetail(progress, mission.id);
+              const isCompleted = missionProgress.completed;
+              const isInProgress = !isCompleted && missionProgress.started;
               const badgeTone = isCompleted
                 ? 'turquoise'
                 : mission.status === 'ready'
@@ -160,9 +161,11 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   : 'neutral';
               const badgeLabel = isCompleted
                 ? 'Completed'
-                : mission.status === 'ready'
-                  ? 'Ready'
-                  : 'Coming soon';
+                : isInProgress
+                  ? 'In progress'
+                  : mission.status === 'ready'
+                    ? 'Ready'
+                    : 'Coming soon';
               return (
                 <Card
                   key={mission.id}
@@ -261,45 +264,70 @@ export const Dashboard: React.FC<DashboardProps> = ({
               </div>
             )}
 
-            {/* Mission 1 Formal Assessment Status */}
-            <div className="pt-2.5 border-t border-[#E5E2D9] space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-semibold text-[#263A70]">
-                  Mission 1 Formal Assessment
-                </span>
-                {mission1Attempt?.status === 'submitted' &&
-                mission1Attempt.score !== null &&
-                mission1Attempt.percentage !== null ? (
-                  <span className="text-xs font-bold text-[#0E5A42] tabular-nums">
-                    {mission1Attempt.score}/{mission1Attempt.totalQuestions} ·{' '}
-                    {mission1Attempt.percentage}%
-                  </span>
-                ) : mission1Attempt?.status === 'in-progress' ? (
-                  <span className="text-xs font-medium text-[#A15C00]">
-                    In progress (not submitted)
-                  </span>
-                ) : (
-                  <span className="text-xs text-[#4B5C8A]">Not submitted yet</span>
-                )}
-              </div>
+            {/* Per-Mission Progress & Formal Assessments */}
+            <div className="pt-2.5 border-t border-[#E5E2D9] space-y-3">
+              {allMissions.map((mission) => {
+                const attempt = assessmentAttemptsByMission[mission.id] ?? null;
+                const detail = getMissionProgressDetail(progress, mission.id);
+                const lessonStageLabel = detail.completed
+                  ? 'Lesson completed'
+                  : detail.independentPracticeCompleted
+                    ? 'Practice completed'
+                    : detail.guidedPracticeCompleted
+                      ? 'Guided practice done'
+                      : detail.teachingStagesCompleted
+                        ? 'Learn stages done'
+                        : detail.started
+                          ? 'Lesson in progress'
+                          : 'Not started';
 
-              {onOpenAssessment ? (
-                <Button
-                  variant={mission1Attempt?.status === 'submitted' ? 'secondary' : 'primary'}
-                  size="sm"
-                  fullWidth
-                  leftIcon={<ClipboardCheck className="w-4 h-4" />}
-                  onClick={() =>
-                    onOpenAssessment(classContent.featuredMission.id, selectedClass)
-                  }
-                >
-                  {mission1Attempt?.status === 'submitted'
-                    ? 'View Assessment Results'
-                    : mission1Attempt?.status === 'in-progress'
-                      ? 'Resume Assessment'
-                      : 'Take Mission 1 Assessment'}
-                </Button>
-              ) : null}
+                return (
+                  <div
+                    key={mission.id}
+                    className="rounded-[12px] bg-[#FDFCF9] border border-[#E5E2D9] p-2.5 space-y-2"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <p className="text-xs font-semibold text-[#263A70] truncate">
+                          {mission.missionNumber} · {mission.title}
+                        </p>
+                        <p className="text-[11px] text-[#4B5C8A]">{lessonStageLabel}</p>
+                      </div>
+                      {attempt?.status === 'submitted' &&
+                      attempt.score !== null &&
+                      attempt.percentage !== null ? (
+                        <span className="text-xs font-bold text-[#0E5A42] tabular-nums shrink-0">
+                          {attempt.score}/{attempt.totalQuestions} · {attempt.percentage}%
+                        </span>
+                      ) : attempt?.status === 'in-progress' ? (
+                        <span className="text-[11px] font-medium text-[#A15C00] shrink-0">
+                          Test in progress
+                        </span>
+                      ) : (
+                        <span className="text-[11px] text-[#4B5C8A] shrink-0">
+                          Test not submitted
+                        </span>
+                      )}
+                    </div>
+
+                    {onOpenAssessment ? (
+                      <Button
+                        variant={attempt?.status === 'submitted' ? 'secondary' : 'primary'}
+                        size="sm"
+                        fullWidth
+                        leftIcon={<ClipboardCheck className="w-4 h-4" />}
+                        onClick={() => onOpenAssessment(mission.id, selectedClass)}
+                      >
+                        {attempt?.status === 'submitted'
+                          ? 'View Assessment Results'
+                          : attempt?.status === 'in-progress'
+                            ? 'Resume Assessment'
+                            : `Take ${mission.missionNumber} Assessment`}
+                      </Button>
+                    ) : null}
+                  </div>
+                );
+              })}
             </div>
 
             <div className="flex items-start gap-2 pt-2.5 border-t border-[#E5E2D9] text-xs text-[#4B5C8A]">

@@ -17,7 +17,16 @@ export interface WordTileProps {
   category?: GrammaticalCategory;
   isSelected?: boolean;
   isDisabled?: boolean;
-  tone?: 'default' | 'subject' | 'predicate' | 'active';
+  tone?:
+    | 'default'
+    | 'subject'
+    | 'predicate'
+    | 'active'
+    | 'past'
+    | 'present'
+    | 'future'
+    | 'singular'
+    | 'plural';
   onClick?: () => void;
   ariaLabel?: string;
 }
@@ -27,6 +36,11 @@ const TONE_CLASSES: Record<NonNullable<WordTileProps['tone']>, string> = {
   subject: 'bg-[#FFF4D6] border-[#F59B19] text-[#263A70]',
   predicate: 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]',
   active: 'bg-[#FFC64B] border-[#263A70] text-[#263A70]',
+  past: 'bg-[#FFF4D6] border-[#F59B19] text-[#263A70]',
+  present: 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]',
+  future: 'bg-[#ECE6FB] border-[#5B43C2] text-[#263A70]',
+  singular: 'bg-[#FFF4D6] border-[#F59B19] text-[#263A70]',
+  plural: 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]',
 };
 
 export const WordTile: React.FC<WordTileProps> = ({

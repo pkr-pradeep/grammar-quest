@@ -531,6 +531,128 @@ a {
   animation: gq-story-sparkle-pulse 2s ease-in-out infinite;
 }
 
+/* ============================================================================
+ * LEARN STEP GUIDE NOTE POPUP & FLOATING GUIDE BUTTON ANIMATIONS
+ * ============================================================================ */
+@keyframes gq-guide-portrait-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes gq-guide-btn-pop {
+  0% {
+    transform: scale(1);
+  }
+  38% {
+    transform: scale(1.28);
+  }
+  72% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes gq-guide-ring-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--gq-guide-ring-color, rgba(91, 67, 194, 0.42));
+  }
+  100% {
+    box-shadow: 0 0 0 18px rgba(91, 67, 194, 0);
+  }
+}
+
+@keyframes gq-guide-popup-close {
+  0% {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--gq-fly-x, 140px), var(--gq-fly-y, 280px)) scale(0.12);
+  }
+}
+
+@keyframes gq-guide-popup-open {
+  0% {
+    opacity: 0;
+    transform: translate(var(--gq-fly-x, 140px), var(--gq-fly-y, 280px)) scale(0.12);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes gq-guide-backdrop-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gq-guide-backdrop-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gq-guide-popup-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gq-guide-popup-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.gq-guide-portrait-float {
+  animation: gq-guide-portrait-float 2.6s ease-in-out infinite;
+}
+
+.gq-guide-btn-pop {
+  animation: gq-guide-btn-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.gq-guide-ring-pulse {
+  animation: gq-guide-ring-pulse 1.5s ease-out infinite;
+}
+
+.gq-guide-popup-close {
+  animation: gq-guide-popup-close 0.45s ease-in-out forwards;
+}
+
+.gq-guide-popup-open {
+  animation: gq-guide-popup-open 0.45s ease-in-out forwards;
+}
+
+.gq-guide-backdrop-in {
+  animation: gq-guide-backdrop-in 0.35s ease-in-out forwards;
+}
+
+.gq-guide-backdrop-out {
+  animation: gq-guide-backdrop-out 0.35s ease-in-out forwards;
+}
+
 /* Respect user reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -558,8 +680,23 @@ a {
   .gq-story-scrap-ring,
   .gq-story-chip-glow-teal,
   .gq-story-chip-glow-amber,
-  .gq-story-sparkle {
+  .gq-story-sparkle,
+  .gq-guide-portrait-float,
+  .gq-guide-btn-pop,
+  .gq-guide-ring-pulse {
     animation: none !important;
+  }
+
+  .gq-guide-popup-open,
+  .gq-guide-backdrop-in {
+    animation: gq-guide-popup-fade-in 0.2s ease-out forwards !important;
+    animation-duration: 0.2s !important;
+  }
+
+  .gq-guide-popup-close,
+  .gq-guide-backdrop-out {
+    animation: gq-guide-popup-fade-out 0.2s ease-out forwards !important;
+    animation-duration: 0.2s !important;
   }
 
   .gq-story-beam {

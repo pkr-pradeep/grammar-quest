@@ -1,0 +1,1227 @@
+{
+  "lessonId": "c10-lesson-subject-verb-agreement",
+  "missionId": "c10-mission-03",
+  "classLevel": 10,
+  "moduleId": "module-3-subject-verb-agreement",
+  "moduleTitle": "Subject–Verb Agreement",
+  "missionTitle": "The Grammar Detective",
+  "topic": "Matching Subjects and Verbs",
+  "estimatedMinutes": 8,
+  "situationBrief": {
+    "title": "The Class 10 Concord Casebook",
+    "description": "Senior editors Mira, Arjun, and Gyan are auditing complex school notices packed with 'the number of vs a number of', collective nouns, fractions, and relative pronoun antecedents.",
+    "characterId": "mira",
+    "characterExpression": "curious"
+  },
+  "storyIntro": {
+    "sceneVariant": "detective-board",
+    "sceneTitle": "The Senior Concord Casebook",
+    "settingLabel": "School Noticeboard Room",
+    "previewSectionTitle": "High-level traps pinned to the board",
+    "cardPreviewLabel": "Senior case",
+    "scatteredFragments": [
+      "The number of players are ...",
+      "A number of students is ...",
+      "The jury is/are divided ...",
+      "One of the boys who has/have ..."
+    ],
+    "highlightFragments": [
+      "The number of → is",
+      "A number of → are",
+      "jury divided → plural",
+      "antecedent: boys → have"
+    ],
+    "beats": [
+      {
+        "id": "c10-m3-beat-1",
+        "speaker": "mira",
+        "expression": "surprised",
+        "pose": "pointing",
+        "sceneFocus": "mira-notices",
+        "actionLabel": "Spots a number-phrase paradox",
+        "dialogue": "Look at these two sentences side by side: 'The number of volunteers is rising' and 'A number of volunteers are helping.' Both mention volunteers—why do their verbs flip?"
+      },
+      {
+        "id": "c10-m3-beat-2",
+        "speaker": "arjun",
+        "expression": "curious",
+        "pose": "exploring",
+        "sceneFocus": "arjun-picks-up",
+        "actionLabel": "Examines collective nouns and relative clauses",
+        "dialogue": "And look at this clause case: 'She is one of the students who has/have won scholarships.' Does 'who' refer back to 'one' or to 'students'?",
+        "cardPreviewText": "The number of volunteers is rising."
+      },
+      {
+        "id": "c10-m3-beat-3",
+        "speaker": "gyan",
+        "expression": "explaining",
+        "pose": "explaining",
+        "sceneFocus": "gyan-explains",
+        "actionLabel": "Opens Odisha X 16-rule detective toolkit",
+        "dialogue": "In Class 10, every verb still locks onto its true head—whether that is 'number' vs 'a number of', an undivided vs divided collective, a fraction's 'of'-noun, or a relative pronoun's antecedent. Let us crack every case!"
+      }
+    ]
+  },
+  "learningObjectives": {
+    "grammarOutcomes": [
+      "Distinguish 'the number of + plural noun' (singular verb) from 'a number of + plural noun' (plural verb), and apply fraction/percentage concord.",
+      "Choose singular vs plural verbs for collective nouns (acting as one unit vs divided individuals), 'the + adjective' ('the brave are'), and plural-form titles/countries.",
+      "Trace relative pronoun antecedents ('one of the girls who are...') accurately and apply formal concord with 'neither of / none of' alongside Odisha's informal note."
+    ],
+    "knowledgeOutcome": "Edit Class 10 school publications, ISRO/science reports, and literary book notices with total agreement accuracy."
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od10-ch3",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 3: Subject – Verb Agreement (Rules 1a–16) & Ch. 4 p. 31",
+      "bookPages": "23-31",
+      "pdfPages": "29-37",
+      "provenance": "textbook-derived",
+      "note": "Teaches 16 formal SVA rules including preparatory there/it, unit sums, 'and' single notion vs compound, collective nouns unit vs individuals, police/cattle, uncountables, intervening modifiers, either/neither/none of (+ informal note), one vs two determiners, fractions/percentages, 'the number of' vs 'a number of', '-s' nouns, 'with/as well as', 'not only...but also', 'the + adjective', plural titles, and relative pronoun antecedents."
+    },
+    {
+      "id": "src-assam-sva-c10",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Ch. 1 (p. 3), Ch. 4 (pp. 50-51), Ch. 5 (pp. 66-67, 73), Ch. 6 (pp. 80, 84), Ch. 12 (p. 201)",
+      "bookPages": "3, 50-51, 66-67, 73, 80, 84, 201",
+      "pdfPages": "12, 59-60, 75-76, 82, 89, 93, 210",
+      "provenance": "textbook-derived",
+      "note": "Combined Classes IX & X rules: 'The Secretary and Headmaster is' vs 'The Secretary and the Headmaster are', 'Many a man has', 'neither of' singular, and '-s' nouns."
+    },
+    {
+      "id": "src-pseb9-sva-ref",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 9 Sec. 2: Concord (Relative pronoun & collectives)",
+      "bookPages": "97-100",
+      "pdfPages": "103-106",
+      "provenance": "textbook-derived",
+      "note": "Cross-board reference for collective nouns, plural titles, and relative pronouns (Note: no Class 10 PSEB textbook was supplied among sources)."
+    },
+    {
+      "id": "src-m3-c10-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Class 10 Senior Concord Synthesis (Supplementary)",
+      "chapter": "Odisha X 16-Rule & Assam Bridge",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Synthesises Odisha X Ch. 3 with Assam IX-X and notes explicitly that no Class 10 PSEB textbook was provided."
+    }
+  ],
+  "activeRelationshipTypes": [
+    "verb-subject",
+    "preposition-relation",
+    "conjunction-elements"
+  ],
+  "sentences": [
+    {
+      "id": "m3c10-sent-number-of",
+      "title": "Case 1: 'The Number of' vs 'A Number of'",
+      "rawText": "The number of science projects in our fair is growing.",
+      "contextTag": "Science Fair Audit",
+      "note": "'The number of + plural noun' means ONE count/figure → singular verb ('is'); 'A number of + plural noun' means 'several/many' → plural verb ('are').",
+      "tokens": [
+        {
+          "id": "c10m3s1-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Key Determiner ('The')",
+          "meaningInSentence": "Points to ONE specific count.",
+          "grammaticalRoleExplanation": "'The number' is singular; compare with 'A number' (= many).",
+          "linkedTokenIds": ["c10m3s1-t2", "c10m3s1-t8"]
+        },
+        {
+          "id": "c10m3s1-t2",
+          "text": "number",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "True Subject Head (Singular)",
+          "meaningInSentence": "Means the total figure/count.",
+          "grammaticalRoleExplanation": "Singular head-noun controlling 'is'.",
+          "linkedTokenIds": ["c10m3s1-t8"]
+        },
+        {
+          "id": "c10m3s1-t3",
+          "text": "of",
+          "category": "preposition",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Introduces intervening modifier.",
+          "grammaticalRoleExplanation": "Intervening phrase."
+        },
+        {
+          "id": "c10m3s1-t4",
+          "text": "science",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Modifies projects.",
+          "grammaticalRoleExplanation": "Inside 'of'-phrase."
+        },
+        {
+          "id": "c10m3s1-t5",
+          "text": "projects",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Trap Plural Noun",
+          "meaningInSentence": "Plural inside 'of'-phrase.",
+          "grammaticalRoleExplanation": "Not the head of 'The number of...'."
+        },
+        {
+          "id": "c10m3s1-t6",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Location inside Subject.",
+          "grammaticalRoleExplanation": "Preposition."
+        },
+        {
+          "id": "c10m3s1-t7",
+          "text": "our fair",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Noun Phrase",
+          "meaningInSentence": "The school fair.",
+          "grammaticalRoleExplanation": "Inside prepositional modifier."
+        },
+        {
+          "id": "c10m3s1-t8",
+          "text": "is",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Singular Auxiliary",
+          "meaningInSentence": "Locks to singular 'number'.",
+          "grammaticalRoleExplanation": "'The number ... is growing'.",
+          "linkedTokenIds": ["c10m3s1-t2"],
+          "verbMeta": {
+            "timeCommunicated": "Present Progressive",
+            "verbForm": "Singular Verb ('is growing')",
+            "whyAppropriate": "'The number of + plural noun' refers to ONE single count/figure, so it takes a singular verb ('is')."
+          }
+        },
+        {
+          "id": "c10m3s1-t9",
+          "text": "growing",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Verb (-ing)",
+          "meaningInSentence": "Increasing.",
+          "grammaticalRoleExplanation": "Completes 'is growing'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "c10m3s1-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["c10m3s1-t1", "c10m3s1-t2", "c10m3s1-t3", "c10m3s1-t4", "c10m3s1-t5", "c10m3s1-t6", "c10m3s1-t7"],
+          "questionPrompt": "What is growing—the single count or individual projects?",
+          "plainExplanation": "'The number' (a single count) is the Subject head.",
+          "textbookRule": "Odisha Class X Rule 9c (p. 27): 'A number of + plural noun' takes a plural verb (= many), while 'The number of + plural noun' takes a singular verb.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch3"]
+        },
+        {
+          "id": "c10m3s1-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["c10m3s1-t8", "c10m3s1-t9"],
+          "questionPrompt": "Which verb fits 'The number'?",
+          "plainExplanation": "'is growing' uses singular 'is'.",
+          "textbookRule": "Say 'The number of projects IS growing' vs 'A number of projects ARE ready'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch3"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "c10m3s1-rel-1",
+          "type": "verb-subject",
+          "label": "is ← The number",
+          "fromTokenIds": ["c10m3s1-t8"],
+          "toTokenIds": ["c10m3s1-t2"],
+          "explanation": "'is' locks onto singular 'number'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The number of science projects in our fair",
+        "subjectHeadWord": "number",
+        "predicateText": "is growing",
+        "predicateHeadWord": "is growing",
+        "patternNote": "'The number of...' (singular count) → 'is'; 'A number of...' (many) → 'are'."
+      }
+    },
+    {
+      "id": "m3c10-sent-collective",
+      "title": "Case 2: Collective Nouns (Unit vs Individuals)",
+      "rawText": "The jury are divided in their opinions.",
+      "contextTag": "School Debate Panel",
+      "note": "A collective noun ('jury', 'committee', 'team') takes a singular verb when acting as ONE unit, and a plural verb when members act individually.",
+      "tokens": [
+        {
+          "id": "c10m3s2-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the debate jury.",
+          "grammaticalRoleExplanation": "Determiner."
+        },
+        {
+          "id": "c10m3s2-t2",
+          "text": "jury",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Collective Noun (Divided)",
+          "meaningInSentence": "Refers to individual judges disagreeing here.",
+          "grammaticalRoleExplanation": "Clues 'divided' and 'their opinions' show separate members → plural verb 'are'.",
+          "linkedTokenIds": ["c10m3s2-t3", "c10m3s2-t6"]
+        },
+        {
+          "id": "c10m3s2-t3",
+          "text": "are",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Plural Verb",
+          "meaningInSentence": "Agrees with individual members of the jury.",
+          "grammaticalRoleExplanation": "Plural verb used because members hold different opinions.",
+          "linkedTokenIds": ["c10m3s2-t2", "c10m3s2-t6"],
+          "verbMeta": {
+            "timeCommunicated": "Present State",
+            "verbForm": "Plural Verb ('are')",
+            "whyAppropriate": "Clues 'divided' and 'their opinions' show the members acting as separate individuals, not one united voice."
+          }
+        },
+        {
+          "id": "c10m3s2-t4",
+          "text": "divided",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Clue Word",
+          "meaningInSentence": "Holding different views.",
+          "grammaticalRoleExplanation": "Signals individual action."
+        },
+        {
+          "id": "c10m3s2-t5",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows respect.",
+          "grammaticalRoleExplanation": "Preposition."
+        },
+        {
+          "id": "c10m3s2-t6",
+          "text": "their",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Plural Pronoun Clue",
+          "meaningInSentence": "Refers to multiple members.",
+          "grammaticalRoleExplanation": "'their' confirms plural sense.",
+          "linkedTokenIds": ["c10m3s2-t2", "c10m3s2-t3"]
+        },
+        {
+          "id": "c10m3s2-t7",
+          "text": "opinions",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Plural Noun",
+          "meaningInSentence": "Differing viewpoints.",
+          "grammaticalRoleExplanation": "Object of 'in'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "c10m3s2-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["c10m3s2-t1", "c10m3s2-t2"],
+          "questionPrompt": "Are the members acting as one voice or separately?",
+          "plainExplanation": "'The jury' is divided into separate individuals here.",
+          "textbookRule": "Odisha Class X Rule 4a (p. 25) & PSEB IX Rule 10 (p. 99): Collective nouns take singular when acting as one body ('The committee IS unanimous') and plural when acting individually ('The jury ARE divided in their opinions').",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch3", "src-pseb9-sva-ref"]
+        },
+        {
+          "id": "c10m3s2-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["c10m3s2-t3", "c10m3s2-t4", "c10m3s2-t5", "c10m3s2-t6", "c10m3s2-t7"],
+          "questionPrompt": "Which verb matches divided members?",
+          "plainExplanation": "'are divided in their opinions' uses plural 'are'.",
+          "textbookRule": "Look for clues like 'its decision' (singular) vs 'their opinions' (plural).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch3"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "c10m3s2-rel-1",
+          "type": "verb-subject",
+          "label": "are ← jury (divided)",
+          "fromTokenIds": ["c10m3s2-t3"],
+          "toTokenIds": ["c10m3s2-t2"],
+          "explanation": "'divided' and 'their' trigger plural 'are'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The jury",
+        "subjectHeadWord": "jury",
+        "predicateText": "are divided in their opinions",
+        "predicateHeadWord": "are",
+        "patternNote": "Collective acting as one unit → singular; divided individuals → plural."
+      }
+    },
+    {
+      "id": "m3c10-sent-relative-antecedent",
+      "title": "Case 3: Relative Pronoun Antecedent",
+      "rawText": "Riya is one of the students who have won medals.",
+      "contextTag": "Honour Roll",
+      "note": "Inside '...one of the [plural noun] who...', the relative pronoun 'who' refers to 'the students' (plural), so the verb after 'who' is 'have'.",
+      "tokens": [
+        {
+          "id": "c10m3s3-t1",
+          "text": "Riya",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Main Subject",
+          "meaningInSentence": "Riya.",
+          "grammaticalRoleExplanation": "Takes main verb 'is'."
+        },
+        {
+          "id": "c10m3s3-t2",
+          "text": "is",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Verb",
+          "meaningInSentence": "Links Riya to the group.",
+          "grammaticalRoleExplanation": "Matches singular 'Riya'."
+        },
+        {
+          "id": "c10m3s3-t3",
+          "text": "one",
+          "category": "pronoun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "isInterveningModifier": true,
+          "roleLabel": "Trap Noun/Pronoun",
+          "meaningInSentence": "One member of the medal-winning group.",
+          "grammaticalRoleExplanation": "'who' describes ALL 'the students', not just 'one'!"
+        },
+        {
+          "id": "c10m3s3-t4",
+          "text": "of",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Part of 'one of'.",
+          "grammaticalRoleExplanation": "Preposition."
+        },
+        {
+          "id": "c10m3s3-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies medal-winners.",
+          "grammaticalRoleExplanation": "Determiner."
+        },
+        {
+          "id": "c10m3s3-t6",
+          "text": "students",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Antecedent of 'who' (Plural)",
+          "meaningInSentence": "The whole group who won medals.",
+          "grammaticalRoleExplanation": "Relative pronoun 'who' directly refers back to plural 'students'!",
+          "linkedTokenIds": ["c10m3s3-t7", "c10m3s3-t8"]
+        },
+        {
+          "id": "c10m3s3-t7",
+          "text": "who",
+          "category": "pronoun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Relative Pronoun",
+          "meaningInSentence": "Stands for 'the students'.",
+          "grammaticalRoleExplanation": "Copies plural number from its antecedent 'students'.",
+          "linkedTokenIds": ["c10m3s3-t6", "c10m3s3-t8"]
+        },
+        {
+          "id": "c10m3s3-t8",
+          "text": "have",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Plural Clause Verb",
+          "meaningInSentence": "Matches antecedent 'students'.",
+          "grammaticalRoleExplanation": "Plural verb agreed with 'students' via 'who'.",
+          "linkedTokenIds": ["c10m3s3-t6", "c10m3s3-t7"],
+          "verbMeta": {
+            "timeCommunicated": "Present Perfect",
+            "verbForm": "Plural Verb ('have won')",
+            "whyAppropriate": "Ask 'Who has/have won medals?'—the whole group of 'students' (plural), not just 'one'!"
+          }
+        },
+        {
+          "id": "c10m3s3-t9",
+          "text": "won",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Past Participle",
+          "meaningInSentence": "Earned.",
+          "grammaticalRoleExplanation": "Participle."
+        },
+        {
+          "id": "c10m3s3-t10",
+          "text": "medals",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun",
+          "meaningInSentence": "Awards.",
+          "grammaticalRoleExplanation": "Object.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "c10m3s3-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["c10m3s3-t1"],
+          "questionPrompt": "Who is the main Subject?",
+          "plainExplanation": "'Riya' takes main verb 'is'.",
+          "textbookRule": "Odisha Class X Rule 16 (p. 29) & PSEB IX Rule 12 (p. 99): The verb after a relative pronoun ('who/which/that') agrees with its antecedent ('students' → 'have').",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch3", "src-pseb9-sva-ref"]
+        },
+        {
+          "id": "c10m3s3-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["c10m3s3-t2", "c10m3s3-t3", "c10m3s3-t4", "c10m3s3-t5", "c10m3s3-t6", "c10m3s3-t7", "c10m3s3-t8", "c10m3s3-t9", "c10m3s3-t10"],
+          "questionPrompt": "What does 'who' refer back to?",
+          "plainExplanation": "'who' refers to 'students' (plural), so 'have won' is plural.",
+          "textbookRule": "Compare: 'She is the ONLY one of the students who HAS...' vs 'She is one of the students who HAVE...'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch3"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "c10m3s3-rel-1",
+          "type": "verb-subject",
+          "label": "have ← who ← students",
+          "fromTokenIds": ["c10m3s3-t8"],
+          "toTokenIds": ["c10m3s3-t6"],
+          "explanation": "Relative pronoun 'who' inherits plural number from 'students'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Riya",
+        "subjectHeadWord": "Riya",
+        "predicateText": "is one of the students who have won medals",
+        "predicateHeadWord": "is",
+        "patternNote": "Relative clause verb matches its antecedent ('students' → 'have')."
+      }
+    },
+    {
+      "id": "m3c10-sent-fractions",
+      "title": "Case 4: Fractions, Percentages & 'The + Adjective'",
+      "rawText": "Two-thirds of the library books are already catalogued.",
+      "contextTag": "Library Census",
+      "note": "With fractions or percentages ('two-thirds of', 'half of', '40% of'), look at the noun AFTER 'of' to pick the verb!",
+      "tokens": [
+        {
+          "id": "c10m3s4-t1",
+          "text": "Two-thirds",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Fraction Phrase",
+          "meaningInSentence": "Portion depends on what follows 'of'.",
+          "grammaticalRoleExplanation": "Unlike regular 'of'-phrases, fractions/percentages take their number from the noun after 'of'!"
+        },
+        {
+          "id": "c10m3s4-t2",
+          "text": "of",
+          "category": "preposition",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links fraction to the noun.",
+          "grammaticalRoleExplanation": "Look right after 'of'."
+        },
+        {
+          "id": "c10m3s4-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies books.",
+          "grammaticalRoleExplanation": "Determiner."
+        },
+        {
+          "id": "c10m3s4-t4",
+          "text": "library",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Modifies books.",
+          "grammaticalRoleExplanation": "Modifier."
+        },
+        {
+          "id": "c10m3s4-t5",
+          "text": "books",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Controlling Noun After 'of' (Plural)",
+          "meaningInSentence": "Plural countable noun after 'of' → plural verb!",
+          "grammaticalRoleExplanation": "Because 'books' is plural, 'Two-thirds of the books' takes plural 'are'.",
+          "linkedTokenIds": ["c10m3s4-t6"]
+        },
+        {
+          "id": "c10m3s4-t6",
+          "text": "are",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Plural Verb",
+          "meaningInSentence": "Matches plural 'books'.",
+          "grammaticalRoleExplanation": "Compare 'Two-thirds of the water IS clean' (uncountable → singular).",
+          "linkedTokenIds": ["c10m3s4-t5"],
+          "verbMeta": {
+            "timeCommunicated": "Present State",
+            "verbForm": "Plural Verb ('are')",
+            "whyAppropriate": "For fractions and percentages ('two-thirds of', 'a lot of'), plural countable nouns after 'of' ('books') take plural 'are', while uncountable nouns ('water') take singular 'is'."
+          }
+        },
+        {
+          "id": "c10m3s4-t7",
+          "text": "already",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adverb",
+          "meaningInSentence": "Already done.",
+          "grammaticalRoleExplanation": "Adverb."
+        },
+        {
+          "id": "c10m3s4-t8",
+          "text": "catalogued",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Participle Adjective",
+          "meaningInSentence": "Listed in the catalogue.",
+          "grammaticalRoleExplanation": "Subject complement.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "c10m3s4-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["c10m3s4-t1", "c10m3s4-t2", "c10m3s4-t3", "c10m3s4-t4", "c10m3s4-t5"],
+          "questionPrompt": "What follows 'Two-thirds of'?",
+          "plainExplanation": "'books' is plural countable, so the fraction is plural.",
+          "textbookRule": "Odisha Class X Rule 8 & 9a (pp. 26-27): Fractions, percentages, 'a lot of', and 'some of' match the noun after 'of'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch3"]
+        },
+        {
+          "id": "c10m3s4-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["c10m3s4-t6", "c10m3s4-t7", "c10m3s4-t8"],
+          "questionPrompt": "Which verb agrees with 'books'?",
+          "plainExplanation": "'are already catalogued' matches plural 'books'.",
+          "textbookRule": "Uncountable after 'of' → singular ('Two-thirds of the land IS fertile').",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch3"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "c10m3s4-rel-1",
+          "type": "verb-subject",
+          "label": "are ← books (after fraction)",
+          "fromTokenIds": ["c10m3s4-t6"],
+          "toTokenIds": ["c10m3s4-t5"],
+          "explanation": "Fractions match the number of the noun following 'of'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Two-thirds of the library books",
+        "subjectHeadWord": "books",
+        "predicateText": "are already catalogued",
+        "predicateHeadWord": "are",
+        "patternNote": "Fraction/percentage/'a lot of' → check noun after 'of' ('books' = plural, 'water' = singular)."
+      }
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "c10-m3-step-1",
+      "stepNumber": 1,
+      "type": "show-sentence",
+      "visualMode": "agreement-lock",
+      "title": "'The Number of' vs 'A Number of'",
+      "badgeLabel": "Stage 1 · Number Contrast",
+      "shortPrompt": "'The number of...' = ONE single figure (singular); 'A number of...' = MANY (plural).",
+      "explanation": "Odisha Class X Rule 9c sets a classic exam trap: 'The number of science projects is growing' (focuses on ONE rising figure → 'is'), whereas 'A number of science projects are ready' means 'several projects' → 'are'. One small article ('The' vs 'A') flips the verb!",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c10-sent-number-of",
+      "focusTokenIds": ["c10m3s1-t1", "c10m3s1-t2", "c10m3s1-t8"],
+      "dimmedTokenIds": ["c10m3s1-t3", "c10m3s1-t4", "c10m3s1-t5", "c10m3s1-t6", "c10m3s1-t7"],
+      "agreementData": {
+        "subjectHeadText": "The number",
+        "subjectNumberPerson": "One count / figure (Singular)",
+        "verbText": "is growing",
+        "verbFormTag": "Singular Verb",
+        "interveningText": "of science projects in our fair",
+        "ruleSummary": "'The number of + plural noun' → singular verb; 'A number of + plural noun' → plural verb.",
+        "contrastIncorrectText": "The number of science projects in our fair are growing.",
+        "contrastReason": "It is the single count ('The number') that is growing, not each separate project."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3"]
+    },
+    {
+      "id": "c10-m3-step-2",
+      "stepNumber": 2,
+      "type": "explain-role",
+      "visualMode": "agreement-lock",
+      "title": "Collective Nouns: One Unit vs Individuals",
+      "badgeLabel": "Stage 2 · Collective Nouns",
+      "shortPrompt": "Does the group act together ('its') or disagree individually ('their')?",
+      "explanation": "In Odisha Class X Rule 4a, collective nouns ('jury, committee, team, government') take a SINGULAR verb when acting as one body ('The committee has made its decision'), and a PLURAL verb when members act separately ('The jury are divided in their opinions').",
+      "characterId": "mira",
+      "characterExpression": "curious",
+      "sentenceId": "m3c10-sent-collective",
+      "focusTokenIds": ["c10m3s2-t2", "c10m3s2-t3", "c10m3s2-t6"],
+      "agreementData": {
+        "subjectHeadText": "The jury (divided)",
+        "subjectNumberPerson": "Members acting separately (Plural sense)",
+        "verbText": "are",
+        "verbFormTag": "Plural Verb",
+        "ruleSummary": "Watch for agreement clues in the sentence: 'its / unanimous' → singular; 'their / divided' → plural. Also remember 'police / people / cattle / poultry' ALWAYS take plural verbs!"
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3", "src-pseb9-sva-ref"]
+    },
+    {
+      "id": "c10-m3-step-3",
+      "stepNumber": 3,
+      "type": "explain-meaning",
+      "visualMode": "agreement-lock",
+      "title": "Fractions, Percentages & 'A Lot of'",
+      "badgeLabel": "Stage 3 · Portions",
+      "shortPrompt": "With fractions and percentages, look AFTER 'of' to decide the verb!",
+      "explanation": "Here is an essential exception to the 'ignore of-phrases' rule! When the Subject starts with a fraction, percentage, 'half of', 'a lot of', or 'some of', look at the noun AFTER 'of': plural countable ('books') → 'are'; uncountable ('water', 'rice', 'scenery') → 'is'.",
+      "characterId": "arjun",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c10-sent-fractions",
+      "focusTokenIds": ["c10m3s4-t1", "c10m3s4-t5", "c10m3s4-t6"],
+      "agreementData": {
+        "subjectHeadText": "books (after 'Two-thirds of')",
+        "subjectNumberPerson": "Plural countable noun",
+        "verbText": "are",
+        "verbFormTag": "Plural Verb",
+        "ruleSummary": "Compare: 'Two-thirds of the books ARE catalogued' vs 'Two-thirds of the rainwater IS stored cleanly'."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3"]
+    },
+    {
+      "id": "c10-m3-step-4",
+      "stepNumber": 4,
+      "type": "compare-example",
+      "visualMode": "agreement-lock",
+      "title": "Relative Pronoun Antecedents",
+      "badgeLabel": "Stage 4 · Antecedent Trace",
+      "shortPrompt": "In 'one of the students who...', trace 'who' back to 'students', NOT 'one'!",
+      "explanation": "Odisha Class X Rule 16 solves one of the trickiest Class 10 questions! In 'Riya is one of the students who have won medals', several students won medals and Riya is one of them. So 'who' points to plural 'students', locking onto 'have'.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c10-sent-relative-antecedent",
+      "focusTokenIds": ["c10m3s3-t6", "c10m3s3-t7", "c10m3s3-t8"],
+      "dimmedTokenIds": ["c10m3s3-t3"],
+      "agreementData": {
+        "subjectHeadText": "students (antecedent of 'who')",
+        "subjectNumberPerson": "Plural Noun",
+        "verbText": "have won",
+        "verbFormTag": "Plural Clause Verb",
+        "interveningText": "one (describes Riya, not 'who')",
+        "ruleSummary": "A verb after 'who / which / that' agrees with the antecedent right before the pronoun—unless 'the ONLY one of...' appears.",
+        "contrastIncorrectText": "Riya is one of the students who has won medals.",
+        "contrastReason": "More than one student won medals; 'who' stands for 'the students'."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3", "src-pseb9-sva-ref"]
+    },
+    {
+      "id": "c10-m3-step-5",
+      "stepNumber": 5,
+      "type": "highlight-group",
+      "visualMode": "agreement-lock",
+      "title": "'The + Adjective' & Plural-Form Titles",
+      "badgeLabel": "Stage 5 · Special Forms",
+      "shortPrompt": "'The brave ARE respected' (plural class), while 'Gulliver's Travels IS famous' (one book)!",
+      "explanation": "Odisha Class X Rules 14 & 15 contrast two tricky patterns: (1) 'The + adjective' referring to a whole group of people ('the rich', 'the brave', 'the blind') always takes a PLURAL verb ('The brave are honoured'). (2) Plural-looking book titles and country names ('Gulliver's Travels', 'The United States') refer to ONE work or nation → SINGULAR verb ('is').",
+      "characterId": "mira",
+      "characterExpression": "happy",
+      "sentenceId": "m3c10-sent-number-of",
+      "focusTokenIds": ["c10m3s1-t2", "c10m3s1-t8"],
+      "agreementData": {
+        "subjectHeadText": "'The brave' (plural) vs 'Gulliver's Travels' (singular)",
+        "subjectNumberPerson": "People class vs Single title/country",
+        "verbText": "are / is",
+        "verbFormTag": "Meaning controls verb",
+        "ruleSummary": "Also note Assam & Odisha Class X's rule on 'with / as well as' (first subject wins) vs 'not only...but also / neither...nor' (nearer subject wins), and 'Many a student HAS tried'."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3", "src-assam-sva-c10"]
+    },
+    {
+      "id": "c10-m3-step-6",
+      "stepNumber": 6,
+      "type": "show-relationship",
+      "visualMode": "agreement-lock",
+      "title": "Neither of / None of & One vs Two Determiners",
+      "badgeLabel": "Stage 6 · Determiners & Caveats",
+      "shortPrompt": "Formal singular for 'neither of', and check whether 'the' is repeated!",
+      "explanation": "Two final senior checks: (1) 'The Secretary and Headmaster IS coming' (1 'the' = 1 person) vs 'The Secretary and the Headmaster ARE coming' (2 'the's = 2 people). (2) In formal exams, 'neither of / none of / either of + plural noun' takes a SINGULAR verb ('Neither of the reports is late').",
+      "characterId": "arjun",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c10-sent-collective",
+      "comparisonSentenceId": "m3c10-sent-relative-antecedent",
+      "focusTokenIds": ["c10m3s2-t2", "c10m3s2-t3"],
+      "agreementData": {
+        "subjectHeadText": "Neither of / None of + plural noun",
+        "subjectNumberPerson": "Formal Singular",
+        "verbText": "is / has / was",
+        "verbFormTag": "Formal Standard",
+        "ruleSummary": "Use formal singular for 'neither of / none of / each of / one of' in exams.",
+        "informalUsageNote": "Odisha Class X Rule 7a (p. 26) explicitly notes that plural verbs occur after 'neither of / none of' in informal speech, whereas PSEB and Assam mandate singular strictly. Note: no Class 10 PSEB book was supplied in the source files."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3", "src-assam-sva-c10", "src-m3-c10-bridge"]
+    },
+    {
+      "id": "c10-m3-step-7",
+      "stepNumber": 7,
+      "type": "reveal-structure",
+      "visualMode": "agreement-lock",
+      "title": "Senior Detective Verification Checklist",
+      "badgeLabel": "Stage 7 · Checklist",
+      "shortPrompt": "1. Cross out modifiers. 2. Check rule family. 3. Lock the finite verb.",
+      "explanation": "Before answering any Class 10 SVA question: (1) Identify whether the Subject is a normal head-noun ('The number of'), a fraction/portion ('Two-thirds of'), a collective ('jury'), or a relative antecedent ('students who...'). (2) Match Number and Person precisely!",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m3c10-sent-fractions",
+      "focusTokenIds": ["c10m3s4-t5", "c10m3s4-t6"],
+      "agreementData": {
+        "subjectHeadText": "True Controlling Noun / Antecedent",
+        "subjectNumberPerson": "Check rule family first",
+        "verbText": "Locked Finite Verb",
+        "verbFormTag": "Number & Person Match",
+        "ruleSummary": "Odisha X Ch. 4 p. 31 reminds us: only finite verbs show tense and Subject–Verb Agreement; non-finites ('to read', 'reading') never change for Subject number."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3", "src-m3-c10-bridge"]
+    },
+    {
+      "id": "c10-m3-step-8",
+      "stepNumber": 8,
+      "type": "interact-explore",
+      "visualMode": "free-explore",
+      "allowFreeExplore": true,
+      "title": "Inspect Words Before Senior Detective Lab",
+      "badgeLabel": "Stage 8 · Explore",
+      "shortPrompt": "Tap 'Two-thirds', 'books', or 'are' above to inspect how they lock, then enter Guided Practice.",
+      "explanation": "Tap any token above to verify its role, then open Guided Practice to solve all 6 Class 10 detective cases!",
+      "characterId": "gyan",
+      "characterExpression": "celebrating",
+      "sentenceId": "m3c10-sent-fractions",
+      "focusTokenIds": ["c10m3s4-t5", "c10m3s4-t6"],
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-m3-c10-bridge"]
+    }
+  ],
+  "wordLabActivities": [
+    {
+      "id": "c10-m3-lab-a",
+      "kind": "identify-group",
+      "tabLabel": "A. Antecedent",
+      "title": "A. Spot the Antecedent Controlling 'who'",
+      "instruction": "Tap the ONE noun that 'who' refers back to and that controls 'play'.",
+      "targetRole": "predicate",
+      "correctTitle": "Antecedent spotted!",
+      "incorrectTitle": "Look right before 'who'",
+      "hideRoleGroupsOnSuccess": true,
+      "sentence": {
+        "id": "c10-m3-lab-a-sent",
+        "title": "Senior Clue A",
+        "rawText": "Arjun is one of the athletes who play kho-kho.",
+        "contextTag": "Sports Honour Roll",
+        "tokens": [
+          { "id": "c10m3a-t1", "text": "Arjun", "category": "noun", "groupRole": "subject", "isHeadWord": true, "roleLabel": "Main Subject", "meaningInSentence": "Arjun.", "grammaticalRoleExplanation": "Takes 'is'." },
+          { "id": "c10m3a-t2", "text": "is", "category": "verb", "groupRole": "predicate", "isHeadWord": true, "roleLabel": "Main Verb", "meaningInSentence": "Links Arjun.", "grammaticalRoleExplanation": "Main verb." },
+          { "id": "c10m3a-t3", "text": "one", "category": "pronoun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Pronoun", "meaningInSentence": "One of them.", "grammaticalRoleExplanation": "Not antecedent." },
+          { "id": "c10m3a-t4", "text": "of", "category": "preposition", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Preposition", "meaningInSentence": "Of.", "grammaticalRoleExplanation": "Preposition." },
+          { "id": "c10m3a-t5", "text": "the", "category": "determiner", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "The.", "grammaticalRoleExplanation": "Determiner." },
+          { "id": "c10m3a-t6", "text": "athletes", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Plural Antecedent", "meaningInSentence": "Group who play kho-kho.", "grammaticalRoleExplanation": "Controls 'play' via 'who'." },
+          { "id": "c10m3a-t7", "text": "who", "category": "pronoun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Relative Pronoun", "meaningInSentence": "Refers to 'athletes'.", "grammaticalRoleExplanation": "Pronoun." },
+          { "id": "c10m3a-t8", "text": "play", "category": "verb", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Plural Verb", "meaningInSentence": "Agrees with 'athletes'.", "grammaticalRoleExplanation": "Plural verb." },
+          { "id": "c10m3a-t9", "text": "kho-kho", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "Traditional Indian sport.", "grammaticalRoleExplanation": "Object.", "punctuationAfter": "." }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Arjun",
+          "subjectHeadWord": "Arjun",
+          "predicateText": "is one of the athletes who play kho-kho",
+          "predicateHeadWord": "is"
+        }
+      },
+      "correctTokenIds": ["c10m3a-t6"],
+      "correctFeedback": "Exact! 'who' stands for 'athletes' (plural), which is why the verb is plural 'play'.",
+      "incorrectFeedback": "Tap ONLY the plural noun standing right before 'who' ('athletes').",
+      "hint": "Ask: Does ONLY one athlete play kho-kho, or do ALL the 'athletes' play kho-kho?",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3"]
+    },
+    {
+      "id": "c10-m3-lab-b",
+      "kind": "categorise",
+      "tabLabel": "B. Sort Rules",
+      "title": "B. Sort Class 10 Subjects Into Singular vs Plural",
+      "instruction": "Tap each Subject card and sort whether it takes a Singular Verb or Plural Verb.",
+      "promptText": "1. Tap a Subject card below, then tap Singular Verb or Plural Verb:",
+      "categories": [
+        { "id": "singular", "label": "Takes Singular Verb", "helperText": "is / was / has", "tone": "singular" },
+        { "id": "plural", "label": "Takes Plural Verb", "helperText": "are / were / have", "tone": "plural" }
+      ],
+      "items": [
+        { "id": "c10m3b-1", "text": "The number of participants", "correctCategory": "singular", "explanation": "'The number of...' refers to one count." },
+        { "id": "c10m3b-2", "text": "A number of volunteers", "correctCategory": "plural", "explanation": "'A number of...' means 'several/many'." },
+        { "id": "c10m3b-3", "text": "The brave", "correctCategory": "plural", "explanation": "'The + adjective' denoting people is always plural." },
+        { "id": "c10m3b-4", "text": "Gulliver's Travels", "correctCategory": "singular", "explanation": "One book title takes a singular verb." },
+        { "id": "c10m3b-5", "text": "Many a young scientist", "correctCategory": "singular", "explanation": "'Many a + singular noun' takes a singular verb." },
+        { "id": "c10m3b-6", "text": "Two-thirds of the apples", "correctCategory": "plural", "explanation": "Fraction + plural countable 'apples' takes plural." }
+      ],
+      "completeFeedback": "Clean 6/6! You navigated Class 10's trickiest agreement patterns accurately.",
+      "incorrectFeedback": "Remember: 'The number of' & 'Many a' = singular; 'A number of', 'The brave', & fractions + plural nouns = plural.",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3", "src-assam-sva-c10"]
+    },
+    {
+      "id": "c10-m3-lab-c",
+      "kind": "sentence-construction",
+      "tabLabel": "C. Build",
+      "title": "C. Assemble a 'Not Only ... But Also' Sentence",
+      "instruction": "Arrange the tiles so the verb agrees with the NEARER subject ('the students').",
+      "promptContext": "With 'not only...but also', the nearer subject controls the verb.",
+      "tiles": [
+        { "id": "c10m3c-1", "text": "Not only the teacher", "groupRole": "subject", "category": "noun" },
+        { "id": "c10m3c-2", "text": "but also", "groupRole": "subject", "category": "conjunction" },
+        { "id": "c10m3c-3", "text": "the students", "groupRole": "subject", "category": "noun" },
+        { "id": "c10m3c-4", "text": "were", "groupRole": "predicate", "category": "verb" },
+        { "id": "c10m3c-5", "text": "excited about ISRO.", "groupRole": "predicate", "category": "adjective" }
+      ],
+      "correctOrderIds": ["c10m3c-1", "c10m3c-2", "c10m3c-3", "c10m3c-4", "c10m3c-5"],
+      "subjectText": "Not only the teacher but also the students",
+      "predicateText": "were excited about ISRO.",
+      "part1Label": "Correlative Subject ('students' nearer)",
+      "part2Label": "Plural Predicate ('were...')",
+      "correctFeedback": "Exact! Plural 'the students' is closer to the verb, locking onto 'were'.",
+      "incorrectFeedback": "Order: 'Not only the teacher' + 'but also' + 'the students' + 'were' + 'excited about ISRO.'",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3", "src-pseb9-sva-ref"]
+    },
+    {
+      "id": "c10-m3-lab-d",
+      "kind": "word-replacement",
+      "tabLabel": "D. Fraction Flip",
+      "title": "D. Flip the Noun After 'of', Flip the Verb!",
+      "instruction": "Tap both options after 'Half of the' to see how countable vs uncountable nouns control the verb.",
+      "beforeText": "Half of the",
+      "afterText": "ready for distribution.",
+      "originalWord": "curd is",
+      "slotGroupRole": "subject",
+      "slotLabel": "Uncountable vs Plural Countable After Fraction:",
+      "options": [
+        {
+          "id": "c10m3d-1",
+          "word": "curd is",
+          "category": "noun",
+          "meaningEffect": "'curd' is uncountable (like milk, rice, scenery) → singular 'is'.",
+          "roleImpactNote": "Uncountable noun takes singular verb.",
+          "isGrammatical": true
+        },
+        {
+          "id": "c10m3d-2",
+          "word": "oranges are",
+          "category": "noun",
+          "meaningEffect": "'oranges' is plural countable → plural 'are'.",
+          "roleImpactNote": "Plural countable takes plural verb.",
+          "isGrammatical": true
+        }
+      ],
+      "takeaway": "For fractions and percentages, uncountable nouns after 'of' take singular verbs, while plural countables take plural verbs!",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3"]
+    },
+    {
+      "id": "c10-m3-lab-e",
+      "kind": "missing-words",
+      "tabLabel": "E. Complete",
+      "title": "E. Choose the Collective Noun Verb",
+      "instruction": "Read the clue ('its unanimous report') and select the accurate verb.",
+      "sentenceBeforeBlank": "The science committee",
+      "sentenceAfterBlank": "submitted its unanimous report.",
+      "missingRole": "predicate",
+      "incorrectTitle": "Look at the pronoun clue 'its'",
+      "options": [
+        {
+          "id": "c10m3e-1",
+          "text": "have",
+          "isCorrect": false,
+          "feedback": "'its unanimous report' shows the committee acted as ONE united body, so use singular 'has'."
+        },
+        {
+          "id": "c10m3e-2",
+          "text": "has",
+          "isCorrect": true,
+          "feedback": "Spot on! Acting as one united body ('its unanimous report') calls for singular 'has'."
+        },
+        {
+          "id": "c10m3e-3",
+          "text": "are",
+          "isCorrect": false,
+          "feedback": "'are' is plural and doesn't pair with 'submitted' to form Present Perfect active."
+        }
+      ],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3"]
+    },
+    {
+      "id": "c10-m3-lab-f",
+      "kind": "error-identification",
+      "tabLabel": "F. Fix Error",
+      "title": "F. Repair the Uncountable Furniture Trap",
+      "instruction": "Inspect this flawed school inventory line and diagnose the error.",
+      "draftBadgeLabel": "Flawed Inventory Entry",
+      "brokenSentence": "All the new wooden furniture in the hall are durable.",
+      "repairedSentence": "All the new wooden furniture in the hall is durable.",
+      "question": "Why must 'are' become 'is'?",
+      "options": [
+        {
+          "id": "c10m3f-1",
+          "label": "Nouns like 'furniture', 'scenery', 'luggage', and 'clothing' are uncountable and always take a singular verb ('is').",
+          "isCorrect": true,
+          "feedback": "Exact! Odisha Class X Rule 5 classifies furniture, clothing, food, and scenery as singular uncountables."
+        },
+        {
+          "id": "c10m3f-2",
+          "label": "'All' always forces a plural verb regardless of the noun.",
+          "isCorrect": false,
+          "feedback": "'All' can be singular with uncountable nouns ('All the water is clean') or plural with countables ('All the books are new')."
+        },
+        {
+          "id": "c10m3f-3",
+          "label": "Because 'hall' is singular at the end of the phrase.",
+          "isCorrect": false,
+          "feedback": "'in the hall' is just a prepositional modifier; 'furniture' is the singular uncountable Subject head."
+        }
+      ],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3"]
+    }
+  ],
+  "independentPractice": [
+    {
+      "id": "c10-m3-ind-1",
+      "mode": "token-and-choice",
+      "cueLevel": "gentle",
+      "cueText": "Check whether 'The' or 'A' precedes 'number of' before locking the verb.",
+      "title": "Challenge 1: The Number vs A Number Paradox",
+      "instruction": "Tap the two key words at the start that decide whether the verb is singular or plural, then choose the verb.",
+      "targetPrompt": "Step 1: Tap the first two words ('The' or 'A' + 'number')",
+      "targetTokenIds": ["c10m3i1-t1", "c10m3i1-t2"],
+      "sentence": {
+        "id": "c10-m3-ind1-sent",
+        "title": "Independent Check 1",
+        "rawText": "A number of young astronomers [?] observing the eclipse tonight.",
+        "contextTag": "Astronomy Club",
+        "tokens": [
+          { "id": "c10m3i1-t1", "text": "A", "category": "determiner", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Key Article", "meaningInSentence": "With 'number of', means several.", "grammaticalRoleExplanation": "'A number of' = plural." },
+          { "id": "c10m3i1-t2", "text": "number", "category": "noun", "groupRole": "subject", "isHeadWord": true, "roleLabel": "Quantifier Noun", "meaningInSentence": "Means several/many here.", "grammaticalRoleExplanation": "'A number of' triggers plural." },
+          { "id": "c10m3i1-t3", "text": "of", "category": "preposition", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Preposition", "meaningInSentence": "Of.", "grammaticalRoleExplanation": "Preposition." },
+          { "id": "c10m3i1-t4", "text": "young", "category": "adjective", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Adjective", "meaningInSentence": "Young.", "grammaticalRoleExplanation": "Modifier." },
+          { "id": "c10m3i1-t5", "text": "astronomers", "category": "noun", "groupRole": "subject", "isHeadWord": false, "roleLabel": "Plural Noun", "meaningInSentence": "Students.", "grammaticalRoleExplanation": "Plural." },
+          { "id": "c10m3i1-t6", "text": "[?]", "category": "verb", "groupRole": "predicate", "isHeadWord": true, "roleLabel": "Verb Slot", "meaningInSentence": "Missing auxiliary.", "grammaticalRoleExplanation": "Verb." },
+          { "id": "c10m3i1-t7", "text": "observing", "category": "verb", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Verb (-ing)", "meaningInSentence": "Watching.", "grammaticalRoleExplanation": "Participle." },
+          { "id": "c10m3i1-t8", "text": "the", "category": "determiner", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Determiner", "meaningInSentence": "The.", "grammaticalRoleExplanation": "Determiner." },
+          { "id": "c10m3i1-t9", "text": "eclipse", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "Lunar eclipse.", "grammaticalRoleExplanation": "Object." },
+          { "id": "c10m3i1-t10", "text": "tonight", "category": "adverb", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Adverb", "meaningInSentence": "Tonight.", "grammaticalRoleExplanation": "Time clue.", "punctuationAfter": "." }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "A number of young astronomers",
+          "subjectHeadWord": "A number",
+          "predicateText": "are observing the eclipse tonight",
+          "predicateHeadWord": "are observing"
+        }
+      },
+      "subjectTokenIds": ["c10m3i1-t1", "c10m3i1-t2", "c10m3i1-t3", "c10m3i1-t4", "c10m3i1-t5"],
+      "predicateTokenIds": ["c10m3i1-t6", "c10m3i1-t7", "c10m3i1-t8", "c10m3i1-t9", "c10m3i1-t10"],
+      "imperativeQuestion": "Step 2: Which auxiliary fits 'A number of young astronomers _____ observing...'?",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "is", "isCorrect": false, "feedback": "'The number of' takes 'is', whereas 'A number of' means 'many' and takes plural 'are'!" },
+        { "id": "opt-b", "label": "are", "isCorrect": true, "feedback": "Spot on! 'A number of + plural noun' means several/many, taking plural 'are'." },
+        { "id": "opt-c", "label": "was", "isCorrect": false, "feedback": "'was' is singular and past, clashing with 'tonight' and 'A number of'." }
+      ],
+      "successFeedback": "'A number of' = many → plural 'are'!",
+      "retrySubjectFeedback": "Tap ONLY the first two words: 'A' and 'number'.",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3"]
+    },
+    {
+      "id": "c10-m3-ind-2",
+      "mode": "choice-diagnose",
+      "cueLevel": "minimal",
+      "cueText": "Remember: 'The + adjective' denoting a class of people takes a plural verb.",
+      "title": "Challenge 2: 'The + Adjective' & 'The United States'",
+      "instruction": "Pick the accurate verb to complete the sentence.",
+      "sentence": {
+        "id": "c10-m3-ind2-sent",
+        "title": "Independent Check 2",
+        "rawText": "In every society, the honest and hardworking _____ deeply respected.",
+        "contextTag": "Civic Values",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "the honest and hardworking",
+          "subjectHeadWord": "honest and hardworking",
+          "predicateText": "are deeply respected",
+          "predicateHeadWord": "are"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Which verb completes this sentence accurately?",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "is", "isCorrect": false, "feedback": "'the + adjective' here refers to all honest and hardworking people (plural), not one person." },
+        { "id": "opt-b", "label": "are", "isCorrect": true, "feedback": "Exact! Odisha Class X Rule 14 teaches that 'the + adjective' referring to a class of people ('the rich', 'the blind', 'the honest') takes a plural verb ('are')." },
+        { "id": "opt-c", "label": "was", "isCorrect": false, "feedback": "'was' is singular and past." }
+      ],
+      "successFeedback": "You mastered 'the + adjective' concord!",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch3"]
+    },
+    {
+      "id": "c10-m3-ind-3",
+      "mode": "choice-diagnose",
+      "cueLevel": "none",
+      "title": "Challenge 3: Senior Detective Final Audit",
+      "instruction": "Identify the ONE sentence that follows every Class 10 Subject–Verb Agreement rule.",
+      "sentence": {
+        "id": "c10-m3-ind3-sent",
+        "title": "Independent Check 3",
+        "rawText": "Select the grammatically accurate sentence:",
+        "contextTag": "Senior Audit",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Forty percent of the fresh water",
+          "subjectHeadWord": "water",
+          "predicateText": "is saved through rainwater harvesting",
+          "predicateHeadWord": "is"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Which option is completely accurate?",
+      "imperativeOptions": [
+        { "id": "opt-a", "label": "Forty percent of the fresh water are saved through rainwater harvesting.", "isCorrect": false, "feedback": "After a percentage, look at 'water' (uncountable) → singular 'is'." },
+        { "id": "opt-b", "label": "Subhas Chandra Bose is one of the leaders who inspire young Indians.", "isCorrect": true, "feedback": "Accurate! Antecedent of 'who' is plural 'leaders', taking plural 'inspire'." },
+        { "id": "opt-c", "label": "Gulliver's Travels are an unforgettable adventure story.", "isCorrect": false, "feedback": "One book title ('Gulliver's Travels') takes a singular verb ('is')." }
+      ],
+      "successFeedback": "Senior casebook closed! Outstanding mastery of Class 10 Subject–Verb Agreement.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch3"]
+    }
+  ],
+  "completionSummary": {
+    "sceneVariant": "detective-board",
+    "headline": "Senior Casebook Solved! Mission 3 Complete!",
+    "celebrationMessage": "You helped Mira, Arjun, and Gyan crack Class 10's toughest Subject–Verb Agreement cases!",
+    "learnedPoints": [
+      "'The number of + plural noun' takes a singular verb (one count), whereas 'A number of + plural noun' takes a plural verb (= many).",
+      "Fractions and percentages agree with the noun after 'of'; collective nouns take singular when united and plural when divided.",
+      "Relative clause verbs agree with their antecedent ('the students who HAVE...'); 'the + adjective' takes plural; plural titles/countries take singular; formal exams expect singular after 'neither of / none of'."
+    ],
+    "restoredSectionLabel": "Solved Class 10 Concord Cases",
+    "repairedMessages": [
+      "The number of science projects in our fair is growing.",
+      "The jury are divided in their opinions.",
+      "Riya is one of the students who have won medals.",
+      "Two-thirds of the library books are already catalogued."
+    ],
+    "rewardLabel": "Chief Concord Detective Badge Earned"
+  }
+}

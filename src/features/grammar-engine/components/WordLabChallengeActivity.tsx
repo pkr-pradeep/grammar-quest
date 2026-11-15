@@ -58,7 +58,7 @@ export const WordReplacementView: React.FC<{
       {/* Live Sentence Preview */}
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
         <div className="text-xs font-semibold text-[#4B5C8A]">
-          Active slot inside {slotMeta.label}:
+          {activity.slotLabel ?? `Active slot inside ${slotMeta.label}:`}
         </div>
 
         <p className="text-base sm:text-xl font-semibold text-[#263A70] leading-relaxed flex flex-wrap items-center gap-1.5">
@@ -165,7 +165,14 @@ export const MissingWordsView: React.FC<{
       {selectedOption ? (
         <PracticeFeedback
           status={selectedOption.isCorrect ? 'correct' : 'try-again'}
-          title={selectedOption.isCorrect ? 'Message repaired' : 'Still missing a finite verb'}
+          title={
+            selectedOption.isCorrect
+              ? 'Message repaired'
+              : (activity.incorrectTitle ??
+                (activity.missingRole === 'predicate'
+                  ? 'Still missing a finite verb'
+                  : 'Check your choice'))
+          }
           message={selectedOption.feedback}
         />
       ) : null}
@@ -201,7 +208,9 @@ export const ErrorIdentificationView: React.FC<{
 
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
         <div className="rounded-[12px] bg-[#FEE8E7] border border-[#F7C2BF] px-3.5 py-2.5">
-          <p className="text-xs font-semibold text-[#9E2A25]">Broken Noticeboard Draft</p>
+          <p className="text-xs font-semibold text-[#9E2A25]">
+            {activity.draftBadgeLabel ?? 'Broken Noticeboard Draft'}
+          </p>
           <p className="text-base font-semibold text-[#263A70] mt-0.5">
             {activity.brokenSentence}
           </p>

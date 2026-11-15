@@ -135,11 +135,15 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
             <div className="rounded-[12px] bg-[#FFF4D6] border border-[#F59B19] p-3">
-              <p className="text-xs font-semibold text-[#A15C00]">Subject</p>
+              <p className="text-xs font-semibold text-[#A15C00]">
+                {activity.part1Label ?? 'Subject'}
+              </p>
               <p className="font-semibold text-[#263A70]">{activity.subjectText}</p>
             </div>
             <div className="rounded-[12px] bg-[#D9FAF5] border border-[#1FA89A] p-3">
-              <p className="text-xs font-semibold text-[#0F766E]">Predicate</p>
+              <p className="text-xs font-semibold text-[#0F766E]">
+                {activity.part2Label ?? 'Predicate'}
+              </p>
               <p className="font-semibold text-[#263A70]">{activity.predicateText}</p>
             </div>
           </div>

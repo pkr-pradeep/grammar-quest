@@ -19,7 +19,19 @@ export type AssessmentObjectiveId =
   | 'understanding-subject-meaning'
   | 'understanding-predicate-meaning'
   | 'recognising-varied-structures'
-  | 'applying-to-unfamiliar';
+  | 'applying-to-unfamiliar'
+  | 'time-vs-verb-form'
+  | 'present-simple-vs-progressive'
+  | 'stative-verbs-no-ing'
+  | 'past-simple-vs-perfect'
+  | 'future-time-expressions'
+  | 'tense-error-diagnosis'
+  | 'core-number-person-concord'
+  | 'intervening-phrases-trap'
+  | 'compound-and-single-idea'
+  | 'correlative-and-with-joiners'
+  | 'tricky-nouns-and-indefinites'
+  | 'agreement-error-diagnosis';
 
 export type AssessmentDifficulty = 'foundation' | 'standard' | 'stretch';
 

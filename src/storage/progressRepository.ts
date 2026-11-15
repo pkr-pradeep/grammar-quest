@@ -10,12 +10,48 @@
 
 import type {
   ClassLevel,
+  MissionProgressDetail,
   StorageReadResult,
   StudentProgressRecord,
 } from '../schemas/lesson.schema';
 import { idbGet, idbPut, PROGRESS_STORE } from './indexedDb';
 
 const DEFAULT_RECORD_KEY = 'default-learner';
+
+export function createDefaultMissionProgress(missionId: string): MissionProgressDetail {
+  return {
+    missionId,
+    started: false,
+    teachingStagesCompleted: false,
+    guidedPracticeCompleted: false,
+    independentPracticeCompleted: false,
+    completed: false,
+    startedAt: null,
+    completedAt: null,
+    updatedAt: new Date().toISOString(),
+  };
+}
+
+export function getMissionProgressDetail(
+  progress: StudentProgressRecord,
+  missionId: string,
+): MissionProgressDetail {
+  const existing = progress.missionProgressById?.[missionId];
+  const isCompletedInList = progress.completedMissionIds.includes(missionId);
+  if (existing) {
+    return isCompletedInList && !existing.completed
+      ? { ...existing, started: true, completed: true }
+      : existing;
+  }
+  return {
+    ...createDefaultMissionProgress(missionId),
+    started: isCompletedInList,
+    teachingStagesCompleted: isCompletedInList,
+    guidedPracticeCompleted: isCompletedInList,
+    independentPracticeCompleted: isCompletedInList,
+    completed: isCompletedInList,
+  };
+}
 
 export function createDefaultProgress(selectedClass: ClassLevel = 9): StudentProgressRecord {
   return {
@@ -24,6 +60,7 @@ export function createDefaultProgress(selectedClass: ClassLevel = 9): StudentPro
     completedMissionIds: [],
     activeMissionId: null,
     totalPilotMissions: 3,
+    missionProgressById: {},
     updatedAt: new Date().toISOString(),
   };
 }
@@ -86,17 +123,29 @@ export async function saveSelectedClass(classLevel: ClassLevel): Promise<Storage
   }
 }
 
-export async function markMissionCompleted(missionId: string): Promise<StorageReadResult> {
+async function updateMissionProgressRecord(
+  missionId: string,
+  patch: (existing: MissionProgressDetail) => MissionProgressDetail,
+  markOverallCompleted = false,
+): Promise<StorageReadResult> {
   const current = await loadStudentProgress();
-  const existing = current.progress.completedMissionIds;
-  const completedMissionIds = existing.includes(missionId)
-    ? existing
-    : [...existing, missionId];
+  const prevDetail = getMissionProgressDetail(current.progress, missionId);
+  const nextDetail = patch(prevDetail);
+
+  const existingCompleted = current.progress.completedMissionIds;
+  const completedMissionIds =
+    markOverallCompleted && !existingCompleted.includes(missionId)
+      ? [...existingCompleted, missionId]
+      : existingCompleted;
 
   const next: StudentProgressRecord = {
     ...current.progress,
     completedMissionIds,
     activeMissionId: missionId,
+    missionProgressById: {
+      ...(current.progress.missionProgressById ?? {}),
+      [missionId]: nextDetail,
+    },
     updatedAt: new Date().toISOString(),
   };
 
@@ -116,5 +165,61 @@ export async function markMissionCompleted(missionId: string): Promise<StorageRe
         'Your lesson progress could not be saved on this device, but remains active during this visit.',
     };
   }
+}
+
+export async function markMissionStarted(missionId: string): Promise<StorageReadResult> {
+  const now = new Date().toISOString();
+  return updateMissionProgressRecord(missionId, (prev) => ({
+    ...prev,
+    started: true,
+    startedAt: prev.startedAt ?? now,
+    updatedAt: now,
+  }));
+}
+
+export async function markTeachingCompleted(missionId: string): Promise<StorageReadResult> {
+  const now = new Date().toISOString();
+  return updateMissionProgressRecord(missionId, (prev) => ({
+    ...prev,
+    started: true,
+    startedAt: prev.startedAt ?? now,
+    teachingStagesCompleted: true,
+    updatedAt: now,
+  }));
+}
+
+export async function markPracticeCompleted(
+  missionId: string,
+  kind: 'guided' | 'independent',
+): Promise<StorageReadResult> {
+  const now = new Date().toISOString();
+  return updateMissionProgressRecord(missionId, (prev) => ({
+    ...prev,
+    started: true,
+    startedAt: prev.startedAt ?? now,
+    guidedPracticeCompleted: kind === 'guided' ? true : prev.guidedPracticeCompleted,
+    independentPracticeCompleted:
+      kind === 'independent' ? true : prev.independentPracticeCompleted,
+    updatedAt: now,
+  }));
+}
+
+export async function markMissionCompleted(missionId: string): Promise<StorageReadResult> {
+  const now = new Date().toISOString();
+  return updateMissionProgressRecord(
+    missionId,
+    (prev) => ({
+      ...prev,
+      started: true,
+      startedAt: prev.startedAt ?? now,
+      teachingStagesCompleted: true,
+      guidedPracticeCompleted: true,
+      independentPracticeCompleted: true,
+      completed: true,
+      completedAt: prev.completedAt ?? now,
+      updatedAt: now,
+    }),
+    true,
+  );
 }
 

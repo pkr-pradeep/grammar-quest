@@ -19,8 +19,11 @@ import type {
   CharacterPose,
 } from '../Character';
 
+import type { StorySceneVariant } from '../../schemas/grammarEngine.schema';
+
 export interface CourtyardNoticeboardSceneProps {
   mode: 'scattered' | 'repaired';
+  sceneVariant?: StorySceneVariant;
   sceneFocus?: 'mira-notices' | 'arjun-picks-up' | 'gyan-explains';
   isPaused?: boolean;
   isTyping?: boolean;
@@ -50,15 +53,33 @@ const SPEAKER_NAME: Record<CharacterId, string> = {
 };
 
 const SCENE_ARIA_LABEL: Record<
-  NonNullable<CourtyardNoticeboardSceneProps['sceneFocus']>,
-  string
+  StorySceneVariant,
+  Record<NonNullable<CourtyardNoticeboardSceneProps['sceneFocus']>, string>
 > = {
-  'mira-notices':
-    'Indian school courtyard where Mira points at the wooden noticeboard as a breeze scatters six paper scraps.',
-  'arjun-picks-up':
-    'Indian school courtyard where Arjun picks up a scattered "... plays cricket." scrap from the ground while Mira and Gyan watch.',
-  'gyan-explains':
-    'Indian school courtyard where Gyan projects Subject and Predicate strips onto the noticeboard to repair the sentence.',
+  noticeboard: {
+    'mira-notices':
+      'Indian school courtyard where Mira points at the wooden noticeboard as a breeze scatters six paper scraps.',
+    'arjun-picks-up':
+      'Indian school courtyard where Arjun picks up a scattered "... plays cricket." scrap from the ground while Mira and Gyan watch.',
+    'gyan-explains':
+      'Indian school courtyard where Gyan projects Subject and Predicate strips onto the noticeboard to repair the sentence.',
+  },
+  'records-timeline': {
+    'mira-notices':
+      'Indian school courtyard where Mira points at old school activity record pages fluttering out of order beside the timeline board.',
+    'arjun-picks-up':
+      'Indian school courtyard where Arjun holds up a school activity record card with a mismatched verb form.',
+    'gyan-explains':
+      'Indian school courtyard where Gyan projects a Past, Present, and Future Time timeline onto the school board.',
+  },
+  'detective-board': {
+    'mira-notices':
+      'Indian school courtyard where Mira inspects the school heritage fair board with mismatched Subject and Verb cards.',
+    'arjun-picks-up':
+      'Indian school courtyard where Arjun examines a poster strip where a plural verb clashes with a singular Subject.',
+    'gyan-explains':
+      'Indian school courtyard where Gyan projects a lock connecting the Subject head-noun directly to the agreeing Verb.',
+  },
 };
 
 interface ScrapConfig {
@@ -158,6 +179,7 @@ const SCENE_1_SCRAPS: ScrapConfig[] = [
 
 export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps> = ({
   mode,
+  sceneVariant = 'noticeboard',
   sceneFocus = 'mira-notices',
   isPaused = false,
   isTyping = false,
@@ -221,8 +243,12 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
 
   const sceneAriaLabel =
     mode === 'scattered'
-      ? SCENE_ARIA_LABEL[sceneFocus]
-      : 'Indian school courtyard with neatly repaired notices pinned to the wooden noticeboard';
+      ? SCENE_ARIA_LABEL[sceneVariant][sceneFocus]
+      : sceneVariant === 'records-timeline'
+        ? 'Indian school courtyard with sorted Past, Present, and Future Time school activity records on the board'
+        : sceneVariant === 'detective-board'
+          ? 'Indian school courtyard with corrected Subject and Verb pairs locked cleanly on the school noticeboard'
+          : 'Indian school courtyard with neatly repaired notices pinned to the wooden noticeboard';
 
   const renderSpeakerTag = (characterId: CharacterId) => {
     const isActive = activeSpeaker === characterId;
@@ -517,7 +543,109 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
           strokeWidth="2"
         />
 
-        {mode === 'scattered' ? (
+        {mode === 'scattered' && sceneVariant === 'records-timeline' ? (
+          <g key={`records-scene-${sceneFocus}-${animationSeed}`}>
+            {/* Timeline axis inside the wooden board */}
+            <line x1="342" y1="104" x2="498" y2="104" stroke="#263A70" strokeWidth="2.5" strokeLinecap="round" />
+            <circle cx="364" cy="104" r="5" fill="#F59B19" stroke="#263A70" strokeWidth="1.8" />
+            <circle cx="420" cy="104" r="5" fill="#1FA89A" stroke="#263A70" strokeWidth="1.8" />
+            <circle cx="476" cy="104" r="5" fill="#5B43C2" stroke="#263A70" strokeWidth="1.8" />
+            <text x="364" y="121" textAnchor="middle" fill="#A15C00" fontSize="8.5" fontWeight="800">PAST</text>
+            <text x="420" y="121" textAnchor="middle" fill="#0F7F76" fontSize="8.5" fontWeight="800">NOW</text>
+            <text x="476" y="121" textAnchor="middle" fill="#5B43C2" fontSize="8.5" fontWeight="800">FUTURE</text>
+
+            {sceneFocus === 'mira-notices' ? (
+              <g>
+                <g transform="rotate(-7 368 76)">
+                  <rect x="336" y="64" width="66" height="24" rx="5" fill="#FFF4D6" stroke="#C94A3A" strokeWidth="2" />
+                  <text x="369" y="79" textAnchor="middle" fill="#263A70" fontSize="8" fontWeight="700">Yesterday?</text>
+                </g>
+                <g transform="rotate(6 446 78)">
+                  <rect x="412" y="64" width="68" height="24" rx="5" fill="#FFFFFF" stroke="#263A70" strokeWidth="2" />
+                  <text x="446" y="79" textAnchor="middle" fill="#263A70" fontSize="8" fontWeight="700">Tomorrow?</text>
+                </g>
+                <g className={!prefersReducedMotion ? 'gq-story-scrap-bob' : ''}>
+                  <rect x="266" y="122" width="52" height="20" rx="5" fill="#FFFFFF" stroke="#263A70" strokeWidth="2" />
+                  <line x1="274" y1="132" x2="308" y2="132" stroke="#F59B19" strokeWidth="2.4" strokeLinecap="round" />
+                </g>
+              </g>
+            ) : null}
+
+            {sceneFocus === 'arjun-picks-up' ? (
+              <g>
+                <g className={!prefersReducedMotion ? 'gq-story-scrap-lift' : ''}>
+                  <rect x="160" y="143" width="96" height="25" rx="7" fill="#DDF4F0" stroke="#0F7F76" strokeWidth="2.2" />
+                  <text x="208" y="159" textAnchor="middle" fill="#263A70" fontSize="8.8" fontWeight="700">Yesterday: plant?</text>
+                </g>
+                <rect x="342" y="64" width="156" height="24" rx="6" fill="#FEE8E7" stroke="#C94A3A" strokeWidth="1.8" strokeDasharray="4 3" />
+                <text x="420" y="79" textAnchor="middle" fill="#9E2A25" fontSize="8.2" fontWeight="700">Time clue ≠ Verb form</text>
+              </g>
+            ) : null}
+
+            {sceneFocus === 'gyan-explains' ? (
+              <g>
+                <polygon points="564,174 328,56 328,154 510,152" fill="url(#gq-story-violet-beam)" className={!prefersReducedMotion ? 'gq-story-beam' : ''} />
+                <g className={!prefersReducedMotion ? 'gq-story-slide-left' : ''}>
+                  <rect x="336" y="64" width="76" height="24" rx="6" fill="#FFC64B" stroke="#263A70" strokeWidth="2" />
+                  <text x="374" y="79" textAnchor="middle" fill="#263A70" fontSize="8.5" fontWeight="700">TIME: Past</text>
+                </g>
+                <g className={!prefersReducedMotion ? 'gq-story-slide-right' : ''}>
+                  <rect x="424" y="64" width="84" height="24" rx="6" fill="#8DECE0" stroke="#0F7F76" strokeWidth="2" />
+                  <text x="466" y="79" textAnchor="middle" fill="#263A70" fontSize="8.5" fontWeight="700">VERB: planted</text>
+                </g>
+                <g className={!prefersReducedMotion ? 'gq-story-badge-check' : ''}>
+                  <circle cx="518" cy="46" r="13" fill="#1B8A5A" stroke="#FFFFFF" strokeWidth="2.4" />
+                  <path d="M512 46.5 L516.2 50.5 L524.5 41.8" fill="none" stroke="#FFFFFF" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                </g>
+              </g>
+            ) : null}
+          </g>
+        ) : mode === 'scattered' && sceneVariant === 'detective-board' ? (
+          <g key={`detective-scene-${sceneFocus}-${animationSeed}`}>
+            {sceneFocus === 'mira-notices' ? (
+              <g>
+                <rect x="338" y="64" width="164" height="26" rx="6" fill="#FEE8E7" stroke="#C94A3A" strokeWidth="2" />
+                <text x="420" y="80" textAnchor="middle" fill="#9E2A25" fontSize="8.5" fontWeight="700">A basket of mangoes ARE?</text>
+                <rect x="338" y="98" width="164" height="24" rx="6" fill="#FFF4D6" stroke="#F59B19" strokeWidth="2" strokeDasharray="4 3" />
+                <text x="420" y="113" textAnchor="middle" fill="#A15C00" fontSize="8.2" fontWeight="700">Subject &amp; Verb clash!</text>
+              </g>
+            ) : null}
+
+            {sceneFocus === 'arjun-picks-up' ? (
+              <g>
+                <g className={!prefersReducedMotion ? 'gq-story-scrap-lift' : ''}>
+                  <rect x="158" y="143" width="98" height="25" rx="7" fill="#DDF4F0" stroke="#0F7F76" strokeWidth="2.2" />
+                  <text x="207" y="159" textAnchor="middle" fill="#263A70" fontSize="8.8" fontWeight="700">basket → is / are?</text>
+                </g>
+                <rect x="338" y="68" width="76" height="24" rx="6" fill="#FFC64B" stroke="#263A70" strokeWidth="2" />
+                <text x="376" y="83" textAnchor="middle" fill="#263A70" fontSize="8.5" fontWeight="700">basket (1)</text>
+                <rect x="426" y="68" width="76" height="24" rx="6" fill="#FEE8E7" stroke="#C94A3A" strokeWidth="2" />
+                <text x="464" y="83" textAnchor="middle" fill="#9E2A25" fontSize="8.5" fontWeight="700">are (plural?)</text>
+              </g>
+            ) : null}
+
+            {sceneFocus === 'gyan-explains' ? (
+              <g>
+                <polygon points="564,174 328,56 328,154 510,152" fill="url(#gq-story-violet-beam)" className={!prefersReducedMotion ? 'gq-story-beam' : ''} />
+                <g className={!prefersReducedMotion ? 'gq-story-slide-left' : ''}>
+                  <rect x="336" y="72" width="78" height="26" rx="6" fill="#FFC64B" stroke="#263A70" strokeWidth="2" />
+                  <text x="375" y="88" textAnchor="middle" fill="#263A70" fontSize="8.8" fontWeight="700">basket (Sg)</text>
+                </g>
+                <g className={!prefersReducedMotion ? 'gq-story-slide-right' : ''}>
+                  <rect x="428" y="72" width="78" height="26" rx="6" fill="#8DECE0" stroke="#0F7F76" strokeWidth="2" />
+                  <text x="467" y="88" textAnchor="middle" fill="#263A70" fontSize="8.8" fontWeight="700">is (Sg Verb)</text>
+                </g>
+                <line x1="414" y1="85" x2="428" y2="85" stroke="#5B43C2" strokeWidth="3" />
+                <rect x="348" y="114" width="144" height="22" rx="11" fill="#FFFFFF" stroke="#5B43C2" strokeWidth="1.8" />
+                <text x="420" y="128" textAnchor="middle" fill="#263A70" fontSize="8.5" fontWeight="700">Head-noun locks the verb!</text>
+                <g className={!prefersReducedMotion ? 'gq-story-badge-check' : ''}>
+                  <circle cx="518" cy="46" r="13" fill="#1B8A5A" stroke="#FFFFFF" strokeWidth="2.4" />
+                  <path d="M512 46.5 L516.2 50.5 L524.5 41.8" fill="none" stroke="#FFFFFF" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                </g>
+              </g>
+            ) : null}
+          </g>
+        ) : mode === 'scattered' ? (
           <g key={`scene-layer-${sceneFocus}-${animationSeed}`}>
             {/* Base Board Outline State */}
             <g>
@@ -970,7 +1098,7 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
             ) : null}
           </g>
         ) : (
-          /* Repaired Noticeboard: Subject (Amber) + Predicate (Turquoise) Strips Pinned Cleanly */
+          /* Repaired Noticeboard: Cleanly aligned strips by variant */
           <g>
             {/* Row 1 */}
             <motion.g

@@ -132,28 +132,30 @@ export const IdentifyGroupActivity: React.FC<IdentifyGroupActivityProps> = ({
         <div className="space-y-3">
           <PracticeFeedback
             status="correct"
-            title="Correct group selected"
+            title={activity.correctTitle ?? 'Correct group selected'}
             message={activity.correctFeedback}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <WordGroup
-              role="subject"
-              tokens={subjectTokens}
-              headWord={activity.sentence.structureSummary.subjectHeadWord}
-            />
-            <WordGroup
-              role="predicate"
-              tokens={predicateTokens}
-              headWord={activity.sentence.structureSummary.predicateHeadWord}
-            />
-          </div>
+          {!activity.hideRoleGroupsOnSuccess ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <WordGroup
+                role="subject"
+                tokens={subjectTokens}
+                headWord={activity.sentence.structureSummary.subjectHeadWord}
+              />
+              <WordGroup
+                role="predicate"
+                tokens={predicateTokens}
+                headWord={activity.sentence.structureSummary.predicateHeadWord}
+              />
+            </div>
+          ) : null}
         </div>
       ) : null}
 
       {checkedState === 'incorrect' ? (
         <PracticeFeedback
           status="try-again"
-          title="Look closely at the boundary"
+          title={activity.incorrectTitle ?? 'Look closely at the boundary'}
           message={activity.incorrectFeedback}
         />
       ) : null}

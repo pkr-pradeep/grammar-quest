@@ -1,0 +1,1570 @@
+{
+  "lessonId": "c9-lesson-tenses",
+  "missionId": "c9-mission-02",
+  "classLevel": 9,
+  "moduleId": "module-2-tenses",
+  "moduleTitle": "Tenses",
+  "missionTitle": "Journey Through Time",
+  "topic": "Time and Verb Forms",
+  "estimatedMinutes": 8,
+  "situationBrief": {
+    "title": "The School Activity Logbook Mystery",
+    "description": "Mira, Arjun, and Gyan discovered an old school activity folder with entries from yesterday, today, and tomorrow—but several verb forms are mixed up. Help repair the timeline!",
+    "characterId": "mira",
+    "characterExpression": "curious"
+  },
+  "storyIntro": {
+    "sceneVariant": "records-timeline",
+    "sceneTitle": "The School Activity Logbook",
+    "settingLabel": "School Library Desk",
+    "previewSectionTitle": "Mixed-up logbook entries",
+    "cardPreviewLabel": "Logbook entry",
+    "scatteredFragments": [
+      "Yesterday, we plant ...",
+      "... every morning.",
+      "... will visit ISRO ...",
+      "She is knowing ..."
+    ],
+    "highlightFragments": [
+      "... plant / planted?",
+      "every morning",
+      "tomorrow",
+      "is knowing?"
+    ],
+    "beats": [
+      {
+        "id": "c9-m2-beat-1",
+        "speaker": "mira",
+        "expression": "surprised",
+        "pose": "pointing",
+        "sceneFocus": "mira-notices",
+        "actionLabel": "Opens the dusty logbook",
+        "dialogue": "Look at these school activity records we found! Yesterday's science club note says 'Yesterday, our team plant saplings.' That verb does not match yesterday!"
+      },
+      {
+        "id": "c9-m2-beat-2",
+        "speaker": "arjun",
+        "expression": "curious",
+        "pose": "exploring",
+        "sceneFocus": "arjun-picks-up",
+        "actionLabel": "Checks today's and tomorrow's slips",
+        "dialogue": "And look at today's note: 'Riya is knowing the answer.' Wait—can we add '-ing' to 'know', and how do we show tomorrow's plan clearly?",
+        "cardPreviewText": "Yesterday, our team plant saplings."
+      },
+      {
+        "id": "c9-m2-beat-3",
+        "speaker": "gyan",
+        "expression": "explaining",
+        "pose": "explaining",
+        "sceneFocus": "gyan-explains",
+        "actionLabel": "Maps verbs onto a timeline",
+        "dialogue": "Time is when an event happens—Past, Present, or Future. Tense is the grammatical verb form we choose to match that time and how the action unfolds. Let us travel across the timeline together!"
+      }
+    ]
+  },
+  "learningObjectives": {
+    "grammarOutcomes": [
+      "Distinguish real-world Time (Past, Present, Future) from verb form (Tense and Aspect).",
+      "Choose accurately between Present Simple (habits/facts) and Present Progressive (happening now), and recognise stative verbs like 'know' and 'like'.",
+      "Use Past Simple, Present Perfect, Past Progressive, and standard Future Time expressions ('will', 'going to', scheduled Present Simple)."
+    ],
+    "knowledgeOutcome": "Explore Indian school eco-clubs, weather logs, sports practice, and ISRO astronomy club trips through accurate timelines."
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od9-ch3",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Chapter 3: Time and Tense",
+      "bookPages": "33-61",
+      "pdfPages": "39-67",
+      "provenance": "textbook-derived",
+      "note": "Distinguishes Time from Tense, teaches Present/Past tense forms and aspects (Simple, Progressive, Perfect, Perfect Progressive), stative non-progressive verbs (p. 43), and Future Time expressions (pp. 57-61)."
+    },
+    {
+      "id": "src-pseb9-ch9",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 9: Tenses (Concord and Sequence) — Sections 1 & 3",
+      "bookPages": "94-97, 100-104",
+      "pdfPages": "100-103, 106-110",
+      "provenance": "textbook-derived",
+      "note": "Summarises 12 traditional tense usages (Present/Past/Future x Indefinite/Continuous/Perfect/Perfect Continuous), time adverbs, and Sequence of Tenses."
+    },
+    {
+      "id": "src-assam-ch9",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Chapter 9: Tense (Lessons 1-6)",
+      "bookPages": "120-147",
+      "pdfPages": "129-156",
+      "provenance": "textbook-derived",
+      "note": "Distinguishes Time vs Tense (L1), presents Strong/Weak/Invariant verbs (L4), conjugation tables, stative non-continuous verbs, for/since, and common tense errors (L6)."
+    },
+    {
+      "id": "src-m2-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Interactive Timeline & Conjugation Bridge (Supplementary)",
+      "chapter": "Board-Model Bridge & Irregular Verb Refresher",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Bridges Odisha's 2-Tense + 3-Time model with PSEB/Assam's 12-Tense naming and provides core irregular verb forms ('write/wrote/written', 'eat/ate/eaten', 'leave/left/left')."
+    }
+  ],
+  "activeRelationshipTypes": [
+    "verb-subject",
+    "adverb-verb",
+    "determiner-noun"
+  ],
+  "sentences": [
+    {
+      "id": "m2-sent-habit",
+      "title": "Present Habit Record",
+      "rawText": "The sun rises in the east every morning.",
+      "contextTag": "Daily Science Log",
+      "note": "Universal truths and daily habits stay in Present Simple regardless of 'right now'.",
+      "tokens": [
+        {
+          "id": "m2s1-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to our sun.",
+          "grammaticalRoleExplanation": "Introduces the noun 'sun' inside the Subject."
+        },
+        {
+          "id": "m2s1-t2",
+          "text": "sun",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names what the sentence is about (singular).",
+          "grammaticalRoleExplanation": "Singular third-person Subject requiring '-s/-es' on a Present Simple verb.",
+          "linkedTokenIds": ["m2s1-t3"]
+        },
+        {
+          "id": "m2s1-t3",
+          "text": "rises",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Present Simple Verb",
+          "meaningInSentence": "Describes an action true every day.",
+          "grammaticalRoleExplanation": "Base verb + 's' shows Present Simple for universal facts and habits.",
+          "linkedTokenIds": ["m2s1-t2", "m2s1-t7", "m2s1-t8"],
+          "verbMeta": {
+            "timeCommunicated": "General Present (Universal Truth / Habit)",
+            "verbForm": "Present Simple (v + s)",
+            "whyAppropriate": "Universal facts and daily routines use Present Simple, never '-ing'.",
+            "subjectLinkNote": "Takes '-s' because 'sun' is third-person singular."
+          }
+        },
+        {
+          "id": "m2s1-t4",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows direction or place.",
+          "grammaticalRoleExplanation": "Begins the prepositional phrase 'in the east'."
+        },
+        {
+          "id": "m2s1-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the compass direction.",
+          "grammaticalRoleExplanation": "Introduces 'east'."
+        },
+        {
+          "id": "m2s1-t6",
+          "text": "east",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun",
+          "meaningInSentence": "Names the direction where the sun rises.",
+          "grammaticalRoleExplanation": "Object of the preposition 'in'."
+        },
+        {
+          "id": "m2s1-t7",
+          "text": "every",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Time Marker",
+          "meaningInSentence": "Signals a repeated routine.",
+          "grammaticalRoleExplanation": "Works with 'morning' as a Present Simple time clue.",
+          "linkedTokenIds": ["m2s1-t3"]
+        },
+        {
+          "id": "m2s1-t8",
+          "text": "morning",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Time Marker Noun",
+          "meaningInSentence": "Tells when the repeated action happens.",
+          "grammaticalRoleExplanation": "Completes the habit time clue 'every morning'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["m2s1-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "m2s1-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m2s1-t1", "m2s1-t2"],
+          "questionPrompt": "What are we talking about?",
+          "plainExplanation": "'The sun' is the Subject.",
+          "textbookRule": "Present Simple / Indefinite expresses universal truths and habitual actions (Odisha IX p. 35; PSEB IX p. 94; Assam p. 137).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9", "src-assam-ch9"]
+        },
+        {
+          "id": "m2s1-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m2s1-t3", "m2s1-t4", "m2s1-t5", "m2s1-t6", "m2s1-t7", "m2s1-t8"],
+          "questionPrompt": "What does the sun always do?",
+          "plainExplanation": "'rises in the east every morning' states a permanent truth.",
+          "textbookRule": "The finite verb 'rises' shows Present Simple.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m2s1-rel-1",
+          "type": "verb-subject",
+          "label": "rises ← sun",
+          "fromTokenIds": ["m2s1-t3"],
+          "toTokenIds": ["m2s1-t2"],
+          "explanation": "'rises' matches singular Subject 'sun' and conveys timeless Present Simple.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The sun",
+        "subjectHeadWord": "sun",
+        "predicateText": "rises in the east every morning",
+        "predicateHeadWord": "rises",
+        "patternNote": "Universal truth + 'every morning' clue → Present Simple."
+      }
+    },
+    {
+      "id": "m2-sent-progressive",
+      "title": "Happening Right Now",
+      "rawText": "Mira is writing the science report now.",
+      "contextTag": "Classroom Action",
+      "note": "Actions actively in progress at the moment of speaking take 'am/is/are + verb-ing'.",
+      "tokens": [
+        {
+          "id": "m2s2-t1",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the student writing right now.",
+          "grammaticalRoleExplanation": "Singular Subject taking auxiliary 'is'.",
+          "linkedTokenIds": ["m2s2-t2", "m2s2-t3"]
+        },
+        {
+          "id": "m2s2-t2",
+          "text": "is",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Helping Verb (be)",
+          "meaningInSentence": "Links singular 'Mira' to present time.",
+          "grammaticalRoleExplanation": "Present auxiliary 'is' combines with '-ing' participle to form Present Progressive.",
+          "linkedTokenIds": ["m2s2-t1", "m2s2-t3"]
+        },
+        {
+          "id": "m2s2-t3",
+          "text": "writing",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Verb (-ing)",
+          "meaningInSentence": "Shows the action continuing at this moment.",
+          "grammaticalRoleExplanation": "Together, 'is writing' expresses Present Progressive / Continuous.",
+          "linkedTokenIds": ["m2s2-t2", "m2s2-t7"],
+          "verbMeta": {
+            "timeCommunicated": "Right Now (Ongoing Action)",
+            "verbForm": "Present Progressive / Continuous (is + v-ing)",
+            "whyAppropriate": "Clue word 'now' shows the writing is in progress at this moment.",
+            "subjectLinkNote": "Uses 'is' for singular third-person Subject 'Mira'."
+          }
+        },
+        {
+          "id": "m2s2-t4",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the specific report.",
+          "grammaticalRoleExplanation": "Introduces 'science report'."
+        },
+        {
+          "id": "m2s2-t5",
+          "text": "science",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Specifies the type of report.",
+          "grammaticalRoleExplanation": "Modifies 'report'."
+        },
+        {
+          "id": "m2s2-t6",
+          "text": "report",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun (Object)",
+          "meaningInSentence": "Names what Mira is writing.",
+          "grammaticalRoleExplanation": "Direct object of 'is writing'."
+        },
+        {
+          "id": "m2s2-t7",
+          "text": "now",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Time Adverb",
+          "meaningInSentence": "Signals the action is happening at this very moment.",
+          "grammaticalRoleExplanation": "Time clue guiding us to Present Progressive.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["m2s2-t2", "m2s2-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "m2s2-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m2s2-t1"],
+          "questionPrompt": "Who is performing the action?",
+          "plainExplanation": "'Mira' is the Subject.",
+          "textbookRule": "Present Progressive (am/is/are + v-ing) denotes actions going on at the time of speaking (Odisha IX p. 36; PSEB IX p. 94).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+        },
+        {
+          "id": "m2s2-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m2s2-t2", "m2s2-t3", "m2s2-t4", "m2s2-t5", "m2s2-t6", "m2s2-t7"],
+          "questionPrompt": "What is Mira doing now?",
+          "plainExplanation": "'is writing the science report now' uses Present Progressive.",
+          "textbookRule": "Auxiliary 'is' + '-ing' shows ongoing present action.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m2s2-rel-1",
+          "type": "adverb-verb",
+          "label": "now → is writing",
+          "fromTokenIds": ["m2s2-t7"],
+          "toTokenIds": ["m2s2-t3"],
+          "explanation": "'now' anchors the verb phrase 'is writing' to the present moment.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "is writing the science report now",
+        "predicateHeadWord": "is writing",
+        "patternNote": "Ongoing action + 'now' → Present Progressive (is + v-ing)."
+      }
+    },
+    {
+      "id": "m2-sent-stative",
+      "title": "Stative Verb Rule",
+      "rawText": "Riya knows the correct answer.",
+      "contextTag": "Classroom Quiz",
+      "note": "Verbs of knowing, feeling, and belonging usually stay in Simple form, not '-ing'.",
+      "tokens": [
+        {
+          "id": "m2s3-t1",
+          "text": "Riya",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the student who holds this knowledge.",
+          "grammaticalRoleExplanation": "Third-person singular Subject.",
+          "linkedTokenIds": ["m2s3-t2"]
+        },
+        {
+          "id": "m2s3-t2",
+          "text": "knows",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Stative Verb (Present Simple)",
+          "meaningInSentence": "Describes a mental state, not a temporary physical motion.",
+          "grammaticalRoleExplanation": "Non-progressive / non-conclusive verb: avoid 'is knowing'.",
+          "linkedTokenIds": ["m2s3-t1"],
+          "verbMeta": {
+            "timeCommunicated": "Present State",
+            "verbForm": "Present Simple (Stative Verb)",
+            "whyAppropriate": "State verbs like know, understand, believe, and belong normally reject '-ing'.",
+            "subjectLinkNote": "Singular 'Riya' takes 'knows'."
+          }
+        },
+        {
+          "id": "m2s3-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the exact answer.",
+          "grammaticalRoleExplanation": "Introduces 'correct answer'."
+        },
+        {
+          "id": "m2s3-t4",
+          "text": "correct",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the answer as right.",
+          "grammaticalRoleExplanation": "Modifies 'answer'."
+        },
+        {
+          "id": "m2s3-t5",
+          "text": "answer",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun (Object)",
+          "meaningInSentence": "Names what Riya knows.",
+          "grammaticalRoleExplanation": "Object of 'knows'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "m2s3-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m2s3-t1"],
+          "questionPrompt": "Who knows the answer?",
+          "plainExplanation": "'Riya' is the Subject.",
+          "textbookRule": "Verbs of state/cognition (know, like, understand, belong, seem) are normally not used in Progressive form (Odisha IX p. 43; Assam pp. 139, 159).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-assam-ch9"]
+        },
+        {
+          "id": "m2s3-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m2s3-t2", "m2s3-t3", "m2s3-t4", "m2s3-t5"],
+          "questionPrompt": "What state is described?",
+          "plainExplanation": "'knows the correct answer' uses simple state form.",
+          "textbookRule": "Use 'knows', never 'is knowing'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-assam-ch9"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m2s3-rel-1",
+          "type": "verb-subject",
+          "label": "knows ← Riya",
+          "fromTokenIds": ["m2s3-t2"],
+          "toTokenIds": ["m2s3-t1"],
+          "explanation": "Stative verb 'knows' agrees with singular 'Riya'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Riya",
+        "subjectHeadWord": "Riya",
+        "predicateText": "knows the correct answer",
+        "predicateHeadWord": "knows",
+        "patternNote": "Stative verb → Simple form ('knows'), not '-ing'."
+      }
+    },
+    {
+      "id": "m2-sent-past-simple",
+      "title": "Completed Past Action",
+      "rawText": "Yesterday, our eco-club planted neem saplings.",
+      "contextTag": "Eco-Club Log",
+      "note": "Finished past time markers like 'yesterday' or 'last week' pair with Past Simple (v-ed / V2).",
+      "tokens": [
+        {
+          "id": "m2s4-t1",
+          "text": "Yesterday",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Past Time Marker",
+          "meaningInSentence": "Fixes the event in finished past time.",
+          "grammaticalRoleExplanation": "Past adverb telling us to use Past Simple.",
+          "punctuationAfter": ",",
+          "linkedTokenIds": ["m2s4-t4"]
+        },
+        {
+          "id": "m2s4-t2",
+          "text": "our",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Shows the eco-club belongs to our school.",
+          "grammaticalRoleExplanation": "Modifies 'eco-club'."
+        },
+        {
+          "id": "m2s4-t3",
+          "text": "eco-club",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the student group that planted saplings.",
+          "grammaticalRoleExplanation": "Head-noun of the Subject.",
+          "linkedTokenIds": ["m2s4-t4"]
+        },
+        {
+          "id": "m2s4-t4",
+          "text": "planted",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Simple Verb",
+          "meaningInSentence": "Shows the planting finished yesterday.",
+          "grammaticalRoleExplanation": "Past form (v-ed / V2) matches 'Yesterday'.",
+          "linkedTokenIds": ["m2s4-t1", "m2s4-t3"],
+          "verbMeta": {
+            "timeCommunicated": "Finished Past (Yesterday)",
+            "verbForm": "Past Simple / Indefinite (v-ed / V2)",
+            "whyAppropriate": "Clue word 'Yesterday' marks a finished past event, so base 'plant' becomes 'planted'."
+          }
+        },
+        {
+          "id": "m2s4-t5",
+          "text": "neem",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Names the species of saplings.",
+          "grammaticalRoleExplanation": "Modifies 'saplings'."
+        },
+        {
+          "id": "m2s4-t6",
+          "text": "saplings",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun (Object)",
+          "meaningInSentence": "Names the young trees planted.",
+          "grammaticalRoleExplanation": "Direct object of 'planted'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "m2s4-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m2s4-t2", "m2s4-t3"],
+          "questionPrompt": "Who did the planting?",
+          "plainExplanation": "'our eco-club' is the Subject.",
+          "textbookRule": "Past Simple / Indefinite denotes an action completed at a definite time in the past (Odisha IX p. 45; PSEB IX p. 95).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+        },
+        {
+          "id": "m2s4-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m2s4-t1", "m2s4-t4", "m2s4-t5", "m2s4-t6"],
+          "questionPrompt": "What happened yesterday?",
+          "plainExplanation": "'Yesterday, ... planted neem saplings.' places the action in the Past.",
+          "textbookRule": "Definite past markers ('yesterday', 'ago', 'last week') require Past Simple.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m2s4-rel-1",
+          "type": "adverb-verb",
+          "label": "Yesterday → planted",
+          "fromTokenIds": ["m2s4-t1"],
+          "toTokenIds": ["m2s4-t4"],
+          "explanation": "'Yesterday' signals completed past time, requiring Past Simple 'planted'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "our eco-club",
+        "subjectHeadWord": "eco-club",
+        "predicateText": "Yesterday, ... planted neem saplings",
+        "predicateHeadWord": "planted",
+        "patternNote": "Definite past adverb 'Yesterday' → Past Simple ('planted')."
+      }
+    },
+    {
+      "id": "m2-sent-present-perfect",
+      "title": "Past Action Connected to Now",
+      "rawText": "Arjun has cleaned the noticeboard already.",
+      "contextTag": "Present Result",
+      "note": "Present Perfect (has/have + past participle) links a completed action to the present result.",
+      "tokens": [
+        {
+          "id": "m2s5-t1",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the student who finished the task.",
+          "grammaticalRoleExplanation": "Singular Subject taking 'has'.",
+          "linkedTokenIds": ["m2s5-t2", "m2s5-t3"]
+        },
+        {
+          "id": "m2s5-t2",
+          "text": "has",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Present Auxiliary",
+          "meaningInSentence": "Connects the completed work to right now.",
+          "grammaticalRoleExplanation": "Combines with 'cleaned' to form Present Perfect.",
+          "linkedTokenIds": ["m2s5-t1", "m2s5-t3"]
+        },
+        {
+          "id": "m2s5-t3",
+          "text": "cleaned",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (-en / V3)",
+          "meaningInSentence": "Shows the noticeboard is clean right now.",
+          "grammaticalRoleExplanation": "Past participle paired with 'has'.",
+          "linkedTokenIds": ["m2s5-t2", "m2s5-t6"],
+          "verbMeta": {
+            "timeCommunicated": "Completed Earlier with Present Result",
+            "verbForm": "Present Perfect (has + V3)",
+            "whyAppropriate": "We see the clean noticeboard now; 'already' highlights completion without a specific past clock-time.",
+            "subjectLinkNote": "Singular 'Arjun' uses 'has', whereas plural subjects use 'have'."
+          }
+        },
+        {
+          "id": "m2s5-t4",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the school noticeboard.",
+          "grammaticalRoleExplanation": "Introduces 'noticeboard'."
+        },
+        {
+          "id": "m2s5-t5",
+          "text": "noticeboard",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun (Object)",
+          "meaningInSentence": "Names what Arjun cleaned.",
+          "grammaticalRoleExplanation": "Direct object of 'has cleaned'."
+        },
+        {
+          "id": "m2s5-t6",
+          "text": "already",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adverb",
+          "meaningInSentence": "Shows the action finished sooner than expected.",
+          "grammaticalRoleExplanation": "Common Present Perfect clue.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["m2s5-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "m2s5-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m2s5-t1"],
+          "questionPrompt": "Who cleaned the board?",
+          "plainExplanation": "'Arjun' is the Subject.",
+          "textbookRule": "Present Perfect expresses an action completed in the past whose result continues into the present (Odisha IX p. 38; PSEB IX p. 94).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+        },
+        {
+          "id": "m2s5-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m2s5-t2", "m2s5-t3", "m2s5-t4", "m2s5-t5", "m2s5-t6"],
+          "questionPrompt": "What is the present result?",
+          "plainExplanation": "'has cleaned the noticeboard already' links past work to now.",
+          "textbookRule": "Use 'has/have + past participle' when focus is on present relevance rather than yesterday's clock time.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m2s5-rel-1",
+          "type": "adverb-verb",
+          "label": "already → has cleaned",
+          "fromTokenIds": ["m2s5-t6"],
+          "toTokenIds": ["m2s5-t3"],
+          "explanation": "'already' connects completed cleaning to the present moment.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Arjun",
+        "subjectHeadWord": "Arjun",
+        "predicateText": "has cleaned the noticeboard already",
+        "predicateHeadWord": "has cleaned",
+        "patternNote": "Present relevance ('already') → Present Perfect (has + cleaned)."
+      }
+    },
+    {
+      "id": "m2-sent-future",
+      "title": "Planned Future Time",
+      "rawText": "Our class will visit the planetarium tomorrow.",
+      "contextTag": "Tomorrow's Trip",
+      "note": "Future time is communicated with modals ('will/shall'), 'going to', or timetable Present Simple.",
+      "tokens": [
+        {
+          "id": "m2s6-t1",
+          "text": "Our",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Identifies our class.",
+          "grammaticalRoleExplanation": "Modifies 'class'."
+        },
+        {
+          "id": "m2s6-t2",
+          "text": "class",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who will go on the trip.",
+          "grammaticalRoleExplanation": "Subject head-noun.",
+          "linkedTokenIds": ["m2s6-t3", "m2s6-t4"]
+        },
+        {
+          "id": "m2s6-t3",
+          "text": "will",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Modal Auxiliary",
+          "meaningInSentence": "Points the action into future time.",
+          "grammaticalRoleExplanation": "Modal 'will' pairs with base verb 'visit'.",
+          "linkedTokenIds": ["m2s6-t4", "m2s6-t7"]
+        },
+        {
+          "id": "m2s6-t4",
+          "text": "visit",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Base Verb (V1)",
+          "meaningInSentence": "Names the future activity.",
+          "grammaticalRoleExplanation": "After 'will', always use the bare base verb ('visit', never 'visited').",
+          "linkedTokenIds": ["m2s6-t3", "m2s6-t7"],
+          "verbMeta": {
+            "timeCommunicated": "Future Time (Tomorrow)",
+            "verbForm": "will + base verb (Future Time Expression)",
+            "whyAppropriate": "Clue word 'tomorrow' refers to future time; 'will + visit' clearly expresses it."
+          }
+        },
+        {
+          "id": "m2s6-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the city planetarium.",
+          "grammaticalRoleExplanation": "Introduces 'planetarium'."
+        },
+        {
+          "id": "m2s6-t6",
+          "text": "planetarium",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun (Object)",
+          "meaningInSentence": "Names the place we will visit.",
+          "grammaticalRoleExplanation": "Object of 'visit'."
+        },
+        {
+          "id": "m2s6-t7",
+          "text": "tomorrow",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Future Time Marker",
+          "meaningInSentence": "Places the visit after today.",
+          "grammaticalRoleExplanation": "Future adverb matching 'will visit'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["m2s6-t3", "m2s6-t4"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "m2s6-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["m2s6-t1", "m2s6-t2"],
+          "questionPrompt": "Who will travel tomorrow?",
+          "plainExplanation": "'Our class' is the Subject.",
+          "textbookRule": "Future time is shown using 'will/shall + base verb', 'be going to', Present Progressive (fixed plan), or Present Simple (timetable) (Odisha IX pp. 57-61; PSEB IX p. 96).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+        },
+        {
+          "id": "m2s6-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["m2s6-t3", "m2s6-t4", "m2s6-t5", "m2s6-t6", "m2s6-t7"],
+          "questionPrompt": "What is planned for tomorrow?",
+          "plainExplanation": "'will visit the planetarium tomorrow' expresses future time.",
+          "textbookRule": "Modal 'will' + bare infinitive 'visit' expresses future time.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "m2s6-rel-1",
+          "type": "adverb-verb",
+          "label": "tomorrow → will visit",
+          "fromTokenIds": ["m2s6-t7"],
+          "toTokenIds": ["m2s6-t4"],
+          "explanation": "'tomorrow' signals future time, paired cleanly with 'will visit'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Our class",
+        "subjectHeadWord": "class",
+        "predicateText": "will visit the planetarium tomorrow",
+        "predicateHeadWord": "will visit",
+        "patternNote": "Future marker 'tomorrow' → 'will + base verb'."
+      }
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "c9-m2-step-1",
+      "stepNumber": 1,
+      "type": "show-sentence",
+      "visualMode": "timeline-shift",
+      "title": "Time vs Verb Form",
+      "badgeLabel": "Stage 1 · Core Idea",
+      "shortPrompt": "When does it happen vs how does the verb show it?",
+      "explanation": "Time tells us when an event happens—Past, Present, or Future. Tense is the verb form that helps communicate that time and whether the action is habitual, ongoing, or completed. Notice how 'rises' expresses a truth valid every day.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m2-sent-habit",
+      "focusTokenIds": ["m2s1-t3", "m2s1-t7", "m2s1-t8"],
+      "timelineData": {
+        "activePhase": "present",
+        "timeLabel": "General Present · Universal Truth",
+        "verbPhrase": "rises",
+        "verbFormLabel": "Present Simple (v + s)",
+        "aspectLabel": "Simple / Indefinite",
+        "timeMarkerWords": ["every morning"],
+        "grammarNote": "Real-world Time (Past/Present/Future) and grammatical Tense work together, but they are not the same word.",
+        "boardModelNote": "Odisha textbooks teach 2 grammatical Tenses (Present & Past) plus Future Time expressions; PSEB and Assam textbooks name 3 Tenses (Present, Past, Future) x 4 aspects = 12 tenses. Both describe the exact same correct English sentences!"
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-assam-ch9", "src-m2-bridge"]
+    },
+    {
+      "id": "c9-m2-step-2",
+      "stepNumber": 2,
+      "type": "explain-role",
+      "visualMode": "timeline-shift",
+      "title": "Present Simple: Habits & Facts",
+      "badgeLabel": "Stage 2 · Present Simple",
+      "shortPrompt": "Use Present Simple for daily routines and permanent facts.",
+      "explanation": "When a logbook entry describes a daily habit ('every morning', 'usually', 'always') or a scientific truth ('Water boils at 100°C'), choose Present Simple—not '-ing'.",
+      "characterId": "mira",
+      "characterExpression": "happy",
+      "sentenceId": "m2-sent-habit",
+      "focusTokenIds": ["m2s1-t3"],
+      "timelineData": {
+        "activePhase": "present",
+        "timeLabel": "Habit & Scientific Truth",
+        "verbPhrase": "rises",
+        "verbFormLabel": "Base verb + s",
+        "aspectLabel": "Simple / Indefinite",
+        "timeMarkerWords": ["every morning", "always", "usually"],
+        "grammarNote": "Add '-s' or '-es' only when the Subject is singular third person (he, she, it, the sun).",
+        "contrastExample": {
+          "incorrectText": "The sun is rising in the east every morning.",
+          "correctText": "The sun rises in the east every morning.",
+          "reason": "'every morning' signals a repeated habit, so Present Simple ('rises') is accurate."
+        }
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+    },
+    {
+      "id": "c9-m2-step-3",
+      "stepNumber": 3,
+      "type": "explain-meaning",
+      "visualMode": "timeline-shift",
+      "title": "Present Progressive: Happening Now",
+      "badgeLabel": "Stage 3 · Ongoing Now",
+      "shortPrompt": "Use 'am / is / are + verb-ing' for actions in progress right now.",
+      "explanation": "Compare habits with actions happening at this very moment! Clue words like 'now', 'right now', or 'at present' show that Mira is in the middle of writing, so we use 'is writing'.",
+      "characterId": "arjun",
+      "characterExpression": "curious",
+      "sentenceId": "m2-sent-progressive",
+      "comparisonSentenceId": "m2-sent-habit",
+      "focusTokenIds": ["m2s2-t2", "m2s2-t3", "m2s2-t7"],
+      "timelineData": {
+        "activePhase": "present",
+        "timeLabel": "Action In Progress Right Now",
+        "verbPhrase": "is writing",
+        "verbFormLabel": "is + v-ing",
+        "aspectLabel": "Progressive / Continuous",
+        "timeMarkerWords": ["now", "at this moment"],
+        "grammarNote": "Always pair the '-ing' form with an auxiliary ('am', 'is', or 'are')—never 'Mira writing now'.",
+        "boardModelNote": "Called 'Present Progressive' in Odisha and 'Present Continuous' in PSEB/Assam."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+    },
+    {
+      "id": "c9-m2-step-4",
+      "stepNumber": 4,
+      "type": "compare-example",
+      "visualMode": "timeline-shift",
+      "title": "Stative Verbs Avoid '-ing'",
+      "badgeLabel": "Stage 4 · Stative Trap",
+      "shortPrompt": "Verbs of thinking, feeling, and owning stay simple!",
+      "explanation": "Some verbs express a state of mind or belonging rather than a physical activity—such as 'know', 'understand', 'believe', 'like', 'own', and 'belong'. Even if true right now, say 'Riya knows', never 'is knowing'.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m2-sent-stative",
+      "focusTokenIds": ["m2s3-t2"],
+      "timelineData": {
+        "activePhase": "present",
+        "timeLabel": "Mental State (Non-Progressive)",
+        "verbPhrase": "knows",
+        "verbFormLabel": "Simple State Verb",
+        "aspectLabel": "Simple / Indefinite",
+        "grammarNote": "Odisha calls these non-progressive state verbs; Assam calls them non-conclusive verbs.",
+        "contrastExample": {
+          "incorrectText": "Riya is knowing the correct answer.",
+          "correctText": "Riya knows the correct answer.",
+          "reason": "'know' describes knowledge already held, not an action in motion."
+        }
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-assam-ch9"]
+    },
+    {
+      "id": "c9-m2-step-5",
+      "stepNumber": 5,
+      "type": "highlight-group",
+      "visualMode": "timeline-shift",
+      "title": "Past Simple: Finished Past Time",
+      "badgeLabel": "Stage 5 · Past Time",
+      "shortPrompt": "Clues like 'yesterday' and 'last week' lock in Past Simple.",
+      "explanation": "Look at the eco-club slip: 'Yesterday' places the action cleanly before now and finished. So base 'plant' changes to its past form 'planted' (v-ed / V2).",
+      "characterId": "mira",
+      "characterExpression": "happy",
+      "sentenceId": "m2-sent-past-simple",
+      "focusTokenIds": ["m2s4-t1", "m2s4-t4"],
+      "timelineData": {
+        "activePhase": "past",
+        "timeLabel": "Completed Past Action",
+        "verbPhrase": "planted",
+        "verbFormLabel": "Past Simple (v-ed / V2)",
+        "aspectLabel": "Simple / Indefinite",
+        "timeMarkerWords": ["Yesterday", "last week", "two days ago"],
+        "grammarNote": "Regular verbs add '-ed' ('planted'); irregular verbs change form ('write → wrote', 'eat → ate', 'go → went').",
+        "contrastExample": {
+          "incorrectText": "Yesterday, our eco-club plant neem saplings.",
+          "correctText": "Yesterday, our eco-club planted neem saplings.",
+          "reason": "A finished past time marker requires the Past form 'planted', not the base verb."
+        }
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9", "src-m2-bridge"]
+    },
+    {
+      "id": "c9-m2-step-6",
+      "stepNumber": 6,
+      "type": "show-relationship",
+      "visualMode": "timeline-shift",
+      "title": "Present Perfect: Linking Past to Now",
+      "badgeLabel": "Stage 6 · Present Result",
+      "shortPrompt": "Use 'has / have + V3' when a past action matters right now.",
+      "explanation": "If the noticeboard is clean right now and we focus on the result ('already', 'just', 'since morning'), we use Present Perfect: 'Arjun has cleaned'. Never mix Present Perfect with 'yesterday'!",
+      "characterId": "arjun",
+      "characterExpression": "happy",
+      "sentenceId": "m2-sent-present-perfect",
+      "comparisonSentenceId": "m2-sent-past-simple",
+      "focusTokenIds": ["m2s5-t2", "m2s5-t3", "m2s5-t6"],
+      "timelineData": {
+        "activePhase": "present",
+        "timeLabel": "Completed Action · Present Result",
+        "verbPhrase": "has cleaned",
+        "verbFormLabel": "has + Past Participle (V3)",
+        "aspectLabel": "Present Perfect",
+        "timeMarkerWords": ["already", "just", "since", "for"],
+        "grammarNote": "Present Perfect joins past completion with a present result; never write 'has cleaned yesterday'."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+    },
+    {
+      "id": "c9-m2-step-7",
+      "stepNumber": 7,
+      "type": "reveal-structure",
+      "visualMode": "timeline-shift",
+      "title": "Expressing Future Time",
+      "badgeLabel": "Stage 7 · Future Time",
+      "shortPrompt": "English uses 'will', 'going to', and present forms for future events.",
+      "explanation": "For tomorrow's planetarium visit, 'will visit' clearly points ahead of now. English can also show future time with 'are going to visit', or a fixed school timetable like 'The train leaves at 6 a.m. tomorrow.'",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "m2-sent-future",
+      "focusTokenIds": ["m2s6-t3", "m2s6-t4", "m2s6-t7"],
+      "timelineData": {
+        "activePhase": "future",
+        "timeLabel": "Future Plan · Tomorrow",
+        "verbPhrase": "will visit",
+        "verbFormLabel": "will + base verb (V1)",
+        "aspectLabel": "Future Time Expression",
+        "timeMarkerWords": ["tomorrow", "next week", "soon"],
+        "grammarNote": "After 'will' or 'shall', always use the bare base verb ('will visit', never 'will visited').",
+        "boardModelNote": "Odisha explains 'will + v' and 'be going to + v' as Future Time expressions; PSEB & Assam name 'will/shall + V1' as Future Indefinite/Simple."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9", "src-assam-ch9", "src-m2-bridge"]
+    },
+    {
+      "id": "c9-m2-step-8",
+      "stepNumber": 8,
+      "type": "interact-explore",
+      "visualMode": "free-explore",
+      "allowFreeExplore": true,
+      "title": "Inspect Words Before Guided Practice",
+      "badgeLabel": "Stage 8 · Explore",
+      "shortPrompt": "Tap any word to see its time meaning and verb link, then start Guided Practice.",
+      "explanation": "Tap 'will', 'visit', or 'tomorrow' above to inspect how time clues and verb forms lock together. When you are ready, enter the Interactive Word Laboratory to sort, build, and fix logbook sentences!",
+      "characterId": "gyan",
+      "characterExpression": "celebrating",
+      "sentenceId": "m2-sent-future",
+      "focusTokenIds": ["m2s6-t3", "m2s6-t4", "m2s6-t7"],
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-m2-bridge"]
+    }
+  ],
+  "wordLabActivities": [
+    {
+      "id": "c9-m2-lab-a",
+      "kind": "identify-group",
+      "tabLabel": "A. Spot Clue",
+      "title": "A. Spot the Verb & Time Clue",
+      "instruction": "Tap BOTH the verb phrase and the time clue word in this logbook sentence.",
+      "targetRole": "predicate",
+      "correctTitle": "Verb and time clue spotted!",
+      "incorrectTitle": "Look for the action and the time word",
+      "hideRoleGroupsOnSuccess": true,
+      "sentence": {
+        "id": "c9-m2-lab-a-sent",
+        "title": "Lab Challenge A",
+        "rawText": "Yesterday, our eco-club planted neem saplings.",
+        "contextTag": "Eco-Club",
+        "tokens": [
+          {
+            "id": "c9m2a-t1",
+            "text": "Yesterday",
+            "category": "adverb",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Past Time Clue",
+            "meaningInSentence": "Shows finished past time.",
+            "grammaticalRoleExplanation": "Signals Past Simple.",
+            "punctuationAfter": ","
+          },
+          {
+            "id": "c9m2a-t2",
+            "text": "our",
+            "category": "determiner",
+            "groupRole": "subject",
+            "isHeadWord": false,
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Modifies eco-club.",
+            "grammaticalRoleExplanation": "Determiner."
+          },
+          {
+            "id": "c9m2a-t3",
+            "text": "eco-club",
+            "category": "noun",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Subject",
+            "meaningInSentence": "The student club.",
+            "grammaticalRoleExplanation": "Subject head-noun."
+          },
+          {
+            "id": "c9m2a-t4",
+            "text": "planted",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Past Simple Verb",
+            "meaningInSentence": "Completed action in the past.",
+            "grammaticalRoleExplanation": "Past form matching 'Yesterday'."
+          },
+          {
+            "id": "c9m2a-t5",
+            "text": "neem",
+            "category": "noun",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Noun",
+            "meaningInSentence": "Type of tree.",
+            "grammaticalRoleExplanation": "Modifier."
+          },
+          {
+            "id": "c9m2a-t6",
+            "text": "saplings",
+            "category": "noun",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Noun",
+            "meaningInSentence": "Young trees.",
+            "grammaticalRoleExplanation": "Object.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "our eco-club",
+          "subjectHeadWord": "eco-club",
+          "predicateText": "Yesterday, ... planted neem saplings",
+          "predicateHeadWord": "planted"
+        }
+      },
+      "correctTokenIds": ["c9m2a-t1", "c9m2a-t4"],
+      "correctFeedback": "Spot on! 'Yesterday' is the past time clue, and 'planted' is the matching Past Simple verb.",
+      "incorrectFeedback": "Select exactly two words: the time word at the start ('Yesterday') and the finite verb ('planted').",
+      "hint": "Ask: Which word tells WHEN it happened, and which word is the action verb?",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch3"]
+    },
+    {
+      "id": "c9-m2-lab-b",
+      "kind": "categorise",
+      "tabLabel": "B. Timeline",
+      "title": "B. Sort Cards Into Past, Present & Future",
+      "instruction": "Tap each logbook phrase, then tap Past, Present, or Future to place it.",
+      "promptText": "1. Tap a sentence card below, then tap Past, Present, or Future:",
+      "categories": [
+        {
+          "id": "past",
+          "label": "Past",
+          "helperText": "Already finished",
+          "tone": "past"
+        },
+        {
+          "id": "present",
+          "label": "Present",
+          "helperText": "Habit or now",
+          "tone": "present"
+        },
+        {
+          "id": "future",
+          "label": "Future",
+          "helperText": "Planned ahead",
+          "tone": "future"
+        }
+      ],
+      "items": [
+        {
+          "id": "c9m2b-1",
+          "text": "planted saplings yesterday",
+          "correctCategory": "past",
+          "explanation": "'planted' and 'yesterday' place it in finished Past time."
+        },
+        {
+          "id": "c9m2b-2",
+          "text": "is reading a science journal now",
+          "correctCategory": "present",
+          "explanation": "'is reading ... now' is Present Progressive (ongoing now)."
+        },
+        {
+          "id": "c9m2b-3",
+          "text": "will visit ISRO next month",
+          "correctCategory": "future",
+          "explanation": "'will visit ... next month' points to Future time."
+        },
+        {
+          "id": "c9m2b-4",
+          "text": "rises in the east daily",
+          "correctCategory": "present",
+          "explanation": "'rises ... daily' expresses a timeless Present truth."
+        },
+        {
+          "id": "c9m2b-5",
+          "text": "wrote a poem last Friday",
+          "correctCategory": "past",
+          "explanation": "'wrote' (V2) and 'last Friday' show Past Simple."
+        },
+        {
+          "id": "c9m2b-6",
+          "text": "are going to clean the garden tomorrow",
+          "correctCategory": "future",
+          "explanation": "'are going to ... tomorrow' expresses a Future plan."
+        }
+      ],
+      "completeFeedback": "Every slip is sorted onto the right point of the school timeline!",
+      "incorrectFeedback": "Check the verb form ('planted/wrote' = Past; 'rises/is reading' = Present; 'will/going to' = Future). Tap any marked card to move it.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+    },
+    {
+      "id": "c9-m2-lab-c",
+      "kind": "sentence-construction",
+      "tabLabel": "C. Build",
+      "title": "C. Rebuild a Present Perfect Record",
+      "instruction": "Arrange the tiles in order to show an action completed earlier with a present result.",
+      "promptContext": "Use 'have + past participle' correctly.",
+      "tiles": [
+        { "id": "c9m2c-1", "text": "The students", "groupRole": "subject", "category": "noun" },
+        { "id": "c9m2c-2", "text": "have", "groupRole": "predicate", "category": "verb" },
+        { "id": "c9m2c-3", "text": "arranged", "groupRole": "predicate", "category": "verb" },
+        { "id": "c9m2c-4", "text": "the library", "groupRole": "predicate", "category": "noun" },
+        { "id": "c9m2c-5", "text": "books neatly.", "groupRole": "predicate", "category": "adverb" }
+      ],
+      "correctOrderIds": ["c9m2c-1", "c9m2c-2", "c9m2c-3", "c9m2c-4", "c9m2c-5"],
+      "subjectText": "The students",
+      "predicateText": "have arranged the library books neatly.",
+      "part1Label": "Plural Subject",
+      "part2Label": "Present Perfect Predicate",
+      "correctFeedback": "Excellent! Plural 'The students' pairs with 'have arranged', showing the shelves are tidy right now.",
+      "incorrectFeedback": "Start with the Subject ('The students'), then the auxiliary ('have'), then the past participle ('arranged'), followed by the object.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+    },
+    {
+      "id": "c9-m2-lab-d",
+      "kind": "word-replacement",
+      "tabLabel": "D. Shift Time",
+      "title": "D. Swap the Verb to Shift Time",
+      "instruction": "Tap at least two verb forms to see how changing the verb shifts the sentence across time.",
+      "beforeText": "Ananya",
+      "afterText": "fresh mangoes from the orchard.",
+      "originalWord": "eats",
+      "slotGroupRole": "predicate",
+      "slotLabel": "Time-Carrying Verb Slot:",
+      "options": [
+        {
+          "id": "c9m2d-1",
+          "word": "eats",
+          "category": "verb",
+          "meaningEffect": "Shows a regular healthy habit (Present Simple).",
+          "roleImpactNote": "Agrees with singular 'Ananya'.",
+          "isGrammatical": true
+        },
+        {
+          "id": "c9m2d-2",
+          "word": "ate",
+          "category": "verb",
+          "meaningEffect": "Shifts the event into finished Past time (Past Simple V2).",
+          "roleImpactNote": "Irregular past form of 'eat'.",
+          "isGrammatical": true
+        },
+        {
+          "id": "c9m2d-3",
+          "word": "will eat",
+          "category": "verb",
+          "meaningEffect": "Moves the action into Future time.",
+          "roleImpactNote": "Modal 'will' + base verb 'eat'.",
+          "isGrammatical": true
+        }
+      ],
+      "takeaway": "One verb slot controls whether the exact same healthy action sits in the Present, Past, or Future!",
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od9-ch3", "src-m2-bridge"]
+    },
+    {
+      "id": "c9-m2-lab-e",
+      "kind": "missing-words",
+      "tabLabel": "E. Complete",
+      "title": "E. Complete the Timetable Notice",
+      "instruction": "Pick the verb form that matches this scheduled school timetable notice for tomorrow.",
+      "sentenceBeforeBlank": "The morning science bus",
+      "sentenceAfterBlank": "from the school gate at 7:00 a.m. tomorrow.",
+      "missingRole": "predicate",
+      "incorrectTitle": "Check the timetable verb form",
+      "options": [
+        {
+          "id": "c9m2e-1",
+          "text": "leaving",
+          "isCorrect": false,
+          "feedback": "'leaving' alone has no finite helper ('is leaving') and cannot complete the Predicate."
+        },
+        {
+          "id": "c9m2e-2",
+          "text": "leaves",
+          "isCorrect": true,
+          "feedback": "Correct! Official schedules and timetables for future events naturally use Present Simple ('leaves')."
+        },
+        {
+          "id": "c9m2e-3",
+          "text": "left",
+          "isCorrect": false,
+          "feedback": "'left' refers to the past, which clashes with 'tomorrow'."
+        }
+      ],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-assam-ch9"]
+    },
+    {
+      "id": "c9-m2-lab-f",
+      "kind": "error-identification",
+      "tabLabel": "F. Fix Error",
+      "title": "F. Fix the Stative Verb Slip",
+      "instruction": "Read this flawed logbook note and diagnose what is wrong.",
+      "draftBadgeLabel": "Mixed-Up Logbook Entry",
+      "brokenSentence": "Our school garden is belonging to every student in Class 9.",
+      "repairedSentence": "Our school garden belongs to every student in Class 9.",
+      "question": "Why does 'is belonging' need to be repaired?",
+      "options": [
+        {
+          "id": "c9m2f-1",
+          "label": "'belong' is a stative verb showing ownership, so it stays in Simple form ('belongs').",
+          "isCorrect": true,
+          "feedback": "Exact diagnosis! State verbs like belong, know, own, and understand avoid '-ing'."
+        },
+        {
+          "id": "c9m2f-2",
+          "label": "It should be 'are belonging' because there are many students.",
+          "isCorrect": false,
+          "feedback": "Careful: the Subject is singular 'Our school garden', and 'belong' should not take '-ing'."
+        },
+        {
+          "id": "c9m2f-3",
+          "label": "Nothing is wrong; every verb can take '-ing' in the present.",
+          "isCorrect": false,
+          "feedback": "Not every verb—stative/non-conclusive verbs stay in Simple form."
+        }
+      ],
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch3", "src-assam-ch9"]
+    }
+  ],
+  "independentPractice": [
+    {
+      "id": "c9-m2-ind-1",
+      "mode": "token-and-choice",
+      "cueLevel": "gentle",
+      "cueText": "First tap the time clue word in the sentence, then pick the matching verb form.",
+      "title": "Challenge 1: Spot the Time Clue & Choose the Verb",
+      "instruction": "Tap the word that tells us WHEN this action takes place, then repair the blank.",
+      "targetPrompt": "Step 1: Tap the time-clue word in the sentence",
+      "targetTokenIds": ["c9m2i1-t6"],
+      "sentence": {
+        "id": "c9-m2-ind1-sent",
+        "title": "Independent Check 1",
+        "rawText": "Meera [?] fresh oranges yesterday.",
+        "contextTag": "Healthy Food",
+        "tokens": [
+          { "id": "c9m2i1-t1", "text": "Meera", "category": "noun", "groupRole": "subject", "isHeadWord": true, "roleLabel": "Subject", "meaningInSentence": "Who ate.", "grammaticalRoleExplanation": "Subject." },
+          { "id": "c9m2i1-t2", "text": "[?]", "category": "verb", "groupRole": "predicate", "isHeadWord": true, "roleLabel": "Verb Slot", "meaningInSentence": "Missing verb.", "grammaticalRoleExplanation": "Needs Past Simple." },
+          { "id": "c9m2i1-t3", "text": "fresh", "category": "adjective", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Adjective", "meaningInSentence": "Describes oranges.", "grammaticalRoleExplanation": "Adjective." },
+          { "id": "c9m2i1-t4", "text": "oranges", "category": "noun", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Noun", "meaningInSentence": "Healthy fruit.", "grammaticalRoleExplanation": "Object." },
+          { "id": "c9m2i1-t6", "text": "yesterday", "category": "adverb", "groupRole": "predicate", "isHeadWord": false, "roleLabel": "Past Time Clue", "meaningInSentence": "Finished past day.", "grammaticalRoleExplanation": "Requires Past Simple.", "punctuationAfter": "." }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Meera",
+          "subjectHeadWord": "Meera",
+          "predicateText": "bought/ate fresh oranges yesterday",
+          "predicateHeadWord": "bought"
+        }
+      },
+      "subjectTokenIds": ["c9m2i1-t1"],
+      "predicateTokenIds": ["c9m2i1-t2", "c9m2i1-t3", "c9m2i1-t4", "c9m2i1-t6"],
+      "imperativeQuestion": "Step 2: Which verb completes 'Meera _____ fresh oranges yesterday.'?",
+      "imperativeOptions": [
+        {
+          "id": "opt-a",
+          "label": "buys",
+          "isCorrect": false,
+          "feedback": "'buys' is Present Simple, which clashes with 'yesterday'."
+        },
+        {
+          "id": "opt-b",
+          "label": "bought",
+          "isCorrect": true,
+          "feedback": "Well done! 'yesterday' signals finished past time, so Past Simple 'bought' fits."
+        },
+        {
+          "id": "opt-c",
+          "label": "has bought",
+          "isCorrect": false,
+          "feedback": "Do not pair Present Perfect ('has bought') with a finished past marker like 'yesterday'."
+        }
+      ],
+      "successFeedback": "Great! 'yesterday' locks the sentence to Past Simple ('bought').",
+      "retrySubjectFeedback": "Tap the single word at the end that tells us which day this happened.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+    },
+    {
+      "id": "c9-m2-ind-2",
+      "mode": "choice-diagnose",
+      "cueLevel": "minimal",
+      "cueText": "Think about whether this is an ongoing moment or a repeated habit.",
+      "title": "Challenge 2: Habit vs Happening Now",
+      "instruction": "Choose the accurate verb form for this sentence.",
+      "sentence": {
+        "id": "c9-m2-ind2-sent",
+        "title": "Independent Check 2",
+        "rawText": "Listen! The school choir _____ the morning prayer right now.",
+        "contextTag": "Morning Assembly",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "The school choir",
+          "subjectHeadWord": "choir",
+          "predicateText": "is singing the morning prayer right now",
+          "predicateHeadWord": "is singing"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Which verb fits 'Listen! The school choir _____ the morning prayer right now.'?",
+      "imperativeOptions": [
+        {
+          "id": "opt-a",
+          "label": "sings",
+          "isCorrect": false,
+          "feedback": "'sings' expresses a daily habit, but 'Listen!' and 'right now' point to what is happening at this instant."
+        },
+        {
+          "id": "opt-b",
+          "label": "is singing",
+          "isCorrect": true,
+          "feedback": "Correct! 'Listen!' and 'right now' signal Present Progressive ('is singing')."
+        },
+        {
+          "id": "opt-c",
+          "label": "sang",
+          "isCorrect": false,
+          "feedback": "'sang' is Past Simple, whereas 'right now' is happening in the present."
+        }
+      ],
+      "successFeedback": "Present Progressive captures actions in progress right now.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
+    },
+    {
+      "id": "c9-m2-ind-3",
+      "mode": "choice-diagnose",
+      "cueLevel": "none",
+      "title": "Challenge 3: Unfamiliar Sentence Diagnosis",
+      "instruction": "Spot the correct sentence without any hints.",
+      "sentence": {
+        "id": "c9-m2-ind3-sent",
+        "title": "Independent Check 3",
+        "rawText": "Which logbook entry is grammatically accurate?",
+        "contextTag": "Logbook Audit",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Kabir",
+          "subjectHeadWord": "Kabir",
+          "predicateText": "has lived in Cuttack since 2021",
+          "predicateHeadWord": "has lived"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Choose the completely accurate sentence:",
+      "imperativeOptions": [
+        {
+          "id": "opt-a",
+          "label": "Kabir is knowing how to play tabla since 2021.",
+          "isCorrect": false,
+          "feedback": "'know' is a stative verb (avoid 'is knowing'), and 'since 2021' links past to present."
+        },
+        {
+          "id": "opt-b",
+          "label": "Kabir has lived in Cuttack since 2021.",
+          "isCorrect": true,
+          "feedback": "Exact! An action/state starting in 2021 and continuing up to now uses Present Perfect ('has lived ... since 2021')."
+        },
+        {
+          "id": "opt-c",
+          "label": "Kabir will visited Konark next Sunday.",
+          "isCorrect": false,
+          "feedback": "Never put a past form after 'will'—always use the base verb ('will visit')."
+        }
+      ],
+      "successFeedback": "You diagnosed stative verbs, future modals, and 'since' accurately on your own!",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch3", "src-assam-ch9"]
+    }
+  ],
+  "completionSummary": {
+    "sceneVariant": "records-timeline",
+    "headline": "Timeline Repaired! Mission 2 Complete!",
+    "celebrationMessage": "Mira, Arjun, and Gyan placed every school logbook entry onto its true Past, Present, or Future spot.",
+    "learnedPoints": [
+      "Time (Past, Present, Future) is when an event happens; Tense is the verb form used to express it.",
+      "Present Simple fits daily habits, facts, timetables, and stative verbs ('knows', 'belongs'); Present Progressive ('is writing') fits actions happening now.",
+      "Past Simple fits finished past markers ('yesterday'); Present Perfect ('has cleaned') connects earlier work to now; Future time uses 'will + base verb' or 'going to'."
+    ],
+    "restoredSectionLabel": "Restored School Timeline Records",
+    "repairedMessages": [
+      "Yesterday, our eco-club planted neem saplings.",
+      "Mira is writing the science report now.",
+      "Riya knows the correct answer.",
+      "Our class will visit the planetarium tomorrow."
+    ],
+    "rewardLabel": "Time Navigator Badge Earned"
+  }
+}
