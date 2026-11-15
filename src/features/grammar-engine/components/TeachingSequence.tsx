@@ -26,20 +26,38 @@ import { LessonNavigation } from './LessonNavigation';
 
 export interface TeachingSequenceProps {
   lesson: GrammarLessonDefinition;
+  initialStepNumber?: number;
+  stepJumpNonce?: number;
   onCompleteSequence: () => void;
 }
 
 export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   lesson,
+  initialStepNumber,
+  stepJumpNonce = 0,
   onCompleteSequence,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
   const steps = lesson.teachingSequence;
-  const [stepIndex, setStepIndex] = useState(0);
+  const resolveStepIndex = (stepNum?: number) => {
+    if (!stepNum || steps.length === 0) return 0;
+    const found = steps.findIndex((s) => s.stepNumber === stepNum);
+    if (found >= 0) return found;
+    return Math.max(0, Math.min(stepNum - 1, steps.length - 1));
+  };
+
+  const [stepIndex, setStepIndex] = useState(() => resolveStepIndex(initialStepNumber));
   const [isPaused, setIsPaused] = useState(false);
   const [animationSeed, setAnimationSeed] = useState(0);
   const [stepsDrawerOpen, setStepsDrawerOpen] = useState(false);
   const [isExplanationTyped, setIsExplanationTyped] = useState(prefersReducedMotion);
+
+  useEffect(() => {
+    if (initialStepNumber) {
+      setStepIndex(resolveStepIndex(initialStepNumber));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialStepNumber, stepJumpNonce]);
 
   const currentStep = steps[stepIndex] ?? steps[0];
 

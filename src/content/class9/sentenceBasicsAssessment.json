@@ -1,0 +1,300 @@
+{
+  "assessmentId": "c9-mission-01-assessment",
+  "missionId": "c9-mission-01",
+  "classLevel": 9,
+  "moduleId": "module-1-sentence-basics",
+  "moduleTitle": "Sentence Basics",
+  "topic": "Subject and Predicate",
+  "missionTitle": "Repair the Broken Message",
+  "title": "Mission 1 Assessment: Subject and Predicate",
+  "subtitle": "Answer all 10 questions to check your understanding. You can move between questions and review your answers before submitting.",
+  "questions": [
+    {
+      "id": "c9-aq-01",
+      "questionText": "Four torn strips landed on the school verandah. Which strip forms a complete sentence on its own?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Under the old banyan tree near the gate."
+        },
+        {
+          "id": "b",
+          "text": "The school choir practises every Friday morning."
+        },
+        {
+          "id": "c",
+          "text": "Fresh ripe mangoes in a woven basket."
+        },
+        {
+          "id": "d",
+          "text": "Running swiftly across the wet playground."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'The school choir practises every Friday morning.' has both a Subject ('The school choir') and a Predicate with a finite verb ('practises every Friday morning'), so it communicates a complete thought. The other strips lack either a finite verb or a clear Subject.",
+      "learningObjectiveId": "recognising-complete-sentence",
+      "learningObjective": "Recognising a complete sentence",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 1
+    },
+    {
+      "id": "c9-aq-02",
+      "questionText": "Read the sentence: 'The tall neem tree behind our library provides cool shade.' Which group of words is the full Subject?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The tall neem tree"
+        },
+        {
+          "id": "b",
+          "text": "behind our library"
+        },
+        {
+          "id": "c",
+          "text": "The tall neem tree behind our library"
+        },
+        {
+          "id": "d",
+          "text": "provides cool shade"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Ask 'What provides cool shade?' The entire phrase 'The tall neem tree behind our library' names what the sentence is about, with 'tree' as its head-noun and 'behind our library' describing which tree.",
+      "learningObjectiveId": "identifying-subject",
+      "learningObjective": "Identifying the Subject",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 2
+    },
+    {
+      "id": "c9-aq-03",
+      "questionText": "Read the sentence: 'Early monsoon clouds brought cool rain to the dry fields.' What is the Predicate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Early monsoon clouds"
+        },
+        {
+          "id": "b",
+          "text": "brought cool rain to the dry fields"
+        },
+        {
+          "id": "c",
+          "text": "cool rain to the dry fields"
+        },
+        {
+          "id": "d",
+          "text": "Early monsoon clouds brought"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The Predicate starts at the finite verb ('brought') and includes everything that tells what the Subject did: 'brought cool rain to the dry fields'.",
+      "learningObjectiveId": "identifying-predicate",
+      "learningObjective": "Identifying the Predicate",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c9-aq-04",
+      "questionText": "In 'The diligent potter from Kutch shapes clay bowls gracefully', what does the Subject tell the reader?",
+      "options": [
+        {
+          "id": "a",
+          "text": "How gracefully the bowls are shaped"
+        },
+        {
+          "id": "b",
+          "text": "Who the sentence is speaking about"
+        },
+        {
+          "id": "c",
+          "text": "The action performed on the clay bowls"
+        },
+        {
+          "id": "d",
+          "text": "Why pottery is useful in daily life"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The Subject ('The diligent potter from Kutch') names who the sentence is about. How gracefully the action happens and what is shaped belong to the Predicate.",
+      "learningObjectiveId": "understanding-subject-meaning",
+      "learningObjective": "Understanding what the Subject tells us",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c9-aq-05",
+      "questionText": "Why is 'warm boiled milk and almonds' NOT a complete Predicate by itself after the Subject 'Our sports coach'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is too short to sit at the end of a notice."
+        },
+        {
+          "id": "b",
+          "text": "It names food items instead of containing a finite verb."
+        },
+        {
+          "id": "c",
+          "text": "It does not begin with a capital letter."
+        },
+        {
+          "id": "d",
+          "text": "It already includes the Subject inside it."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Every Predicate must contain a finite verb showing what the Subject does or is. Without a verb such as 'recommends' or 'serves', 'warm boiled milk and almonds' is only a noun phrase.",
+      "learningObjectiveId": "understanding-predicate-meaning",
+      "learningObjective": "Understanding what the Predicate tells us",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c9-aq-06",
+      "questionText": "Which option divides the sentence 'A wooden boat with bright sails glided across Dal Lake.' accurately into Subject and Predicate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Subject: A wooden boat | Predicate: with bright sails glided across Dal Lake."
+        },
+        {
+          "id": "b",
+          "text": "Subject: A wooden boat with bright sails | Predicate: glided across Dal Lake."
+        },
+        {
+          "id": "c",
+          "text": "Subject: A wooden boat with bright sails glided | Predicate: across Dal Lake."
+        },
+        {
+          "id": "d",
+          "text": "Subject: Dal Lake | Predicate: A wooden boat with bright sails glided across."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The finite verb is 'glided', so the split occurs right before 'glided'. 'with bright sails' describes the boat and stays inside the Subject; 'glided across Dal Lake' is the Predicate.",
+      "learningObjectiveId": "distinguishing-subject-predicate",
+      "learningObjective": "Distinguishing Subject from Predicate",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 5
+    },
+    {
+      "id": "c9-aq-07",
+      "questionText": "Consider the school notice: 'Water the saplings beside the science block.' What is true about the Subject of this sentence?",
+      "options": [
+        {
+          "id": "a",
+          "text": "'Water' is the Subject because it is the first word."
+        },
+        {
+          "id": "b",
+          "text": "'the saplings' is the Subject because it follows the verb."
+        },
+        {
+          "id": "c",
+          "text": "The Subject is the understood '(You)', while the entire spoken line is the Predicate."
+        },
+        {
+          "id": "d",
+          "text": "This notice is incomplete because command sentences have no Subject."
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "In imperative (command or request) sentences, the person spoken to—'(You)'—is the understood Subject, and the verb 'Water' begins the Predicate.",
+      "learningObjectiveId": "recognising-varied-structures",
+      "learningObjective": "Recognising Subject and Predicate in different sentence structures",
+      "difficulty": "stretch",
+      "recommendedStage": "practice"
+    },
+    {
+      "id": "c9-aq-08",
+      "questionText": "Read carefully: 'After the assembly bell, the quiet students walked neatly to the laboratory.' Which phrase is the Subject?",
+      "options": [
+        {
+          "id": "a",
+          "text": "After the assembly bell"
+        },
+        {
+          "id": "b",
+          "text": "the quiet students"
+        },
+        {
+          "id": "c",
+          "text": "the laboratory"
+        },
+        {
+          "id": "d",
+          "text": "walked neatly"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'After the assembly bell' tells when the action happened, so it belongs to the Predicate's time setting. Ask 'Who walked neatly to the laboratory?' The answer is 'the quiet students', which is the Subject.",
+      "learningObjectiveId": "identifying-subject",
+      "learningObjective": "Identifying the Subject",
+      "difficulty": "stretch",
+      "recommendedStage": "guided"
+    },
+    {
+      "id": "c9-aq-09",
+      "questionText": "In 'Sun-ripened guavas from Allahabad taste crisp and nourishing', which option identifies the head-verb and complete Predicate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Head-verb: guavas | Predicate: taste crisp and nourishing"
+        },
+        {
+          "id": "b",
+          "text": "Head-verb: taste | Predicate: taste crisp and nourishing"
+        },
+        {
+          "id": "c",
+          "text": "Head-verb: nourishing | Predicate: from Allahabad taste crisp and nourishing"
+        },
+        {
+          "id": "d",
+          "text": "Head-verb: Sun-ripened | Predicate: crisp and nourishing"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'taste' is the finite linking verb that tells something about the Subject ('Sun-ripened guavas from Allahabad'). Together with 'crisp and nourishing', it forms the complete Predicate.",
+      "learningObjectiveId": "identifying-predicate",
+      "learningObjective": "Identifying the Predicate",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c9-aq-10",
+      "questionText": "Arjun found this unfinished card: '... track cyclone winds over the Bay of Bengal.' Which option best completes it as a meaningful Subject?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Spinning smoothly through outer space"
+        },
+        {
+          "id": "b",
+          "text": "Indian weather satellites"
+        },
+        {
+          "id": "c",
+          "text": "Monitor coastal rainfall carefully"
+        },
+        {
+          "id": "d",
+          "text": "Quickly and accurately every hour"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The fragment '... track cyclone winds over the Bay of Bengal.' is a Predicate starting with the plural verb 'track'. It needs a plural noun-phrase Subject naming who or what tracks the winds—'Indian weather satellites'.",
+      "learningObjectiveId": "applying-to-unfamiliar",
+      "learningObjective": "Applying the concepts to unfamiliar examples",
+      "difficulty": "standard",
+      "recommendedStage": "practice"
+    }
+  ]
+}

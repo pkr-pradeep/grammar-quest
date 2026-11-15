@@ -12,13 +12,22 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, BookOpen, BarChart3, Clock, PlayCircle, ShieldCheck } from 'lucide-react';
+import {
+  ArrowLeft,
+  BookOpen,
+  BarChart3,
+  ClipboardCheck,
+  Clock,
+  PlayCircle,
+  ShieldCheck,
+} from 'lucide-react';
 import type {
   AppSection,
   ClassLevel,
   PlaceholderMissionSummary,
   StudentProgressRecord,
 } from '../../schemas/lesson.schema';
+import type { AssessmentAttemptRecord } from '../../schemas/assessment.schema';
 import { PLACEHOLDER_CLASS_CONTENT } from '../../content/placeholderDashboard';
 import { Badge, Button, Card, MissionIllustration, Progress } from '../../components';
 import { TopicExplorer } from '../missions/TopicExplorer';
@@ -27,10 +36,12 @@ interface FoundationSectionViewProps {
   section: Exclude<AppSection, 'home'>;
   selectedClass: ClassLevel;
   progress: StudentProgressRecord;
+  assessmentAttemptsByMission?: Record<string, AssessmentAttemptRecord>;
   previewMission: PlaceholderMissionSummary | null;
   onClearPreview: () => void;
   onSelectPreview: (mission: PlaceholderMissionSummary) => void;
   onStartLesson: (missionId: string, preferredClass?: ClassLevel) => void;
+  onOpenAssessment?: (missionId: string, preferredClass?: ClassLevel) => void;
   onBackHome: () => void;
 }
 
@@ -38,14 +49,18 @@ export const FoundationSectionView: React.FC<FoundationSectionViewProps> = ({
   section,
   selectedClass,
   progress,
+  assessmentAttemptsByMission = {},
   previewMission,
   onClearPreview,
   onSelectPreview,
   onStartLesson,
+  onOpenAssessment,
   onBackHome,
 }) => {
   const classContent = PLACEHOLDER_CLASS_CONTENT[selectedClass];
   const allMissions = [classContent.featuredMission, ...classContent.plannedTracks];
+  const mission1Attempt =
+    assessmentAttemptsByMission[classContent.featuredMission.id] ?? null;
   const completedInClass = progress.completedMissionIds.filter((id) =>
     id.startsWith(`c${selectedClass}-`),
   ).length;
@@ -237,6 +252,61 @@ export const FoundationSectionView: React.FC<FoundationSectionViewProps> = ({
               </p>
             </div>
           )}
+
+          {/* Formal Assessment Status Card */}
+          <div className="rounded-[16px] bg-[#FDFCF9] border border-[#E5E2D9] p-4 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <p className="text-xs font-medium text-[#4B5C8A]">
+                  {classContent.featuredMission.missionNumber} · {classContent.featuredMission.topicLabel}
+                </p>
+                <h2 className="font-heading text-base font-semibold text-[#263A70]">
+                  {classContent.featuredMission.title} Assessment
+                </h2>
+              </div>
+
+              {mission1Attempt?.status === 'submitted' &&
+              mission1Attempt.score !== null &&
+              mission1Attempt.percentage !== null ? (
+                <Badge tone="turquoise">
+                  {mission1Attempt.score}/{mission1Attempt.totalQuestions} ·{' '}
+                  {mission1Attempt.percentage}%
+                </Badge>
+              ) : mission1Attempt?.status === 'in-progress' ? (
+                <Badge tone="sunshine">In progress</Badge>
+              ) : (
+                <Badge tone="neutral">Not submitted</Badge>
+              )}
+            </div>
+
+            {mission1Attempt?.status === 'submitted' &&
+            mission1Attempt.revisionRecommendations.length > 0 ? (
+              <p className="text-xs text-[#4B5C8A]">
+                Revision focus areas:{' '}
+                {mission1Attempt.revisionRecommendations
+                  .map((r) => r.objectiveLabel)
+                  .join(', ')}
+                .
+              </p>
+            ) : null}
+
+            {onOpenAssessment ? (
+              <Button
+                variant={mission1Attempt?.status === 'submitted' ? 'secondary' : 'primary'}
+                size="sm"
+                leftIcon={<ClipboardCheck className="w-4 h-4" />}
+                onClick={() =>
+                  onOpenAssessment(classContent.featuredMission.id, selectedClass)
+                }
+              >
+                {mission1Attempt?.status === 'submitted'
+                  ? 'View Read-Only Results'
+                  : mission1Attempt?.status === 'in-progress'
+                    ? 'Resume Assessment'
+                    : 'Take Mission 1 Assessment'}
+              </Button>
+            ) : null}
+          </div>
 
           <div className="flex items-start gap-2 pt-2 border-t border-[#E5E2D9] text-xs text-[#4B5C8A]">
             <ShieldCheck

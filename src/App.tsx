@@ -12,17 +12,22 @@ import type {
   PlaceholderMissionSummary,
   StudentProgressRecord,
 } from './schemas/lesson.schema';
+import type { AssessmentAttemptRecord } from './schemas/assessment.schema';
 import {
   createDefaultProgress,
   loadStudentProgress,
   markMissionCompleted,
   saveSelectedClass,
 } from './storage/progressRepository';
+import { loadAllAssessmentAttempts } from './storage/assessmentRepository';
 import { Header, ScrollMoreHint } from './components';
 import { Dashboard } from './features/home/Dashboard';
 import { FoundationSectionView } from './features/placeholders/FoundationSectionView';
 import { getLessonForMission } from './content/lessons/lessonRegistry';
-import { GrammarTeachingEngine } from './features/grammar-engine';
+import {
+  GrammarTeachingEngine,
+  type EnginePhase,
+} from './features/grammar-engine';
 import type { GrammarLessonDefinition } from './schemas/grammarEngine.schema';
 
 /**
@@ -53,6 +58,54 @@ function isDevCharacterSheetRoute(): boolean {
 interface ActiveLessonState {
   missionId: string;
   classLevel: ClassLevel;
+  phase?: EnginePhase;
+}
+
+const VALID_ENGINE_PHASES = new Set<EnginePhase>([
+  'story',
+  'learn',
+  'guided',
+  'practice',
+  'complete',
+  'assess',
+]);
+
+function parseMissionHash(): ActiveLessonState | null {
+  if (typeof window === 'undefined') return null;
+  const raw = window.location.hash.replace(/^#/, '');
+  if (!raw.startsWith('mission=')) return null;
+  const params = new URLSearchParams(raw);
+  const missionId = params.get('mission');
+  if (!missionId) return null;
+  const classMatch = /^c(9|10)-/.exec(missionId);
+  const classLevel: ClassLevel = classMatch?.[1] === '10' ? 10 : 9;
+  const rawPhase = params.get('phase') as EnginePhase | null;
+  const phase = rawPhase && VALID_ENGINE_PHASES.has(rawPhase) ? rawPhase : undefined;
+  return { missionId, classLevel, phase };
+}
+
+function writeMissionHash(state: ActiveLessonState | null): void {
+  if (typeof window === 'undefined') return;
+  if (!state) {
+    if (window.location.hash.startsWith('#mission=')) {
+      window.history.replaceState(
+        null,
+        '',
+        window.location.pathname + window.location.search,
+      );
+    }
+    return;
+  }
+  const params = new URLSearchParams();
+  params.set('mission', state.missionId);
+  if (state.phase) {
+    params.set('phase', state.phase);
+  }
+  window.history.replaceState(
+    null,
+    '',
+    `${window.location.pathname}${window.location.search}#${params.toString()}`,
+  );
 }
 
 export default function App() {
@@ -60,10 +113,15 @@ export default function App() {
   const [progress, setProgress] = useState<StudentProgressRecord>(() =>
     createDefaultProgress(9),
   );
+  const [assessmentAttemptsByMission, setAssessmentAttemptsByMission] = useState<
+    Record<string, AssessmentAttemptRecord>
+  >({});
   const [storageWarning, setStorageWarning] = useState<string | null>(null);
   const [previewMission, setPreviewMission] =
     useState<PlaceholderMissionSummary | null>(null);
-  const [activeLesson, setActiveLesson] = useState<ActiveLessonState | null>(null);
+  const [activeLesson, setActiveLesson] = useState<ActiveLessonState | null>(() =>
+    isDevCharacterSheetRoute() ? null : parseMissionHash(),
+  );
   const [isDevSheetOpen, setIsDevSheetOpen] = useState<boolean>(
     isDevCharacterSheetRoute,
   );
@@ -84,6 +142,15 @@ export default function App() {
       if (!isMounted) return;
       setProgress(result.progress);
       setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
+    });
+
+    loadAllAssessmentAttempts().then((attempts) => {
+      if (!isMounted) return;
+      const byMission: Record<string, AssessmentAttemptRecord> = {};
+      for (const attempt of attempts) {
+        byMission[attempt.missionId] = attempt;
+      }
+      setAssessmentAttemptsByMission(byMission);
     });
 
     return () => {
@@ -118,6 +185,7 @@ export default function App() {
   const handleNavigate = (section: AppSection) => {
     setPreviewMission(null);
     setActiveLesson(null);
+    writeMissionHash(null);
     if (isDevSheetOpen) closeDevSheet();
     setActiveSection(section);
     if (typeof window !== 'undefined') {
@@ -125,13 +193,43 @@ export default function App() {
     }
   };
 
-  const handleStartLesson = (missionId: string, preferredClass?: ClassLevel) => {
+  const handleStartLesson = (
+    missionId: string,
+    preferredClass?: ClassLevel,
+    initialPhase?: EnginePhase,
+  ) => {
     if (isDevSheetOpen) closeDevSheet();
     setPreviewMission(null);
-    setActiveLesson({
-      missionId,
-      classLevel: preferredClass ?? progress.selectedClass,
+    const resolvedClass = preferredClass ?? progress.selectedClass;
+    const normalizedId = missionId.replace(/^c(?:9|10)-/, `c${resolvedClass}-`);
+    const nextState: ActiveLessonState = {
+      missionId: normalizedId,
+      classLevel: resolvedClass,
+      phase: initialPhase,
+    };
+    setActiveLesson(nextState);
+    writeMissionHash(nextState);
+  };
+
+  const handleExitLesson = () => {
+    setActiveLesson(null);
+    writeMissionHash(null);
+  };
+
+  const handleLessonPhaseChange = (nextPhase: EnginePhase) => {
+    setActiveLesson((prev) => {
+      if (!prev) return prev;
+      const updated = { ...prev, phase: nextPhase };
+      writeMissionHash(updated);
+      return updated;
     });
+  };
+
+  const handleAssessmentSubmitted = (attempt: AssessmentAttemptRecord) => {
+    setAssessmentAttemptsByMission((prev) => ({
+      ...prev,
+      [attempt.missionId]: attempt,
+    }));
   };
 
   const handlePreviewMission = (mission: PlaceholderMissionSummary) => {
@@ -153,6 +251,7 @@ export default function App() {
   const handleCompleteLessonPractice = async (lesson: GrammarLessonDefinition) => {
     await handleRecordMissionCompleted(lesson);
     setActiveLesson(null);
+    writeMissionHash(null);
     setPreviewMission(null);
     setActiveSection('home');
   };
@@ -168,7 +267,13 @@ export default function App() {
       {resolvedLesson ? (
         <GrammarTeachingEngine
           lesson={resolvedLesson}
-          onExit={() => setActiveLesson(null)}
+          initialPhase={activeLesson?.phase}
+          assessmentAttempt={
+            assessmentAttemptsByMission[resolvedLesson.missionId] ?? null
+          }
+          onPhaseChange={handleLessonPhaseChange}
+          onAssessmentSubmitted={handleAssessmentSubmitted}
+          onExit={handleExitLesson}
           onRecordMissionCompleted={(lesson) => void handleRecordMissionCompleted(lesson)}
           onCompleteLessonPractice={(lesson) => void handleCompleteLessonPractice(lesson)}
         />
@@ -218,19 +323,27 @@ export default function App() {
               <Dashboard
                 selectedClass={progress.selectedClass}
                 progress={progress}
+                assessmentAttemptsByMission={assessmentAttemptsByMission}
                 onSelectClass={(lvl) => void handleSelectClass(lvl)}
                 onPreviewMission={handlePreviewMission}
                 onOpenMissions={() => handleNavigate('missions')}
+                onOpenAssessment={(missionId, preferredClass) =>
+                  handleStartLesson(missionId, preferredClass, 'assess')
+                }
               />
             ) : (
               <FoundationSectionView
                 section={activeSection}
                 selectedClass={progress.selectedClass}
                 progress={progress}
+                assessmentAttemptsByMission={assessmentAttemptsByMission}
                 previewMission={previewMission}
                 onClearPreview={() => setPreviewMission(null)}
                 onSelectPreview={(mission) => setPreviewMission(mission)}
                 onStartLesson={handleStartLesson}
+                onOpenAssessment={(missionId, preferredClass) =>
+                  handleStartLesson(missionId, preferredClass, 'assess')
+                }
                 onBackHome={() => handleNavigate('home')}
               />
             )}

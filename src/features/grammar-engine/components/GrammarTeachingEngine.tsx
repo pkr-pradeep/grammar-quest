@@ -12,17 +12,24 @@
  * ============================================================================
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import {
   ArrowLeft,
   Award,
   BookOpenCheck,
   CheckCircle2,
+  ClipboardCheck,
   FlaskConical,
   Sparkles,
 } from 'lucide-react';
 import type { GrammarLessonDefinition } from '../../../schemas/grammarEngine.schema';
+import type {
+  AssessmentAttemptRecord,
+  RecommendedMissionStage,
+} from '../../../schemas/assessment.schema';
+import { getAssessmentForMission } from '../../../content/assessments/assessmentRegistry';
+import { AssessmentRunner } from '../../assessment';
 import { Badge, ScrollMoreHint } from '../../../components';
 import { StoryIntroStage } from './StoryIntroStage';
 import { TeachingSequence } from './TeachingSequence';
@@ -30,17 +37,31 @@ import { WordLaboratory } from './WordLaboratory';
 import { IndependentPracticeStage } from './IndependentPracticeStage';
 import { MissionCompletionStage } from './MissionCompletionStage';
 
+export type EnginePhase =
+  | 'story'
+  | 'learn'
+  | 'guided'
+  | 'practice'
+  | 'complete'
+  | 'assess';
+
 export interface GrammarTeachingEngineProps {
   lesson: GrammarLessonDefinition;
+  initialPhase?: EnginePhase;
+  assessmentAttempt?: AssessmentAttemptRecord | null;
+  onPhaseChange?: (phase: EnginePhase) => void;
+  onAssessmentSubmitted?: (attempt: AssessmentAttemptRecord) => void;
   onExit: () => void;
   onRecordMissionCompleted?: (lesson: GrammarLessonDefinition) => void;
   onCompleteLessonPractice: (lesson: GrammarLessonDefinition) => void;
 }
 
-type EnginePhase = 'story' | 'learn' | 'guided' | 'practice' | 'complete';
-
 export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
   lesson,
+  initialPhase,
+  assessmentAttempt,
+  onPhaseChange,
+  onAssessmentSubmitted,
   onExit,
   onRecordMissionCompleted,
   onCompleteLessonPractice,
@@ -51,16 +72,46 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
     lesson.independentPractice && lesson.independentPractice.length > 0,
   );
   const hasCompletionSummary = Boolean(lesson.completionSummary);
+  const assessment = getAssessmentForMission(lesson.missionId);
 
-  const [phase, setPhase] = useState<EnginePhase>(hasStory ? 'story' : 'learn');
-  const [completionUnlocked, setCompletionUnlocked] = useState(false);
+  const resolveInitialPhase = (): EnginePhase => {
+    if (initialPhase === 'assess' && assessment) return 'assess';
+    if (initialPhase === 'guided') return 'guided';
+    if (initialPhase === 'practice' && hasIndependent) return 'practice';
+    if (initialPhase === 'learn') return 'learn';
+    if (initialPhase === 'complete' && hasCompletionSummary) return 'complete';
+    if (initialPhase === 'story' && hasStory) return 'story';
+    return hasStory ? 'story' : 'learn';
+  };
+
+  const [phase, setPhase] = useState<EnginePhase>(resolveInitialPhase);
+  const [completionUnlocked, setCompletionUnlocked] = useState(
+    initialPhase === 'complete',
+  );
+  const [learnJump, setLearnJump] = useState<{
+    stepNumber?: number;
+    nonce: number;
+  }>({ nonce: 0 });
+
+  const updatePhase = (nextPhase: EnginePhase) => {
+    setPhase(nextPhase);
+    onPhaseChange?.(nextPhase);
+  };
+
+  useEffect(() => {
+    if (initialPhase) {
+      const target = resolveInitialPhase();
+      setPhase(target);
+      if (target === 'complete') setCompletionUnlocked(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lesson.missionId, initialPhase]);
 
   const phaseTabs: {
     id: EnginePhase;
     label: string;
     Icon: React.ComponentType<{ className?: string }>;
     visible: boolean;
-    disabled?: boolean;
   }[] = [
     { id: 'story', label: 'Story', Icon: Sparkles, visible: hasStory },
     { id: 'learn', label: 'Learn', Icon: BookOpenCheck, visible: true },
@@ -72,6 +123,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
       Icon: Award,
       visible: hasCompletionSummary && completionUnlocked,
     },
+    { id: 'assess', label: 'Test', Icon: ClipboardCheck, visible: Boolean(assessment) },
   ];
 
   const visibleTabs = phaseTabs.filter((t) => t.visible);
@@ -81,9 +133,26 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
     if (hasCompletionSummary) {
       // Save progress locally in IndexedDB ONLY after completing the mission stages!
       onRecordMissionCompleted?.(lesson);
-      setPhase('complete');
+      updatePhase('complete');
     } else {
       onCompleteLessonPractice(lesson);
+    }
+  };
+
+  const handleRevisitStageFromAssessment = (
+    stage: RecommendedMissionStage,
+    stepNumber?: number,
+  ) => {
+    if (stage === 'learn') {
+      setLearnJump((prev) => ({ stepNumber, nonce: prev.nonce + 1 }));
+      updatePhase('learn');
+    } else if (stage === 'guided') {
+      updatePhase('guided');
+    } else {
+      updatePhase(hasIndependent ? 'practice' : 'guided');
+    }
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'auto' });
     }
   };
 
@@ -125,7 +194,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
           <div
             role="tablist"
             aria-label="Mission stages"
-            className="grid gap-1 p-1 rounded-[12px] bg-[#F5F2EA] border border-[#E5E2D9]"
+            className="grid gap-0.5 sm:gap-1 p-1 rounded-[12px] bg-[#F5F2EA] border border-[#E5E2D9]"
             style={{
               gridTemplateColumns: `repeat(${visibleTabs.length}, minmax(0, 1fr))`,
             }}
@@ -138,15 +207,15 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
                   type="button"
                   role="tab"
                   aria-selected={isSelected}
-                  onClick={() => setPhase(id)}
+                  onClick={() => updatePhase(id)}
                   className={[
-                    'inline-flex items-center justify-center gap-1 min-h-[36px] px-1.5 rounded-[9px] text-[11.5px] sm:text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer min-w-0',
+                    'inline-flex items-center justify-center gap-0.5 sm:gap-1 min-h-[36px] px-1 sm:px-1.5 rounded-[9px] text-[10.5px] sm:text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer min-w-0',
                     isSelected
                       ? 'bg-[#FFC64B] text-[#263A70] shadow-xs'
                       : 'text-[#4B5C8A] hover:text-[#263A70]',
                   ].join(' ')}
                 >
-                  <Icon className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                  <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" aria-hidden="true" />
                   <span className="truncate">{label}</span>
                 </button>
               );
@@ -160,14 +229,16 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
         <StoryIntroStage
           missionTitle={lesson.missionTitle}
           storyIntro={lesson.storyIntro}
-          onStartTeaching={() => setPhase('learn')}
+          onStartTeaching={() => updatePhase('learn')}
         />
       ) : null}
 
       {phase === 'learn' ? (
         <TeachingSequence
           lesson={lesson}
-          onCompleteSequence={() => setPhase('guided')}
+          initialStepNumber={learnJump.stepNumber}
+          stepJumpNonce={learnJump.nonce}
+          onCompleteSequence={() => updatePhase('guided')}
         />
       ) : null}
 
@@ -176,10 +247,10 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
           <WordLaboratory
             activities={lesson.wordLabActivities}
             hasIndependentPractice={hasIndependent}
-            onBackToLesson={() => setPhase('learn')}
+            onBackToLesson={() => updatePhase('learn')}
             onFinishMissionPractice={() => {
               if (hasIndependent) {
-                setPhase('practice');
+                updatePhase('practice');
               } else {
                 onCompleteLessonPractice(lesson);
               }
@@ -192,7 +263,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
         <div className="flex-1 w-full max-w-[920px] mx-auto px-3 sm:px-6 py-3 sm:py-5 pb-[120px]">
           <IndependentPracticeStage
             items={lesson.independentPractice}
-            onBackToGuided={() => setPhase('guided')}
+            onBackToGuided={() => updatePhase('guided')}
             onFinishIndependentPractice={handleFinishIndependent}
           />
         </div>
@@ -204,6 +275,8 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
             missionTitle={lesson.missionTitle}
             classLevel={lesson.classLevel}
             summary={lesson.completionSummary}
+            assessmentAttempt={assessmentAttempt}
+            onStartAssessment={assessment ? () => updatePhase('assess') : undefined}
             onReturnHome={() => {
               if (onRecordMissionCompleted) {
                 onExit();
@@ -211,7 +284,19 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
                 onCompleteLessonPractice(lesson);
               }
             }}
-            onReviewLesson={() => setPhase('learn')}
+            onReviewLesson={() => updatePhase('learn')}
+          />
+        </div>
+      ) : null}
+
+      {phase === 'assess' && assessment ? (
+        <div className="flex-1 w-full max-w-[920px] mx-auto px-3 sm:px-6 py-3 sm:py-5 pb-[120px]">
+          <AssessmentRunner
+            assessment={assessment}
+            onRevisitStage={handleRevisitStageFromAssessment}
+            onBackToMission={() => updatePhase(hasStory ? 'story' : 'learn')}
+            onBackToHome={onExit}
+            onAssessmentSubmitted={onAssessmentSubmitted}
           />
         </div>
       ) : null}

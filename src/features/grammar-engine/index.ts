@@ -1,6 +1,7 @@
 export {
   GrammarTeachingEngine,
   type GrammarTeachingEngineProps,
+  type EnginePhase,
 } from './components/GrammarTeachingEngine';
 export {
   SentenceVisualizer,

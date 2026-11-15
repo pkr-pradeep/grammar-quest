@@ -11,8 +11,9 @@
  */
 
 const DB_NAME = 'grammar-quest-db';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 export const PROGRESS_STORE = 'studentProgress';
+export const ASSESSMENT_STORE = 'assessmentAttempts';
 
 export function isIndexedDbSupported(): boolean {
   try {
@@ -36,6 +37,10 @@ export function openGrammarQuestDb(): Promise<IDBDatabase> {
         const db = request.result;
         if (!db.objectStoreNames.contains(PROGRESS_STORE)) {
           db.createObjectStore(PROGRESS_STORE, { keyPath: 'id' });
+        }
+        if (!db.objectStoreNames.contains(ASSESSMENT_STORE)) {
+          const assessmentStore = db.createObjectStore(ASSESSMENT_STORE, { keyPath: 'id' });
+          assessmentStore.createIndex('missionId', 'missionId', { unique: false });
         }
       };
 
@@ -66,6 +71,25 @@ export async function idbGet<T>(storeName: string, key: IDBValidKey): Promise<T 
 
       req.onsuccess = () => resolve(req.result as T | undefined);
       req.onerror = () => reject(req.error ?? new Error('Failed to read from local storage.'));
+      tx.oncomplete = () => db.close();
+      tx.onerror = () => db.close();
+    } catch (error) {
+      db.close();
+      reject(error);
+    }
+  });
+}
+
+export async function idbGetAll<T>(storeName: string): Promise<T[]> {
+  const db = await openGrammarQuestDb();
+  return new Promise((resolve, reject) => {
+    try {
+      const tx = db.transaction(storeName, 'readonly');
+      const store = tx.objectStore(storeName);
+      const req = store.getAll();
+
+      req.onsuccess = () => resolve((req.result as T[]) ?? []);
+      req.onerror = () => reject(req.error ?? new Error('Failed to read collection from local storage.'));
       tx.oncomplete = () => db.close();
       tx.onerror = () => db.close();
     } catch (error) {

@@ -1,0 +1,300 @@
+{
+  "assessmentId": "c10-mission-01-assessment",
+  "missionId": "c10-mission-01",
+  "classLevel": 10,
+  "moduleId": "module-1-sentence-basics",
+  "moduleTitle": "Sentence Basics",
+  "topic": "Subject and Predicate",
+  "missionTitle": "Repair the Broken Message",
+  "title": "Mission 1 Assessment: Subject and Predicate",
+  "subtitle": "Answer all 10 questions to check your grasp of Subjects and Predicates across Class 10 sentence structures. Review freely before submitting.",
+  "questions": [
+    {
+      "id": "c10-aq-01",
+      "questionText": "Which line from the exhibition board is a complete sentence rather than an incomplete fragment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The ancient astronomical observatory in Jaipur built of sandstone."
+        },
+        {
+          "id": "b",
+          "text": "Clean solar panels generate steady electricity for the school library."
+        },
+        {
+          "id": "c",
+          "text": "During the annual heritage exhibition in the courtyard."
+        },
+        {
+          "id": "d",
+          "text": "Carefully labelled charts of Himalayan medicinal plants."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'Clean solar panels generate steady electricity for the school library.' pairs a Subject ('Clean solar panels') with a finite-verb Predicate ('generate steady electricity for the school library'). The other choices are phrases without a finite verb.",
+      "learningObjectiveId": "recognising-complete-sentence",
+      "learningObjective": "Recognising a complete sentence",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 1
+    },
+    {
+      "id": "c10-aq-02",
+      "questionText": "In 'Two experienced botanists from Dehradun catalogued rare bamboo species', which word is the core head-noun inside the Subject?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dehradun"
+        },
+        {
+          "id": "b",
+          "text": "species"
+        },
+        {
+          "id": "c",
+          "text": "botanists"
+        },
+        {
+          "id": "d",
+          "text": "experienced"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The full Subject is 'Two experienced botanists from Dehradun'. Within it, 'botanists' is the head-noun naming who did the cataloguing; 'Dehradun' sits inside the modifying phrase 'from Dehradun', and 'species' is inside the Predicate.",
+      "learningObjectiveId": "identifying-subject",
+      "learningObjective": "Identifying the Subject",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c10-aq-03",
+      "questionText": "Read: 'The restored stepwell in Gujarat holds clear rainwater throughout the summer.' Identify the complete Predicate.",
+      "options": [
+        {
+          "id": "a",
+          "text": "holds clear rainwater"
+        },
+        {
+          "id": "b",
+          "text": "in Gujarat holds clear rainwater throughout the summer"
+        },
+        {
+          "id": "c",
+          "text": "holds clear rainwater throughout the summer"
+        },
+        {
+          "id": "d",
+          "text": "The restored stepwell in Gujarat"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The finite verb is 'holds', so the Predicate begins there and includes both the object ('clear rainwater') and the time phrase ('throughout the summer').",
+      "learningObjectiveId": "identifying-predicate",
+      "learningObjective": "Identifying the Predicate",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c10-aq-04",
+      "questionText": "Why is identifying the head-word of the Subject important when writing a formal notice?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It shows who or what the Predicate describes and controls how the verb agrees."
+        },
+        {
+          "id": "b",
+          "text": "It replaces the need for any finite verb in the second half."
+        },
+        {
+          "id": "c",
+          "text": "It must always be a proper place name in India."
+        },
+        {
+          "id": "d",
+          "text": "It tells whether the action occurred in the past or future."
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The Subject names the topic of the sentence, and its head-word (singular or plural) tells us who or what the Predicate speaks about and helps match the finite verb accurately.",
+      "learningObjectiveId": "understanding-subject-meaning",
+      "learningObjective": "Understanding what the Subject tells us",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 3
+    },
+    {
+      "id": "c10-aq-05",
+      "questionText": "What essential work does the Predicate perform in 'Roasted Bengal gram and fresh fruits boost daily energy'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It only lists the adjectives describing Bengal gram."
+        },
+        {
+          "id": "b",
+          "text": "It uses a finite verb ('boost') to state what is true about the Subject."
+        },
+        {
+          "id": "c",
+          "text": "It names who prepared the healthy meal."
+        },
+        {
+          "id": "d",
+          "text": "It turns the sentence into a command without a verb."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The Predicate ('boost daily energy') hinges on the finite verb 'boost' and tells the reader what is said about the Subject ('Roasted Bengal gram and fresh fruits').",
+      "learningObjectiveId": "understanding-predicate-meaning",
+      "learningObjective": "Understanding what the Predicate tells us",
+      "difficulty": "foundation",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c10-aq-06",
+      "questionText": "Which split correctly separates Subject and Predicate in 'A team of Class 10 engineers tested the rainwater filter successfully.'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Subject: A team | Predicate: of Class 10 engineers tested the rainwater filter successfully."
+        },
+        {
+          "id": "b",
+          "text": "Subject: A team of Class 10 engineers | Predicate: tested the rainwater filter successfully."
+        },
+        {
+          "id": "c",
+          "text": "Subject: Class 10 engineers | Predicate: A team tested the rainwater filter successfully."
+        },
+        {
+          "id": "d",
+          "text": "Subject: A team of Class 10 engineers tested | Predicate: the rainwater filter successfully."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The prepositional phrase 'of Class 10 engineers' enlarges 'A team' to tell us which team performed the test, so it stays in the Subject. The Predicate starts cleanly at the verb 'tested'.",
+      "learningObjectiveId": "distinguishing-subject-predicate",
+      "learningObjective": "Distinguishing Subject from Predicate",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 5
+    },
+    {
+      "id": "c10-aq-07",
+      "questionText": "Read this exhibition instruction: 'Arrange the terracotta models neatly along the east wall.' How is this sentence structured?",
+      "options": [
+        {
+          "id": "a",
+          "text": "'terracotta models' is the Subject and 'Arrange' is an adjective."
+        },
+        {
+          "id": "b",
+          "text": "The Subject is the understood '(You)', and 'Arrange ... wall.' is the full Predicate."
+        },
+        {
+          "id": "c",
+          "text": "'the east wall' is the Subject because it ends the sentence."
+        },
+        {
+          "id": "d",
+          "text": "It has two Subjects and no Predicate."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "In an imperative sentence, '(You)' is the understood Subject. The action verb 'Arrange' opens the Predicate directly.",
+      "learningObjectiveId": "recognising-varied-structures",
+      "learningObjective": "Recognising Subject and Predicate in different sentence structures",
+      "difficulty": "stretch",
+      "recommendedStage": "practice"
+    },
+    {
+      "id": "c10-aq-08",
+      "questionText": "In 'Across the quiet courtyard, morning sunlight warmed the exhibition tables', what is the grammatical Subject?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Across the quiet courtyard"
+        },
+        {
+          "id": "b",
+          "text": "the exhibition tables"
+        },
+        {
+          "id": "c",
+          "text": "morning sunlight"
+        },
+        {
+          "id": "d",
+          "text": "warmed"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "'Across the quiet courtyard' sets the place (part of the Predicate), and 'the exhibition tables' is the object that was warmed. Asking 'What warmed the tables?' gives 'morning sunlight' as the Subject.",
+      "learningObjectiveId": "identifying-subject",
+      "learningObjective": "Identifying the Subject",
+      "difficulty": "stretch",
+      "recommendedStage": "guided"
+    },
+    {
+      "id": "c10-aq-09",
+      "questionText": "Read: 'Dedicated weavers in Varanasi have preserved intricate silk patterns for generations.' Which words belong to the Predicate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "in Varanasi have preserved intricate silk patterns for generations"
+        },
+        {
+          "id": "b",
+          "text": "have preserved intricate silk patterns for generations"
+        },
+        {
+          "id": "c",
+          "text": "intricate silk patterns for generations"
+        },
+        {
+          "id": "d",
+          "text": "Dedicated weavers in Varanasi"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "'in Varanasi' modifies 'Dedicated weavers', so both remain in the Subject. The Predicate starts at the finite verb group 'have preserved' and runs to the end of the sentence.",
+      "learningObjectiveId": "identifying-predicate",
+      "learningObjective": "Identifying the Predicate",
+      "difficulty": "standard",
+      "recommendedStage": "learn",
+      "recommendedStepNumber": 4
+    },
+    {
+      "id": "c10-aq-10",
+      "questionText": "Mira picked up a torn Subject card: 'The young astronomer with a brass telescope ...' Which card repairs it into a complete, grammatical sentence?",
+      "options": [
+        {
+          "id": "a",
+          "text": "... on the terrace of the observatory."
+        },
+        {
+          "id": "b",
+          "text": "... mapped bright constellations before dawn."
+        },
+        {
+          "id": "c",
+          "text": "... and her notebook of star sketches."
+        },
+        {
+          "id": "d",
+          "text": "... beneath a cloudless autumn sky."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A Subject card needs a Predicate containing a finite verb. Only '... mapped bright constellations before dawn.' supplies the finite verb ('mapped') needed to complete the thought.",
+      "learningObjectiveId": "applying-to-unfamiliar",
+      "learningObjective": "Applying the concepts to unfamiliar examples",
+      "difficulty": "standard",
+      "recommendedStage": "practice"
+    }
+  ]
+}

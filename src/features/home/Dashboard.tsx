@@ -10,15 +10,17 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ChevronRight, ShieldCheck } from 'lucide-react';
+import { ChevronRight, ClipboardCheck, ShieldCheck } from 'lucide-react';
 import type {
   ClassLevel,
   PlaceholderMissionSummary,
   StudentProgressRecord,
 } from '../../schemas/lesson.schema';
+import type { AssessmentAttemptRecord } from '../../schemas/assessment.schema';
 import { PLACEHOLDER_CLASS_CONTENT } from '../../content/placeholderDashboard';
 import {
   Badge,
+  Button,
   Card,
   MissionIllustration,
   Progress,
@@ -28,9 +30,11 @@ import {
 export interface DashboardProps {
   selectedClass: ClassLevel;
   progress: StudentProgressRecord;
+  assessmentAttemptsByMission?: Record<string, AssessmentAttemptRecord>;
   onSelectClass: (classLevel: ClassLevel) => void;
   onPreviewMission: (mission: PlaceholderMissionSummary) => void;
   onOpenMissions: () => void;
+  onOpenAssessment?: (missionId: string, preferredClass: ClassLevel) => void;
 }
 
 const CLASS_OPTIONS: { level: ClassLevel; label: string }[] = [
@@ -41,12 +45,16 @@ const CLASS_OPTIONS: { level: ClassLevel; label: string }[] = [
 export const Dashboard: React.FC<DashboardProps> = ({
   selectedClass,
   progress,
+  assessmentAttemptsByMission = {},
   onSelectClass,
   onPreviewMission,
   onOpenMissions,
+  onOpenAssessment,
 }) => {
   const classContent = PLACEHOLDER_CLASS_CONTENT[selectedClass];
   const allMissions = [classContent.featuredMission, ...classContent.plannedTracks];
+  const mission1Attempt =
+    assessmentAttemptsByMission[classContent.featuredMission.id] ?? null;
 
   const completedInClass = progress.completedMissionIds.filter((id) =>
     id.startsWith(`c${selectedClass}-`),
@@ -252,6 +260,47 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 </p>
               </div>
             )}
+
+            {/* Mission 1 Formal Assessment Status */}
+            <div className="pt-2.5 border-t border-[#E5E2D9] space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-semibold text-[#263A70]">
+                  Mission 1 Formal Assessment
+                </span>
+                {mission1Attempt?.status === 'submitted' &&
+                mission1Attempt.score !== null &&
+                mission1Attempt.percentage !== null ? (
+                  <span className="text-xs font-bold text-[#0E5A42] tabular-nums">
+                    {mission1Attempt.score}/{mission1Attempt.totalQuestions} ·{' '}
+                    {mission1Attempt.percentage}%
+                  </span>
+                ) : mission1Attempt?.status === 'in-progress' ? (
+                  <span className="text-xs font-medium text-[#A15C00]">
+                    In progress (not submitted)
+                  </span>
+                ) : (
+                  <span className="text-xs text-[#4B5C8A]">Not submitted yet</span>
+                )}
+              </div>
+
+              {onOpenAssessment ? (
+                <Button
+                  variant={mission1Attempt?.status === 'submitted' ? 'secondary' : 'primary'}
+                  size="sm"
+                  fullWidth
+                  leftIcon={<ClipboardCheck className="w-4 h-4" />}
+                  onClick={() =>
+                    onOpenAssessment(classContent.featuredMission.id, selectedClass)
+                  }
+                >
+                  {mission1Attempt?.status === 'submitted'
+                    ? 'View Assessment Results'
+                    : mission1Attempt?.status === 'in-progress'
+                      ? 'Resume Assessment'
+                      : 'Take Mission 1 Assessment'}
+                </Button>
+              ) : null}
+            </div>
 
             <div className="flex items-start gap-2 pt-2.5 border-t border-[#E5E2D9] text-xs text-[#4B5C8A]">
               <ShieldCheck

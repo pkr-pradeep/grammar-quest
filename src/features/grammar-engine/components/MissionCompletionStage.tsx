@@ -10,8 +10,9 @@
 
 import React from 'react';
 import { useReducedMotion } from 'motion/react';
-import { Award, CheckCircle2, Home, ShieldCheck, Sparkles } from 'lucide-react';
+import { Award, CheckCircle2, ClipboardCheck, Home, ShieldCheck, Sparkles } from 'lucide-react';
 import type { MissionCompletionSummary } from '../../../schemas/grammarEngine.schema';
+import type { AssessmentAttemptRecord } from '../../../schemas/assessment.schema';
 import { Button, CourtyardNoticeboardScene } from '../../../components';
 import { SpeakerPortrait } from '../speakerTheme';
 
@@ -19,6 +20,8 @@ export interface MissionCompletionStageProps {
   missionTitle: string;
   classLevel: 9 | 10;
   summary: MissionCompletionSummary;
+  assessmentAttempt?: AssessmentAttemptRecord | null;
+  onStartAssessment?: () => void;
   onReturnHome: () => void;
   onReviewLesson: () => void;
 }
@@ -27,10 +30,13 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
   missionTitle,
   classLevel,
   summary,
+  assessmentAttempt,
+  onStartAssessment,
   onReturnHome,
   onReviewLesson,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
+  const isAssessmentSubmitted = assessmentAttempt?.status === 'submitted';
 
   return (
     <div className="space-y-4">
@@ -134,6 +140,18 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
 
         {/* Actions */}
         <div className="flex flex-wrap items-center gap-2.5 pt-1">
+          {onStartAssessment ? (
+            <Button
+              variant="navy"
+              size="md"
+              onClick={onStartAssessment}
+              leftIcon={<ClipboardCheck className="w-4 h-4" />}
+            >
+              {isAssessmentSubmitted && assessmentAttempt.score !== null
+                ? `View Assessment Results (${assessmentAttempt.score}/${assessmentAttempt.totalQuestions})`
+                : 'Take Mission Assessment'}
+            </Button>
+          ) : null}
           <Button
             variant="primary"
             size="md"
