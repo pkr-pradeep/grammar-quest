@@ -107,8 +107,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
         className="relative overflow-hidden rounded-[24px] bg-[#FFFDF6] border-[1.5px] border-[#E9E1CB] p-4 min-h-[178px] flex items-center"
       >
         {/* Left Column: Greeting + Class Segmented Control */}
-        <div className="relative z-10 w-[204px] min-[375px]:w-[214px] sm:w-auto sm:max-w-[360px] md:max-w-[440px]">
-          <h1 className="text-[22px] sm:text-[26px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#1B2559]">
+        <div className="relative z-20 w-[196px] min-[375px]:w-[214px] sm:w-auto sm:max-w-[360px] md:max-w-[440px]">
+          <h1 className="text-[21px] min-[375px]:text-[22px] sm:text-[26px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#1B2559] whitespace-nowrap sm:whitespace-normal">
             Namaste, Learner!
           </h1>
           <p className="text-[13px] leading-[1.35] text-[#4A5170] mt-1">
@@ -125,7 +125,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             <div
               role="group"
               aria-labelledby="class-selector-label"
-              className="grid grid-cols-2 gap-1 p-1 rounded-[16px] bg-[#F3ECD8] w-full max-w-[214px] sm:max-w-[240px]"
+              className="grid grid-cols-2 gap-1 p-1 rounded-[16px] bg-[#F3ECD8] w-[176px] min-[375px]:w-[186px] sm:w-[236px]"
             >
               {CLASS_OPTIONS.map(({ level, label }) => {
                 const isSelected = selectedClass === level;
@@ -136,7 +136,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                     aria-pressed={isSelected}
                     onClick={() => onSelectClass(level)}
                     className={[
-                      'h-10 px-3 rounded-[12px] text-[13px] font-extrabold whitespace-nowrap',
+                      'h-10 px-2 sm:px-3 rounded-[12px] text-[12.5px] min-[375px]:text-[13px] font-extrabold whitespace-nowrap',
                       'transition-colors duration-150 cursor-pointer',
                       'focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]',
                       isSelected
@@ -155,9 +155,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
         {/* Right: Bottom-Right Anchored Existing Trio Artwork + Soft Warm Circle */}
         <div
           aria-hidden="true"
-          className="pointer-events-none select-none absolute right-[-6px] bottom-0 w-[150px] h-[116px] min-[375px]:w-[170px] min-[375px]:h-[130px] sm:w-[230px] sm:h-[152px] md:w-[260px] md:h-[164px] flex items-end justify-end"
+          className="pointer-events-none select-none absolute right-[-6px] bottom-0 z-10 w-[132px] h-[104px] min-[375px]:w-[162px] min-[375px]:h-[124px] sm:w-[230px] sm:h-[152px] md:w-[260px] md:h-[164px] flex items-end justify-end"
         >
-          <span className="absolute right-2 bottom-[-14px] w-[132px] h-[132px] min-[375px]:w-[148px] min-[375px]:h-[148px] sm:w-[196px] sm:h-[196px] rounded-full bg-[#FCE9BE]" />
+          <span className="absolute right-2 bottom-[-12px] w-[112px] h-[112px] min-[375px]:w-[132px] min-[375px]:h-[132px] sm:w-[196px] sm:h-[196px] rounded-full bg-[#FCE9BE]" />
           <WelcomeTrioIllustration className="relative z-10 w-full h-auto max-h-full block translate-y-[2px]" />
         </div>
       </motion.section>
