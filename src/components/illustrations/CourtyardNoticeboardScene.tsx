@@ -5,6 +5,7 @@
  * Strictly 2D flat-vector SVG backdrop paired with the immutable master
  * designs of Mira, Arjun, and Gyan. Supports:
  *  - 'scattered': Wind-blown noticeboard cards in the school courtyard (Stage 1)
+ *    with speaker spotlighting, name tags, ambient life, and per-scene effects
  *  - 'repaired': Neatly pinned Subject + Predicate strips on the board (Stage 10)
  * ============================================================================
  */
@@ -12,24 +13,161 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Character } from '../Character';
+import type {
+  CharacterExpression,
+  CharacterId,
+  CharacterPose,
+} from '../Character';
 
 export interface CourtyardNoticeboardSceneProps {
   mode: 'scattered' | 'repaired';
   sceneFocus?: 'mira-notices' | 'arjun-picks-up' | 'gyan-explains';
   isPaused?: boolean;
+  isTyping?: boolean;
   animationSeed?: number;
   className?: string;
 }
+
+const SPEAKER_BY_FOCUS: Record<
+  NonNullable<CourtyardNoticeboardSceneProps['sceneFocus']>,
+  CharacterId
+> = {
+  'mira-notices': 'mira',
+  'arjun-picks-up': 'arjun',
+  'gyan-explains': 'gyan',
+};
+
+const SPEAKER_COLOR: Record<CharacterId, string> = {
+  mira: '#C94A3A',
+  arjun: '#0F7F76',
+  gyan: '#5B43C2',
+};
+
+const SPEAKER_NAME: Record<CharacterId, string> = {
+  mira: 'Mira',
+  arjun: 'Arjun',
+  gyan: 'Gyan',
+};
+
+const SCENE_ARIA_LABEL: Record<
+  NonNullable<CourtyardNoticeboardSceneProps['sceneFocus']>,
+  string
+> = {
+  'mira-notices':
+    'Indian school courtyard where Mira points at the wooden noticeboard as a breeze scatters six paper scraps.',
+  'arjun-picks-up':
+    'Indian school courtyard where Arjun picks up a scattered "... plays cricket." scrap from the ground while Mira and Gyan watch.',
+  'gyan-explains':
+    'Indian school courtyard where Gyan projects Subject and Predicate strips onto the noticeboard to repair the sentence.',
+};
+
+interface ScrapConfig {
+  id: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  rotate: number;
+  fill: string;
+  stroke: string;
+  lineColor: string;
+  delay: string;
+  onBoard: boolean;
+}
+
+const SCENE_1_SCRAPS: ScrapConfig[] = [
+  {
+    id: 'scrap-board-1',
+    x: 342,
+    y: 66,
+    w: 76,
+    h: 22,
+    rotate: -4,
+    fill: '#FFF4D6',
+    stroke: '#F59B19',
+    lineColor: '#263A70',
+    delay: '0.1s',
+    onBoard: true,
+  },
+  {
+    id: 'scrap-board-2',
+    x: 426,
+    y: 68,
+    w: 74,
+    h: 22,
+    rotate: 5,
+    fill: '#FFFFFF',
+    stroke: '#263A70',
+    lineColor: '#0F7F76',
+    delay: '0.26s',
+    onBoard: true,
+  },
+  {
+    id: 'scrap-board-3',
+    x: 350,
+    y: 112,
+    w: 112,
+    h: 22,
+    rotate: -6,
+    fill: '#D9FAF5',
+    stroke: '#1FA89A',
+    lineColor: '#263A70',
+    delay: '0.42s',
+    onBoard: true,
+  },
+  {
+    id: 'scrap-ground-1',
+    x: 266,
+    y: 132,
+    w: 58,
+    h: 19,
+    rotate: -9,
+    fill: '#FFFFFF',
+    stroke: '#263A70',
+    lineColor: '#F59B19',
+    delay: '0.58s',
+    onBoard: false,
+  },
+  {
+    id: 'scrap-ground-2',
+    x: 498,
+    y: 142,
+    w: 62,
+    h: 19,
+    rotate: 10,
+    fill: '#FFF4D6',
+    stroke: '#263A70',
+    lineColor: '#1FA89A',
+    delay: '0.74s',
+    onBoard: false,
+  },
+  {
+    id: 'scrap-ground-3',
+    x: 348,
+    y: 202,
+    w: 74,
+    h: 18,
+    rotate: -7,
+    fill: '#FFFFFF',
+    stroke: '#263A70',
+    lineColor: '#263A70',
+    delay: '0.9s',
+    onBoard: false,
+  },
+];
 
 export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps> = ({
   mode,
   sceneFocus = 'mira-notices',
   isPaused = false,
+  isTyping = false,
   animationSeed = 0,
   className = '',
 }) => {
   const prefersReducedMotion = useReducedMotion();
   const shouldAnimate = !prefersReducedMotion && !isPaused;
+  const activeSpeaker = SPEAKER_BY_FOCUS[sceneFocus];
+  const isStoryMode = mode === 'scattered';
 
   const miraPose =
     mode === 'repaired'
@@ -81,9 +219,131 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
         ? 'explaining'
         : 'curious';
 
+  const sceneAriaLabel =
+    mode === 'scattered'
+      ? SCENE_ARIA_LABEL[sceneFocus]
+      : 'Indian school courtyard with neatly repaired notices pinned to the wooden noticeboard';
+
+  const renderSpeakerTag = (characterId: CharacterId) => {
+    const isActive = activeSpeaker === characterId;
+    if (!isActive) return null;
+    const color = SPEAKER_COLOR[characterId];
+    return (
+      <div
+        key={`tag-${characterId}-${sceneFocus}`}
+        aria-hidden="true"
+        className={[
+          'absolute left-1/2 -translate-x-1/2 -top-7 z-20 flex flex-col items-center pointer-events-none',
+          !prefersReducedMotion ? 'gq-story-tag-pop' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <span
+          className="px-2 py-0.5 rounded-full text-[11px] font-bold leading-tight text-white shadow-sm whitespace-nowrap"
+          style={{ backgroundColor: color }}
+        >
+          {SPEAKER_NAME[characterId]}
+        </span>
+        <span
+          className="w-0 h-0 border-l-[4px] border-r-[4px] border-t-[5px] border-l-transparent border-r-transparent -mt-[1px]"
+          style={{ borderTopColor: color }}
+        />
+      </div>
+    );
+  };
+
+  const renderStoryCharacter = (
+    characterId: CharacterId,
+    size: number,
+    pose: CharacterPose,
+    expression: CharacterExpression,
+    flipHorizontal = false,
+  ) => {
+    const isActive = activeSpeaker === characterId;
+    const color = SPEAKER_COLOR[characterId];
+    const isTalkingNow = isActive && isTyping && !isPaused && !prefersReducedMotion;
+
+    return (
+      <div
+        aria-hidden="true"
+        className="relative flex flex-col items-center origin-bottom"
+        style={{
+          transformOrigin: 'bottom center',
+          transform: isActive ? 'scale(1.12)' : 'scale(0.94)',
+          opacity: isActive ? 1 : 0.8,
+          filter: isActive ? 'saturate(1)' : 'saturate(0.7)',
+          transition: prefersReducedMotion
+            ? 'none'
+            : 'transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease, filter 0.35s ease',
+        }}
+      >
+        {/* Active speaker floating name tag */}
+        {renderSpeakerTag(characterId)}
+
+        {/* Ambient float (Gyan) -> Breathe -> Talking bob */}
+        <div
+          className={
+            characterId === 'gyan' && !prefersReducedMotion
+              ? 'gq-story-gyan-float'
+              : ''
+          }
+        >
+          <div
+            className={!prefersReducedMotion ? 'gq-story-breathe' : ''}
+            style={{ transformOrigin: 'bottom center' }}
+          >
+            <div className={isTalkingNow ? 'gq-story-talk-bob relative' : 'relative'}>
+              <Character
+                characterId={characterId}
+                pose={pose}
+                expression={expression}
+                animationState="none"
+                size={size}
+                flipHorizontal={flipHorizontal}
+                className="sm:scale-110 origin-bottom"
+              />
+
+              {/* Gyan blinking antenna beacon overlay */}
+              {characterId === 'gyan' ? (
+                <span
+                  aria-hidden="true"
+                  className={[
+                    'pointer-events-none absolute left-1/2 -translate-x-1/2 top-[33%] w-[7px] h-[7px] rounded-full bg-[#8DECE0]',
+                    !prefersReducedMotion ? 'gq-story-antenna-blink' : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                  style={{
+                    boxShadow: '0 0 6px 2px rgba(91, 67, 194, 0.55)',
+                  }}
+                />
+              ) : null}
+            </div>
+          </div>
+        </div>
+
+        {/* Soft coloured ground glow ellipse under active speaker */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none -mt-1.5 w-14 h-2.5 rounded-full blur-[1px]"
+          style={{
+            backgroundColor: color,
+            opacity: isActive ? 0.4 : 0,
+            transform: isActive ? 'scale(1)' : 'scale(0.65)',
+            transition: prefersReducedMotion
+              ? 'none'
+              : 'opacity 0.35s ease, transform 0.35s ease',
+          }}
+        />
+      </div>
+    );
+  };
+
   return (
     <div
-      key={`${mode}-${sceneFocus}-${animationSeed}`}
+      role="img"
+      aria-label={sceneAriaLabel}
       className={[
         'relative w-full overflow-hidden rounded-[18px] border border-[#E5E2D9] bg-gradient-to-b from-[#F4FBF9] via-[#FFF9EC] to-[#FFF1D5]',
         className,
@@ -94,14 +354,35 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
       {/* 2D Courtyard & Wooden Noticeboard SVG Backdrop */}
       <svg
         viewBox="0 0 640 250"
-        role="img"
-        aria-label={
-          mode === 'scattered'
-            ? 'Indian school courtyard with a wooden noticeboard and wind-scattered message cards'
-            : 'Indian school courtyard with neatly repaired notices pinned to the wooden noticeboard'
-        }
-        className="w-full h-[178px] sm:h-[220px] block select-none"
+        aria-hidden="true"
+        className="w-full h-[186px] sm:h-[224px] block select-none"
       >
+        <defs>
+          <linearGradient id="gq-story-violet-beam" x1="1" y1="0.8" x2="0" y2="0.2">
+            <stop offset="0%" stopColor="#5B43C2" stopOpacity="0.62" />
+            <stop offset="55%" stopColor="#5B43C2" stopOpacity="0.28" />
+            <stop offset="100%" stopColor="#5B43C2" stopOpacity="0.06" />
+          </linearGradient>
+        </defs>
+
+        {/* Subtle Drifting Clouds in Sky (Story scene ambient life) */}
+        {isStoryMode ? (
+          <g className={!prefersReducedMotion ? 'gq-story-cloud' : ''} opacity="0.78">
+            <path
+              d="M96 34 C96 28 102 24 109 25 C113 18 126 18 131 25 C137 24 143 28 143 34 Z"
+              fill="#FFFFFF"
+            />
+            <path
+              d="M242 26 C242 21 247 17 253 18 C257 12 269 12 273 18 C278 17 283 21 283 26 Z"
+              fill="#FFFFFF"
+            />
+            <path
+              d="M446 30 C446 25 451 21 456 22 C460 16 471 16 475 22 C480 21 484 25 484 30 Z"
+              fill="#FFFFFF"
+            />
+          </g>
+        ) : null}
+
         {/* Warm Courtyard Ground */}
         <rect x="0" y="182" width="640" height="68" fill="#F6E4BD" />
         <path
@@ -169,32 +450,34 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
           strokeWidth="2.2"
         />
 
-        {/* Shade Tree Foliage on Right Edge */}
-        <circle
-          cx="592"
-          cy="52"
-          r="46"
-          fill="#63C7A4"
-          stroke="#263A70"
-          strokeWidth="2.5"
-        />
-        <circle
-          cx="548"
-          cy="68"
-          r="30"
-          fill="#49B58C"
-          stroke="#263A70"
-          strokeWidth="2.5"
-        />
-        <rect
-          x="582"
-          y="94"
-          width="18"
-          height="88"
-          fill="#B67237"
-          stroke="#263A70"
-          strokeWidth="2.5"
-        />
+        {/* Shade Tree Foliage on Right Edge (gently sways in Story mode) */}
+        <g className={isStoryMode && !prefersReducedMotion ? 'gq-story-tree' : ''}>
+          <circle
+            cx="592"
+            cy="52"
+            r="46"
+            fill="#63C7A4"
+            stroke="#263A70"
+            strokeWidth="2.5"
+          />
+          <circle
+            cx="548"
+            cy="68"
+            r="30"
+            fill="#49B58C"
+            stroke="#263A70"
+            strokeWidth="2.5"
+          />
+          <rect
+            x="582"
+            y="94"
+            width="18"
+            height="88"
+            fill="#B67237"
+            stroke="#263A70"
+            strokeWidth="2.5"
+          />
+        </g>
 
         {/* Wooden School Noticeboard */}
         <rect
@@ -237,24 +520,10 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
         />
 
         {mode === 'scattered' ? (
-          <>
-            {/* Empty Pin Marks & Leftover Half Strip on Noticeboard */}
+          <g key={`scene-layer-${sceneFocus}-${animationSeed}`}>
+            {/* Base Board Outline State */}
             <g>
-              <rect
-                x="342"
-                y="70"
-                width="82"
-                height="24"
-                rx="6"
-                fill="#FFF4D6"
-                stroke="#F59B19"
-                strokeWidth="2"
-                strokeDasharray="4 3"
-              />
-              <line x1="352" y1="82" x2="412" y2="82" stroke="#263A70" strokeWidth="2.5" strokeLinecap="round" />
-              <circle cx="348" cy="74" r="3" fill="#F36F68" stroke="#263A70" strokeWidth="1.5" />
-
-              {/* Missing Second Half Outline */}
+              {/* Missing Second Half Outline on Board */}
               <rect
                 x="428"
                 y="70"
@@ -267,97 +536,441 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
                 strokeWidth="1.8"
                 strokeDasharray="4 4"
               />
+            </g>
 
-              {/* Tilted Remaining Notice Strip */}
-              <g transform="rotate(-6 410 124)">
+            {/* SCENE 1: Mira Notices — Breeze lines + 6 flying tumbling scraps */}
+            {sceneFocus === 'mira-notices' ? (
+              <g>
+                {/* Leftover half strip on board */}
+                <g>
+                  <rect
+                    x="342"
+                    y="70"
+                    width="82"
+                    height="24"
+                    rx="6"
+                    fill="#FFF4D6"
+                    stroke="#F59B19"
+                    strokeWidth="2"
+                    strokeDasharray="4 3"
+                  />
+                  <line
+                    x1="352"
+                    y1="82"
+                    x2="412"
+                    y2="82"
+                    stroke="#263A70"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="348"
+                    cy="74"
+                    r="3"
+                    fill="#F36F68"
+                    stroke="#263A70"
+                    strokeWidth="1.5"
+                  />
+                </g>
+
+                {/* Two top-left curved dashed breeze lines */}
+                <path
+                  d="M28 36 Q130 14 226 42 Q264 52 296 40"
+                  fill="none"
+                  stroke="#65D8CA"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeDasharray="10 8"
+                  className={!prefersReducedMotion ? 'gq-story-breeze-1' : ''}
+                />
+                <path
+                  d="M48 56 Q146 38 238 60 Q276 70 306 58"
+                  fill="none"
+                  stroke="#8DECE0"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeDasharray="8 8"
+                  className={!prefersReducedMotion ? 'gq-story-breeze-2' : ''}
+                />
+
+                {/* 6 paper scraps flying in from right edge and settling */}
+                {SCENE_1_SCRAPS.map((scrap) => (
+                  <g
+                    key={scrap.id}
+                    className={!prefersReducedMotion ? 'gq-story-scrap-flyin' : ''}
+                    style={{ animationDelay: scrap.delay }}
+                  >
+                    <g
+                      className={
+                        scrap.onBoard && !prefersReducedMotion ? 'gq-story-scrap-bob' : ''
+                      }
+                      style={{
+                        animationDelay: scrap.onBoard ? scrap.delay : undefined,
+                      }}
+                    >
+                      <g
+                        transform={`rotate(${scrap.rotate} ${scrap.x + scrap.w / 2} ${
+                          scrap.y + scrap.h / 2
+                        })`}
+                      >
+                        <rect
+                          x={scrap.x}
+                          y={scrap.y}
+                          width={scrap.w}
+                          height={scrap.h}
+                          rx="5"
+                          fill={scrap.fill}
+                          stroke={scrap.stroke}
+                          strokeWidth="2"
+                        />
+                        <line
+                          x1={scrap.x + 10}
+                          y1={scrap.y + scrap.h / 2}
+                          x2={scrap.x + scrap.w - 10}
+                          y2={scrap.y + scrap.h / 2}
+                          stroke={scrap.lineColor}
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                        />
+                        {scrap.onBoard ? (
+                          <circle
+                            cx={scrap.x + 10}
+                            cy={scrap.y + 5}
+                            r="2.6"
+                            fill="#FFC64B"
+                            stroke="#263A70"
+                            strokeWidth="1.4"
+                          />
+                        ) : null}
+                      </g>
+                    </g>
+                  </g>
+                ))}
+              </g>
+            ) : null}
+
+            {/* SCENE 2: Arjun Picks Up — Dashed ground outline + lifted glowing scrap */}
+            {sceneFocus === 'arjun-picks-up' ? (
+              <g>
+                {/* Remaining board strips settled */}
                 <rect
-                  x="346"
-                  y="112"
-                  width="124"
+                  x="342"
+                  y="70"
+                  width="82"
                   height="24"
                   rx="6"
-                  fill="#D9FAF5"
-                  stroke="#1FA89A"
+                  fill="#FFF4D6"
+                  stroke="#F59B19"
                   strokeWidth="2"
+                  strokeDasharray="4 3"
                 />
-                <line x1="358" y1="124" x2="452" y2="124" stroke="#263A70" strokeWidth="2.5" strokeLinecap="round" />
-                <circle cx="408" cy="116" r="3" fill="#FFC64B" stroke="#263A70" strokeWidth="1.5" />
+                <line
+                  x1="352"
+                  y1="82"
+                  x2="412"
+                  y2="82"
+                  stroke="#263A70"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+                <g transform="rotate(-6 410 124)">
+                  <rect
+                    x="346"
+                    y="112"
+                    width="124"
+                    height="24"
+                    rx="6"
+                    fill="#D9FAF5"
+                    stroke="#1FA89A"
+                    strokeWidth="2"
+                  />
+                  <line
+                    x1="358"
+                    y1="124"
+                    x2="452"
+                    y2="124"
+                    stroke="#263A70"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                </g>
+
+                {/* Other courtyard scraps */}
+                <g transform="rotate(-8 296 128)">
+                  <rect
+                    x="266"
+                    y="118"
+                    width="60"
+                    height="20"
+                    rx="5"
+                    fill="#FFFFFF"
+                    stroke="#263A70"
+                    strokeWidth="2"
+                  />
+                  <line
+                    x1="276"
+                    y1="128"
+                    x2="314"
+                    y2="128"
+                    stroke="#F59B19"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                  />
+                </g>
+                <g transform="rotate(8 529 148)">
+                  <rect
+                    x="498"
+                    y="138"
+                    width="62"
+                    height="20"
+                    rx="5"
+                    fill="#FFF4D6"
+                    stroke="#263A70"
+                    strokeWidth="2"
+                  />
+                  <line
+                    x1="508"
+                    y1="148"
+                    x2="548"
+                    y2="148"
+                    stroke="#1FA89A"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                  />
+                </g>
+
+                {/* Dashed outline left on the courtyard ground where the scrap was picked up */}
+                <g transform="rotate(-7 386 211)">
+                  <rect
+                    x="348"
+                    y="201"
+                    width="82"
+                    height="20"
+                    rx="5"
+                    fill="#FFFFFF"
+                    fillOpacity="0.35"
+                    stroke="#0F7F76"
+                    strokeWidth="1.8"
+                    strokeDasharray="4 3"
+                  />
+                </g>
+
+                {/* Lifted "... plays cricket." scrap arcing up near Arjun's hand + pulsing glow */}
+                <g
+                  className={!prefersReducedMotion ? 'gq-story-scrap-lift' : ''}
+                  style={{
+                    transformOrigin: '205px 158px',
+                    transform: prefersReducedMotion ? 'scale(1.1)' : undefined,
+                  }}
+                >
+                  {/* Soft pulsing halo ring after landing */}
+                  <rect
+                    x="159"
+                    y="144"
+                    width="92"
+                    height="28"
+                    rx="8"
+                    fill="none"
+                    stroke="#0F7F76"
+                    strokeWidth="3"
+                    className={!prefersReducedMotion ? 'gq-story-scrap-ring' : ''}
+                    style={{
+                      transformOrigin: '205px 158px',
+                      opacity: prefersReducedMotion ? 0.45 : undefined,
+                    }}
+                  />
+                  <rect
+                    x="162"
+                    y="147"
+                    width="86"
+                    height="22"
+                    rx="6"
+                    fill="#DDF4F0"
+                    stroke="#0F7F76"
+                    strokeWidth="2.2"
+                  />
+                  <text
+                    x="205"
+                    y="161"
+                    textAnchor="middle"
+                    fill="#263A70"
+                    fontSize="9.5"
+                    fontWeight="700"
+                  >
+                    ... plays cricket.
+                  </text>
+                </g>
               </g>
-            </g>
+            ) : null}
 
-            {/* Gentle 2D Breeze Swirls */}
-            <motion.g
-              initial={shouldAnimate ? { opacity: 0.45, x: -8 } : false}
-              animate={shouldAnimate ? { opacity: [0.45, 0.9, 0.45], x: [0, 12, 0] } : undefined}
-              transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <path
-                d="M220 44 Q258 34 290 48 Q304 54 294 64"
-                fill="none"
-                stroke="#65D8CA"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <path
-                d="M250 100 Q282 90 310 102"
-                fill="none"
-                stroke="#8DECE0"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </motion.g>
+            {/* SCENE 3: Gyan Explains — Violet beam, Subject + Predicate + "+" + Green Check */}
+            {sceneFocus === 'gyan-explains' ? (
+              <g>
+                {/* Faint fallen ground scraps */}
+                <g transform="rotate(8 529 148)" opacity="0.6">
+                  <rect
+                    x="498"
+                    y="138"
+                    width="62"
+                    height="18"
+                    rx="5"
+                    fill="#FFF4D6"
+                    stroke="#263A70"
+                    strokeWidth="1.8"
+                  />
+                </g>
 
-            {/* Drifting & Fallen Message Strips on the Courtyard */}
-            <motion.g
-              initial={shouldAnimate ? { y: -10, rotate: -10, opacity: 0.7 } : false}
-              animate={shouldAnimate ? { y: [0, 5, 0], rotate: [-8, -4, -8], opacity: 1 } : undefined}
-              transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <rect
-                x="266"
-                y="118"
-                width="60"
-                height="20"
-                rx="5"
-                fill="#FFFFFF"
-                stroke="#263A70"
-                strokeWidth="2"
-              />
-              <line x1="276" y1="128" x2="314" y2="128" stroke="#F59B19" strokeWidth="2.5" strokeLinecap="round" />
-            </motion.g>
+                {/* Translucent Violet Projection Beam from Gyan to Noticeboard */}
+                <polygon
+                  points="564,174 328,56 328,154 510,152"
+                  fill="url(#gq-story-violet-beam)"
+                  className={!prefersReducedMotion ? 'gq-story-beam' : ''}
+                  style={{ opacity: prefersReducedMotion ? 0.5 : undefined }}
+                />
 
-            <motion.g
-              initial={shouldAnimate ? { y: -6, rotate: 10, opacity: 0.7 } : false}
-              animate={shouldAnimate ? { y: [0, -4, 0], rotate: [10, 6, 10], opacity: 1 } : undefined}
-              transition={{ duration: 2.1, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <rect
-                x="498"
-                y="138"
-                width="62"
-                height="20"
-                rx="5"
-                fill="#FFF4D6"
-                stroke="#263A70"
-                strokeWidth="2"
-              />
-              <line x1="508" y1="148" x2="548" y2="148" stroke="#1FA89A" strokeWidth="2.5" strokeLinecap="round" />
-            </motion.g>
+                {/* Amber SUBJECT chip sliding from left */}
+                <g className={!prefersReducedMotion ? 'gq-story-slide-left' : ''}>
+                  <text
+                    x="373"
+                    y="78"
+                    textAnchor="middle"
+                    fill="#A15C00"
+                    fontSize="8"
+                    fontWeight="800"
+                    letterSpacing="0.06em"
+                  >
+                    SUBJECT
+                  </text>
+                  <rect
+                    x="333"
+                    y="83"
+                    width="80"
+                    height="26"
+                    rx="6"
+                    fill="#FFC64B"
+                    stroke="#263A70"
+                    strokeWidth="2"
+                  />
+                  <text
+                    x="373"
+                    y="99"
+                    textAnchor="middle"
+                    fill="#263A70"
+                    fontSize="9"
+                    fontWeight="700"
+                  >
+                    The little boy ...
+                  </text>
+                </g>
 
-            <g transform="rotate(-7 390 212)">
-              <rect
-                x="348"
-                y="202"
-                width="74"
-                height="18"
-                rx="5"
-                fill="#FFFFFF"
-                stroke="#263A70"
-                strokeWidth="2"
-              />
-              <line x1="358" y1="211" x2="408" y2="211" stroke="#263A70" strokeWidth="2.2" strokeLinecap="round" />
-            </g>
-          </>
+                {/* Teal PREDICATE chip sliding from right */}
+                <g className={!prefersReducedMotion ? 'gq-story-slide-right' : ''}>
+                  <text
+                    x="469"
+                    y="78"
+                    textAnchor="middle"
+                    fill="#0F7F76"
+                    fontSize="8"
+                    fontWeight="800"
+                    letterSpacing="0.06em"
+                  >
+                    PREDICATE
+                  </text>
+                  <rect
+                    x="429"
+                    y="83"
+                    width="80"
+                    height="26"
+                    rx="6"
+                    fill="#8DECE0"
+                    stroke="#0F7F76"
+                    strokeWidth="2"
+                  />
+                  <text
+                    x="469"
+                    y="99"
+                    textAnchor="middle"
+                    fill="#263A70"
+                    fontSize="9"
+                    fontWeight="700"
+                  >
+                    ... plays cricket.
+                  </text>
+                </g>
+
+                {/* Dark round "+" badge popping between Subject and Predicate */}
+                <g
+                  className={!prefersReducedMotion ? 'gq-story-badge-plus' : ''}
+                  style={{ transformOrigin: '421px 96px' }}
+                >
+                  <circle
+                    cx="421"
+                    cy="96"
+                    r="10"
+                    fill="#263A70"
+                    stroke="#FFFFFF"
+                    strokeWidth="1.8"
+                  />
+                  <path
+                    d="M416.5 96H425.5 M421 91.5V100.5"
+                    stroke="#FFFFFF"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                  />
+                </g>
+
+                {/* Complete Sentence summary pill inside board */}
+                <g
+                  className={!prefersReducedMotion ? 'gq-story-badge-check' : ''}
+                  style={{ transformOrigin: '421px 129px' }}
+                >
+                  <rect
+                    x="346"
+                    y="119"
+                    width="150"
+                    height="20"
+                    rx="10"
+                    fill="#FFFFFF"
+                    stroke="#5B43C2"
+                    strokeWidth="1.8"
+                  />
+                  <text
+                    x="421"
+                    y="132"
+                    textAnchor="middle"
+                    fill="#263A70"
+                    fontSize="8.8"
+                    fontWeight="700"
+                  >
+                    The little boy plays cricket.
+                  </text>
+                </g>
+
+                {/* Green check badge at top-right corner of the noticeboard */}
+                <g
+                  className={!prefersReducedMotion ? 'gq-story-badge-check' : ''}
+                  style={{ transformOrigin: '518px 46px' }}
+                >
+                  <circle
+                    cx="518"
+                    cy="46"
+                    r="13"
+                    fill="#1B8A5A"
+                    stroke="#FFFFFF"
+                    strokeWidth="2.4"
+                  />
+                  <path
+                    d="M512 46.5 L516.2 50.5 L524.5 41.8"
+                    fill="none"
+                    stroke="#FFFFFF"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+              </g>
+            ) : null}
+          </g>
         ) : (
           /* Repaired Noticeboard: Subject (Amber) + Predicate (Turquoise) Strips Pinned Cleanly */
           <g>
@@ -411,60 +1024,46 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
       </svg>
 
       {/* Foreground Master Characters Overlay (Immutable SVG Masters) */}
-      <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-20 sm:-mt-24 pb-2 relative z-10">
-        <div className="flex items-end gap-1 sm:gap-2">
+      {isStoryMode ? (
+        <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
+          <div className="flex items-end gap-2 sm:gap-4">
+            {renderStoryCharacter('mira', 68, miraPose, miraExpr)}
+            {renderStoryCharacter('arjun', 68, arjunPose, arjunExpr)}
+          </div>
+          {renderStoryCharacter('gyan', 64, gyanPose, gyanExpr, true)}
+        </div>
+      ) : (
+        <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-20 sm:-mt-24 pb-2 relative z-10">
+          <div className="flex items-end gap-1 sm:gap-2">
+            <Character
+              characterId="mira"
+              pose={miraPose}
+              expression={miraExpr}
+              animationState={isPaused ? 'none' : 'celebrate'}
+              size={68}
+              className="sm:scale-110 origin-bottom"
+            />
+            <Character
+              characterId="arjun"
+              pose={arjunPose}
+              expression={arjunExpr}
+              animationState={isPaused ? 'none' : 'celebrate'}
+              size={68}
+              className="sm:scale-110 origin-bottom"
+            />
+          </div>
+
           <Character
-            characterId="mira"
-            pose={miraPose}
-            expression={miraExpr}
-            animationState={
-              isPaused
-                ? 'none'
-                : mode === 'repaired'
-                  ? 'celebrate'
-                  : sceneFocus === 'mira-notices'
-                    ? 'point'
-                    : 'idle'
-            }
-            size={68}
-            className="sm:scale-110 origin-bottom"
-          />
-          <Character
-            characterId="arjun"
-            pose={arjunPose}
-            expression={arjunExpr}
-            animationState={
-              isPaused
-                ? 'none'
-                : mode === 'repaired'
-                  ? 'celebrate'
-                  : sceneFocus === 'arjun-picks-up'
-                    ? 'talk'
-                    : 'idle'
-            }
-            size={68}
+            characterId="gyan"
+            pose={gyanPose}
+            expression={gyanExpr}
+            animationState={isPaused ? 'none' : 'celebrate'}
+            size={64}
+            flipHorizontal
             className="sm:scale-110 origin-bottom"
           />
         </div>
-
-        <Character
-          characterId="gyan"
-          pose={gyanPose}
-          expression={gyanExpr}
-          animationState={
-            isPaused
-              ? 'none'
-              : mode === 'repaired'
-                ? 'celebrate'
-                : sceneFocus === 'gyan-explains'
-                  ? 'talk'
-                  : 'idle'
-          }
-          size={64}
-          flipHorizontal
-          className="sm:scale-110 origin-bottom"
-        />
-      </div>
+      )}
     </div>
   );
 };

@@ -19,6 +19,7 @@ export interface LessonNavigationProps {
   onTogglePause: () => void;
   onReplay: () => void;
   nextLabel?: string;
+  nudgeNextArrow?: boolean;
 }
 
 export const LessonNavigation: React.FC<LessonNavigationProps> = ({
@@ -30,6 +31,7 @@ export const LessonNavigation: React.FC<LessonNavigationProps> = ({
   onTogglePause,
   onReplay,
   nextLabel,
+  nudgeNextArrow = false,
 }) => {
   const isFirst = currentStepIndex === 0;
   const isLast = currentStepIndex >= totalSteps - 1;
@@ -107,7 +109,12 @@ export const LessonNavigation: React.FC<LessonNavigationProps> = ({
           ].join(' ')}
         >
           <span>{nextLabel ?? (isLast ? 'Word Lab' : 'Next')}</span>
-          <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
+          <ArrowRight
+            className={['w-4 h-4 shrink-0', nudgeNextArrow ? 'gq-story-arrow-nudge' : '']
+              .filter(Boolean)
+              .join(' ')}
+            aria-hidden="true"
+          />
         </button>
       </div>
     </nav>
