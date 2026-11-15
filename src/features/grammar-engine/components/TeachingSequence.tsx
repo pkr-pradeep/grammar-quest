@@ -12,6 +12,7 @@
  */
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { useReducedMotion } from 'motion/react';
 import { ChevronDown, ChevronUp, ListOrdered } from 'lucide-react';
 import type {
   GrammarLessonDefinition,
@@ -32,11 +33,13 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   lesson,
   onCompleteSequence,
 }) => {
+  const prefersReducedMotion = Boolean(useReducedMotion());
   const steps = lesson.teachingSequence;
   const [stepIndex, setStepIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [animationSeed, setAnimationSeed] = useState(0);
   const [stepsDrawerOpen, setStepsDrawerOpen] = useState(false);
+  const [isExplanationTyped, setIsExplanationTyped] = useState(prefersReducedMotion);
 
   const currentStep = steps[stepIndex] ?? steps[0];
 
@@ -131,7 +134,14 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   const percent = steps.length > 0 ? Math.round(((stepIndex + 1) / steps.length) * 100) : 0;
 
   return (
-    <div className="flex-1 flex flex-col justify-between min-h-0">
+    <div
+      className={[
+        'gq-story-stage flex-1 flex flex-col justify-between min-h-0',
+        isPaused ? 'gq-story-paused' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
       {/* Slim Progress Indicator + Expandable Step Switcher */}
       <div className="bg-white border-b border-[#E5E2D9] px-3 sm:px-6 py-1.5">
         <div className="max-w-[920px] mx-auto relative">
@@ -224,6 +234,9 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
           characterExpression={currentStep.characterExpression}
           provenance={currentStep.provenance}
           sourceReferences={stepRefs}
+          isPaused={isPaused}
+          animationSeed={animationSeed}
+          onTypingCompleteChange={setIsExplanationTyped}
         />
 
         <SentenceVisualizer
@@ -270,6 +283,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
         onTogglePause={() => setIsPaused((p) => !p)}
         onReplay={handleReplay}
         nextLabel={stepIndex === steps.length - 1 ? 'Guided Practice' : 'Next'}
+        nudgeNextArrow={isExplanationTyped && !isPaused && !prefersReducedMotion}
       />
     </div>
   );

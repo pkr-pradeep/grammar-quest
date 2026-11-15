@@ -53,7 +53,7 @@ export const WelcomeTrioIllustration: React.FC<TrioIllustrationProps> = ({ class
       {/* ================================================================
           MIRA (Left — Indian student holding a turquoise notebook)
          ================================================================ */}
-      <g id="character-mira">
+      <g id="character-mira" className="gq-story-breathe" style={{ transformOrigin: '96px 196px' }}>
         {/* Back hair / braid */}
         <path
           d="M72 95C64 114 63 136 69 152C74 152 80 144 82 134"
@@ -187,7 +187,7 @@ export const WelcomeTrioIllustration: React.FC<TrioIllustrationProps> = ({ class
       {/* ================================================================
           ARJUN (Center — Indian student in turquoise overshirt)
          ================================================================ */}
-      <g id="character-arjun">
+      <g id="character-arjun" className="gq-story-breathe" style={{ transformOrigin: '179px 196px', animationDelay: '0.4s' }}>
         {/* Torso / Turquoise Overshirt over Cream Tee */}
         <path
           d="M151 131C151 122 162 117 179 117C196 117 207 122 207 131L214 196H144L151 131Z"
@@ -280,7 +280,7 @@ export const WelcomeTrioIllustration: React.FC<TrioIllustrationProps> = ({ class
       {/* ================================================================
           GYAN (Right — Friendly 2D Study Companion Bot)
          ================================================================ */}
-      <g id="character-gyan">
+      <g id="character-gyan" className="gq-story-gyan-float">
         {/* Leaf-sprout Antenna */}
         <line x1="274" y1="88" x2="274" y2="73" stroke="#263A70" strokeWidth="2.6" strokeLinecap="round" />
         <path

@@ -9,9 +9,11 @@
  */
 
 import React from 'react';
+import { useReducedMotion } from 'motion/react';
 import { Award, CheckCircle2, Home, ShieldCheck, Sparkles } from 'lucide-react';
 import type { MissionCompletionSummary } from '../../../schemas/grammarEngine.schema';
 import { Button, CourtyardNoticeboardScene } from '../../../components';
+import { SpeakerPortrait } from '../speakerTheme';
 
 export interface MissionCompletionStageProps {
   missionTitle: string;
@@ -28,6 +30,8 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
   onReturnHome,
   onReviewLesson,
 }) => {
+  const prefersReducedMotion = Boolean(useReducedMotion());
+
   return (
     <div className="space-y-4">
       {/* Repaired Courtyard Noticeboard Celebration Scene */}
@@ -38,10 +42,36 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
         aria-label="Mission completed"
         className="rounded-[20px] bg-white border border-[#E5E2D9] p-4 sm:p-6 space-y-4"
       >
-        <div className="space-y-1.5">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D9FAF5] border border-[#65D8CA] text-xs font-semibold text-[#0E5A42]">
-            <Award className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-            <span>Mission Complete · Class {classLevel}</span>
+        <div className="space-y-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-2.5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D9FAF5] border border-[#65D8CA] text-xs font-semibold text-[#0E5A42]">
+              <Award className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              <span>Mission Complete · Class {classLevel}</span>
+            </div>
+
+            <div className="flex items-center -space-x-2" aria-hidden="true">
+              <SpeakerPortrait
+                characterId="mira"
+                expression="celebrating"
+                pose="celebrating"
+                animatePop={!prefersReducedMotion}
+                popDelayMs={0}
+              />
+              <SpeakerPortrait
+                characterId="arjun"
+                expression="happy"
+                pose="celebrating"
+                animatePop={!prefersReducedMotion}
+                popDelayMs={110}
+              />
+              <SpeakerPortrait
+                characterId="gyan"
+                expression="celebrating"
+                pose="celebrating"
+                animatePop={!prefersReducedMotion}
+                popDelayMs={220}
+              />
+            </div>
           </div>
 
           <h2 className="font-heading text-xl sm:text-2xl font-semibold text-[#263A70]">

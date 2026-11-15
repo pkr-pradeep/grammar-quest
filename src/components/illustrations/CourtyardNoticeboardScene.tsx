@@ -365,23 +365,21 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
           </linearGradient>
         </defs>
 
-        {/* Subtle Drifting Clouds in Sky (Story scene ambient life) */}
-        {isStoryMode ? (
-          <g className={!prefersReducedMotion ? 'gq-story-cloud' : ''} opacity="0.78">
-            <path
-              d="M96 34 C96 28 102 24 109 25 C113 18 126 18 131 25 C137 24 143 28 143 34 Z"
-              fill="#FFFFFF"
-            />
-            <path
-              d="M242 26 C242 21 247 17 253 18 C257 12 269 12 273 18 C278 17 283 21 283 26 Z"
-              fill="#FFFFFF"
-            />
-            <path
-              d="M446 30 C446 25 451 21 456 22 C460 16 471 16 475 22 C480 21 484 25 484 30 Z"
-              fill="#FFFFFF"
-            />
-          </g>
-        ) : null}
+        {/* Subtle Drifting Clouds in Sky (Story & Repaired ambient life) */}
+        <g className={!prefersReducedMotion ? 'gq-story-cloud' : ''} opacity="0.78">
+          <path
+            d="M96 34 C96 28 102 24 109 25 C113 18 126 18 131 25 C137 24 143 28 143 34 Z"
+            fill="#FFFFFF"
+          />
+          <path
+            d="M242 26 C242 21 247 17 253 18 C257 12 269 12 273 18 C278 17 283 21 283 26 Z"
+            fill="#FFFFFF"
+          />
+          <path
+            d="M446 30 C446 25 451 21 456 22 C460 16 471 16 475 22 C480 21 484 25 484 30 Z"
+            fill="#FFFFFF"
+          />
+        </g>
 
         {/* Warm Courtyard Ground */}
         <rect x="0" y="182" width="640" height="68" fill="#F6E4BD" />
@@ -450,8 +448,8 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
           strokeWidth="2.2"
         />
 
-        {/* Shade Tree Foliage on Right Edge (gently sways in Story mode) */}
-        <g className={isStoryMode && !prefersReducedMotion ? 'gq-story-tree' : ''}>
+        {/* Shade Tree Foliage on Right Edge (gently sways) */}
+        <g className={!prefersReducedMotion ? 'gq-story-tree' : ''}>
           <circle
             cx="592"
             cy="52"
@@ -1019,6 +1017,39 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
               strokeWidth="1.4"
               strokeLinejoin="round"
             />
+
+            {/* Celebratory Sparkle Glints Around the Repaired Noticeboard */}
+            <g
+              className={!prefersReducedMotion ? 'gq-story-sparkle' : ''}
+              style={{ transformOrigin: '312px 38px' }}
+            >
+              <path
+                d="M312 31L314 36L319 38L314 40L312 45L310 40L305 38L310 36Z"
+                fill="#FFC64B"
+                stroke="#263A70"
+                strokeWidth="1.2"
+              />
+            </g>
+            <g
+              className={!prefersReducedMotion ? 'gq-story-sparkle' : ''}
+              style={{ transformOrigin: '528px 36px', animationDelay: '0.45s' }}
+            >
+              <path
+                d="M528 29L530 34L535 36L530 38L528 43L526 38L521 36L526 34Z"
+                fill="#8DECE0"
+                stroke="#263A70"
+                strokeWidth="1.2"
+              />
+            </g>
+            <g
+              className={!prefersReducedMotion ? 'gq-story-sparkle' : ''}
+              style={{ transformOrigin: '454px 25px', animationDelay: '0.9s' }}
+            >
+              <path
+                d="M454 20L455.6 23.8L459.5 25L455.6 26.2L454 30L452.4 26.2L448.5 25L452.4 23.8Z"
+                fill="#5B43C2"
+              />
+            </g>
           </g>
         )}
       </svg>
@@ -1033,35 +1064,83 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
           {renderStoryCharacter('gyan', 64, gyanPose, gyanExpr, true)}
         </div>
       ) : (
-        <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-20 sm:-mt-24 pb-2 relative z-10">
-          <div className="flex items-end gap-1 sm:gap-2">
-            <Character
-              characterId="mira"
-              pose={miraPose}
-              expression={miraExpr}
-              animationState={isPaused ? 'none' : 'celebrate'}
-              size={68}
-              className="sm:scale-110 origin-bottom"
-            />
-            <Character
-              characterId="arjun"
-              pose={arjunPose}
-              expression={arjunExpr}
-              animationState={isPaused ? 'none' : 'celebrate'}
-              size={68}
-              className="sm:scale-110 origin-bottom"
-            />
+        <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
+          <div className="flex items-end gap-2 sm:gap-4">
+            {(
+              [
+                { id: 'mira' as const, size: 68, pose: miraPose, expr: miraExpr, flip: false, delay: '0ms' },
+                { id: 'arjun' as const, size: 68, pose: arjunPose, expr: arjunExpr, flip: false, delay: '120ms' },
+              ] as const
+            ).map((c) => (
+              <div key={c.id} aria-hidden="true" className="relative flex flex-col items-center">
+                <div
+                  className={[
+                    'mb-1 px-2 py-0.5 rounded-full text-[11px] font-bold leading-tight text-white shadow-xs',
+                    !prefersReducedMotion ? 'gq-story-tag-pop' : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                  style={{ backgroundColor: SPEAKER_COLOR[c.id], animationDelay: c.delay }}
+                >
+                  {SPEAKER_NAME[c.id]}
+                </div>
+                <div className={!prefersReducedMotion ? 'gq-story-breathe' : ''} style={{ animationDelay: c.delay }}>
+                  <Character
+                    characterId={c.id}
+                    pose={c.pose}
+                    expression={c.expr}
+                    animationState={isPaused ? 'none' : 'celebrate'}
+                    size={c.size}
+                    flipHorizontal={c.flip}
+                    className="sm:scale-110 origin-bottom"
+                  />
+                </div>
+                <div
+                  className="pointer-events-none -mt-1.5 w-12 h-2 rounded-full blur-[1px] opacity-35"
+                  style={{ backgroundColor: SPEAKER_COLOR[c.id] }}
+                />
+              </div>
+            ))}
           </div>
 
-          <Character
-            characterId="gyan"
-            pose={gyanPose}
-            expression={gyanExpr}
-            animationState={isPaused ? 'none' : 'celebrate'}
-            size={64}
-            flipHorizontal
-            className="sm:scale-110 origin-bottom"
-          />
+          <div aria-hidden="true" className="relative flex flex-col items-center">
+            <div
+              className={[
+                'mb-1 px-2 py-0.5 rounded-full text-[11px] font-bold leading-tight text-white shadow-xs',
+                !prefersReducedMotion ? 'gq-story-tag-pop' : '',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+              style={{ backgroundColor: SPEAKER_COLOR.gyan, animationDelay: '220ms' }}
+            >
+              {SPEAKER_NAME.gyan}
+            </div>
+            <div className={!prefersReducedMotion ? 'gq-story-gyan-float relative' : 'relative'}>
+              <Character
+                characterId="gyan"
+                pose={gyanPose}
+                expression={gyanExpr}
+                animationState={isPaused ? 'none' : 'celebrate'}
+                size={64}
+                flipHorizontal
+                className="sm:scale-110 origin-bottom"
+              />
+              <span
+                aria-hidden="true"
+                className={[
+                  'pointer-events-none absolute left-1/2 -translate-x-1/2 top-[33%] w-[7px] h-[7px] rounded-full bg-[#8DECE0]',
+                  !prefersReducedMotion ? 'gq-story-antenna-blink' : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
+                style={{ boxShadow: '0 0 6px 2px rgba(91, 67, 194, 0.55)' }}
+              />
+            </div>
+            <div
+              className="pointer-events-none -mt-1.5 w-12 h-2 rounded-full blur-[1px] opacity-35"
+              style={{ backgroundColor: SPEAKER_COLOR.gyan }}
+            />
+          </div>
         </div>
       )}
     </div>

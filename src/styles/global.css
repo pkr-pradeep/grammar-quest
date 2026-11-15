@@ -516,6 +516,21 @@ a {
   animation: gq-story-badge-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 1.35s both;
 }
 
+@keyframes gq-story-sparkle-pulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.82) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.16) rotate(10deg);
+  }
+}
+
+.gq-story-sparkle {
+  animation: gq-story-sparkle-pulse 2s ease-in-out infinite;
+}
+
 /* Respect user reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -542,7 +557,8 @@ a {
   .gq-story-scrap-bob,
   .gq-story-scrap-ring,
   .gq-story-chip-glow-teal,
-  .gq-story-chip-glow-amber {
+  .gq-story-chip-glow-amber,
+  .gq-story-sparkle {
     animation: none !important;
   }
 

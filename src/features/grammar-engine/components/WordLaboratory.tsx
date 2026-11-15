@@ -8,9 +8,11 @@
  */
 
 import React, { useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { ArrowLeft, ArrowRight, Award, Check } from 'lucide-react';
 import type { WordLabActivity } from '../../../schemas/grammarEngine.schema';
-import { Button, Character } from '../../../components';
+import { Button } from '../../../components';
+import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
 import { IdentifyGroupActivity } from './IdentifyGroupActivity';
 import { IdentifyBothActivity } from './IdentifyBothActivity';
 import { CategorisationActivity } from './CategorisationActivity';
@@ -36,8 +38,10 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
   onBackToLesson,
   onFinishMissionPractice,
 }) => {
+  const prefersReducedMotion = Boolean(useReducedMotion());
   const [activeIndex, setActiveIndex] = useState(0);
   const [solvedIds, setSolvedIds] = useState<string[]>([]);
+  const gyanTheme = SPEAKER_THEMES.gyan;
 
   const currentActivity = activities[activeIndex] ?? activities[0];
   const allSolved = activities.length > 0 && activities.every((a) => solvedIds.includes(a.id));
@@ -138,21 +142,44 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
 
       {/* Completion Banner once all Guided Practice activities are completed */}
       {allSolved ? (
-        <div className="rounded-[18px] bg-[#FFF1D5] border border-[#F2DFB6] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <Character
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-[18px] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          style={{
+            backgroundColor: gyanTheme.tint,
+            border: `1.5px solid ${gyanTheme.solid}`,
+          }}
+        >
+          <div className="flex items-start sm:items-center gap-3">
+            <SpeakerPortrait
               characterId="gyan"
               expression="celebrating"
               pose="celebrating"
-              animationState="celebrate"
-              size="xs"
+              animatePop={!prefersReducedMotion}
+              isTalking={!prefersReducedMotion}
             />
-            <div className="space-y-0.5">
-              <p className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#263A70]">
-                <Award className="w-4 h-4 text-[#A15C00]" aria-hidden="true" />
-                <span>Guided practice complete!</span>
-              </p>
-              <p className="text-xs sm:text-sm text-[#333333]">
+            <div className="space-y-1">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span
+                  className="px-2 py-0.5 rounded-[8px] text-white text-[11px] font-bold leading-snug"
+                  style={{ backgroundColor: gyanTheme.solid }}
+                >
+                  {gyanTheme.name}
+                </span>
+                <span
+                  className="text-[11px] font-semibold"
+                  style={{ color: gyanTheme.solid }}
+                >
+                  {gyanTheme.roleLabel}
+                </span>
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#263A70]">
+                  <Award className="w-3.5 h-3.5 text-[#5B43C2]" aria-hidden="true" />
+                  <span>Guided practice complete!</span>
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-[#263A70]">
                 {hasIndependentPractice
                   ? 'You are ready to try new sentences on your own in Independent Practice.'
                   : 'You explored every Subject and Predicate tool.'}
@@ -163,7 +190,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
           <Button variant="primary" size="sm" onClick={onFinishMissionPractice}>
             {hasIndependentPractice ? 'Start Independent Practice' : 'Save & Return to Home'}
           </Button>
-        </div>
+        </motion.div>
       ) : null}
 
       {/* Navigation Footer */}

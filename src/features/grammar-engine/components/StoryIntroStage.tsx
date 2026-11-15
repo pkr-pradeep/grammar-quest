@@ -15,10 +15,9 @@ import { FastForward, Wind } from 'lucide-react';
 import type { MissionStoryIntro } from '../../../schemas/grammarEngine.schema';
 import {
   CHARACTER_MASTERS,
-  Character,
   CourtyardNoticeboardScene,
 } from '../../../components';
-import type { CharacterId } from '../../../components';
+import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
 import { LessonNavigation } from './LessonNavigation';
 
 export interface StoryIntroStageProps {
@@ -26,34 +25,6 @@ export interface StoryIntroStageProps {
   storyIntro: MissionStoryIntro;
   onStartTeaching: () => void;
 }
-
-interface SpeakerTheme {
-  solid: string;
-  tint: string;
-  roleLabel: string;
-  pointerLeft: string;
-}
-
-const SPEAKER_THEMES: Record<CharacterId, SpeakerTheme> = {
-  mira: {
-    solid: '#C94A3A',
-    tint: '#FDE6E1',
-    roleLabel: 'Student',
-    pointerLeft: '12%',
-  },
-  arjun: {
-    solid: '#0F7F76',
-    tint: '#DDF4F0',
-    roleLabel: 'Student',
-    pointerLeft: '28%',
-  },
-  gyan: {
-    solid: '#5B43C2',
-    tint: '#ECE6FB',
-    roleLabel: 'Robot guide',
-    pointerLeft: '87%',
-  },
-};
 
 const TYPEWRITER_CHAR_MS = 26;
 const PORTRAIT_LEAD_MS = 320;
@@ -147,49 +118,15 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
     }
   };
 
-  const renderSpeakerPortrait = () => {
-    const id = activeBeat.speaker;
-    const positionClass =
-      id === 'mira'
-        ? '-top-[20px]'
-        : id === 'arjun'
-          ? '-top-[16px]'
-          : '-top-[36px]';
-    const sizePx = id === 'gyan' ? 82 : 96;
-
-    return (
-      <div
-        key={`portrait-${activeBeat.id}-${animationSeed}`}
-        aria-hidden="true"
-        className={[
-          'relative w-[44px] h-[44px] rounded-full overflow-hidden shrink-0 bg-[#FFFDF8]',
-          !prefersReducedMotion ? 'gq-story-portrait-pop' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        style={{
-          border: `2.5px solid ${theme.solid}`,
-        }}
-      >
-        <div className={`absolute left-1/2 -translate-x-1/2 ${positionClass}`}>
-          <Character
-            characterId={id}
-            pose={
-              id === 'mira'
-                ? 'pointing'
-                : id === 'arjun'
-                  ? 'reading'
-                  : 'explaining'
-            }
-            expression={activeBeat.expression}
-            animationState="none"
-            size={sizePx}
-            flipHorizontal={id === 'gyan'}
-          />
-        </div>
-      </div>
-    );
-  };
+  const renderSpeakerPortrait = () => (
+    <SpeakerPortrait
+      key={`portrait-${activeBeat.id}-${animationSeed}`}
+      characterId={activeBeat.speaker}
+      expression={activeBeat.expression}
+      animatePop={!prefersReducedMotion}
+      isTalking={isActivelyTyping && !isPaused}
+    />
+  );
 
   return (
     <div
