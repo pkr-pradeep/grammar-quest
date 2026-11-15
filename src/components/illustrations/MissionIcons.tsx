@@ -46,22 +46,25 @@ export const MissionIllustration: React.FC<MissionIllustrationProps> = ({
   if (kind === 'magnifier') {
     return (
       <svg
-        viewBox="0 0 64 64"
+        width="26"
+        height="26"
+        viewBox="0 0 24 24"
         fill="none"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
         aria-hidden="true"
       >
         <path
-          d="M36 38L49 51C50.6 52.6 50.6 55.2 49 56.8C47.4 58.4 44.8 58.4 43.2 56.8L30 44"
-          fill="#F59B19"
-          stroke="#263A70"
-          strokeWidth="2.4"
-          strokeLinejoin="round"
+          d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"
+          stroke="#1B2559"
         />
-        <circle cx="27" cy="27" r="16" fill="#8DECE0" stroke="#263A70" strokeWidth="2.5" />
-        <circle cx="27" cy="27" r="11.5" fill="#FFFFFF" />
-        <path d="M21 21C23 18.5 26 17.5 29 18" stroke="#8DECE0" strokeWidth="2.5" strokeLinecap="round" />
+        <path
+          d="M15.4 15.4L20.5 20.5M7.5 9.5h6M7.5 12.5h4"
+          stroke="#D9741A"
+        />
       </svg>
     );
   }
