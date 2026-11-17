@@ -24,6 +24,7 @@ export interface StoryIntroStageProps {
   missionTitle: string;
   storyIntro: MissionStoryIntro;
   onStartTeaching: () => void;
+  onAdvanceStory?: () => void;
 }
 
 const TYPEWRITER_CHAR_MS = 26;
@@ -33,6 +34,7 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
   missionTitle,
   storyIntro,
   onStartTeaching,
+  onAdvanceStory,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
   const [beatIndex, setBeatIndex] = useState(0);
@@ -89,6 +91,7 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
   const displayedDialogue = fullDialogue.slice(0, typedCount);
 
   const handleNext = () => {
+    onAdvanceStory?.();
     if (!isLastBeat) {
       setIsPaused(false);
       setBeatIndex((i) => i + 1);
@@ -153,7 +156,10 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
           {!isLastBeat ? (
             <button
               type="button"
-              onClick={onStartTeaching}
+              onClick={() => {
+                onAdvanceStory?.();
+                onStartTeaching();
+              }}
               className="inline-flex items-center gap-1 min-h-[44px] px-3.5 rounded-[12px] border border-[#E5E2D9] bg-white text-xs font-semibold text-[#263A70] hover:bg-[#F5F2EA] cursor-pointer whitespace-nowrap shrink-0"
             >
               <span>Skip intro</span>
@@ -379,7 +385,7 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
         onNext={handleNext}
         onTogglePause={() => setIsPaused((p) => !p)}
         onReplay={handleReplay}
-        nextLabel={isLastBeat ? 'Start Mission' : 'Next'}
+        nextLabel={isLastBeat ? 'Start Lesson' : 'Next'}
         nudgeNextArrow={isTypingComplete && !isPaused && !prefersReducedMotion}
       />
     </div>

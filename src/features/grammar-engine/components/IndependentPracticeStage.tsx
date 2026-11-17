@@ -10,16 +10,21 @@
  * ============================================================================
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useReducedMotion } from 'motion/react';
 import { ArrowLeft, ArrowRight, Check, Layers, MessageSquare, RotateCcw } from 'lucide-react';
 import type { IndependentPracticeItem } from '../../../schemas/grammarEngine.schema';
-import { Button } from '../../../components';
+import { Button, CelebrationStars } from '../../../components';
+import { SpeakerPortrait } from '../speakerTheme';
 import { WordToken } from './WordToken';
 import { WordGroup } from './WordGroup';
 import { PracticeFeedback } from './PracticeFeedback';
+import { ActivityHintBox } from './ActivityCharacterNote';
 
 export interface IndependentPracticeStageProps {
   items: IndependentPracticeItem[];
+  initialSolvedIds?: string[];
+  onSolvedIdsChange?: (solvedIds: string[]) => void;
   onBackToGuided: () => void;
   onFinishIndependentPractice: () => void;
 }
@@ -32,11 +37,16 @@ function sameIds(a: string[], b: string[]): boolean {
 
 export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> = ({
   items,
+  initialSolvedIds,
+  onSolvedIdsChange,
   onBackToGuided,
   onFinishIndependentPractice,
 }) => {
+  const prefersReducedMotion = Boolean(useReducedMotion());
   const [itemIndex, setItemIndex] = useState(0);
-  const [solvedIds, setSolvedIds] = useState<string[]>([]);
+  const [solvedIds, setSolvedIds] = useState<string[]>(() => initialSolvedIds ?? []);
+  const solvedIdsRef = React.useRef<string[]>(solvedIds);
+  solvedIdsRef.current = solvedIds;
 
   // Per-item interactive state keyed cleanly by item id
   const [phaseById, setPhaseById] = useState<Record<string, 'subject' | 'predicate' | 'done'>>({});
@@ -45,9 +55,18 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   const [targetSelById, setTargetSelById] = useState<Record<string, string[]>>({});
   const [targetConfirmedById, setTargetConfirmedById] = useState<Record<string, boolean>>({});
   const [impChoiceById, setImpChoiceById] = useState<Record<string, string | null>>({});
+  const [hintOpenById, setHintOpenById] = useState<Record<string, boolean>>({});
   const [feedbackById, setFeedbackById] = useState<
     Record<string, { status: 'correct' | 'try-again'; title: string; message: string } | null>
   >({});
+
+  useEffect(() => {
+    if (!initialSolvedIds?.length) return;
+    setSolvedIds((prev) => {
+      const merged = Array.from(new Set([...prev, ...initialSolvedIds]));
+      return merged.length === prev.length ? prev : merged;
+    });
+  }, [initialSolvedIds]);
 
   const currentItem = items[itemIndex] ?? items[0];
   if (!currentItem) return null;
@@ -63,7 +82,12 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   const isCurrentSolved = solvedIds.includes(currentItem.id);
 
   const markSolved = (id: string) => {
-    setSolvedIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    const prev = solvedIdsRef.current;
+    if (prev.includes(id)) return;
+    const next = [...prev, id];
+    solvedIdsRef.current = next;
+    setSolvedIds(next);
+    onSolvedIdsChange?.(next);
   };
 
   const toggleToken = (tokenId: string) => {
@@ -130,7 +154,9 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
           ...prev,
           [currentItem.id]: {
             status: 'try-again',
-            title: 'Look closely at the Subject',
+            title: currentItem.part1Label
+              ? `Look closely at the ${currentItem.part1Label}`
+              : 'Look closely at the Subject',
             message:
               currentItem.retrySubjectFeedback ??
               'Select every word that names who or what this sentence is about before the finite verb.',
@@ -157,7 +183,9 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
           ...prev,
           [currentItem.id]: {
             status: 'try-again',
-            title: 'Check the Predicate',
+            title: currentItem.part2Label
+              ? `Check the ${currentItem.part2Label}`
+              : 'Check the Predicate',
             message:
               currentItem.retryPredicateFeedback ??
               'The Predicate starts at the finite verb and includes all remaining words.',
@@ -168,6 +196,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   };
 
   const handlePickImperative = (optionId: string) => {
+    if (currentPhase === 'done') return;
     const opt = currentItem.imperativeOptions?.find((o) => o.id === optionId);
     if (!opt) return;
     setImpChoiceById((prev) => ({ ...prev, [currentItem.id]: optionId }));
@@ -252,13 +281,21 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
             <span className="text-[11px] font-semibold uppercase tracking-wide text-[#A15C00]">
               Independent Practice · {itemIndex + 1} of {items.length}
             </span>
-            <span className="text-[11px] font-medium text-[#4B5C8A]">
-              {currentItem.cueLevel === 'gentle'
-                ? 'Light cue'
-                : currentItem.cueLevel === 'minimal'
-                  ? 'Minimal cue'
-                  : 'On your own'}
-            </span>
+            <div className="flex items-center gap-2">
+              {isCurrentSolved ? (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[8px] bg-[#D9FAF5] border border-[#65D8CA] text-[11px] font-semibold text-[#0E5A42]">
+                  <Check className="w-3 h-3 shrink-0" aria-hidden="true" />
+                  <span>Completed</span>
+                </span>
+              ) : null}
+              <span className="text-[11px] font-medium text-[#4B5C8A]">
+                {currentItem.cueLevel === 'gentle'
+                  ? 'Light cue'
+                  : currentItem.cueLevel === 'minimal'
+                    ? 'Minimal cue'
+                    : 'On your own'}
+              </span>
+            </div>
           </div>
 
           <h2 className="font-heading text-base sm:text-lg font-semibold text-[#263A70]">
@@ -291,9 +328,9 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
               )}
               <span>
                 {currentPhase === 'subject'
-                  ? 'Step 1: Select the Subject'
+                  ? (currentItem.part1Prompt ?? 'Step 1: Select the Subject')
                   : currentPhase === 'predicate'
-                    ? 'Step 2: Select the Predicate'
+                    ? (currentItem.part2Prompt ?? 'Step 2: Select the Predicate')
                     : 'Sentence structure verified!'}
               </span>
             </div>
@@ -347,7 +384,9 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
                       : predSel.length === 0
                   }
                 >
-                  {currentPhase === 'subject' ? 'Confirm Subject' : 'Check Answer'}
+                  {currentPhase === 'subject'
+                    ? (currentItem.part1ButtonLabel ?? 'Confirm Subject')
+                    : 'Check Answer'}
                 </Button>
                 <Button
                   variant="ghost"
@@ -438,15 +477,19 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
                       <button
                         key={opt.id}
                         type="button"
+                        disabled={currentPhase === 'done'}
                         onClick={() => handlePickImperative(opt.id)}
                         aria-pressed={isSelected}
                         className={[
-                          'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors cursor-pointer',
+                          'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors',
+                          currentPhase === 'done' ? 'cursor-default' : 'cursor-pointer',
                           isSelected
                             ? opt.isCorrect
                               ? 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]'
                               : 'bg-[#FEE8E7] border-[#F36F68] text-[#263A70]'
-                            : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
+                            : currentPhase === 'done'
+                              ? 'bg-[#FDFCF9] border-[#E5E2D9] text-[#4B5C8A] opacity-70'
+                              : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
                         ].join(' ')}
                       >
                         {opt.label}
@@ -479,15 +522,19 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
                   <button
                     key={opt.id}
                     type="button"
+                    disabled={currentPhase === 'done'}
                     onClick={() => handlePickImperative(opt.id)}
                     aria-pressed={isSelected}
                     className={[
-                      'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors cursor-pointer',
+                      'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors',
+                      currentPhase === 'done' ? 'cursor-default' : 'cursor-pointer',
                       isSelected
                         ? opt.isCorrect
                           ? 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]'
                           : 'bg-[#FEE8E7] border-[#F36F68] text-[#263A70]'
-                        : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
+                        : currentPhase === 'done'
+                          ? 'bg-[#FDFCF9] border-[#E5E2D9] text-[#4B5C8A] opacity-70'
+                          : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
                     ].join(' ')}
                   >
                     {opt.label}
@@ -497,6 +544,19 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
             </div>
           </div>
         )}
+
+        {currentItem.hint && currentPhase !== 'done' ? (
+          <ActivityHintBox
+            hint={currentItem.hint}
+            isOpen={Boolean(hintOpenById[currentItem.id])}
+            onToggle={() =>
+              setHintOpenById((prev) => ({
+                ...prev,
+                [currentItem.id]: !prev[currentItem.id],
+              }))
+            }
+          />
+        ) : null}
 
         {/* Immediate Feedback After Attempt */}
         {feedback ? (
@@ -511,11 +571,17 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <WordGroup
                   role="subject"
+                  titleOverride={currentItem.part1Label}
+                  coreLabelOverride={currentItem.part1Label ? 'Finite verb:' : undefined}
+                  questionPrompt={currentItem.part1Label ? 'Can stand alone' : undefined}
                   tokens={subjectTokens}
                   headWord={currentItem.sentence.structureSummary.subjectHeadWord}
                 />
                 <WordGroup
                   role="predicate"
+                  titleOverride={currentItem.part2Label}
+                  coreLabelOverride={currentItem.part2Label ? 'Subordinator + verb:' : undefined}
+                  questionPrompt={currentItem.part2Label ? 'Leans on Main Clause' : undefined}
                   tokens={predicateTokens}
                   headWord={currentItem.sentence.structureSummary.predicateHeadWord}
                 />
@@ -524,6 +590,39 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
           </div>
         ) : null}
       </div>
+
+      {/* Celebration Banner once all questions are answered */}
+      {allSolved ? (
+        <div
+          role="status"
+          className="rounded-[20px] bg-[#E4F6EC] border-2 border-[#8FD9AE] p-3.5 sm:p-4 flex items-center justify-between gap-3"
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <SpeakerPortrait
+              characterId="gyan"
+              expression="celebrating"
+              pose="celebrating"
+              sizePx={44}
+              ringWidthPx={2.5}
+              animatePop={!prefersReducedMotion}
+            />
+            <div className="min-w-0">
+              <p className="text-[15px] font-extrabold text-[#144D2E] leading-tight">
+                All {items.length} questions answered!
+              </p>
+              <p className="text-xs font-semibold text-[#1E6B42]">
+                Great work! Tap Complete Lesson below to save your progress.
+              </p>
+            </div>
+          </div>
+
+          <CelebrationStars
+            stars={3}
+            size="md"
+            ariaLabel="3 out of 3 stars earned"
+          />
+        </div>
+      ) : null}
 
       {/* Bottom Controls */}
       <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
@@ -559,7 +658,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
             onClick={onFinishIndependentPractice}
             rightIcon={<ArrowRight className="w-4 h-4" />}
           >
-            {allSolved ? 'Complete Mission' : `Solve all ${items.length} to finish`}
+            {allSolved ? 'Complete Lesson' : `Solve all ${items.length} to finish`}
           </Button>
         )}
       </div>

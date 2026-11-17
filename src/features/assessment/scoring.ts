@@ -25,32 +25,32 @@ const OBJECTIVE_DEFAULT_STAGE: Record<
   { actionLabel: string; stage: 'learn' | 'guided' | 'practice'; stepNumber?: number }
 > = {
   'recognising-complete-sentence': {
-    actionLabel: 'Revisit Stage 2: Complete Sentences',
+    actionLabel: 'Revisit: Complete Sentences',
     stage: 'learn',
     stepNumber: 1,
   },
   'identifying-subject': {
-    actionLabel: 'Revisit Stage 3: Discover the Subject',
+    actionLabel: 'Revisit: Discover the Subject',
     stage: 'learn',
     stepNumber: 2,
   },
   'identifying-predicate': {
-    actionLabel: 'Revisit Stage 5: Discover the Predicate',
+    actionLabel: 'Revisit: Discover the Predicate',
     stage: 'learn',
     stepNumber: 4,
   },
   'distinguishing-subject-predicate': {
-    actionLabel: 'Revisit Stage 6: Noticeboard Split',
+    actionLabel: 'Revisit: Noticeboard Split',
     stage: 'learn',
     stepNumber: 5,
   },
   'understanding-subject-meaning': {
-    actionLabel: 'Revisit Stage 4: Subject Head-Noun Meaning',
+    actionLabel: 'Revisit: Subject Head-Noun Meaning',
     stage: 'learn',
     stepNumber: 3,
   },
   'understanding-predicate-meaning': {
-    actionLabel: 'Revisit Stage 5: Action & Finite Verb',
+    actionLabel: 'Revisit: Action & Finite Verb',
     stage: 'learn',
     stepNumber: 4,
   },
@@ -290,6 +290,6 @@ export function getAchievementMessage(
   }
   return {
     headline: 'Every Attempt Helps You Grow!',
-    message: `Thank you for completing the full assessment. Use the clear explanations and revision links below to explore ${topicLabel} step by step.`,
+    message: `Thank you for completing the full test. Use the clear explanations and revision links below to explore ${topicLabel} step by step.`,
   };
 }

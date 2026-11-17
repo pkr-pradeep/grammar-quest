@@ -31,6 +31,7 @@ export interface AssessmentRunnerProps {
   assessment: AssessmentDefinition;
   onRevisitStage: (stage: RecommendedMissionStage, stepNumber?: number) => void;
   onBackToMission?: () => void;
+  onReviewLesson?: () => void;
   onBackToHome?: () => void;
   onAssessmentSubmitted?: (attempt: AssessmentAttemptRecord) => void;
 }
@@ -39,6 +40,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
   assessment,
   onRevisitStage,
   onBackToMission,
+  onReviewLesson,
   onBackToHome,
   onAssessmentSubmitted,
 }) => {
@@ -167,7 +169,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
   if (isLoading) {
     return (
       <div className="rounded-[20px] bg-white border border-[#E5E2D9] p-6 text-sm text-[#4B5C8A]">
-        Loading assessment…
+        Loading test…
       </div>
     );
   }
@@ -189,7 +191,6 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
       <AssessmentHeader
         title={assessment.title}
         missionTitle={assessment.missionTitle}
-        classLevel={assessment.classLevel}
         currentQuestionNumber={currentIndex + 1}
         totalQuestions={sanitizedQuestions.length}
         answeredCount={answeredCount}
@@ -203,6 +204,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
           attempt={attempt}
           onRevisitStage={onRevisitStage}
           onBackToMission={onBackToMission}
+          onReviewLesson={onReviewLesson}
           onBackToHome={onBackToHome}
         />
       ) : currentQuestion ? (

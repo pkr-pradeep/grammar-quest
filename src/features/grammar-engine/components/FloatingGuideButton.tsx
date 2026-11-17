@@ -44,20 +44,23 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
         ? 'reading'
         : 'explaining';
 
-  // Proportional crop framing inside the 54px inner circle (60px outer with 3px ring)
-  const charSizePx = characterId === 'gyan' ? 104 : 120;
+  // Proportional crop framing inside the 50px inner circle (56px outer with 3px ring)
+  const charSizePx = characterId === 'gyan' ? 96 : 112;
   const topOffsetPx =
-    characterId === 'mira' ? -24 : characterId === 'arjun' ? -19 : -44;
+    characterId === 'mira' ? -22 : characterId === 'arjun' ? -18 : -40;
 
   return (
     <div
       aria-hidden={isPopupOpen || undefined}
-      className="fixed right-4 z-30 pointer-events-none flex items-center justify-end gap-2.5"
+      className={[
+        'fixed right-4 z-30 pointer-events-none flex flex-col items-end gap-2 transition-opacity duration-150',
+        isPopupOpen ? 'opacity-0' : 'opacity-100',
+      ].join(' ')}
       style={{
-        bottom: 'calc(74px + env(safe-area-inset-bottom, 0px))',
+        bottom: 'calc(84px + env(safe-area-inset-bottom, 0px))',
       }}
     >
-      {/* 4.5s Post-Dismiss Label Hint (renders to the left of the button) */}
+      {/* 4.5s Post-Dismiss Label Hint (renders above the button, clear of bottom-center scroll cue) */}
       {showHint && !isPopupOpen ? (
         <div
           role="status"
@@ -101,7 +104,7 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
             boxShadow: '0 8px 20px rgba(27, 37, 89, 0.2)',
           }}
           className={[
-            'relative w-[60px] h-[60px] min-h-[44px] min-w-[44px] rounded-full bg-white flex items-center justify-center cursor-pointer transition-transform active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#1B2559]',
+            'relative w-[56px] h-[56px] min-h-[44px] min-w-[44px] rounded-full bg-white flex items-center justify-center cursor-pointer transition-transform active:scale-95 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#1B2559]',
             isPopping ? 'gq-guide-btn-pop' : '',
           ]
             .filter(Boolean)

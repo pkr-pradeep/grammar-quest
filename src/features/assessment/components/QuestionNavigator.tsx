@@ -162,7 +162,7 @@ export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
             leftIcon={<Send className="w-3.5 h-3.5" />}
             className="w-full sm:w-auto min-h-[44px]"
           >
-            Review &amp; Submit Assessment
+            Review &amp; Submit Test
           </Button>
         </div>
       ) : null}

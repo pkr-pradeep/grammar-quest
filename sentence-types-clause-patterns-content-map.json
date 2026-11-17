@@ -1,0 +1,630 @@
+{
+  "metadata": {
+    "chapterId": "chapter-sentence-types-clause-patterns",
+    "catalogTopicId": "topic-sentence-types",
+    "categoryId": "cat-sentence-clauses",
+    "categoryTitle": "Sentence Structure & Clauses",
+    "chapterTitle": "Sentence Types & Clause Patterns",
+    "phase": "phase-1-curriculum-and-learning-design",
+    "targetClasses": [9, 10],
+    "estimatedDurationMinutes": 8,
+    "status": "design-pending-approval",
+    "architectureCompatibility": {
+      "stack": ["React", "Vite", "TypeScript", "Tailwind CSS"],
+      "characters": ["mira", "arjun", "gyan"],
+      "engineComponents": [
+        "GrammarTeachingEngine",
+        "TeachingSequence",
+        "GuideNotePopup",
+        "SentenceVisualizer",
+        "WordLaboratory",
+        "IndependentPracticeStage",
+        "AssessmentRunner"
+      ],
+      "storage": ["IndexedDB (progressRepository, assessmentRepository)"]
+    },
+    "verificationBoundaryNote": "Textbook citations, chapter titles, book pages, PDF pages, and rule summaries are strictly derived from curriculum-source-map.json, curriculum-overview.md, content-gaps.md, and src/content/curriculumCatalog.ts. Raw PDF files are not present in this runtime container."
+  },
+  "prerequisites": [
+    {
+      "id": "prereq-m1-subject-predicate",
+      "sourceChapter": "Mission 01: Sentence Basics — Repair the Broken Message",
+      "concepts": [
+        "Meaningful word order",
+        "Subject (who/what) vs Predicate (what is said)",
+        "Locating the Subject head-noun and finite verb",
+        "Understood (You) in imperatives and split predicates in questions"
+      ]
+    },
+    {
+      "id": "prereq-m2-finite-verbs",
+      "sourceChapter": "Mission 02: Tenses — Journey Through Time",
+      "concepts": [
+        "Distinguishing finite tense-carrying verbs from non-finite verb forms (-ing, to + verb)"
+      ]
+    },
+    {
+      "id": "prereq-m3-agreement",
+      "sourceChapter": "Mission 03: Subject-Verb Agreement — The Grammar Detective",
+      "concepts": [
+        "Finite verbs agree with the Subject head-word in Number and Person"
+      ]
+    }
+  ],
+  "scopeBoundaries": {
+    "includedAreas": [
+      "Types of sentences according to purpose (Declarative, Interrogative, Imperative, Exclamatory + supplementary Optative note)",
+      "Phrases vs Clauses (finite-verb test)",
+      "Clause elements inside the Predicate (S, V, O [IO/DO], C, A)",
+      "Core simple clause patterns (SV, SVA, SVC, SVO, SVOO, SVOC)",
+      "Independent (Main) vs Dependent (Subordinate) clauses",
+      "Clause relationship contrast at the boundary (Coordination vs Subordination)"
+    ],
+    "excludedOrDeferredToOtherChapters": [
+      {
+        "topicTitle": "Simple, Compound & Complex Sentences",
+        "catalogTopicId": "topic-simple-compound-complex",
+        "reason": "Avoid duplicating full Simple/Compound/Complex sentence synthesis, joining rules, and transformation exercises."
+      },
+      {
+        "topicTitle": "Noun, Relative & Adverb Clauses",
+        "catalogTopicId": "topic-clauses",
+        "reason": "Deep subordinate clause classification, defining vs non-defining relative clauses, and adverbial clause subtypes belong in their dedicated chapter."
+      },
+      {
+        "topicTitle": "Negatives, Interrogatives & Transformations",
+        "catalogTopicId": "topic-negatives-interrogatives",
+        "reason": "Detailed do-support, question tags, and assertive/exclamatory conversions belong in their dedicated chapter."
+      },
+      {
+        "topicTitle": "Conjunctions",
+        "catalogTopicId": "topic-conjunctions",
+        "reason": "Exhaustive coordinating, subordinating, and correlative conjunction inventories belong in Connectors & Prepositions."
+      },
+      {
+        "topicTitle": "Over-granular sub-taxonomies (Assam 6 Subject kinds, 9 Subject Adjuncts, Cognate/Retained/Factive Objects)",
+        "catalogTopicId": null,
+        "reason": "Excluded to keep Classes 9-10 cognitive load clear and consistent across state boards."
+      }
+    ]
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od9-ch1-secD",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Chapter 1: Parts of a Sentence (Sections A, B, D)",
+      "bookPages": "1-7, 23-26",
+      "pdfPages": "7-13, 29-32",
+      "provenance": "textbook-derived",
+      "note": "Word order, Subject/Predicate, understood 'you', omitted 'it/is' in exclamations, and 4 functional types of simple sentences (Declarative, Interrogative, Imperative, Exclamatory)."
+    },
+    {
+      "id": "src-od9-ch12",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Chapter 12: The Predicate Phrase",
+      "bookPages": "141-146",
+      "pdfPages": "147-152",
+      "provenance": "textbook-derived",
+      "note": "Intransitive and Transitive verb patterns (S+V, S+V+C, S+V+O, S+V+O+O, S+V+O+C, S+V+A), Direct/Indirect objects, and Complements vs Adjuncts."
+    },
+    {
+      "id": "src-od10-ch2",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 2: Types of Sentences",
+      "bookPages": "13-22",
+      "pdfPages": "19-28",
+      "provenance": "textbook-derived",
+      "note": "Defines finite verb and clause; teaches Simple sentences (4 functional types + SV, SVO, SVOO, SVC, SVOC patterns on pp. 14-15), Compound sentences, and Complex sentences."
+    },
+    {
+      "id": "src-od10-ch4-finite",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 4: Non-Finite Verb Forms (Finite verb agreement note)",
+      "bookPages": "31",
+      "pdfPages": "37",
+      "provenance": "textbook-derived",
+      "note": "Contrasts finite verbs (showing subject agreement/tense) with non-finite forms (to+v, bare v, -en, -ing) that cannot form a clause alone."
+    },
+    {
+      "id": "src-assam-ch1-ch2",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Ch. 1: Sentence (L1-L9) & Ch. 2: Phrases and Clauses",
+      "bookPages": "1-9, 12-17, 18-24",
+      "pdfPages": "10-18, 21-26, 27-33",
+      "provenance": "textbook-derived",
+      "note": "Predicate objects/complements/adjuncts, 5 functional sentence types including Optative (L9), and explicit Phrase vs Clause classification (Ch. 2); Ch. 8 pp. 113-119 covers Clause Analysis."
+    },
+    {
+      "id": "src-pseb9-ch5-gap",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 5: Simple and Complex Sentences",
+      "bookPages": "53",
+      "pdfPages": "59",
+      "provenance": "textbook-derived",
+      "note": "Briefly defines a simple sentence as having 'one subject and one predicate'; omits functional types, Phrase vs Clause foundation, and SV-SVOC patterns."
+    },
+    {
+      "id": "src-stcp-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Visual Clause Pattern & Phrase-to-Clause Bridge (Supplementary)",
+      "chapter": "Sentence Types & Clause Patterns Blueprint",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Supplies structured Phrase-vs-Clause diagnostics, Equals-Test (SVC vs SVO / SVOC vs SVOO), Optative awareness note, and original compliant Indian school examples."
+    }
+  ],
+  "topics": [
+    {
+      "id": "stcp-topic-01",
+      "order": 1,
+      "title": "Functional Sentence Types (Sentence Purpose)",
+      "broadArea": "Types of sentences according to purpose",
+      "difficultyLevel": "Beginner",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch1-secD", "src-od10-ch2", "src-assam-ch1-ch2"],
+      "prerequisites": ["Mission 1: Subject and Predicate", "End punctuation (., ?, !)"],
+      "learningObjectives": {
+        "understand": [
+          "Sentences differ by communicative purpose: stating, asking, instructing/requesting, or expressing strong feeling (plus Optative wishes in Assam SEBA).",
+          "Grammatical structure (Subject-Verb inversion or understood 'you') aligns with each purpose."
+        ],
+        "identify": [
+          "Classify simple sentences as Declarative, Interrogative, Imperative, or Exclamatory.",
+          "Recognise 'What/How + noun/adjective!' exclamations vs 'What/How' questions."
+        ],
+        "construct": [
+          "Form clear Declarative, Interrogative, Imperative, and Exclamatory sentences with accurate word order and punctuation."
+        ],
+        "commonMisconceptions": [
+          "Thinking any sentence starting with 'How' or 'What' is a question.",
+          "Assuming imperatives like 'Wash your hands.' lack a Subject."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "gyan",
+        "shortExplanation": "Sentences do four main jobs: Declarative sentences state a fact (.), Interrogative sentences ask a question (?), Imperative sentences give an instruction or request (understood 'You'), and Exclamatory sentences express strong wonder (!). Wishes beginning with 'May...' are noted as Optative in Assam SEBA.",
+        "examples": [
+          {
+            "text": "Fresh guavas grow in our school orchard.",
+            "label": "Declarative",
+            "note": "States a fact; ends with a full stop."
+          },
+          {
+            "text": "Did you wash the fruit before lunch?",
+            "label": "Interrogative",
+            "note": "Auxiliary 'Did' moves before Subject 'you' to ask a question."
+          },
+          {
+            "text": "Drink clean water during sports practice.",
+            "label": "Imperative",
+            "note": "Gives healthy advice; Subject '(You)' is understood."
+          },
+          {
+            "text": "What a bright rainbow appeared after the rain!",
+            "label": "Exclamatory",
+            "note": "Expresses wonder; keeps Subject-before-Verb order."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Labelling 'How neatly Arjun arranged the science charts!' as Interrogative because it starts with 'How'.",
+          "correction": "Look at word order after 'How neatly': Subject 'Arjun' comes before Verb 'arranged', and it admires rather than asks."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "categorise",
+          "title": "Sort School Noticeboard Sentences by Purpose",
+          "description": "Students sort 8 noticeboard cards (2 per functional type, including tricky 'How/What' exclamations vs questions) into Declarative, Interrogative, Imperative, and Exclamatory buckets."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which sentence type is 'How neatly Arjun arranged the science charts!'?",
+          "options": [
+            { "id": "a", "label": "Interrogative, because it starts with 'How'", "isCorrect": false },
+            { "id": "b", "label": "Exclamatory, because it expresses admiration with Subject before Verb", "isCorrect": true },
+            { "id": "c", "label": "Imperative, because it has an exclamation mark", "isCorrect": false },
+            { "id": "d", "label": "Declarative, because it mentions school charts", "isCorrect": false }
+          ],
+          "explanation": "Exclamatory sentences often open with 'How' or 'What' without Subject-Auxiliary inversion and express strong feeling."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["highlight-group", "compare-example"],
+        "visualModes": ["split-blueprint", "compare-dual"]
+      }
+    },
+    {
+      "id": "stcp-topic-02",
+      "order": 2,
+      "title": "Phrases vs Clauses (The Finite Verb Test)",
+      "broadArea": "Phrases and clauses",
+      "difficultyLevel": "Beginner",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od10-ch4-finite", "src-assam-ch1-ch2", "src-stcp-bridge"],
+      "prerequisites": ["Topic 1", "Mission 1 & 2: Recognising finite verbs vs -ing/to-infinitives"],
+      "learningObjectives": {
+        "understand": [
+          "A Phrase is a meaningful word group WITHOUT a finite verb.",
+          "A Clause is a word group WITH a Subject and a finite verb showing tense/agreement."
+        ],
+        "identify": [
+          "Distinguish prepositional and non-finite phrases ('under the neem tree', 'to win the race') from clauses ('the bells rang', 'when the bells rang')."
+        ],
+        "construct": [
+          "Turn a phrase into a clause by supplying a Subject and a finite verb."
+        ],
+        "commonMisconceptions": [
+          "Treating '-ing' or 'to + verb' words ('reading books', 'to plant saplings') as finite clause verbs.",
+          "Calling a dependent clause a phrase because it cannot stand alone."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "mira",
+        "shortExplanation": "Ask one fast question: Is there a finite verb locked to a Subject in tense and number? No finite verb = Phrase ('under the neem tree', 'reading a map'). Subject + finite verb = Clause ('the bells rang', 'because the bells rang').",
+        "examples": [
+          {
+            "text": "under the old neem tree",
+            "label": "Phrase",
+            "note": "Prepositional phrase naming a place; no verb."
+          },
+          {
+            "text": "reading a book on ISRO",
+            "label": "Phrase",
+            "note": "'reading' is a non-finite -ing participle without a helping verb or Subject."
+          },
+          {
+            "text": "the students planted saplings",
+            "label": "Clause",
+            "note": "Has Subject 'the students' and finite past verb 'planted'."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Calling 'Walking quickly along the river bank' a Clause because 'walking' looks like an action word.",
+          "correction": "Test with a Subject and time shift: 'walking' has no tense or helping verb ('is/was') and no Subject—so it is a Phrase."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "identify-group",
+          "title": "Spot the Finite Verb to Test Phrase vs Clause",
+          "description": "Students tap the finite verb (if present) inside word strips, then sort strips into Phrase vs Clause buckets."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which group of words is a Clause, not a Phrase?",
+          "options": [
+            { "id": "a", "label": "Walking quickly along the river bank", "isCorrect": false },
+            { "id": "b", "label": "A basket of ripe bananas on the table", "isCorrect": false },
+            { "id": "c", "label": "Because the bell rang early", "isCorrect": true },
+            { "id": "d", "label": "To finish the science project before Friday", "isCorrect": false }
+          ],
+          "explanation": "'Because the bell rang early' contains Subject 'the bell' and finite past verb 'rang', making it a Clause (specifically a dependent clause)."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["explain-role", "interact-explore"],
+        "visualModes": ["headword-spotlight", "guided-explore"]
+      }
+    },
+    {
+      "id": "stcp-topic-03",
+      "order": 3,
+      "title": "Clause Elements Inside the Predicate (S, V, O, C, A)",
+      "broadArea": "Sentence structure and elements",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch12", "src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"],
+      "prerequisites": ["Topic 2: Clauses", "Word classes (Noun, Adjective, Verb, Adverb, Preposition)"],
+      "learningObjectives": {
+        "understand": [
+          "A clause builds meaning from five functional slots: Subject (S), Verb (V), Object (O: Direct/Indirect), Complement (C: Subject/Object), and Adverbial (A).",
+          "Objects receive an action (different entity), whereas Complements rename or describe the Subject or Object."
+        ],
+        "identify": [
+          "Label S, V, IO, DO, C, and A in simple clauses.",
+          "Distinguish a Subject Complement ('Mira became captain') from a Direct Object ('Mira met the captain')."
+        ],
+        "construct": [
+          "Select an appropriate Object, Complement, or Adverbial to fit transitive, linking, or intransitive verbs."
+        ],
+        "commonMisconceptions": [
+          "Labelling Subject Complements after 'is/became/seems' as Direct Objects.",
+          "Confusing place/time Adverbials ('in the morning', 'quietly') with Objects.",
+          "Mixing up Odisha IX's Complement label for required locatives vs Assam's Adjunct label."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "arjun",
+        "shortExplanation": "Inside the Predicate, the Verb (V) partners with different helpers: an Object (O) answers 'whom/what receives the action', a Complement (C) completes/describes the Subject or Object after linking/naming verbs, and an Adverbial (A) tells where, when, or how.",
+        "examples": [
+          {
+            "text": "The night is dark.",
+            "label": "S + V + C",
+            "note": "Verified Odisha X Ch. 2 p. 14 example; 'dark' describes Subject 'The night'."
+          },
+          {
+            "text": "Mira handed Arjun a fresh mango.",
+            "label": "S + V + IO + DO",
+            "note": "'Arjun' is the Indirect Object (recipient); 'a fresh mango' is the Direct Object."
+          },
+          {
+            "text": "The students read quietly in the library.",
+            "label": "S + V + A + A",
+            "note": "'quietly' (manner) and 'in the library' (place) act as Adverbials."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Labelling 'captain' in 'Mira became captain' as a Direct Object.",
+          "correction": "Use the Equals Test: Mira = captain, so 'captain' is a Subject Complement (C). Compare 'Mira met the captain' (Mira ≠ captain → Direct Object O)."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "word-replacement",
+          "title": "Swap the Verb to Watch Object Turn into Complement",
+          "description": "Inside 'Mira ___ the team captain.', learners swap between 'met' (Direct Object O), 'became' (Subject Complement C), and 'cheered with' (Adverbial/Prepositional phrase) to inspect how the role of 'the team captain' changes."
+        },
+        "checkpointQuestion": {
+          "prompt": "In 'Rani Lakshmibai was a brave leader.', what grammatical element is 'a brave leader'?",
+          "options": [
+            { "id": "a", "label": "Direct Object (O)", "isCorrect": false },
+            { "id": "b", "label": "Subject Complement (C)", "isCorrect": true },
+            { "id": "c", "label": "Indirect Object (IO)", "isCorrect": false },
+            { "id": "d", "label": "Adverbial of Place (A)", "isCorrect": false }
+          ],
+          "explanation": "After the linking verb 'was', 'a brave leader' describes and renames the Subject 'Rani Lakshmibai', making it a Subject Complement (C)."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["show-relationship", "compare-example"],
+        "visualModes": ["relationship-arcs", "compare-dual"]
+      }
+    },
+    {
+      "id": "stcp-topic-04",
+      "order": 4,
+      "title": "Basic Clause Patterns (SV, SVA, SVC, SVO, SVOO, SVOC)",
+      "broadArea": "Basic clause patterns",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od9-ch12", "src-stcp-bridge"],
+      "prerequisites": ["Topic 3: Clause elements S, V, O, C, A"],
+      "learningObjectives": {
+        "understand": [
+          "The main verb determines which core clause pattern a simple sentence follows: SV, SVA, SVC, SVO, SVOO, or SVOC."
+        ],
+        "identify": [
+          "Recognise and label the exact pattern of a simple clause across all 6 patterns.",
+          "Distinguish SVOO (two distinct participants: recipient + thing) from SVOC (Object + Complement describing/renaming that Object)."
+        ],
+        "construct": [
+          "Arrange clause-element tiles in order to build valid SV, SVC, SVO, SVOO, and SVOC sentences."
+        ],
+        "commonMisconceptions": [
+          "Confusing SVOO ('gave Mira a book') with SVOC ('elected him president').",
+          "Misreading 'They kept the pond clean' as SVOO instead of SVOC."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "gyan",
+        "shortExplanation": "Odisha Class IX & X group single-clause sentences into core patterns shaped by the verb: SV ('Birds fly'), SVA ('Students sat in the courtyard'), SVC ('The night is dark'), SVO ('Farmers grow millet'), SVOO ('Mira gave Arjun a mango'), and SVOC ('They elected him president').",
+        "examples": [
+          {
+            "text": "They elected him president.",
+            "label": "SVOC",
+            "note": "Verified Odisha X Ch. 2 p. 15 example ('president' renames 'him')."
+          },
+          {
+            "text": "The science teacher gave Mira a magnifying glass.",
+            "label": "SVOO",
+            "note": "Two different objects: recipient 'Mira' (IO) + item 'a magnifying glass' (DO)."
+          },
+          {
+            "text": "Our school eco-club planted fifty saplings.",
+            "label": "SVO",
+            "note": "Single Subject + transitive Verb + single Direct Object."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Labelling 'The judges declared the solar model the winner' as SVOO because two noun phrases follow 'declared'.",
+          "correction": "Check if the second noun equals the first: 'the solar model = the winner' → Object + Object Complement (SVOC), unlike 'offered Mira fresh fruit' (Mira ≠ fruit → SVOO)."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "sentence-construction",
+          "title": "Assemble & Classify Core Clause Patterns",
+          "description": "Students assemble scrambled clause-element tiles to construct an SVOO and an SVOC sentence, then inspect the element pattern reveal."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which sentence follows the SVOC pattern (Object + Object Complement) rather than SVOO?",
+          "options": [
+            { "id": "a", "label": "Arjun offered Mira fresh papaya slices.", "isCorrect": false },
+            { "id": "b", "label": "The librarian lent our class three atlases.", "isCorrect": false },
+            { "id": "c", "label": "The judges declared the solar model the winner.", "isCorrect": true },
+            { "id": "d", "label": "Mother sent Ravi a parcel of books.", "isCorrect": false }
+          ],
+          "explanation": "'The winner' renames 'the solar model' (Object Complement), giving Subject + Verb + Object + Complement (SVOC)."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["reveal-structure", "compare-example"],
+        "visualModes": ["structure-split", "compare-dual"]
+      }
+    },
+    {
+      "id": "stcp-topic-05",
+      "order": 5,
+      "title": "Independent (Main) vs Dependent (Subordinate) Clauses",
+      "broadArea": "Independent and dependent clauses",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"],
+      "prerequisites": ["Topic 2: Phrases vs Clauses", "Topic 4: Complete single-clause patterns"],
+      "learningObjectives": {
+        "understand": [
+          "An Independent Clause can stand alone as a complete sentence.",
+          "A Dependent Clause has a Subject and finite verb, but opens with a subordinator (because, when, if, although, that, who, which) and depends on a Main Clause."
+        ],
+        "identify": [
+          "Separate a two-clause sentence into its Independent Clause and Dependent Clause.",
+          "Detect dependent-clause fragments mistakenly punctuated as complete sentences."
+        ],
+        "construct": [
+          "Pair an incomplete Dependent Clause with an Independent Clause to form a valid sentence."
+        ],
+        "commonMisconceptions": [
+          "Thinking 'Because the rain arrived early.' is complete just because it has Subject + finite verb.",
+          "Ignoring an opening subordinator when checking if a clause can stand alone."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "mira",
+        "shortExplanation": "Even when a group of words has a Subject and finite verb, adding a subordinator like 'because', 'when', 'if', or 'although' turns it into a Dependent (Subordinate) Clause—it needs an Independent (Main) Clause to stand upright.",
+        "examples": [
+          {
+            "text": "We watered the saplings early before the afternoon heat arrived.",
+            "label": "Independent + Dependent",
+            "note": "'We watered the saplings early' stands alone (Independent); 'before the afternoon heat arrived' depends on it."
+          },
+          {
+            "text": "The scientist who designed the weather balloon visited our school.",
+            "label": "Embedded Dependent Clause",
+            "note": "'who designed the weather balloon' is a Dependent Clause inside the Subject."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Accepting 'When ISRO launched the lunar orbiter in 2008.' as a complete noticeboard sentence.",
+          "correction": "Point out the subordinator 'When': the reader is left asking 'What happened when ISRO launched it?' Pair it with a Main Clause to repair the notice."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "error-identification",
+          "title": "Repair the Broken Dependent-Clause Notice",
+          "description": "Students diagnose why a noticeboard draft ('Although the rain stopped at noon.') is broken even though it contains a verb, then match it with its Independent Clause."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which noticeboard card is a Dependent Clause fragment needing a Main Clause?",
+          "options": [
+            { "id": "a", "label": "The school garden produces fresh spinach every winter.", "isCorrect": false },
+            { "id": "b", "label": "When ISRO launched the lunar orbiter in 2008.", "isCorrect": true },
+            { "id": "c", "label": "Inspect the rainwater tank before morning assembly.", "isCorrect": false },
+            { "id": "d", "label": "What a clear view of the mountains we enjoyed!", "isCorrect": false }
+          ],
+          "explanation": "'When ISRO launched the lunar orbiter in 2008' has a Subject and finite verb, but the opening subordinator 'When' makes it a Dependent Clause."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["highlight-group", "interact-explore"],
+        "visualModes": ["group-bracket", "guided-explore"]
+      }
+    },
+    {
+      "id": "stcp-topic-06",
+      "order": 6,
+      "title": "Clause Relationships: Coordination vs Subordination (Boundary Bridge)",
+      "broadArea": "Relationships between clauses",
+      "difficultyLevel": "Advanced",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"],
+      "prerequisites": ["Topic 5: Independent vs Dependent Clauses"],
+      "learningObjectives": {
+        "understand": [
+          "Coordination joins two equal Independent Clauses via coordinators (and, but, or, so).",
+          "Subordination attaches a Dependent Clause to an Independent Clause via subordinators (because, when, if, although, that, who) to show reason, time, condition, or role.",
+          "Full Simple/Compound/Complex synthesis rules are studied separately in the next chapter."
+        ],
+        "identify": [
+          "Tell whether a two-clause sentence uses Coordination (equal weight) or Subordination (main + dependent).",
+          "Distinguish two coordinated clauses from a single clause with a compound Subject or Object ('Mira and Arjun')."
+        ],
+        "construct": [
+          "Select an accurate coordinator or subordinator to express contrast, addition, reason, or time between two clauses."
+        ],
+        "commonMisconceptions": [
+          "Assuming every sentence containing 'and' has two clauses ('Dal and rice give steady energy' has only 1 finite verb = 1 clause).",
+          "Confusing coordinating contrast ('but') with subordinating reason ('because')."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "gyan",
+        "shortExplanation": "When two clauses meet, count the finite verbs and check the bridge word. Coordinators (and, but, or, so) link two equal Independent Clauses (Coordination). Subordinators (because, when, if, although, that) tuck a Dependent helper Clause onto a Main Clause (Subordination). Watch out: 'Mira and Arjun' joins nouns in ONE clause, not two clauses!",
+        "examples": [
+          {
+            "text": "Arjun brought the telescope, and Mira brought the star map.",
+            "label": "Coordination (2 equal clauses)",
+            "note": "Two finite verbs ('brought', 'brought') and two standalone clauses joined by 'and'."
+          },
+          {
+            "text": "Arjun brought the telescope because the night sky was crystal clear.",
+            "label": "Subordination (Main + Dependent)",
+            "note": "'because the night sky was crystal clear' explains the reason inside the main sentence."
+          },
+          {
+            "text": "Mira and Arjun cleaned the science lab.",
+            "label": "Single-clause 'and' trap",
+            "note": "Only one finite verb ('cleaned'); 'and' joins two nouns in the Subject."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Classifying 'Warm milk and curd keep us healthy' as a two-clause Coordinated sentence just because it contains 'and'.",
+          "correction": "Count the finite verbs: there is only one verb ('keep'). 'and' joins two Subject nouns inside a single clause."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "missing-words",
+          "title": "Pick the Right Clause Bridge (Equal vs Dependent)",
+          "description": "Students complete broken two-clause diary notes by picking 'but' (Coordination) vs 'because' / 'when' (Subordination) and identifying the resulting clause relationship."
+        },
+        "checkpointQuestion": {
+          "prompt": "Look at: 'Fresh water flows through the canal, but farmers still conserve every drop.' How are the clauses related?",
+          "options": [
+            { "id": "a", "label": "Phrase joined to a Clause", "isCorrect": false },
+            { "id": "b", "label": "Two equal Independent Clauses joined by Coordination ('but')", "isCorrect": true },
+            { "id": "c", "label": "One Independent Clause + one Dependent Clause (Subordination)", "isCorrect": false },
+            { "id": "d", "label": "One single clause with a compound Subject", "isCorrect": false }
+          ],
+          "explanation": "Both 'Fresh water flows through the canal' and 'farmers still conserve every drop' can stand alone as complete clauses; 'but' links them as equal partners (Coordination)."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["show-relationship", "compare-example"],
+        "visualModes": ["relationship-arcs", "compare-dual"]
+      }
+    }
+  ],
+  "conflictsAndCoverageGaps": [
+    {
+      "id": "gap-pseb-omission",
+      "severity": "high",
+      "summary": "PSEB Class IX does not teach functional sentence types, Phrases vs Clauses, or SV-SVOC clause patterns (only a 1-line simple-sentence definition on Ch. 5 p. 53). No PSEB Class X book was supplied.",
+      "mitigation": "Include self-contained visual rules and examples tagged with 'supplementary-bridge' alongside Odisha IX/X and Assam sources."
+    },
+    {
+      "id": "gap-od9-phrase-clause-bridge",
+      "severity": "medium",
+      "summary": "Odisha Class IX assumes Phrase vs Clause distinction until Odisha Class X Ch. 2 & Ch. 4 explicitly define finite verbs and clauses.",
+      "mitigation": "Dedicate Topic 2 to the Finite Verb Test bridging Mission 1/2/3 into Clauses."
+    },
+    {
+      "id": "conflict-functional-types-4-vs-5",
+      "severity": "low",
+      "summary": "Odisha IX & X teach 4 functional sentence types; Assam SEBA Ch. 1 L9 adds Optative as a 5th type.",
+      "mitigation": "Keep interactive grading focused on the 4 shared types while presenting Optative transparently as an Assam SEBA supplementary note."
+    },
+    {
+      "id": "conflict-complement-vs-adjunct",
+      "severity": "medium",
+      "summary": "Odisha IX Ch. 12 pp. 141, 144 treats obligatory locatives ('in the garage' after 'kept') as Complement (C), whereas Assam Ch. 1/13 labels place phrases as Adjuncts/Adverbials (A) and Odisha X Ch. 2 omits SVA.",
+      "mitigation": "Use unambiguous SVC, SVOC, and SVA examples in practice items and avoid ambiguous VG+O+locative test traps."
+    },
+    {
+      "id": "gap-raw-pdfs-absent-in-container",
+      "severity": "transparency",
+      "summary": "Raw PDF files are not stored in this workspace container; verification relies on curriculum-source-map.json, curriculum-overview.md, and content-gaps.md.",
+      "mitigation": "Do not cite unverified sub-section examples; verify verbatim textbook page extracts against raw PDFs if verbatim quotes are added in Phase 2."
+    }
+  ]
+}

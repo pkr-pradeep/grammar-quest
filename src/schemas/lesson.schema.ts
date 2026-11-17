@@ -34,6 +34,9 @@ export interface MissionProgressDetail {
   guidedPracticeCompleted: boolean;
   independentPracticeCompleted: boolean;
   completed: boolean;
+  wordLabStarsByActivityId?: Record<string, number>;
+  wordLabSolvedIds?: string[];
+  independentSolvedIds?: string[];
   startedAt: string | null;
   completedAt: string | null;
   updatedAt: string;

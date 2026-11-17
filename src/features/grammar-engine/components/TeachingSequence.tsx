@@ -20,17 +20,21 @@ import type {
   WordGroupRole,
   WordRelationship,
 } from '../../../schemas/grammarEngine.schema';
-import { GuideNotePopup, type GuidePopupPhase } from './GuideNotePopup';
+import { GuideNotePopup } from './GuideNotePopup';
 import { FloatingGuideButton } from './FloatingGuideButton';
 import { SentenceVisualizer, type SelectedTokenState } from './SentenceVisualizer';
+import { SentenceTypesStep1View } from './SentenceTypesStep1View';
 import { LessonNavigation } from './LessonNavigation';
 
 export interface TeachingSequenceProps {
   lesson: GrammarLessonDefinition;
   initialStepNumber?: number;
   stepJumpNonce?: number;
+  finalNextLabel?: string;
   onCompleteSequence: () => void;
   onGuideModalOpenChange?: (isOpen: boolean) => void;
+  onStepChange?: (stepNumber: number) => void;
+  onUserEngage?: () => void;
 }
 
 const seenLearnStepKeys = new Set<string>();
@@ -64,8 +68,11 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   lesson,
   initialStepNumber,
   stepJumpNonce = 0,
+  finalNextLabel = 'Guided Practice',
   onCompleteSequence,
   onGuideModalOpenChange,
+  onStepChange,
+  onUserEngage,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
   const steps = lesson.teachingSequence;
@@ -81,20 +88,35 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   const [animationSeed, setAnimationSeed] = useState(0);
   const [stepsDrawerOpen, setStepsDrawerOpen] = useState(false);
 
-  // Guide note popup & bottom-right button state
-  const [popupPhase, setPopupPhase] = useState<GuidePopupPhase>('closed');
-  const [flyOffset, setFlyOffset] = useState<{ x: number; y: number }>({
-    x: 130,
-    y: 260,
+  // Guide note popup & bottom-right button state: auto-open immediately if unseen
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(() => {
+    const initialStep = steps[resolveStepIndex(initialStepNumber)] ?? steps[0];
+    if (!initialStep) return false;
+    return !hasSeenStepPopup(lesson.lessonId, initialStep.id);
+  });
+  const [isPopupMounted, setIsPopupMounted] = useState<boolean>(() => {
+    const initialStep = steps[resolveStepIndex(initialStepNumber)] ?? steps[0];
+    if (!initialStep) return false;
+    return !hasSeenStepPopup(lesson.lessonId, initialStep.id);
+  });
+  const [isAutoOpened, setIsAutoOpened] = useState<boolean>(() => {
+    const initialStep = steps[resolveStepIndex(initialStepNumber)] ?? steps[0];
+    if (!initialStep) return false;
+    return !hasSeenStepPopup(lesson.lessonId, initialStep.id);
+  });
+  const [isInitialAutoOpen, setIsInitialAutoOpen] = useState<boolean>(() => {
+    const initialStep = steps[resolveStepIndex(initialStepNumber)] ?? steps[0];
+    if (!initialStep) return false;
+    return !hasSeenStepPopup(lesson.lessonId, initialStep.id);
   });
   const [isButtonPopping, setIsButtonPopping] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [hintFadingOut, setHintFadingOut] = useState(false);
 
-  const workspaceRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const guideButtonRef = useRef<HTMLButtonElement | null>(null);
   const timersRef = useRef<number[]>([]);
+  const activeStepPopupRef = useRef<string | null>(null);
 
   const clearAllGuideTimers = useCallback(() => {
     for (const id of timersRef.current) {
@@ -107,9 +129,20 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
     return () => clearAllGuideTimers();
   }, [clearAllGuideTimers]);
 
+  // Sync external initialStepNumber / stepJumpNonce changes immediately
   useEffect(() => {
     if (initialStepNumber) {
-      setStepIndex(resolveStepIndex(initialStepNumber));
+      const nextIdx = resolveStepIndex(initialStepNumber);
+      setStepIndex(nextIdx);
+      const targetStep = steps[nextIdx];
+      if (targetStep && !hasSeenStepPopup(lesson.lessonId, targetStep.id)) {
+        markStepPopupSeen(lesson.lessonId, targetStep.id);
+        activeStepPopupRef.current = `${lesson.lessonId}:${targetStep.id}`;
+        setIsAutoOpened(true);
+        setIsInitialAutoOpen(true);
+        setIsPopupMounted(true);
+        setIsPopupOpen(true);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialStepNumber, stepJumpNonce]);
@@ -142,122 +175,94 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
     );
     setStepsDrawerOpen(false);
     setAnimationSeed((s) => s + 1);
-  }, [stepIndex, currentStep]);
+    onStepChange?.(currentStep.stepNumber);
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [stepIndex, currentStep, onStepChange]);
 
-  // Auto-open guide note popup ONCE per step per session
+  // Auto-open guide note popup ONCE per step per session (with immediate blurred backdrop)
   useEffect(() => {
+    const key = `${lesson.lessonId}:${currentStep.id}`;
+    if (activeStepPopupRef.current === key) {
+      return;
+    }
+    activeStepPopupRef.current = key;
     clearAllGuideTimers();
     setIsButtonPopping(false);
     setShowHint(false);
     setHintFadingOut(false);
 
     if (hasSeenStepPopup(lesson.lessonId, currentStep.id)) {
-      setPopupPhase('closed');
+      setIsPopupOpen(false);
+      setIsPopupMounted(false);
+      setIsAutoOpened(false);
+      setIsInitialAutoOpen(false);
       return;
     }
 
     markStepPopupSeen(lesson.lessonId, currentStep.id);
-    setPopupPhase('opening');
-    const settleMs = prefersReducedMotion ? 200 : 350;
-    const t = window.setTimeout(() => {
-      setPopupPhase('open');
-    }, settleMs);
-    timersRef.current.push(t);
-  }, [lesson.lessonId, currentStep.id, prefersReducedMotion, clearAllGuideTimers]);
+    setIsAutoOpened(true);
+    setIsInitialAutoOpen(true);
+    setIsPopupMounted(true);
+    setIsPopupOpen(true);
+  }, [lesson.lessonId, currentStep.id, clearAllGuideTimers]);
 
-  const isPopupVisible = popupPhase !== 'closed';
+  const isPopupVisible = isPopupOpen || isPopupMounted;
 
-  // Make underlying Learn controls inert while the guide popup modal is open
   useEffect(() => {
-    const el = workspaceRef.current as (HTMLDivElement & { inert: boolean }) | null;
-    if (el) {
-      el.inert = isPopupVisible;
-    }
     onGuideModalOpenChange?.(isPopupVisible);
     return () => {
       onGuideModalOpenChange?.(false);
     };
   }, [isPopupVisible, onGuideModalOpenChange]);
 
-  const computeFlyOffset = useCallback(() => {
-    if (typeof window === 'undefined') return { x: 130, y: 260 };
-    const btnRect = guideButtonRef.current?.getBoundingClientRect();
-    const dlgRect = dialogRef.current?.getBoundingClientRect();
-    if (!btnRect) return { x: 130, y: 260 };
-
-    const btnCenterX = btnRect.left + btnRect.width / 2;
-    const btnCenterY = btnRect.top + btnRect.height / 2;
-    const dlgCenterX =
-      dlgRect && dlgRect.width > 0
-        ? dlgRect.left + dlgRect.width / 2
-        : window.innerWidth / 2;
-    const dlgCenterY =
-      dlgRect && dlgRect.height > 0
-        ? dlgRect.top + dlgRect.height / 2
-        : window.innerHeight / 2;
-
-    return {
-      x: Math.round(btnCenterX - dlgCenterX),
-      y: Math.round(btnCenterY - dlgCenterY),
-    };
-  }, []);
-
   const handleDismissPopup = useCallback(() => {
-    if (popupPhase === 'closed' || popupPhase === 'closing') return;
+    if (!isPopupOpen) return;
+    onUserEngage?.();
     clearAllGuideTimers();
+    setIsPopupOpen(false);
+  }, [isPopupOpen, clearAllGuideTimers, onUserEngage]);
 
-    setFlyOffset(computeFlyOffset());
-    setPopupPhase('closing');
-
-    const closeDuration = prefersReducedMotion ? 200 : 450;
-
+  const handlePopupAfterClose = useCallback(() => {
+    setIsPopupMounted(false);
+    setIsInitialAutoOpen((wasInitial) => {
+      if (wasInitial) {
+        setAnimationSeed((s) => s + 1);
+      }
+      return false;
+    });
     if (!prefersReducedMotion) {
-      const popStartTimer = window.setTimeout(() => {
-        setIsButtonPopping(true);
-      }, 390);
+      setIsButtonPopping(true);
       const popEndTimer = window.setTimeout(() => {
         setIsButtonPopping(false);
-      }, 960);
-      timersRef.current.push(popStartTimer, popEndTimer);
+      }, 560);
+      timersRef.current.push(popEndTimer);
     }
+    setShowHint(true);
+    setHintFadingOut(false);
 
-    const closedTimer = window.setTimeout(() => {
-      setPopupPhase('closed');
-      setShowHint(true);
+    const fadeTimer = window.setTimeout(() => {
+      setHintFadingOut(true);
+    }, 4200);
+    const hideHintTimer = window.setTimeout(() => {
+      setShowHint(false);
       setHintFadingOut(false);
-
-      window.requestAnimationFrame(() => {
-        guideButtonRef.current?.focus({ preventScroll: true });
-      });
-
-      const fadeTimer = window.setTimeout(() => {
-        setHintFadingOut(true);
-      }, 4200);
-      const hideHintTimer = window.setTimeout(() => {
-        setShowHint(false);
-        setHintFadingOut(false);
-      }, 4500);
-      timersRef.current.push(fadeTimer, hideHintTimer);
-    }, closeDuration);
-
-    timersRef.current.push(closedTimer);
-  }, [popupPhase, prefersReducedMotion, clearAllGuideTimers, computeFlyOffset]);
+    }, 4500);
+    timersRef.current.push(fadeTimer, hideHintTimer);
+  }, [prefersReducedMotion]);
 
   const handleReopenPopup = useCallback(() => {
-    if (popupPhase !== 'closed') return;
+    if (isPopupOpen || isPopupMounted) return;
     clearAllGuideTimers();
     setShowHint(false);
     setHintFadingOut(false);
     setIsButtonPopping(false);
-    setFlyOffset(computeFlyOffset());
-    setPopupPhase('opening-from-corner');
-
-    const openDuration = prefersReducedMotion ? 200 : 450;
-    const openSettleTimer = window.setTimeout(() => {
-      setPopupPhase('open');
-    }, openDuration);
-    timersRef.current.push(openSettleTimer);
-  }, [popupPhase, prefersReducedMotion, clearAllGuideTimers, computeFlyOffset]);
+    setIsAutoOpened(false);
+    setIsInitialAutoOpen(false);
+    setIsPopupMounted(true);
+    setIsPopupOpen(true);
+  }, [isPopupOpen, isPopupMounted, clearAllGuideTimers]);
 
   const activeSentence = useMemo(
     () =>
@@ -318,9 +323,39 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
     setSelectedRelationshipId(rel ? rel.id : null);
   };
 
+  const goToStepIndex = useCallback(
+    (nextIdx: number) => {
+      const bounded = Math.max(0, Math.min(nextIdx, steps.length - 1));
+      const nextStep = steps[bounded];
+      setStepIndex(bounded);
+      if (nextStep) {
+        const key = `${lesson.lessonId}:${nextStep.id}`;
+        activeStepPopupRef.current = key;
+        clearAllGuideTimers();
+        setIsButtonPopping(false);
+        setShowHint(false);
+        setHintFadingOut(false);
+        if (!hasSeenStepPopup(lesson.lessonId, nextStep.id)) {
+          markStepPopupSeen(lesson.lessonId, nextStep.id);
+          setIsAutoOpened(true);
+          setIsInitialAutoOpen(true);
+          setIsPopupMounted(true);
+          setIsPopupOpen(true);
+        } else {
+          setIsPopupOpen(false);
+          setIsPopupMounted(false);
+          setIsAutoOpened(false);
+          setIsInitialAutoOpen(false);
+        }
+      }
+    },
+    [steps, lesson.lessonId, clearAllGuideTimers],
+  );
+
   const handleNext = () => {
+    onUserEngage?.();
     if (stepIndex < steps.length - 1) {
-      setStepIndex((i) => i + 1);
+      goToStepIndex(stepIndex + 1);
     } else {
       onCompleteSequence();
     }
@@ -328,7 +363,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
 
   const handlePrevious = () => {
     if (stepIndex > 0) {
-      setStepIndex((i) => i - 1);
+      goToStepIndex(stepIndex - 1);
     }
   };
 
@@ -342,8 +377,6 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   return (
     <>
       <div
-        ref={workspaceRef}
-        aria-hidden={isPopupVisible || undefined}
         className={[
           'gq-story-stage flex-1 flex flex-col justify-between min-h-0',
           isPaused ? 'gq-story-paused' : '',
@@ -351,24 +384,27 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
           .filter(Boolean)
           .join(' ')}
       >
-        {/* Slim Progress Indicator + Expandable Step Switcher */}
-        <div className="bg-white border-b border-[#E5E2D9] px-3 sm:px-6 py-1.5">
+        {/* Fixed / Sticky Step Progress Row + Expandable Step Switcher */}
+        <div
+          style={{ top: 'var(--gq-lesson-header-h, 110px)' }}
+          className="sticky z-20 bg-white/95 backdrop-blur-md border-b border-[#E5E2D9] px-3 sm:px-6 py-2"
+        >
           <div className="max-w-[920px] mx-auto relative">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2 min-w-0 flex-1">
-                <span className="text-xs font-semibold text-[#263A70] tabular-nums whitespace-nowrap">
+            <div className="flex items-center justify-between gap-2.5">
+              <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                <span className="text-xs font-bold text-[#263A70] tabular-nums whitespace-nowrap">
                   Step {stepIndex + 1} of {steps.length}
                 </span>
                 <div
                   aria-hidden="true"
-                  className="flex-1 max-w-[180px] h-1.5 rounded-full bg-[#F2EFE7] overflow-hidden"
+                  className="flex-1 max-w-[180px] h-2 rounded-full bg-[#F2EFE7] overflow-hidden"
                 >
                   <div
-                    className="h-full rounded-full bg-[#FFC64B] transition-all duration-200"
+                    className="h-full rounded-full bg-[#F6B93B] transition-all duration-200"
                     style={{ width: `${percent}%` }}
                   />
                 </div>
-                <span className="text-[11px] font-medium text-[#4B5C8A] tabular-nums">
+                <span className="text-xs font-semibold text-[#4B5C8A] tabular-nums">
                   {percent}%
                 </span>
               </div>
@@ -378,14 +414,14 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
                 onClick={() => setStepsDrawerOpen((prev) => !prev)}
                 aria-expanded={stepsDrawerOpen}
                 aria-controls="lesson-steps-popover"
-                className="inline-flex items-center gap-1 min-h-[32px] px-2.5 py-1 rounded-[9px] border border-[#E5E2D9] bg-[#FDFCF9] text-xs font-medium text-[#263A70] hover:bg-[#F5F2EA] cursor-pointer whitespace-nowrap shrink-0"
+                className="inline-flex items-center gap-1 min-h-[36px] px-2.5 py-1 rounded-[10px] border border-[#E5E2D9] bg-[#FDFCF9] text-xs font-bold text-[#263A70] hover:bg-[#F5F2EA] cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]"
               >
                 <ListOrdered className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                 <span>Steps</span>
                 {stepsDrawerOpen ? (
-                  <ChevronUp className="w-3 h-3" aria-hidden="true" />
+                  <ChevronUp className="w-3.5 h-3.5" aria-hidden="true" />
                 ) : (
-                  <ChevronDown className="w-3 h-3" aria-hidden="true" />
+                  <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />
                 )}
               </button>
             </div>
@@ -396,7 +432,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
                 id="lesson-steps-popover"
                 role="region"
                 aria-label="Jump to lesson step"
-                className="mt-2 rounded-[14px] bg-white border border-[#CFC9BA] shadow-md p-2.5 grid grid-cols-1 sm:grid-cols-2 gap-1.5"
+                className="mt-2 max-h-[55dvh] overflow-y-auto rounded-[14px] bg-white border border-[#CFC9BA] shadow-md p-2.5 grid grid-cols-1 sm:grid-cols-2 gap-1.5"
               >
                 {steps.map((s, idx) => {
                   const isCurrent = idx === stepIndex;
@@ -406,12 +442,12 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
                       key={s.id}
                       type="button"
                       onClick={() => {
-                        setStepIndex(idx);
+                        goToStepIndex(idx);
                         setStepsDrawerOpen(false);
                       }}
                       aria-current={isCurrent ? 'step' : undefined}
                       className={[
-                        'min-h-[38px] px-2.5 py-1.5 rounded-[10px] text-left flex items-center gap-2 text-xs transition-colors cursor-pointer',
+                        'min-h-[44px] px-3 py-1.5 rounded-[10px] text-left flex items-center gap-2 text-xs transition-colors cursor-pointer',
                         isCurrent
                           ? 'bg-[#263A70] text-white font-semibold'
                           : isVisited
@@ -431,45 +467,60 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
           </div>
         </div>
 
-        {/* Starter Sentence + Compact Result Card (Directly Under Step Progress Row) */}
-        <div className="flex-1 w-full max-w-[920px] mx-auto px-3 sm:px-6 pt-3 pb-20 sm:py-4 sm:pb-24">
-          <SentenceVisualizer
-            stepId={currentStep.id}
-            visualMode={currentStep.visualMode}
-            visualCallout={currentStep.visualCallout}
-            guidedChallenge={currentStep.guidedChallenge}
-            timelineData={currentStep.timelineData}
-            agreementData={currentStep.agreementData}
-            dimmedTokenIds={currentStep.dimmedTokenIds}
-            sentence={activeSentence}
-            comparisonSentence={comparisonSentence}
-            allowedRelationshipTypes={lesson.activeRelationshipTypes}
-            selectedTokenInfo={selectedTokenInfo}
-            highlightedGroupRole={highlightedGroupRole}
-            focusTokenIds={currentStep.focusTokenIds ?? []}
-            focusRelationshipIds={currentStep.focusRelationshipIds ?? []}
-            selectedRelationshipId={selectedRelationshipId}
-            showStructureSplit={showStructureSplit}
-            showCompare={showCompare}
-            showRelationships={
-              currentStep.type === 'show-relationship' ||
-              currentStep.type === 'interact-explore' ||
-              currentStep.allowFreeExplore === true
-            }
-            allowFreeExplore={currentStep.allowFreeExplore === true}
-            isPaused={isPaused}
-            animationSeed={animationSeed}
-            onSelectToken={handleSelectToken}
-            onCloseTokenPopup={() => setSelectedTokenInfo(null)}
-            onSelectGroup={handleSelectGroup}
-            onToggleStructureSplit={handleToggleStructure}
-            onToggleCompare={comparisonSentence ? handleToggleCompare : undefined}
-            onSelectRelationship={handleSelectRelationship}
-          />
+        {/* Scrollable Lesson Workspace (with ~112px bottom clearance above fixed controls) */}
+        <div className="flex-1 w-full max-w-[920px] mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-4 pb-[calc(112px+env(safe-area-inset-bottom,0px))]">
+          {lesson.missionId === 'c9-mission-04' &&
+          currentStep.id === 'stcp-step-01' ? (
+            <SentenceTypesStep1View
+              stepId={currentStep.id}
+              sentence={activeSentence}
+              clausePatternData={currentStep.clausePatternData}
+              isPaused={isPaused}
+              animationSeed={animationSeed}
+              onUserEngage={onUserEngage}
+            />
+          ) : (
+            <SentenceVisualizer
+              stepId={currentStep.id}
+              visualMode={currentStep.visualMode}
+              visualCallout={currentStep.visualCallout}
+              guidedChallenge={currentStep.guidedChallenge}
+              timelineData={currentStep.timelineData}
+              agreementData={currentStep.agreementData}
+              clausePatternData={currentStep.clausePatternData}
+              checkpointData={currentStep.checkpointData}
+              dimmedTokenIds={currentStep.dimmedTokenIds}
+              sentence={activeSentence}
+              comparisonSentence={comparisonSentence}
+              allowedRelationshipTypes={lesson.activeRelationshipTypes}
+              selectedTokenInfo={selectedTokenInfo}
+              highlightedGroupRole={highlightedGroupRole}
+              focusTokenIds={currentStep.focusTokenIds ?? []}
+              focusRelationshipIds={currentStep.focusRelationshipIds ?? []}
+              selectedRelationshipId={selectedRelationshipId}
+              showStructureSplit={showStructureSplit}
+              showCompare={showCompare}
+              showRelationships={
+                currentStep.type === 'show-relationship' ||
+                currentStep.type === 'interact-explore' ||
+                currentStep.allowFreeExplore === true
+              }
+              allowFreeExplore={currentStep.allowFreeExplore === true}
+              isPaused={isPaused}
+              animationSeed={animationSeed}
+              onSelectToken={handleSelectToken}
+              onCloseTokenPopup={() => setSelectedTokenInfo(null)}
+              onSelectGroup={handleSelectGroup}
+              onToggleStructureSplit={handleToggleStructure}
+              onToggleCompare={comparisonSentence ? handleToggleCompare : undefined}
+              onSelectRelationship={handleSelectRelationship}
+            />
+          )}
         </div>
 
-        {/* Zone E: Persistent Bottom Navigation */}
+        {/* Fixed Bottom Lesson Control Bar */}
         <LessonNavigation
+          fixed
           currentStepIndex={stepIndex}
           totalSteps={steps.length}
           isPaused={isPaused}
@@ -477,7 +528,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
           onNext={handleNext}
           onTogglePause={() => setIsPaused((p) => !p)}
           onReplay={handleReplay}
-          nextLabel={stepIndex === steps.length - 1 ? 'Guided Practice' : 'Next'}
+          nextLabel={stepIndex === steps.length - 1 ? finalNextLabel : 'Next'}
           nudgeNextArrow={!isPaused && !prefersReducedMotion}
         />
       </div>
@@ -495,18 +546,20 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
         onOpenPopup={handleReopenPopup}
       />
 
-      {/* Centred Guide Note Modal Popup */}
+      {/* Centred Guide Note Modal Popup (Portal) */}
       <GuideNotePopup
-        phase={popupPhase}
+        isOpen={isPopupOpen}
+        isAutoOpened={isAutoOpened}
         characterId={currentStep.characterId}
         characterExpression={currentStep.characterExpression}
         badgeLabel={currentStep.badgeLabel}
         title={currentStep.title}
         shortPrompt={currentStep.shortPrompt}
         explanation={currentStep.explanation}
-        flyOffset={flyOffset}
         dialogRef={dialogRef}
+        returnFocusRef={guideButtonRef}
         onDismiss={handleDismissPopup}
+        onAfterClose={handlePopupAfterClose}
       />
     </>
   );

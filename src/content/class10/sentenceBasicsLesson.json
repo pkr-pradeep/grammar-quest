@@ -737,25 +737,41 @@
           "id": "c10-cat-1",
           "text": "ISRO engineers in Bengaluru",
           "correctCategory": "subject",
-          "explanation": "Noun group with head-word 'engineers' and modifier 'in Bengaluru' — no finite verb yet."
+          "explanation": "Noun group with head-word 'engineers' and modifier 'in Bengaluru' — no finite verb yet.",
+          "hint": "Noun group with head-word 'engineers' — there is no finite verb yet."
         },
         {
           "id": "c10-cat-2",
           "text": "designed a reliable weather satellite",
           "correctCategory": "predicate",
-          "explanation": "Begins with the finite verb 'designed' + Direct Object."
+          "explanation": "Begins with the finite verb 'designed' + Direct Object.",
+          "hint": "Look at the first word: 'designed' is a finite action verb."
         },
         {
           "id": "c10-cat-3",
           "text": "A balanced meal of rice, dal, and greens",
           "correctCategory": "subject",
-          "explanation": "Names the healthy meal being discussed."
+          "explanation": "Names the healthy meal being discussed.",
+          "hint": "Names the meal being talked about — no finite verb is included."
         },
         {
           "id": "c10-cat-4",
           "text": "is essential for growing teenagers",
           "correctCategory": "predicate",
-          "explanation": "Begins with the linking verb 'is' + Subject Complement."
+          "explanation": "Begins with the linking verb 'is' + Subject Complement.",
+          "hint": "Begins with the linking verb 'is' describing the Subject."
+        }
+      ],
+      "sentencePairs": [
+        {
+          "id": "c10-pair-1",
+          "subjectText": "ISRO engineers in Bengaluru",
+          "predicateText": "designed a reliable weather satellite"
+        },
+        {
+          "id": "c10-pair-2",
+          "subjectText": "A balanced meal of rice, dal, and greens",
+          "predicateText": "is essential for growing teenagers"
         }
       ],
       "completeFeedback": "Accurate work! You separated both action (S+V+O) and linking (S+V+C) Predicates cleanly from enlarged Subjects."

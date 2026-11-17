@@ -1,0 +1,3821 @@
+{
+  "lessonId": "c9-lesson-sentence-types",
+  "missionId": "c9-mission-04",
+  "classLevel": 9,
+  "moduleId": "module-4-sentence-types",
+  "moduleTitle": "Sentence Structure & Clauses",
+  "missionTitle": "Sentence Types & Clause Patterns",
+  "topic": "Purpose, Phrases vs Clauses, S-V-O-C-A & Clause Links",
+  "estimatedMinutes": 9,
+  "situationBrief": {
+    "title": "Sentence Types & Clause Patterns",
+    "description": "Learn how sentence purpose shapes word order, how to separate Phrases from Clauses using the finite verb test, how S-V-O-C-A patterns work, and how clauses connect.",
+    "characterId": "gyan",
+    "characterExpression": "explaining"
+  },
+  "learningObjectives": {
+    "grammarOutcomes": [
+      "Classify simple sentences by purpose: Declarative, Interrogative, Imperative, and Exclamatory (plus an Optative awareness note).",
+      "Distinguish Phrases (no finite verb) from Clauses (Subject + finite verb) and identify S, V, O (IO/DO), C, and A elements.",
+      "Recognise core clause patterns (SV, SVA, SVC, SVO, SVOO, SVOC), Independent vs Dependent clauses, and Coordination vs Subordination."
+    ],
+    "knowledgeOutcome": "Explore Indian school gardens, ISRO missions, healthy meals, and everyday campus life through clear visual clause patterns."
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od9-ch1-secD",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Chapter 1: Parts of a Sentence (Sections A, B, D)",
+      "bookPages": "1-7, 23-26",
+      "pdfPages": "7-13, 29-32",
+      "provenance": "textbook-derived",
+      "note": "Word order, Subject/Predicate, understood 'you' in imperatives, omitted 'it/is' in exclamations, and 4 functional sentence types."
+    },
+    {
+      "id": "src-od9-ch12",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Chapter 12: The Predicate Phrase",
+      "bookPages": "141-146",
+      "pdfPages": "147-152",
+      "provenance": "textbook-derived",
+      "note": "Intransitive and Transitive verb patterns (S+V, S+V+C, S+V+O, S+V+O+O, S+V+O+C, S+V+A), Direct/Indirect objects, and Complements vs Adjuncts."
+    },
+    {
+      "id": "src-od10-ch2",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 2: Types of Sentences",
+      "bookPages": "13-22",
+      "pdfPages": "19-28",
+      "provenance": "textbook-derived",
+      "note": "Defines finite verb and clause; teaches Simple sentence types and SV, SVO, SVOO, SVC, SVOC patterns (pp. 14-15), plus Compound and Complex sentence structure."
+    },
+    {
+      "id": "src-od10-ch4-finite",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 4: Non-Finite Verb Forms",
+      "bookPages": "31",
+      "pdfPages": "37",
+      "provenance": "textbook-derived",
+      "note": "Tests finite verbs (changing for Subject and tense) against non-finite forms (-ing, to+v)."
+    },
+    {
+      "id": "src-assam-ch1-ch2",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Ch. 1: Sentence (L1-L9) & Ch. 2: Phrases and Clauses",
+      "bookPages": "1-9, 12-17, 18-24",
+      "pdfPages": "10-18, 21-26, 27-33",
+      "provenance": "textbook-derived",
+      "note": "5 functional sentence types including Optative (L9), predicate elements, and explicit Phrase vs Clause distinction (Ch. 2); Ch. 8 covers Clause Analysis."
+    },
+    {
+      "id": "src-pseb9-ch5-gap",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 5: Simple and Complex Sentences",
+      "bookPages": "53",
+      "pdfPages": "59",
+      "provenance": "textbook-derived",
+      "note": "States one simple sentence has one subject and one predicate; lacks standalone functional types and SV-SVOC patterns."
+    },
+    {
+      "id": "src-stcp-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Visual Clause Pattern & Phrase-to-Clause Bridge (Supplementary)",
+      "chapter": "Sentence Types & Clause Patterns",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Provides visual Phrase-vs-Clause Finite Verb checks, Equals Test (SVC vs SVO), and Coordination vs Subordination diagrams."
+    }
+  ],
+  "activeRelationshipTypes": [
+    "verb-subject",
+    "adjective-noun",
+    "adverb-verb",
+    "determiner-noun",
+    "conjunction-elements",
+    "preposition-relation"
+  ],
+  "sentences": [
+    {
+      "id": "stcp-s1-declarative",
+      "title": "Starter Sentence · Statement",
+      "rawText": "Fresh guavas grow in our school orchard.",
+      "contextTag": "School Garden",
+      "note": "Declarative sentences state a fact cleanly in Subject + Verb order and end with a full stop.",
+      "tokens": [
+        {
+          "id": "s1-t1",
+          "text": "Fresh",
+          "category": "adjective",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the ripeness and quality of the guavas.",
+          "grammaticalRoleExplanation": "Modifies the Subject head-noun 'guavas'.",
+          "linkedTokenIds": ["s1-t2"]
+        },
+        {
+          "id": "s1-t2",
+          "text": "guavas",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names what the sentence is about.",
+          "grammaticalRoleExplanation": "Plural noun head of the Subject; takes plural verb 'grow'.",
+          "linkedTokenIds": ["s1-t1", "s1-t3"]
+        },
+        {
+          "id": "s1-t3",
+          "text": "grow",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "States what the guavas do.",
+          "grammaticalRoleExplanation": "Finite present verb matching plural Subject 'guavas'.",
+          "linkedTokenIds": ["s1-t2"]
+        },
+        {
+          "id": "s1-t4",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Introduces the place where they grow.",
+          "grammaticalRoleExplanation": "Starts the place Adverbial phrase 'in our school orchard'."
+        },
+        {
+          "id": "s1-t5",
+          "text": "our",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Shows who the orchard belongs to.",
+          "grammaticalRoleExplanation": "Possessive determiner pointing to 'orchard'."
+        },
+        {
+          "id": "s1-t6",
+          "text": "school",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Tells which kind of orchard.",
+          "grammaticalRoleExplanation": "Modifies 'orchard'."
+        },
+        {
+          "id": "s1-t7",
+          "text": "orchard",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Object of Preposition",
+          "meaningInSentence": "Names the garden place.",
+          "grammaticalRoleExplanation": "Completes the place phrase 'in our school orchard'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s1-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s1-t1", "s1-t2"],
+          "questionPrompt": "What grows?",
+          "plainExplanation": "'Fresh guavas' is the Subject.",
+          "textbookRule": "Declarative sentences usually open with Subject before Verb (Odisha IX Ch. 1 Sec. D).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch1-secD"]
+        },
+        {
+          "id": "s1-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s1-t3", "s1-t4", "s1-t5", "s1-t6", "s1-t7"],
+          "questionPrompt": "What is stated about them?",
+          "plainExplanation": "'grow in our school orchard.' tells where they grow.",
+          "textbookRule": "Ends with a full stop to state a fact clearly.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch1-secD"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "s1-rel-1",
+          "type": "verb-subject",
+          "label": "Subject–Verb Lock",
+          "fromTokenIds": ["s1-t3"],
+          "toTokenIds": ["s1-t2"],
+          "explanation": "Plural Subject 'guavas' pairs with base present verb 'grow'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Fresh guavas",
+        "subjectHeadWord": "guavas",
+        "predicateText": "grow in our school orchard.",
+        "predicateHeadWord": "grow",
+        "patternNote": "Declarative Statement: Subject + Verb + Place Adverbial (.)"
+      }
+    },
+    {
+      "id": "stcp-s2-exclamation",
+      "title": "Starter Sentence · Exclamation",
+      "rawText": "How neatly Arjun arranged the science charts!",
+      "contextTag": "Classroom Exhibition",
+      "note": "Even though it begins with 'How', 'Arjun' comes BEFORE 'arranged'—expressing admiration, not asking a question.",
+      "tokens": [
+        {
+          "id": "s2-t1",
+          "text": "How",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Exclamatory Degree Word",
+          "meaningInSentence": "Shows high admiration for the neatness.",
+          "grammaticalRoleExplanation": "Opens the exclamation together with 'neatly' before the Subject."
+        },
+        {
+          "id": "s2-t2",
+          "text": "neatly",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adverb of Manner",
+          "meaningInSentence": "Describes the tidy way Arjun arranged the charts.",
+          "grammaticalRoleExplanation": "Part of the Predicate moved to the front for exclamatory emphasis.",
+          "linkedTokenIds": ["s2-t4"]
+        },
+        {
+          "id": "s2-t3",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject",
+          "meaningInSentence": "Names who arranged the charts.",
+          "grammaticalRoleExplanation": "Subject stays BEFORE the main verb 'arranged' (no question inversion!).",
+          "linkedTokenIds": ["s2-t4"]
+        },
+        {
+          "id": "s2-t4",
+          "text": "arranged",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Past Verb",
+          "meaningInSentence": "Tells the action Arjun completed.",
+          "grammaticalRoleExplanation": "Finite past verb staying right after Subject 'Arjun'.",
+          "linkedTokenIds": ["s2-t3", "s2-t2"]
+        },
+        {
+          "id": "s2-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the charts.",
+          "grammaticalRoleExplanation": "Introduces 'science charts'."
+        },
+        {
+          "id": "s2-t6",
+          "text": "science",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Tells the subject of the charts.",
+          "grammaticalRoleExplanation": "Modifies 'charts'."
+        },
+        {
+          "id": "s2-t7",
+          "text": "charts",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names what Arjun arranged.",
+          "grammaticalRoleExplanation": "Direct Object of 'arranged'.",
+          "punctuationAfter": "!"
+        }
+      ],
+      "groups": [
+        {
+          "id": "s2-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s2-t3"],
+          "questionPrompt": "Who arranged them?",
+          "plainExplanation": "'Arjun' is the Subject, placed directly before 'arranged'.",
+          "textbookRule": "Exclamatory sentences keep Subject-before-Verb order after 'How...' or 'What...' (Odisha IX Ch. 1 Sec. D).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch1-secD", "src-od10-ch2"]
+        },
+        {
+          "id": "s2-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s2-t1", "s2-t2", "s2-t4", "s2-t5", "s2-t6", "s2-t7"],
+          "questionPrompt": "What is admired?",
+          "plainExplanation": "'How neatly ... arranged the science charts!' splits around the Subject for emphasis.",
+          "textbookRule": "Ends with an exclamation mark (!).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch1-secD"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "s2-rel-1",
+          "type": "adverb-verb",
+          "label": "Manner Link",
+          "fromTokenIds": ["s2-t2"],
+          "toTokenIds": ["s2-t4"],
+          "explanation": "'neatly' describes how Arjun 'arranged' the charts.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Arjun",
+        "subjectHeadWord": "Arjun",
+        "predicateText": "arranged the science charts (How neatly!)",
+        "predicateHeadWord": "arranged",
+        "patternNote": "Exclamatory: How + Adverb + Subject + Verb + Object (!)"
+      }
+    },
+    {
+      "id": "stcp-s2b-question-compare",
+      "title": "Compare · Question Word Order",
+      "rawText": "How did Arjun arrange the science charts?",
+      "contextTag": "Classroom Check",
+      "note": "In an Interrogative sentence, helping verb 'did' jumps BEFORE the Subject 'Arjun' to ask for an explanation.",
+      "tokens": [
+        {
+          "id": "s2b-t1",
+          "text": "How",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Question Adverb",
+          "meaningInSentence": "Asks about the method.",
+          "grammaticalRoleExplanation": "Opens the Wh- question."
+        },
+        {
+          "id": "s2b-t2",
+          "text": "did",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Auxiliary Verb",
+          "meaningInSentence": "Signals a past question.",
+          "grammaticalRoleExplanation": "Inverts before Subject 'Arjun' to build a question."
+        },
+        {
+          "id": "s2b-t3",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject",
+          "meaningInSentence": "Names who did the arranging.",
+          "grammaticalRoleExplanation": "Sits between auxiliary 'did' and main verb 'arrange'."
+        },
+        {
+          "id": "s2b-t4",
+          "text": "arrange",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Verb",
+          "meaningInSentence": "Names the action asked about.",
+          "grammaticalRoleExplanation": "Base verb paired with 'did'."
+        },
+        {
+          "id": "s2b-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the charts.",
+          "grammaticalRoleExplanation": "Determiner before 'science charts'."
+        },
+        {
+          "id": "s2b-t6",
+          "text": "science",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Describes the charts.",
+          "grammaticalRoleExplanation": "Modifies 'charts'."
+        },
+        {
+          "id": "s2b-t7",
+          "text": "charts",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names the items arranged.",
+          "grammaticalRoleExplanation": "Object of 'arrange'.",
+          "punctuationAfter": "?"
+        }
+      ],
+      "groups": [
+        {
+          "id": "s2b-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s2b-t3"],
+          "questionPrompt": "Who is asked about?",
+          "plainExplanation": "'Arjun' is the Subject sitting after auxiliary 'did'.",
+          "textbookRule": "Interrogatives invert an auxiliary verb before the Subject.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch1-secD"]
+        },
+        {
+          "id": "s2b-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s2b-t1", "s2b-t2", "s2b-t4", "s2b-t5", "s2b-t6", "s2b-t7"],
+          "questionPrompt": "What question is asked?",
+          "plainExplanation": "'How did ... arrange the science charts?' splits around 'Arjun'.",
+          "textbookRule": "Ends with a question mark (?).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch1-secD"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Arjun",
+        "subjectHeadWord": "Arjun",
+        "predicateText": "How did ... arrange the science charts?",
+        "predicateHeadWord": "arrange",
+        "patternNote": "Interrogative: How + did + Subject + Verb (?)"
+      }
+    },
+    {
+      "id": "stcp-s3-phrase-clause",
+      "title": "Starter Sentence · Clause + Phrase",
+      "rawText": "The students rested under the old neem tree.",
+      "contextTag": "Campus Shade",
+      "note": "'The students rested' is a Clause (Subject + finite verb 'rested'); 'under the old neem tree' is a Phrase (no finite verb).",
+      "tokens": [
+        {
+          "id": "s3-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the students.",
+          "grammaticalRoleExplanation": "Starts the Subject inside the Clause."
+        },
+        {
+          "id": "s3-t2",
+          "text": "students",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who rested.",
+          "grammaticalRoleExplanation": "Subject of the finite verb 'rested'.",
+          "linkedTokenIds": ["s3-t3"]
+        },
+        {
+          "id": "s3-t3",
+          "text": "rested",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Past Verb",
+          "meaningInSentence": "Shows the completed past action.",
+          "grammaticalRoleExplanation": "Finite verb carrying past tense—this proves 'The students rested' is a Clause!",
+          "linkedTokenIds": ["s3-t2"]
+        },
+        {
+          "id": "s3-t4",
+          "text": "under",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows where they sat.",
+          "grammaticalRoleExplanation": "Begins the Prepositional Phrase 'under the old neem tree' (zero verbs inside!)."
+        },
+        {
+          "id": "s3-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the tree.",
+          "grammaticalRoleExplanation": "Inside the prepositional phrase."
+        },
+        {
+          "id": "s3-t6",
+          "text": "old",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the tree.",
+          "grammaticalRoleExplanation": "Modifies 'neem tree' inside the phrase."
+        },
+        {
+          "id": "s3-t7",
+          "text": "neem",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Names the kind of tree.",
+          "grammaticalRoleExplanation": "Modifies 'tree'."
+        },
+        {
+          "id": "s3-t8",
+          "text": "tree",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Object of Preposition",
+          "meaningInSentence": "Completes the place phrase.",
+          "grammaticalRoleExplanation": "No verb appears in 'under the old neem tree', so it is a Phrase.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s3-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s3-t1", "s3-t2"],
+          "questionPrompt": "Who rested?",
+          "plainExplanation": "'The students' is the Subject paired with finite verb 'rested'.",
+          "textbookRule": "A clause always pairs a Subject with a finite verb (Odisha X Ch. 2; Assam Ch. 2).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2"]
+        },
+        {
+          "id": "s3-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s3-t3", "s3-t4", "s3-t5", "s3-t6", "s3-t7", "s3-t8"],
+          "questionPrompt": "What did they do and where?",
+          "plainExplanation": "'rested' is the finite verb; 'under the old neem tree' is a place Phrase.",
+          "textbookRule": "A prepositional phrase has no finite verb of its own.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-assam-ch1-ch2"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "s3-rel-1",
+          "type": "verb-subject",
+          "label": "Clause Core",
+          "fromTokenIds": ["s3-t3"],
+          "toTokenIds": ["s3-t2"],
+          "explanation": "Finite verb 'rested' + Subject 'students' creates a Clause.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The students",
+        "subjectHeadWord": "students",
+        "predicateText": "rested under the old neem tree.",
+        "predicateHeadWord": "rested",
+        "patternNote": "Clause ('The students rested') + Prepositional Phrase ('under the old neem tree')"
+      }
+    },
+    {
+      "id": "stcp-s4-nonfinite-trap",
+      "title": "Starter Sentence · Opening Phrase + Clause",
+      "rawText": "Walking along the river bank, we spotted bright kingfishers.",
+      "contextTag": "Nature Walk",
+      "note": "'Walking along the river bank' uses a non-finite '-ing' word without a Subject or helping verb—so it is a Phrase, while 'we spotted bright kingfishers' is the Clause.",
+      "tokens": [
+        {
+          "id": "s4-t1",
+          "text": "Walking",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Non-Finite Participle (-ing)",
+          "meaningInSentence": "Describes the activity happening while we spotted the birds.",
+          "grammaticalRoleExplanation": "Non-finite '-ing' form without a Subject or 'was/were', so it cannot build a Clause by itself!"
+        },
+        {
+          "id": "s4-t2",
+          "text": "along",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows path beside the river.",
+          "grammaticalRoleExplanation": "Inside the opening participial Phrase."
+        },
+        {
+          "id": "s4-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the river bank.",
+          "grammaticalRoleExplanation": "Inside the opening Phrase."
+        },
+        {
+          "id": "s4-t4",
+          "text": "river",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Specifies which bank.",
+          "grammaticalRoleExplanation": "Modifies 'bank'."
+        },
+        {
+          "id": "s4-t5",
+          "text": "bank",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Object of Preposition",
+          "meaningInSentence": "Completes 'along the river bank'.",
+          "grammaticalRoleExplanation": "Ends the opening Phrase before the comma.",
+          "punctuationAfter": ","
+        },
+        {
+          "id": "s4-t6",
+          "text": "we",
+          "category": "pronoun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Pronoun",
+          "meaningInSentence": "Names who spotted the birds.",
+          "grammaticalRoleExplanation": "Subject of the finite verb 'spotted'.",
+          "linkedTokenIds": ["s4-t7"]
+        },
+        {
+          "id": "s4-t7",
+          "text": "spotted",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Past Verb",
+          "meaningInSentence": "Tells the main past action.",
+          "grammaticalRoleExplanation": "Real finite verb showing past tense—making 'we spotted bright kingfishers' a Clause!",
+          "linkedTokenIds": ["s4-t6"]
+        },
+        {
+          "id": "s4-t8",
+          "text": "bright",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the kingfishers' colours.",
+          "grammaticalRoleExplanation": "Modifies 'kingfishers'."
+        },
+        {
+          "id": "s4-t9",
+          "text": "kingfishers",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names the birds spotted.",
+          "grammaticalRoleExplanation": "Direct Object of 'spotted'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s4-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s4-t6"],
+          "questionPrompt": "Who spotted the kingfishers?",
+          "plainExplanation": "'we' is the Subject of the main clause.",
+          "textbookRule": "Non-finite '-ing' phrases modify the Subject of the main clause (Odisha X Ch. 4 p. 31).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch4-finite", "src-assam-ch1-ch2"]
+        },
+        {
+          "id": "s4-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s4-t1", "s4-t2", "s4-t3", "s4-t4", "s4-t5", "s4-t7", "s4-t8", "s4-t9"],
+          "questionPrompt": "What happened?",
+          "plainExplanation": "'spotted bright kingfishers' holds the finite verb; 'Walking along the river bank' is an opening adverbial Phrase.",
+          "textbookRule": "Only finite verbs lock tense and form a Clause.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch4-finite"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "s4-rel-1",
+          "type": "verb-subject",
+          "label": "Finite Verb Lock",
+          "fromTokenIds": ["s4-t7"],
+          "toTokenIds": ["s4-t6"],
+          "explanation": "'spotted' is the finite verb anchored to Subject 'we'; 'Walking' is non-finite.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "we",
+        "subjectHeadWord": "we",
+        "predicateText": "spotted bright kingfishers (while walking along the river bank)",
+        "predicateHeadWord": "spotted",
+        "patternNote": "Non-finite Phrase ('Walking along the river bank') + Clause ('we spotted bright kingfishers')"
+      }
+    },
+    {
+      "id": "stcp-s5-elements",
+      "title": "Starter Sentence · Predicate Elements",
+      "rawText": "Mira handed Arjun a fresh mango in the garden.",
+      "contextTag": "Healthy Break",
+      "note": "Inside the Predicate, each slot has a clear job: Verb (handed) + Indirect Object (Arjun) + Direct Object (a fresh mango) + Adverbial (in the garden).",
+      "tokens": [
+        {
+          "id": "s5-t1",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject (S)",
+          "meaningInSentence": "Names who handed over the fruit.",
+          "grammaticalRoleExplanation": "Subject (S) performing the action.",
+          "linkedTokenIds": ["s5-t2"]
+        },
+        {
+          "id": "s5-t2",
+          "text": "handed",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Verb (V)",
+          "meaningInSentence": "Names the transfer action.",
+          "grammaticalRoleExplanation": "Ditransitive Verb (V) taking two Objects: recipient + thing.",
+          "linkedTokenIds": ["s5-t1", "s5-t3", "s5-t6"]
+        },
+        {
+          "id": "s5-t3",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Indirect Object (IO)",
+          "meaningInSentence": "Names the person who received the mango.",
+          "grammaticalRoleExplanation": "Indirect Object (IO) answering 'to whom?'.",
+          "linkedTokenIds": ["s5-t2"]
+        },
+        {
+          "id": "s5-t4",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner (in DO)",
+          "meaningInSentence": "Counts one mango.",
+          "grammaticalRoleExplanation": "Part of Direct Object 'a fresh mango'."
+        },
+        {
+          "id": "s5-t5",
+          "text": "fresh",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective (in DO)",
+          "meaningInSentence": "Describes the mango.",
+          "grammaticalRoleExplanation": "Modifies 'mango' inside the Direct Object."
+        },
+        {
+          "id": "s5-t6",
+          "text": "mango",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Direct Object Head (DO)",
+          "meaningInSentence": "Names the item handed over.",
+          "grammaticalRoleExplanation": "Direct Object (DO) answering 'what?'.",
+          "linkedTokenIds": ["s5-t2"]
+        },
+        {
+          "id": "s5-t7",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition (in A)",
+          "meaningInSentence": "Shows location.",
+          "grammaticalRoleExplanation": "Begins Adverbial of Place 'in the garden'."
+        },
+        {
+          "id": "s5-t8",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner (in A)",
+          "meaningInSentence": "Points to the garden.",
+          "grammaticalRoleExplanation": "Inside the Adverbial phrase."
+        },
+        {
+          "id": "s5-t9",
+          "text": "garden",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adverbial of Place (A)",
+          "meaningInSentence": "Tells where the action took place.",
+          "grammaticalRoleExplanation": "Completes the optional Adverbial 'in the garden'.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s5-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s5-t1"],
+          "questionPrompt": "Who acted?",
+          "plainExplanation": "'Mira' is the Subject (S).",
+          "textbookRule": "Predicate elements build around the Verb after the Subject (Odisha IX Ch. 12).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch12"]
+        },
+        {
+          "id": "s5-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s5-t2", "s5-t3", "s5-t4", "s5-t5", "s5-t6", "s5-t7", "s5-t8", "s5-t9"],
+          "questionPrompt": "What slots sit inside the Predicate?",
+          "plainExplanation": "'handed' (V) + 'Arjun' (IO) + 'a fresh mango' (DO) + 'in the garden' (A).",
+          "textbookRule": "Direct/Indirect Objects and optional Adjuncts/Adverbials sit inside the Predicate.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od9-ch12", "src-assam-ch1-ch2"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "handed Arjun a fresh mango in the garden.",
+        "predicateHeadWord": "handed",
+        "patternNote": "S ('Mira') + V ('handed') + IO ('Arjun') + DO ('a fresh mango') + A ('in the garden')"
+      }
+    },
+    {
+      "id": "stcp-s6-complement",
+      "title": "Starter Sentence · Subject Complement",
+      "rawText": "Rani Lakshmibai was a brave leader.",
+      "contextTag": "Indian Heritage",
+      "note": "Equals Test: Rani Lakshmibai = a brave leader! Because it renames the Subject after linking verb 'was', 'a brave leader' is a Complement (C), NOT an Object.",
+      "tokens": [
+        {
+          "id": "s6-t1",
+          "text": "Rani",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Title in Subject",
+          "meaningInSentence": "Title naming the queen.",
+          "grammaticalRoleExplanation": "Part of the Subject 'Rani Lakshmibai'."
+        },
+        {
+          "id": "s6-t2",
+          "text": "Lakshmibai",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject (S)",
+          "meaningInSentence": "Names the historical leader.",
+          "grammaticalRoleExplanation": "Subject renamed by 'a brave leader'.",
+          "linkedTokenIds": ["s6-t3", "s6-t6"]
+        },
+        {
+          "id": "s6-t3",
+          "text": "was",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Linking Verb (V)",
+          "meaningInSentence": "Connects Subject to its description.",
+          "grammaticalRoleExplanation": "Linking verb ('be') taking a Subject Complement (C), never an Object.",
+          "linkedTokenIds": ["s6-t2", "s6-t6"]
+        },
+        {
+          "id": "s6-t4",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner (in C)",
+          "meaningInSentence": "Introduces the noun phrase.",
+          "grammaticalRoleExplanation": "Starts Complement 'a brave leader'."
+        },
+        {
+          "id": "s6-t5",
+          "text": "brave",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective (in C)",
+          "meaningInSentence": "Describes her courage.",
+          "grammaticalRoleExplanation": "Modifies 'leader' inside the Complement."
+        },
+        {
+          "id": "s6-t6",
+          "text": "leader",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Subject Complement (C)",
+          "meaningInSentence": "Renames Rani Lakshmibai.",
+          "grammaticalRoleExplanation": "Subject Complement (C): Rani Lakshmibai = a brave leader.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["s6-t2"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "s6-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s6-t1", "s6-t2"],
+          "questionPrompt": "Who is renamed?",
+          "plainExplanation": "'Rani Lakshmibai' is the Subject.",
+          "textbookRule": "Complements describe or rename the Subject after linking verbs like 'be', 'become', 'seem' (Odisha X Ch. 2 p. 14).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2", "src-od9-ch12"]
+        },
+        {
+          "id": "s6-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s6-t3", "s6-t4", "s6-t5", "s6-t6"],
+          "questionPrompt": "How is the Subject completed?",
+          "plainExplanation": "'was a brave leader' contains linking Verb + Subject Complement.",
+          "textbookRule": "No second person/thing is acted upon—so there is no Object.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Rani Lakshmibai",
+        "subjectHeadWord": "Lakshmibai",
+        "predicateText": "was a brave leader.",
+        "predicateHeadWord": "was",
+        "patternNote": "SVC Pattern: Rani Lakshmibai (=) a brave leader"
+      }
+    },
+    {
+      "id": "stcp-s6b-object-compare",
+      "title": "Compare · Direct Object (Not Equal!)",
+      "rawText": "Mira met the team captain.",
+      "contextTag": "Sports Field",
+      "note": "Compare: Mira ≠ the team captain! 'met' is a transitive action verb passing to a DIFFERENT person, so 'the team captain' is a Direct Object (O).",
+      "tokens": [
+        {
+          "id": "s6b-t1",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject (S)",
+          "meaningInSentence": "Names who met the captain.",
+          "grammaticalRoleExplanation": "Subject (S)."
+        },
+        {
+          "id": "s6b-t2",
+          "text": "met",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Transitive Verb (V)",
+          "meaningInSentence": "Action passing from Mira to someone else.",
+          "grammaticalRoleExplanation": "Action verb taking a Direct Object."
+        },
+        {
+          "id": "s6b-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the captain.",
+          "grammaticalRoleExplanation": "Starts Direct Object 'the team captain'."
+        },
+        {
+          "id": "s6b-t4",
+          "text": "team",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Specifies which captain.",
+          "grammaticalRoleExplanation": "Modifies 'captain'."
+        },
+        {
+          "id": "s6b-t5",
+          "text": "captain",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Direct Object (O)",
+          "meaningInSentence": "A separate person whom Mira met.",
+          "grammaticalRoleExplanation": "Mira ≠ the team captain, so this is a Direct Object (O).",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s6b-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s6b-t1"],
+          "questionPrompt": "Who met someone?",
+          "plainExplanation": "'Mira' is the Subject.",
+          "textbookRule": "In SVO, Subject and Object refer to two different participants.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        },
+        {
+          "id": "s6b-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s6b-t2", "s6b-t3", "s6b-t4", "s6b-t5"],
+          "questionPrompt": "Whom did Mira meet?",
+          "plainExplanation": "'met the team captain' is Verb + Direct Object.",
+          "textbookRule": "Answers 'whom?' after action verb 'met'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "met the team captain.",
+        "predicateHeadWord": "met",
+        "patternNote": "SVO Pattern: Mira (≠) the team captain"
+      }
+    },
+    {
+      "id": "stcp-s7-svo-pattern",
+      "title": "Starter Sentence · SVO Pattern",
+      "rawText": "Our eco-club planted fifty saplings.",
+      "contextTag": "Green Campus",
+      "note": "Simple transitive pattern: Subject ('Our eco-club') + Verb ('planted') + Direct Object ('fifty saplings').",
+      "tokens": [
+        {
+          "id": "s7-t1",
+          "text": "Our",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Shows which club.",
+          "grammaticalRoleExplanation": "Part of the Subject 'Our eco-club'."
+        },
+        {
+          "id": "s7-t2",
+          "text": "eco-club",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject (S)",
+          "meaningInSentence": "Names the student club.",
+          "grammaticalRoleExplanation": "Subject (S) performing the planting.",
+          "linkedTokenIds": ["s7-t3"]
+        },
+        {
+          "id": "s7-t3",
+          "text": "planted",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Verb (V)",
+          "meaningInSentence": "States the past action.",
+          "grammaticalRoleExplanation": "Transitive Verb (V) requiring one Object.",
+          "linkedTokenIds": ["s7-t2", "s7-t5"]
+        },
+        {
+          "id": "s7-t4",
+          "text": "fifty",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Number Determiner",
+          "meaningInSentence": "Tells how many saplings.",
+          "grammaticalRoleExplanation": "Quantifies 'saplings' inside the Object."
+        },
+        {
+          "id": "s7-t5",
+          "text": "saplings",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Direct Object (O)",
+          "meaningInSentence": "Names what was planted.",
+          "grammaticalRoleExplanation": "Direct Object (O) completing SVO.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["s7-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "s7-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s7-t1", "s7-t2"],
+          "questionPrompt": "Who planted them?",
+          "plainExplanation": "'Our eco-club' is the Subject (S).",
+          "textbookRule": "Core simple clause patterns depend on the main verb (Odisha X Ch. 2 pp. 14-15).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2", "src-od9-ch12"]
+        },
+        {
+          "id": "s7-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s7-t3", "s7-t4", "s7-t5"],
+          "questionPrompt": "What did the club do?",
+          "plainExplanation": "'planted fifty saplings' = Verb + Object.",
+          "textbookRule": "Follows the SVO pattern.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Our eco-club",
+        "subjectHeadWord": "eco-club",
+        "predicateText": "planted fifty saplings.",
+        "predicateHeadWord": "planted",
+        "patternNote": "Core Pattern: S + V + O"
+      }
+    },
+    {
+      "id": "stcp-s8-svoc",
+      "title": "Starter Sentence · SVOC Pattern",
+      "rawText": "They elected him president.",
+      "contextTag": "School Election",
+      "note": "In 'They elected him president.', 'him' is the Object and 'president' renames 'him' (him = president), forming S + V + O + C!",
+      "tokens": [
+        {
+          "id": "s8-t1",
+          "text": "They",
+          "category": "pronoun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject (S)",
+          "meaningInSentence": "Names the voters.",
+          "grammaticalRoleExplanation": "Subject (S)."
+        },
+        {
+          "id": "s8-t2",
+          "text": "elected",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Verb (V)",
+          "meaningInSentence": "Names the act of choosing someone for a role.",
+          "grammaticalRoleExplanation": "Complex-transitive verb taking Object + Object Complement."
+        },
+        {
+          "id": "s8-t3",
+          "text": "him",
+          "category": "pronoun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Object (O)",
+          "meaningInSentence": "Names who was elected.",
+          "grammaticalRoleExplanation": "Direct Object (O), renamed by 'president'.",
+          "linkedTokenIds": ["s8-t4"]
+        },
+        {
+          "id": "s8-t4",
+          "text": "president",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Object Complement (C)",
+          "meaningInSentence": "States the title given to him.",
+          "grammaticalRoleExplanation": "Object Complement (C): him = president (NOT two separate objects!).",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["s8-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "s8-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s8-t1"],
+          "questionPrompt": "Who elected?",
+          "plainExplanation": "'They' is the Subject (S).",
+          "textbookRule": "In SVOC, the Complement describes or renames the Object (Odisha X Ch. 2 p. 15).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        },
+        {
+          "id": "s8-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s8-t2", "s8-t3", "s8-t4"],
+          "questionPrompt": "What pattern follows 'elected'?",
+          "plainExplanation": "'elected' (V) + 'him' (O) + 'president' (C).",
+          "textbookRule": "Test with 'to be' or '=': him (=) president → SVOC.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "They",
+        "subjectHeadWord": "They",
+        "predicateText": "elected him president.",
+        "predicateHeadWord": "elected",
+        "patternNote": "SVOC Pattern: him (=) president"
+      }
+    },
+    {
+      "id": "stcp-s8b-svoo-compare",
+      "title": "Compare · SVOO Pattern",
+      "rawText": "The science teacher gave Mira a magnifying glass.",
+      "contextTag": "Science Lab",
+      "note": "Compare: Mira ≠ a magnifying glass! Here there are TWO separate participants (recipient + gift), so the pattern is S + V + IO + DO (SVOO).",
+      "tokens": [
+        {
+          "id": "s8b-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the teacher.",
+          "grammaticalRoleExplanation": "Starts Subject 'The science teacher'."
+        },
+        {
+          "id": "s8b-t2",
+          "text": "science",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Names the subject taught.",
+          "grammaticalRoleExplanation": "Modifies 'teacher'."
+        },
+        {
+          "id": "s8b-t3",
+          "text": "teacher",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject (S)",
+          "meaningInSentence": "Names who gave the lens.",
+          "grammaticalRoleExplanation": "Subject (S)."
+        },
+        {
+          "id": "s8b-t4",
+          "text": "gave",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Verb (V)",
+          "meaningInSentence": "Action of giving.",
+          "grammaticalRoleExplanation": "Ditransitive verb taking two distinct Objects."
+        },
+        {
+          "id": "s8b-t5",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Indirect Object (IO)",
+          "meaningInSentence": "Recipient of the magnifying glass.",
+          "grammaticalRoleExplanation": "First Object (recipient)."
+        },
+        {
+          "id": "s8b-t6",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner (in DO)",
+          "meaningInSentence": "Counts one lens.",
+          "grammaticalRoleExplanation": "Starts Direct Object."
+        },
+        {
+          "id": "s8b-t7",
+          "text": "magnifying",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective (in DO)",
+          "meaningInSentence": "Describes the lens.",
+          "grammaticalRoleExplanation": "Modifies 'glass'."
+        },
+        {
+          "id": "s8b-t8",
+          "text": "glass",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Direct Object (DO)",
+          "meaningInSentence": "The object given.",
+          "grammaticalRoleExplanation": "Mira ≠ magnifying glass → Direct Object (SVOO).",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s8b-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s8b-t1", "s8b-t2", "s8b-t3"],
+          "questionPrompt": "Who gave it?",
+          "plainExplanation": "'The science teacher' is the Subject (S).",
+          "textbookRule": "Verbs like 'give, lend, offer, send' form SVOO (Odisha X Ch. 2 p. 15).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        },
+        {
+          "id": "s8b-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s8b-t4", "s8b-t5", "s8b-t6", "s8b-t7", "s8b-t8"],
+          "questionPrompt": "What two objects follow 'gave'?",
+          "plainExplanation": "'Mira' (recipient) + 'a magnifying glass' (item given).",
+          "textbookRule": "Can rewrite as 'gave a magnifying glass to Mira'.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2", "src-od9-ch12"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The science teacher",
+        "subjectHeadWord": "teacher",
+        "predicateText": "gave Mira a magnifying glass.",
+        "predicateHeadWord": "gave",
+        "patternNote": "SVOO Pattern: Mira (≠) a magnifying glass"
+      }
+    },
+    {
+      "id": "stcp-s9-indep-dep",
+      "title": "Starter Sentence · Two Clauses",
+      "rawText": "We watered the saplings before the afternoon heat arrived.",
+      "contextTag": "Eco-Club Routine",
+      "note": "'We watered the saplings' stands alone cleanly (Independent Clause). 'before the afternoon heat arrived' has a Subject + verb, yet leans on 'before' (Dependent Clause).",
+      "tokens": [
+        {
+          "id": "s9-t1",
+          "text": "We",
+          "category": "pronoun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Main Clause Subject",
+          "meaningInSentence": "Names who watered the plants.",
+          "grammaticalRoleExplanation": "Subject of the Independent Clause."
+        },
+        {
+          "id": "s9-t2",
+          "text": "watered",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Clause Finite Verb",
+          "meaningInSentence": "States the completed action.",
+          "grammaticalRoleExplanation": "Finite past verb of the Independent Clause."
+        },
+        {
+          "id": "s9-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the saplings.",
+          "grammaticalRoleExplanation": "Inside Main Clause Object."
+        },
+        {
+          "id": "s9-t4",
+          "text": "saplings",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Main Clause Object",
+          "meaningInSentence": "Young plants watered.",
+          "grammaticalRoleExplanation": "Completes the Independent Clause 'We watered the saplings'."
+        },
+        {
+          "id": "s9-t5",
+          "text": "before",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Subordinator",
+          "meaningInSentence": "Signals a time clause that depends on the main event.",
+          "grammaticalRoleExplanation": "Subordinating conjunction turning the second clause into a Dependent Clause!",
+          "linkedTokenIds": ["s9-t9"]
+        },
+        {
+          "id": "s9-t6",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner (in DC)",
+          "meaningInSentence": "Points to afternoon heat.",
+          "grammaticalRoleExplanation": "Inside the Dependent Clause."
+        },
+        {
+          "id": "s9-t7",
+          "text": "afternoon",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier (in DC)",
+          "meaningInSentence": "Specifies when the heat comes.",
+          "grammaticalRoleExplanation": "Modifies 'heat' inside the Dependent Clause."
+        },
+        {
+          "id": "s9-t8",
+          "text": "heat",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Dependent Clause Subject",
+          "meaningInSentence": "Subject inside the second clause.",
+          "grammaticalRoleExplanation": "Subject of 'arrived' inside the Dependent Clause."
+        },
+        {
+          "id": "s9-t9",
+          "text": "arrived",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Dependent Clause Verb",
+          "meaningInSentence": "Finite past verb inside the dependent time clause.",
+          "grammaticalRoleExplanation": "Has Subject + finite verb, yet depends on the Main Clause because of 'before'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["s9-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "s9-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s9-t1"],
+          "questionPrompt": "Who watered the saplings?",
+          "plainExplanation": "'We' is the Subject of the main sentence.",
+          "textbookRule": "Independent clauses stand alone; dependent clauses open with subordinators (Odisha X Ch. 2; Assam Ch. 2 & 8).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2"]
+        },
+        {
+          "id": "s9-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s9-t2", "s9-t3", "s9-t4", "s9-t5", "s9-t6", "s9-t7", "s9-t8", "s9-t9"],
+          "questionPrompt": "Which part leans on the main clause?",
+          "plainExplanation": "'before the afternoon heat arrived' gives the time as a Dependent Clause.",
+          "textbookRule": "Removing 'before...' leaves 'We watered the saplings' complete.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "s9-rel-1",
+          "type": "conjunction-elements",
+          "label": "Subordinator Anchor",
+          "fromTokenIds": ["s9-t5"],
+          "toTokenIds": ["s9-t9"],
+          "explanation": "'before' locks the second clause into a Dependent time helper.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "We",
+        "subjectHeadWord": "We",
+        "predicateText": "watered the saplings before the afternoon heat arrived.",
+        "predicateHeadWord": "watered",
+        "patternNote": "Independent Clause ('We watered the saplings') + Dependent Clause ('before the afternoon heat arrived')"
+      }
+    },
+    {
+      "id": "stcp-s10-repaired-isro",
+      "title": "Starter Sentence · Repaired Notice",
+      "rawText": "When ISRO launched the lunar orbiter in 2008, students celebrated across India.",
+      "contextTag": "Space Heritage",
+      "note": "'When ISRO launched the lunar orbiter in 2008' cannot end with a full stop on its own—joining it to 'students celebrated across India' finishes the thought!",
+      "tokens": [
+        {
+          "id": "s10-t1",
+          "text": "When",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Subordinator",
+          "meaningInSentence": "Signals a time clause waiting for a main event.",
+          "grammaticalRoleExplanation": "Turns 'ISRO launched...' into a Dependent Clause needing a Main Clause."
+        },
+        {
+          "id": "s10-t2",
+          "text": "ISRO",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Dependent Clause Subject",
+          "meaningInSentence": "India's space agency.",
+          "grammaticalRoleExplanation": "Subject inside the Dependent Clause."
+        },
+        {
+          "id": "s10-t3",
+          "text": "launched",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Dependent Clause Verb",
+          "meaningInSentence": "Action of sending the orbiter.",
+          "grammaticalRoleExplanation": "Finite verb inside the Dependent Clause."
+        },
+        {
+          "id": "s10-t4",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner (in DC)",
+          "meaningInSentence": "Points to Chandrayaan-1 orbiter.",
+          "grammaticalRoleExplanation": "Inside the Dependent Clause."
+        },
+        {
+          "id": "s10-t5",
+          "text": "lunar",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective (in DC)",
+          "meaningInSentence": "Relating to the moon.",
+          "grammaticalRoleExplanation": "Modifies 'orbiter'."
+        },
+        {
+          "id": "s10-t6",
+          "text": "orbiter",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Object (in DC)",
+          "meaningInSentence": "Spacecraft launched.",
+          "grammaticalRoleExplanation": "Object of 'launched' inside Dependent Clause."
+        },
+        {
+          "id": "s10-t7",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition (in DC)",
+          "meaningInSentence": "Points to the year.",
+          "grammaticalRoleExplanation": "Part of 'in 2008'."
+        },
+        {
+          "id": "s10-t8",
+          "text": "2008",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Year (in DC)",
+          "meaningInSentence": "The launch year.",
+          "grammaticalRoleExplanation": "Ends the opening Dependent Clause.",
+          "punctuationAfter": ","
+        },
+        {
+          "id": "s10-t9",
+          "text": "students",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Main Clause Subject",
+          "meaningInSentence": "Names who celebrated.",
+          "grammaticalRoleExplanation": "Subject of the Independent Clause 'students celebrated across India'."
+        },
+        {
+          "id": "s10-t10",
+          "text": "celebrated",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Clause Verb",
+          "meaningInSentence": "States the main completed event.",
+          "grammaticalRoleExplanation": "Main finite verb completing the Independent Clause."
+        },
+        {
+          "id": "s10-t11",
+          "text": "across",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows wide reach.",
+          "grammaticalRoleExplanation": "Inside Main Clause Adverbial."
+        },
+        {
+          "id": "s10-t12",
+          "text": "India",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Place Noun",
+          "meaningInSentence": "Our country.",
+          "grammaticalRoleExplanation": "Completes the Independent Clause.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s10-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s10-t9"],
+          "questionPrompt": "Who is the main Subject?",
+          "plainExplanation": "'students' is the Subject of the Main (Independent) Clause.",
+          "textbookRule": "A Dependent Clause placed first needs a comma and an Independent Clause to complete the sentence.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2", "src-stcp-bridge"]
+        },
+        {
+          "id": "s10-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s10-t1", "s10-t2", "s10-t3", "s10-t4", "s10-t5", "s10-t6", "s10-t7", "s10-t8", "s10-t10", "s10-t11", "s10-t12"],
+          "questionPrompt": "What repairs the broken fragment?",
+          "plainExplanation": "Adding 'students celebrated across India' completes the 'When...' clause.",
+          "textbookRule": "Never punctuate a lone Dependent Clause with a full stop.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-stcp-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "students",
+        "subjectHeadWord": "students",
+        "predicateText": "celebrated across India (When ISRO launched the lunar orbiter in 2008)",
+        "predicateHeadWord": "celebrated",
+        "patternNote": "Dependent Clause ('When ISRO launched...') + Independent Clause ('students celebrated across India')"
+      }
+    },
+    {
+      "id": "stcp-s11-coordination",
+      "title": "Starter Sentence · Coordination",
+      "rawText": "Arjun brought the telescope, and Mira brought the star map.",
+      "contextTag": "Night Sky Club",
+      "note": "Two equal Independent Clauses joined by coordinator 'and'—each half could stand as a complete sentence on its own.",
+      "tokens": [
+        {
+          "id": "s11-t1",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Clause 1 Subject",
+          "meaningInSentence": "Subject of the first Independent Clause.",
+          "grammaticalRoleExplanation": "Paired with finite verb 'brought'."
+        },
+        {
+          "id": "s11-t2",
+          "text": "brought",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Clause 1 Verb",
+          "meaningInSentence": "Past action in Clause 1.",
+          "grammaticalRoleExplanation": "First finite verb."
+        },
+        {
+          "id": "s11-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the telescope.",
+          "grammaticalRoleExplanation": "Inside Clause 1 Object."
+        },
+        {
+          "id": "s11-t4",
+          "text": "telescope",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Clause 1 Object",
+          "meaningInSentence": "Sky-viewing instrument.",
+          "grammaticalRoleExplanation": "Ends the first Independent Clause.",
+          "punctuationAfter": ","
+        },
+        {
+          "id": "s11-t5",
+          "text": "and",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Coordinator",
+          "meaningInSentence": "Joins two equal independent clauses.",
+          "grammaticalRoleExplanation": "Coordinating conjunction ('and, but, or, so') linking equal clauses.",
+          "linkedTokenIds": ["s11-t2", "s11-t7"]
+        },
+        {
+          "id": "s11-t6",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Clause 2 Subject",
+          "meaningInSentence": "Subject of the second Independent Clause.",
+          "grammaticalRoleExplanation": "Paired with the second finite verb 'brought'."
+        },
+        {
+          "id": "s11-t7",
+          "text": "brought",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Clause 2 Verb",
+          "meaningInSentence": "Past action in Clause 2.",
+          "grammaticalRoleExplanation": "Second finite verb proving there are two clauses."
+        },
+        {
+          "id": "s11-t8",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the star map.",
+          "grammaticalRoleExplanation": "Inside Clause 2 Object."
+        },
+        {
+          "id": "s11-t9",
+          "text": "star",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Noun Modifier",
+          "meaningInSentence": "Type of map.",
+          "grammaticalRoleExplanation": "Modifies 'map'."
+        },
+        {
+          "id": "s11-t10",
+          "text": "map",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Clause 2 Object",
+          "meaningInSentence": "Chart of constellations.",
+          "grammaticalRoleExplanation": "Completes the second Independent Clause.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s11-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s11-t1"],
+          "questionPrompt": "Who opens Clause 1?",
+          "plainExplanation": "'Arjun' is Subject 1; 'Mira' is Subject 2 after 'and'.",
+          "textbookRule": "Coordination links equal Independent Clauses (Odisha X Ch. 2; Assam Ch. 8).",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2"]
+        },
+        {
+          "id": "s11-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s11-t2", "s11-t3", "s11-t4", "s11-t5", "s11-t6", "s11-t7", "s11-t8", "s11-t9", "s11-t10"],
+          "questionPrompt": "How do the two clauses join?",
+          "plainExplanation": "Two finite verbs ('brought' ... 'brought') linked equally by ', and'.",
+          "textbookRule": "Both clauses make complete sense individually.",
+          "provenance": "textbook-derived",
+          "sourceRefIds": ["src-od10-ch2"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "s11-rel-1",
+          "type": "conjunction-elements",
+          "label": "Equal Coordination",
+          "fromTokenIds": ["s11-t2"],
+          "toTokenIds": ["s11-t7"],
+          "explanation": "'and' joins Clause 1 ('brought...') and Clause 2 ('brought...') with equal rank.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Arjun",
+        "subjectHeadWord": "Arjun",
+        "predicateText": "brought the telescope, and Mira brought the star map.",
+        "predicateHeadWord": "brought",
+        "patternNote": "Coordination: Independent Clause + 'and' + Independent Clause"
+      }
+    },
+    {
+      "id": "stcp-s12-single-clause-trap",
+      "title": "Starter Sentence · Single-Clause 'and'",
+      "rawText": "Dal and rice give steady energy.",
+      "contextTag": "Balanced Meal",
+      "note": "Watch the verb count! There is only ONE finite verb ('give'). Here 'and' joins two Subject nouns inside ONE single clause—NOT two clauses.",
+      "tokens": [
+        {
+          "id": "s12-t1",
+          "text": "Dal",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Noun 1",
+          "meaningInSentence": "Nutritious lentils.",
+          "grammaticalRoleExplanation": "First half of the compound Subject 'Dal and rice'."
+        },
+        {
+          "id": "s12-t2",
+          "text": "and",
+          "category": "conjunction",
+          "groupRole": "subject",
+          "isHeadWord": false,
+          "roleLabel": "Noun Joiner",
+          "meaningInSentence": "Joins two food nouns inside ONE Subject.",
+          "grammaticalRoleExplanation": "Does NOT join two clauses here—because there is only one finite verb ('give')!",
+          "linkedTokenIds": ["s12-t1", "s12-t3"]
+        },
+        {
+          "id": "s12-t3",
+          "text": "rice",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Noun 2",
+          "meaningInSentence": "Wholesome grain.",
+          "grammaticalRoleExplanation": "Second half of the single Subject."
+        },
+        {
+          "id": "s12-t4",
+          "text": "give",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Single Finite Verb",
+          "meaningInSentence": "Only finite verb in the sentence.",
+          "grammaticalRoleExplanation": "One finite verb = ONE single clause!"
+        },
+        {
+          "id": "s12-t5",
+          "text": "steady",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes lasting nourishment.",
+          "grammaticalRoleExplanation": "Modifies 'energy'."
+        },
+        {
+          "id": "s12-t6",
+          "text": "energy",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": false,
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Strength for learning and sports.",
+          "grammaticalRoleExplanation": "Completes the single SVO clause.",
+          "punctuationAfter": "."
+        }
+      ],
+      "groups": [
+        {
+          "id": "s12-g-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["s12-t1", "s12-t2", "s12-t3"],
+          "questionPrompt": "What gives steady energy?",
+          "plainExplanation": "'Dal and rice' is ONE compound Subject joined by 'and'.",
+          "textbookRule": "Count finite verbs before deciding whether 'and' links two clauses or two words in one clause.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch2", "src-stcp-bridge"]
+        },
+        {
+          "id": "s12-g-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["s12-t4", "s12-t5", "s12-t6"],
+          "questionPrompt": "How many finite verbs exist?",
+          "plainExplanation": "Only ONE finite verb ('give') → 1 single clause!",
+          "textbookRule": "One finite verb means one clause, even when 'and' appears.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-stcp-bridge"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "s12-rel-1",
+          "type": "conjunction-elements",
+          "label": "Word Joiner (1 Clause)",
+          "fromTokenIds": ["s12-t1"],
+          "toTokenIds": ["s12-t3"],
+          "explanation": "'and' joins 'Dal' and 'rice' inside the same Subject—not two clauses.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Dal and rice",
+        "subjectHeadWord": "Dal, rice",
+        "predicateText": "give steady energy.",
+        "predicateHeadWord": "give",
+        "patternNote": "Single Clause (1 finite verb 'give'): compound Subject joined by 'and'"
+      }
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "stcp-step-01",
+      "stepNumber": 1,
+      "type": "show-sentence",
+      "visualMode": "plain-sentence",
+      "title": "Topic 1 · Sentences Have a Purpose",
+      "badgeLabel": "Topic 1 · Functional Types",
+      "shortPrompt": "Look at any school noticeboard: one line shares news, another asks a question, another gives instructions.",
+      "explanation": "Why learn sentence types? Recognising a sentence's purpose helps you read notices accurately and write with the right word order and punctuation. Declarative sentences state facts (.), Interrogative sentences ask questions (?), Imperative sentences give instructions or requests (understood 'You'), and Exclamatory sentences show strong feeling (!).",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "stcp-s1-declarative",
+      "focusTokenIds": ["s1-t2", "s1-t3"],
+      "clausePatternData": {
+        "mode": "sentence-purpose",
+        "categoryBadge": "Topic 1 · Functional Sentence Types",
+        "ruleSummary": "Sentence purpose controls both the opening word order and end punctuation (., ?, !).",
+        "whyItWorks": "Listeners need to know instantly whether you are sharing information (Subject first), asking for an answer (helping verb jumps forward), giving an instruction (Subject 'You' understood), or expressing strong feeling (What/How jumps forward while Subject stays before Verb).",
+        "keyTerms": [
+          { "term": "Declarative", "meaning": "States a fact or idea and ends with a full stop (.)." },
+          { "term": "Interrogative", "meaning": "Asks a question and ends with a question mark (?)." },
+          { "term": "Imperative", "meaning": "Gives a direction, request, or advice; the Subject '(You)' is understood." },
+          { "term": "Exclamatory", "meaning": "Shows strong surprise or admiration and ends with an exclamation mark (!)." }
+        ],
+        "segments": [
+          {
+            "label": "Declarative (.)",
+            "text": "Fresh guavas grow in our orchard.",
+            "tone": "independent",
+            "subLabel": "States a fact"
+          },
+          {
+            "label": "Interrogative (?)",
+            "text": "Did you wash the fruit?",
+            "tone": "object",
+            "subLabel": "Asks a question"
+          },
+          {
+            "label": "Imperative (. / !)",
+            "text": "Drink clean water daily.",
+            "tone": "subject",
+            "subLabel": "Understood (You)"
+          },
+          {
+            "label": "Exclamatory (!)",
+            "text": "What a bright rainbow appeared!",
+            "tone": "complement",
+            "subLabel": "Strong feeling"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Fresh guavas grow in our school orchard.",
+            "highlightBadge": "Declarative · States a fact",
+            "stepByStep": "1) Find the Subject 'Fresh guavas'. 2) Notice the verb 'grow' follows right after it. 3) See the full stop (.).",
+            "whyCorrect": "It simply informs the reader of a fact in standard Subject + Verb order, so it is Declarative."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Drink clean water during sports practice.",
+            "highlightBadge": "Imperative · Advice / Instruction",
+            "stepByStep": "1) Look at the opening word 'Drink'—a base action verb. 2) Ask 'Who should drink?' The listener '(You)' is understood without being written.",
+            "whyCorrect": "Even though 'You' is hidden, starting directly with a base verb to give healthy advice makes it a complete Imperative sentence."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "What a bright rainbow appeared after the rain!",
+            "highlightBadge": "Exclamatory · Strong feeling",
+            "stepByStep": "1) Notice it starts with 'What a bright rainbow'. 2) Check for a question helper like 'did'—none appears! 3) Notice the exclamation mark (!).",
+            "whyCorrect": "It is not asking for an answer; it expresses sudden wonder after the rain, so it is Exclamatory."
+          }
+        ],
+        "boardNote": {
+          "label": "Grammar Note (Optative)",
+          "text": "Along with these 4 main sentence types, some grammar traditions also name a 5th type—Optative—for wishes and prayers starting with 'May...' (e.g., 'May our school garden bloom!')."
+        }
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch1-secD", "src-od10-ch2", "src-assam-ch1-ch2"]
+    },
+    {
+      "id": "stcp-step-02",
+      "stepNumber": 2,
+      "type": "compare-example",
+      "visualMode": "compare-dual",
+      "title": "The 'How / What' Exclamation Trap",
+      "badgeLabel": "Topic 1 · Word Order Check",
+      "shortPrompt": "Mira spotted a puzzle on the exhibition board: both lines begin with 'How', yet only one is a question!",
+      "explanation": "Compare 'How neatly Arjun arranged the science charts!' with 'How did Arjun arrange the science charts?'. In the exclamation, Subject 'Arjun' sits BEFORE verb 'arranged' (no helping verb 'did'), showing admiration rather than asking for information.",
+      "characterId": "mira",
+      "characterExpression": "curious",
+      "sentenceId": "stcp-s2-exclamation",
+      "comparisonSentenceId": "stcp-s2b-question-compare",
+      "focusTokenIds": ["s2-t1", "s2-t3", "s2-t4"],
+      "clausePatternData": {
+        "mode": "sentence-purpose",
+        "categoryBadge": "Exclamatory vs Interrogative Check",
+        "ruleSummary": "Check who sits before the main verb: Subject + Verb = Exclamation (!); Auxiliary + Subject + Verb = Question (?).",
+        "whyItWorks": "Questions invert an auxiliary (helping) verb before the Subject ('did Arjun arrange?'), whereas Exclamations keep normal Subject–Verb order ('Arjun arranged') after 'How...' or 'What...'.",
+        "keyTerms": [
+          { "term": "Auxiliary Verb", "meaning": "A helping verb (like did, do, is, have) that jumps before the Subject to form a question." }
+        ],
+        "segments": [
+          {
+            "label": "Exclamation Trigger",
+            "text": "How neatly",
+            "tone": "complement",
+            "subLabel": "Admiration phrase"
+          },
+          {
+            "label": "Subject First",
+            "text": "Arjun",
+            "tone": "subject",
+            "subLabel": "Before verb!"
+          },
+          {
+            "label": "Verb Second",
+            "text": "arranged the science charts!",
+            "tone": "verb",
+            "subLabel": "No 'did' inversion"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Did you wash the fruit before lunch?",
+            "highlightBadge": "Interrogative · Yes/No Question",
+            "stepByStep": "1) Helping verb 'Did' sits first. 2) Subject 'you' comes next, followed by main verb 'wash'.",
+            "whyCorrect": "Moving helping verb 'Did' before the Subject clearly builds an Interrogative question."
+          },
+          {
+            "level": "Medium",
+            "sentence": "How did Arjun arrange the science charts?",
+            "highlightBadge": "Interrogative · Wh- Question",
+            "stepByStep": "1) 'How' opens the question. 2) Helping verb 'did' jumps BEFORE Subject 'Arjun'.",
+            "whyCorrect": "Subject–auxiliary inversion ('did Arjun') asks the listener to explain the method."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "How neatly Arjun arranged the science charts!",
+            "highlightBadge": "Exclamatory · Admirative Order",
+            "stepByStep": "1) 'How neatly' praises the neatness. 2) Subject 'Arjun' stays right BEFORE 'arranged' with zero 'did'.",
+            "whyCorrect": "No helping verb comes before 'Arjun', proving the sentence admires rather than asks."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Labelling 'How sweet these mangoes taste!' as Interrogative because it starts with 'How'—or calling 'Open the window.' incomplete.",
+          "correctText": "Exclamatory ('these mangoes taste' = Subject before Verb) · Imperative ('(You) open the window.')",
+          "whyWrong": "'How' alone does not make a question without auxiliary inversion ('How sweet do...'), and imperatives are full sentences with '(You)' understood."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 1 Checkpoint · Sentence Purpose",
+        "prompt": "Which type of sentence is: 'How neatly Arjun arranged the science charts!'?",
+        "options": [
+          {
+            "id": "t1-a",
+            "label": "Interrogative — because it opens with the word 'How'",
+            "isCorrect": false,
+            "explanation": "Opening with 'How' alone does not make a question; there is no helping verb ('did') placed before 'Arjun'."
+          },
+          {
+            "id": "t1-b",
+            "label": "Exclamatory — it expresses admiration with Subject 'Arjun' before Verb 'arranged'",
+            "isCorrect": true,
+            "explanation": "Correct! 'Arjun' precedes 'arranged' with no question inversion, expressing admiration (!)."
+          },
+          {
+            "id": "t1-c",
+            "label": "Imperative — because it ends with an exclamation mark",
+            "isCorrect": false,
+            "explanation": "Imperatives give instructions starting with a base verb like 'Arrange the charts!'; this admires what Arjun already did."
+          },
+          {
+            "id": "t1-d",
+            "label": "Declarative — because it mentions science charts",
+            "isCorrect": false,
+            "explanation": "Declarative sentences state a calm fact ('Arjun arranged the science charts neatly.'). Fronting 'How neatly' turns it into an exclamation."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch1-secD", "src-od10-ch2"]
+    },
+    {
+      "id": "stcp-step-03",
+      "stepNumber": 3,
+      "type": "highlight-group",
+      "visualMode": "split-blueprint",
+      "title": "Topic 2 · Phrases vs Clauses",
+      "badgeLabel": "Topic 2 · The Finite Verb Test",
+      "shortPrompt": "Imagine checking two lines from a nature-walk diary: why is one only a Phrase while the other is a Clause?",
+      "explanation": "Why learn this difference? Knowing Phrases from Clauses stops you from turning descriptive word groups into unfinished sentences. A Phrase is a word team WITHOUT a finite verb ('under the old neem tree'). A Clause ALWAYS pairs a Subject with a finite verb showing tense and Subject agreement ('The students rested').",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "stcp-s3-phrase-clause",
+      "focusTokenIds": ["s3-t2", "s3-t3"],
+      "clausePatternData": {
+        "mode": "phrase-vs-clause",
+        "categoryBadge": "Topic 2 · Phrases vs Clauses",
+        "ruleSummary": "No finite verb = Phrase. Subject + finite verb (carrying tense/agreement) = Clause.",
+        "whyItWorks": "Only a finite verb locks onto a Subject in person, number, and time (rest → rested). Without a finite verb, a word group can describe a place or thing, yet cannot state an event on its own.",
+        "keyTerms": [
+          { "term": "Phrase", "meaning": "A meaningful group of words with no Subject + finite verb pair." },
+          { "term": "Clause", "meaning": "A group of words containing a Subject and its finite verb." },
+          { "term": "Finite Verb", "meaning": "A verb that changes for tense (present/past) or Subject number (is/are, rest/rested)." }
+        ],
+        "segments": [
+          {
+            "label": "Clause (Subject + Finite Verb)",
+            "text": "The students rested",
+            "tone": "independent",
+            "subLabel": "'rested' shows past tense"
+          },
+          {
+            "label": "Phrase (No Finite Verb)",
+            "text": "under the old neem tree",
+            "tone": "phrase",
+            "subLabel": "Preposition + noun group"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "under the old neem tree",
+            "highlightBadge": "Phrase · Prepositional",
+            "stepByStep": "1) Scan every word: 'under' (preposition), 'the old neem tree' (noun group). 2) Count verbs: zero!",
+            "whyCorrect": "Because there is no verb at all, it cannot be a clause—it is a prepositional Phrase."
+          },
+          {
+            "level": "Medium",
+            "sentence": "the monsoon clouds gathered",
+            "highlightBadge": "Clause · Subject + Finite Verb",
+            "stepByStep": "1) Find Subject 'the monsoon clouds'. 2) Check 'gathered'—it shows past tense (today: 'gather').",
+            "whyCorrect": "Having both a Subject and a tense-carrying finite verb makes it a complete Clause."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "reading a book on ISRO in the quiet library",
+            "highlightBadge": "Phrase · Non-finite '-ing'",
+            "stepByStep": "1) Spot 'reading'. 2) Ask 'Who is reading?'—no Subject or helping verb ('was/are') appears!",
+            "whyCorrect": "A lone '-ing' form without a Subject or auxiliary verb stays frozen without tense, so the whole group is a Phrase."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od10-ch4-finite", "src-assam-ch1-ch2"]
+    },
+    {
+      "id": "stcp-step-04",
+      "stepNumber": 4,
+      "type": "explain-role",
+      "visualMode": "headword-spotlight",
+      "title": "The '-ing' & 'to + verb' Phrase Trap",
+      "badgeLabel": "Topic 2 · Finite vs Non-Finite",
+      "shortPrompt": "Arjun thought 'Walking along the river bank' was a Clause because 'walking' sounds like an action—let's test his guess!",
+      "explanation": "In 'Walking along the river bank, we spotted bright kingfishers.', 'Walking' has NO Subject and NO helping verb ('was/were'), so it stays non-finite and cannot change for past or present. Only 'we spotted bright kingfishers' holds a true finite verb ('spotted').",
+      "characterId": "arjun",
+      "characterExpression": "thinking",
+      "sentenceId": "stcp-s4-nonfinite-trap",
+      "focusTokenIds": ["s4-t6", "s4-t7"],
+      "dimmedTokenIds": ["s4-t1", "s4-t2", "s4-t3", "s4-t4", "s4-t5"],
+      "clausePatternData": {
+        "mode": "phrase-vs-clause",
+        "categoryBadge": "Non-Finite Trap Check",
+        "ruleSummary": "Try changing the time to 'today' or 'yesterday': finite verbs change ('spotted' → 'spot'), while '-ing' / 'to + verb' stay frozen.",
+        "whyItWorks": "Words like 'walking' or 'to finish' are non-finite verbals—they borrow their time from the main clause's finite verb ('spotted') rather than carrying tense on their own.",
+        "keyTerms": [
+          { "term": "Non-Finite Verb", "meaning": "An '-ing', 'to + verb', or participle form that does not change for tense or Subject on its own." }
+        ],
+        "segments": [
+          {
+            "label": "Non-Finite Phrase",
+            "text": "Walking along the river bank,",
+            "tone": "phrase",
+            "subLabel": "No Subject, no tense"
+          },
+          {
+            "label": "Clause (Subject + Finite Verb)",
+            "text": "we spotted bright kingfishers.",
+            "tone": "independent",
+            "subLabel": "Subject 'we' + finite 'spotted'"
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Calling 'To finish the science project before Friday' or 'Walking along the river bank' a Clause.",
+          "correctText": "Both are Phrases (non-finite 'to + finish' and '-ing' 'Walking')",
+          "whyWrong": "Neither 'to finish' nor 'walking' has its own Subject or tense-carrying finite verb. Adding a Subject + finite verb ('Mira plans to finish...') turns it into a Clause."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 2 Checkpoint · Phrase vs Clause",
+        "prompt": "Which group of words is a Clause (not a Phrase)?",
+        "options": [
+          {
+            "id": "t2-a",
+            "label": "Walking quickly along the river bank",
+            "isCorrect": false,
+            "explanation": "'Walking' is a non-finite '-ing' participle without a Subject or helping verb ('was/were'), so this is a Phrase."
+          },
+          {
+            "id": "t2-b",
+            "label": "A basket of ripe bananas on the table",
+            "isCorrect": false,
+            "explanation": "This has nouns and prepositions but zero verbs—so it is a Phrase."
+          },
+          {
+            "id": "t2-c",
+            "label": "Because the bell rang early",
+            "isCorrect": true,
+            "explanation": "Spot on! Even though it starts with 'Because', it has Subject 'the bell' + finite past verb 'rang', so it is a Clause."
+          },
+          {
+            "id": "t2-d",
+            "label": "To finish the science project before Friday",
+            "isCorrect": false,
+            "explanation": "'To finish' is a non-finite infinitive with no Subject or tense, making this a Phrase."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch4-finite", "src-assam-ch1-ch2", "src-stcp-bridge"]
+    },
+    {
+      "id": "stcp-step-05",
+      "stepNumber": 5,
+      "type": "explain-meaning",
+      "visualMode": "meaning-callout",
+      "title": "Topic 3 · Elements Inside the Predicate",
+      "badgeLabel": "Topic 3 · S, V, O, C, A Slots",
+      "shortPrompt": "During break time, Mira noticed how one verb ('handed') packs three separate clues right after it!",
+      "explanation": "Why learn clause elements? Knowing what each part of the Predicate does keeps you from mixing up who receives something, what is described, and where an action happens. Inside a clause, five jobs appear: Subject (S), Verb (V), Object (O: Indirect IO or Direct DO), Complement (C), and Adverbial (A).",
+      "characterId": "mira",
+      "characterExpression": "curious",
+      "sentenceId": "stcp-s5-elements",
+      "focusTokenIds": ["s5-t1", "s5-t2", "s5-t3", "s5-t6"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 3 · Clause Elements (S, V, O, C, A)",
+        "ruleSummary": "S = actor/topic, V = verb engine, O = receives action (IO/DO), C = describes/renames S or O, A = where/when/how.",
+        "whyItWorks": "The main verb decides what slots must follow it: intransitive verbs ('chirp') need nothing, linking verbs ('is') need a Complement, and giving verbs ('handed') invite an Indirect recipient + Direct thing.",
+        "keyTerms": [
+          { "term": "Object (O)", "meaning": "Receives the action; Indirect Object (IO) = recipient ('Arjun'), Direct Object (DO) = thing ('a fresh mango')." },
+          { "term": "Complement (C)", "meaning": "Describes or renames the Subject or Object after linking/naming verbs (never a separate receiver)." },
+          { "term": "Adverbial (A)", "meaning": "Adds optional or place/time/manner detail telling where, when, or how ('in the garden')." }
+        ],
+        "segments": [
+          { "label": "S", "text": "Mira", "tone": "subject", "subLabel": "Who acted" },
+          { "label": "V", "text": "handed", "tone": "verb", "subLabel": "Verb" },
+          { "label": "IO", "text": "Arjun", "tone": "object", "subLabel": "Recipient" },
+          { "label": "DO", "text": "a fresh mango", "tone": "object", "subLabel": "Thing handed" },
+          { "label": "A", "text": "in the garden", "tone": "adverbial", "subLabel": "Where (Place)" }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Sparrows chirp.",
+            "highlightBadge": "S + V (Intransitive)",
+            "stepByStep": "1) Subject: 'Sparrows'. 2) Verb: 'chirp'. Nothing else is needed to finish the idea.",
+            "whyCorrect": "'chirp' is intransitive, so the clause is complete with just Subject + Verb."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The night is dark.",
+            "highlightBadge": "S + V + C Pattern",
+            "stepByStep": "1) Subject: 'The night'. 2) Linking verb: 'is'. 3) 'dark' describes 'The night'.",
+            "whyCorrect": "'dark' does not receive an action—it describes the Subject after 'is', so it is a Complement (C)."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Mira handed Arjun a fresh mango in the garden.",
+            "highlightBadge": "S + V + IO + DO + A",
+            "stepByStep": "1) 'Mira' (S). 2) 'handed' (V). 3) 'Arjun' = to whom (IO). 4) 'a fresh mango' = what (DO). 5) 'in the garden' = where (A).",
+            "whyCorrect": "Each element answers a distinct question: who acted, what action, to whom, what item, and where."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od9-ch12", "src-od10-ch2", "src-assam-ch1-ch2"]
+    },
+    {
+      "id": "stcp-step-06",
+      "stepNumber": 6,
+      "type": "compare-example",
+      "visualMode": "compare-dual",
+      "title": "The Equals Test: Object (O) vs Complement (C)",
+      "badgeLabel": "Topic 3 · Equals Test",
+      "shortPrompt": "Does the noun after the verb RENAME the Subject, or name someone DIFFERENT?",
+      "explanation": "Compare 'Rani Lakshmibai was a brave leader.' with 'Mira met the team captain.'. Put '=' between the Subject and the post-verb noun: Rani Lakshmibai = a brave leader (Complement C!), whereas Mira ≠ the team captain (Direct Object O!).",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "stcp-s6-complement",
+      "comparisonSentenceId": "stcp-s6b-object-compare",
+      "focusTokenIds": ["s6-t2", "s6-t3", "s6-t6"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Equals Test · C vs O",
+        "ruleSummary": "If Subject = Post-verb Noun/Adjective (after be/become/seem), it is a Complement (C). If Subject ≠ Post-verb Noun, it is an Object (O).",
+        "whyItWorks": "Action verbs pass energy from one person/thing to another ('Mira met the team captain' → 2 people). Linking verbs act like an '=' sign pointing back to the same person ('Rani Lakshmibai = a brave leader').",
+        "keyTerms": [
+          { "term": "Linking Verb", "meaning": "Verbs like be (is/was), become, seem, feel that connect a Subject to its description (=)." },
+          { "term": "Transitive Verb", "meaning": "An action verb (like met, planted, handed) that passes its action onto an Object." }
+        ],
+        "segments": [
+          { "label": "Subject (S)", "text": "Rani Lakshmibai", "tone": "subject" },
+          { "label": "Linking V (=)", "text": "was", "tone": "verb" },
+          { "label": "Complement (C)", "text": "a brave leader", "tone": "complement", "subLabel": "Renames Subject" }
+        ],
+        "commonMistake": {
+          "incorrectText": "Calling 'a brave leader' a Direct Object in 'Rani Lakshmibai was a brave leader.'—or treating 'in the library' as an Object.",
+          "correctText": "'a brave leader' = Subject Complement (C); 'in the library' = Adverbial of Place (A)",
+          "whyWrong": "'was' never passes an action onto a second person; 'a brave leader' refers back to Rani Lakshmibai herself (=), while 'in the library' tells where (Adverbial)."
+        },
+        "boardNote": {
+          "label": "Terminology Note (C vs A)",
+          "text": "Some grammar guides label required place phrases (like 'in the garage' after 'kept the car') as Complement (C), whereas others label place phrases Adjuncts/Adverbials (A). Grammar Quest keeps examples unambiguous so both conventions stay clear."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 3 Checkpoint · Clause Elements",
+        "prompt": "In 'Rani Lakshmibai was a brave leader.', what grammatical element is 'a brave leader'?",
+        "options": [
+          {
+            "id": "t3-a",
+            "label": "Direct Object (O)",
+            "isCorrect": false,
+            "explanation": "A Direct Object is a separate person or thing receiving an action. Here 'a brave leader' renames Rani Lakshmibai."
+          },
+          {
+            "id": "t3-b",
+            "label": "Subject Complement (C)",
+            "isCorrect": true,
+            "explanation": "Correct! After linking verb 'was', 'Rani Lakshmibai = a brave leader', so it is a Subject Complement (C)."
+          },
+          {
+            "id": "t3-c",
+            "label": "Adverbial of Place (A)",
+            "isCorrect": false,
+            "explanation": "Adverbials answer where, when, or how—not who or what someone was."
+          },
+          {
+            "id": "t3-d",
+            "label": "Indirect Object (IO)",
+            "isCorrect": false,
+            "explanation": "An Indirect Object names a recipient when something is given or sent; 'was' links a description, not a transfer."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od9-ch12", "src-stcp-bridge"]
+    },
+    {
+      "id": "stcp-step-07",
+      "stepNumber": 7,
+      "type": "reveal-structure",
+      "visualMode": "structure-split",
+      "title": "Topic 4 · Core Clause Patterns",
+      "badgeLabel": "Topic 4 · SV to SVOC",
+      "shortPrompt": "When reporting an eco-club planting drive, why does 'Our eco-club planted' feel unfinished without 'fifty saplings'?",
+      "explanation": "Why learn clause patterns? Every main verb acts like a blueprint deciding which slots must follow it so your sentences never feel cut short. Single-clause sentences follow six dependable patterns: SV, SVA, SVC, SVO, SVOO, and SVOC.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "stcp-s7-svo-pattern",
+      "focusTokenIds": ["s7-t2", "s7-t3", "s7-t5"],
+      "clausePatternData": {
+        "mode": "clause-pattern",
+        "categoryBadge": "Topic 4 · 6 Core Clause Patterns",
+        "ruleSummary": "The 6 core simple clause patterns are SV, SVA, SVC, SVO, SVOO, and SVOC.",
+        "whyItWorks": "You don't guess clause patterns word by word—the Verb tells you how many required slots follow it, while optional time/place Adverbials ('every winter') don't change a core transitive/intransitive pattern.",
+        "keyTerms": [
+          { "term": "Intransitive (SV / SVA)", "meaning": "Verb needs no Object ('Wind blows.'; 'Cyclists rode along the canal.')." },
+          { "term": "Ditransitive (SVOO)", "meaning": "Verb takes two separate Objects: recipient (IO) + item (DO)." },
+          { "term": "Object Complement (SVOC)", "meaning": "Describes or renames the Direct Object right after it ('him = president')." }
+        ],
+        "segments": [
+          { "label": "SV", "text": "Wind blows.", "tone": "verb" },
+          { "label": "SVA", "text": "Cyclists rode along the canal.", "tone": "adverbial" },
+          { "label": "SVC", "text": "River water feels cool.", "tone": "complement" },
+          { "label": "SVO", "text": "Our eco-club planted fifty saplings.", "tone": "object" }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Birds fly.",
+            "highlightBadge": "SV Pattern",
+            "stepByStep": "1) Subject: 'Birds'. 2) Intransitive verb: 'fly'. No extra slot needed.",
+            "whyCorrect": "Only Subject + Verb are present, matching the minimal SV pattern."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The cyclists rode along the canal.",
+            "highlightBadge": "SVA Pattern",
+            "stepByStep": "1) Subject: 'The cyclists'. 2) Verb: 'rode'. 3) Place phrase: 'along the canal' (answers where).",
+            "whyCorrect": "'along the canal' is a place Adverbial rather than an Object, forming SVA."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "River water feels cool.",
+            "highlightBadge": "SVC Pattern",
+            "stepByStep": "1) Subject: 'River water'. 2) Linking verb: 'feels'. 3) Adjective 'cool' describes 'River water'.",
+            "whyCorrect": "Linking verb 'feels' connects Subject to quality 'cool' (River water = cool), giving SVC."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od9-ch12"]
+    },
+    {
+      "id": "stcp-step-08",
+      "stepNumber": 8,
+      "type": "compare-example",
+      "visualMode": "compare-dual",
+      "title": "Spot the Difference: SVOO vs SVOC",
+      "badgeLabel": "Topic 4 · Pattern Contrast",
+      "shortPrompt": "Arjun saw two noun phrases after 'elected' and 'gave' and almost gave both the same label—can you tell SVOC from SVOO?",
+      "explanation": "Compare 'They elected him president.' with 'The science teacher gave Mira a magnifying glass.'. In SVOC, him = president (one person renamed). In SVOO, Mira ≠ a magnifying glass (two separate things: recipient + gift).",
+      "characterId": "arjun",
+      "characterExpression": "thinking",
+      "sentenceId": "stcp-s8-svoc",
+      "comparisonSentenceId": "stcp-s8b-svoo-compare",
+      "focusTokenIds": ["s8-t3", "s8-t4"],
+      "clausePatternData": {
+        "mode": "clause-pattern",
+        "categoryBadge": "SVOC vs SVOO Contrast",
+        "ruleSummary": "Insert '=' (or 'to be') between the two post-verb parts: if it makes sense, it is SVOC; if two separate things exist, it is SVOO.",
+        "whyItWorks": "In 'They elected him president', 'president' does not get handed to 'him' like a gift—it becomes his new title describing the Object 'him'!",
+        "segments": [
+          { "label": "S", "text": "They", "tone": "subject" },
+          { "label": "V", "text": "elected", "tone": "verb" },
+          { "label": "O", "text": "him", "tone": "object" },
+          { "label": "C (him = president)", "text": "president", "tone": "complement" }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Our eco-club planted fifty saplings.",
+            "highlightBadge": "SVO Pattern",
+            "stepByStep": "1) 'Our eco-club' (S). 2) 'planted' (V). 3) 'fifty saplings' (one Direct Object O).",
+            "whyCorrect": "One action passes to one Object, so it is SVO."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The science teacher gave Mira a magnifying glass.",
+            "highlightBadge": "SVOO Pattern",
+            "stepByStep": "1) Test '=': Mira = a magnifying glass? False! 2) 'Mira' receives (IO) and 'a magnifying glass' is given (DO).",
+            "whyCorrect": "Two separate entities (recipient + gift) follow 'gave', proving SVOO."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "The judges declared the solar model the winner.",
+            "highlightBadge": "SVOC Pattern",
+            "stepByStep": "1) Test '=': the solar model = the winner? True! 2) 'the winner' renames Object 'the solar model'.",
+            "whyCorrect": "Because the second noun phrase renames the Object instead of being a separate gift, it is SVOC."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Labelling 'The villagers kept the pond clean.' as SVOO (or treating optional time words like 'yesterday' as an Object).",
+          "correctText": "SVOC ('clean' describes the Object 'the pond', pond = clean)",
+          "whyWrong": "'clean' is an adjective describing 'the pond', never a second item handed to the pond; optional time words are Adverbials, not Objects."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 4 Checkpoint · Clause Patterns",
+        "prompt": "Which sentence follows the SVOC pattern (Object + Object Complement) rather than SVOO?",
+        "options": [
+          {
+            "id": "t4-a",
+            "label": "Arjun offered Mira fresh papaya slices.",
+            "isCorrect": false,
+            "explanation": "Mira ≠ fresh papaya slices; there is a recipient (IO) and an item offered (DO), so that is SVOO."
+          },
+          {
+            "id": "t4-b",
+            "label": "The librarian lent our class three atlases.",
+            "isCorrect": false,
+            "explanation": "'our class' ≠ 'three atlases' → recipient + item lent = SVOO."
+          },
+          {
+            "id": "t4-c",
+            "label": "The judges declared the solar model the winner.",
+            "isCorrect": true,
+            "explanation": "Yes! 'the winner' renames 'the solar model' (solar model = winner), forming Subject + Verb + Object + Complement (SVOC)."
+          },
+          {
+            "id": "t4-d",
+            "label": "Mother sent Ravi a parcel of books.",
+            "isCorrect": false,
+            "explanation": "'Ravi' received 'a parcel of books' → two distinct participants = SVOO."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od9-ch12"]
+    },
+    {
+      "id": "stcp-step-09",
+      "stepNumber": 9,
+      "type": "highlight-group",
+      "visualMode": "group-bracket",
+      "title": "Topic 5 · Independent vs Dependent Clauses",
+      "badgeLabel": "Topic 5 · Clause Independence",
+      "shortPrompt": "Mira read two halves of an eco-club log: both have a Subject and verb, yet only one can stand alone!",
+      "explanation": "Why learn clause independence? Knowing which clause can stand alone keeps unfinished ideas out of your paragraphs and answers. In 'We watered the saplings before the afternoon heat arrived.', 'We watered the saplings' stands complete on its own (Independent Clause), while 'before the afternoon heat arrived' leans on 'before' (Dependent Clause).",
+      "characterId": "mira",
+      "characterExpression": "explaining",
+      "sentenceId": "stcp-s9-indep-dep",
+      "focusTokenIds": ["s9-t5", "s9-t8", "s9-t9"],
+      "clausePatternData": {
+        "mode": "independent-vs-dependent",
+        "categoryBadge": "Topic 5 · Independent vs Dependent Clauses",
+        "ruleSummary": "Independent (Main) Clause = stands alone. Dependent (Subordinate) Clause = subordinator + Subject + finite verb; needs a Main Clause.",
+        "whyItWorks": "Subordinators ('because, before, when, if, although, that, who, which') act like hooks—they announce that this clause adds a reason, time, or detail to another clause rather than standing finished on its own.",
+        "keyTerms": [
+          { "term": "Independent Clause", "meaning": "A clause with a Subject and finite verb that expresses a complete thought on its own." },
+          { "term": "Dependent Clause", "meaning": "A clause starting with a subordinator that cannot stand alone as a complete sentence." },
+          { "term": "Subordinator", "meaning": "A hook word (because, before, when, if, although, who, that) linking a helper clause to a main clause." }
+        ],
+        "segments": [
+          {
+            "label": "Independent (Main) Clause",
+            "text": "We watered the saplings",
+            "tone": "independent",
+            "subLabel": "Complete on its own"
+          },
+          {
+            "label": "Subordinator",
+            "text": "before",
+            "tone": "linker",
+            "subLabel": "Dependency hook"
+          },
+          {
+            "label": "Dependent Clause",
+            "text": "the afternoon heat arrived.",
+            "tone": "dependent",
+            "subLabel": "Leans on Main Clause"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "The school garden produces fresh spinach every winter.",
+            "highlightBadge": "1 Independent Clause",
+            "stepByStep": "1) Subject: 'The school garden'. 2) Finite verb: 'produces'. 3) No subordinator at the start.",
+            "whyCorrect": "It expresses one complete thought with no dependency hook, so it is an Independent Clause."
+          },
+          {
+            "level": "Medium",
+            "sentence": "We watered the saplings before the afternoon heat arrived.",
+            "highlightBadge": "Independent + Dependent",
+            "stepByStep": "1) 'We watered the saplings' makes complete sense alone. 2) 'before' hooks 'the afternoon heat arrived' to tell when.",
+            "whyCorrect": "Even with Subject 'heat' and verb 'arrived', 'before' makes the second half a Dependent Clause."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "The scientist who designed the weather balloon visited our school.",
+            "highlightBadge": "Embedded Dependent Clause",
+            "stepByStep": "1) Main frame: 'The scientist ... visited our school.' 2) Inside it sits 'who designed the weather balloon' starting with 'who'.",
+            "whyCorrect": "'who designed the weather balloon' has a Subject ('who') + finite verb ('designed'), yet leans inside the Main Clause to identify which scientist."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2"]
+    },
+    {
+      "id": "stcp-step-10",
+      "stepNumber": 10,
+      "type": "explain-meaning",
+      "visualMode": "meaning-callout",
+      "title": "Fixing Broken Dependent Fragments",
+      "badgeLabel": "Topic 5 · Fragment Trap",
+      "shortPrompt": "Arjun wrote 'When ISRO launched the lunar orbiter in 2008.' on the space-club poster—why did readers ask 'Then what happened?!'?",
+      "explanation": "Even though 'ISRO launched the lunar orbiter in 2008' has a Subject and finite verb, the opening subordinator 'When' turns the whole line into a Dependent Clause! Attaching an Independent Clause—'students celebrated across India.'—repairs the unfinished thought.",
+      "characterId": "arjun",
+      "characterExpression": "curious",
+      "sentenceId": "stcp-s10-repaired-isro",
+      "focusTokenIds": ["s10-t1", "s10-t9", "s10-t10"],
+      "clausePatternData": {
+        "mode": "independent-vs-dependent",
+        "categoryBadge": "Dependent Fragment Repair",
+        "ruleSummary": "Include the opening subordinator ('When / Because / Although') when testing if a clause can stand alone—never mentally erase it!",
+        "whyItWorks": "Students often read past 'When' and see 'ISRO launched the lunar orbiter' (which looks complete). Keeping 'When' attached reveals why the thought hangs unfinished until a Main Clause follows.",
+        "segments": [
+          {
+            "label": "Dependent Clause (First)",
+            "text": "When ISRO launched the lunar orbiter in 2008,",
+            "tone": "dependent",
+            "subLabel": "Starts with 'When' → needs Main Clause"
+          },
+          {
+            "label": "Independent (Main) Clause",
+            "text": "students celebrated across India.",
+            "tone": "independent",
+            "subLabel": "Finishes the complete thought"
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Although the rain stopped at noon. (Written as a full sentence)",
+          "correctText": "Although the rain stopped at noon, the playground stayed wet.",
+          "whyWrong": "'Although the rain stopped at noon' has Subject 'the rain' + verb 'stopped', yet the subordinator 'Although' turns it into a Dependent Clause fragment."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 5 Checkpoint · Clause Independence",
+        "prompt": "Which card is a Dependent Clause fragment that needs a Main Clause to finish the thought?",
+        "options": [
+          {
+            "id": "t5-a",
+            "label": "The school garden produces fresh spinach every winter.",
+            "isCorrect": false,
+            "explanation": "This Independent Clause states a complete fact on its own."
+          },
+          {
+            "id": "t5-b",
+            "label": "When ISRO launched the lunar orbiter in 2008.",
+            "isCorrect": true,
+            "explanation": "Right! Even with Subject 'ISRO' and finite verb 'launched', the subordinator 'When' makes it a Dependent Clause fragment."
+          },
+          {
+            "id": "t5-c",
+            "label": "Inspect the rainwater tank before morning assembly.",
+            "isCorrect": false,
+            "explanation": "This is a complete Imperative Independent Clause (understood 'You')."
+          },
+          {
+            "id": "t5-d",
+            "label": "What a clear view of the mountains we enjoyed!",
+            "isCorrect": false,
+            "explanation": "This Exclamatory Independent Clause expresses a complete thought."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-stcp-bridge"]
+    },
+    {
+      "id": "stcp-step-11",
+      "stepNumber": 11,
+      "type": "show-relationship",
+      "visualMode": "relationship-arcs",
+      "title": "Topic 6 · Coordination vs Subordination",
+      "badgeLabel": "Topic 6 · Clause Relationships",
+      "shortPrompt": "When Arjun and Mira planned a night-sky club checklist, how did their bridge word decide the clause relationship?",
+      "explanation": "Why learn clause relationships? Choosing the right bridge word shows whether two ideas stand as equal partners or whether one supports the other. Coordinators ('and, but, or, so') link two equal Independent Clauses (Coordination). Subordinators ('because, when, if, although, that') attach a Dependent helper Clause to a Main Clause (Subordination).",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "stcp-s11-coordination",
+      "focusTokenIds": ["s11-t2", "s11-t5", "s11-t7"],
+      "focusRelationshipIds": ["s11-rel-1"],
+      "clausePatternData": {
+        "mode": "clause-relationship",
+        "categoryBadge": "Topic 6 · Coordination vs Subordination",
+        "ruleSummary": "Coordination = IC + (and/but/or/so) + IC (equal rank). Subordination = IC + (because/when/if/that) + DC (main + dependent).",
+        "whyItWorks": "Coordinators act like a level balance linking two standalone clauses of equal rank, whereas subordinators place one clause inside or beneath the main clause to tell why, when, which one, or under what condition.",
+        "keyTerms": [
+          { "term": "Coordination", "meaning": "Joining two equal Independent Clauses with coordinators such as and, but, or, so." },
+          { "term": "Subordination", "meaning": "Attaching a Dependent helper Clause to a Main Clause using subordinators such as because, when, if, although." }
+        ],
+        "segments": [
+          {
+            "label": "Independent Clause 1",
+            "text": "Arjun brought the telescope,",
+            "tone": "independent"
+          },
+          {
+            "label": "Coordinator",
+            "text": "and",
+            "tone": "linker",
+            "subLabel": "Equal bridge"
+          },
+          {
+            "label": "Independent Clause 2",
+            "text": "Mira brought the star map.",
+            "tone": "independent"
+          }
+        ],
+        "relationDiagram": {
+          "relationType": "equal",
+          "leftLabel": "Independent Clause 1",
+          "leftText": "Arjun brought the telescope",
+          "connectorLabel": "and (Equal)",
+          "rightLabel": "Independent Clause 2",
+          "rightText": "Mira brought the star map.",
+          "caption": "Coordination: neither clause depends on the other—both stand at equal grammatical rank."
+        },
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Arjun brought the telescope, and Mira brought the star map.",
+            "highlightBadge": "Coordination (Equal Clauses)",
+            "stepByStep": "1) Count finite verbs: 'brought' and 'brought' = 2 clauses. 2) Check 'and': each half works alone.",
+            "whyCorrect": "Coordinator 'and' joins two standalone Independent Clauses of equal rank."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Arjun brought the telescope because the night sky was crystal clear.",
+            "highlightBadge": "Subordination (Main + Reason)",
+            "stepByStep": "1) Main clause: 'Arjun brought the telescope'. 2) 'because the night sky was crystal clear' explains WHY.",
+            "whyCorrect": "Subordinator 'because' turns the second clause into a Dependent reason helper attached to the Main Clause."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Fresh water flows through the canal, but farmers still conserve every drop.",
+            "highlightBadge": "Coordination (Contrast)",
+            "stepByStep": "1) Two finite verbs ('flows', 'conserve'). 2) Both halves stand complete on their own, linked by contrast coordinator 'but'.",
+            "whyCorrect": "Even though 'but' shows contrast, it links two equal Independent Clauses (unlike subordinator 'although')."
+          }
+        ],
+        "boardNote": {
+          "label": "Lesson Scope Boundary",
+          "text": "This topic builds the structural difference between Coordination and Subordination. Full Simple, Compound & Complex sentence synthesis drills live in the dedicated Simple, Compound & Complex Sentences lesson!"
+        }
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"]
+    },
+    {
+      "id": "stcp-step-12",
+      "stepNumber": 12,
+      "type": "interact-explore",
+      "visualMode": "free-explore",
+      "allowFreeExplore": true,
+      "title": "The Single-Clause 'and' Trap & Final Check",
+      "badgeLabel": "Topic 6 · Finite Verb Count",
+      "shortPrompt": "Mira noticed 'and' in 'Dal and rice give steady energy.'—yet counted only ONE finite verb!",
+      "explanation": "Seeing 'and' does NOT prove there are two clauses! Here 'and' only joins two food nouns inside ONE Subject. Because there is just ONE finite verb ('give'), there is only ONE clause. Tap any word above to inspect it, then test your understanding below!",
+      "characterId": "mira",
+      "characterExpression": "celebrating",
+      "sentenceId": "stcp-s12-single-clause-trap",
+      "focusTokenIds": ["s12-t1", "s12-t2", "s12-t3", "s12-t4"],
+      "focusRelationshipIds": ["s12-rel-1"],
+      "clausePatternData": {
+        "mode": "clause-relationship",
+        "categoryBadge": "Finite Verb Count Check",
+        "ruleSummary": "1 finite verb = 1 clause (even when 'and' joins two nouns). 2 finite verbs = 2 clauses (check Coordinator vs Subordinator).",
+        "whyItWorks": "Clauses are counted by finite Subject–Verb pairs, not by how many times 'and' appears. 'Dal and rice' shares one single verb 'give'!",
+        "keyTerms": [
+          { "term": "Compound Subject", "meaning": "Two or more nouns joined by 'and' sharing ONE finite verb inside a single clause." }
+        ],
+        "segments": [
+          {
+            "label": "1 Compound Subject",
+            "text": "Dal and rice",
+            "tone": "subject",
+            "subLabel": "'and' links 2 nouns"
+          },
+          {
+            "label": "1 Finite Verb",
+            "text": "give",
+            "tone": "verb",
+            "subLabel": "Only 1 verb = 1 Clause!"
+          },
+          {
+            "label": "Direct Object",
+            "text": "steady energy.",
+            "tone": "object"
+          }
+        ],
+        "relationDiagram": {
+          "relationType": "dependent",
+          "leftLabel": "Contrast: Subordination",
+          "leftText": "We chose dal and rice",
+          "connectorLabel": "because (Main ◀── Helper)",
+          "rightLabel": "Dependent Reason Clause",
+          "rightText": "they give steady energy.",
+          "caption": "Here there are TWO finite verbs ('chose' and 'give'), and 'because' turns the second half into a Dependent reason clause."
+        },
+        "commonMistake": {
+          "incorrectText": "Calling 'Mira and Arjun cleaned the science lab.' a two-clause Coordinated sentence just because 'and' appears.",
+          "correctText": "One single Clause with a compound Subject ('Mira and Arjun')",
+          "whyWrong": "Counting finite verbs reveals only ONE verb ('cleaned'). Because no second clause exists, 'and' simply joins two nouns inside one Subject."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 6 Checkpoint · Clause Relationships",
+        "prompt": "Look at: 'Fresh water flows through the canal, but farmers still conserve every drop.' How are the clauses related?",
+        "options": [
+          {
+            "id": "t6-a",
+            "label": "One Phrase joined to one Clause",
+            "isCorrect": false,
+            "explanation": "Count the finite verbs: 'flows' (with Subject 'Fresh water') and 'conserve' (with Subject 'farmers') make TWO clauses."
+          },
+          {
+            "id": "t6-b",
+            "label": "Two equal Independent Clauses joined by Coordination ('but')",
+            "isCorrect": true,
+            "explanation": "Spot on! Both 'Fresh water flows through the canal' and 'farmers still conserve every drop' can stand alone, and coordinator 'but' joins them at equal rank."
+          },
+          {
+            "id": "t6-c",
+            "label": "One Independent Clause + one Dependent Clause (Subordination)",
+            "isCorrect": false,
+            "explanation": "'but' is a coordinator joining equal clauses, not a subordinator like 'although' or 'because'."
+          },
+          {
+            "id": "t6-d",
+            "label": "One single clause with a compound Subject",
+            "isCorrect": false,
+            "explanation": "There are two different Subjects ('Fresh water' and 'farmers') and two finite verbs ('flows' and 'conserve')."
+          }
+        ]
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"]
+    }
+  ],
+  "wordLabActivities": [
+    {
+      "id": "stcp-lab-a-sort",
+      "kind": "categorise",
+      "tabLabel": "A. Sort",
+      "title": "A. Sort Sentences by Purpose",
+      "instruction": "Tap a sentence card below, then place it into Declarative, Interrogative, Imperative, or Exclamatory.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch1-secD", "src-od10-ch2", "src-assam-ch1-ch2"],
+      "categories": [
+        {
+          "id": "declarative",
+          "label": "Declarative",
+          "helperText": "States a fact (.)",
+          "tone": "subject"
+        },
+        {
+          "id": "interrogative",
+          "label": "Interrogative",
+          "helperText": "Asks a question (?)",
+          "tone": "sky"
+        },
+        {
+          "id": "imperative",
+          "label": "Imperative",
+          "helperText": "Command / request",
+          "tone": "predicate"
+        },
+        {
+          "id": "exclamatory",
+          "label": "Exclamatory",
+          "helperText": "Strong feeling (!)",
+          "tone": "future"
+        }
+      ],
+      "items": [
+        {
+          "id": "stcp-sort-1",
+          "text": "Fresh guavas grow in our school orchard.",
+          "correctCategory": "declarative",
+          "explanation": "It states a clear fact in Subject + Verb order and ends with a full stop.",
+          "hint": "Does it state a fact, ask something, give an order, or show sudden wonder?"
+        },
+        {
+          "id": "stcp-sort-2",
+          "text": "Did you wash the fruit before lunch?",
+          "correctCategory": "interrogative",
+          "explanation": "Helping verb 'Did' sits before Subject 'you' to ask a direct question.",
+          "hint": "Look at 'Did you...' and the question mark at the end."
+        },
+        {
+          "id": "stcp-sort-3",
+          "text": "Drink clean water during sports practice.",
+          "correctCategory": "imperative",
+          "explanation": "It opens with the base verb 'Drink' to give healthy advice with understood '(You)'.",
+          "hint": "Notice it begins right at the verb 'Drink' to advise someone."
+        },
+        {
+          "id": "stcp-sort-4",
+          "text": "What a bright rainbow appeared after the rain!",
+          "correctCategory": "exclamatory",
+          "explanation": "It expresses sudden wonder using 'What a...' with Subject before verb.",
+          "hint": "It admires a rainbow with 'What a...!' rather than asking for information."
+        },
+        {
+          "id": "stcp-sort-5",
+          "text": "Every classroom keeps a clean rainwater jar.",
+          "correctCategory": "declarative",
+          "explanation": "It calmly informs the reader of a routine habit.",
+          "hint": "Check whether it tells a regular fact about classrooms."
+        },
+        {
+          "id": "stcp-sort-6",
+          "text": "How do coastal farmers protect mango blossoms?",
+          "correctCategory": "interrogative",
+          "explanation": "Notice 'do' comes before Subject 'coastal farmers'—that inversion marks a real question.",
+          "hint": "Look right after 'How': the helping verb 'do' sits before the Subject!"
+        },
+        {
+          "id": "stcp-sort-7",
+          "text": "Please arrange the library chairs neatly.",
+          "correctCategory": "imperative",
+          "explanation": "Even with polite 'Please', it requests an action with understood Subject '(You)'.",
+          "hint": "Polite requests starting with 'Please + verb' are still instructions."
+        },
+        {
+          "id": "stcp-sort-8",
+          "text": "How neatly Arjun arranged the science charts!",
+          "correctCategory": "exclamatory",
+          "explanation": "Subject 'Arjun' stays before verb 'arranged' after 'How neatly'—it expresses admiration, not a question!",
+          "hint": "Compare with card 6: is 'do/did' inverting the Subject here, or does 'Arjun arranged' stay in admiring order?"
+        }
+      ],
+      "completeFeedback": "Well sorted! You separated facts, questions, commands, and tricky 'What/How' exclamations by checking both purpose and word order."
+    },
+    {
+      "id": "stcp-lab-b-finite",
+      "kind": "identify-group",
+      "tabLabel": "B. Verbs",
+      "title": "B. Tap Only the Finite Verb (Phrase vs Clause Test)",
+      "instruction": "Read carefully and tap ONLY the single finite verb that locks to a Subject and builds the Clause.",
+      "hint": "Try shifting time to 'tomorrow' or Subject to 'she': 'Walking' never changes for tense or person, whereas the finite verb after 'we' does!",
+      "characterTip": {
+        "characterId": "arjun",
+        "expression": "curious",
+        "quote": "I almost tapped 'Walking' because it comes from an action word—can you help me find the real finite verb?"
+      },
+      "targetRole": "predicate",
+      "hideRoleGroupsOnSuccess": true,
+      "correctTitle": "Finite verb spotted!",
+      "incorrectTitle": "Watch out for the non-finite trap",
+      "correctFeedback": "Spot on! 'spotted' agrees with Subject 'we' and shows past tense, proving 'we spotted bright kingfishers' is a Clause while 'Walking along the river bank' is only a Phrase.",
+      "incorrectFeedback": "Do not include 'Walking'—it is a non-finite '-ing' word with no Subject or helping verb, so 'Walking along the river bank' is a Phrase. Tap ONLY the past-tense finite verb paired with 'we'.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch2", "src-od10-ch4-finite", "src-assam-ch1-ch2"],
+      "sentence": {
+        "id": "stcp-lab-s2-finite",
+        "title": "Finite Verb Test Sentence",
+        "rawText": "Walking along the river bank, we spotted bright kingfishers.",
+        "contextTag": "Nature Walk",
+        "tokens": [
+          {
+            "id": "fv-1",
+            "text": "Walking",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Non-Finite Participle (-ing)",
+            "meaningInSentence": "Describes what was happening at the start.",
+            "grammaticalRoleExplanation": "Non-finite '-ing' word without a Subject or helping verb—part of an opening Phrase."
+          },
+          {
+            "id": "fv-2",
+            "text": "along",
+            "category": "preposition",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Preposition",
+            "meaningInSentence": "Shows direction beside the river.",
+            "grammaticalRoleExplanation": "Inside the opening Phrase."
+          },
+          {
+            "id": "fv-3",
+            "text": "the",
+            "category": "determiner",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Points to the river bank.",
+            "grammaticalRoleExplanation": "Inside the opening Phrase."
+          },
+          {
+            "id": "fv-4",
+            "text": "river",
+            "category": "noun",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Noun Modifier",
+            "meaningInSentence": "Tells which bank.",
+            "grammaticalRoleExplanation": "Inside the opening Phrase."
+          },
+          {
+            "id": "fv-5",
+            "text": "bank",
+            "category": "noun",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Noun",
+            "meaningInSentence": "Completes 'along the river bank'.",
+            "grammaticalRoleExplanation": "Ends the opening Phrase.",
+            "punctuationAfter": ","
+          },
+          {
+            "id": "fv-6",
+            "text": "we",
+            "category": "pronoun",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Subject Pronoun",
+            "meaningInSentence": "Names who spotted the birds.",
+            "grammaticalRoleExplanation": "Subject of the main Clause."
+          },
+          {
+            "id": "fv-7",
+            "text": "spotted",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Finite Past Verb",
+            "meaningInSentence": "Names the main completed action.",
+            "grammaticalRoleExplanation": "True finite verb locked to Subject 'we' and showing past tense!"
+          },
+          {
+            "id": "fv-8",
+            "text": "bright",
+            "category": "adjective",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Adjective",
+            "meaningInSentence": "Describes the kingfishers.",
+            "grammaticalRoleExplanation": "Modifies 'kingfishers'."
+          },
+          {
+            "id": "fv-9",
+            "text": "kingfishers",
+            "category": "noun",
+            "groupRole": "predicate",
+            "isHeadWord": false,
+            "roleLabel": "Direct Object",
+            "meaningInSentence": "Names the birds seen.",
+            "grammaticalRoleExplanation": "Direct Object of 'spotted'.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "we",
+          "subjectHeadWord": "we",
+          "predicateText": "spotted bright kingfishers",
+          "predicateHeadWord": "spotted"
+        }
+      },
+      "correctTokenIds": ["fv-7"]
+    },
+    {
+      "id": "stcp-lab-c-swap",
+      "kind": "word-replacement",
+      "tabLabel": "C. Swap",
+      "title": "C. Swap the Verb: Object vs Complement",
+      "instruction": "Tap different verbs below and watch how 'the team captain' changes between Direct Object (O) and Subject Complement (C).",
+      "hint": "Use the Equals Test: if Mira = the team captain, the noun phrase is a Subject Complement (C); if Mira ≠ the team captain, it is a Direct Object (O).",
+      "characterTip": {
+        "characterId": "mira",
+        "expression": "explaining",
+        "quote": "Compare 'met' and 'became' carefully—notice when there are two different people versus one person renamed!"
+      },
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od10-ch2", "src-od9-ch12", "src-stcp-bridge"],
+      "beforeText": "Mira",
+      "afterText": "the team captain.",
+      "originalWord": "met",
+      "slotGroupRole": "predicate",
+      "slotLabel": "Verb controlling 'the team captain' (Equals Test):",
+      "options": [
+        {
+          "id": "swap-met",
+          "word": "met",
+          "category": "verb",
+          "meaningEffect": "Equals Test: Mira ≠ the team captain (two different people).",
+          "roleImpactNote": "Because 'met' passes action to another person, 'the team captain' is a Direct Object (O) in an SVO pattern.",
+          "isGrammatical": true
+        },
+        {
+          "id": "swap-became",
+          "word": "became",
+          "category": "verb",
+          "meaningEffect": "Equals Test: Mira = the team captain (renames Mira herself!).",
+          "roleImpactNote": "After linking verb 'became', 'the team captain' turns into a Subject Complement (C) in an SVC pattern.",
+          "isGrammatical": true
+        },
+        {
+          "id": "swap-guided",
+          "word": "guided",
+          "category": "verb",
+          "meaningEffect": "Equals Test: Mira ≠ the team captain (Mira helped someone else).",
+          "roleImpactNote": "'guided' is a transitive action verb, so 'the team captain' stays a Direct Object (O) in an SVO pattern.",
+          "isGrammatical": true
+        },
+        {
+          "id": "swap-was",
+          "word": "was",
+          "category": "verb",
+          "meaningEffect": "Equals Test: Mira = the team captain (states Mira's role directly).",
+          "roleImpactNote": "Linking verb 'was' turns 'the team captain' into a Subject Complement (C) in an SVC pattern.",
+          "isGrammatical": true
+        }
+      ],
+      "takeaway": "The verb decides the clause job: action verbs ('met, guided') take Objects (O), while linking verbs ('became, was') take Subject Complements (C)."
+    },
+    {
+      "id": "stcp-lab-d-build",
+      "kind": "sentence-construction",
+      "tabLabel": "D. Build",
+      "title": "D. Build an SVOC Clause Pattern",
+      "instruction": "Tap the scrambled tiles in order to build an SVOC sentence where the final word describes the Object.",
+      "promptContext": "Pattern order: Subject (S) → Verb (V) → Direct Object (O) → Object Complement (C).",
+      "hint": "Put the doer first ('The villagers'), then the verb ('kept'), then the thing acted on ('the pond'), and end with the word describing its condition ('clean.').",
+      "characterTip": {
+        "characterId": "gyan",
+        "expression": "explaining",
+        "quote": "Notice that 'clean' is NOT a second gift given to the pond—it describes the condition of the pond (the pond = clean)!"
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od9-ch12"],
+      "tiles": [
+        { "id": "oc-3", "text": "the pond", "groupRole": "predicate", "category": "noun" },
+        { "id": "oc-2", "text": "kept", "groupRole": "predicate", "category": "verb" },
+        { "id": "oc-4", "text": "clean.", "groupRole": "predicate", "category": "adjective" },
+        { "id": "oc-1", "text": "The villagers", "groupRole": "subject", "category": "noun" }
+      ],
+      "correctOrderIds": ["oc-1", "oc-2", "oc-3", "oc-4"],
+      "subjectText": "The villagers (S) + kept (V)",
+      "predicateText": "the pond (O) + clean (C)",
+      "part1Label": "S + V Core",
+      "part2Label": "Object + Object Complement (the pond = clean)",
+      "correctTitle": "SVOC pattern built!",
+      "incorrectTitle": "Check your S-V-O-C order",
+      "correctFeedback": "Well done! 'The villagers' (S) + 'kept' (V) + 'the pond' (O) + 'clean' (C) forms a crisp SVOC clause.",
+      "incorrectFeedback": "Remember the SVOC sequence: Subject ('The villagers'), then Verb ('kept'), then Object ('the pond'), and finally Object Complement ('clean.')."
+    },
+    {
+      "id": "stcp-lab-e-fix",
+      "kind": "error-identification",
+      "tabLabel": "E. Fix",
+      "title": "E. Diagnose the Dependent-Clause Fragment",
+      "instruction": "Arjun wrote this noticeboard strip and thought it was finished because it has 'the rain' and 'stopped'. Diagnose the real problem!",
+      "hint": "Read the VERY FIRST word aloud: 'Although...'. Ask yourself whether this strip can stand alone or expects a second clause after a comma.",
+      "characterTip": {
+        "characterId": "arjun",
+        "expression": "thinking",
+        "quote": "Wait—'the rain' is a Subject and 'stopped' is a past-tense verb! Why did Mira say my card sounds unfinished?"
+      },
+      "draftBadgeLabel": "Broken Courtyard Notice Draft",
+      "repairedBadgeLabel": "Repaired With an Independent Clause",
+      "brokenSentence": "Although the rain stopped at noon.",
+      "repairedSentence": "Although the rain stopped at noon, the cricket pitch stayed wet.",
+      "question": "Why is 'Although the rain stopped at noon.' NOT an Independent Clause on its own?",
+      "correctTitle": "Fragment diagnosed accurately!",
+      "incorrectTitle": "Look closely at the opening word",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"],
+      "options": [
+        {
+          "id": "frag-1",
+          "label": "It has no Subject and no finite verb.",
+          "isCorrect": false,
+          "feedback": "Look again: 'the rain' is the Subject and 'stopped' is a finite past verb. Something at the very front is turning this clause dependent."
+        },
+        {
+          "id": "frag-2",
+          "label": "The subordinator 'Although' makes it a Dependent Clause waiting for a Main Clause.",
+          "isCorrect": true,
+          "feedback": "Spot on! Never mentally erase the opening subordinator 'Although'—it hooks this clause onto a Main Clause like ', the cricket pitch stayed wet.'"
+        },
+        {
+          "id": "frag-3",
+          "label": "It needs an exclamation mark instead of a full stop.",
+          "isCorrect": false,
+          "feedback": "Changing punctuation will not finish the thought—readers still ask 'Although it stopped, what happened?'"
+        },
+        {
+          "id": "frag-4",
+          "label": "'stopped at noon' is only a non-finite phrase.",
+          "isCorrect": false,
+          "feedback": "'stopped' shows past tense and agrees with 'the rain', so it IS a clause—specifically a Dependent Clause because of 'Although'."
+        }
+      ]
+    },
+    {
+      "id": "stcp-lab-f-bridge",
+      "kind": "missing-words",
+      "tabLabel": "F. Bridge",
+      "title": "F. Pick the Accurate Clause Bridge",
+      "instruction": "Complete this two-clause school note so the second clause gives the CAUSE (reason) for moving indoors.",
+      "hint": "Coordinators ('and, but, or') link two equal Independent Clauses for addition, contrast, or choice. Which subordinator introduces a REASON?",
+      "characterTip": {
+        "characterId": "gyan",
+        "expression": "explaining",
+        "quote": "Check whether both clauses carry equal weight (Coordination) or whether the second explains WHY the first happened (Subordination)."
+      },
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"],
+      "sentenceBeforeBlank": "Our sports period moved inside the hall",
+      "sentenceAfterBlank": "a sudden rainstorm soaked the field.",
+      "missingRole": "predicate",
+      "correctTitle": "Clause relationship locked!",
+      "incorrectTitle": "Check the clause relationship",
+      "options": [
+        {
+          "id": "br-1",
+          "text": "but",
+          "isCorrect": false,
+          "feedback": "'but' is a coordinator used for CONTRAST between equal ideas. A soaking rainstorm caused the indoor shift rather than contrasting with it."
+        },
+        {
+          "id": "br-2",
+          "text": "because",
+          "isCorrect": true,
+          "feedback": "Correct! Subordinator 'because' attaches a Dependent reason clause to the Main Clause—forming a clear Subordination link."
+        },
+        {
+          "id": "br-3",
+          "text": "or",
+          "isCorrect": false,
+          "feedback": "'or' is a coordinator showing an alternative choice between equal clauses, not the reason why the game moved."
+        },
+        {
+          "id": "br-4",
+          "text": "and",
+          "isCorrect": false,
+          "feedback": "'and' merely adds two equal events side by side, whereas here the second clause explains WHY the sports period moved indoors."
+        }
+      ]
+    }
+  ],
+  "independentPractice": [
+    {
+      "id": "stcp-ind-1",
+      "mode": "choice-diagnose",
+      "cueLevel": "gentle",
+      "cueText": "Light cue: Look at 'What crisp air' followed by Subject 'we' before verb 'breathed'—does it ask or admire?",
+      "hint": "Questions ask for missing information using inversion ('What did we breathe?'). Exclamatory sentences keep 'we breathed' in normal order to express strong feeling.",
+      "title": "Chilika Lake Diary Card",
+      "instruction": "Read the diary line and diagnose its sentence type using the grammatical clues.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch1-secD", "src-od10-ch2"],
+      "sentence": {
+        "id": "stcp-ind-s1",
+        "title": "Diary Card",
+        "rawText": "What crisp air we breathed near Chilika Lake!",
+        "contextTag": "School Field Trip",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "we",
+          "subjectHeadWord": "we",
+          "predicateText": "breathed crisp air near Chilika Lake",
+          "predicateHeadWord": "breathed"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Which functional sentence type is this line, and why?",
+      "imperativeOptions": [
+        {
+          "id": "ind1-a",
+          "label": "Interrogative — because it opens with the wh-word 'What'.",
+          "isCorrect": false,
+          "feedback": "Starting with 'What' does not make it a question when 'we breathed' stays in Subject-before-Verb order and expresses wonder!"
+        },
+        {
+          "id": "ind1-b",
+          "label": "Exclamatory — it expresses wonder with 'What crisp air' and keeps Subject 'we' before verb 'breathed'.",
+          "isCorrect": true,
+          "feedback": "Spot on! Exclamatory sentences often start with 'What' or 'How' followed by Subject + verb order to express strong admiration."
+        },
+        {
+          "id": "ind1-c",
+          "label": "Imperative — because the exclamation mark gives a command.",
+          "isCorrect": false,
+          "feedback": "An exclamation mark can appear on exclamations too. Nothing here instructs anyone to perform an action."
+        },
+        {
+          "id": "ind1-d",
+          "label": "Declarative — because it mentions a real lake.",
+          "isCorrect": false,
+          "feedback": "A neutral Declarative fact would read 'We breathed crisp air near Chilika Lake.' Here 'What crisp air...!' expresses strong feeling."
+        }
+      ],
+      "successFeedback": "Great work distinguishing Exclamatory sentences from Wh-questions!"
+    },
+    {
+      "id": "stcp-ind-2",
+      "mode": "token-and-choice",
+      "cueLevel": "gentle",
+      "cueText": "Light cue: 'To protect' expresses a goal without tense or a Subject—look after the comma for the finite past verb.",
+      "hint": "Test both action words: 'To protect' never changes if we change 'villagers' to 'she', whereas 'built' is the finite past-tense verb of Subject 'villagers'.",
+      "title": "Riverbank Conservation Note",
+      "instruction": "First tap the finite verb in the sentence, then explain why the opening group is a Phrase.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od10-ch4-finite", "src-assam-ch1-ch2"],
+      "sentence": {
+        "id": "stcp-ind-s2",
+        "title": "Riverbank Note",
+        "rawText": "To protect the riverbank, villagers built bamboo walls.",
+        "contextTag": "Environmental Care",
+        "tokens": [
+          {
+            "id": "p2-1",
+            "text": "To",
+            "category": "preposition",
+            "groupRole": "predicate",
+            "roleLabel": "Infinitive Marker",
+            "meaningInSentence": "Introduces the purpose phrase.",
+            "grammaticalRoleExplanation": "Marks the non-finite infinitive 'To protect'."
+          },
+          {
+            "id": "p2-2",
+            "text": "protect",
+            "category": "verb",
+            "groupRole": "predicate",
+            "roleLabel": "Non-Finite Infinitive",
+            "meaningInSentence": "Names the goal.",
+            "grammaticalRoleExplanation": "After 'To', 'protect' carries no tense or Subject agreement."
+          },
+          {
+            "id": "p2-3",
+            "text": "the",
+            "category": "determiner",
+            "groupRole": "predicate",
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Points to the riverbank.",
+            "grammaticalRoleExplanation": "Inside the opening infinitive Phrase."
+          },
+          {
+            "id": "p2-4",
+            "text": "riverbank",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Noun",
+            "meaningInSentence": "Names what is protected.",
+            "grammaticalRoleExplanation": "Ends the opening Phrase.",
+            "punctuationAfter": ","
+          },
+          {
+            "id": "p2-5",
+            "text": "villagers",
+            "category": "noun",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Subject (S)",
+            "meaningInSentence": "Names who built the walls.",
+            "grammaticalRoleExplanation": "Subject of the Main Clause."
+          },
+          {
+            "id": "p2-6",
+            "text": "built",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Finite Past Verb",
+            "meaningInSentence": "Tells the past action completed by the villagers.",
+            "grammaticalRoleExplanation": "Only finite verb in the sentence."
+          },
+          {
+            "id": "p2-7",
+            "text": "bamboo",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Noun Modifier",
+            "meaningInSentence": "Tells the material used.",
+            "grammaticalRoleExplanation": "Modifies 'walls'."
+          },
+          {
+            "id": "p2-8",
+            "text": "walls",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Direct Object",
+            "meaningInSentence": "Names what was built.",
+            "grammaticalRoleExplanation": "Direct Object of 'built'.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "villagers",
+          "subjectHeadWord": "villagers",
+          "predicateText": "built bamboo walls",
+          "predicateHeadWord": "built"
+        }
+      },
+      "subjectTokenIds": ["p2-5"],
+      "predicateTokenIds": ["p2-6", "p2-7", "p2-8"],
+      "targetTokenIds": ["p2-6"],
+      "targetPrompt": "Step 1: Tap the ONLY finite verb in this sentence.",
+      "retrySubjectFeedback": "Do not include 'To protect'—it has no tense or Subject. Tap the single finite past verb paired with 'villagers'.",
+      "imperativeQuestion": "Step 2: Why is 'To protect the riverbank' a Phrase rather than a Clause?",
+      "imperativeOptions": [
+        {
+          "id": "ind2-a",
+          "label": "'To protect' is a non-finite infinitive with no Subject or finite verb.",
+          "isCorrect": true,
+          "feedback": "Exact! Because 'To protect' is non-finite and lacks a Subject-locked finite verb, 'To protect the riverbank' is a Phrase."
+        },
+        {
+          "id": "ind2-b",
+          "label": "Because it appears before a comma at the start of the sentence.",
+          "isCorrect": false,
+          "feedback": "Position before a comma cannot decide phrase vs clause—a dependent clause like 'When it rained,' can also appear before a comma!"
+        },
+        {
+          "id": "ind2-c",
+          "label": "Because it contains four words instead of five.",
+          "isCorrect": false,
+          "feedback": "Word count never decides phrase vs clause. Even a two-word group ('Birds fly') is a Clause if it has a Subject + finite verb."
+        }
+      ],
+      "successFeedback": "Well done! You separated a non-finite goal Phrase from the finite verb of the Main Clause."
+    },
+    {
+      "id": "stcp-ind-3",
+      "mode": "token-and-choice",
+      "cueLevel": "minimal",
+      "cueText": "Minimal cue: Test '=' between 'Arjun' and the final noun to check whether it is a second gift (SVOO) or a role label (SVOC).",
+      "hint": "Ask: Did the class give a gift named 'monitor' TO Arjun, or did Arjun BECOME monitor?",
+      "title": "Class Election Notice",
+      "instruction": "First tap the Object Complement word, then identify the full clause pattern.",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-od9-ch12"],
+      "sentence": {
+        "id": "stcp-ind-s3",
+        "title": "Election Notice",
+        "rawText": "The class elected Arjun monitor.",
+        "contextTag": "School Council",
+        "tokens": [
+          {
+            "id": "p3-1",
+            "text": "The",
+            "category": "determiner",
+            "groupRole": "subject",
+            "roleLabel": "Determiner (S)",
+            "meaningInSentence": "Points to the class.",
+            "grammaticalRoleExplanation": "Part of Subject."
+          },
+          {
+            "id": "p3-2",
+            "text": "class",
+            "category": "noun",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Subject (S)",
+            "meaningInSentence": "Names who voted.",
+            "grammaticalRoleExplanation": "Subject head-noun."
+          },
+          {
+            "id": "p3-3",
+            "text": "elected",
+            "category": "verb",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Verb (V)",
+            "meaningInSentence": "Names the selection action.",
+            "grammaticalRoleExplanation": "Transitive verb taking Object + Object Complement."
+          },
+          {
+            "id": "p3-4",
+            "text": "Arjun",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Direct Object (O)",
+            "meaningInSentence": "Names the student elected.",
+            "grammaticalRoleExplanation": "Direct Object of 'elected'."
+          },
+          {
+            "id": "p3-5",
+            "text": "monitor",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Object Complement (C)",
+            "meaningInSentence": "Names the office Arjun now holds.",
+            "grammaticalRoleExplanation": "Renames Object 'Arjun' (Arjun = monitor).",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "The class",
+          "subjectHeadWord": "class",
+          "predicateText": "elected Arjun monitor",
+          "predicateHeadWord": "elected"
+        }
+      },
+      "subjectTokenIds": ["p3-1", "p3-2"],
+      "predicateTokenIds": ["p3-3", "p3-4", "p3-5"],
+      "targetTokenIds": ["p3-5"],
+      "targetPrompt": "Step 1: Tap the Object Complement (the word renaming Arjun).",
+      "retrySubjectFeedback": "Tap ONLY the word that renames who Arjun became after the election.",
+      "imperativeQuestion": "Step 2: Which basic clause pattern does 'The class elected Arjun monitor.' follow?",
+      "imperativeOptions": [
+        {
+          "id": "ind3-a",
+          "label": "SVOO (Subject + Verb + Indirect Object + Direct Object)",
+          "isCorrect": false,
+          "feedback": "'monitor' is not a separate object handed to Arjun—Arjun = monitor! So the second noun is a Complement, not a second Object."
+        },
+        {
+          "id": "ind3-b",
+          "label": "SVOC (Subject + Verb + Object + Object Complement)",
+          "isCorrect": true,
+          "feedback": "Correct! 'The class' (S) + 'elected' (V) + 'Arjun' (O) + 'monitor' (C renaming Arjun) = SVOC."
+        },
+        {
+          "id": "ind3-c",
+          "label": "SVC (Subject + Verb + Subject Complement)",
+          "isCorrect": false,
+          "feedback": "'monitor' renames 'Arjun' (the Object), NOT 'The class' (the Subject), and 'elected' is a transitive action verb."
+        }
+      ],
+      "successFeedback": "Clean analysis! Checking whether the two post-verb nouns equal each other nails SVOC vs SVOO every time."
+    },
+    {
+      "id": "stcp-ind-4",
+      "mode": "choice-diagnose",
+      "cueLevel": "minimal",
+      "cueText": "Minimal cue: Ask what questions 'along the quiet canal' and 'every morning' answer.",
+      "hint": "Objects answer 'whom?' or 'what?' after an action. Phrases answering 'where?' or 'when?' are Adverbials (A), leaving the verb intransitive!",
+      "title": "Morning Cycling Note",
+      "instruction": "Read the sentence and spot why extra place/time phrases do NOT turn it into SVO or SVOO.",
+      "provenance": "original-practice",
+      "sourceRefIds": ["src-od9-ch12", "src-od10-ch2", "src-stcp-bridge"],
+      "sentence": {
+        "id": "stcp-ind-s4",
+        "title": "Cycling Note",
+        "rawText": "Young cyclists rode along the quiet canal every morning.",
+        "contextTag": "Active Lifestyle",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Young cyclists",
+          "subjectHeadWord": "cyclists",
+          "predicateText": "rode along the quiet canal every morning",
+          "predicateHeadWord": "rode"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "How do 'along the quiet canal' and 'every morning' function in this clause?",
+      "imperativeOptions": [
+        {
+          "id": "ind4-a",
+          "label": "They are Indirect and Direct Objects (SVOO).",
+          "isCorrect": false,
+          "feedback": "Did anyone ride 'every morning' or hand 'along the quiet canal' to someone? Answering 'where?' and 'when?' marks Adverbials, not Objects."
+        },
+        {
+          "id": "ind4-b",
+          "label": "They are Adverbials (A) telling where and when (SVA / SV with optional time helper).",
+          "isCorrect": true,
+          "feedback": "Spot on! 'rode' is intransitive here; 'along the quiet canal' (place) and 'every morning' (time) are Adverbials (A), not Objects or Complements."
+        },
+        {
+          "id": "ind4-c",
+          "label": "They are Subject Complements renaming 'Young cyclists'.",
+          "isCorrect": false,
+          "feedback": "Test with '=': Young cyclists ≠ 'every morning'. Place and time phrases do not rename the cyclists."
+        }
+      ],
+      "successFeedback": "Great work separating optional place/time Adverbials from Objects and Complements!"
+    },
+    {
+      "id": "stcp-ind-5",
+      "mode": "dual-identify",
+      "cueLevel": "minimal",
+      "cueText": "Minimal cue: Spot the hook word 'because'—keep it attached to the Dependent Clause!",
+      "hint": "First select the standalone Independent Clause ('We carried umbrellas'). Then select every word from the subordinator 'because' through 'sky.' for the Dependent Clause.",
+      "title": "Monsoon Weather Check",
+      "instruction": "First tap all words in the Independent (Main) Clause, then tap all words in the Dependent Clause.",
+      "part1Label": "Independent Clause",
+      "part2Label": "Dependent Clause",
+      "part1Prompt": "Step 1 of 2: Tap the Independent Clause (can stand alone)",
+      "part2Prompt": "Step 2 of 2: Tap the Dependent Clause (keep the subordinator attached!)",
+      "part1ButtonLabel": "Confirm Independent Clause",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"],
+      "sentence": {
+        "id": "stcp-ind-s5",
+        "title": "Monsoon Clause Split",
+        "rawText": "We carried umbrellas because dark monsoon clouds covered the sky.",
+        "contextTag": "Weather Preparedness",
+        "tokens": [
+          {
+            "id": "p5-1",
+            "text": "We",
+            "category": "pronoun",
+            "groupRole": "subject",
+            "roleLabel": "Subject (Main Clause)",
+            "meaningInSentence": "Names who carried umbrellas.",
+            "grammaticalRoleExplanation": "Starts the Independent Clause."
+          },
+          {
+            "id": "p5-2",
+            "text": "carried",
+            "category": "verb",
+            "groupRole": "subject",
+            "isHeadWord": true,
+            "roleLabel": "Finite Verb (Main Clause)",
+            "meaningInSentence": "Main action.",
+            "grammaticalRoleExplanation": "Finite verb of the Independent Clause."
+          },
+          {
+            "id": "p5-3",
+            "text": "umbrellas",
+            "category": "noun",
+            "groupRole": "subject",
+            "roleLabel": "Direct Object (Main Clause)",
+            "meaningInSentence": "Names what we carried.",
+            "grammaticalRoleExplanation": "Ends the Independent Clause right before 'because'."
+          },
+          {
+            "id": "p5-4",
+            "text": "because",
+            "category": "conjunction",
+            "groupRole": "predicate",
+            "isHeadWord": true,
+            "roleLabel": "Subordinator",
+            "meaningInSentence": "Signals the reason.",
+            "grammaticalRoleExplanation": "Dependency hook introducing the Dependent Clause!"
+          },
+          {
+            "id": "p5-5",
+            "text": "dark",
+            "category": "adjective",
+            "groupRole": "predicate",
+            "roleLabel": "Adjective",
+            "meaningInSentence": "Describes the clouds.",
+            "grammaticalRoleExplanation": "Inside the Dependent Clause."
+          },
+          {
+            "id": "p5-6",
+            "text": "monsoon",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Noun Modifier",
+            "meaningInSentence": "Specifies seasonal clouds.",
+            "grammaticalRoleExplanation": "Inside the Dependent Clause."
+          },
+          {
+            "id": "p5-7",
+            "text": "clouds",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Subject (Dependent)",
+            "meaningInSentence": "Names what covered the sky.",
+            "grammaticalRoleExplanation": "Subject inside the Dependent Clause."
+          },
+          {
+            "id": "p5-8",
+            "text": "covered",
+            "category": "verb",
+            "groupRole": "predicate",
+            "roleLabel": "Finite Verb (Dependent)",
+            "meaningInSentence": "Action inside the reason clause.",
+            "grammaticalRoleExplanation": "Finite verb inside the Dependent Clause."
+          },
+          {
+            "id": "p5-9",
+            "text": "the",
+            "category": "determiner",
+            "groupRole": "predicate",
+            "roleLabel": "Determiner",
+            "meaningInSentence": "Points to the sky.",
+            "grammaticalRoleExplanation": "Inside the Dependent Clause."
+          },
+          {
+            "id": "p5-10",
+            "text": "sky",
+            "category": "noun",
+            "groupRole": "predicate",
+            "roleLabel": "Object",
+            "meaningInSentence": "Completes 'covered the sky'.",
+            "grammaticalRoleExplanation": "Ends the Dependent Clause.",
+            "punctuationAfter": "."
+          }
+        ],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "We carried umbrellas",
+          "subjectHeadWord": "carried",
+          "predicateText": "because dark monsoon clouds covered the sky",
+          "predicateHeadWord": "because ... covered"
+        }
+      },
+      "subjectTokenIds": ["p5-1", "p5-2", "p5-3"],
+      "predicateTokenIds": ["p5-4", "p5-5", "p5-6", "p5-7", "p5-8", "p5-9", "p5-10"],
+      "retrySubjectFeedback": "Stop right before 'because': 'We carried umbrellas' is the complete thought that can stand alone.",
+      "retryPredicateFeedback": "Include the subordinator 'because' and every remaining word through 'sky.'—'because' is what marks this clause as dependent!",
+      "successFeedback": "Spot on! 'We carried umbrellas' stands alone as the Independent Clause, while 'because dark monsoon clouds covered the sky.' leans on it as the Dependent Clause."
+    },
+    {
+      "id": "stcp-ind-6",
+      "mode": "choice-diagnose",
+      "cueLevel": "none",
+      "hint": "Count the finite verbs in the sentence: does 'and' connect two separate verbs/clauses, or two ingredients inside one Subject?",
+      "title": "Final Detective Challenge · The 'and' Trap",
+      "instruction": "On your own: examine 'and' closely and count the finite verbs before choosing your answer.",
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od10-ch2", "src-assam-ch1-ch2", "src-stcp-bridge"],
+      "sentence": {
+        "id": "stcp-ind-s6",
+        "title": "Healthy Drink Note",
+        "rawText": "Fresh ginger and lemon warm our throat on chilly mornings.",
+        "contextTag": "Healthy Habits",
+        "tokens": [],
+        "groups": [],
+        "relationships": [],
+        "structureSummary": {
+          "subjectText": "Fresh ginger and lemon",
+          "subjectHeadWord": "ginger and lemon",
+          "predicateText": "warm our throat on chilly mornings",
+          "predicateHeadWord": "warm"
+        }
+      },
+      "subjectTokenIds": [],
+      "predicateTokenIds": [],
+      "imperativeQuestion": "Look closely at 'and' in this sentence. How many clauses are present?",
+      "imperativeOptions": [
+        {
+          "id": "ind6-a",
+          "label": "Two equal Independent Clauses joined by Coordination ('and').",
+          "isCorrect": false,
+          "feedback": "Watch out for the 'and' trap! Neither 'Fresh ginger' nor 'lemon warm...' works as two separate clauses—count only ONE finite verb ('warm')."
+        },
+        {
+          "id": "ind6-b",
+          "label": "One single Clause—'and' joins two nouns inside a compound Subject sharing one finite verb ('warm').",
+          "isCorrect": true,
+          "feedback": "Brilliant! Seeing 'and' does not prove Coordination between clauses. Only one finite verb ('warm') exists, so this is a single Independent Clause."
+        },
+        {
+          "id": "ind6-c",
+          "label": "One Independent Clause + one Dependent Clause (Subordination).",
+          "isCorrect": false,
+          "feedback": "There is no subordinator ('because, when, although') and no second finite verb here."
+        },
+        {
+          "id": "ind6-d",
+          "label": "Only a Phrase with no finite verb.",
+          "isCorrect": false,
+          "feedback": "'warm' is a finite present verb paired with plural compound Subject 'Fresh ginger and lemon', so it IS a complete Clause."
+        }
+      ],
+      "successFeedback": "Excellent! Always count finite verbs before assuming 'and' creates two clauses."
+    }
+  ],
+  "completionSummary": {
+    "sceneVariant": "detective-board",
+    "headline": "Clause Detective Board Complete!",
+    "celebrationMessage": "Mira, Arjun, and Gyan pinned every sorted notice, finite-verb check, clause pattern, and bridge link cleanly onto the detective board!",
+    "learnedPoints": [
+      "Sentences follow four core purposes—Declarative, Interrogative, Imperative, and Exclamatory—signalled by both word order and punctuation.",
+      "A Clause always pairs a Subject with a finite verb, whereas a Phrase has no finite verb (even when it includes '-ing' or 'to + verb' forms).",
+      "Core clause patterns (SV, SVA, SVC, SVO, SVOO, SVOC) depend on the verb: linking/naming Complements (=) differ from Objects (≠).",
+      "Subordinators hook Dependent Clauses onto Independent Clauses, while coordinators ('and, but, or, so') link two equal Independent Clauses—always count finite verbs first!"
+    ],
+    "restoredSectionLabel": "Completed examples pinned to the Clause Detective Board:",
+    "repairedMessages": [
+      "How neatly Arjun arranged the science charts!",
+      "The villagers kept the pond clean.",
+      "Although the rain stopped at noon, the cricket pitch stayed wet.",
+      "Our sports period moved inside the hall because a sudden rainstorm soaked the field."
+    ],
+    "rewardLabel": "Clause Pattern Explorer Star"
+  }
+}

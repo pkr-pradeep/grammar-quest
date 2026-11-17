@@ -888,7 +888,7 @@
       "type": "show-sentence",
       "visualMode": "timeline-shift",
       "title": "Time vs Verb Form",
-      "badgeLabel": "Stage 1 · Core Idea",
+      "badgeLabel": "Core Idea",
       "shortPrompt": "When does it happen vs how does the verb show it?",
       "explanation": "Time tells us when an event happens—Past, Present, or Future. Tense is the verb form that helps communicate that time and whether the action is habitual, ongoing, or completed. Notice how 'rises' expresses a truth valid every day.",
       "characterId": "gyan",
@@ -903,7 +903,7 @@
         "aspectLabel": "Simple / Indefinite",
         "timeMarkerWords": ["every morning"],
         "grammarNote": "Real-world Time (Past/Present/Future) and grammatical Tense work together, but they are not the same word.",
-        "boardModelNote": "Odisha textbooks teach 2 grammatical Tenses (Present & Past) plus Future Time expressions; PSEB and Assam textbooks name 3 Tenses (Present, Past, Future) x 4 aspects = 12 tenses. Both describe the exact same correct English sentences!"
+        "boardModelNote": "Some grammar traditions describe 2 grammatical Tenses (Present & Past) plus Future Time expressions, while others list 3 Tenses (Present, Past, Future) x 4 aspects = 12 tenses. Both describe the exact same correct English sentences!"
       },
       "provenance": "textbook-derived",
       "sourceRefIds": ["src-od9-ch3", "src-assam-ch9", "src-m2-bridge"]
@@ -914,7 +914,7 @@
       "type": "explain-role",
       "visualMode": "timeline-shift",
       "title": "Present Simple: Habits & Facts",
-      "badgeLabel": "Stage 2 · Present Simple",
+      "badgeLabel": "Present Simple",
       "shortPrompt": "Use Present Simple for daily routines and permanent facts.",
       "explanation": "When a logbook entry describes a daily habit ('every morning', 'usually', 'always') or a scientific truth ('Water boils at 100°C'), choose Present Simple—not '-ing'.",
       "characterId": "mira",
@@ -944,7 +944,7 @@
       "type": "explain-meaning",
       "visualMode": "timeline-shift",
       "title": "Present Progressive: Happening Now",
-      "badgeLabel": "Stage 3 · Ongoing Now",
+      "badgeLabel": "Ongoing Now",
       "shortPrompt": "Use 'am / is / are + verb-ing' for actions in progress right now.",
       "explanation": "Compare habits with actions happening at this very moment! Clue words like 'now', 'right now', or 'at present' show that Mira is in the middle of writing, so we use 'is writing'.",
       "characterId": "arjun",
@@ -960,7 +960,7 @@
         "aspectLabel": "Progressive / Continuous",
         "timeMarkerWords": ["now", "at this moment"],
         "grammarNote": "Always pair the '-ing' form with an auxiliary ('am', 'is', or 'are')—never 'Mira writing now'.",
-        "boardModelNote": "Called 'Present Progressive' in Odisha and 'Present Continuous' in PSEB/Assam."
+        "boardModelNote": "Also called 'Present Continuous' in many grammar guides; both terms describe the same form (am/is/are + verb-ing)."
       },
       "provenance": "textbook-derived",
       "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9"]
@@ -971,7 +971,7 @@
       "type": "compare-example",
       "visualMode": "timeline-shift",
       "title": "Stative Verbs Avoid '-ing'",
-      "badgeLabel": "Stage 4 · Stative Trap",
+      "badgeLabel": "Stative Trap",
       "shortPrompt": "Verbs of thinking, feeling, and owning stay simple!",
       "explanation": "Some verbs express a state of mind or belonging rather than a physical activity—such as 'know', 'understand', 'believe', 'like', 'own', and 'belong'. Even if true right now, say 'Riya knows', never 'is knowing'.",
       "characterId": "gyan",
@@ -984,7 +984,7 @@
         "verbPhrase": "knows",
         "verbFormLabel": "Simple State Verb",
         "aspectLabel": "Simple / Indefinite",
-        "grammarNote": "Odisha calls these non-progressive state verbs; Assam calls them non-conclusive verbs.",
+        "grammarNote": "Often called state verbs or non-conclusive verbs; they describe states of mind or feeling rather than actions in progress.",
         "contrastExample": {
           "incorrectText": "Riya is knowing the correct answer.",
           "correctText": "Riya knows the correct answer.",
@@ -1000,7 +1000,7 @@
       "type": "highlight-group",
       "visualMode": "timeline-shift",
       "title": "Past Simple: Finished Past Time",
-      "badgeLabel": "Stage 5 · Past Time",
+      "badgeLabel": "Past Time",
       "shortPrompt": "Clues like 'yesterday' and 'last week' lock in Past Simple.",
       "explanation": "Look at the eco-club slip: 'Yesterday' places the action cleanly before now and finished. So base 'plant' changes to its past form 'planted' (v-ed / V2).",
       "characterId": "mira",
@@ -1030,7 +1030,7 @@
       "type": "show-relationship",
       "visualMode": "timeline-shift",
       "title": "Present Perfect: Linking Past to Now",
-      "badgeLabel": "Stage 6 · Present Result",
+      "badgeLabel": "Present Result",
       "shortPrompt": "Use 'has / have + V3' when a past action matters right now.",
       "explanation": "If the noticeboard is clean right now and we focus on the result ('already', 'just', 'since morning'), we use Present Perfect: 'Arjun has cleaned'. Never mix Present Perfect with 'yesterday'!",
       "characterId": "arjun",
@@ -1056,7 +1056,7 @@
       "type": "reveal-structure",
       "visualMode": "timeline-shift",
       "title": "Expressing Future Time",
-      "badgeLabel": "Stage 7 · Future Time",
+      "badgeLabel": "Future Time",
       "shortPrompt": "English uses 'will', 'going to', and present forms for future events.",
       "explanation": "For tomorrow's planetarium visit, 'will visit' clearly points ahead of now. English can also show future time with 'are going to visit', or a fixed school timetable like 'The train leaves at 6 a.m. tomorrow.'",
       "characterId": "gyan",
@@ -1071,7 +1071,7 @@
         "aspectLabel": "Future Time Expression",
         "timeMarkerWords": ["tomorrow", "next week", "soon"],
         "grammarNote": "After 'will' or 'shall', always use the bare base verb ('will visit', never 'will visited').",
-        "boardModelNote": "Odisha explains 'will + v' and 'be going to + v' as Future Time expressions; PSEB & Assam name 'will/shall + V1' as Future Indefinite/Simple."
+        "boardModelNote": "Some grammar guides explain 'will + base verb' and 'be going to + base verb' as Future Time expressions, while others call 'will/shall + verb' Future Simple/Indefinite."
       },
       "provenance": "textbook-derived",
       "sourceRefIds": ["src-od9-ch3", "src-pseb9-ch9", "src-assam-ch9", "src-m2-bridge"]
@@ -1083,7 +1083,7 @@
       "visualMode": "free-explore",
       "allowFreeExplore": true,
       "title": "Inspect Words Before Guided Practice",
-      "badgeLabel": "Stage 8 · Explore",
+      "badgeLabel": "Explore",
       "shortPrompt": "Tap any word to see its time meaning and verb link, then start Guided Practice.",
       "explanation": "Tap 'will', 'visit', or 'tomorrow' above to inspect how time clues and verb forms lock together. When you are ready, enter the Interactive Word Laboratory to sort, build, and fix logbook sentences!",
       "characterId": "gyan",
@@ -1365,8 +1365,8 @@
       "title": "F. Fix the Stative Verb Slip",
       "instruction": "Read this flawed logbook note and diagnose what is wrong.",
       "draftBadgeLabel": "Mixed-Up Logbook Entry",
-      "brokenSentence": "Our school garden is belonging to every student in Class 9.",
-      "repairedSentence": "Our school garden belongs to every student in Class 9.",
+      "brokenSentence": "Our school garden is belonging to every student in our school.",
+      "repairedSentence": "Our school garden belongs to every student in our school.",
       "question": "Why does 'is belonging' need to be repaired?",
       "options": [
         {
@@ -1551,7 +1551,7 @@
   ],
   "completionSummary": {
     "sceneVariant": "records-timeline",
-    "headline": "Timeline Repaired! Mission 2 Complete!",
+    "headline": "Timeline Repaired! Lesson Complete!",
     "celebrationMessage": "Mira, Arjun, and Gyan placed every school logbook entry onto its true Past, Present, or Future spot.",
     "learnedPoints": [
       "Time (Past, Present, Future) is when an event happens; Tense is the verb form used to express it.",

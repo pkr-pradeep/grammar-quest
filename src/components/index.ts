@@ -4,6 +4,16 @@ export { Badge, type BadgeProps, type BadgeTone } from './Badge/Badge';
 export { Progress, type ProgressProps } from './Progress/Progress';
 export { Header, type HeaderProps } from './Header/Header';
 export { ScrollMoreHint, type ScrollMoreHintProps } from './ScrollMoreHint/ScrollMoreHint';
+export {
+  ModalDialog,
+  type ModalDialogProps,
+  type ModalPlacement,
+} from './Modal/ModalDialog';
+export {
+  CelebrationStars,
+  type CelebrationStarsProps,
+  type CelebrationStarsSize,
+} from './CelebrationStars/CelebrationStars';
 export { WelcomeTrioIllustration, GrammarQuestEmblem } from './illustrations/Characters';
 export {
   CourtyardNoticeboardScene,

@@ -18,7 +18,6 @@ import { SpeakerPortrait } from '../speakerTheme';
 
 export interface MissionCompletionStageProps {
   missionTitle: string;
-  classLevel: 9 | 10;
   summary: MissionCompletionSummary;
   assessmentAttempt?: AssessmentAttemptRecord | null;
   onStartAssessment?: () => void;
@@ -28,7 +27,6 @@ export interface MissionCompletionStageProps {
 
 export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
   missionTitle,
-  classLevel,
   summary,
   assessmentAttempt,
   onStartAssessment,
@@ -48,14 +46,14 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
 
       {/* Completion Summary Card */}
       <section
-        aria-label="Mission completed"
+        aria-label="Lesson completed"
         className="rounded-[20px] bg-white border border-[#E5E2D9] p-4 sm:p-6 space-y-4"
       >
         <div className="space-y-2.5">
           <div className="flex flex-wrap items-center justify-between gap-2.5">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D9FAF5] border border-[#65D8CA] text-xs font-semibold text-[#0E5A42]">
               <Award className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-              <span>Mission Complete · Class {classLevel}</span>
+              <span>Lesson Complete</span>
             </div>
 
             <div className="flex items-center -space-x-2" aria-hidden="true">
@@ -138,7 +136,7 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
         {/* Local Save Confirmation */}
         <div className="flex items-center gap-2 text-xs text-[#4B5C8A] pt-1 border-t border-[#E5E2D9]">
           <ShieldCheck className="w-4 h-4 text-[#1FA89A] shrink-0" aria-hidden="true" />
-          <span>Your mission completion is saved locally on this device.</span>
+          <span>Your lesson progress is saved locally on this device.</span>
         </div>
 
         {/* Actions */}
@@ -151,8 +149,8 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
               leftIcon={<ClipboardCheck className="w-4 h-4" />}
             >
               {isAssessmentSubmitted && assessmentAttempt.score !== null
-                ? `View Assessment Results (${assessmentAttempt.score}/${assessmentAttempt.totalQuestions})`
-                : 'Take Mission Assessment'}
+                ? `View Test Results (${assessmentAttempt.score}/${assessmentAttempt.totalQuestions})`
+                : 'Take Lesson Test'}
             </Button>
           ) : null}
           <Button

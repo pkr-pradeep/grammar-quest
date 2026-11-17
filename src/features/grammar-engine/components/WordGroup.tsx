@@ -16,6 +16,8 @@ import { GROUP_ROLE_META } from '../categoryMeta';
 export interface WordGroupProps {
   role: WordGroupRole;
   tokens: SentenceToken[];
+  titleOverride?: string;
+  coreLabelOverride?: string;
   questionPrompt?: string;
   explanation?: string;
   headWord?: string;
@@ -26,6 +28,8 @@ export interface WordGroupProps {
 export const WordGroup: React.FC<WordGroupProps> = ({
   role,
   tokens,
+  titleOverride,
+  coreLabelOverride,
   questionPrompt,
   explanation,
   headWord,
@@ -62,7 +66,7 @@ export const WordGroup: React.FC<WordGroupProps> = ({
           ].join(' ')}
         >
           <Icon className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-          <span>{meta.label}</span>
+          <span>{titleOverride ?? meta.label}</span>
         </button>
 
         <span className="text-xs font-medium text-[#4B5C8A]">
@@ -97,7 +101,8 @@ export const WordGroup: React.FC<WordGroupProps> = ({
 
       {headWord ? (
         <p className="text-xs font-medium text-[#4B5C8A]">
-          Core word: <span className="font-semibold text-[#263A70]">{headWord}</span>
+          {coreLabelOverride ?? 'Core word:'}{' '}
+          <span className="font-semibold text-[#263A70]">{headWord}</span>
         </p>
       ) : null}
     </motion.div>

@@ -31,7 +31,6 @@ export {
 export {
   GuideNotePopup,
   type GuideNotePopupProps,
-  type GuidePopupPhase,
 } from './components/GuideNotePopup';
 export {
   FloatingGuideButton,

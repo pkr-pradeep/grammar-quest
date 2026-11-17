@@ -40,7 +40,7 @@ export const RevisionRecommendations: React.FC<RevisionRecommendationsProps> = (
             All objectives mastered
           </h3>
           <p className="text-sm text-[#263A70] leading-snug">
-            Every learning objective in this assessment was answered accurately.
+            Every learning objective in this test was answered accurately.
             No extra revision is needed right now.
           </p>
         </div>

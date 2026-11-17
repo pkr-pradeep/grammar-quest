@@ -10,12 +10,10 @@
 
 import React from 'react';
 import { ArrowLeft, ClipboardCheck, Lock } from 'lucide-react';
-import type { ClassLevel } from '../../../schemas/lesson.schema';
 
 export interface AssessmentHeaderProps {
   title: string;
   missionTitle: string;
-  classLevel: ClassLevel;
   currentQuestionNumber: number;
   totalQuestions: number;
   answeredCount: number;
@@ -26,7 +24,6 @@ export interface AssessmentHeaderProps {
 export const AssessmentHeader: React.FC<AssessmentHeaderProps> = ({
   title,
   missionTitle,
-  classLevel,
   currentQuestionNumber,
   totalQuestions,
   answeredCount,
@@ -38,16 +35,14 @@ export const AssessmentHeader: React.FC<AssessmentHeaderProps> = ({
 
   return (
     <section
-      aria-label="Assessment header"
+      aria-label="Test header"
       className="rounded-[20px] bg-white border border-[#E5E2D9] p-4 sm:p-5 space-y-3 shadow-[var(--gq-shadow-card)]"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 space-y-1">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-medium text-[#4B5C8A]">
-            <span>{missionTitle}</span>
-            <span aria-hidden="true">·</span>
-            <span>Class {classLevel}</span>
-          </div>
+          <p className="text-xs font-medium text-[#4B5C8A]">
+            {missionTitle}
+          </p>
           <h2 className="font-heading text-lg sm:text-xl font-semibold text-[#263A70] leading-snug">
             {title}
           </h2>
@@ -96,7 +91,7 @@ export const AssessmentHeader: React.FC<AssessmentHeaderProps> = ({
             className="inline-flex items-center gap-1.5 min-h-[44px] -ml-1 px-2 text-xs sm:text-sm font-semibold text-[#263A70] hover:underline rounded-[10px] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#263A70]"
           >
             <ArrowLeft className="w-4 h-4 shrink-0" aria-hidden="true" />
-            <span>Back to Mission Stages</span>
+            <span>Back to Lesson Stages</span>
           </button>
         </div>
       ) : null}

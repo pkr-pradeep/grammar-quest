@@ -27,7 +27,7 @@ import type {
   AssessmentEvaluationSummary,
   RecommendedMissionStage,
 } from '../../../schemas/assessment.schema';
-import { Button } from '../../../components';
+import { Button, CelebrationStars } from '../../../components';
 import { SpeakerPortrait } from '../../grammar-engine/speakerTheme';
 import { getAchievementMessage } from '../scoring';
 import { RevisionRecommendations } from './RevisionRecommendations';
@@ -38,6 +38,7 @@ export interface AssessmentResultsProps {
   attempt: AssessmentAttemptRecord;
   onRevisitStage: (stage: RecommendedMissionStage, stepNumber?: number) => void;
   onBackToMission?: () => void;
+  onReviewLesson?: () => void;
   onBackToHome?: () => void;
 }
 
@@ -53,28 +54,37 @@ function formatSubmittedTimestamp(isoString: string | null): string | null {
   });
 }
 
+function computeAssessmentStars(percentage: number): 0 | 1 | 2 | 3 {
+  if (percentage >= 80) return 3;
+  if (percentage >= 50) return 2;
+  if (percentage > 0) return 1;
+  return 0;
+}
+
 export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
   evaluation,
   attempt,
   onRevisitStage,
   onBackToMission,
+  onReviewLesson,
   onBackToHome,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
   const feedback = getAchievementMessage(evaluation.percentage, attempt.topic);
   const formattedTime = formatSubmittedTimestamp(attempt.submittedAt);
+  const earnedStars = computeAssessmentStars(evaluation.percentage);
 
   return (
     <div className="space-y-4">
       {/* Score & Encouraging Feedback Card */}
       <section
-        aria-label="Assessment score summary"
+        aria-label="Test score summary"
         className="rounded-[20px] bg-white border border-[#E5E2D9] p-4 sm:p-6 space-y-4 shadow-[var(--gq-shadow-card)]"
       >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             <p className="text-xs font-semibold text-[#4B5C8A]">
-              Formal Assessment Result
+              Test Result
             </p>
             <div className="flex items-baseline gap-3 tabular-nums">
               <span className="font-heading text-3xl sm:text-4xl font-bold text-[#263A70]">
@@ -84,6 +94,13 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
                 {evaluation.percentage}%
               </span>
             </div>
+            <CelebrationStars
+              stars={earnedStars}
+              size="lg"
+              mutedColorClass="fill-[#E5DEC9] text-[#B8AE94]"
+              ariaLabel={`${earnedStars} out of 3 stars earned for scoring ${evaluation.score} out of ${evaluation.totalQuestions}`}
+              className="pt-0.5"
+            />
           </div>
 
           <div className="flex items-center -space-x-2 self-start sm:self-center" aria-hidden="true">
@@ -174,12 +191,12 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
 
       {/* Bottom Navigation Actions */}
       <div className="flex flex-wrap items-center gap-2.5 pt-1">
-        {onBackToMission ? (
+        {onReviewLesson || onBackToMission ? (
           <Button
             variant="secondary"
             size="md"
             leftIcon={<RotateCcw className="w-4 h-4" />}
-            onClick={onBackToMission}
+            onClick={onReviewLesson ?? onBackToMission}
           >
             Review Lesson
           </Button>

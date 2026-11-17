@@ -476,7 +476,7 @@
       "type": "show-sentence",
       "visualMode": "plain-sentence",
       "title": "Understand the Complete Sentence",
-      "badgeLabel": "Stage 2 · Complete Sentence",
+      "badgeLabel": "Complete Sentence",
       "shortPrompt": "Words join in the right order to express one clear thought.",
       "explanation": "'The little boy plays cricket.' is a complete sentence. Tap any word to see its meaning and role.",
       "characterId": "mira",
@@ -491,7 +491,7 @@
       "type": "highlight-group",
       "visualMode": "group-bracket",
       "title": "Discover the Subject",
-      "badgeLabel": "Stage 3 · Discover Subject",
+      "badgeLabel": "Discover Subject",
       "shortPrompt": "Ask: Who are we talking about?",
       "explanation": "'The little boy' names who the sentence is about. Tap words or use the Subject control to inspect the group.",
       "characterId": "arjun",
@@ -515,7 +515,7 @@
         "targetGroupRole": "subject"
       },
       "title": "Understand the Subject's Meaning",
-      "badgeLabel": "Stage 4 · Subject Meaning",
+      "badgeLabel": "Subject Meaning",
       "shortPrompt": "The Subject names the person or thing performing or receiving the focus.",
       "explanation": "'boy' is the Subject head-noun; 'The' and 'little' stay attached to it so the listener knows exactly who is meant.",
       "characterId": "mira",
@@ -532,7 +532,7 @@
       "type": "highlight-group",
       "visualMode": "group-bracket",
       "title": "Discover the Predicate",
-      "badgeLabel": "Stage 5 · Discover Predicate",
+      "badgeLabel": "Discover Predicate",
       "shortPrompt": "Ask: What is said about the little boy?",
       "explanation": "'plays cricket' is the Predicate. It always contains the verb ('plays') and tells us what the Subject does.",
       "characterId": "gyan",
@@ -549,7 +549,7 @@
       "type": "reveal-structure",
       "visualMode": "structure-split",
       "title": "Understand the Complete Structure",
-      "badgeLabel": "Stage 6 · Noticeboard Assembly",
+      "badgeLabel": "Noticeboard Assembly",
       "shortPrompt": "Subject + Predicate snap together to repair the notice.",
       "explanation": "On the school noticeboard, 'The little boy' (Subject) + 'plays cricket' (Predicate) form one complete simple sentence.",
       "characterId": "mira",
@@ -574,7 +574,7 @@
         "unlockedExplanation": "Great work! 'The students' is the Subject (who), and 'are reading books' is the Predicate (what they are doing)."
       },
       "title": "Explore Another Example",
-      "badgeLabel": "Stage 7 · Your Turn",
+      "badgeLabel": "Your Turn",
       "shortPrompt": "Find the Subject and Predicate first to unlock the explanation.",
       "explanation": "Test the same two questions on 'The students are reading books.' before opening the full structure.",
       "characterId": "arjun",
@@ -589,7 +589,7 @@
       "type": "compare-example",
       "visualMode": "compare-dual",
       "title": "Longer Subjects & Word Links",
-      "badgeLabel": "Stage 7 · Compare",
+      "badgeLabel": "Compare",
       "shortPrompt": "Even longer Subjects stop right before the finite verb.",
       "explanation": "Compare both sentences: in 'The tall girl from Odisha eats fresh mangoes.', 'from Odisha' stays inside the Subject before 'eats'.",
       "characterId": "gyan",
@@ -731,25 +731,41 @@
           "id": "cat-1",
           "text": "The school cricket team",
           "correctCategory": "subject",
-          "explanation": "'The school cricket team' names who we are talking about (noun group, no verb)."
+          "explanation": "'The school cricket team' names who we are talking about (noun group, no verb).",
+          "hint": "Ask who the sentence is about — there is no verb here."
         },
         {
           "id": "cat-2",
           "text": "drinks clean water after practice",
           "correctCategory": "predicate",
-          "explanation": "Starts with the verb 'drinks' and tells what the team does."
+          "explanation": "Starts with the verb 'drinks' and tells what the team does.",
+          "hint": "Spot the action word 'drinks' right at the start."
         },
         {
           "id": "cat-3",
           "text": "Warm milk and curd",
           "correctCategory": "subject",
-          "explanation": "Names the healthy foods being talked about."
+          "explanation": "Names the healthy foods being talked about.",
+          "hint": "Names two healthy foods — there is no action verb yet."
         },
         {
           "id": "cat-4",
           "text": "provide daily nutrition",
           "correctCategory": "predicate",
-          "explanation": "Starts with the verb 'provide' and explains what they do."
+          "explanation": "Starts with the verb 'provide' and explains what they do.",
+          "hint": "Begins with the verb 'provide' telling what the foods do."
+        }
+      ],
+      "sentencePairs": [
+        {
+          "id": "pair-1",
+          "subjectText": "The school cricket team",
+          "predicateText": "drinks clean water after practice"
+        },
+        {
+          "id": "pair-2",
+          "subjectText": "Warm milk and curd",
+          "predicateText": "provide daily nutrition"
         }
       ],
       "completeFeedback": "Great sorting! Notice how every Subject names a person or thing, while every Predicate begins with a verb."
@@ -1297,7 +1313,7 @@
           "id": "imp-2",
           "label": "The Subject is the understood '(You)', and the whole spoken line is the Predicate.",
           "isCorrect": true,
-          "feedback": "Correct! In imperative sentences, '(You)' is understood as the Subject (Odisha Class IX, Ch. 1, p. 7), and the whole command forms the Predicate."
+          "feedback": "Correct! In imperative sentences, '(You)' is understood as the Subject, and the whole command forms the Predicate."
         },
         {
           "id": "imp-3",

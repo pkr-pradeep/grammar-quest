@@ -30,7 +30,7 @@ export const PLACEHOLDER_CLASS_CONTENT: Record<ClassLevel, ClassOverviewContent>
     welcomeSubtitle: 'Explore English grammar step by step.',
     featuredMission: {
       id: 'c9-mission-01',
-      missionNumber: 'Mission 01',
+      missionNumber: 'Lesson 01',
       classLevel: 9,
       title: 'Repair the Broken Message',
       topicLabel: 'Subject and Predicate',
@@ -42,7 +42,7 @@ export const PLACEHOLDER_CLASS_CONTENT: Record<ClassLevel, ClassOverviewContent>
     plannedTracks: [
       {
         id: 'c9-mission-02',
-        missionNumber: 'Mission 02',
+        missionNumber: 'Lesson 02',
         classLevel: 9,
         title: 'Journey Through Time',
         topicLabel: 'Tenses: Time and Verb Forms',
@@ -53,7 +53,7 @@ export const PLACEHOLDER_CLASS_CONTENT: Record<ClassLevel, ClassOverviewContent>
       },
       {
         id: 'c9-mission-03',
-        missionNumber: 'Mission 03',
+        missionNumber: 'Lesson 03',
         classLevel: 9,
         title: 'The Grammar Detective',
         topicLabel: 'Subject–Verb Agreement',
@@ -87,7 +87,7 @@ export const PLACEHOLDER_CLASS_CONTENT: Record<ClassLevel, ClassOverviewContent>
     welcomeSubtitle: 'Strengthen English grammar with clear, focused lessons.',
     featuredMission: {
       id: 'c10-mission-01',
-      missionNumber: 'Mission 01',
+      missionNumber: 'Lesson 01',
       classLevel: 10,
       title: 'Repair the Broken Message',
       topicLabel: 'Subject and Predicate',
@@ -99,7 +99,7 @@ export const PLACEHOLDER_CLASS_CONTENT: Record<ClassLevel, ClassOverviewContent>
     plannedTracks: [
       {
         id: 'c10-mission-02',
-        missionNumber: 'Mission 02',
+        missionNumber: 'Lesson 02',
         classLevel: 10,
         title: 'Journey Through Time',
         topicLabel: 'Tenses: Time and Verb Forms',
@@ -110,7 +110,7 @@ export const PLACEHOLDER_CLASS_CONTENT: Record<ClassLevel, ClassOverviewContent>
       },
       {
         id: 'c10-mission-03',
-        missionNumber: 'Mission 03',
+        missionNumber: 'Lesson 03',
         classLevel: 10,
         title: 'The Grammar Detective',
         topicLabel: 'Subject–Verb Agreement',

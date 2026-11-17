@@ -8,19 +8,21 @@ import { MotionConfig } from 'motion/react';
 import { AlertCircle } from 'lucide-react';
 import type {
   AppSection,
-  ClassLevel,
   PlaceholderMissionSummary,
   StudentProgressRecord,
 } from './schemas/lesson.schema';
 import type { AssessmentAttemptRecord } from './schemas/assessment.schema';
 import {
   createDefaultProgress,
+  getMissionProgressDetail,
   loadStudentProgress,
   markMissionCompleted,
   markMissionStarted,
   markPracticeCompleted,
   markTeachingCompleted,
-  saveSelectedClass,
+  saveIndependentSolvedIds,
+  saveWordLabActivityStars,
+  saveWordLabSolvedIds,
 } from './storage/progressRepository';
 import { loadAllAssessmentAttempts } from './storage/assessmentRepository';
 import { Header, ScrollMoreHint } from './components';
@@ -60,7 +62,6 @@ function isDevCharacterSheetRoute(): boolean {
 
 interface ActiveLessonState {
   missionId: string;
-  classLevel: ClassLevel;
   phase?: EnginePhase;
 }
 
@@ -73,18 +74,21 @@ const VALID_ENGINE_PHASES = new Set<EnginePhase>([
   'assess',
 ]);
 
+function normalizeCanonicalMissionId(missionId: string): string {
+  return missionId.replace(/^c(?:9|10)-/, 'c9-');
+}
+
 function parseMissionHash(): ActiveLessonState | null {
   if (typeof window === 'undefined') return null;
   const raw = window.location.hash.replace(/^#/, '');
   if (!raw.startsWith('mission=')) return null;
   const params = new URLSearchParams(raw);
-  const missionId = params.get('mission');
-  if (!missionId) return null;
-  const classMatch = /^c(9|10)-/.exec(missionId);
-  const classLevel: ClassLevel = classMatch?.[1] === '10' ? 10 : 9;
+  const rawMissionId = params.get('mission');
+  if (!rawMissionId) return null;
+  const missionId = normalizeCanonicalMissionId(rawMissionId);
   const rawPhase = params.get('phase') as EnginePhase | null;
   const phase = rawPhase && VALID_ENGINE_PHASES.has(rawPhase) ? rawPhase : undefined;
-  return { missionId, classLevel, phase };
+  return { missionId, phase };
 }
 
 function writeMissionHash(state: ActiveLessonState | null): void {
@@ -161,18 +165,6 @@ export default function App() {
     };
   }, []);
 
-  const handleSelectClass = async (classLevel: ClassLevel) => {
-    setProgress((prev) => ({ ...prev, selectedClass: classLevel }));
-    const result = await saveSelectedClass(classLevel);
-    setProgress(result.progress);
-    setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
-  };
-
-  const handleToggleClassQuick = () => {
-    const nextClass: ClassLevel = progress.selectedClass === 9 ? 10 : 9;
-    void handleSelectClass(nextClass);
-  };
-
   const closeDevSheet = () => {
     if (!(import.meta.env && import.meta.env.DEV)) return;
     if (typeof window !== 'undefined' && (window.location.hash || window.location.search)) {
@@ -198,16 +190,13 @@ export default function App() {
 
   const handleStartLesson = (
     missionId: string,
-    preferredClass?: ClassLevel,
     initialPhase?: EnginePhase,
   ) => {
     if (isDevSheetOpen) closeDevSheet();
     setPreviewMission(null);
-    const resolvedClass = preferredClass ?? progress.selectedClass;
-    const normalizedId = missionId.replace(/^c(?:9|10)-/, `c${resolvedClass}-`);
+    const normalizedId = normalizeCanonicalMissionId(missionId);
     const nextState: ActiveLessonState = {
       missionId: normalizedId,
-      classLevel: resolvedClass,
       phase: initialPhase,
     };
     setActiveLesson(nextState);
@@ -238,7 +227,7 @@ export default function App() {
   const handlePreviewMission = (mission: PlaceholderMissionSummary) => {
     if (isDevSheetOpen) closeDevSheet();
     if (mission.status === 'ready') {
-      handleStartLesson(mission.id, mission.classLevel);
+      handleStartLesson(mission.id);
       return;
     }
     setPreviewMission(mission);
@@ -266,6 +255,34 @@ export default function App() {
     setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
   };
 
+  const handleRecordWordLabStars = async (
+    lesson: GrammarLessonDefinition,
+    activityId: string,
+    stars: 1 | 2 | 3,
+  ) => {
+    const result = await saveWordLabActivityStars(lesson.missionId, activityId, stars);
+    setProgress(result.progress);
+    setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
+  };
+
+  const handleRecordWordLabSolvedIds = async (
+    lesson: GrammarLessonDefinition,
+    solvedIds: string[],
+  ) => {
+    const result = await saveWordLabSolvedIds(lesson.missionId, solvedIds);
+    setProgress(result.progress);
+    setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
+  };
+
+  const handleRecordIndependentSolvedIds = async (
+    lesson: GrammarLessonDefinition,
+    solvedIds: string[],
+  ) => {
+    const result = await saveIndependentSolvedIds(lesson.missionId, solvedIds);
+    setProgress(result.progress);
+    setStorageWarning(result.storageAvailable ? null : result.storageMessage ?? null);
+  };
+
   const handleRecordMissionCompleted = async (lesson: GrammarLessonDefinition) => {
     const result = await markMissionCompleted(lesson.missionId);
     setProgress(result.progress);
@@ -281,17 +298,17 @@ export default function App() {
   };
 
   const resolvedLesson = activeLesson
-    ? getLessonForMission(
-        activeLesson.missionId.replace(/^c(?:9|10)-/, `c${activeLesson.classLevel}-`),
-      )
+    ? getLessonForMission(normalizeCanonicalMissionId(activeLesson.missionId))
     : null;
 
   return (
     <MotionConfig reducedMotion="user">
       {resolvedLesson ? (
         <GrammarTeachingEngine
+          key={resolvedLesson.missionId}
           lesson={resolvedLesson}
           initialPhase={activeLesson?.phase}
+          missionProgress={getMissionProgressDetail(progress, resolvedLesson.missionId)}
           assessmentAttempt={
             assessmentAttemptsByMission[resolvedLesson.missionId] ?? null
           }
@@ -303,6 +320,15 @@ export default function App() {
           onRecordPracticeCompleted={(lesson, kind) =>
             void handleRecordPracticeCompleted(lesson, kind)
           }
+          onRecordWordLabStars={(lesson, activityId, stars) =>
+            void handleRecordWordLabStars(lesson, activityId, stars)
+          }
+          onRecordWordLabSolvedIds={(lesson, solvedIds) =>
+            void handleRecordWordLabSolvedIds(lesson, solvedIds)
+          }
+          onRecordIndependentSolvedIds={(lesson, solvedIds) =>
+            void handleRecordIndependentSolvedIds(lesson, solvedIds)
+          }
           onRecordMissionCompleted={(lesson) => void handleRecordMissionCompleted(lesson)}
           onCompleteLessonPractice={(lesson) => void handleCompleteLessonPractice(lesson)}
         />
@@ -310,7 +336,10 @@ export default function App() {
         <div
           className={[
             'min-h-screen flex flex-col text-[#333333] overflow-x-clip',
-            (activeSection === 'missions' || activeSection === 'guide') && !previewMission
+            (activeSection === 'home' ||
+              activeSection === 'missions' ||
+              activeSection === 'guide') &&
+            !previewMission
               ? 'bg-[#FBF6EA]'
               : 'bg-[#FDFCF9]',
           ].join(' ')}
@@ -318,15 +347,13 @@ export default function App() {
           <Header
             activeSection={activeSection}
             onNavigate={handleNavigate}
-            selectedClass={progress.selectedClass}
-            onToggleClassQuick={handleToggleClassQuick}
           />
 
           <main
             className={[
-              'flex-1 w-full max-w-[1120px] mx-auto pb-[120px]',
-              activeSection === 'missions' && !previewMission
-                ? 'px-4 sm:px-6 pt-3 sm:pt-6'
+              'flex-1 w-full max-w-[1120px] mx-auto pb-[96px] md:pb-[120px]',
+              (activeSection === 'home' || activeSection === 'missions') && !previewMission
+                ? 'px-3.5 sm:px-6 pt-3 sm:pt-6'
                 : 'px-3.5 sm:px-6 pt-4 sm:pt-7',
             ].join(' ')}
           >
@@ -350,29 +377,21 @@ export default function App() {
               </Suspense>
             ) : activeSection === 'home' ? (
               <Dashboard
-                selectedClass={progress.selectedClass}
                 progress={progress}
-                assessmentAttemptsByMission={assessmentAttemptsByMission}
-                onSelectClass={(lvl) => void handleSelectClass(lvl)}
+                onStartLesson={(missionId) => handleStartLesson(missionId)}
                 onPreviewMission={handlePreviewMission}
                 onOpenMissions={() => handleNavigate('missions')}
-                onOpenAssessment={(missionId, preferredClass) =>
-                  handleStartLesson(missionId, preferredClass, 'assess')
-                }
               />
             ) : (
               <FoundationSectionView
                 section={activeSection}
-                selectedClass={progress.selectedClass}
                 progress={progress}
                 assessmentAttemptsByMission={assessmentAttemptsByMission}
                 previewMission={previewMission}
                 onClearPreview={() => setPreviewMission(null)}
                 onSelectPreview={(mission) => setPreviewMission(mission)}
-                onStartLesson={handleStartLesson}
-                onOpenAssessment={(missionId, preferredClass) =>
-                  handleStartLesson(missionId, preferredClass, 'assess')
-                }
+                onStartLesson={(missionId) => handleStartLesson(missionId)}
+                onOpenAssessment={(missionId) => handleStartLesson(missionId, 'assess')}
                 onBackHome={() => handleNavigate('home')}
               />
             )}
@@ -380,21 +399,16 @@ export default function App() {
 
           <footer className="hidden md:block border-t border-[#E5E2D9] bg-white/70">
             <div className="max-w-[1120px] mx-auto px-6 py-4 flex items-center justify-between text-xs text-[#4B5C8A]">
-              <span>Grammar Quest — Classes 9 &amp; 10</span>
+              <span>Grammar Quest — Interactive English Grammar</span>
               <span>Saved on this device • No sign-in required</span>
             </div>
           </footer>
 
           <ScrollMoreHint
-            label={
-              (activeSection === 'guide' || activeSection === 'missions') && !previewMission
-                ? 'More topics below'
-                : 'Scroll for more'
-            }
             ariaLabel={
-              (activeSection === 'guide' || activeSection === 'missions') && !previewMission
-                ? 'Scroll down to see more topics'
-                : 'Scroll down to see more'
+              activeSection === 'missions' && !previewMission
+                ? 'Scroll down to see more lessons'
+                : 'Scroll down to see more content'
             }
             fadeColor={
               (activeSection === 'missions' || activeSection === 'guide') && !previewMission
@@ -402,7 +416,8 @@ export default function App() {
                 : '#FDFCF9'
             }
             bottomOffsetMode="app-nav"
-            recheckKey={`${activeSection}-${previewMission?.id ?? 'none'}-${progress.selectedClass}`}
+            minOverflowPx={48}
+            recheckKey={`${activeSection}-${previewMission?.id ?? 'none'}`}
           />
         </div>
       )}

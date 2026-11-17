@@ -13,6 +13,7 @@ import type { SentenceConstructionActivity } from '../../../schemas/grammarEngin
 import { Button } from '../../../components';
 import { WordTile } from './WordTile';
 import { PracticeFeedback } from './PracticeFeedback';
+import { ActivityCharacterNote, ActivityHintBox } from './ActivityCharacterNote';
 
 export interface SentenceBuilderProps {
   activity: SentenceConstructionActivity;
@@ -25,6 +26,7 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
 }) => {
   const [placedIds, setPlacedIds] = useState<string[]>([]);
   const [checkedState, setCheckedState] = useState<'idle' | 'correct' | 'incorrect'>('idle');
+  const [showHint, setShowHint] = useState(false);
 
   const tileMap = new Map(activity.tiles.map((t) => [t.id, t]));
   const remainingTiles = activity.tiles.filter((t) => !placedIds.includes(t.id));
@@ -69,6 +71,8 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
         <p className="text-xs font-medium text-[#4B5C8A]">{activity.promptContext}</p>
       </div>
 
+      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
+
       {/* Sentence Assembly Tray */}
       <div className="rounded-[16px] bg-white border-2 border-dashed border-[#CFC9BA] p-4 min-h-[76px] flex flex-wrap items-center gap-2">
         {placedIds.length === 0 ? (
@@ -109,6 +113,14 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
         </div>
       ) : null}
 
+      {activity.hint ? (
+        <ActivityHintBox
+          hint={activity.hint}
+          isOpen={showHint}
+          onToggle={() => setShowHint((h) => !h)}
+        />
+      ) : null}
+
       {/* Controls */}
       <div className="flex flex-wrap items-center gap-2.5">
         <Button variant="primary" size="sm" onClick={handleCheck} disabled={!allPlaced}>
@@ -130,7 +142,7 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
         <div className="space-y-3">
           <PracticeFeedback
             status="correct"
-            title="Clear sentence constructed"
+            title={activity.correctTitle ?? 'Clear sentence constructed'}
             message={activity.correctFeedback}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
@@ -153,7 +165,7 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
       {checkedState === 'incorrect' ? (
         <PracticeFeedback
           status="try-again"
-          title="Check your word order"
+          title={activity.incorrectTitle ?? 'Check your word order'}
           message={activity.incorrectFeedback}
         />
       ) : null}

@@ -1,11 +1,12 @@
 /**
  * ============================================================================
- * GRAMMAR QUEST — SCROLL FOR MORE HINT
+ * GRAMMAR QUEST — SHARED ICON-ONLY SCROLL CUE
  * ============================================================================
- * Accessible floating scroll cue + soft bottom gradient fade shown whenever
- * page content overflows (scrollHeight > clientHeight + 24) and more content
- * remains below. Fades out cleanly once the user reaches the end of the page,
- * and reappears if they scroll back up.
+ * Unified 44px circular navy button with animated chevron-down icon centred
+ * above the active bottom navigation bar, backed by a subtle 90px bottom fade.
+ * Stays visible whenever more scrollable content remains below, hides cleanly
+ * once the user reaches the end of the page, and reappears when scrolling up.
+ * Respects prefers-reduced-motion.
  * ============================================================================
  */
 
@@ -13,42 +14,50 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 export interface ScrollMoreHintProps {
-  /** Text displayed inside the floating navy pill */
-  label?: string;
   /** Accessible button label */
   ariaLabel?: string;
-  /** Page canvas hex colour at the bottom of the 96px fade gradient */
+  /** Page canvas hex colour at the bottom fade gradient */
   fadeColor?: string;
-  /** Positions the overlay/pill above either the mobile tab bar, sticky lesson nav, or bottom edge */
+  /** Positions the overlay/button above mobile tab bar, lesson nav, or viewport bottom */
   bottomOffsetMode?: 'app-nav' | 'lesson-nav' | 'none';
-  /** Optional custom scrollable container ref; defaults to document scrollingElement / window */
+  /** Minimum overflow in pixels required before showing the cue */
+  minOverflowPx?: number;
+  /** Distance from the bottom of the page (px) at which the cue hides */
+  bottomBufferPx?: number;
+  /** Smooth scroll step distance in pixels */
+  scrollStepPx?: number;
+  /** Optional custom scrollable container ref; defaults to window / document */
   scrollTargetRef?: React.RefObject<HTMLElement | null>;
   /** Key whose change immediately recalculates overflow state */
   recheckKey?: string | number;
 }
 
-const OVERFLOW_THRESHOLD_PX = 24;
-const BOTTOM_REACHED_THRESHOLD_PX = 24;
-const SCROLL_STEP_PX = 320;
+const DEFAULT_MIN_OVERFLOW_PX = 24;
+const DEFAULT_BOTTOM_BUFFER_PX = 24;
+const DEFAULT_SCROLL_STEP_PX = 380;
 
 export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
-  label = 'More topics below',
-  ariaLabel = 'Scroll down to see more topics',
-  fadeColor = '#FBF6EA',
+  ariaLabel = 'Scroll down to see more content',
+  fadeColor = '#FDFCF9',
   bottomOffsetMode = 'app-nav',
+  minOverflowPx = DEFAULT_MIN_OVERFLOW_PX,
+  bottomBufferPx = DEFAULT_BOTTOM_BUFFER_PX,
+  scrollStepPx = DEFAULT_SCROLL_STEP_PX,
   scrollTargetRef,
   recheckKey,
 }) => {
-  const [isOverflowing, setIsOverflowing] = useState(false);
-  const [hasMoreBelow, setHasMoreBelow] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const measure = useCallback(() => {
+    if (typeof window === 'undefined') return;
+
     const customEl = scrollTargetRef?.current ?? null;
     if (customEl) {
-      const overflows = customEl.scrollHeight > customEl.clientHeight + OVERFLOW_THRESHOLD_PX;
-      const remaining = customEl.scrollHeight - (customEl.scrollTop + customEl.clientHeight);
-      setIsOverflowing(overflows);
-      setHasMoreBelow(remaining > BOTTOM_REACHED_THRESHOLD_PX);
+      const hasOverflow =
+        customEl.scrollHeight > customEl.clientHeight + minOverflowPx;
+      const remaining =
+        customEl.scrollHeight - (customEl.scrollTop + customEl.clientHeight);
+      setIsVisible(hasOverflow && remaining > bottomBufferPx);
       return;
     }
 
@@ -58,9 +67,9 @@ export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
     const scrollHeight = docEl.scrollHeight;
     const remaining = scrollHeight - (scrollTop + clientHeight);
 
-    setIsOverflowing(scrollHeight > clientHeight + OVERFLOW_THRESHOLD_PX);
-    setHasMoreBelow(remaining > BOTTOM_REACHED_THRESHOLD_PX);
-  }, [scrollTargetRef]);
+    const hasOverflow = scrollHeight > clientHeight + minOverflowPx;
+    setIsVisible(hasOverflow && remaining > bottomBufferPx);
+  }, [scrollTargetRef, minOverflowPx, bottomBufferPx]);
 
   useEffect(() => {
     let rafId = 0;
@@ -70,7 +79,6 @@ export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
       rafId = requestAnimationFrame(measure);
     };
 
-    // Initial check and re-check when view/key updates
     scheduleMeasure();
 
     const customEl = scrollTargetRef?.current ?? null;
@@ -94,60 +102,72 @@ export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
   }, [measure, scrollTargetRef, recheckKey]);
 
   const handleScrollDown = () => {
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (typeof window === 'undefined') return;
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
     const behavior: ScrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
 
     const customEl = scrollTargetRef?.current ?? null;
     if (customEl) {
-      customEl.scrollBy({ top: SCROLL_STEP_PX, behavior });
+      customEl.scrollBy({ top: scrollStepPx, behavior });
     } else {
-      window.scrollBy({ top: SCROLL_STEP_PX, behavior });
+      window.scrollBy({ top: scrollStepPx, behavior });
     }
   };
 
-  if (!isOverflowing) {
-    return null;
-  }
-
-  const isVisible = hasMoreBelow;
+  const gradientBottomStyle =
+    bottomOffsetMode === 'app-nav'
+      ? undefined
+      : bottomOffsetMode === 'lesson-nav'
+        ? { bottom: 'calc(68px + env(safe-area-inset-bottom, 0px))' }
+        : { bottom: '0px' };
 
   const gradientBottomClass =
     bottomOffsetMode === 'app-nav'
       ? 'bottom-[calc(56px+env(safe-area-inset-bottom,0px))] md:bottom-0'
-      : bottomOffsetMode === 'lesson-nav'
-        ? 'bottom-[calc(61px+env(safe-area-inset-bottom,0px))]'
-        : 'bottom-0';
+      : '';
 
-  const pillBottomClass =
+  const buttonBottomStyle =
     bottomOffsetMode === 'app-nav'
-      ? 'bottom-[calc(72px+env(safe-area-inset-bottom,0px))] md:bottom-4'
+      ? undefined
       : bottomOffsetMode === 'lesson-nav'
-        ? 'bottom-[calc(77px+env(safe-area-inset-bottom,0px))]'
-        : 'bottom-4';
+        ? { bottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }
+        : { bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))' };
+
+  const buttonBottomClass =
+    bottomOffsetMode === 'app-nav'
+      ? 'bottom-[calc(68px+env(safe-area-inset-bottom,0px))] md:bottom-4'
+      : '';
 
   return (
     <>
-      {/* 96px Non-Blocking Bottom Gradient Fade */}
+      {/* Subtle 90px Bottom Gradient Fade */}
       <div
         aria-hidden="true"
         className={[
-          'fixed left-0 right-0 h-24 pointer-events-none z-10 transition-opacity duration-300',
+          'fixed left-0 right-0 h-[90px] pointer-events-none z-10 transition-opacity duration-200',
           gradientBottomClass,
           isVisible ? 'opacity-100' : 'opacity-0',
-        ].join(' ')}
+        ]
+          .filter(Boolean)
+          .join(' ')}
         style={{
+          ...gradientBottomStyle,
           background: `linear-gradient(to bottom, transparent 0%, ${fadeColor} 100%)`,
         }}
       />
 
-      {/* Centered Floating Pill Wrapper (avoids transform conflict with CSS keyframe float) */}
+      {/* 44px Circular Navy Icon-Only Scroll Cue */}
       <div
+        aria-hidden={!isVisible || undefined}
         className={[
-          'fixed left-0 right-0 z-20 flex justify-center pointer-events-none px-4',
-          pillBottomClass,
-        ].join(' ')}
+          'fixed left-0 right-0 z-20 flex justify-center pointer-events-none',
+          buttonBottomClass,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        style={buttonBottomStyle}
       >
         <button
           type="button"
@@ -156,24 +176,20 @@ export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
           aria-hidden={!isVisible}
           tabIndex={isVisible ? 0 : -1}
           className={[
-            'gq-scroll-pill inline-flex items-center justify-center gap-2.5 h-[44px] pl-4 pr-2.5 rounded-full',
-            'bg-[#1B2559] hover:bg-[#141D47] text-white text-[13px] font-bold leading-none whitespace-nowrap',
-            'shadow-[0_6px_18px_rgba(27,37,89,0.28)] cursor-pointer transition-[opacity,background-color] duration-300',
+            'w-11 h-11 rounded-full bg-[#1B2559] hover:bg-[#141D47] text-white',
+            'inline-flex items-center justify-center shadow-[0_6px_16px_rgba(27,37,89,0.28)]',
+            'transition-opacity duration-200 cursor-pointer',
             'focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]',
-            isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none',
+            isVisible
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none',
           ].join(' ')}
         >
-          <span>{label}</span>
-          <span
+          <ChevronDown
+            className="gq-scroll-chevron w-5 h-5"
+            strokeWidth={2.75}
             aria-hidden="true"
-            className="gq-scroll-ring w-6 h-6 rounded-full bg-[#F6B93B] inline-flex items-center justify-center shrink-0"
-          >
-            <ChevronDown
-              className="gq-scroll-chevron w-[14px] h-[14px] text-[#1B2559]"
-              strokeWidth={3}
-              aria-hidden="true"
-            />
-          </span>
+          />
         </button>
       </div>
     </>

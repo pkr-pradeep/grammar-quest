@@ -25,12 +25,14 @@ import {
 } from 'lucide-react';
 import type {
   AgreementLockVisualData,
+  ClausePatternVisualData,
   GuidedExploreChallenge,
   RelationshipType,
   SentenceDefinition,
   SentenceToken,
   StepVisualCallout,
   StepVisualMode,
+  TeachingCheckpointData,
   TimelinePhase,
   TimelineVisualData,
   WordGroupRole,
@@ -41,6 +43,7 @@ import { WordToken } from './WordToken';
 import { WordGroup } from './WordGroup';
 import { PracticeFeedback } from './PracticeFeedback';
 import { WordInspectorPopup } from './WordInspectorPopup';
+import { ClausePatternCard } from './ClausePatternCard';
 import {
   RelationshipConnectorOverlay,
   RelationshipList,
@@ -59,6 +62,8 @@ export interface SentenceVisualizerProps {
   guidedChallenge?: GuidedExploreChallenge;
   timelineData?: TimelineVisualData;
   agreementData?: AgreementLockVisualData;
+  clausePatternData?: ClausePatternVisualData;
+  checkpointData?: TeachingCheckpointData;
   dimmedTokenIds?: string[];
   sentence: SentenceDefinition;
   comparisonSentence?: SentenceDefinition | null;
@@ -103,6 +108,8 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
   guidedChallenge,
   timelineData,
   agreementData,
+  clausePatternData,
+  checkpointData,
   dimmedTokenIds = EMPTY_STRING_LIST,
   sentence,
   comparisonSentence = null,
@@ -348,6 +355,19 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
         targetSentence: sentence,
         sentenceLabel: sentence.title,
         explanation: agreementData.ruleSummary,
+        highlightMode: 'none' as const,
+        linkedFrom: new Set<string>(),
+        linkedTo: new Set<string>(),
+        modifierIds: EMPTY_STRING_LIST,
+      };
+    }
+
+    if (clausePatternData) {
+      return {
+        conceptLabel: clausePatternData.categoryBadge.toUpperCase(),
+        targetSentence: sentence,
+        sentenceLabel: sentence.title,
+        explanation: clausePatternData.ruleSummary,
         highlightMode: 'none' as const,
         linkedFrom: new Set<string>(),
         linkedTo: new Set<string>(),
@@ -775,7 +795,7 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
                     className="inline-flex items-center gap-1 text-xs font-semibold text-[#5B43C2] hover:underline py-1 cursor-pointer"
                   >
                     <BookOpen className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-                    <span>{showBoardModelNote ? 'Hide textbook naming note' : 'How textbooks name this'}</span>
+                    <span>{showBoardModelNote ? 'Hide grammar note' : 'Other grammar terms'}</span>
                   </button>
                 ) : null}
               </div>
@@ -796,7 +816,7 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
 
             {showBoardModelNote && timelineData.boardModelNote ? (
               <div className="rounded-[10px] bg-[#ECE6FB]/60 border border-[#5B43C2]/30 p-2.5 text-xs text-[#263A70] leading-snug">
-                <strong className="font-bold text-[#5B43C2]">Textbook Naming Bridge: </strong>
+                <strong className="font-bold text-[#5B43C2]">Grammar Terminology Note: </strong>
                 {timelineData.boardModelNote}
               </div>
             ) : null}
@@ -878,6 +898,16 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
               </div>
             ) : null}
           </motion.div>
+        ) : null}
+
+        {/* Visual Mode: Sentence Types, Clause Patterns & Topic Checkpoints */}
+        {clausePatternData || checkpointData ? (
+          <ClausePatternCard
+            stepId={stepId}
+            animationSeed={animationSeed}
+            clausePatternData={clausePatternData}
+            checkpointData={checkpointData}
+          />
         ) : null}
 
         {/* Collapsible Word Links Trigger (keeps 390x844 clean while preserving link arcs) */}

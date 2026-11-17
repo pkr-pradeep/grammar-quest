@@ -175,6 +175,86 @@ export interface AgreementLockVisualData {
   informalUsageNote?: string;
 }
 
+export type ClauseSegmentTone =
+  | 'subject'
+  | 'verb'
+  | 'object'
+  | 'complement'
+  | 'adverbial'
+  | 'phrase'
+  | 'independent'
+  | 'dependent'
+  | 'linker';
+
+export interface ClauseVisualSegment {
+  label: string;
+  text: string;
+  tone: ClauseSegmentTone;
+  subLabel?: string;
+}
+
+export interface ProgressiveTeachingExample {
+  level: 'Easy' | 'Medium' | 'Challenging';
+  sentence: string;
+  highlightBadge: string;
+  stepByStep: string;
+  whyCorrect?: string;
+}
+
+export interface ClauseKeyTerm {
+  term: string;
+  meaning: string;
+}
+
+export interface ClauseRelationDiagram {
+  relationType: 'equal' | 'dependent' | 'single-clause';
+  leftLabel: string;
+  leftText: string;
+  connectorLabel: string;
+  rightLabel: string;
+  rightText: string;
+  caption: string;
+}
+
+export interface ClausePatternVisualData {
+  mode:
+    | 'sentence-purpose'
+    | 'phrase-vs-clause'
+    | 'clause-elements'
+    | 'clause-pattern'
+    | 'independent-vs-dependent'
+    | 'clause-relationship';
+  categoryBadge: string;
+  whyItWorks: string;
+  ruleSummary: string;
+  keyTerms?: ClauseKeyTerm[];
+  segments: ClauseVisualSegment[];
+  relationDiagram?: ClauseRelationDiagram;
+  progressiveExamples?: ProgressiveTeachingExample[];
+  commonMistake?: {
+    incorrectText: string;
+    correctText: string;
+    whyWrong: string;
+  };
+  boardNote?: {
+    label: string;
+    text: string;
+  };
+}
+
+export interface TeachingCheckpointOption {
+  id: string;
+  label: string;
+  isCorrect: boolean;
+  explanation: string;
+}
+
+export interface TeachingCheckpointData {
+  topicLabel: string;
+  prompt: string;
+  options: TeachingCheckpointOption[];
+}
+
 export interface GuidedExploreChallenge {
   promptSubject: string;
   promptPredicate: string;
@@ -202,6 +282,8 @@ export interface TeachingStep {
   guidedChallenge?: GuidedExploreChallenge;
   timelineData?: TimelineVisualData;
   agreementData?: AgreementLockVisualData;
+  clausePatternData?: ClausePatternVisualData;
+  checkpointData?: TeachingCheckpointData;
   dimmedTokenIds?: string[];
   title: string;
   badgeLabel: string;
@@ -224,6 +306,12 @@ export interface TeachingStep {
    Interactive Word Laboratory Activity Types (A–F)
    -------------------------------------------------------------------------- */
 
+export interface ActivityCharacterTip {
+  characterId: CharacterId;
+  expression?: CharacterExpression;
+  quote: string;
+}
+
 export interface BaseWordLabActivity {
   id: string;
   kind:
@@ -237,6 +325,8 @@ export interface BaseWordLabActivity {
   tabLabel?: string;
   title: string;
   instruction: string;
+  hint?: string;
+  characterTip?: ActivityCharacterTip;
   provenance: KnowledgeProvenance;
   sourceRefIds: string[];
 }
@@ -274,7 +364,8 @@ export type CategoriseBucketTone =
   | 'present'
   | 'future'
   | 'singular'
-  | 'plural';
+  | 'plural'
+  | 'sky';
 
 /** B. Categorise (place cards into Subject/Predicate, Time buckets, or Agreement buckets) */
 export interface CategoriseItem {
@@ -282,6 +373,13 @@ export interface CategoriseItem {
   text: string;
   correctCategory: string;
   explanation: string;
+  hint?: string;
+}
+
+export interface CategoriseSentencePair {
+  id: string;
+  subjectText: string;
+  predicateText: string;
 }
 
 export interface CategoriseActivity extends BaseWordLabActivity {
@@ -294,6 +392,7 @@ export interface CategoriseActivity extends BaseWordLabActivity {
     tone?: CategoriseBucketTone;
   }[];
   items: CategoriseItem[];
+  sentencePairs?: CategoriseSentencePair[];
   completeFeedback: string;
   incorrectFeedback?: string;
 }
@@ -315,6 +414,8 @@ export interface SentenceConstructionActivity extends BaseWordLabActivity {
   predicateText: string;
   part1Label?: string;
   part2Label?: string;
+  correctTitle?: string;
+  incorrectTitle?: string;
   correctFeedback: string;
   incorrectFeedback: string;
 }
@@ -353,6 +454,7 @@ export interface MissingWordsActivity extends BaseWordLabActivity {
   sentenceBeforeBlank: string;
   sentenceAfterBlank: string;
   missingRole: WordGroupRole;
+  correctTitle?: string;
   incorrectTitle?: string;
   options: MissingWordOption[];
 }
@@ -368,9 +470,12 @@ export interface ErrorIdentificationOption {
 export interface ErrorIdentificationActivity extends BaseWordLabActivity {
   kind: 'error-identification';
   draftBadgeLabel?: string;
+  repairedBadgeLabel?: string;
   brokenSentence: string;
   repairedSentence: string;
   question: string;
+  correctTitle?: string;
+  incorrectTitle?: string;
   options: ErrorIdentificationOption[];
 }
 
@@ -419,11 +524,18 @@ export interface IndependentPracticeItem {
   mode: 'dual-identify' | 'imperative-check' | 'choice-diagnose' | 'token-and-choice';
   cueLevel: 'gentle' | 'minimal' | 'none';
   cueText?: string;
+  hint?: string;
+  speakerCharacterId?: CharacterId;
   title: string;
   instruction: string;
   sentence: SentenceDefinition;
   subjectTokenIds: string[];
   predicateTokenIds: string[];
+  part1Label?: string;
+  part2Label?: string;
+  part1Prompt?: string;
+  part2Prompt?: string;
+  part1ButtonLabel?: string;
   targetTokenIds?: string[];
   targetPrompt?: string;
   imperativeQuestion?: string;

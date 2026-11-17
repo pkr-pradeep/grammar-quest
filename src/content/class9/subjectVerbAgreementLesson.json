@@ -707,7 +707,7 @@
       "type": "show-sentence",
       "visualMode": "agreement-lock",
       "title": "Rule 1: Number & Person Lock",
-      "badgeLabel": "Stage 1 · Core Concord",
+      "badgeLabel": "Core Concord",
       "shortPrompt": "A finite verb locks onto the true Subject head-noun—never nearby trap words!",
       "explanation": "Every detective begins here: find the TRUE Subject head-noun and lock the verb to its Number (singular vs plural) and Person. In 'The basket of ripe mangoes is on the table', 'of ripe mangoes' is just extra description—the real Subject is ONE 'basket', so the verb is 'is'!",
       "characterId": "gyan",
@@ -733,7 +733,7 @@
       "type": "explain-role",
       "visualMode": "agreement-lock",
       "title": "Rule 2: Intervening Phrases Trap",
-      "badgeLabel": "Stage 2 · Preposition Trap",
+      "badgeLabel": "Preposition Trap",
       "shortPrompt": "Cross out 'of...' or 'with...' in your mind to hear the true Subject + Verb pair.",
       "explanation": "Try covering 'of ripe mangoes' with your finger: 'The basket ... is on the table' sounds right immediately! This trick also works with 'The quality of these apples is good' and 'The captain, with his teammates, was cheered'.",
       "characterId": "mira",
@@ -758,7 +758,7 @@
       "type": "explain-meaning",
       "visualMode": "agreement-lock",
       "title": "Rule 3: Compound 'and' vs Single Idea",
-      "badgeLabel": "Stage 3 · Compound vs Single Idea",
+      "badgeLabel": "Compound vs Single Idea",
       "shortPrompt": "Two separate things ('Mira and Arjun are') vs one combined idea ('Rice and dal is').",
       "explanation": "Normally, 'and' adds two Subjects together into a plural ('Mira and Arjun ARE teammates'). But when a traditional pair expresses ONE single meal or idea—like 'Rice and dal is a wholesome meal' or 'Slow and steady wins the race'—use a singular verb!",
       "characterId": "arjun",
@@ -783,7 +783,7 @@
       "type": "compare-example",
       "visualMode": "agreement-lock",
       "title": "Rule 4: Either...Or & Neither...Nor",
-      "badgeLabel": "Stage 4 · Nearest Subject",
+      "badgeLabel": "Nearest Subject",
       "shortPrompt": "With 'or / nor', the verb locks onto the subject closest to it!",
       "explanation": "Compare joiners carefully: 'with / as well as' follows the FIRST subject, whereas 'either...or' and 'neither...nor' follow the NEAREST subject! Here, plural 'players' stands right before the verb, so we choose 'were'.",
       "characterId": "gyan",
@@ -809,7 +809,7 @@
       "type": "highlight-group",
       "visualMode": "agreement-lock",
       "title": "Rule 5: 'Each / Every / One of / Neither of'",
-      "badgeLabel": "Stage 5 · Indefinites",
+      "badgeLabel": "Indefinites",
       "shortPrompt": "Even before 'of the students', 'Each / Everyone / Neither of' takes a singular verb formally.",
       "explanation": "Detectives watch for words ending or starting with one/each: 'Each of the students has', 'One of my friends lives', 'Neither of the answers is correct'. Always test 'Each ... has' rather than getting fooled by 'students'!",
       "characterId": "mira",
@@ -823,10 +823,10 @@
         "verbText": "has",
         "verbFormTag": "Singular Verb",
         "interveningText": "of the students",
-        "ruleSummary": "PSEB IX and Assam IX-X strictly require a singular verb with 'each of / one of / neither of / either of'.",
+        "ruleSummary": "Formal grammar strictly requires a singular verb with 'each of / one of / neither of / either of'.",
         "contrastIncorrectText": "Each of the students have a library card.",
         "contrastReason": "'Each' refers to one student at a time, so singular 'has' is required.",
-        "informalUsageNote": "Odisha Class X Rule 7a notes that plural verbs sometimes appear after 'neither of / none of' in casual speech, but formal grammar and exams expect the singular verb."
+        "informalUsageNote": "Plural verbs sometimes appear after 'neither of / none of' in casual speech, but standard formal grammar expects the singular verb."
       },
       "provenance": "textbook-derived",
       "sourceRefIds": ["src-pseb9-concord", "src-assam-sva", "src-od10-ch3-ref"]
@@ -837,7 +837,7 @@
       "type": "show-relationship",
       "visualMode": "agreement-lock",
       "title": "Rule 6: '-s' Singulars vs Always-Plural Nouns",
-      "badgeLabel": "Stage 6 · Tricky Nouns",
+      "badgeLabel": "Tricky Nouns",
       "shortPrompt": "'Mathematics IS' (one subject), while 'police / cattle ARE' and 'a pair of scissors IS'!",
       "explanation": "Don't judge by '-s' alone! Subjects/news ending in '-s' ('Mathematics', 'Physics', 'news') are SINGULAR ('Mathematics is fascinating'). Meanwhile, 'police', 'people', and 'cattle' have no '-s' yet take PLURAL verbs ('The police have arrived'). And 'My scissors are sharp' vs 'A pair of scissors is on the desk'!",
       "characterId": "arjun",
@@ -849,7 +849,7 @@
         "subjectNumberPerson": "Singular in meaning",
         "verbText": "is / has",
         "verbFormTag": "Singular vs 'police/cattle ARE'",
-        "ruleSummary": "Also remember unit sums ('Ten kilometres IS a long walk') and preparatory 'there' ('There ARE forty desks' vs 'There IS a clock'). Note: Odisha Class IX introduces noun-class SVA across Ch. 2, 7, 8 and defers full SVA to Class 10, so this module bridges all three boards cleanly."
+        "ruleSummary": "Also remember unit sums ('Ten kilometres IS a long walk') and preparatory 'there' ('There ARE forty desks' vs 'There IS a clock')."
       },
       "provenance": "supplementary-bridge",
       "sourceRefIds": ["src-od9-sva-intro", "src-pseb9-concord", "src-assam-sva", "src-m3-c9-bridge"]
@@ -860,7 +860,7 @@
       "type": "reveal-structure",
       "visualMode": "agreement-lock",
       "title": "Rule 7: Preparatory 'There' & Unit Quantities",
-      "badgeLabel": "Stage 7 · 'There' & Units",
+      "badgeLabel": "'There' & Units",
       "shortPrompt": "With 'There is / There are', look AFTER the verb to find the real Subject!",
       "explanation": "In 'There are twenty benches in the room', 'There' is only an introducer—the real Subject 'twenty benches' sits after the verb! Meanwhile, plural amounts seen as ONE whole unit—'Five hundred rupees is enough' or 'Ten kilometres is a long walk'—take a singular verb.",
       "characterId": "gyan",
@@ -884,7 +884,7 @@
       "visualMode": "free-explore",
       "allowFreeExplore": true,
       "title": "Inspect Concord Links Before Detective Lab",
-      "badgeLabel": "Stage 8 · Explore",
+      "badgeLabel": "Explore",
       "shortPrompt": "Tap 'Each', 'students', or 'has' above to see the lock note, then enter Guided Practice.",
       "explanation": "Tap any word above to inspect its role and Subject-Verb lock. When ready, head into the Grammar Detective Lab to catch every verb trap!",
       "characterId": "gyan",
@@ -1162,7 +1162,7 @@
       "imperativeQuestion": "Which verb completes the sentence accurately?",
       "imperativeOptions": [
         { "id": "opt-a", "label": "were", "isCorrect": false, "feedback": "Even though 'and' joins two nouns, 'Each' keeps the Subject singular!" },
-        { "id": "opt-b", "label": "was", "isCorrect": true, "feedback": "Spot on! PSEB IX explicitly teaches 'Each boy and each girl was given a prize'—'each/every' makes the Subject singular." },
+        { "id": "opt-b", "label": "was", "isCorrect": true, "feedback": "Spot on! In 'Each boy and each girl was given a prize', 'each' or 'every' makes the Subject singular." },
         { "id": "opt-c", "label": "are", "isCorrect": false, "feedback": "'are' is plural, whereas 'Each' takes a singular verb." }
       ],
       "successFeedback": "'Each' and 'Every' always call for a singular verb.",
@@ -1205,7 +1205,7 @@
   ],
   "completionSummary": {
     "sceneVariant": "detective-board",
-    "headline": "Case Solved! Mission 3 Complete!",
+    "headline": "Case Solved! Lesson Complete!",
     "celebrationMessage": "You helped Mira, Arjun, and Gyan lock every Subject head-noun to its true verb!",
     "learnedPoints": [
       "Finite verbs agree with the TRUE Subject head-word in Number and Person, ignoring prepositional phrases like 'of ripe mangoes'.",

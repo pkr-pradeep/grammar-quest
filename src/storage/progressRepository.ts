@@ -18,6 +18,73 @@ import { idbGet, idbPut, PROGRESS_STORE } from './indexedDb';
 
 const DEFAULT_RECORD_KEY = 'default-learner';
 
+function toCanonicalMissionId(missionId: string): string {
+  return missionId.replace(/^c(?:9|10)-/, 'c9-');
+}
+
+function mergeUniqueIds(a?: string[], b?: string[]): string[] | undefined {
+  if (!a?.length && !b?.length) return undefined;
+  return Array.from(new Set([...(a ?? []), ...(b ?? [])]));
+}
+
+function normalizeStudentProgressRecord(
+  record: StudentProgressRecord,
+): StudentProgressRecord {
+  const completedSet = new Set(
+    (record.completedMissionIds ?? []).map(toCanonicalMissionId),
+  );
+  const normalizedById: Record<string, MissionProgressDetail> = {};
+
+  for (const [rawId, detail] of Object.entries(record.missionProgressById ?? {})) {
+    const canonicalId = toCanonicalMissionId(rawId);
+    const existing = normalizedById[canonicalId];
+    if (!existing) {
+      normalizedById[canonicalId] = {
+        ...detail,
+        missionId: canonicalId,
+      };
+    } else {
+      normalizedById[canonicalId] = {
+        ...existing,
+        missionId: canonicalId,
+        started: existing.started || detail.started,
+        teachingStagesCompleted:
+          existing.teachingStagesCompleted || detail.teachingStagesCompleted,
+        guidedPracticeCompleted:
+          existing.guidedPracticeCompleted || detail.guidedPracticeCompleted,
+        independentPracticeCompleted:
+          existing.independentPracticeCompleted || detail.independentPracticeCompleted,
+        completed: existing.completed || detail.completed,
+        wordLabStarsByActivityId: {
+          ...(detail.wordLabStarsByActivityId ?? {}),
+          ...(existing.wordLabStarsByActivityId ?? {}),
+        },
+        wordLabSolvedIds: mergeUniqueIds(
+          existing.wordLabSolvedIds,
+          detail.wordLabSolvedIds,
+        ),
+        independentSolvedIds: mergeUniqueIds(
+          existing.independentSolvedIds,
+          detail.independentSolvedIds,
+        ),
+        startedAt: existing.startedAt ?? detail.startedAt,
+        completedAt: existing.completedAt ?? detail.completedAt,
+        updatedAt:
+          existing.updatedAt >= detail.updatedAt ? existing.updatedAt : detail.updatedAt,
+      };
+    }
+  }
+
+  return {
+    ...record,
+    activeMissionId: record.activeMissionId
+      ? toCanonicalMissionId(record.activeMissionId)
+      : null,
+    completedMissionIds: Array.from(completedSet),
+    missionProgressById: normalizedById,
+  };
+}
+
 export function createDefaultMissionProgress(missionId: string): MissionProgressDetail {
   return {
     missionId,
@@ -36,15 +103,16 @@ export function getMissionProgressDetail(
   progress: StudentProgressRecord,
   missionId: string,
 ): MissionProgressDetail {
-  const existing = progress.missionProgressById?.[missionId];
-  const isCompletedInList = progress.completedMissionIds.includes(missionId);
+  const canonicalId = toCanonicalMissionId(missionId);
+  const existing = progress.missionProgressById?.[canonicalId];
+  const isCompletedInList = progress.completedMissionIds.includes(canonicalId);
   if (existing) {
     return isCompletedInList && !existing.completed
       ? { ...existing, started: true, completed: true }
       : existing;
   }
   return {
-    ...createDefaultMissionProgress(missionId),
+    ...createDefaultMissionProgress(canonicalId),
     started: isCompletedInList,
     teachingStagesCompleted: isCompletedInList,
     guidedPracticeCompleted: isCompletedInList,
@@ -59,7 +127,7 @@ export function createDefaultProgress(selectedClass: ClassLevel = 9): StudentPro
     selectedClass,
     completedMissionIds: [],
     activeMissionId: null,
-    totalPilotMissions: 3,
+    totalPilotMissions: 4,
     missionProgressById: {},
     updatedAt: new Date().toISOString(),
   };
@@ -72,9 +140,10 @@ export async function loadStudentProgress(): Promise<StorageReadResult> {
     const stored = await idbGet<StudentProgressRecord>(PROGRESS_STORE, DEFAULT_RECORD_KEY);
 
     if (stored && (stored.selectedClass === 9 || stored.selectedClass === 10)) {
-      inMemoryFallback = stored;
+      const normalized = normalizeStudentProgressRecord(stored);
+      inMemoryFallback = normalized;
       return {
-        progress: stored,
+        progress: normalized,
         storageAvailable: true,
       };
     }
@@ -92,7 +161,7 @@ export async function loadStudentProgress(): Promise<StorageReadResult> {
       progress: inMemoryFallback,
       storageAvailable: false,
       storageMessage:
-        'Unable to save your class selection on this device right now. Your choice will stay active during this visit.',
+        'Unable to save your lesson progress on this device right now. Your progress will stay active during this visit.',
     };
   }
 }
@@ -118,7 +187,7 @@ export async function saveSelectedClass(classLevel: ClassLevel): Promise<Storage
       progress: next,
       storageAvailable: false,
       storageMessage:
-        'Your class selection could not be saved on this device, but remains active during this visit.',
+        'Your lesson progress could not be saved on this device, but remains active during this visit.',
     };
   }
 }
@@ -128,23 +197,24 @@ async function updateMissionProgressRecord(
   patch: (existing: MissionProgressDetail) => MissionProgressDetail,
   markOverallCompleted = false,
 ): Promise<StorageReadResult> {
+  const canonicalId = toCanonicalMissionId(missionId);
   const current = await loadStudentProgress();
-  const prevDetail = getMissionProgressDetail(current.progress, missionId);
+  const prevDetail = getMissionProgressDetail(current.progress, canonicalId);
   const nextDetail = patch(prevDetail);
 
   const existingCompleted = current.progress.completedMissionIds;
   const completedMissionIds =
-    markOverallCompleted && !existingCompleted.includes(missionId)
-      ? [...existingCompleted, missionId]
+    markOverallCompleted && !existingCompleted.includes(canonicalId)
+      ? [...existingCompleted, canonicalId]
       : existingCompleted;
 
   const next: StudentProgressRecord = {
     ...current.progress,
     completedMissionIds,
-    activeMissionId: missionId,
+    activeMissionId: canonicalId,
     missionProgressById: {
       ...(current.progress.missionProgressById ?? {}),
-      [missionId]: nextDetail,
+      [canonicalId]: nextDetail,
     },
     updatedAt: new Date().toISOString(),
   };
@@ -200,6 +270,52 @@ export async function markPracticeCompleted(
     guidedPracticeCompleted: kind === 'guided' ? true : prev.guidedPracticeCompleted,
     independentPracticeCompleted:
       kind === 'independent' ? true : prev.independentPracticeCompleted,
+    updatedAt: now,
+  }));
+}
+
+export async function saveWordLabActivityStars(
+  missionId: string,
+  activityId: string,
+  stars: 1 | 2 | 3,
+): Promise<StorageReadResult> {
+  const now = new Date().toISOString();
+  return updateMissionProgressRecord(missionId, (prev) => ({
+    ...prev,
+    started: true,
+    startedAt: prev.startedAt ?? now,
+    wordLabStarsByActivityId: {
+      ...(prev.wordLabStarsByActivityId ?? {}),
+      [activityId]: stars,
+    },
+    updatedAt: now,
+  }));
+}
+
+export async function saveWordLabSolvedIds(
+  missionId: string,
+  solvedIds: string[],
+): Promise<StorageReadResult> {
+  const now = new Date().toISOString();
+  return updateMissionProgressRecord(missionId, (prev) => ({
+    ...prev,
+    started: true,
+    startedAt: prev.startedAt ?? now,
+    wordLabSolvedIds: Array.from(new Set(solvedIds)),
+    updatedAt: now,
+  }));
+}
+
+export async function saveIndependentSolvedIds(
+  missionId: string,
+  solvedIds: string[],
+): Promise<StorageReadResult> {
+  const now = new Date().toISOString();
+  return updateMissionProgressRecord(missionId, (prev) => ({
+    ...prev,
+    started: true,
+    startedAt: prev.startedAt ?? now,
+    independentSolvedIds: Array.from(new Set(solvedIds)),
     updatedAt: now,
   }));
 }

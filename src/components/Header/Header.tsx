@@ -2,8 +2,7 @@
  * ============================================================================
  * GRAMMAR QUEST — SHARED HEADER & RESPONSIVE NAVIGATION
  * ============================================================================
- * Desktop: Clean 64px top bar (Brand wordmark, 4 concise single-line links,
- * and active Class indicator).
+ * Desktop: Clean 64px top bar (Brand wordmark and 4 concise single-line links).
  * Mobile: Compact 48px top header + fixed 56px bottom tab bar (104px combined,
  * staying comfortably below the 15% mobile sticky-height cap while preserving
  * 44px+ touch targets in the natural thumb zone).
@@ -12,15 +11,12 @@
 
 import React from 'react';
 import { BookOpen, Compass, Home, BarChart3 } from 'lucide-react';
-import type { AppSection, ClassLevel } from '../../schemas/lesson.schema';
+import type { AppSection } from '../../schemas/lesson.schema';
 import { GrammarQuestEmblem } from '../illustrations/Characters';
-import { Badge } from '../Badge/Badge';
 
 export interface HeaderProps {
   activeSection: AppSection;
   onNavigate: (section: AppSection) => void;
-  selectedClass: ClassLevel;
-  onToggleClassQuick: () => void;
 }
 
 interface NavItem {
@@ -31,7 +27,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: 'home', label: 'Home', Icon: Home },
-  { id: 'missions', label: 'Missions', Icon: Compass },
+  { id: 'missions', label: 'Lessons', Icon: Compass },
   { id: 'guide', label: 'Guide', Icon: BookOpen },
   { id: 'progress', label: 'Progress', Icon: BarChart3 },
 ];
@@ -39,8 +35,6 @@ const NAV_ITEMS: NavItem[] = [
 export const Header: React.FC<HeaderProps> = ({
   activeSection,
   onNavigate,
-  selectedClass,
-  onToggleClassQuick,
 }) => {
   return (
     <>
@@ -84,17 +78,6 @@ export const Header: React.FC<HeaderProps> = ({
               );
             })}
           </nav>
-
-          {/* Active Class Switch Indicator */}
-          <button
-            type="button"
-            onClick={onToggleClassQuick}
-            className="inline-flex items-center min-h-[44px] cursor-pointer rounded-[10px] shrink-0"
-            aria-label={`Currently selected Class ${selectedClass}. Click to switch class.`}
-            title="Switch between Class 9 and Class 10"
-          >
-            <Badge tone="turquoise">Class {selectedClass}</Badge>
-          </button>
         </div>
       </header>
 

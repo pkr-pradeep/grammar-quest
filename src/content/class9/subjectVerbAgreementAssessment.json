@@ -6,7 +6,7 @@
   "moduleTitle": "Subject–Verb Agreement",
   "topic": "Matching Subjects and Verbs",
   "missionTitle": "The Grammar Detective",
-  "title": "Mission 3 Assessment: Subject–Verb Agreement",
+  "title": "Test: Subject–Verb Agreement",
   "subtitle": "Answer all 10 detective questions to check your mastery of Subject–Verb Agreement. You can review every answer before submitting.",
   "questions": [
     {
@@ -96,7 +96,7 @@
     },
     {
       "id": "c9-m3-aq-06",
-      "questionText": "Which formal school notice follows standard Class 9 textbook concord for 'neither of'?",
+      "questionText": "Which formal school notice follows standard subject–verb agreement for 'neither of'?",
       "options": [
         { "id": "a", "text": "Neither of the two answers are clear enough." },
         { "id": "b", "text": "Neither of the two answers is clear enough." },
@@ -104,7 +104,7 @@
         { "id": "d", "text": "Neither of the two answers have been clear." }
       ],
       "correctOptionId": "b",
-      "explanation": "Formally (PSEB IX & Assam IX–X), 'neither of / each of / one of + plural noun' takes a singular verb ('is'). (Note: Odisha X mentions plural occurs in casual speech, but formal grammar expects singular.)",
+      "explanation": "In formal grammar, 'neither of / each of / one of + plural noun' takes a singular verb ('is'). (Plural verbs sometimes appear in casual speech, but standard formal grammar expects singular.)",
       "learningObjectiveId": "tricky-nouns-and-indefinites",
       "learningObjective": "Indefinites ('each of', 'neither of') & tricky nouns",
       "difficulty": "stretch",

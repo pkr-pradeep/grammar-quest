@@ -570,18 +570,18 @@ a {
 @keyframes gq-guide-popup-close {
   0% {
     opacity: 1;
-    transform: translate(0px, 0px) scale(1);
+    transform: scale(1);
   }
   100% {
     opacity: 0;
-    transform: translate(var(--gq-fly-x, 140px), var(--gq-fly-y, 280px)) scale(0.12);
+    transform: scale(0.94);
   }
 }
 
 @keyframes gq-guide-popup-open {
   0% {
     opacity: 0;
-    transform: translate(var(--gq-fly-x, 140px), var(--gq-fly-y, 280px)) scale(0.12);
+    transform: translate(var(--gq-fly-x, 140px), var(--gq-fly-y, 280px)) scale(0.18);
   }
   100% {
     opacity: 1;
@@ -638,19 +638,209 @@ a {
 }
 
 .gq-guide-popup-close {
-  animation: gq-guide-popup-close 0.45s ease-in-out forwards;
+  animation: gq-guide-popup-close 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .gq-guide-popup-open {
-  animation: gq-guide-popup-open 0.45s ease-in-out forwards;
+  animation: gq-guide-popup-open 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .gq-guide-backdrop-in {
-  animation: gq-guide-backdrop-in 0.35s ease-in-out forwards;
+  animation: gq-guide-backdrop-in 0.25s ease-out forwards;
 }
 
 .gq-guide-backdrop-out {
-  animation: gq-guide-backdrop-out 0.35s ease-in-out forwards;
+  animation: gq-guide-backdrop-out 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ============================================================================
+ * UNIFIED MODAL SYSTEM ENTER / EXIT ANIMATIONS (200–240ms understated)
+ * ============================================================================ */
+@keyframes gq-modal-backdrop-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gq-modal-backdrop-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gq-modal-content-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes gq-modal-content-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.gq-modal-backdrop-enter {
+  animation: gq-modal-backdrop-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.gq-modal-backdrop-exit {
+  animation: gq-modal-backdrop-out 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.gq-modal-content-enter {
+  animation: gq-modal-content-in 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.gq-modal-content-exit {
+  animation: gq-modal-content-out 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ============================================================================
+ * GUIDED PRACTICE — B. SORT INTERACTIVE ANIMATIONS
+ * ============================================================================ */
+@keyframes gq-sort-drop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-34px) scale(1.12);
+  }
+  68% {
+    opacity: 1;
+    transform: translateY(3px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes gq-sort-shake {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes gq-sort-slot-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(27, 37, 89, 0.24);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(27, 37, 89, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(27, 37, 89, 0);
+  }
+}
+
+@keyframes gq-sort-gyan-hop {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  45% {
+    transform: translateY(-8px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes gq-sort-star-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gq-sort-next-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(27, 37, 89, 0.34);
+  }
+  75% {
+    box-shadow: 0 0 0 9px rgba(27, 37, 89, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(27, 37, 89, 0);
+  }
+}
+
+@keyframes gq-sort-confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translate3d(0px, -16px, 0px) rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--gq-conf-dx, 18px), 86vh, 0px) rotate(var(--gq-conf-rot, 360deg));
+  }
+}
+
+.gq-sort-drop-in {
+  animation: gq-sort-drop-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.gq-sort-shake {
+  animation: gq-sort-shake 0.42s ease-in-out both;
+}
+
+.gq-sort-slot-pulse {
+  animation: gq-sort-slot-pulse 1.3s ease-out infinite;
+}
+
+.gq-sort-gyan-hop {
+  animation: gq-sort-gyan-hop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.gq-sort-star-pop {
+  animation: gq-sort-star-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.gq-sort-next-pulse {
+  animation: gq-sort-next-pulse 1.6s ease-out infinite;
+}
+
+.gq-sort-confetti-piece {
+  animation-name: gq-sort-confetti-fall;
+  animation-timing-function: cubic-bezier(0.2, 0.6, 0.4, 1);
+  animation-fill-mode: forwards;
 }
 
 /* Respect user reduced-motion preferences */
@@ -683,8 +873,23 @@ a {
   .gq-story-sparkle,
   .gq-guide-portrait-float,
   .gq-guide-btn-pop,
-  .gq-guide-ring-pulse {
+  .gq-guide-ring-pulse,
+  .gq-sort-slot-pulse,
+  .gq-sort-next-pulse,
+  .gq-sort-shake,
+  .gq-sort-gyan-hop {
     animation: none !important;
+  }
+
+  .gq-sort-drop-in,
+  .gq-sort-star-pop {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .gq-sort-confetti-layer {
+    display: none !important;
   }
 
   .gq-guide-popup-open,
@@ -697,6 +902,18 @@ a {
   .gq-guide-backdrop-out {
     animation: gq-guide-popup-fade-out 0.2s ease-out forwards !important;
     animation-duration: 0.2s !important;
+  }
+
+  .gq-modal-backdrop-enter,
+  .gq-modal-content-enter {
+    animation: gq-modal-backdrop-in 0.14s ease-out forwards !important;
+    animation-duration: 0.14s !important;
+  }
+
+  .gq-modal-backdrop-exit,
+  .gq-modal-content-exit {
+    animation: gq-modal-backdrop-out 0.14s ease-out forwards !important;
+    animation-duration: 0.14s !important;
   }
 
   .gq-story-beam {

@@ -19,6 +19,7 @@ import type {
 import { GROUP_ROLE_META } from '../categoryMeta';
 import { WordTile } from './WordTile';
 import { PracticeFeedback } from './PracticeFeedback';
+import { ActivityCharacterNote, ActivityHintBox } from './ActivityCharacterNote';
 
 /* --------------------------------------------------------------------------
    D. Word Replacement Activity
@@ -30,6 +31,7 @@ export const WordReplacementView: React.FC<{
   const prefersReducedMotion = useReducedMotion();
   const [selectedOptId, setSelectedOptId] = useState<string>(activity.options[0]?.id ?? '');
   const [exploredIds, setExploredIds] = useState<string[]>([]);
+  const [showHint, setShowHint] = useState(false);
 
   const selectedOption =
     activity.options.find((o) => o.id === selectedOptId) ?? activity.options[0];
@@ -54,6 +56,8 @@ export const WordReplacementView: React.FC<{
         </h3>
         <p className="text-sm text-[#333333]">{activity.instruction}</p>
       </div>
+
+      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
 
       {/* Live Sentence Preview */}
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
@@ -91,6 +95,14 @@ export const WordReplacementView: React.FC<{
             ))}
           </div>
         </div>
+
+        {activity.hint ? (
+          <ActivityHintBox
+            hint={activity.hint}
+            isOpen={showHint}
+            onToggle={() => setShowHint((h) => !h)}
+          />
+        ) : null}
       </div>
 
       <PracticeFeedback
@@ -110,9 +122,12 @@ export const MissingWordsView: React.FC<{
   onSolved?: () => void;
 }> = ({ activity, onSolved }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showHint, setShowHint] = useState(false);
   const selectedOption = activity.options.find((o) => o.id === selectedId) ?? null;
+  const isSolved = Boolean(selectedOption?.isCorrect);
 
   const handlePick = (optId: string, isCorrect: boolean) => {
+    if (isSolved) return;
     setSelectedId(optId);
     if (isCorrect) {
       onSolved?.();
@@ -127,6 +142,8 @@ export const MissingWordsView: React.FC<{
         </h3>
         <p className="text-sm text-[#333333]">{activity.instruction}</p>
       </div>
+
+      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
 
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
         <p className="text-base sm:text-lg font-semibold text-[#263A70] leading-relaxed">
@@ -144,15 +161,19 @@ export const MissingWordsView: React.FC<{
               <button
                 key={opt.id}
                 type="button"
+                disabled={isSolved}
                 onClick={() => handlePick(opt.id, opt.isCorrect)}
                 aria-pressed={isSelected}
                 className={[
-                  'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm sm:text-base font-medium transition-colors cursor-pointer',
+                  'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm sm:text-base font-medium transition-colors',
+                  isSolved ? 'cursor-default' : 'cursor-pointer',
                   isSelected
                     ? opt.isCorrect
                       ? 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]'
                       : 'bg-[#FEE8E7] border-[#F36F68] text-[#263A70]'
-                    : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
+                    : isSolved
+                      ? 'bg-[#FDFCF9] border-[#E5E2D9] text-[#4B5C8A] opacity-70'
+                      : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
                 ].join(' ')}
               >
                 {opt.text}
@@ -160,6 +181,14 @@ export const MissingWordsView: React.FC<{
             );
           })}
         </div>
+
+        {activity.hint && !isSolved ? (
+          <ActivityHintBox
+            hint={activity.hint}
+            isOpen={showHint}
+            onToggle={() => setShowHint((h) => !h)}
+          />
+        ) : null}
       </div>
 
       {selectedOption ? (
@@ -167,7 +196,7 @@ export const MissingWordsView: React.FC<{
           status={selectedOption.isCorrect ? 'correct' : 'try-again'}
           title={
             selectedOption.isCorrect
-              ? 'Message repaired'
+              ? (activity.correctTitle ?? 'Message repaired')
               : (activity.incorrectTitle ??
                 (activity.missingRole === 'predicate'
                   ? 'Still missing a finite verb'
@@ -188,9 +217,12 @@ export const ErrorIdentificationView: React.FC<{
   onSolved?: () => void;
 }> = ({ activity, onSolved }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showHint, setShowHint] = useState(false);
   const selectedOption = activity.options.find((o) => o.id === selectedId) ?? null;
+  const isSolved = Boolean(selectedOption?.isCorrect);
 
   const handlePick = (optId: string, isCorrect: boolean) => {
+    if (isSolved) return;
     setSelectedId(optId);
     if (isCorrect) {
       onSolved?.();
@@ -205,6 +237,8 @@ export const ErrorIdentificationView: React.FC<{
         </h3>
         <p className="text-sm text-[#333333]">{activity.instruction}</p>
       </div>
+
+      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
 
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
         <div className="rounded-[12px] bg-[#FEE8E7] border border-[#F7C2BF] px-3.5 py-2.5">
@@ -225,15 +259,19 @@ export const ErrorIdentificationView: React.FC<{
               <button
                 key={opt.id}
                 type="button"
+                disabled={isSolved}
                 onClick={() => handlePick(opt.id, opt.isCorrect)}
                 aria-pressed={isSelected}
                 className={[
-                  'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors cursor-pointer',
+                  'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors',
+                  isSolved ? 'cursor-default' : 'cursor-pointer',
                   isSelected
                     ? opt.isCorrect
                       ? 'bg-[#D9FAF5] border-[#1FA89A] text-[#263A70]'
                       : 'bg-[#FEE8E7] border-[#F36F68] text-[#263A70]'
-                    : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
+                    : isSolved
+                      ? 'bg-[#FDFCF9] border-[#E5E2D9] text-[#4B5C8A] opacity-70'
+                      : 'bg-[#FDFCF9] border-[#E5E2D9] text-[#263A70] hover:border-[#263A70]',
                 ].join(' ')}
               >
                 {opt.label}
@@ -241,18 +279,32 @@ export const ErrorIdentificationView: React.FC<{
             );
           })}
         </div>
+
+        {activity.hint && !isSolved ? (
+          <ActivityHintBox
+            hint={activity.hint}
+            isOpen={showHint}
+            onToggle={() => setShowHint((h) => !h)}
+          />
+        ) : null}
       </div>
 
       {selectedOption ? (
         <div className="space-y-2.5">
           <PracticeFeedback
             status={selectedOption.isCorrect ? 'correct' : 'try-again'}
-            title={selectedOption.isCorrect ? 'Accurate diagnosis' : 'Check again'}
+            title={
+              selectedOption.isCorrect
+                ? (activity.correctTitle ?? 'Accurate diagnosis')
+                : (activity.incorrectTitle ?? 'Check again')
+            }
             message={selectedOption.feedback}
           />
           {selectedOption.isCorrect ? (
             <div className="rounded-[12px] bg-[#FFF1D5] border border-[#F2DFB6] px-3.5 py-2.5">
-              <p className="text-xs font-semibold text-[#A15C00]">Complete Repaired Sentence</p>
+              <p className="text-xs font-semibold text-[#A15C00]">
+                {activity.repairedBadgeLabel ?? 'Complete Repaired Sentence'}
+              </p>
               <p className="text-sm sm:text-base font-semibold text-[#263A70] mt-0.5">
                 {activity.repairedSentence}
               </p>

@@ -54,22 +54,44 @@ export function createInProgressAttempt(
   };
 }
 
+function toCanonicalMissionId(missionId: string): string {
+  return missionId.replace(/^c(?:9|10)-/, 'c9-');
+}
+
+function normalizeAttemptMissionId(attempt: AssessmentAttemptRecord): AssessmentAttemptRecord {
+  const canonicalId = toCanonicalMissionId(attempt.missionId);
+  if (canonicalId === attempt.missionId && attempt.id === canonicalId) {
+    return attempt;
+  }
+  return {
+    ...attempt,
+    id: canonicalId,
+    missionId: canonicalId,
+  };
+}
+
 export async function loadAssessmentAttempt(
   missionId: string,
 ): Promise<AssessmentStorageResult> {
+  const canonicalId = toCanonicalMissionId(missionId);
   try {
-    const stored = await idbGet<AssessmentAttemptRecord>(ASSESSMENT_STORE, missionId);
+    let stored = await idbGet<AssessmentAttemptRecord>(ASSESSMENT_STORE, canonicalId);
+    if (!stored && canonicalId.startsWith('c9-')) {
+      const legacyId = canonicalId.replace(/^c9-/, 'c10-');
+      stored = await idbGet<AssessmentAttemptRecord>(ASSESSMENT_STORE, legacyId);
+    }
     if (stored) {
-      inMemoryAttempts[missionId] = stored;
-      return { attempt: stored, storageAvailable: true };
+      const normalized = normalizeAttemptMissionId(stored);
+      inMemoryAttempts[canonicalId] = normalized;
+      return { attempt: normalized, storageAvailable: true };
     }
     return {
-      attempt: inMemoryAttempts[missionId] ?? null,
+      attempt: inMemoryAttempts[canonicalId] ?? null,
       storageAvailable: true,
     };
   } catch {
     return {
-      attempt: inMemoryAttempts[missionId] ?? null,
+      attempt: inMemoryAttempts[canonicalId] ?? null,
       storageAvailable: false,
       storageMessage:
         'Local storage is currently restricted. Your assessment responses remain active for this visit.',
@@ -80,10 +102,27 @@ export async function loadAssessmentAttempt(
 export async function loadAllAssessmentAttempts(): Promise<AssessmentAttemptRecord[]> {
   try {
     const all = await idbGetAll<AssessmentAttemptRecord>(ASSESSMENT_STORE);
-    for (const item of all) {
+    const mergedByMission: Record<string, AssessmentAttemptRecord> = {};
+    for (const raw of all) {
+      const normalized = normalizeAttemptMissionId(raw);
+      const existing = mergedByMission[normalized.missionId];
+      if (!existing) {
+        mergedByMission[normalized.missionId] = normalized;
+      } else if (
+        normalized.status === 'submitted' && existing.status !== 'submitted'
+      ) {
+        mergedByMission[normalized.missionId] = normalized;
+      } else if (
+        normalized.status === existing.status &&
+        normalized.updatedAt > existing.updatedAt
+      ) {
+        mergedByMission[normalized.missionId] = normalized;
+      }
+    }
+    for (const item of Object.values(mergedByMission)) {
       inMemoryAttempts[item.missionId] = item;
     }
-    return all;
+    return Object.values(mergedByMission);
   } catch {
     return Object.values(inMemoryAttempts);
   }
@@ -188,7 +227,7 @@ export async function submitAssessmentAttempt(
       attempt: submitted,
       storageAvailable: false,
       storageMessage:
-        'Your assessment result was scored, though device storage could not persist it after closing.',
+        'Your test result was scored, though device storage could not persist it after closing.',
     };
   }
 }
