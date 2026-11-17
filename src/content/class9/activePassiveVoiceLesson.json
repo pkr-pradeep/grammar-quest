@@ -1,0 +1,3588 @@
+{
+  "lessonId": "c9-lesson-voice",
+  "missionId": "c9-mission-05",
+  "classLevel": 9,
+  "moduleId": "cat-voice-speech",
+  "moduleTitle": "Voice, Speech & Mechanics",
+  "missionTitle": "Active and Passive Voice",
+  "topic": "Doer vs Receiver Focus, Transformation, Tenses, Pronouns, SVOO & Limits",
+  "estimatedMinutes": 9,
+  "situationBrief": {
+    "title": "Active and Passive Voice",
+    "description": "Learn how Active Voice spotlights the doer, how Passive Voice shifts focus to the receiver with be + Past Participle, and when Passive works naturally.",
+    "characterId": "gyan",
+    "characterExpression": "explaining"
+  },
+  "learningObjectives": {
+    "grammarOutcomes": [
+      "Distinguish Active Voice (Subject = doer) from Passive Voice (Subject = receiver) while keeping event meaning and time unchanged.",
+      "Convert transitive clauses accurately using New Subject + matching be auxiliary + Past Participle (V-en / V3) across tenses, aspects, modals, pronouns, SVOO, questions, and imperatives.",
+      "Decide when to omit 'by + doer', recognise non-passivisable intransitive and linking clauses, and spot common Voice errors."
+    ],
+    "knowledgeOutcome": "Explore Indian school gardens, ISRO weather science, heritage monuments, and everyday healthy food habits through clear interactive Voice patterns."
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od10-ch9-passive",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 9: The Passive",
+      "bookPages": "90-105",
+      "pdfPages": "96-111",
+      "provenance": "textbook-derived",
+      "note": "Dedicated 16-page chapter on Passive Voice using 'be + en' notation and SVO/SVOO/SVOC patterns."
+    },
+    {
+      "id": "src-pseb9-ch6-voice",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 6: Voice",
+      "bookPages": "61-73",
+      "pdfPages": "67-79",
+      "provenance": "textbook-derived",
+      "note": "Active and Passive rules across tenses and modals using V1/V2/V3 notation."
+    },
+    {
+      "id": "src-assam-ch11-voice",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Chapter 11: Voice",
+      "bookPages": "186-193",
+      "pdfPages": "195-202",
+      "provenance": "textbook-derived",
+      "note": "Core Voice chapter supported by Transitive/Intransitive rules (Ch. 1 L5), Pronoun case (Ch. 5), and Past Participle forms (Ch. 9)."
+    },
+    {
+      "id": "src-od9-prereq-verbs",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Ch. 2 Verbs (pp. 27-32), Ch. 3 Time and Tense (pp. 33-61), Ch. 4 Auxiliaries (pp. 62-73), Ch. 12 Predicate Phrase (pp. 141-146)",
+      "bookPages": "27-73, 141-146",
+      "pdfPages": "33-79, 147-152",
+      "provenance": "textbook-derived",
+      "note": "Supplies prerequisite finite/non-finite (-ed/-en) verb forms, auxiliaries, and SVO/SVOO/SVC/SVA patterns."
+    },
+    {
+      "id": "src-voice-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Visual Voice Spotlight, Pronoun Case & Tense-Chain Bridge (Supplementary)",
+      "chapter": "Active and Passive Voice Blueprint",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Provides Doer-vs-Receiver visual spotlight, V-en/V3 notation bridge, self-contained Pronoun Case and Modal Passive mini-guides, and original Indian school/nutrition examples."
+    }
+  ],
+  "activeRelationshipTypes": [
+    "verb-subject",
+    "determiner-noun",
+    "adjective-noun",
+    "adverb-verb",
+    "preposition-relation"
+  ],
+  "sentences": [
+    {
+      "id": "apv-s1-active",
+      "title": "Starter Sentence · Active (Doer Focus)",
+      "rawText": "Mira waters the mango saplings.",
+      "contextTag": "School Garden",
+      "note": "In Active Voice, the Subject 'Mira' is the doer performing the action 'waters'.",
+      "tokens": [
+        {
+          "id": "vs1-t1",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Doer",
+          "meaningInSentence": "Names the person doing the watering.",
+          "grammaticalRoleExplanation": "Subject head-noun and doer (agent) in Active Voice.",
+          "linkedTokenIds": ["vs1-t2"]
+        },
+        {
+          "id": "vs1-t2",
+          "text": "waters",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Active Finite Verb",
+          "meaningInSentence": "Shows the regular present action.",
+          "grammaticalRoleExplanation": "Singular present verb agreeing with 'Mira' and passing action to 'saplings'.",
+          "linkedTokenIds": ["vs1-t1", "vs1-t5"]
+        },
+        {
+          "id": "vs1-t3",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to specific saplings.",
+          "grammaticalRoleExplanation": "Opens the Object noun phrase.",
+          "linkedTokenIds": ["vs1-t5"]
+        },
+        {
+          "id": "vs1-t4",
+          "text": "mango",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Tells what kind of saplings.",
+          "grammaticalRoleExplanation": "Modifies the Object head-noun 'saplings'.",
+          "linkedTokenIds": ["vs1-t5"]
+        },
+        {
+          "id": "vs1-t5",
+          "text": "saplings",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Object · Receiver",
+          "meaningInSentence": "Names what receives the water.",
+          "grammaticalRoleExplanation": "Direct Object head-noun receiving the action.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs1-t2"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs1-subj",
+          "role": "subject",
+          "label": "Subject (Doer)",
+          "tokenIds": ["vs1-t1"],
+          "questionPrompt": "Who performs the action?",
+          "plainExplanation": "'Mira' is the Subject and the doer of the watering action.",
+          "textbookRule": "In Active Voice, the grammatical Subject is the doer (agent) of the verb.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        },
+        {
+          "id": "vs1-pred",
+          "role": "predicate",
+          "label": "Predicate (Action + Receiver)",
+          "tokenIds": ["vs1-t2", "vs1-t3", "vs1-t4", "vs1-t5"],
+          "questionPrompt": "What action happens to whom/what?",
+          "plainExplanation": "'waters the mango saplings' states the action and its receiver ('the mango saplings').",
+          "textbookRule": "Transitive active verbs pass their action onto a Direct Object.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "vs1-rel-1",
+          "type": "verb-subject",
+          "label": "Doer performs verb",
+          "fromTokenIds": ["vs1-t2"],
+          "toTokenIds": ["vs1-t1"],
+          "explanation": "'waters' agrees with singular doer Subject 'Mira'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "waters the mango saplings.",
+        "predicateHeadWord": "waters",
+        "patternNote": "Active SVO: Mira (Doer / Subject) + waters (Action) + the mango saplings (Receiver / Object)."
+      }
+    },
+    {
+      "id": "apv-s1-passive",
+      "title": "Compare Sentence · Passive (Receiver Focus)",
+      "rawText": "The mango saplings are watered by Mira.",
+      "contextTag": "School Garden",
+      "note": "Now 'The mango saplings' (receiver) sits in the Subject spotlight! Notice the event and present time did not change.",
+      "tokens": [
+        {
+          "id": "vs1p-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to specific saplings.",
+          "grammaticalRoleExplanation": "Starts the new Passive Subject.",
+          "linkedTokenIds": ["vs1p-t3"]
+        },
+        {
+          "id": "vs1p-t2",
+          "text": "mango",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes the saplings.",
+          "grammaticalRoleExplanation": "Modifies the new Subject head-noun 'saplings'.",
+          "linkedTokenIds": ["vs1p-t3"]
+        },
+        {
+          "id": "vs1p-t3",
+          "text": "saplings",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "New Subject · Receiver",
+          "meaningInSentence": "Names what receives the watering.",
+          "grammaticalRoleExplanation": "Former Object promoted to Subject; plural 'saplings' requires plural 'are'.",
+          "linkedTokenIds": ["vs1p-t4"]
+        },
+        {
+          "id": "vs1p-t4",
+          "text": "are",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Passive Helper (be)",
+          "meaningInSentence": "Keeps present time and matches plural 'saplings'.",
+          "grammaticalRoleExplanation": "Finite 'be' auxiliary carrying Present tense + plural agreement.",
+          "linkedTokenIds": ["vs1p-t3", "vs1p-t5"]
+        },
+        {
+          "id": "vs1p-t5",
+          "text": "watered",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the action received by the saplings.",
+          "grammaticalRoleExplanation": "Past participle paired with 'are' to form Passive Voice.",
+          "linkedTokenIds": ["vs1p-t4"]
+        },
+        {
+          "id": "vs1p-t6",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Agent Preposition",
+          "meaningInSentence": "Introduces who does the watering.",
+          "grammaticalRoleExplanation": "Links the optional doer ('Mira') to the passive verb.",
+          "linkedTokenIds": ["vs1p-t7"]
+        },
+        {
+          "id": "vs1p-t7",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Doer (after by)",
+          "meaningInSentence": "Identifies who waters the saplings.",
+          "grammaticalRoleExplanation": "Original doer placed inside an optional 'by'-phrase.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs1p-t6"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs1p-subj",
+          "role": "subject",
+          "label": "Subject (Receiver)",
+          "tokenIds": ["vs1p-t1", "vs1p-t2", "vs1p-t3"],
+          "questionPrompt": "What receives the action?",
+          "plainExplanation": "'The mango saplings' is now the Subject—it receives the action instead of doing it.",
+          "textbookRule": "In Passive Voice, the receiver of the action becomes the grammatical Subject.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        },
+        {
+          "id": "vs1p-pred",
+          "role": "predicate",
+          "label": "Predicate (be + V-en + by-phrase)",
+          "tokenIds": ["vs1p-t4", "vs1p-t5", "vs1p-t6", "vs1p-t7"],
+          "questionPrompt": "What is done to the Subject?",
+          "plainExplanation": "'are watered by Mira' uses present plural 'are' + past participle 'watered' + optional doer 'by Mira'.",
+          "textbookRule": "Passive Voice pairs a form of 'be' with the Past Participle (V-en / V3).",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The mango saplings",
+        "subjectHeadWord": "saplings",
+        "predicateText": "are watered by Mira.",
+        "predicateHeadWord": "watered",
+        "patternNote": "Passive: The mango saplings (Receiver / Subject) + are watered (be + V-en) + by Mira (Doer)."
+      }
+    },
+    {
+      "id": "apv-s2-present-passive",
+      "title": "Starter Sentence · Present Habit Passive",
+      "rawText": "Fresh guavas are packed in bamboo baskets.",
+      "contextTag": "Orchard Harvest",
+      "note": "Even though 'packed' ends in -ed, helper 'are' tells us this is a regular Present-time habit.",
+      "tokens": [
+        {
+          "id": "vs2-t1",
+          "text": "Fresh",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the guavas.",
+          "grammaticalRoleExplanation": "Modifies 'guavas' inside the Subject.",
+          "linkedTokenIds": ["vs2-t2"]
+        },
+        {
+          "id": "vs2-t2",
+          "text": "guavas",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Receiver",
+          "meaningInSentence": "Names the fruit being packed.",
+          "grammaticalRoleExplanation": "Plural receiver Subject requiring plural 'are'.",
+          "linkedTokenIds": ["vs2-t3"]
+        },
+        {
+          "id": "vs2-t3",
+          "text": "are",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Present Helper (be)",
+          "meaningInSentence": "Shows Present time and plural agreement.",
+          "grammaticalRoleExplanation": "Present-tense 'be' proves this passive sentence is NOT past tense.",
+          "linkedTokenIds": ["vs2-t2", "vs2-t4"]
+        },
+        {
+          "id": "vs2-t4",
+          "text": "packed",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the packing action.",
+          "grammaticalRoleExplanation": "Past participle paired with 'are' (Passive Voice).",
+          "linkedTokenIds": ["vs2-t3"]
+        },
+        {
+          "id": "vs2-t5",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows where they are placed.",
+          "grammaticalRoleExplanation": "Starts the place phrase 'in bamboo baskets'.",
+          "linkedTokenIds": ["vs2-t7"]
+        },
+        {
+          "id": "vs2-t6",
+          "text": "bamboo",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Names the basket material.",
+          "grammaticalRoleExplanation": "Modifies 'baskets'.",
+          "linkedTokenIds": ["vs2-t7"]
+        },
+        {
+          "id": "vs2-t7",
+          "text": "baskets",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Object of Preposition",
+          "meaningInSentence": "Names the containers.",
+          "grammaticalRoleExplanation": "Noun completing 'in bamboo baskets'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs2-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs2-subj",
+          "role": "subject",
+          "label": "Subject (Receiver)",
+          "tokenIds": ["vs2-t1", "vs2-t2"],
+          "questionPrompt": "What receives the action?",
+          "plainExplanation": "'Fresh guavas' sits in the Subject slot and receives the action of packing.",
+          "textbookRule": "A Past Participle (-ed/-en) in Passive Voice does not mean Past time; the 'be' helper sets time.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        },
+        {
+          "id": "vs2-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs2-t3", "vs2-t4", "vs2-t5", "vs2-t6", "vs2-t7"],
+          "questionPrompt": "What is done to the guavas?",
+          "plainExplanation": "'are packed in bamboo baskets' uses present 'are' + 'packed' to describe a present routine.",
+          "textbookRule": "Use am/is/are + Past Participle for Present Simple Passive.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch6-voice", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Fresh guavas",
+        "subjectHeadWord": "guavas",
+        "predicateText": "are packed in bamboo baskets.",
+        "predicateHeadWord": "packed",
+        "patternNote": "Present Passive: Fresh guavas (Receiver) + are (Present be) + packed (V-en) + place phrase."
+      }
+    },
+    {
+      "id": "apv-s2-past-passive",
+      "title": "Compare Sentence · Past Time Passive",
+      "rawText": "Fresh guavas were packed in bamboo baskets yesterday.",
+      "contextTag": "Orchard Harvest",
+      "note": "Only 'are' switched to 'were' (+ 'yesterday') to show Past time; 'packed' stayed identical!",
+      "tokens": [
+        {
+          "id": "vs2p-t1",
+          "text": "Fresh",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the guavas.",
+          "grammaticalRoleExplanation": "Modifies 'guavas'.",
+          "linkedTokenIds": ["vs2p-t2"]
+        },
+        {
+          "id": "vs2p-t2",
+          "text": "guavas",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Receiver",
+          "meaningInSentence": "Names the fruit being packed.",
+          "grammaticalRoleExplanation": "Plural receiver Subject.",
+          "linkedTokenIds": ["vs2p-t3"]
+        },
+        {
+          "id": "vs2p-t3",
+          "text": "were",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Past Helper (be)",
+          "meaningInSentence": "Shifts the Passive sentence to Past time.",
+          "grammaticalRoleExplanation": "Past plural form of 'be' agreeing with 'guavas'.",
+          "linkedTokenIds": ["vs2p-t2", "vs2p-t4"]
+        },
+        {
+          "id": "vs2p-t4",
+          "text": "packed",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the packing action.",
+          "grammaticalRoleExplanation": "Unchanged past participle; time comes from 'were'.",
+          "linkedTokenIds": ["vs2p-t3"]
+        },
+        {
+          "id": "vs2p-t5",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows where they were packed.",
+          "grammaticalRoleExplanation": "Opens the place phrase.",
+          "linkedTokenIds": ["vs2p-t7"]
+        },
+        {
+          "id": "vs2p-t6",
+          "text": "bamboo",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes the baskets.",
+          "grammaticalRoleExplanation": "Modifies 'baskets'.",
+          "linkedTokenIds": ["vs2p-t7"]
+        },
+        {
+          "id": "vs2p-t7",
+          "text": "baskets",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Noun",
+          "meaningInSentence": "Names the containers.",
+          "grammaticalRoleExplanation": "Object of 'in'.",
+          "linkedTokenIds": ["vs2p-t5"]
+        },
+        {
+          "id": "vs2p-t8",
+          "text": "yesterday",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Time Adverb",
+          "meaningInSentence": "Confirms the Past time.",
+          "grammaticalRoleExplanation": "Time marker matching past 'were'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs2p-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs2p-subj",
+          "role": "subject",
+          "label": "Subject (Receiver)",
+          "tokenIds": ["vs2p-t1", "vs2p-t2"],
+          "questionPrompt": "What receives the action?",
+          "plainExplanation": "'Fresh guavas' remains the receiver Subject.",
+          "textbookRule": "Past Simple Passive uses was/were + Past Participle.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        },
+        {
+          "id": "vs2p-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs2p-t3", "vs2p-t4", "vs2p-t5", "vs2p-t6", "vs2p-t7", "vs2p-t8"],
+          "questionPrompt": "What changed to show Past time?",
+          "plainExplanation": "'were' replaced 'are' to mark Past time, while 'packed' stayed the same.",
+          "textbookRule": "In Passive Voice, the 'be' auxiliary—never the Past Participle—shows tense.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch6-voice", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Fresh guavas",
+        "subjectHeadWord": "guavas",
+        "predicateText": "were packed in bamboo baskets yesterday.",
+        "predicateHeadWord": "packed",
+        "patternNote": "Past Passive: Fresh guavas (Receiver) + were (Past be) + packed (V-en) + yesterday."
+      }
+    },
+    {
+      "id": "apv-s3-svo-active",
+      "title": "Starter Sentence · Active SVO",
+      "rawText": "The chef washes fresh vegetables.",
+      "contextTag": "Healthy Kitchen",
+      "note": "Ask 'washes what?' -> 'fresh vegetables' (Direct Object). Having an Object makes Passive transformation possible!",
+      "tokens": [
+        {
+          "id": "vs3-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the school chef.",
+          "grammaticalRoleExplanation": "Opens the Subject noun phrase.",
+          "linkedTokenIds": ["vs3-t2"]
+        },
+        {
+          "id": "vs3-t2",
+          "text": "chef",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Doer",
+          "meaningInSentence": "Names who washes the vegetables.",
+          "grammaticalRoleExplanation": "Singular Subject doer.",
+          "linkedTokenIds": ["vs3-t3"]
+        },
+        {
+          "id": "vs3-t3",
+          "text": "washes",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Transitive Verb",
+          "meaningInSentence": "Describes the cleaning action.",
+          "grammaticalRoleExplanation": "Singular Present Simple verb agreeing with 'chef'.",
+          "linkedTokenIds": ["vs3-t2", "vs3-t5"]
+        },
+        {
+          "id": "vs3-t4",
+          "text": "fresh",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the vegetables.",
+          "grammaticalRoleExplanation": "Modifies 'vegetables' inside the Object.",
+          "linkedTokenIds": ["vs3-t5"]
+        },
+        {
+          "id": "vs3-t5",
+          "text": "vegetables",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Answers 'washes what?'",
+          "grammaticalRoleExplanation": "Plural Direct Object ready to move to Subject spot in Passive.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs3-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs3-subj",
+          "role": "subject",
+          "label": "Subject (Doer)",
+          "tokenIds": ["vs3-t1", "vs3-t2"],
+          "questionPrompt": "Who does the washing?",
+          "plainExplanation": "'The chef' is the singular doer in the Subject slot.",
+          "textbookRule": "Identify Subject, Finite Verb, and Direct Object before shifting Voice.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        },
+        {
+          "id": "vs3-pred",
+          "role": "predicate",
+          "label": "Predicate (Verb + Object)",
+          "tokenIds": ["vs3-t3", "vs3-t4", "vs3-t5"],
+          "questionPrompt": "What is the Verb + Object?",
+          "plainExplanation": "'washes' (Verb) + 'fresh vegetables' (Direct Object answering 'washes what?').",
+          "textbookRule": "Only transitive clauses with an Object can move that Object into Passive Subject position.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-assam-ch11-voice"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The chef",
+        "subjectHeadWord": "chef",
+        "predicateText": "washes fresh vegetables.",
+        "predicateHeadWord": "washes",
+        "patternNote": "Active SVO: The chef (S) + washes (V) + fresh vegetables (O)."
+      }
+    },
+    {
+      "id": "apv-s3-svo-passive",
+      "title": "Compare Sentence · 4-Step Passive Shift",
+      "rawText": "Fresh vegetables are washed by the chef.",
+      "contextTag": "Healthy Kitchen",
+      "note": "Watch 'washes' (singular for 'chef') turn into 'are washed' (plural for 'Fresh vegetables')!",
+      "tokens": [
+        {
+          "id": "vs3p-t1",
+          "text": "Fresh",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the vegetables.",
+          "grammaticalRoleExplanation": "Moved with 'vegetables' as one noun group.",
+          "linkedTokenIds": ["vs3p-t2"]
+        },
+        {
+          "id": "vs3p-t2",
+          "text": "vegetables",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "New Subject",
+          "meaningInSentence": "Former Object now leading the sentence.",
+          "grammaticalRoleExplanation": "Plural Subject controlling verb agreement.",
+          "linkedTokenIds": ["vs3p-t3"]
+        },
+        {
+          "id": "vs3p-t3",
+          "text": "are",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Matching be",
+          "meaningInSentence": "Keeps Present time and agrees with plural 'vegetables'.",
+          "grammaticalRoleExplanation": "Replaced singular 'washes' agreement with plural 'are'.",
+          "linkedTokenIds": ["vs3p-t2", "vs3p-t4"]
+        },
+        {
+          "id": "vs3p-t4",
+          "text": "washed",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Holds the core action meaning.",
+          "grammaticalRoleExplanation": "Past participle of 'wash'.",
+          "linkedTokenIds": ["vs3p-t3"]
+        },
+        {
+          "id": "vs3p-t5",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links the doer.",
+          "grammaticalRoleExplanation": "Introduces 'the chef'.",
+          "linkedTokenIds": ["vs3p-t7"]
+        },
+        {
+          "id": "vs3p-t6",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the chef.",
+          "grammaticalRoleExplanation": "Determiner for 'chef'.",
+          "linkedTokenIds": ["vs3p-t7"]
+        },
+        {
+          "id": "vs3p-t7",
+          "text": "chef",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Doer (after by)",
+          "meaningInSentence": "Names who washes the vegetables.",
+          "grammaticalRoleExplanation": "Original Subject placed in optional 'by'-phrase.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs3p-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs3p-subj",
+          "role": "subject",
+          "label": "New Subject",
+          "tokenIds": ["vs3p-t1", "vs3p-t2"],
+          "questionPrompt": "What moved to Subject position?",
+          "plainExplanation": "'Fresh vegetables' moved from Object to Subject.",
+          "textbookRule": "Step 1: Move the complete Object noun group to Subject position.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        },
+        {
+          "id": "vs3p-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs3p-t3", "vs3p-t4", "vs3p-t5", "vs3p-t6", "vs3p-t7"],
+          "questionPrompt": "How did the verb transform?",
+          "plainExplanation": "'are' (present + plural) + 'washed' (Past Participle) + 'by the chef'.",
+          "textbookRule": "Steps 2-4: Add matching 'be', lock main verb to V-en, and add 'by + doer' if needed.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Fresh vegetables",
+        "subjectHeadWord": "vegetables",
+        "predicateText": "are washed by the chef.",
+        "predicateHeadWord": "washed",
+        "patternNote": "4-Step Passive: New S (Fresh vegetables) + be (are) + V-en (washed) + by-phrase."
+      }
+    },
+    {
+      "id": "apv-s4-notes-passive",
+      "title": "Starter Sentence · Irregular Participle & New Agreement",
+      "rawText": "Two science notes were written by Arjun.",
+      "contextTag": "Science Lab",
+      "note": "Plural new Subject 'Two science notes' needs plural 'were', and irregular 'wrote' (V2) must become 'written' (V-en / V3).",
+      "tokens": [
+        {
+          "id": "vs4-t1",
+          "text": "Two",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Numeral",
+          "meaningInSentence": "Counts two notes.",
+          "grammaticalRoleExplanation": "Signals plural Subject.",
+          "linkedTokenIds": ["vs4-t3"]
+        },
+        {
+          "id": "vs4-t2",
+          "text": "science",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Tells the topic of the notes.",
+          "grammaticalRoleExplanation": "Modifies 'notes'.",
+          "linkedTokenIds": ["vs4-t3"]
+        },
+        {
+          "id": "vs4-t3",
+          "text": "notes",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "New Plural Subject",
+          "meaningInSentence": "Names what was written.",
+          "grammaticalRoleExplanation": "Plural head-noun forcing 'were' instead of 'was'.",
+          "linkedTokenIds": ["vs4-t4"]
+        },
+        {
+          "id": "vs4-t4",
+          "text": "were",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Past Plural be",
+          "meaningInSentence": "Marks Past time and plural Subject.",
+          "grammaticalRoleExplanation": "Agrees with plural 'notes', NOT singular 'Arjun'.",
+          "linkedTokenIds": ["vs4-t3", "vs4-t5"]
+        },
+        {
+          "id": "vs4-t5",
+          "text": "written",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the writing action.",
+          "grammaticalRoleExplanation": "Past participle of 'write' (never use V2 'wrote' after 'were').",
+          "linkedTokenIds": ["vs4-t4"]
+        },
+        {
+          "id": "vs4-t6",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links the writer.",
+          "grammaticalRoleExplanation": "Introduces 'Arjun'.",
+          "linkedTokenIds": ["vs4-t7"]
+        },
+        {
+          "id": "vs4-t7",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Doer",
+          "meaningInSentence": "Names who wrote the notes.",
+          "grammaticalRoleExplanation": "Original Subject inside the 'by'-phrase.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs4-t6"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs4-subj",
+          "role": "subject",
+          "label": "New Plural Subject",
+          "tokenIds": ["vs4-t1", "vs4-t2", "vs4-t3"],
+          "questionPrompt": "Which noun controls 'be' agreement?",
+          "plainExplanation": "'Two science notes' is plural, so it requires 'were' (not 'was').",
+          "textbookRule": "The passive auxiliary 'be' always agrees with the new Subject, never the old doer.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-assam-ch11-voice", "src-voice-bridge"]
+        },
+        {
+          "id": "vs4-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs4-t4", "vs4-t5", "vs4-t6", "vs4-t7"],
+          "questionPrompt": "Which verb form follows 'were'?",
+          "plainExplanation": "'were written' pairs plural past 'were' with Past Participle 'written' (V-en / V3).",
+          "textbookRule": "Never use Past Simple V2 ('wrote, sang, broke') after 'be'; use Past Participle V-en ('written, sung, broken').",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-assam-ch11-voice", "src-pseb9-ch6-voice"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Two science notes",
+        "subjectHeadWord": "notes",
+        "predicateText": "were written by Arjun.",
+        "predicateHeadWord": "written",
+        "patternNote": "Agreement + Irregular V-en: Plural Subject (notes) -> were + Past Participle (written)."
+      }
+    },
+    {
+      "id": "apv-s4-notes-active",
+      "title": "Compare Sentence · Active Past (V2)",
+      "rawText": "Arjun wrote two science notes.",
+      "contextTag": "Science Lab",
+      "note": "In Active Past, 'wrote' is Simple Past (V2) and agrees with singular 'Arjun'. Watch how Passive upgrades V2 to 'were written'!",
+      "tokens": [
+        {
+          "id": "vs4a-t1",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Doer",
+          "meaningInSentence": "Names the writer.",
+          "grammaticalRoleExplanation": "Singular active Subject.",
+          "linkedTokenIds": ["vs4a-t2"]
+        },
+        {
+          "id": "vs4a-t2",
+          "text": "wrote",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Simple Verb (V2)",
+          "meaningInSentence": "Completed past action.",
+          "grammaticalRoleExplanation": "Simple Past (V2) form of 'write'.",
+          "linkedTokenIds": ["vs4a-t1", "vs4a-t5"]
+        },
+        {
+          "id": "vs4a-t3",
+          "text": "two",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Numeral",
+          "meaningInSentence": "Counts two notes.",
+          "grammaticalRoleExplanation": "Determiner in the Object.",
+          "linkedTokenIds": ["vs4a-t5"]
+        },
+        {
+          "id": "vs4a-t4",
+          "text": "science",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes the notes.",
+          "grammaticalRoleExplanation": "Modifies 'notes'.",
+          "linkedTokenIds": ["vs4a-t5"]
+        },
+        {
+          "id": "vs4a-t5",
+          "text": "notes",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Plural Object answering 'wrote what?'",
+          "grammaticalRoleExplanation": "Becomes the plural Passive Subject.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs4a-t2"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs4a-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs4a-t1"],
+          "questionPrompt": "Who wrote the notes?",
+          "plainExplanation": "'Arjun' is the singular Subject doer.",
+          "textbookRule": "Active Past uses V2 directly.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        },
+        {
+          "id": "vs4a-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs4a-t2", "vs4a-t3", "vs4a-t4", "vs4a-t5"],
+          "questionPrompt": "What is the verb and object?",
+          "plainExplanation": "'wrote' (V2) + plural Object 'two science notes'.",
+          "textbookRule": "V2 changes to was/were + V-en in Passive.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Arjun",
+        "subjectHeadWord": "Arjun",
+        "predicateText": "wrote two science notes.",
+        "predicateHeadWord": "wrote",
+        "patternNote": "Active Past: Arjun (S) + wrote (V2) + two science notes (plural O)."
+      }
+    },
+    {
+      "id": "apv-s5-prog-passive",
+      "title": "Starter Sentence · Progressive Passive",
+      "rawText": "A solar chart is being painted right now.",
+      "contextTag": "Classroom Project",
+      "note": "To keep an action ongoing ('right now'), insert 'being' between 'is' and 'painted'!",
+      "tokens": [
+        {
+          "id": "vs5-t1",
+          "text": "A",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Article",
+          "meaningInSentence": "Introduces one chart.",
+          "grammaticalRoleExplanation": "Determiner in the Subject.",
+          "linkedTokenIds": ["vs5-t3"]
+        },
+        {
+          "id": "vs5-t2",
+          "text": "solar",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the chart's topic.",
+          "grammaticalRoleExplanation": "Modifies 'chart'.",
+          "linkedTokenIds": ["vs5-t3"]
+        },
+        {
+          "id": "vs5-t3",
+          "text": "chart",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Receiver",
+          "meaningInSentence": "Names what is being painted.",
+          "grammaticalRoleExplanation": "Singular Subject taking 'is'.",
+          "linkedTokenIds": ["vs5-t4"]
+        },
+        {
+          "id": "vs5-t4",
+          "text": "is",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Present Helper",
+          "meaningInSentence": "Marks Present time + singular Subject.",
+          "grammaticalRoleExplanation": "Finite 'be' matching singular 'chart'.",
+          "linkedTokenIds": ["vs5-t3", "vs5-t5"]
+        },
+        {
+          "id": "vs5-t5",
+          "text": "being",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Ongoing Marker",
+          "meaningInSentence": "Shows the painting is in progress right now.",
+          "grammaticalRoleExplanation": "Progressive '-ing' layer required before 'painted'.",
+          "linkedTokenIds": ["vs5-t4", "vs5-t6"]
+        },
+        {
+          "id": "vs5-t6",
+          "text": "painted",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the painting action.",
+          "grammaticalRoleExplanation": "Past participle completing 'is being painted'.",
+          "linkedTokenIds": ["vs5-t5"]
+        },
+        {
+          "id": "vs5-t7",
+          "text": "right",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Adverb",
+          "meaningInSentence": "Sharpens 'now'.",
+          "grammaticalRoleExplanation": "Part of the time clue 'right now'.",
+          "linkedTokenIds": ["vs5-t8"]
+        },
+        {
+          "id": "vs5-t8",
+          "text": "now",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Time Adverb",
+          "meaningInSentence": "Signals ongoing present time.",
+          "grammaticalRoleExplanation": "Matches Progressive 'is being painted'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs5-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs5-subj",
+          "role": "subject",
+          "label": "Subject (Receiver)",
+          "tokenIds": ["vs5-t1", "vs5-t2", "vs5-t3"],
+          "questionPrompt": "What is receiving the action?",
+          "plainExplanation": "'A solar chart' is singular and receives the ongoing action.",
+          "textbookRule": "Singular Subject takes 'is' or 'was' at the front of the Progressive passive chain.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice"]
+        },
+        {
+          "id": "vs5-pred",
+          "role": "predicate",
+          "label": "Predicate (is being painted)",
+          "tokenIds": ["vs5-t4", "vs5-t5", "vs5-t6", "vs5-t7", "vs5-t8"],
+          "questionPrompt": "How is ongoing aspect preserved?",
+          "plainExplanation": "'is' (tense/agreement) + 'being' (ongoing -ing) + 'painted' (V-en).",
+          "textbookRule": "Progressive / Continuous Passive follows am/is/are/was/were + being + Past Participle.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-assam-ch11-voice"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "A solar chart",
+        "subjectHeadWord": "chart",
+        "predicateText": "is being painted right now.",
+        "predicateHeadWord": "painted",
+        "patternNote": "Progressive Passive: is (Present) + being (Ongoing) + painted (V-en)."
+      }
+    },
+    {
+      "id": "apv-s5-prog-active",
+      "title": "Compare Sentence · Progressive Active",
+      "rawText": "The students are painting a solar chart right now.",
+      "contextTag": "Classroom Project",
+      "note": "Active 'are painting' switches agreement to singular 'is' and keeps the -ing aspect via 'being' -> 'is being painted'.",
+      "tokens": [
+        {
+          "id": "vs5a-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the students.",
+          "grammaticalRoleExplanation": "Opens plural Subject.",
+          "linkedTokenIds": ["vs5a-t2"]
+        },
+        {
+          "id": "vs5a-t2",
+          "text": "students",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Doers",
+          "meaningInSentence": "Names who is painting.",
+          "grammaticalRoleExplanation": "Plural Subject taking 'are'.",
+          "linkedTokenIds": ["vs5a-t3"]
+        },
+        {
+          "id": "vs5a-t3",
+          "text": "are",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Present Helper",
+          "meaningInSentence": "Matches plural 'students'.",
+          "grammaticalRoleExplanation": "Present progressive auxiliary.",
+          "linkedTokenIds": ["vs5a-t2", "vs5a-t4"]
+        },
+        {
+          "id": "vs5a-t4",
+          "text": "painting",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Present Participle (-ing)",
+          "meaningInSentence": "Shows ongoing painting.",
+          "grammaticalRoleExplanation": "Main verb in -ing form.",
+          "linkedTokenIds": ["vs5a-t3", "vs5a-t7"]
+        },
+        {
+          "id": "vs5a-t5",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Article",
+          "meaningInSentence": "Introduces one chart.",
+          "grammaticalRoleExplanation": "Opens the Object.",
+          "linkedTokenIds": ["vs5a-t7"]
+        },
+        {
+          "id": "vs5a-t6",
+          "text": "solar",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the chart.",
+          "grammaticalRoleExplanation": "Modifies 'chart'.",
+          "linkedTokenIds": ["vs5a-t7"]
+        },
+        {
+          "id": "vs5a-t7",
+          "text": "chart",
+          "category": "noun",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names what is being painted.",
+          "grammaticalRoleExplanation": "Singular Object.",
+          "linkedTokenIds": ["vs5a-t4"]
+        },
+        {
+          "id": "vs5a-t8",
+          "text": "right",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Adverb",
+          "meaningInSentence": "Modifies 'now'.",
+          "grammaticalRoleExplanation": "Part of 'right now'.",
+          "linkedTokenIds": ["vs5a-t9"]
+        },
+        {
+          "id": "vs5a-t9",
+          "text": "now",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Time Adverb",
+          "meaningInSentence": "Marks present moment.",
+          "grammaticalRoleExplanation": "Time clue.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs5a-t4"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs5a-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs5a-t1", "vs5a-t2"],
+          "questionPrompt": "Who is painting?",
+          "plainExplanation": "'The students' (plural doer Subject).",
+          "textbookRule": "Plural Subject takes 'are'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        },
+        {
+          "id": "vs5a-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs5a-t3", "vs5a-t4", "vs5a-t5", "vs5a-t6", "vs5a-t7", "vs5a-t8", "vs5a-t9"],
+          "questionPrompt": "What is happening?",
+          "plainExplanation": "'are painting a solar chart right now'.",
+          "textbookRule": "Active -ing transfers into Passive 'being + V-en'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The students",
+        "subjectHeadWord": "students",
+        "predicateText": "are painting a solar chart right now.",
+        "predicateHeadWord": "painting",
+        "patternNote": "Active Progressive: are painting -> Passive: is being painted."
+      }
+    },
+    {
+      "id": "apv-s6-perfect-passive",
+      "title": "Starter Sentence · Perfect Passive",
+      "rawText": "The weather satellite has been launched by ISRO.",
+      "contextTag": "ISRO Science",
+      "note": "In Perfect Passive, 'has/have/had' stays at the front and 'been' steps in right before Past Participle 'launched'.",
+      "tokens": [
+        {
+          "id": "vs6-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the satellite.",
+          "grammaticalRoleExplanation": "Opens the Subject.",
+          "linkedTokenIds": ["vs6-t3"]
+        },
+        {
+          "id": "vs6-t2",
+          "text": "weather",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Tells the satellite's job.",
+          "grammaticalRoleExplanation": "Modifies 'satellite'.",
+          "linkedTokenIds": ["vs6-t3"]
+        },
+        {
+          "id": "vs6-t3",
+          "text": "satellite",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Receiver",
+          "meaningInSentence": "Names what was launched.",
+          "grammaticalRoleExplanation": "Singular Subject taking 'has'.",
+          "linkedTokenIds": ["vs6-t4"]
+        },
+        {
+          "id": "vs6-t4",
+          "text": "has",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Perfect Helper",
+          "meaningInSentence": "Shows completed action linked to present.",
+          "grammaticalRoleExplanation": "Singular Perfect auxiliary.",
+          "linkedTokenIds": ["vs6-t3", "vs6-t5"]
+        },
+        {
+          "id": "vs6-t5",
+          "text": "been",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Passive Marker (be)",
+          "meaningInSentence": "Turns 'has launched' into Passive Voice.",
+          "grammaticalRoleExplanation": "Past participle of 'be' required after 'has/have/had'.",
+          "linkedTokenIds": ["vs6-t4", "vs6-t6"]
+        },
+        {
+          "id": "vs6-t6",
+          "text": "launched",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the launch action.",
+          "grammaticalRoleExplanation": "Main verb in Past Participle form.",
+          "linkedTokenIds": ["vs6-t5"]
+        },
+        {
+          "id": "vs6-t7",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links the space agency.",
+          "grammaticalRoleExplanation": "Introduces the doer.",
+          "linkedTokenIds": ["vs6-t8"]
+        },
+        {
+          "id": "vs6-t8",
+          "text": "ISRO",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Doer",
+          "meaningInSentence": "Names India's space agency.",
+          "grammaticalRoleExplanation": "Specific informative agent kept in the 'by'-phrase.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs6-t7"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs6-subj",
+          "role": "subject",
+          "label": "Subject (Receiver)",
+          "tokenIds": ["vs6-t1", "vs6-t2", "vs6-t3"],
+          "questionPrompt": "What received the launch action?",
+          "plainExplanation": "'The weather satellite' is singular and receives the action.",
+          "textbookRule": "Perfect Passive keeps 'has / have / had' matched to the new Subject.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice"]
+        },
+        {
+          "id": "vs6-pred",
+          "role": "predicate",
+          "label": "Predicate (has been launched)",
+          "tokenIds": ["vs6-t4", "vs6-t5", "vs6-t6", "vs6-t7", "vs6-t8"],
+          "questionPrompt": "What makes the Perfect verb passive?",
+          "plainExplanation": "'been' sits between 'has' and 'launched'—without 'been', 'has launched' would be Active!",
+          "textbookRule": "Perfect Passive = has/have/had + been + Past Participle.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The weather satellite",
+        "subjectHeadWord": "satellite",
+        "predicateText": "has been launched by ISRO.",
+        "predicateHeadWord": "launched",
+        "patternNote": "Perfect Passive: has (Perfect) + been (Passive be) + launched (V-en)."
+      }
+    },
+    {
+      "id": "apv-s6-modal-passive",
+      "title": "Compare Sentence · Modal Passive",
+      "rawText": "Clean shoes must be worn by every runner.",
+      "contextTag": "School Sports",
+      "note": "Modals ('can, may, must, should') and 'will' always take bare base 'be' + Past Participle!",
+      "tokens": [
+        {
+          "id": "vs6m-t1",
+          "text": "Clean",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the shoes.",
+          "grammaticalRoleExplanation": "Modifies 'shoes'.",
+          "linkedTokenIds": ["vs6m-t2"]
+        },
+        {
+          "id": "vs6m-t2",
+          "text": "shoes",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Receiver",
+          "meaningInSentence": "Names what must be worn.",
+          "grammaticalRoleExplanation": "Plural Subject.",
+          "linkedTokenIds": ["vs6m-t3"]
+        },
+        {
+          "id": "vs6m-t3",
+          "text": "must",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Modal Auxiliary",
+          "meaningInSentence": "Expresses necessity or rule.",
+          "grammaticalRoleExplanation": "Modal helper stays unchanged before base 'be'.",
+          "linkedTokenIds": ["vs6m-t4"]
+        },
+        {
+          "id": "vs6m-t4",
+          "text": "be",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Base be",
+          "meaningInSentence": "Passive link after the modal.",
+          "grammaticalRoleExplanation": "Always bare 'be' after modals and 'will'.",
+          "linkedTokenIds": ["vs6m-t3", "vs6m-t5"]
+        },
+        {
+          "id": "vs6m-t5",
+          "text": "worn",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the wearing action.",
+          "grammaticalRoleExplanation": "Past participle of 'wear'.",
+          "linkedTokenIds": ["vs6m-t4"]
+        },
+        {
+          "id": "vs6m-t6",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links the runners.",
+          "grammaticalRoleExplanation": "Introduces the doer.",
+          "linkedTokenIds": ["vs6m-t8"]
+        },
+        {
+          "id": "vs6m-t7",
+          "text": "every",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Means each runner.",
+          "grammaticalRoleExplanation": "Determiner for 'runner'.",
+          "linkedTokenIds": ["vs6m-t8"]
+        },
+        {
+          "id": "vs6m-t8",
+          "text": "runner",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Doer",
+          "meaningInSentence": "Names who wears the shoes.",
+          "grammaticalRoleExplanation": "Noun after 'by'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs6m-t6"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs6m-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs6m-t1", "vs6m-t2"],
+          "questionPrompt": "What must be worn?",
+          "plainExplanation": "'Clean shoes' receives the rule.",
+          "textbookRule": "Modal Passive keeps the modal intact.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch6-voice", "src-voice-bridge"]
+        },
+        {
+          "id": "vs6m-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs6m-t3", "vs6m-t4", "vs6m-t5", "vs6m-t6", "vs6m-t7", "vs6m-t8"],
+          "questionPrompt": "How does a modal form Passive?",
+          "plainExplanation": "'must + be + worn' (Modal + bare 'be' + Past Participle).",
+          "textbookRule": "Future 'will' and modals ('can, may, must, should') always take bare 'be' + V-en.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch6-voice", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Clean shoes",
+        "subjectHeadWord": "shoes",
+        "predicateText": "must be worn by every runner.",
+        "predicateHeadWord": "worn",
+        "patternNote": "Modal Passive: Modal (must) + base be + Past Participle (worn)."
+      }
+    },
+    {
+      "id": "apv-s7-pronoun-passive",
+      "title": "Starter Sentence · Pronoun Case Swap",
+      "rawText": "They were praised by her.",
+      "contextTag": "School Exhibition",
+      "note": "In Active 'She praised them', crossing the verb swaps case: Object 'them' -> Subject 'They', and Subject 'She' -> Object 'her' after 'by'!",
+      "tokens": [
+        {
+          "id": "vs7-t1",
+          "text": "They",
+          "category": "pronoun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Pronoun",
+          "meaningInSentence": "Refers to the receivers of the praise.",
+          "grammaticalRoleExplanation": "Object pronoun 'them' changed to Subject case 'They'.",
+          "linkedTokenIds": ["vs7-t2"]
+        },
+        {
+          "id": "vs7-t2",
+          "text": "were",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Past Plural be",
+          "meaningInSentence": "Marks Past time and matches 'They'.",
+          "grammaticalRoleExplanation": "Plural past 'be' agreeing with 'They'.",
+          "linkedTokenIds": ["vs7-t1", "vs7-t3"]
+        },
+        {
+          "id": "vs7-t3",
+          "text": "praised",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the action received.",
+          "grammaticalRoleExplanation": "Past participle of 'praise'.",
+          "linkedTokenIds": ["vs7-t2"]
+        },
+        {
+          "id": "vs7-t4",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links the doer.",
+          "grammaticalRoleExplanation": "Any pronoun after a preposition must be Object case.",
+          "linkedTokenIds": ["vs7-t5"]
+        },
+        {
+          "id": "vs7-t5",
+          "text": "her",
+          "category": "pronoun",
+          "groupRole": "predicate",
+          "roleLabel": "Object Pronoun",
+          "meaningInSentence": "Refers to the person who gave the praise.",
+          "grammaticalRoleExplanation": "Subject pronoun 'She' changed to Object case 'her' after 'by'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs7-t4"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs7-subj",
+          "role": "subject",
+          "label": "Subject Pronoun",
+          "tokenIds": ["vs7-t1"],
+          "questionPrompt": "Who sits in the Subject slot?",
+          "plainExplanation": "'They' (Subject case, converted from Object 'them').",
+          "textbookRule": "Use Subject-case pronouns (I, we, he, she, they) in Subject position.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-assam-ch11-voice", "src-voice-bridge"]
+        },
+        {
+          "id": "vs7-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs7-t2", "vs7-t3", "vs7-t4", "vs7-t5"],
+          "questionPrompt": "What pronoun case follows 'by'?",
+          "plainExplanation": "'were praised by her' uses Object-case 'her' (never 'by she').",
+          "textbookRule": "Use Object-case pronouns (me, us, him, her, them, whom) after 'by'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-assam-ch11-voice", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "They",
+        "subjectHeadWord": "They",
+        "predicateText": "were praised by her.",
+        "predicateHeadWord": "praised",
+        "patternNote": "Pronoun Swap: They (Subject case) + were praised + by her (Object case)."
+      }
+    },
+    {
+      "id": "apv-s7-pronoun-active",
+      "title": "Compare Sentence · Active Pronouns",
+      "rawText": "She praised them.",
+      "contextTag": "School Exhibition",
+      "note": "Here 'She' is in the Subject slot and 'them' is in the Object slot. Swapping Voice flips their cases too!",
+      "tokens": [
+        {
+          "id": "vs7a-t1",
+          "text": "She",
+          "category": "pronoun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Pronoun",
+          "meaningInSentence": "Doer in Subject position.",
+          "grammaticalRoleExplanation": "Subject case 'She' becomes 'by her' in Passive.",
+          "linkedTokenIds": ["vs7a-t2"]
+        },
+        {
+          "id": "vs7a-t2",
+          "text": "praised",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Simple Verb",
+          "meaningInSentence": "Past action.",
+          "grammaticalRoleExplanation": "Finite past verb.",
+          "linkedTokenIds": ["vs7a-t1", "vs7a-t3"]
+        },
+        {
+          "id": "vs7a-t3",
+          "text": "them",
+          "category": "pronoun",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Object Pronoun",
+          "meaningInSentence": "Receivers in Object position.",
+          "grammaticalRoleExplanation": "Object case 'them' becomes 'They' in Passive Subject spot.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs7a-t2"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs7a-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs7a-t1"],
+          "questionPrompt": "Who did the praising?",
+          "plainExplanation": "'She' (Subject case).",
+          "textbookRule": "Pronouns change form when moving between Subject and Object slots.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        },
+        {
+          "id": "vs7a-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs7a-t2", "vs7a-t3"],
+          "questionPrompt": "Who was praised?",
+          "plainExplanation": "'praised them' ('them' = Object case).",
+          "textbookRule": "Object 'them' becomes Subject 'They' when passivised.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "She",
+        "subjectHeadWord": "She",
+        "predicateText": "praised them.",
+        "predicateHeadWord": "praised",
+        "patternNote": "Active Pronouns: She (Subject) + praised + them (Object)."
+      }
+    },
+    {
+      "id": "apv-s8-svoo-passive",
+      "title": "Starter Sentence · Two Objects (SVOO)",
+      "rawText": "Mira was given a certificate by the coach.",
+      "contextTag": "Sports Day",
+      "note": "From 'The coach gave Mira (IO) a certificate (DO)': promoting recipient 'Mira' gives the cleanest Passive!",
+      "tokens": [
+        {
+          "id": "vs8-t1",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject (from IO)",
+          "meaningInSentence": "The recipient promoted to Subject.",
+          "grammaticalRoleExplanation": "Indirect Object ('Mira') moved to Subject spot.",
+          "linkedTokenIds": ["vs8-t2"]
+        },
+        {
+          "id": "vs8-t2",
+          "text": "was",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Past Singular be",
+          "meaningInSentence": "Matches singular 'Mira' in Past time.",
+          "grammaticalRoleExplanation": "Past singular 'be'.",
+          "linkedTokenIds": ["vs8-t1", "vs8-t3"]
+        },
+        {
+          "id": "vs8-t3",
+          "text": "given",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the giving action.",
+          "grammaticalRoleExplanation": "Past participle of 'give'.",
+          "linkedTokenIds": ["vs8-t2"]
+        },
+        {
+          "id": "vs8-t4",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Article",
+          "meaningInSentence": "Introduces one certificate.",
+          "grammaticalRoleExplanation": "Starts the retained Direct Object.",
+          "linkedTokenIds": ["vs8-t5"]
+        },
+        {
+          "id": "vs8-t5",
+          "text": "certificate",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Retained Object (DO)",
+          "meaningInSentence": "Names what was handed to Mira.",
+          "grammaticalRoleExplanation": "Second Object kept after the passive verb.",
+          "linkedTokenIds": ["vs8-t3"]
+        },
+        {
+          "id": "vs8-t6",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links the coach.",
+          "grammaticalRoleExplanation": "Introduces the agent.",
+          "linkedTokenIds": ["vs8-t8"]
+        },
+        {
+          "id": "vs8-t7",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the coach.",
+          "grammaticalRoleExplanation": "Determiner for 'coach'.",
+          "linkedTokenIds": ["vs8-t8"]
+        },
+        {
+          "id": "vs8-t8",
+          "text": "coach",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Doer",
+          "meaningInSentence": "Names who gave the certificate.",
+          "grammaticalRoleExplanation": "Original Subject after 'by'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs8-t6"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs8-subj",
+          "role": "subject",
+          "label": "Subject (Recipient)",
+          "tokenIds": ["vs8-t1"],
+          "questionPrompt": "Which of the two Objects became Subject?",
+          "plainExplanation": "The person receiving ('Mira', the Indirect Object) became Subject; alternatively, 'A certificate was given to Mira...'.",
+          "textbookRule": "SVOO verbs ('give, send, lend, teach') allow either Object to become Passive Subject.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-assam-ch11-voice"]
+        },
+        {
+          "id": "vs8-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs8-t2", "vs8-t3", "vs8-t4", "vs8-t5", "vs8-t6", "vs8-t7", "vs8-t8"],
+          "questionPrompt": "What remains after the passive verb?",
+          "plainExplanation": "'was given' + retained Direct Object 'a certificate' + 'by the coach'.",
+          "textbookRule": "If you promote the Direct Object ('A certificate') instead, insert 'to' or 'for' before the recipient.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "was given a certificate by the coach.",
+        "predicateHeadWord": "given",
+        "patternNote": "SVOO Passive: Mira (IO -> S) + was given + a certificate (Retained DO) + by the coach."
+      }
+    },
+    {
+      "id": "apv-s8-question-passive",
+      "title": "Compare Sentence · Question Passive",
+      "rawText": "Was the courtyard cleaned by the students?",
+      "contextTag": "Campus Life",
+      "note": "From 'Did the students clean the courtyard?': replace 'Did' with 'Was' and place 'Was' BEFORE the new Subject!",
+      "tokens": [
+        {
+          "id": "vs8q-t1",
+          "text": "Was",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Inverted Past be",
+          "meaningInSentence": "Signals a Past Yes/No question.",
+          "grammaticalRoleExplanation": "Replaces 'Did' and stands before Subject 'the courtyard'.",
+          "linkedTokenIds": ["vs8q-t3", "vs8q-t4"]
+        },
+        {
+          "id": "vs8q-t2",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the courtyard.",
+          "grammaticalRoleExplanation": "Opens the Subject.",
+          "linkedTokenIds": ["vs8q-t3"]
+        },
+        {
+          "id": "vs8q-t3",
+          "text": "courtyard",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Receiver",
+          "meaningInSentence": "Names what was cleaned.",
+          "grammaticalRoleExplanation": "Singular Subject positioned after helper 'Was'.",
+          "linkedTokenIds": ["vs8q-t1"]
+        },
+        {
+          "id": "vs8q-t4",
+          "text": "cleaned",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the cleaning action.",
+          "grammaticalRoleExplanation": "Past participle paired with inverted 'Was'.",
+          "linkedTokenIds": ["vs8q-t1"]
+        },
+        {
+          "id": "vs8q-t5",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links the doers.",
+          "grammaticalRoleExplanation": "Introduces 'the students'.",
+          "linkedTokenIds": ["vs8q-t7"]
+        },
+        {
+          "id": "vs8q-t6",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the students.",
+          "grammaticalRoleExplanation": "Determiner for 'students'.",
+          "linkedTokenIds": ["vs8q-t7"]
+        },
+        {
+          "id": "vs8q-t7",
+          "text": "students",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Doers",
+          "meaningInSentence": "Names who cleaned.",
+          "grammaticalRoleExplanation": "Plural noun after 'by'.",
+          "punctuationAfter": "?",
+          "linkedTokenIds": ["vs8q-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs8q-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs8q-t2", "vs8q-t3"],
+          "questionPrompt": "What sits between 'Was' and 'cleaned'?",
+          "plainExplanation": "'the courtyard' sits between auxiliary 'Was' and participle 'cleaned' to form a question.",
+          "textbookRule": "Passive questions keep Auxiliary + New Subject + Past Participle order.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch6-voice", "src-voice-bridge"]
+        },
+        {
+          "id": "vs8q-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs8q-t1", "vs8q-t4", "vs8q-t5", "vs8q-t6", "vs8q-t7"],
+          "questionPrompt": "What replaced 'Did'?",
+          "plainExplanation": "'Was ... cleaned by the students?' drops 'Did' and uses past 'be' ('Was').",
+          "textbookRule": "Never use 'do / does / did' inside Passive Voice questions.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch6-voice", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "the courtyard",
+        "subjectHeadWord": "courtyard",
+        "predicateText": "Was ... cleaned by the students?",
+        "predicateHeadWord": "cleaned",
+        "patternNote": "Passive Question: Was (Inverted be) + the courtyard (New S) + cleaned (V-en)?"
+      }
+    },
+    {
+      "id": "apv-s9-natural-passive",
+      "title": "Starter Sentence · Omitting Vague 'by'",
+      "rawText": "The library steps were swept before dawn.",
+      "contextTag": "Clean Campus",
+      "note": "From 'Someone swept the library steps before dawn'—dropping 'by someone' makes the Passive sentence crisp and natural!",
+      "tokens": [
+        {
+          "id": "vs9-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the steps.",
+          "grammaticalRoleExplanation": "Opens the Subject.",
+          "linkedTokenIds": ["vs9-t3"]
+        },
+        {
+          "id": "vs9-t2",
+          "text": "library",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Tells which steps.",
+          "grammaticalRoleExplanation": "Modifies 'steps'.",
+          "linkedTokenIds": ["vs9-t3"]
+        },
+        {
+          "id": "vs9-t3",
+          "text": "steps",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Receiver",
+          "meaningInSentence": "Names what was swept.",
+          "grammaticalRoleExplanation": "Plural Subject taking 'were'.",
+          "linkedTokenIds": ["vs9-t4"]
+        },
+        {
+          "id": "vs9-t4",
+          "text": "were",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Past Plural be",
+          "meaningInSentence": "Matches plural 'steps' in Past time.",
+          "grammaticalRoleExplanation": "Finite 'be' auxiliary.",
+          "linkedTokenIds": ["vs9-t3", "vs9-t5"]
+        },
+        {
+          "id": "vs9-t5",
+          "text": "swept",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the sweeping action.",
+          "grammaticalRoleExplanation": "Past participle of 'sweep'.",
+          "linkedTokenIds": ["vs9-t4"]
+        },
+        {
+          "id": "vs9-t6",
+          "text": "before",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Time Preposition",
+          "meaningInSentence": "Tells when it happened.",
+          "grammaticalRoleExplanation": "No 'by someone' needed; ends smoothly with time phrase 'before dawn'.",
+          "linkedTokenIds": ["vs9-t7"]
+        },
+        {
+          "id": "vs9-t7",
+          "text": "dawn",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Object of Preposition",
+          "meaningInSentence": "Names the early morning time.",
+          "grammaticalRoleExplanation": "Noun completing 'before dawn'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs9-t6"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs9-subj",
+          "role": "subject",
+          "label": "Subject (Result Focus)",
+          "tokenIds": ["vs9-t1", "vs9-t2", "vs9-t3"],
+          "questionPrompt": "Why does the sentence start with 'The library steps'?",
+          "plainExplanation": "The visible result on the steps matters more than knowing which unknown 'someone' swept them.",
+          "textbookRule": "Omit 'by + doer' when the doer is unknown, general ('people, someone, they'), or obvious.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-assam-ch11-voice"]
+        },
+        {
+          "id": "vs9-pred",
+          "role": "predicate",
+          "label": "Agentless Passive Predicate",
+          "tokenIds": ["vs9-t4", "vs9-t5", "vs9-t6", "vs9-t7"],
+          "questionPrompt": "Is 'by someone' missing?",
+          "plainExplanation": "No! Agentless passives ('were swept before dawn') are standard, concise English.",
+          "textbookRule": "Most real-world Passive sentences in science, news, and notices omit 'by + agent'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The library steps",
+        "subjectHeadWord": "steps",
+        "predicateText": "were swept before dawn.",
+        "predicateHeadWord": "swept",
+        "patternNote": "Natural Agentless Passive: The library steps + were swept + before dawn (no 'by someone')."
+      }
+    },
+    {
+      "id": "apv-s9-tool-passive",
+      "title": "Compare Sentence · Tool ('with') vs Doer ('by')",
+      "rawText": "The ripe mangoes were sliced with a clean knife by the cook.",
+      "contextTag": "Healthy Kitchen",
+      "note": "People take 'by' ('by the cook'), while physical tools take 'with' ('with a clean knife')—never 'by a knife'!",
+      "tokens": [
+        {
+          "id": "vs9t-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the mangoes.",
+          "grammaticalRoleExplanation": "Opens the Subject.",
+          "linkedTokenIds": ["vs9t-t3"]
+        },
+        {
+          "id": "vs9t-t2",
+          "text": "ripe",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the mangoes.",
+          "grammaticalRoleExplanation": "Modifies 'mangoes'.",
+          "linkedTokenIds": ["vs9t-t3"]
+        },
+        {
+          "id": "vs9t-t3",
+          "text": "mangoes",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject · Receiver",
+          "meaningInSentence": "Names what was sliced.",
+          "grammaticalRoleExplanation": "Plural Subject.",
+          "linkedTokenIds": ["vs9t-t4"]
+        },
+        {
+          "id": "vs9t-t4",
+          "text": "were",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Past Plural be",
+          "meaningInSentence": "Marks Past time + plural Subject.",
+          "grammaticalRoleExplanation": "Finite 'be' auxiliary.",
+          "linkedTokenIds": ["vs9t-t3", "vs9t-t5"]
+        },
+        {
+          "id": "vs9t-t5",
+          "text": "sliced",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the slicing action.",
+          "grammaticalRoleExplanation": "Past participle of 'slice'.",
+          "linkedTokenIds": ["vs9t-t4"]
+        },
+        {
+          "id": "vs9t-t6",
+          "text": "with",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Instrument Preposition",
+          "meaningInSentence": "Marks the physical tool used.",
+          "grammaticalRoleExplanation": "Always use 'with' (not 'by') before a tool like 'a clean knife'.",
+          "linkedTokenIds": ["vs9t-t9"]
+        },
+        {
+          "id": "vs9t-t7",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Article",
+          "meaningInSentence": "Introduces one knife.",
+          "grammaticalRoleExplanation": "Determiner for 'knife'.",
+          "linkedTokenIds": ["vs9t-t9"]
+        },
+        {
+          "id": "vs9t-t8",
+          "text": "clean",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Shows hygiene.",
+          "grammaticalRoleExplanation": "Modifies 'knife'.",
+          "linkedTokenIds": ["vs9t-t9"]
+        },
+        {
+          "id": "vs9t-t9",
+          "text": "knife",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Tool / Instrument",
+          "meaningInSentence": "Names the cutting tool.",
+          "grammaticalRoleExplanation": "Object of 'with'.",
+          "linkedTokenIds": ["vs9t-t6"]
+        },
+        {
+          "id": "vs9t-t10",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Agent Preposition",
+          "meaningInSentence": "Links the human doer.",
+          "grammaticalRoleExplanation": "Use 'by' for the person performing the action.",
+          "linkedTokenIds": ["vs9t-t12"]
+        },
+        {
+          "id": "vs9t-t11",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the cook.",
+          "grammaticalRoleExplanation": "Determiner for 'cook'.",
+          "linkedTokenIds": ["vs9t-t12"]
+        },
+        {
+          "id": "vs9t-t12",
+          "text": "cook",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Doer",
+          "meaningInSentence": "Names who did the slicing.",
+          "grammaticalRoleExplanation": "Human agent after 'by'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs9t-t10"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs9t-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs9t-t1", "vs9t-t2", "vs9t-t3"],
+          "questionPrompt": "What was sliced?",
+          "plainExplanation": "'The ripe mangoes' (Receiver Subject).",
+          "textbookRule": "Keep human agent ('by') distinct from physical tool ('with').",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        },
+        {
+          "id": "vs9t-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["vs9t-t4", "vs9t-t5", "vs9t-t6", "vs9t-t7", "vs9t-t8", "vs9t-t9", "vs9t-t10", "vs9t-t11", "vs9t-t12"],
+          "questionPrompt": "Which preposition marks the knife?",
+          "plainExplanation": "'with a clean knife' marks the tool; 'by the cook' marks the person.",
+          "textbookRule": "Use 'by' for the doer and 'with' for the instrument.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The ripe mangoes",
+        "subjectHeadWord": "mangoes",
+        "predicateText": "were sliced with a clean knife by the cook.",
+        "predicateHeadWord": "sliced",
+        "patternNote": "with (Tool: clean knife) vs by (Doer: the cook)."
+      }
+    },
+    {
+      "id": "apv-s10-intransitive",
+      "title": "Starter Sentence · Intransitive (No Object)",
+      "rawText": "The school train arrived at six.",
+      "contextTag": "Morning Travel",
+      "note": "Ask 'arrived what?' -> No answer! 'at six' tells WHEN (Adverbial), not an Object—so this sentence CANNOT become Passive.",
+      "tokens": [
+        {
+          "id": "vs10-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the train.",
+          "grammaticalRoleExplanation": "Opens the Subject.",
+          "linkedTokenIds": ["vs10-t3"]
+        },
+        {
+          "id": "vs10-t2",
+          "text": "school",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Specifies which train.",
+          "grammaticalRoleExplanation": "Modifies 'train'.",
+          "linkedTokenIds": ["vs10-t3"]
+        },
+        {
+          "id": "vs10-t3",
+          "text": "train",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject",
+          "meaningInSentence": "Names what arrived.",
+          "grammaticalRoleExplanation": "Subject of an intransitive verb.",
+          "linkedTokenIds": ["vs10-t4"]
+        },
+        {
+          "id": "vs10-t4",
+          "text": "arrived",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Intransitive Verb",
+          "meaningInSentence": "Completed action with no receiver.",
+          "grammaticalRoleExplanation": "Intransitive verb: cannot take an Object or Passive form.",
+          "linkedTokenIds": ["vs10-t3"]
+        },
+        {
+          "id": "vs10-t5",
+          "text": "at",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Time Preposition",
+          "meaningInSentence": "Introduces the clock time.",
+          "grammaticalRoleExplanation": "Opens an Adverbial of Time (NOT an Object).",
+          "linkedTokenIds": ["vs10-t6"]
+        },
+        {
+          "id": "vs10-t6",
+          "text": "six",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Time Word",
+          "meaningInSentence": "Names the arrival hour.",
+          "grammaticalRoleExplanation": "Part of Adverbial 'at six'; cannot become a Passive Subject.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs10-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs10-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs10-t1", "vs10-t2", "vs10-t3"],
+          "questionPrompt": "What arrived?",
+          "plainExplanation": "'The school train' is the Subject, and there is no receiver.",
+          "textbookRule": "Intransitive verbs (arrive, sleep, happen, sit, go) take no Object.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-assam-ch11-voice"]
+        },
+        {
+          "id": "vs10-pred",
+          "role": "predicate",
+          "label": "Predicate (Intransitive SVA)",
+          "tokenIds": ["vs10-t4", "vs10-t5", "vs10-t6"],
+          "questionPrompt": "Is 'at six' an Object?",
+          "plainExplanation": "No! 'at six' tells when (Adverbial), not what was acted on—so no Passive exists.",
+          "textbookRule": "Without a Direct Object, a clause cannot be converted to Passive Voice.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The school train",
+        "subjectHeadWord": "train",
+        "predicateText": "arrived at six.",
+        "predicateHeadWord": "arrived",
+        "patternNote": "Cannot Be Passive (SVA): arrived (Intransitive V) + at six (Time Adverbial, NOT Object)."
+      }
+    },
+    {
+      "id": "apv-s10-linking",
+      "title": "Compare Sentence · Linking Verb (SVC)",
+      "rawText": "The morning breeze felt cool and fresh.",
+      "contextTag": "Morning Walk",
+      "note": "'cool and fresh' describes 'The morning breeze' (Subject Complement), NOT a separate Object—so no Passive exists!",
+      "tokens": [
+        {
+          "id": "vs10l-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the breeze.",
+          "grammaticalRoleExplanation": "Opens Subject.",
+          "linkedTokenIds": ["vs10l-t3"]
+        },
+        {
+          "id": "vs10l-t2",
+          "text": "morning",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Specifies morning breeze.",
+          "grammaticalRoleExplanation": "Modifies 'breeze'.",
+          "linkedTokenIds": ["vs10l-t3"]
+        },
+        {
+          "id": "vs10l-t3",
+          "text": "breeze",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject",
+          "meaningInSentence": "Names what is described.",
+          "grammaticalRoleExplanation": "Subject linked to 'cool and fresh'.",
+          "linkedTokenIds": ["vs10l-t4"]
+        },
+        {
+          "id": "vs10l-t4",
+          "text": "felt",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Linking Verb",
+          "meaningInSentence": "Connects the Subject to its quality.",
+          "grammaticalRoleExplanation": "Linking verb (breeze = cool and fresh), NOT a transitive action here.",
+          "linkedTokenIds": ["vs10l-t3", "vs10l-t5"]
+        },
+        {
+          "id": "vs10l-t5",
+          "text": "cool",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Subject Complement",
+          "meaningInSentence": "Describes the breeze.",
+          "grammaticalRoleExplanation": "Complement adjective, not an Object.",
+          "linkedTokenIds": ["vs10l-t3"]
+        },
+        {
+          "id": "vs10l-t6",
+          "text": "and",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "roleLabel": "Conjunction",
+          "meaningInSentence": "Joins two adjectives.",
+          "grammaticalRoleExplanation": "Links 'cool' and 'fresh'.",
+          "linkedTokenIds": ["vs10l-t5", "vs10l-t7"]
+        },
+        {
+          "id": "vs10l-t7",
+          "text": "fresh",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Subject Complement",
+          "meaningInSentence": "Describes the breeze.",
+          "grammaticalRoleExplanation": "Second adjective describing Subject 'breeze'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs10l-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs10l-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs10l-t1", "vs10l-t2", "vs10l-t3"],
+          "questionPrompt": "What is being described?",
+          "plainExplanation": "'The morning breeze' = 'cool and fresh'.",
+          "textbookRule": "Linking verbs ('be, become, seem, feel, taste') join Subject to Complement (SVC).",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch9-passive", "src-voice-bridge"]
+        },
+        {
+          "id": "vs10l-pred",
+          "role": "predicate",
+          "label": "Predicate (Linking SVC)",
+          "tokenIds": ["vs10l-t4", "vs10l-t5", "vs10l-t6", "vs10l-t7"],
+          "questionPrompt": "Why is there no Passive?",
+          "plainExplanation": "'cool and fresh' describes the Subject rather than naming a separate receiver Object.",
+          "textbookRule": "SVC linking clauses and state verbs ('have, belong, resemble') cannot become Passive.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The morning breeze",
+        "subjectHeadWord": "breeze",
+        "predicateText": "felt cool and fresh.",
+        "predicateHeadWord": "felt",
+        "patternNote": "Cannot Be Passive (SVC): Linking verb 'felt' connects breeze = cool and fresh (no Object)."
+      }
+    },
+    {
+      "id": "apv-s11-fixed",
+      "title": "Starter Sentence · Repaired 5-Point Passive",
+      "rawText": "The science posters were drawn by them before assembly.",
+      "contextTag": "Noticeboard Fix",
+      "note": "Fixed from 'was drew by they': plural 'were' matches 'posters', V-en 'drawn' replaces V2 'drew', and 'them' replaces 'they'!",
+      "tokens": [
+        {
+          "id": "vs11-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the posters.",
+          "grammaticalRoleExplanation": "Opens the Subject.",
+          "linkedTokenIds": ["vs11-t3"]
+        },
+        {
+          "id": "vs11-t2",
+          "text": "science",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes the posters.",
+          "grammaticalRoleExplanation": "Modifies 'posters'.",
+          "linkedTokenIds": ["vs11-t3"]
+        },
+        {
+          "id": "vs11-t3",
+          "text": "posters",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "New Plural Subject",
+          "meaningInSentence": "Names what was drawn.",
+          "grammaticalRoleExplanation": "Plural Subject requiring 'were'.",
+          "linkedTokenIds": ["vs11-t4"]
+        },
+        {
+          "id": "vs11-t4",
+          "text": "were",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Past Plural be",
+          "meaningInSentence": "Matches Past time + plural 'posters'.",
+          "grammaticalRoleExplanation": "Repairs singular 'was' to plural 'were'.",
+          "linkedTokenIds": ["vs11-t3", "vs11-t5"]
+        },
+        {
+          "id": "vs11-t5",
+          "text": "drawn",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Past Participle (V-en)",
+          "meaningInSentence": "Names the drawing action.",
+          "grammaticalRoleExplanation": "Repairs V2 'drew' to V-en 'drawn'.",
+          "linkedTokenIds": ["vs11-t4"]
+        },
+        {
+          "id": "vs11-t6",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links the doers.",
+          "grammaticalRoleExplanation": "Requires Object pronoun after it.",
+          "linkedTokenIds": ["vs11-t7"]
+        },
+        {
+          "id": "vs11-t7",
+          "text": "them",
+          "category": "pronoun",
+          "groupRole": "predicate",
+          "roleLabel": "Object Pronoun",
+          "meaningInSentence": "Refers to the student artists.",
+          "grammaticalRoleExplanation": "Repairs Subject pronoun 'they' to Object pronoun 'them'.",
+          "linkedTokenIds": ["vs11-t6"]
+        },
+        {
+          "id": "vs11-t8",
+          "text": "before",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Time Preposition",
+          "meaningInSentence": "Sets the time.",
+          "grammaticalRoleExplanation": "Opens 'before assembly'.",
+          "linkedTokenIds": ["vs11-t9"]
+        },
+        {
+          "id": "vs11-t9",
+          "text": "assembly",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Noun",
+          "meaningInSentence": "Morning gathering.",
+          "grammaticalRoleExplanation": "Object of 'before'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["vs11-t8"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "vs11-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["vs11-t1", "vs11-t2", "vs11-t3"],
+          "questionPrompt": "What agrees with 'were'?",
+          "plainExplanation": "Plural 'The science posters' locks onto plural 'were'.",
+          "textbookRule": "Check Subject number, 'be' form, Past Participle, and Pronoun case together.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        },
+        {
+          "id": "vs11-pred",
+          "role": "predicate",
+          "label": "Repaired Predicate",
+          "tokenIds": ["vs11-t4", "vs11-t5", "vs11-t6", "vs11-t7", "vs11-t8", "vs11-t9"],
+          "questionPrompt": "What three errors were repaired?",
+          "plainExplanation": "'were' (plural agreement), 'drawn' (V-en participle), and 'them' (Object pronoun after 'by').",
+          "textbookRule": "Apply the 5-Point Voice Check to repair any broken Passive sentence.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-voice-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The science posters",
+        "subjectHeadWord": "posters",
+        "predicateText": "were drawn by them before assembly.",
+        "predicateHeadWord": "drawn",
+        "patternNote": "3-Fix Audit: posters (plural) -> were + drawn (V-en) + by them (Object case)."
+      }
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "apv-step-01",
+      "stepNumber": 1,
+      "type": "show-sentence",
+      "visualMode": "compare-dual",
+      "title": "What Voice Means: Doer Focus vs Receiver Focus",
+      "badgeLabel": "Topic 1 · Focus Shift",
+      "shortPrompt": "Voice chooses who sits in the Subject spotlight: the doer (Active) or the receiver (Passive)—without changing the real event.",
+      "explanation": "Compare Active 'Mira waters the mango saplings' with Passive 'The mango saplings are watered by Mira'. In Active Voice, the doer leads; in Passive Voice, the receiver leads.",
+      "characterId": "mira",
+      "characterExpression": "curious",
+      "sentenceId": "apv-s1-active",
+      "comparisonSentenceId": "apv-s1-passive",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 1 · Two Views of One Event",
+        "whyItWorks": "Both sentences describe the exact same morning garden scene. Active Voice puts the doer ('Mira') first; Passive Voice moves the receiver ('The mango saplings') to the front because we want to talk about the saplings.",
+        "ruleSummary": "Active puts the doer in the Subject slot; Passive moves the receiver into the Subject slot.",
+        "keyTerms": [
+          {
+            "term": "Active Voice",
+            "meaning": "The grammatical Subject performs the action (e.g., 'Mira waters the mango saplings')."
+          },
+          {
+            "term": "Passive Voice",
+            "meaning": "The grammatical Subject receives the action (e.g., 'The mango saplings are watered by Mira')."
+          }
+        ],
+        "segments": [
+          {
+            "label": "Active Voice",
+            "text": "Mira waters the mango saplings.",
+            "tone": "independent",
+            "subLabel": "Doer sits in Subject spotlight"
+          },
+          {
+            "label": "Passive Voice",
+            "text": "The mango saplings are watered by Mira.",
+            "tone": "object",
+            "subLabel": "Receiver moves to Subject spotlight"
+          }
+        ],
+        "relationDiagram": {
+          "relationType": "equal",
+          "leftLabel": "Active Subject = Doer",
+          "leftText": "Mira waters...",
+          "connectorLabel": "Same Event",
+          "rightLabel": "Passive Subject = Receiver",
+          "rightText": "The mango saplings are watered...",
+          "caption": "Changing Voice shifts spotlight from doer to receiver while keeping the meaning and time intact."
+        },
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Arjun carries the water can. -> The water can is carried by Arjun.",
+            "highlightBadge": "Doer -> Receiver",
+            "stepByStep": "1) Active Subject 'Arjun' does the carrying. 2) Passive moves receiver 'The water can' to the Subject spot.",
+            "whyCorrect": "Both describe Arjun carrying the can right now."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Our school cooks prepare warm millet porridge. -> Warm millet porridge is prepared by our school cooks.",
+            "highlightBadge": "Healthy Kitchen",
+            "stepByStep": "1) Active focuses on the cooks. 2) Passive spotlights the healthy meal ('Warm millet porridge').",
+            "whyCorrect": "Switching Subject changes emphasis, not facts."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Bees pollinate orchard flowers in spring. -> Orchard flowers are pollinated by bees in spring.",
+            "highlightBadge": "Nature Focus",
+            "stepByStep": "1) Identify doer ('Bees') and receiver ('Orchard flowers'). 2) Notice time phrase 'in spring' stays at the end.",
+            "whyCorrect": "Passive lets a nature report stay focused on 'Orchard flowers'."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Thinking the first noun (Subject) is always the person doing the action.",
+          "correctText": "Check the verb ('are watered') to see whether the Subject acts or receives the action.",
+          "whyWrong": "In Passive Voice, the Subject is the receiver, while the doer is pushed after 'by' or omitted."
+        },
+        "boardNote": {
+          "label": "Grammar Note · Subject Spotlight Test",
+          "text": "To tell Active from Passive fast, ask: 'Did the Subject DO this verb or RECEIVE it?' If it received the action and uses be + Past Participle, it is Passive."
+        }
+      }
+    },
+    {
+      "id": "apv-step-02",
+      "stepNumber": 2,
+      "type": "compare-example",
+      "visualMode": "compare-dual",
+      "title": "Same Time in Voice: Clearing the Past-Time Myth",
+      "badgeLabel": "Topic 1 · Time Check",
+      "shortPrompt": "Passive Voice does NOT automatically mean Past time! Look at 'be' ('are' vs 'were') to read the time.",
+      "explanation": "Because Passive Voice uses Past Participle forms like 'packed' or 'grown', learners often think every Passive sentence is in the Past. Actually, the 'be' helper sets the time!",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "apv-s2-present-passive",
+      "comparisonSentenceId": "apv-s2-past-passive",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 1 · Tense Lives in 'be'",
+        "whyItWorks": "In 'are packed' and 'were packed', the Past Participle 'packed' never changes for time. The finite 'be' verb ('are' = Present, 'were' = Past) tells you when the action happens.",
+        "ruleSummary": "Passive Voice keeps the original time; check 'be' (am/is/are vs was/were) for tense, not the -ed/-en ending.",
+        "keyTerms": [
+          {
+            "term": "Present Passive",
+            "meaning": "Uses am / is / are + Past Participle for present habits, facts, and routines."
+          },
+          {
+            "term": "Past Passive",
+            "meaning": "Uses was / were + Past Participle for completed past events."
+          }
+        ],
+        "segments": [
+          {
+            "label": "Present Passive",
+            "text": "are packed every morning.",
+            "tone": "verb",
+            "subLabel": "'are' = Present habit"
+          },
+          {
+            "label": "Past Passive",
+            "text": "were packed yesterday.",
+            "tone": "complement",
+            "subLabel": "'were' = Past event"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Millet is grown in dry farms.",
+            "highlightBadge": "Present Fact",
+            "stepByStep": "1) Find helper 'is' -> Present time. 2) 'grown' is the Past Participle.",
+            "whyCorrect": "Present helper 'is' shows an ongoing agricultural fact today."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Fifty saplings were planted last Sunday.",
+            "highlightBadge": "Past Event",
+            "stepByStep": "1) Find helper 'were' -> Past time matching 'last Sunday'. 2) 'planted' completes the Passive verb.",
+            "whyCorrect": "'were' matches both Past time and plural 'saplings'."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Fresh rice is harvested in autumn, and yesterday's harvest was stored cleanly.",
+            "highlightBadge": "Present vs Past Side-by-Side",
+            "stepByStep": "1) 'is harvested' states a general rule (Present). 2) 'was stored' reports yesterday's event (Past).",
+            "whyCorrect": "Both use -ed/-en participles, yet 'is' vs 'was' cleanly separates Present from Past."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Thinking 'Fresh rice is grown in our valley' happened in the past because 'grown' is a past participle.",
+          "correctText": "Helper 'is' + 'grown' = Present Simple Passive (happens regularly today).",
+          "whyWrong": "Past Participles carry the passive action meaning, while 'be' carries the tense."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 1 · Quick Check",
+        "prompt": "In 'Fresh guavas are packed in bamboo baskets every morning', what role does 'Fresh guavas' play?",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "The Subject and the doer packing the baskets",
+            "isCorrect": false,
+            "explanation": "Guavas cannot pack baskets—they receive the packing action."
+          },
+          {
+            "id": "opt-b",
+            "label": "The Subject and the receiver of the action (Passive Voice)",
+            "isCorrect": true,
+            "explanation": "'Fresh guavas' sits in the Subject slot and receives the present-habit action 'are packed'."
+          },
+          {
+            "id": "opt-c",
+            "label": "An adverbial telling when the action happens",
+            "isCorrect": false,
+            "explanation": "'every morning' tells when; 'Fresh guavas' is the noun Subject."
+          }
+        ]
+      }
+    },
+    {
+      "id": "apv-step-03",
+      "stepNumber": 3,
+      "type": "reveal-structure",
+      "visualMode": "structure-split",
+      "title": "The Object Check & 4-Step Passive Shift",
+      "badgeLabel": "Topic 2 · Core Pattern",
+      "shortPrompt": "Spot the Direct Object ('Verb + what/whom?'), move it to Subject, add matching 'be' + Past Participle, and add 'by + doer' if helpful.",
+      "explanation": "Converting Active S + V + O to Passive follows four reliable moves. First check that the active verb actually has an Object to promote!",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "apv-s3-svo-active",
+      "comparisonSentenceId": "apv-s3-svo-passive",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-pattern",
+        "categoryBadge": "Topic 2 · Four-Move Conversion",
+        "whyItWorks": "In 'The chef washes fresh vegetables', asking 'washes what?' gives 'fresh vegetables'. Moving that Object into Subject spot forces the verb to split into 'be' (tense + agreement) + 'washed' (action).",
+        "ruleSummary": "Passive follows 4 moves: (1) Object -> New Subject, (2) matching be, (3) Past Participle (V-en), (4) optional by + doer.",
+        "segments": [
+          {
+            "label": "1. New Subject",
+            "text": "Fresh vegetables",
+            "tone": "subject",
+            "subLabel": "Former Direct Object"
+          },
+          {
+            "label": "2. Matching be",
+            "text": "are",
+            "tone": "verb",
+            "subLabel": "Tense + New S agreement"
+          },
+          {
+            "label": "3. V-en / V3",
+            "text": "washed",
+            "tone": "independent",
+            "subLabel": "Past Participle action"
+          },
+          {
+            "label": "4. by + Doer",
+            "text": "by the chef.",
+            "tone": "phrase",
+            "subLabel": "Optional agent phrase"
+          }
+        ],
+        "relationDiagram": {
+          "relationType": "equal",
+          "leftLabel": "Active SVO",
+          "leftText": "The chef (S) + washes (V) + fresh vegetables (O)",
+          "connectorLabel": "4-Step Shift",
+          "rightLabel": "Passive",
+          "rightText": "Fresh vegetables (New S) + are washed (be + V-en) + by the chef",
+          "caption": "Move the entire Object noun group together ('Fresh vegetables', not just 'vegetables')."
+        },
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Mira cleans the globe. -> The globe is cleaned by Mira.",
+            "highlightBadge": "Singular -> Singular",
+            "stepByStep": "1) Object: 'the globe'. 2) Singular present be: 'is'. 3) Participle: 'cleaned'. 4) Optional agent: 'by Mira'.",
+            "whyCorrect": "Preserves Present Simple time cleanly."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The students clean the laboratory. -> The laboratory is cleaned by the students.",
+            "highlightBadge": "Plural -> Singular Shift",
+            "stepByStep": "1) Active verb 'clean' matched plural 'students'. 2) New Subject 'The laboratory' is singular -> switch to 'is cleaned'.",
+            "whyCorrect": "New Subject controls 'be', even though 'students' was plural."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Volunteers pack nutritious lunch boxes daily. -> Nutritious lunch boxes are packed by volunteers daily.",
+            "highlightBadge": "Full Noun Group",
+            "stepByStep": "1) Move the full Object noun phrase ('Nutritious lunch boxes') together. 2) Match plural 'are' + 'packed'. 3) Keep 'daily' at the end.",
+            "whyCorrect": "Adjectives stay attached to their noun when moving to Subject."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Fresh vegetables washed by the chef.",
+          "correctText": "Fresh vegetables are washed by the chef.",
+          "whyWrong": "Dropping 'be' ('are') leaves no passive verb—it makes it sound as if vegetables washed someone!"
+        }
+      }
+    },
+    {
+      "id": "apv-step-04",
+      "stepNumber": 4,
+      "type": "interact-explore",
+      "visualMode": "agreement-lock",
+      "title": "Matching 'be' to the New Subject & Irregular V-en Forms",
+      "badgeLabel": "Topic 2 · Agreement + V-en",
+      "shortPrompt": "Always lock 'be' onto the NEW Subject (never the old doer), and use Past Participle (V-en / V3)—never Simple Past (V2)!",
+      "explanation": "Two classic traps happen right after swapping Subject and Object: leaving 'be' in the old Subject's number, or grabbing Simple Past V2 ('wrote', 'ate', 'sang') instead of Past Participle V-en ('written', 'eaten', 'sung').",
+      "characterId": "arjun",
+      "characterExpression": "thinking",
+      "sentenceId": "apv-s4-notes-passive",
+      "comparisonSentenceId": "apv-s4-notes-active",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-pattern",
+        "categoryBadge": "Topic 2 · Two Jobs Inside Passive Verbs",
+        "whyItWorks": "In 'Two science notes were written by Arjun', 'were' carries Past tense and agrees with plural 'notes' (not singular Arjun), while 'written' supplies the Past Participle V-en / V3.",
+        "ruleSummary": "Match 'be' (is/are, was/were) to the new Subject, and lock the main verb to its Past Participle (V-en / V3).",
+        "keyTerms": [
+          {
+            "term": "New Subject + be",
+            "meaning": "Check singular vs plural on the NEW Subject: 'notes' -> were (not was); 'dosas' -> were."
+          },
+          {
+            "term": "Past Participle (V-en / V3)",
+            "meaning": "Irregular forms differ from V2: wrote -> written, ate -> eaten, grew -> grown, broke -> broken, sang -> sung."
+          }
+        ],
+        "segments": [
+          {
+            "label": "New Subject",
+            "text": "Two science notes",
+            "tone": "subject",
+            "subLabel": "Plural head 'notes'"
+          },
+          {
+            "label": "Matching be",
+            "text": "were",
+            "tone": "verb",
+            "subLabel": "Past + plural agreement"
+          },
+          {
+            "label": "V-en (Not V2)",
+            "text": "written",
+            "tone": "independent",
+            "subLabel": "write -> wrote -> written"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Arjun ate two ripe bananas. -> Two ripe bananas were eaten by Arjun.",
+            "highlightBadge": "ate (V2) -> eaten (V-en)",
+            "stepByStep": "1) New Subject 'Two ripe bananas' is plural -> 'were'. 2) Past Participle of 'eat' is 'eaten' (never 'ate').",
+            "whyCorrect": "Fixes both plural agreement and irregular participle."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The wind broke three clay pots. -> Three clay pots were broken by the wind.",
+            "highlightBadge": "broke (V2) -> broken (V-en)",
+            "stepByStep": "1) Plural 'Three clay pots' takes 'were'. 2) Use 'broken' instead of 'broke'.",
+            "whyCorrect": "Singular 'wind' disappears into 'by'; 'were' matches 'pots'."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Our choir sang the prayer song beautifully. -> The prayer song was sung beautifully by our choir.",
+            "highlightBadge": "sang (V2) -> sung (V-en)",
+            "stepByStep": "1) Singular 'The prayer song' -> 'was'. 2) Participle of 'sing' is 'sung' (V3).",
+            "whyCorrect": "Separates V2 'sang' from V3 'sung'."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The crisp dosas was served by our school canteen.",
+          "correctText": "The crisp dosas were served by our school canteen.",
+          "whyWrong": "'The crisp dosas' is plural, so 'be' must shift from 'was' to 'were'."
+        },
+        "boardNote": {
+          "label": "Grammar Note · V-en vs V3 Labels",
+          "text": "Different grammar guides call the third verb form 'Past Participle', 'V-en', or 'V3'. They all mean the exact same form used after 'have' and passive 'be' (written, grown, given, taken)."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 2 · Quick Check",
+        "prompt": "Which sentence accurately converts 'The gardener planted three neem saplings' into Passive Voice?",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "Three neem saplings was planted by the gardener.",
+            "isCorrect": false,
+            "explanation": "'Three neem saplings' is plural, so 'was' breaks Subject–Verb Agreement."
+          },
+          {
+            "id": "opt-b",
+            "label": "Three neem saplings planted by the gardener.",
+            "isCorrect": false,
+            "explanation": "Missing passive 'be' makes it sound like the saplings did the planting."
+          },
+          {
+            "id": "opt-c",
+            "label": "Three neem saplings were planted by the gardener.",
+            "isCorrect": true,
+            "explanation": "Plural new Subject 'Three neem saplings' takes past plural 'were' + Past Participle 'planted'."
+          },
+          {
+            "id": "opt-d",
+            "label": "Three neem saplings are planted by the gardener.",
+            "isCorrect": false,
+            "explanation": "'planted' in the original sentence is Past time, so changing to Present 'are' shifts tense."
+          }
+        ]
+      }
+    },
+    {
+      "id": "apv-step-05",
+      "stepNumber": 5,
+      "type": "explain-role",
+      "visualMode": "timeline-shift",
+      "title": "Simple vs Progressive ('being + V-en') Passive Chains",
+      "badgeLabel": "Topic 3 · Ongoing Aspect",
+      "shortPrompt": "To keep an ongoing (-ing) action ongoing in Passive Voice, insert 'being' between tense 'be' and the Past Participle.",
+      "explanation": "Never drop ongoing meaning when shifting Voice! Compare Simple Passive ('is painted' = habit) with Progressive / Continuous Passive ('is being painted' = happening right now).",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "apv-s5-prog-passive",
+      "comparisonSentenceId": "apv-s5-prog-active",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-pattern",
+        "categoryBadge": "Topic 3 · Preserving Ongoing Aspect",
+        "whyItWorks": "Active 'are painting' has two signals: Present time + ongoing (-ing). In Passive, 'is' keeps Present time (matching singular 'chart'), 'being' carries the -ing ongoing signal, and 'painted' gives the Past Participle.",
+        "ruleSummary": "Progressive / Continuous Passive keeps ongoing meaning by inserting 'being': am/is/are/was/were + being + V-en.",
+        "keyTerms": [
+          {
+            "term": "Tense + Number",
+            "meaning": "am / is / are (Present) or was / were (Past), matched to the new Subject."
+          },
+          {
+            "term": "Ongoing Marker (being)",
+            "meaning": "Always 'being'—shows the action is in progress at that moment."
+          },
+          {
+            "term": "V-en / V3",
+            "meaning": "Past Participle completing the Passive chain."
+          }
+        ],
+        "segments": [
+          {
+            "label": "Tense + Number",
+            "text": "is / was",
+            "tone": "subject",
+            "subLabel": "Sets time & agreement"
+          },
+          {
+            "label": "Ongoing Marker",
+            "text": "being",
+            "tone": "verb",
+            "subLabel": "Keeps -ing in progress"
+          },
+          {
+            "label": "V-en / V3",
+            "text": "painted",
+            "tone": "independent",
+            "subLabel": "Past Participle"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Arjun is checking the rain gauge. -> The rain gauge is being checked by Arjun.",
+            "highlightBadge": "Present Progressive",
+            "stepByStep": "1) Singular 'The rain gauge' -> 'is'. 2) Keep ongoing -ing with 'being'. 3) Add V-en 'checked'.",
+            "whyCorrect": "Shows the checking is happening right now."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Workers were repairing the wooden bridge yesterday. -> The wooden bridge was being repaired yesterday.",
+            "highlightBadge": "Past Progressive",
+            "stepByStep": "1) Singular 'bridge' in Past -> 'was'. 2) Ongoing marker -> 'being'. 3) V-en -> 'repaired'.",
+            "whyCorrect": "Switches plural 'were' to singular 'was' for 'bridge' while keeping 'being'."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Compare: 'Our courtyard is swept daily' (habit) vs 'Our courtyard is being swept right now' (in progress).",
+            "highlightBadge": "Simple vs Progressive",
+            "stepByStep": "1) Habit/routine -> no 'being' ('is swept'). 2) Happening now -> must include 'being' ('is being swept').",
+            "whyCorrect": "Dropping 'being' erases the 'right now' meaning."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The rain gauge is checked by Arjun right now.",
+          "correctText": "The rain gauge is being checked by Arjun right now.",
+          "whyWrong": "Without 'being', 'is checked' sounds like a general routine rather than an action happening at this moment."
+        }
+      }
+    },
+    {
+      "id": "apv-step-06",
+      "stepNumber": 6,
+      "type": "compare-example",
+      "visualMode": "compare-dual",
+      "title": "Perfect ('been'), Future & Modal ('be') Passives",
+      "badgeLabel": "Topic 3 · Perfect, Future & Modals",
+      "shortPrompt": "Keep 'has/have/had' (Perfect), 'will/going to' (Future), or modals ('can/must/should') at the front, then add 'been + V-en' or 'be + V-en'.",
+      "explanation": "Across Perfect, Future Time, and Modal sentences, the front helper preserves the original time or attitude, while 'been' or 'be' + Past Participle adds the Passive layer.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "apv-s6-perfect-passive",
+      "comparisonSentenceId": "apv-s6-modal-passive",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-pattern",
+        "categoryBadge": "Topic 3 · Perfect, Future & Modals",
+        "whyItWorks": "After 'has / have / had', grammar requires the Past Participle 'been' before the main verb's V-en ('has been launched'). After 'will' or modals ('can, may, must, should'), grammar always requires bare 'be' ('must be worn').",
+        "ruleSummary": "Perfect Passive uses has/have/had + been + V-en; Future & Modal Passives use will/modal + be + V-en.",
+        "segments": [
+          {
+            "label": "Perfect Passive",
+            "text": "has / have / had + been + V-en",
+            "tone": "independent",
+            "subLabel": "Completed action link"
+          },
+          {
+            "label": "Future Passive",
+            "text": "will / going to + be + V-en",
+            "tone": "object",
+            "subLabel": "Future time plan"
+          },
+          {
+            "label": "Modal Passive",
+            "text": "can / must / should + be + V-en",
+            "tone": "complement",
+            "subLabel": "Rule, ability, or duty"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Mira has prepared fresh lemon water. -> Fresh lemon water has been prepared by Mira.",
+            "highlightBadge": "Present Perfect",
+            "stepByStep": "1) Singular 'water' keeps 'has'. 2) Insert 'been'. 3) Keep Past Participle 'prepared'.",
+            "whyCorrect": "Never drop 'been' after 'has/have/had'."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The principal will announce the quiz results tomorrow. -> The quiz results will be announced tomorrow.",
+            "highlightBadge": "Future Time",
+            "stepByStep": "1) Keep 'will'. 2) Insert base 'be'. 3) Add Past Participle 'announced'.",
+            "whyCorrect": "Modals and 'will' never take 'is/are' or 'been' directly—always bare 'be'."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Students had cleaned all desks before the fair -> All desks had been cleaned before the fair.",
+            "highlightBadge": "Past Perfect",
+            "stepByStep": "1) Past Perfect 'had' stays unchanged for all subjects. 2) Insert 'been' + V-en 'cleaned'.",
+            "whyCorrect": "Shows completion before another past event."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The weather satellite has launched by ISRO.",
+          "correctText": "The weather satellite has been launched by ISRO.",
+          "whyWrong": "Missing 'been' turns the passive verb into an active verb ('satellite launched'). Always put 'been' after has/have/had in Passive."
+        },
+        "boardNote": {
+          "label": "Grammar Note · Tenses Without Standard Passives",
+          "text": "Perfect Continuous ('has been watering') and Future Continuous ('will be watering') do not normally form standard passives—stacking forms like 'has been being watered' is awkward and avoided in English."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 3 · Quick Check",
+        "prompt": "Choose the accurate Passive version of 'ISRO has launched the weather satellite.'",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "The weather satellite was launched by ISRO.",
+            "isCorrect": false,
+            "explanation": "Original 'has launched' is Present Perfect, not Simple Past."
+          },
+          {
+            "id": "opt-b",
+            "label": "The weather satellite has launched by ISRO.",
+            "isCorrect": false,
+            "explanation": "Missing 'been' makes 'has launched' active."
+          },
+          {
+            "id": "opt-c",
+            "label": "The weather satellite has been launched by ISRO.",
+            "isCorrect": true,
+            "explanation": "Keeps 'has' and inserts 'been' before Past Participle 'launched'."
+          },
+          {
+            "id": "opt-d",
+            "label": "The weather satellite is being launched by ISRO.",
+            "isCorrect": false,
+            "explanation": "'is being' shifts completed Present Perfect into ongoing Progressive."
+          }
+        ]
+      }
+    },
+    {
+      "id": "apv-step-07",
+      "stepNumber": 7,
+      "type": "show-relationship",
+      "visualMode": "compare-dual",
+      "title": "Pronoun Case Swaps Across the Verb",
+      "badgeLabel": "Topic 4 · Pronoun Case Bridge",
+      "shortPrompt": "When pronouns cross the verb between Active and Passive, switch their case: I ↔ me, we ↔ us, he ↔ him, she ↔ her, they ↔ them, who ↔ whom.",
+      "explanation": "Unlike nouns ('Mira' stays 'Mira'), personal pronouns change spelling depending on whether they sit in the Subject spot or after 'by' (Object spot).",
+      "characterId": "arjun",
+      "characterExpression": "curious",
+      "sentenceId": "apv-s7-pronoun-passive",
+      "comparisonSentenceId": "apv-s7-pronoun-active",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-assam-ch11-voice", "src-pseb9-ch6-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 4 · Subject vs Object Pronoun Case",
+        "whyItWorks": "Any preposition—including 'by'—requires an Object-case pronoun (me, us, him, her, them, whom). And any pronoun moving into the Subject slot requires Subject case (I, we, he, she, they, who).",
+        "ruleSummary": "Swap pronoun case on both sides: Subject (I, we, he, she, they, who) <-> by + Object (me, us, him, her, them, whom).",
+        "keyTerms": [
+          {
+            "term": "Subject Case",
+            "meaning": "I, we, you, he, she, it, they, who (sit in the Subject slot before the verb)."
+          },
+          {
+            "term": "Object Case (after by)",
+            "meaning": "me, us, you, him, her, it, them, whom (sit after 'by' or an active verb)."
+          }
+        ],
+        "segments": [
+          {
+            "label": "Subject Case",
+            "text": "I · we · he · she · they · who",
+            "tone": "subject",
+            "subLabel": "Use in Subject slot"
+          },
+          {
+            "label": "by + Object Case",
+            "text": "me · us · him · her · them · whom",
+            "tone": "object",
+            "subLabel": "Use after 'by'"
+          }
+        ],
+        "relationDiagram": {
+          "relationType": "equal",
+          "leftLabel": "Active",
+          "leftText": "She (Subject) praised them (Object)",
+          "connectorLabel": "Case Flip",
+          "rightLabel": "Passive",
+          "rightText": "They (Subject) were praised by her (Object)",
+          "caption": "Both pronouns flip form when trading Subject and Object positions."
+        },
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "He helps us. -> We are helped by him.",
+            "highlightBadge": "us -> We | He -> by him",
+            "stepByStep": "1) 'us' becomes Subject 'We'. 2) Plural 'We' takes 'are helped'. 3) 'He' becomes 'by him'.",
+            "whyCorrect": "Both Subject and Object cases match their new slots."
+          },
+          {
+            "level": "Medium",
+            "sentence": "They invited me to the science fair. -> I was invited to the science fair by them.",
+            "highlightBadge": "me -> I | They -> by them",
+            "stepByStep": "1) 'me' moves to Subject 'I'. 2) Singular 'I' takes Past 'was invited'. 3) 'They' moves to 'by them'.",
+            "whyCorrect": "Matches 'I was' and 'by them'."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Who planted this banyan tree? -> By whom was this banyan tree planted?",
+            "highlightBadge": "Who -> By whom",
+            "stepByStep": "1) After 'By', 'Who' changes to Object case 'whom'. 2) Invert 'was' before 'this banyan tree'.",
+            "whyCorrect": "Conversational English also allows 'Who was this banyan tree planted by?'"
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The kite was flown by he.",
+          "correctText": "The kite was flown by him.",
+          "whyWrong": "'by' is a preposition, so it must take Object case 'him', never Subject case 'he'."
+        }
+      }
+    },
+    {
+      "id": "apv-step-08",
+      "stepNumber": 8,
+      "type": "interact-explore",
+      "visualMode": "guided-explore",
+      "title": "Two Objects (SVOO), Questions & Imperatives",
+      "badgeLabel": "Topic 4 · Special Sentence Forms",
+      "shortPrompt": "Verbs with two Objects allow two passives; Questions put 'be' before the Subject (never 'did'); Commands use 'Let + Object + be + V-en'.",
+      "explanation": "Once you know the core 4-step shift, three special patterns—Double-Object (SVOO), Interrogative Questions, and Imperative instructions—follow clean word-order rules.",
+      "characterId": "arjun",
+      "characterExpression": "explaining",
+      "sentenceId": "apv-s8-svoo-passive",
+      "comparisonSentenceId": "apv-s8-question-passive",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-pattern",
+        "categoryBadge": "Topic 4 · SVOO, Questions & Commands",
+        "whyItWorks": "SVOO clauses have both a recipient (IO) and a thing (DO), so either can step into Subject position. Questions move only the first auxiliary in front of the new Subject and drop 'do/does/did'.",
+        "ruleSummary": "Promote IO (or DO + to/for) for SVOO; replace do/does/did with inverted be in Questions; use Let + O + be + V-en for Commands.",
+        "segments": [
+          {
+            "label": "SVOO Option A",
+            "text": "Mira was given a certificate.",
+            "tone": "independent",
+            "subLabel": "Recipient promoted (natural)"
+          },
+          {
+            "label": "SVOO Option B",
+            "text": "A certificate was given to Mira.",
+            "tone": "object",
+            "subLabel": "Thing promoted (+ to/for)"
+          },
+          {
+            "label": "Question",
+            "text": "Was the courtyard cleaned?",
+            "tone": "complement",
+            "subLabel": "be before Subject (no did)"
+          },
+          {
+            "label": "Imperative",
+            "text": "Let the saplings be watered.",
+            "tone": "dependent",
+            "subLabel": "Let + Object + be + V-en"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Water the saplings daily. -> Let the saplings be watered daily.",
+            "highlightBadge": "Imperative Command",
+            "stepByStep": "1) Start with 'Let'. 2) Place Object 'the saplings'. 3) Finish with 'be' + V-en 'watered'.",
+            "whyCorrect": "Advice/rules can also use 'The saplings should be watered daily'; polite requests use 'You are requested to...'."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Did Mira bring the globe? -> Was the globe brought by Mira?",
+            "highlightBadge": "Yes/No Question",
+            "stepByStep": "1) Drop 'Did'. 2) Place Past singular 'Was' at the start before 'the globe'. 3) Use V-en 'brought'.",
+            "whyCorrect": "Never leave 'do, does, did' in a Passive question."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "The librarian lent our class three atlases. -> Three atlases were lent to our class by the librarian.",
+            "highlightBadge": "SVOO Option B",
+            "stepByStep": "1) Promote Direct Object 'Three atlases' -> plural 'were lent'. 2) Insert 'to' before 'our class'.",
+            "whyCorrect": "Dropping 'to' ('lent our class' after 'Three atlases') sounds incomplete in this order."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Did the courtyard cleaned by the students?",
+          "correctText": "Was the courtyard cleaned by the students?",
+          "whyWrong": "Passive questions replace 'did / do / does' with a form of 'be' ('was / were / is / are')."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 4 · Quick Check",
+        "prompt": "Which is the accurate Passive form of 'Who planted this banyan tree?'",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "By who was this banyan tree planted?",
+            "isCorrect": false,
+            "explanation": "After preposition 'By', 'who' must change to Object case 'whom'."
+          },
+          {
+            "id": "opt-b",
+            "label": "By whom was this banyan tree planted?",
+            "isCorrect": true,
+            "explanation": "Uses Object case 'whom' after 'By' and places 'was' before the new Subject 'this banyan tree'."
+          },
+          {
+            "id": "opt-c",
+            "label": "By whom this banyan tree planted?",
+            "isCorrect": false,
+            "explanation": "Missing auxiliary 'was' and question inversion before the Subject."
+          }
+        ]
+      }
+    },
+    {
+      "id": "apv-step-09",
+      "stepNumber": 9,
+      "type": "explain-meaning",
+      "visualMode": "compare-dual",
+      "title": "Omitting Vague 'by + Doer' & Natural Passive ('by' vs 'with')",
+      "badgeLabel": "Topic 5 · Natural Passive",
+      "shortPrompt": "Drop 'by + doer' when the doer is unknown, obvious, or general ('someone, people, they'). Keep 'by' for real agents and use 'with' for tools!",
+      "explanation": "Real-world Passive Voice rarely adds '...by someone' or '...by people'. Science notes, heritage facts, and lost-and-found notices omit empty agents—and remember that tools use 'with', not 'by'.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "apv-s9-natural-passive",
+      "comparisonSentenceId": "apv-s9-tool-passive",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 5 · When 'by' Helps vs Clutters",
+        "whyItWorks": "In 'Someone swept the library steps', 'someone' adds zero new information. Dropping 'by someone' highlights the clean steps directly. By contrast, keeping 'by C.V. Raman' or 'with a clean knife' adds crucial facts.",
+        "ruleSummary": "Omit vague 'by someone / by people'; keep informative 'by + creator'; use 'with' for physical tools.",
+        "keyTerms": [
+          {
+            "term": "Omit Vague Doer",
+            "meaning": "Drop 'by someone / by people / by them / by everybody' and obvious police/builders agents."
+          },
+          {
+            "term": "Keep Informative Doer",
+            "meaning": "Keep 'by + doer' when naming the person/organisation adds vital facts ('by ISRO', 'by C.V. Raman')."
+          },
+          {
+            "term": "Tool Uses 'with'",
+            "meaning": "Use 'by' for people/doers and 'with' for instruments ('sliced with a clean knife')."
+          }
+        ],
+        "segments": [
+          {
+            "label": "Omit Vague Doer",
+            "text": "The steps were swept before dawn.",
+            "tone": "independent",
+            "subLabel": "No 'by someone'"
+          },
+          {
+            "label": "Keep Key Doer",
+            "text": "The lens was tested by C.V. Raman.",
+            "tone": "object",
+            "subLabel": "Specific agent matters"
+          },
+          {
+            "label": "Tool Uses 'with'",
+            "text": "sliced with a clean knife",
+            "tone": "phrase",
+            "subLabel": "Instrument, not person"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "People grow spices in Kerala. -> Spices are grown in Kerala.",
+            "highlightBadge": "General Doer Omitted",
+            "stepByStep": "1) 'People' is general and obvious. 2) Omit 'by people' for natural geography writing.",
+            "whyCorrect": "Adding '...by people' sounds repetitive and clunky."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The Konark Sun Temple was built in the thirteenth century.",
+            "highlightBadge": "Heritage Record",
+            "stepByStep": "1) Focus stays on the monument ('The Konark Sun Temple'). 2) Past Passive 'was built' avoids filler words.",
+            "whyCorrect": "Passive is the natural voice for history and science processes."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "The wood was carved with a sharp chisel by the master artisan.",
+            "highlightBadge": "with (Tool) + by (Person)",
+            "stepByStep": "1) Tool: 'with a sharp chisel'. 2) Human agent: 'by the master artisan'.",
+            "whyCorrect": "Distinguishes instrument from human doer cleanly."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The ripe mangoes were sliced by a clean knife.",
+          "correctText": "The ripe mangoes were sliced with a clean knife.",
+          "whyWrong": "A knife is a physical tool, not a person—tools take 'with', whereas doers take 'by'."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 5 · Quick Check",
+        "prompt": "Which Passive sentence sounds most natural for 'Someone has returned the missing science book'?",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "The missing science book has been returned by someone.",
+            "isCorrect": false,
+            "explanation": "'by someone' adds no information and should be dropped."
+          },
+          {
+            "id": "opt-b",
+            "label": "The missing science book has returned.",
+            "isCorrect": false,
+            "explanation": "Missing 'been' turns the verb active—a book cannot return itself!"
+          },
+          {
+            "id": "opt-c",
+            "label": "The missing science book has been returned.",
+            "isCorrect": true,
+            "explanation": "Preserves Present Perfect Passive ('has been returned') and cleanly omits vague 'by someone'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "apv-step-10",
+      "stepNumber": 10,
+      "type": "explain-role",
+      "visualMode": "compare-dual",
+      "title": "Sentences That Cannot Be Made Passive",
+      "badgeLabel": "Topic 6 · Passive Limits",
+      "shortPrompt": "Only verbs with a real Object (SVO, SVOO, SVOC) can become Passive! Intransitive (SV/SVA) and Linking (SVC) verbs have no Object to promote.",
+      "explanation": "Before trying to convert a sentence, run the Object Test ('Verb + what or whom?'). Place/time phrases, Subject Complements, and '-ed' feeling adjectives are NOT Passive!",
+      "characterId": "mira",
+      "characterExpression": "thinking",
+      "sentenceId": "apv-s10-intransitive",
+      "comparisonSentenceId": "apv-s10-linking",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-assam-ch11-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 6 · No Object = No Passive",
+        "whyItWorks": "Passive Voice moves an Object into the Subject slot. If a verb is intransitive ('arrived at six', 'slept soundly') or linking ('felt cool', 'became captain'), there is zero Object to move.",
+        "ruleSummary": "Intransitive (SV, SVA) and Linking (SVC) clauses lack an Object and cannot form Passive Voice.",
+        "keyTerms": [
+          {
+            "term": "Intransitive (SV / SVA)",
+            "meaning": "Action has no receiver Object ('arrived at six' tells when, not what)."
+          },
+          {
+            "term": "Linking (SVC)",
+            "meaning": "Describes the Subject ('breeze = cool and fresh'), not a separate Object."
+          },
+          {
+            "term": "State -ed Adjective",
+            "meaning": "'were excited / was tired' describes feeling (test with 'very excited')—not a Passive action!"
+          }
+        ],
+        "segments": [
+          {
+            "label": "Intransitive (SVA)",
+            "text": "arrived at six.",
+            "tone": "adverbial",
+            "subLabel": "Time phrase != Object"
+          },
+          {
+            "label": "Linking (SVC)",
+            "text": "felt cool and fresh.",
+            "tone": "complement",
+            "subLabel": "Describes Subject"
+          },
+          {
+            "label": "State Adjective",
+            "text": "were very excited.",
+            "tone": "phrase",
+            "subLabel": "Feeling, not Passive action"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "The baby slept peacefully. (SVA -> No Passive)",
+            "highlightBadge": "No Object",
+            "stepByStep": "1) Ask 'slept what?' -> No answer! 2) 'peacefully' tells how (Adverbial), not an Object.",
+            "whyCorrect": "Cannot be turned into Passive."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Priya became the school captain. (SVC -> No Passive)",
+            "highlightBadge": "Linking Verb",
+            "stepByStep": "1) 'the school captain' = 'Priya' (Complement). 2) Nobody acted on a separate object.",
+            "whyCorrect": "'The school captain was become by Priya' is ungrammatical."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "The students were interested in astronomy. (be + Adjective, NOT Passive)",
+            "highlightBadge": "State vs Action Test",
+            "stepByStep": "1) Try putting 'very' before it -> 'very interested' works! 2) True passive actions like 'caught' fail 'very caught'.",
+            "whyCorrect": "'interested' describes a state of mind, not an action done by an agent."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Trying to convert 'Arjun sat on the wooden bench' -> 'The wooden bench was sat on by Arjun'.",
+          "correctText": "Leave simple Intransitive SVA sentences in Active Voice ('Arjun sat on the wooden bench').",
+          "whyWrong": "'sat' is intransitive and 'on the wooden bench' is a place adverbial, not a Direct Object."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 6 · Quick Check",
+        "prompt": "Which sentence CANNOT be changed into Passive Voice?",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "The eco-club planted fifty bamboo saplings.",
+            "isCorrect": false,
+            "explanation": "'fifty bamboo saplings' is a Direct Object -> 'Fifty bamboo saplings were planted...'"
+          },
+          {
+            "id": "opt-b",
+            "label": "Warm sunlight filled the courtyard.",
+            "isCorrect": false,
+            "explanation": "'the courtyard' is a Direct Object -> 'The courtyard was filled with warm sunlight.'"
+          },
+          {
+            "id": "opt-c",
+            "label": "The morning breeze felt cool and fresh.",
+            "isCorrect": true,
+            "explanation": "'felt' is a linking verb followed by adjectives ('cool and fresh' describing the breeze). Without an Object, no Passive exists."
+          }
+        ]
+      }
+    },
+    {
+      "id": "apv-step-11",
+      "stepNumber": 11,
+      "type": "guided-practice",
+      "visualMode": "practice-ready",
+      "title": "Spotting & Fixing Voice Errors (5-Point Check)",
+      "badgeLabel": "Topic 7 · Voice Checklist",
+      "shortPrompt": "Before finishing any Passive sentence, run the 5-Point Voice Check: Object, Pronoun Case, 'be' Match, V-en Form, and Concise 'by'.",
+      "explanation": "Most Active-Passive slips happen when one detail changes (like moving a plural Object to Subject) and the rest of the sentence forgets to update.",
+      "characterId": "arjun",
+      "characterExpression": "happy",
+      "sentenceId": "apv-s11-fixed",
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "clausePatternData": {
+        "mode": "clause-pattern",
+        "categoryBadge": "Topic 7 · 5-Point Passive Audit",
+        "whyItWorks": "Checking each of the 5 links separately—(1) Object exists, (2) Pronoun case matches slot, (3) 'be' carries exact tense + new-Subject agreement, (4) main verb is Past Participle V-en, (5) vague 'by someone' dropped—catches every hidden slip.",
+        "ruleSummary": "Check Object -> Pronoun case -> 'be' (tense + new Subject) -> Past Participle (V-en) -> Omit vague 'by'.",
+        "segments": [
+          {
+            "label": "1. Object?",
+            "text": "Has Direct Object",
+            "tone": "subject",
+            "subLabel": "Skip SV / SVA / SVC"
+          },
+          {
+            "label": "2. Pronoun Case",
+            "text": "They ... by them",
+            "tone": "object",
+            "subLabel": "Subject vs after by"
+          },
+          {
+            "label": "3. be Matches",
+            "text": "posters -> were",
+            "tone": "verb",
+            "subLabel": "Tense + New S number"
+          },
+          {
+            "label": "4. V-en Form",
+            "text": "drawn (not drew)",
+            "tone": "independent",
+            "subLabel": "Never V1 or V2"
+          },
+          {
+            "label": "5. Trim Vague by",
+            "text": "Drop 'by someone'",
+            "tone": "phrase",
+            "subLabel": "Keep only real doers"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Broken: 'A new library has built near our school.' -> Fixed: 'A new library has been built near our school.'",
+            "highlightBadge": "Missing 'been'",
+            "stepByStep": "1) A library cannot build itself (Passive needed). 2) Insert 'been' between 'has' and 'built'.",
+            "whyCorrect": "Completes the Present Perfect Passive chain."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Broken: 'Did the broken bench repaired yesterday?' -> Fixed: 'Was the broken bench repaired yesterday?'",
+            "highlightBadge": "Question Auxiliary Fix",
+            "stepByStep": "1) Passive questions never use 'Did'. 2) Replace 'Did' with singular past 'Was' before 'the broken bench'.",
+            "whyCorrect": "Restores proper passive question inversion."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Broken: 'The science posters was drew by they.' -> Fixed: 'The science posters were drawn by them.'",
+            "highlightBadge": "3-Fix Audit",
+            "stepByStep": "1) Plural 'posters' -> 'were' (not 'was'). 2) Past Participle -> 'drawn' (not V2 'drew'). 3) After 'by' -> Object pronoun 'them' (not 'they').",
+            "whyCorrect": "Fixes agreement, participle, and pronoun case together."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The fresh vegetables is being washed by she before lunch.",
+          "correctText": "The fresh vegetables are being washed by her before lunch.",
+          "whyWrong": "Plural Subject 'vegetables' needs 'are', and object position after 'by' needs 'her'."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 7 · Quick Check",
+        "prompt": "Find the errors in: 'The fresh vegetables is being washed by she before lunch.'",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "Missing 'been' after 'is'",
+            "isCorrect": false,
+            "explanation": "'being' is accurate for ongoing action; the errors are agreement and pronoun case."
+          },
+          {
+            "id": "opt-b",
+            "label": "'is' should be 'are' (plural 'vegetables') and 'she' should be 'her'",
+            "isCorrect": true,
+            "explanation": "Plural Subject 'The fresh vegetables' takes 'are being washed', and 'by' requires Object case 'her'."
+          },
+          {
+            "id": "opt-c",
+            "label": "'washed' should be 'wash'",
+            "isCorrect": false,
+            "explanation": "Passive verbs always end in Past Participle 'washed', never base 'wash'."
+          }
+        ]
+      }
+    }
+  ],
+  "wordLabActivities": []
+}

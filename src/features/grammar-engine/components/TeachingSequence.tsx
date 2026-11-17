@@ -23,7 +23,7 @@ import type {
 import { GuideNotePopup } from './GuideNotePopup';
 import { FloatingGuideButton } from './FloatingGuideButton';
 import { SentenceVisualizer, type SelectedTokenState } from './SentenceVisualizer';
-import { SentenceTypesStep1View } from './SentenceTypesStep1View';
+import { SentenceTypesStepView } from './SentenceTypesStepView';
 import { LessonNavigation } from './LessonNavigation';
 
 export interface TeachingSequenceProps {
@@ -469,12 +469,13 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
 
         {/* Scrollable Lesson Workspace (with ~112px bottom clearance above fixed controls) */}
         <div className="flex-1 w-full max-w-[920px] mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-4 pb-[calc(112px+env(safe-area-inset-bottom,0px))]">
-          {lesson.missionId === 'c9-mission-04' &&
-          currentStep.id === 'stcp-step-01' ? (
-            <SentenceTypesStep1View
+          {lesson.missionId === 'c9-mission-04' || Boolean(currentStep.clausePatternData) ? (
+            <SentenceTypesStepView
               stepId={currentStep.id}
               sentence={activeSentence}
+              comparisonSentence={comparisonSentence}
               clausePatternData={currentStep.clausePatternData}
+              checkpointData={currentStep.checkpointData}
               isPaused={isPaused}
               animationSeed={animationSeed}
               onUserEngage={onUserEngage}

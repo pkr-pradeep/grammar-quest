@@ -346,7 +346,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
           initialStepNumber={learnJump.stepNumber ?? learnStepNumber}
           stepJumpNonce={learnJump.nonce}
           finalNextLabel={
-            hasGuided ? 'Guided' : hasIndependent ? 'Practice' : 'Complete Lesson'
+            hasGuided ? 'Guided' : hasIndependent ? 'Practice' : 'Finish Learn'
           }
           onUserEngage={markStartedOnce}
           onCompleteSequence={() => {

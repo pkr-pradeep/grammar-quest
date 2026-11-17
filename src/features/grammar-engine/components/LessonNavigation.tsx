@@ -101,7 +101,7 @@ export const LessonNavigation: React.FC<LessonNavigationProps> = ({
         <button
           type="button"
           onClick={onNext}
-          className="inline-flex items-center justify-center gap-1.5 min-h-[52px] px-5 rounded-[14px] bg-[#1B2559] hover:bg-[#141D47] text-white text-sm font-extrabold whitespace-nowrap transition-colors cursor-pointer focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]"
+          className="inline-flex items-center justify-center gap-1.5 min-h-[52px] px-3.5 sm:px-5 rounded-[14px] bg-[#1B2559] hover:bg-[#141D47] text-white text-sm font-extrabold whitespace-nowrap transition-colors cursor-pointer focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]"
         >
           <span>{nextLabel ?? (isLast ? 'Word Lab' : 'Next')}</span>
           <ArrowRight

@@ -1,0 +1,620 @@
+{
+  "metadata": {
+    "lessonId": "lesson-prepositions",
+    "catalogTopicId": "topic-prepositions",
+    "categoryId": "cat-connectors",
+    "categoryTitle": "Connectors & Prepositions",
+    "lessonTitle": "Prepositions",
+    "phase": "phase-1-curriculum-and-learning-design",
+    "categorisationPolicy": "Independent English grammar curriculum; no academic class, board, or mission labels in student-facing content.",
+    "estimatedDurationMinutes": 9,
+    "status": "design-pending-approval",
+    "architectureCompatibility": {
+      "stack": ["React", "Vite", "TypeScript", "Tailwind CSS"],
+      "characters": ["mira", "arjun", "gyan"],
+      "engineComponents": [
+        "GrammarTeachingEngine",
+        "TeachingSequence",
+        "GuideNotePopup",
+        "SentenceVisualizer",
+        "WordLaboratory",
+        "IndependentPracticeStage",
+        "AssessmentRunner"
+      ],
+      "storage": ["IndexedDB (progressRepository, assessmentRepository)"]
+    },
+    "verificationBoundaryNote": "Internal textbook citations (titles, chapters, book pages, PDF pages, and high-level summaries) are strictly derived from curriculum-source-map.json, curriculum-overview.md, content-gaps.md, and src/content/curriculumCatalog.ts. Raw PDF binaries are not present in this runtime container; no unverified sub-section headings or textbook exercises have been invented."
+  },
+  "prerequisites": [
+    {
+      "id": "prereq-prep-phrases-clauses",
+      "concept": "Phrases vs Clauses (Prepositional Phrases have no finite verb) and Adverbial (A) roles",
+      "sourceCatalogTopicId": "topic-sentence-types",
+      "sourceLessonTitle": "Sentence Types & Clause Patterns",
+      "availabilityStatus": "Already available",
+      "handlingInLesson": "Activated in Topic 1 to group Preposition + Object into a single phrase unit."
+    },
+    {
+      "id": "prereq-prep-sva-phrases",
+      "concept": "Recognising prepositional phrases tucked inside Subjects without letting them hijack verb agreement",
+      "sourceCatalogTopicId": "topic-sva",
+      "sourceLessonTitle": "Subject–Verb Agreement",
+      "availabilityStatus": "Already available",
+      "handlingInLesson": "Reinforced lightly in Topic 1 when locating complete Prepositional Phrases."
+    },
+    {
+      "id": "prereq-prep-since-for",
+      "concept": "Time markers 'for' (duration) vs 'since' (starting point) with Present Perfect timelines",
+      "sourceCatalogTopicId": "topic-tenses",
+      "sourceLessonTitle": "Tenses: Time and Verb Forms",
+      "availabilityStatus": "Requires a short revision",
+      "handlingInLesson": "Briefly reviewed in Topic 2 alongside 'during', 'from...to', 'by', and 'until'."
+    },
+    {
+      "id": "prereq-prep-noun-groups",
+      "concept": "Noun Phrases & Pre/Post-Modifiers (identifying full noun groups acting as objects of prepositions)",
+      "sourceCatalogTopicId": "topic-noun-phrases",
+      "sourceLessonTitle": "Noun Phrases & Pre/Post-Modifiers",
+      "availabilityStatus": "Not yet available",
+      "handlingInLesson": "Topic 1 includes a compact reminder that the object of a preposition includes its determiners and adjectives ('under the old banyan tree')."
+    },
+    {
+      "id": "prereq-prep-pronoun-case",
+      "concept": "Object-case pronouns after prepositions (me, us, him, her, them, whom)",
+      "sourceCatalogTopicId": "topic-pronouns",
+      "sourceLessonTitle": "Pronouns & Case",
+      "availabilityStatus": "Not yet available",
+      "handlingInLesson": "Topic 1 includes a short inline note: pronouns after a preposition always take object form ('between you and me')."
+    },
+    {
+      "id": "prereq-prep-phrasal-conjunction-boundary",
+      "concept": "Boundary between Prepositions, Conjunctions (before/after/since + clause), and Phrasal Verbs",
+      "sourceCatalogTopicId": "topic-phrasal-verbs",
+      "sourceLessonTitle": "Phrasal Verbs & Conjunctions",
+      "availabilityStatus": "Not yet available",
+      "handlingInLesson": "Topic 1/2 notes 'before + noun' vs 'before + clause', and Topic 6 separates literal 'preposition + noun' from idiomatic Phrasal Verbs."
+    }
+  ],
+  "scopeBoundaries": {
+    "includedAreas": [
+      "Meaning and purpose of prepositions",
+      "Prepositional phrases (Preposition + Noun / Noun Group / Object Pronoun)",
+      "Prepositions of time (at, on, in, since, for, from...to, by, until/till, during, before, after + zero-preposition traps)",
+      "Prepositions of place and position (at, in, on, under/below, over/above, between/among, beside/besides, near, behind, in front of/opposite)",
+      "Prepositions of direction and movement (to, into, onto, towards, from, through, across, along, past, out of)",
+      "Prepositions for relationships, means, agency, origin/material, and abstract purposes (by, with, for, of, from, about)",
+      "Context-dependent meaning changes (one preposition in varied contexts; swapping prepositions to shift meaning)",
+      "Commonly confused preposition pairs (in/within, beside/besides, between/among, made of/made from, agree with/agree to)",
+      "Natural preposition placement and common errors (including extra prepositions after transitive verbs like discuss/enter/reach, and boundary with Phrasal Verbs)"
+    ],
+    "excludedOrDeferredToOtherLessons": [
+      {
+        "lessonTitle": "Phrasal Verbs",
+        "catalogTopicId": "topic-phrasal-verbs",
+        "reason": "Idiomatic multi-word verb + particle combinations (e.g., give up, call off, put out) belong in Phrasal Verbs; only the literal vs idiomatic boundary is clarified here."
+      },
+      {
+        "lessonTitle": "Conjunctions",
+        "catalogTopicId": "topic-conjunctions",
+        "reason": "Full clause-linking conjunction systems belong in Conjunctions; only the preposition (+ noun) vs conjunction (+ clause) test for words like before/after/since is noted."
+      },
+      {
+        "lessonTitle": "Noun Phrases & Pre/Post-Modifiers",
+        "catalogTopicId": "topic-noun-phrases",
+        "reason": "Internal determiner/adjective ordering inside noun phrases belongs in its dedicated lesson."
+      }
+    ]
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od10-ch5-prepositions",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 5: Prepositions",
+      "bookPages": "39-57",
+      "pdfPages": "45-63",
+      "provenance": "textbook-derived",
+      "note": "Dedicated 19-page Prepositions chapter, separated cleanly from Ch. 6 Phrasal Verbs (pp. 58-70). Recorded typo in content-gaps.md on p. 46 ('He is ran / He is threw')."
+    },
+    {
+      "id": "src-pseb9-ch3-prepositions",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 3: Prepositions",
+      "bookPages": "27-40",
+      "pdfPages": "33-46",
+      "provenance": "textbook-derived",
+      "note": "Summarised in curriculum-overview.md as covering time, place, direction, and fixed prepositional uses."
+    },
+    {
+      "id": "src-assam-ch14-prepositions",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Chapter 14: Position of Prepositions",
+      "bookPages": "214-241",
+      "pdfPages": "223-250",
+      "provenance": "textbook-derived",
+      "note": "28-page chapter on preposition usage and placement, complemented by Ch. 10 Group/Phrasal Verbs (pp. 166-185) and Ch. 13 Adverbials (pp. 205-213)."
+    },
+    {
+      "id": "src-od9-wordclass-prep",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Ch. 1 Sec. C Word Classes (pp. 8-22) & Ch. 10/12 Adverbials",
+      "bookPages": "8-22, 117-134, 141-146",
+      "pdfPages": "14-28, 123-140, 147-152",
+      "provenance": "textbook-derived",
+      "note": "Contains no standalone Prepositions chapter; introduces Preposition as a word class and uses prepositional phrases inside noun modifiers and predicate adverbials."
+    },
+    {
+      "id": "src-prep-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Visual Relation Bridge, Context-Shift Lab & Phrasal Boundary (Supplementary)",
+      "chapter": "Prepositions Blueprint",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Provides visual Prepositional Phrase brackets, static-vs-motion spatial frames, context-shift demonstrations, zero-preposition transitive verb checks, and compliant Indian everyday/science examples."
+    }
+  ],
+  "topics": [
+    {
+      "id": "prep-topic-01",
+      "order": 1,
+      "title": "Meaning & Role of Prepositions and Prepositional Phrases",
+      "broadArea": "Meaning, purpose & prepositional phrases",
+      "difficultyLevel": "Beginner",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-od9-wordclass-prep", "src-prep-bridge"],
+      "prerequisites": [
+        "Phrases vs Clauses (Already available)",
+        "Noun-group object and object-pronoun inline bridge"
+      ],
+      "learningObjectives": {
+        "understand": [
+          "A preposition links a noun, noun group, or object-case pronoun (its object) to another word to show time, place, direction, means, or relation.",
+          "Preposition + Object forms a Prepositional Phrase (no finite verb), and swapping the preposition changes the relationship and meaning."
+        ],
+        "identify": [
+          "Spot the preposition and its complete Prepositional Phrase inside a sentence."
+        ],
+        "construct": [
+          "Complete sentences with accurate Prepositional Phrases using object-case pronouns after prepositions."
+        ],
+        "commonMisconceptions": [
+          "Highlighting only the preposition word without its noun-group object (or accidentally including the verb).",
+          "Using subject pronouns after prepositions ('between you and I' instead of 'between you and me')."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "mira",
+        "shortExplanation": "A preposition works like a relation bridge linking a noun, noun group, or object pronoun to the rest of the sentence. Together, [Preposition + Object] forms one Prepositional Phrase—for example, 'under the old banyan tree' or 'for us'.",
+        "examples": [
+          {
+            "text": "The brass water bottle sits on / under / beside the wooden bench.",
+            "label": "Swapping Prepositions Shifts Meaning",
+            "note": "'on', 'under', and 'beside' link 'the wooden bench' to 'sits' with three distinct spatial meanings."
+          },
+          {
+            "text": "The science teacher shared the mango slices between Mira and me.",
+            "label": "Object-Case Pronoun After Preposition",
+            "note": "After 'between', use object form 'me' (not 'I')."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Writing 'Please keep this secret between you and I.'",
+          "correction": "Because 'between' is a preposition, both pronouns sit in its object slot -> 'between you and me'."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "identify-group",
+          "title": "Spotlight the Complete Prepositional Phrase",
+          "description": "Students tap all tokens belonging to the Prepositional Phrase (preposition + full noun-group object) inside school and courtyard sentences."
+        },
+        "checkpointQuestion": {
+          "prompt": "In 'Fresh spinach grows well near the school water tank', which group of words is the complete Prepositional Phrase?",
+          "options": [
+            { "id": "a", "label": "near", "isCorrect": false },
+            { "id": "b", "label": "grows well near", "isCorrect": false },
+            { "id": "c", "label": "near the school water tank", "isCorrect": true },
+            { "id": "d", "label": "the school water tank", "isCorrect": false }
+          ],
+          "explanation": "A Prepositional Phrase begins with the preposition ('near') and ends at the end of its noun-group object ('the school water tank')."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["show-sentence", "show-relationship"],
+        "visualModes": ["split-blueprint", "relationship-arcs"]
+      }
+    },
+    {
+      "id": "prep-topic-02",
+      "order": 2,
+      "title": "Prepositions of Time (at, on, in, since, for, by, until, during)",
+      "broadArea": "Prepositions of time",
+      "difficultyLevel": "Beginner",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "prerequisites": [
+        "Topic 1: Prepositional Phrases",
+        "for vs since from Tenses (Requires a short revision)"
+      ],
+      "learningObjectives": {
+        "understand": [
+          "Time prepositions depend on time scale: 'at' (clock points), 'on' (days/dates), 'in' (months/seasons/years/parts of day, except 'at night').",
+          "'since' marks a past starting point, 'for' marks duration, 'during' places an event inside a period, 'by' sets a deadline, and 'until/till' marks continuation up to an endpoint.",
+          "Words like 'yesterday, today, tomorrow, next/last + day' do not take on/in/at."
+        ],
+        "identify": [
+          "Match time expressions accurately to 'at / on / in' and distinguish 'since vs for' and 'by vs until'."
+        ],
+        "construct": [
+          "Select accurate time prepositions (or zero preposition) in timetables, habits, and deadlines."
+        ],
+        "commonMisconceptions": [
+          "Using 'on' with parts of a day ('on morning') or 'in' with specific dates ('in 15 August').",
+          "Inserting 'on' before 'yesterday / tomorrow / next Monday'.",
+          "Confusing 'since' (point) with 'for' (duration), or 'by' (deadline) with 'until' (continuous up to)."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "gyan",
+        "shortExplanation": "Think of time size: 'at' hits an exact clock point (at 8 a.m., at noon, at night), 'on' lands on a day or date (on Monday, on 14 November), and 'in' sits inside a longer span (in July, in summer, in 2024, in the morning). Never put on/in/at before yesterday, today, tomorrow, or next week!",
+        "examples": [
+          {
+            "text": "Our school assembly begins at 8:00 a.m. on Mondays in July.",
+            "label": "at (clock) + on (day) + in (month)",
+            "note": "Shows all three time scales cleanly in one sentence."
+          },
+          {
+            "text": "Please return the science books by Friday; the library stays open until 4:30 p.m.",
+            "label": "Deadline (by) vs Endpoint (until)",
+            "note": "'by Friday' = on or before Friday; 'until 4:30 p.m.' = open continuously up to 4:30."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Writing 'The eco-club has planted saplings since three years' or 'We will meet on tomorrow.'",
+          "correction": "'three years' is a length of time -> 'for three years'. And 'tomorrow' takes NO preposition -> 'We will meet tomorrow.'"
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "categorise",
+          "title": "Sort Time Expressions into at / on / in",
+          "description": "Students sort time slips ('7:30 a.m.', '15 August', 'August', 'the morning', 'noon', 'Republic Day') into exact Point (at), Day/Date (on), and Span (in) buckets."
+        },
+        "checkpointQuestion": {
+          "prompt": "Choose the accurate completion: 'Mira has practised classical music ___ 2021, and she practises ___ an hour every evening.'",
+          "options": [
+            { "id": "a", "label": "for ... since", "isCorrect": false },
+            { "id": "b", "label": "since ... for", "isCorrect": true },
+            { "id": "c", "label": "from ... during", "isCorrect": false },
+            { "id": "d", "label": "by ... until", "isCorrect": false }
+          ],
+          "explanation": "'2021' is the starting point ('since 2021'), whereas 'an hour' is the length/duration ('for an hour')."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["explain-role", "compare-example"],
+        "visualModes": ["timeline-shift", "compare-dual"]
+      }
+    },
+    {
+      "id": "prep-topic-03",
+      "order": 3,
+      "title": "Prepositions of Place & Static Position (at, in, on, between, among, beside)",
+      "broadArea": "Prepositions of place and position",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "prerequisites": ["Topic 1: Prepositional Phrases"],
+      "learningObjectives": {
+        "understand": [
+          "Static place prepositions distinguish a point/spot ('at'), an enclosed/3D area ('in'), and a surface/line ('on').",
+          "'between' separates distinct two (or individually named) items while 'among' expresses position inside a group of three or more; 'beside' means next to while 'besides' means in addition to."
+        ],
+        "identify": [
+          "Select accurate static position prepositions for maps, rooms, tables, and groups."
+        ],
+        "construct": [
+          "Describe spatial relationships cleanly using at/in/on, between/among, above/over vs below/under, beside, and opposite/in front of."
+        ],
+        "commonMisconceptions": [
+          "Using 'in' for surfaces ('a picture in the wall') or 'in' for small meeting points ('waiting in the bus stop').",
+          "Using 'between' for large unseparated crowds or 'among' for two named people.",
+          "Confusing 'beside' (next to) with 'besides' (apart from)."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "mira",
+        "shortExplanation": "For places at rest, picture the space: 'at' marks a specific point (at the school gate), 'in' marks an enclosed area or city (in the basket, in Assam), and 'on' touches a surface (on the noticeboard, on the shelf). Use 'between' for two distinct items and 'among' inside a larger group.",
+        "examples": [
+          {
+            "text": "Arjun waited at the school gate while the science models were kept in a wooden box on the table.",
+            "label": "Point (at) + Enclosure (in) + Surface (on)",
+            "note": "Each preposition reflects how the space is viewed."
+          },
+          {
+            "text": "The mango sapling stands between the neem tree and the well, hidden among tall ferns.",
+            "label": "between (two) vs among (group)",
+            "note": "'between' links two specific trees/landmarks; 'among' places it inside many ferns."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Writing 'The globe is kept besides the atlas' when meaning 'next to the atlas.'",
+          "correction": "'beside' (without -s) means 'next to'; 'besides' means 'in addition to' ('Besides the atlas, we also brought a compass')."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "word-replacement",
+          "title": "Place Swap on the School Courtyard Map",
+          "description": "Students swap static prepositions ('at / in / on', 'between / among', 'beside / opposite') and inspect how the spatial position of items changes."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which sentence uses 'between', 'among', or 'beside' accurately?",
+          "options": [
+            { "id": "a", "label": "The coach divided the fresh oranges between all twenty players.", "isCorrect": false },
+            { "id": "b", "label": "Mira sat besides Arjun during the astronomy quiz.", "isCorrect": false },
+            { "id": "c", "label": "The library sits between the science laboratory and the art room.", "isCorrect": true },
+            { "id": "d", "label": "The notice was pinned in the classroom wall.", "isCorrect": false }
+          ],
+          "explanation": "'between' accurately links two named locations (science laboratory and art room). Use 'among' for twenty players, 'beside' for next to, and 'on' for a wall surface."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["explain-meaning", "compare-example"],
+        "visualModes": ["meaning-callout", "compare-dual"]
+      }
+    },
+    {
+      "id": "prep-topic-04",
+      "order": 4,
+      "title": "Prepositions of Direction & Movement (to, into, onto, through, across, along)",
+      "broadArea": "Prepositions of direction and movement",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "prerequisites": ["Topic 3: Static place prepositions"],
+      "learningObjectives": {
+        "understand": [
+          "Motion verbs pair with directional prepositions: 'into' (entering inside) vs static 'in'; 'onto' (moving to a surface) vs static 'on'; 'to' (destination reached) vs 'towards' (direction).",
+          "'across' crosses a 2D surface from side to side, 'through' passes inside a 3D space or opening, and 'along' follows a linear path."
+        ],
+        "identify": [
+          "Distinguish static location phrases from directional motion phrases."
+        ],
+        "construct": [
+          "Choose accurate path and motion prepositions for travel, liquid transfer, and movement scenes."
+        ],
+        "commonMisconceptions": [
+          "Using static 'in/on' after motion verbs where entry or surface landing is meant ('poured milk in the glass' instead of 'into').",
+          "Confusing 'across' (surface crossing) with 'through' (3D tunnel/forest/window passage)."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "arjun",
+        "shortExplanation": "When someone or something moves, check the path! Moving from outside to inside uses 'into' (not 'in'); landing on a surface uses 'onto' (not 'on'). Walk 'across' a flat road or bridge, travel 'through' a 3D tunnel or forest, and walk 'along' a canal bank.",
+        "examples": [
+          {
+            "text": "Mira poured warm milk into the steel tumbler (motion), so now the milk is in the tumbler (rest).",
+            "label": "Motion (into) vs Rest (in)",
+            "note": "'into' shows movement across the boundary; 'in' shows resting location afterwards."
+          },
+          {
+            "text": "The cyclists rode across the stone bridge, through the pine grove, and along the quiet river bank.",
+            "label": "across (surface) + through (3D space) + along (line)",
+            "note": "Three distinct geometric paths in one journey."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Writing 'Cool monsoon air entered across the open window.'",
+          "correction": "Air passes inside an opening from outside to inside -> 'through the open window'."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "missing-words",
+          "title": "Trace the Movement Path",
+          "description": "Students complete motion sentences by choosing between 'in vs into', 'on vs onto', 'to vs towards', and 'across vs through vs along'."
+        },
+        "checkpointQuestion": {
+          "prompt": "Fill the blanks accurately: 'The train passed ___ a long tunnel and then crossed a bridge ___ the Godavari River.'",
+          "options": [
+            { "id": "a", "label": "across ... through", "isCorrect": false },
+            { "id": "b", "label": "through ... across", "isCorrect": true },
+            { "id": "c", "label": "along ... into", "isCorrect": false },
+            { "id": "d", "label": "in ... on", "isCorrect": false }
+          ],
+          "explanation": "A tunnel is an enclosed 3D passage ('through'), whereas a bridge goes from one bank to the other over the river ('across')."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["compare-example", "interact-explore"],
+        "visualModes": ["compare-dual", "guided-explore"]
+      }
+    },
+    {
+      "id": "prep-topic-05",
+      "order": 5,
+      "title": "Relationships, Means, Origin & Context-Dependent Meaning Shifts",
+      "broadArea": "Relationships, means, abstract uses & context-dependent meaning changes",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "prerequisites": ["Topics 1-4"],
+      "learningObjectives": {
+        "understand": [
+          "Prepositions also signal non-spatial relationships: doer/mode ('by') vs instrument/accompaniment ('with'), purpose ('for'), visible material ('made of') vs transformed origin ('made from'), and topic ('about, of').",
+          "The same preposition shifts meaning completely depending on sentence context (place vs time vs means vs abstract state)—learners must read context rather than memorising one rigid rule."
+        ],
+        "identify": [
+          "Distinguish 'by' (doer/transport mode) from 'with' (physical tool), 'made of' from 'made from', and identify what role a repeated preposition plays in each context."
+        ],
+        "construct": [
+          "Select accurate prepositions for tools, travel modes ('by bus', 'in a car', 'on foot'), materials, and purpose."
+        ],
+        "commonMisconceptions": [
+          "Using 'by' for physical tools ('peeled the orange by a knife' instead of 'with').",
+          "Writing 'by foot' or 'in train' instead of 'on foot' / 'by train'.",
+          "Assuming a preposition like 'by' or 'in' carries only one fixed meaning everywhere."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "gyan",
+        "shortExplanation": "Prepositions are context chameleons! Watch 'by': 'by the river' (place), 'by 5 p.m.' (time deadline), 'by train' (transport), and 'painted by Mira' (doer). Remember: people/transport modes take 'by' ('by bicycle', EXCEPT 'on foot' and 'in a car'), while physical tools take 'with' ('cut with a knife').",
+        "examples": [
+          {
+            "text": "Arjun sliced the fresh papaya with a clean knife and carried the tray by hand.",
+            "label": "Tool (with) vs Method (by)",
+            "note": "'with' marks the physical tool ('knife')."
+          },
+          {
+            "text": "The desks are made of bamboo, while fresh curd is made from warm milk.",
+            "label": "Visible Material (made of) vs Transformed Material (made from)",
+            "note": "You can still see bamboo in the desk; milk transforms chemically into curd."
+          },
+          {
+            "text": "1) Sit by the window (Place) | 2) Finish by noon (Time) | 3) Travel by train (Means) | 4) Written by Tagore (Doer)",
+            "label": "One Preposition, Four Context Meanings",
+            "note": "Demonstrates why context decides meaning rather than a single rigid rule."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Writing 'Most students come to our village school by foot.'",
+          "correction": "Use 'by' before vehicles without an article ('by bus, by cycle'), but walking is always 'on foot'."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "categorise",
+          "title": "Same Preposition, Different Context Job",
+          "description": "Students inspect 6 sentences using 'by' or 'in' and sort each use by its contextual meaning: Place, Time, Means/Medium, or Doer/State."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which sentence uses means, tool, or material prepositions accurately?",
+          "options": [
+            { "id": "a", "label": "Write your lab observations with blue ink.", "isCorrect": false },
+            { "id": "b", "label": "She tightened the telescope screw by a small screwdriver.", "isCorrect": false },
+            { "id": "c", "label": "Butter is churned from fresh cream, and many pupils walk to school on foot.", "isCorrect": true },
+            { "id": "d", "label": "Mira came to the library in bus this morning.", "isCorrect": false }
+          ],
+          "explanation": "'made/churned from' marks transformed origin, and walking is 'on foot' (whereas ink medium is 'in blue ink', tools take 'with a screwdriver', and vehicle without article takes 'by bus')."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["explain-meaning", "show-relationship"],
+        "visualModes": ["meaning-callout", "relationship-arcs"]
+      }
+    },
+    {
+      "id": "prep-topic-06",
+      "order": 6,
+      "title": "Placement, Commonly Confused Pairs, Zero-Preposition Verbs & Phrasal Boundary",
+      "broadArea": "Placement, commonly confused pairs, common errors & phrasal boundary",
+      "difficultyLevel": "Advanced",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "prerequisites": [
+        "Topics 1-5",
+        "Transitive verbs vs Intransitive verbs (Already available)"
+      ],
+      "learningObjectives": {
+        "understand": [
+          "Certain common transitive verbs take a Direct Object with NO preposition ('discuss, enter, reach, order, await, resemble, answer').",
+          "Prepositions normally stand before their objects, but move naturally to the end in Wh-questions and everyday relative clauses ('Who are you waiting for?').",
+          "Pairs like 'in vs within', 'beside vs besides', and 'agree with vs agree to' carry distinct meanings, and literal 'Preposition + Noun' differs from idiomatic 'Phrasal Verbs'."
+        ],
+        "identify": [
+          "Spot redundant prepositions after transitive verbs, choose the right member of confused pairs, and separate literal prepositional phrases from idiomatic phrasal verbs."
+        ],
+        "construct": [
+          "Edit broken sentences containing extra or mismatched prepositions and assemble natural prepositional questions."
+        ],
+        "commonMisconceptions": [
+          "Adding 'about' after 'discuss', 'into' after 'enter' (a room), or 'at/to' after 'reach'.",
+          "Confusing 'in a week' (at the end of a week) with 'within a week' (before a week ends).",
+          "Assuming a preposition can never stand at the end of a question."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "arjun",
+        "shortExplanation": "Watch out for silent-preposition traps! Verbs like 'discuss, enter, reach, order, resemble' connect straight to their object without extra words—say 'discussed the plan' (NOT 'discussed about'), 'entered the hall' (NOT 'entered into'), and 'reached school' (NOT 'reached to'). Also distinguish 'in' (at the end of) from 'within' (before the limit ends), and remember that ending a question with a preposition ('Which shelf is the atlas on?') is natural English.",
+        "examples": [
+          {
+            "text": "Broken: 'We discussed about nutrition and reached to the canteen at noon.' -> Fixed: 'We discussed nutrition and reached the canteen at noon.'",
+            "label": "Zero-Preposition Transitive Verbs",
+            "note": "'discuss' and 'reach' already include the relation inside the verb."
+          },
+          {
+            "text": "The parcel will arrive within two days (before 2 days pass) vs in two days (at the 2-day mark).",
+            "label": "Confused Pair: in vs within",
+            "note": "'within' sets an upper boundary anytime before the period finishes."
+          },
+          {
+            "text": "Look up the chimney (Preposition + Object) vs Look up the word in a dictionary (Phrasal Verb = search).",
+            "label": "Boundary with Phrasal Verbs",
+            "note": "Idiomatic phrasal verbs shift the verb's core meaning and belong in their own lesson."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Writing 'The students entered into the science exhibition hall quietly.'",
+          "correction": "Use 'enter' directly before a physical room or place: 'The students entered the science exhibition hall quietly.'"
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "error-identification",
+          "title": "Fix Preposition Traps & Confused Pairs",
+          "description": "Students audit school newsletter drafts to remove redundant prepositions ('discuss about', 'entered into', 'reached to') and fix 'in/within', 'beside/besides', and 'agree with/to' slips."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which sentence is completely free of preposition errors?",
+          "options": [
+            { "id": "a", "label": "Our team discussed about the rainwater project after lunch.", "isCorrect": false },
+            { "id": "b", "label": "Arjun reached at the railway station ten minutes early.", "isCorrect": false },
+            { "id": "c", "label": "Which laboratory shelf did Mira leave the microscope on?", "isCorrect": true },
+            { "id": "d", "label": "The students entered into the library without making noise.", "isCorrect": false }
+          ],
+          "explanation": "'discuss', 'reach', and 'enter' (a physical room) take direct objects without 'about/at/into'. Question-end placement ('leave the microscope on?') is completely natural."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["compare-example", "guided-practice"],
+        "visualModes": ["compare-dual", "practice-ready"]
+      }
+    }
+  ],
+  "conflictsAndCoverageGaps": [
+    {
+      "id": "gap-prep-odisha9-omission",
+      "severity": "medium",
+      "summary": "Odisha Class IX textbook lacks a standalone Prepositions chapter, introducing prepositions only within Ch. 1 Sec. C Word Classes and using them inside Noun Phrases/Adverbials before full treatment in Class X Ch. 5.",
+      "mitigation": "Begin with a ground-up Prepositional Phrase visual model in Topic 1 so every learner builds structural intuition immediately."
+    },
+    {
+      "id": "gap-prep-pseb10-missing",
+      "severity": "medium",
+      "summary": "No PSEB Class X textbook is present in the uploaded set (PSEB IX covers Prepositions in Ch. 3 pp. 27-40).",
+      "mitigation": "Combine PSEB IX Ch. 3 with Odisha X Ch. 5, Assam Ch. 14, and supplementary-bridge notes for placement, zero-preposition verbs, and context-shift contrasts."
+    },
+    {
+      "id": "conflict-prep-grouping-and-phrasal-boundary",
+      "severity": "medium",
+      "summary": "Odisha X isolates Prepositions (Ch. 5) from Phrasal Verbs (Ch. 6); Assam uses Position of Prepositions (Ch. 14) alongside Group/Phrasal Verbs (Ch. 10); PSEB IX organises by Time, Place, Direction, and Fixed Uses (Ch. 3).",
+      "mitigation": "Organise Topics 1-6 around Phrase Role -> Time -> Place -> Direction -> Means/Context Shifts -> Placement & Errors, while keeping idiomatic Phrasal Verbs cleanly separated into topic-phrasal-verbs."
+    },
+    {
+      "id": "gap-prep-upcoming-companions",
+      "severity": "medium",
+      "summary": "Companion lessons (Phrasal Verbs, Conjunctions, Noun Phrases, Pronouns & Case) are currently upcoming in curriculumCatalog.ts.",
+      "mitigation": "Provide brief inline bridges for noun-group objects, object pronouns ('between you and me'), 'before/after/since' + noun vs clause, and literal prepositions vs phrasal verbs."
+    },
+    {
+      "id": "gap-prep-odisha10-typo",
+      "severity": "low",
+      "summary": "content-gaps.md records a print typo in Odisha X Ch. 5 p. 46 ('He is ran / He is threw').",
+      "mitigation": "Noted internally so Phase 2 authoring avoids unedited print glitches."
+    },
+    {
+      "id": "gap-prep-raw-pdfs-absent",
+      "severity": "transparency",
+      "summary": "Raw PDF files are absent from the runtime container; fixed-preposition lists and exact page-level examples inside Odisha X Ch. 5, PSEB IX Ch. 3, and Assam Ch. 14 are not expanded in curriculum-source-map.json.",
+      "mitigation": "Cite only verified chapter titles, page ranges, and recorded summaries; mark all Phase 2 sentences as supplementary-bridge or original-practice unless verified directly against the raw PDFs."
+    }
+  ]
+}

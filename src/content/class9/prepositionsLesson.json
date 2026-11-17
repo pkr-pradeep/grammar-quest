@@ -1,0 +1,3657 @@
+{
+  "lessonId": "c9-lesson-prepositions",
+  "missionId": "c9-mission-06",
+  "classLevel": 9,
+  "moduleId": "cat-connectors",
+  "moduleTitle": "Connectors & Prepositions",
+  "missionTitle": "Prepositions",
+  "topic": "Prepositional Phrases, Time, Place, Direction, Context Shifts & Usage Traps",
+  "estimatedMinutes": 9,
+  "situationBrief": {
+    "title": "Prepositions",
+    "description": "Learn how prepositions bridge nouns to sentences across time, place, direction, and means—and why context shapes every choice.",
+    "characterId": "gyan",
+    "characterExpression": "explaining"
+  },
+  "learningObjectives": {
+    "grammarOutcomes": [
+      "Identify Prepositions and complete Prepositional Phrases (Preposition + Noun / Noun Group / Object Pronoun) and see how swapping a preposition changes meaning.",
+      "Select accurate prepositions of Time (at, on, in, since, for, during, by, until), Static Place (at, in, on, between, among, beside), and Direction (into, onto, to, towards, across, through, along).",
+      "Interpret context-dependent prepositions (by, with, in, of/from), avoid extra prepositions after transitive verbs (discuss, enter, reach), and separate prepositions from phrasal verbs."
+    ],
+    "knowledgeOutcome": "Explore Indian school gardens, courtyard maps, Godavari train journeys, and healthy kitchen scenes through interactive prepositional bridges."
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od10-ch5-prepositions",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 5: Prepositions",
+      "bookPages": "39-57",
+      "pdfPages": "45-63",
+      "provenance": "textbook-derived",
+      "note": "Dedicated 19-page Prepositions chapter, separated cleanly from Ch. 6 Phrasal Verbs (pp. 58-70)."
+    },
+    {
+      "id": "src-pseb9-ch3-prepositions",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 3: Prepositions",
+      "bookPages": "27-40",
+      "pdfPages": "33-46",
+      "provenance": "textbook-derived",
+      "note": "Covers prepositions of time, place, direction, and fixed uses."
+    },
+    {
+      "id": "src-assam-ch14-prepositions",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Chapter 14: Position of Prepositions",
+      "bookPages": "214-241",
+      "pdfPages": "223-250",
+      "provenance": "textbook-derived",
+      "note": "28-page chapter on preposition usage and placement, paired with Ch. 13 Adverbials."
+    },
+    {
+      "id": "src-od9-wordclass-prep",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Ch. 1 Sec. C Word Classes (pp. 8-22) & Ch. 10/12 Adverbials",
+      "bookPages": "8-22, 117-134, 141-146",
+      "pdfPages": "14-28, 123-140, 147-152",
+      "provenance": "textbook-derived",
+      "note": "Introduces Preposition as a word class and uses prepositional phrases inside noun modifiers and adverbials."
+    },
+    {
+      "id": "src-prep-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Visual Relation Bridge, Context-Shift Lab & Phrasal Boundary (Supplementary)",
+      "chapter": "Prepositions Blueprint",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Provides visual Prepositional Phrase brackets, static-vs-motion spatial frames, context-shift demonstrations, zero-preposition verb checks, and original Indian school/nutrition examples."
+    }
+  ],
+  "activeRelationshipTypes": [
+    "verb-subject",
+    "preposition-relation",
+    "determiner-noun",
+    "adjective-noun",
+    "adverb-verb"
+  ],
+  "sentences": [
+    {
+      "id": "prep-s1-on",
+      "title": "Starter Sentence · Relation Bridge ('on')",
+      "rawText": "The brass bottle sits on the wooden bench.",
+      "contextTag": "School Courtyard",
+      "note": "The preposition 'on' links 'the wooden bench' to 'sits', showing the bottle touches the top surface.",
+      "tokens": [
+        {
+          "id": "ps1-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to one specific bottle.",
+          "grammaticalRoleExplanation": "Opens the Subject noun phrase.",
+          "linkedTokenIds": ["ps1-t3"]
+        },
+        {
+          "id": "ps1-t2",
+          "text": "brass",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Tells what the bottle is made of.",
+          "grammaticalRoleExplanation": "Modifies 'bottle'.",
+          "linkedTokenIds": ["ps1-t3"]
+        },
+        {
+          "id": "ps1-t3",
+          "text": "bottle",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names what the sentence is about.",
+          "grammaticalRoleExplanation": "Singular Subject taking 'sits'.",
+          "linkedTokenIds": ["ps1-t4"]
+        },
+        {
+          "id": "ps1-t4",
+          "text": "sits",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Tells the bottle's resting action.",
+          "grammaticalRoleExplanation": "Verb linked to place by 'on'.",
+          "linkedTokenIds": ["ps1-t3", "ps1-t5"]
+        },
+        {
+          "id": "ps1-t5",
+          "text": "on",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition Bridge",
+          "meaningInSentence": "Shows top-surface contact.",
+          "grammaticalRoleExplanation": "Connects 'the wooden bench' to 'sits'. Swapping 'on' for 'under' or 'beside' changes the scene!",
+          "linkedTokenIds": ["ps1-t4", "ps1-t8"]
+        },
+        {
+          "id": "ps1-t6",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the bench.",
+          "grammaticalRoleExplanation": "Part of the Preposition's Object noun group.",
+          "linkedTokenIds": ["ps1-t8"]
+        },
+        {
+          "id": "ps1-t7",
+          "text": "wooden",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the bench.",
+          "grammaticalRoleExplanation": "Part of the Object noun group 'the wooden bench'.",
+          "linkedTokenIds": ["ps1-t8"]
+        },
+        {
+          "id": "ps1-t8",
+          "text": "bench",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Object of Preposition",
+          "meaningInSentence": "Completes the relation after 'on'.",
+          "grammaticalRoleExplanation": "Head-noun of the Prepositional Phrase 'on the wooden bench'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps1-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps1-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps1-t1", "ps1-t2", "ps1-t3"],
+          "questionPrompt": "What sits there?",
+          "plainExplanation": "'The brass bottle' is the Subject.",
+          "textbookRule": "Subjects name who or what the sentence is about.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        },
+        {
+          "id": "ps1-pred",
+          "role": "predicate",
+          "label": "Predicate (Verb + Prepositional Phrase)",
+          "tokenIds": ["ps1-t4", "ps1-t5", "ps1-t6", "ps1-t7", "ps1-t8"],
+          "questionPrompt": "Where does it sit?",
+          "plainExplanation": "'sits' + Prepositional Phrase 'on the wooden bench' (Preposition 'on' + Object 'the wooden bench').",
+          "textbookRule": "A preposition joins a noun or noun group to show a spatial, time, or logical relation.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-prep-bridge"]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "ps1-rel-1",
+          "type": "preposition-relation",
+          "label": "Preposition bridge",
+          "fromTokenIds": ["ps1-t5"],
+          "toTokenIds": ["ps1-t8"],
+          "explanation": "'on' bridges 'sits' to 'the wooden bench'.",
+          "activeInLesson": true
+        }
+      ],
+      "structureSummary": {
+        "subjectText": "The brass bottle",
+        "subjectHeadWord": "bottle",
+        "predicateText": "sits on the wooden bench.",
+        "predicateHeadWord": "sits",
+        "patternNote": "Bridge: sits (Verb) <- on (Preposition) -> the wooden bench (Object)."
+      }
+    },
+    {
+      "id": "prep-s1-under",
+      "title": "Compare Sentence · Meaning Shift ('under')",
+      "rawText": "The brass bottle sits under the wooden bench.",
+      "contextTag": "School Courtyard",
+      "note": "Changing one word—'on' -> 'under'—moves the bottle from the top of the bench to the ground beneath it!",
+      "tokens": [
+        {
+          "id": "ps1u-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the bottle.",
+          "grammaticalRoleExplanation": "Opens Subject.",
+          "linkedTokenIds": ["ps1u-t3"]
+        },
+        {
+          "id": "ps1u-t2",
+          "text": "brass",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes the bottle.",
+          "grammaticalRoleExplanation": "Modifies 'bottle'.",
+          "linkedTokenIds": ["ps1u-t3"]
+        },
+        {
+          "id": "ps1u-t3",
+          "text": "bottle",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the bottle.",
+          "grammaticalRoleExplanation": "Singular Subject.",
+          "linkedTokenIds": ["ps1u-t4"]
+        },
+        {
+          "id": "ps1u-t4",
+          "text": "sits",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Resting action.",
+          "grammaticalRoleExplanation": "Finite verb.",
+          "linkedTokenIds": ["ps1u-t5"]
+        },
+        {
+          "id": "ps1u-t5",
+          "text": "under",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition (Changed!)",
+          "meaningInSentence": "Moves the bottle below the bench.",
+          "grammaticalRoleExplanation": "Swapping the preposition shifts the spatial relationship completely.",
+          "linkedTokenIds": ["ps1u-t8"]
+        },
+        {
+          "id": "ps1u-t6",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the bench.",
+          "grammaticalRoleExplanation": "Opens Object of 'under'.",
+          "linkedTokenIds": ["ps1u-t8"]
+        },
+        {
+          "id": "ps1u-t7",
+          "text": "wooden",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the bench.",
+          "grammaticalRoleExplanation": "Modifies 'bench'.",
+          "linkedTokenIds": ["ps1u-t8"]
+        },
+        {
+          "id": "ps1u-t8",
+          "text": "bench",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Object of Preposition",
+          "meaningInSentence": "Completes 'under the wooden bench'.",
+          "grammaticalRoleExplanation": "Head-noun of the phrase.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps1u-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps1u-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps1u-t1", "ps1u-t2", "ps1u-t3"],
+          "questionPrompt": "What sits?",
+          "plainExplanation": "'The brass bottle' (unchanged).",
+          "textbookRule": "Prepositions control the relationship between unchanged nouns.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        },
+        {
+          "id": "ps1u-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps1u-t4", "ps1u-t5", "ps1u-t6", "ps1u-t7", "ps1u-t8"],
+          "questionPrompt": "What changed the picture?",
+          "plainExplanation": "'under' replaced 'on', placing the bottle underneath instead of on top.",
+          "textbookRule": "Swapping a preposition alters meaning directly.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The brass bottle",
+        "subjectHeadWord": "bottle",
+        "predicateText": "sits under the wooden bench.",
+        "predicateHeadWord": "sits",
+        "patternNote": "Meaning Control: 'on' (top surface) -> 'under' (directly beneath)."
+      }
+    },
+    {
+      "id": "prep-s2-phrase",
+      "title": "Starter Sentence · Full Prepositional Phrase",
+      "rawText": "Fresh spinach grows near the water tank.",
+      "contextTag": "School Garden",
+      "note": "A Prepositional Phrase includes the preposition ('near') PLUS its entire noun group ('the water tank')—never split off 'the' or 'water'!",
+      "tokens": [
+        {
+          "id": "ps2-t1",
+          "text": "Fresh",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the spinach.",
+          "grammaticalRoleExplanation": "Modifies 'spinach'.",
+          "linkedTokenIds": ["ps2-t2"]
+        },
+        {
+          "id": "ps2-t2",
+          "text": "spinach",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the healthy green crop.",
+          "grammaticalRoleExplanation": "Uncountable singular Subject.",
+          "linkedTokenIds": ["ps2-t3"]
+        },
+        {
+          "id": "ps2-t3",
+          "text": "grows",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Tells what the spinach does.",
+          "grammaticalRoleExplanation": "Finite verb in Predicate.",
+          "linkedTokenIds": ["ps2-t2"]
+        },
+        {
+          "id": "ps2-t4",
+          "text": "near",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Shows close distance.",
+          "grammaticalRoleExplanation": "Starts the Prepositional Phrase 'near the water tank' (no finite verb inside!).",
+          "linkedTokenIds": ["ps2-t7"]
+        },
+        {
+          "id": "ps2-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the tank.",
+          "grammaticalRoleExplanation": "Inside the Object noun group.",
+          "linkedTokenIds": ["ps2-t7"]
+        },
+        {
+          "id": "ps2-t6",
+          "text": "water",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Tells the kind of tank.",
+          "grammaticalRoleExplanation": "Inside the Object noun group.",
+          "linkedTokenIds": ["ps2-t7"]
+        },
+        {
+          "id": "ps2-t7",
+          "text": "tank",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Object of Preposition",
+          "meaningInSentence": "Completes 'near the water tank'.",
+          "grammaticalRoleExplanation": "Ends the Prepositional Phrase.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps2-t4"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps2-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps2-t1", "ps2-t2"],
+          "questionPrompt": "What grows?",
+          "plainExplanation": "'Fresh spinach' is the Subject.",
+          "textbookRule": "Prepositional phrases inside a Subject or Predicate keep their full noun group together.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od9-wordclass-prep", "src-prep-bridge"]
+        },
+        {
+          "id": "ps2-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps2-t3", "ps2-t4", "ps2-t5", "ps2-t6", "ps2-t7"],
+          "questionPrompt": "What is the complete Prepositional Phrase?",
+          "plainExplanation": "'near the water tank' (Preposition 'near' + full Object 'the water tank').",
+          "textbookRule": "A Prepositional Phrase = Preposition + Noun / Noun Group / Object Pronoun (no finite verb).",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Fresh spinach",
+        "subjectHeadWord": "spinach",
+        "predicateText": "grows near the water tank.",
+        "predicateHeadWord": "grows",
+        "patternNote": "Prepositional Phrase = near (Preposition) + the water tank (Full Noun Group)."
+      }
+    },
+    {
+      "id": "prep-s2-pronoun",
+      "title": "Compare Sentence · Object Pronoun Case",
+      "rawText": "Mira shared ripe mangoes between Arjun and me.",
+      "contextTag": "Healthy Snack",
+      "note": "After any preposition ('between, for, with, to'), always use Object-case pronouns ('me, us, him, her, them')—never 'between Arjun and I'!",
+      "tokens": [
+        {
+          "id": "ps2p-t1",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who shared.",
+          "grammaticalRoleExplanation": "Subject.",
+          "linkedTokenIds": ["ps2p-t2"]
+        },
+        {
+          "id": "ps2p-t2",
+          "text": "shared",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Past action.",
+          "grammaticalRoleExplanation": "Transitive verb.",
+          "linkedTokenIds": ["ps2p-t4"]
+        },
+        {
+          "id": "ps2p-t3",
+          "text": "ripe",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the mangoes.",
+          "grammaticalRoleExplanation": "Modifies 'mangoes'.",
+          "linkedTokenIds": ["ps2p-t4"]
+        },
+        {
+          "id": "ps2p-t4",
+          "text": "mangoes",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names what was shared.",
+          "grammaticalRoleExplanation": "Direct Object.",
+          "linkedTokenIds": ["ps2p-t2"]
+        },
+        {
+          "id": "ps2p-t5",
+          "text": "between",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Preposition",
+          "meaningInSentence": "Links two recipients.",
+          "grammaticalRoleExplanation": "Forces any following pronoun into Object case.",
+          "linkedTokenIds": ["ps2p-t6", "ps2p-t8"]
+        },
+        {
+          "id": "ps2p-t6",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Object 1",
+          "meaningInSentence": "First recipient.",
+          "grammaticalRoleExplanation": "Part of the compound object after 'between'.",
+          "linkedTokenIds": ["ps2p-t5"]
+        },
+        {
+          "id": "ps2p-t7",
+          "text": "and",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "roleLabel": "Conjunction",
+          "meaningInSentence": "Joins Arjun and me.",
+          "grammaticalRoleExplanation": "Coordinates the two objects.",
+          "linkedTokenIds": ["ps2p-t6", "ps2p-t8"]
+        },
+        {
+          "id": "ps2p-t8",
+          "text": "me",
+          "category": "pronoun",
+          "groupRole": "predicate",
+          "roleLabel": "Object Pronoun",
+          "meaningInSentence": "Second recipient (speaker).",
+          "grammaticalRoleExplanation": "Must be Object case 'me' after 'between' (never 'I').",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps2p-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps2p-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps2p-t1"],
+          "questionPrompt": "Who shared the mangoes?",
+          "plainExplanation": "'Mira' is the Subject.",
+          "textbookRule": "Pronouns after prepositions take Object case.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        },
+        {
+          "id": "ps2p-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps2p-t2", "ps2p-t3", "ps2p-t4", "ps2p-t5", "ps2p-t6", "ps2p-t7", "ps2p-t8"],
+          "questionPrompt": "Why 'me' instead of 'I'?",
+          "plainExplanation": "Because 'between' is a preposition, its object pronouns take Object case ('between Arjun and me').",
+          "textbookRule": "Always use Object-case pronouns (me, us, him, her, them, whom) after a preposition.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "shared ripe mangoes between Arjun and me.",
+        "predicateHeadWord": "shared",
+        "patternNote": "Preposition + Object Case: between (Preposition) + Arjun and me (Object Pronoun)."
+      }
+    },
+    {
+      "id": "prep-s3-time",
+      "title": "Starter Sentence · Time Scale (at / on / in)",
+      "rawText": "Our assembly begins at eight on Mondays in July.",
+      "contextTag": "School Timetable",
+      "note": "One clean scale: 'at' = exact clock point, 'on' = specific day/date, 'in' = longer month/season/year span!",
+      "tokens": [
+        {
+          "id": "ps3-t1",
+          "text": "Our",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Shows our school's assembly.",
+          "grammaticalRoleExplanation": "Opens Subject.",
+          "linkedTokenIds": ["ps3-t2"]
+        },
+        {
+          "id": "ps3-t2",
+          "text": "assembly",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the school gathering.",
+          "grammaticalRoleExplanation": "Singular Subject.",
+          "linkedTokenIds": ["ps3-t3"]
+        },
+        {
+          "id": "ps3-t3",
+          "text": "begins",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Tells when it starts.",
+          "grammaticalRoleExplanation": "Singular present verb.",
+          "linkedTokenIds": ["ps3-t2"]
+        },
+        {
+          "id": "ps3-t4",
+          "text": "at",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Time Point (at)",
+          "meaningInSentence": "Pinpoints the clock hour.",
+          "grammaticalRoleExplanation": "Use 'at' for clock times, noon, midnight, and 'at night'.",
+          "linkedTokenIds": ["ps3-t5"]
+        },
+        {
+          "id": "ps3-t5",
+          "text": "eight",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Clock Time",
+          "meaningInSentence": "8:00 a.m.",
+          "grammaticalRoleExplanation": "Object of 'at'.",
+          "linkedTokenIds": ["ps3-t4"]
+        },
+        {
+          "id": "ps3-t6",
+          "text": "on",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Day / Date (on)",
+          "meaningInSentence": "Marks the specific weekday.",
+          "grammaticalRoleExplanation": "Use 'on' for weekdays and calendar dates (on Monday, on 15 August).",
+          "linkedTokenIds": ["ps3-t7"]
+        },
+        {
+          "id": "ps3-t7",
+          "text": "Mondays",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Day of Week",
+          "meaningInSentence": "Every Monday.",
+          "grammaticalRoleExplanation": "Object of 'on'.",
+          "linkedTokenIds": ["ps3-t6"]
+        },
+        {
+          "id": "ps3-t8",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Longer Span (in)",
+          "meaningInSentence": "Places it inside a month.",
+          "grammaticalRoleExplanation": "Use 'in' for months, seasons, years, and 'in the morning/evening'.",
+          "linkedTokenIds": ["ps3-t9"]
+        },
+        {
+          "id": "ps3-t9",
+          "text": "July",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Month",
+          "meaningInSentence": "Month span.",
+          "grammaticalRoleExplanation": "Object of 'in'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps3-t8"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps3-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps3-t1", "ps3-t2"],
+          "questionPrompt": "What begins?",
+          "plainExplanation": "'Our assembly' is the Subject.",
+          "textbookRule": "Match 'at, on, in' to clock points, days/dates, and longer spans.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions"]
+        },
+        {
+          "id": "ps3-pred",
+          "role": "predicate",
+          "label": "Predicate (at + on + in)",
+          "tokenIds": ["ps3-t3", "ps3-t4", "ps3-t5", "ps3-t6", "ps3-t7", "ps3-t8", "ps3-t9"],
+          "questionPrompt": "Which three time prepositions appear?",
+          "plainExplanation": "'at eight' (clock), 'on Mondays' (day), and 'in July' (month).",
+          "textbookRule": "Do NOT add at/on/in before 'yesterday, today, tomorrow, last/next week, every day'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch3-prepositions", "src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Our assembly",
+        "subjectHeadWord": "assembly",
+        "predicateText": "begins at eight on Mondays in July.",
+        "predicateHeadWord": "begins",
+        "patternNote": "Time Scale: at (clock: eight) -> on (day: Mondays) -> in (month: July)."
+      }
+    },
+    {
+      "id": "prep-s4-since-for",
+      "title": "Starter Sentence · Start Point ('since') vs Length ('for')",
+      "rawText": "Mira has practised music since June for one hour daily.",
+      "contextTag": "Daily Routine",
+      "note": "'since' marks the starting point ('since June'), while 'for' measures total duration ('for one hour')!",
+      "tokens": [
+        {
+          "id": "ps4-t1",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who practises.",
+          "grammaticalRoleExplanation": "Singular Subject.",
+          "linkedTokenIds": ["ps4-t3"]
+        },
+        {
+          "id": "ps4-t2",
+          "text": "has",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Present Perfect Helper",
+          "meaningInSentence": "Links past start to now.",
+          "grammaticalRoleExplanation": "Common partner with 'since' and 'for'.",
+          "linkedTokenIds": ["ps4-t3"]
+        },
+        {
+          "id": "ps4-t3",
+          "text": "practised",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Verb",
+          "meaningInSentence": "Names the action.",
+          "grammaticalRoleExplanation": "Past participle in Present Perfect.",
+          "linkedTokenIds": ["ps4-t2"]
+        },
+        {
+          "id": "ps4-t4",
+          "text": "music",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names what Mira practises.",
+          "grammaticalRoleExplanation": "Object of 'practised'.",
+          "linkedTokenIds": ["ps4-t3"]
+        },
+        {
+          "id": "ps4-t5",
+          "text": "since",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Start Point (since)",
+          "meaningInSentence": "Points to when it began.",
+          "grammaticalRoleExplanation": "Always followed by a point on the calendar/clock ('since June', 'since 2021').",
+          "linkedTokenIds": ["ps4-t6"]
+        },
+        {
+          "id": "ps4-t6",
+          "text": "June",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Starting Point",
+          "meaningInSentence": "Month when practice started.",
+          "grammaticalRoleExplanation": "Point in time after 'since'.",
+          "linkedTokenIds": ["ps4-t5"]
+        },
+        {
+          "id": "ps4-t7",
+          "text": "for",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Duration (for)",
+          "meaningInSentence": "Measures how long.",
+          "grammaticalRoleExplanation": "Always followed by a measured length of time ('for one hour', 'for three years').",
+          "linkedTokenIds": ["ps4-t9"]
+        },
+        {
+          "id": "ps4-t8",
+          "text": "one",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Numeral",
+          "meaningInSentence": "Counts 1 hour.",
+          "grammaticalRoleExplanation": "Measures length.",
+          "linkedTokenIds": ["ps4-t9"]
+        },
+        {
+          "id": "ps4-t9",
+          "text": "hour",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Duration Noun",
+          "meaningInSentence": "Length of daily practice.",
+          "grammaticalRoleExplanation": "Object of 'for'.",
+          "linkedTokenIds": ["ps4-t7"]
+        },
+        {
+          "id": "ps4-t10",
+          "text": "daily",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Frequency Adverb",
+          "meaningInSentence": "Every day.",
+          "grammaticalRoleExplanation": "No preposition before 'daily / every day'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps4-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps4-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps4-t1"],
+          "questionPrompt": "Who has practised?",
+          "plainExplanation": "'Mira' is the Subject.",
+          "textbookRule": "Use 'since' + starting point, and 'for' + total length of time.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-prep-bridge"]
+        },
+        {
+          "id": "ps4-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps4-t2", "ps4-t3", "ps4-t4", "ps4-t5", "ps4-t6", "ps4-t7", "ps4-t8", "ps4-t9", "ps4-t10"],
+          "questionPrompt": "How do 'since' and 'for' differ?",
+          "plainExplanation": "'since June' names when it began; 'for one hour' counts how long each session lasts.",
+          "textbookRule": "Use 'during' inside a named event ('during monsoon'), 'by' for a deadline, and 'until' for continuous duration up to a stop point.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch3-prepositions", "src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "has practised music since June for one hour daily.",
+        "predicateHeadWord": "practised",
+        "patternNote": "since (Start Point: June) vs for (Length: one hour)."
+      }
+    },
+    {
+      "id": "prep-s4-by-until",
+      "title": "Compare Sentence · Deadline ('by') vs Endpoint ('until')",
+      "rawText": "Return the library books by Friday; we stay open until four.",
+      "contextTag": "Library Rules",
+      "note": "'by Friday' = on or before Friday (deadline); 'until four' = open continuously up to 4:00 p.m.!",
+      "tokens": [
+        {
+          "id": "ps4c-t1",
+          "text": "Return",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Imperative Verb",
+          "meaningInSentence": "Polite library rule.",
+          "grammaticalRoleExplanation": "Understood Subject is 'you'.",
+          "linkedTokenIds": ["ps4c-t4"]
+        },
+        {
+          "id": "ps4c-t2",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the books.",
+          "grammaticalRoleExplanation": "Determiner in Object.",
+          "linkedTokenIds": ["ps4c-t4"]
+        },
+        {
+          "id": "ps4c-t3",
+          "text": "library",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Specifies library books.",
+          "grammaticalRoleExplanation": "Modifies 'books'.",
+          "linkedTokenIds": ["ps4c-t4"]
+        },
+        {
+          "id": "ps4c-t4",
+          "text": "books",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names what to return.",
+          "grammaticalRoleExplanation": "Object of 'Return'.",
+          "linkedTokenIds": ["ps4c-t1"]
+        },
+        {
+          "id": "ps4c-t5",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Deadline (by)",
+          "meaningInSentence": "Means 'not later than Friday'.",
+          "grammaticalRoleExplanation": "Use 'by' for a single-action deadline (submit by, finish by).",
+          "linkedTokenIds": ["ps4c-t6"]
+        },
+        {
+          "id": "ps4c-t6",
+          "text": "Friday;",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Deadline Day",
+          "meaningInSentence": "Final due day.",
+          "grammaticalRoleExplanation": "Object of 'by'.",
+          "linkedTokenIds": ["ps4c-t5"]
+        },
+        {
+          "id": "ps4c-t7",
+          "text": "we",
+          "category": "pronoun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject (Clause 2)",
+          "meaningInSentence": "Refers to the library staff.",
+          "grammaticalRoleExplanation": "Subject of the second clause.",
+          "linkedTokenIds": ["ps4c-t8"]
+        },
+        {
+          "id": "ps4c-t8",
+          "text": "stay",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Continuous Verb",
+          "meaningInSentence": "Continues open.",
+          "grammaticalRoleExplanation": "Continuous state pairing with 'until'.",
+          "linkedTokenIds": ["ps4c-t7"]
+        },
+        {
+          "id": "ps4c-t9",
+          "text": "open",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Complement",
+          "meaningInSentence": "Describes the library state.",
+          "grammaticalRoleExplanation": "Complement of 'stay'.",
+          "linkedTokenIds": ["ps4c-t8"]
+        },
+        {
+          "id": "ps4c-t10",
+          "text": "until",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Endpoint (until)",
+          "meaningInSentence": "Continues up to 4 p.m.",
+          "grammaticalRoleExplanation": "Use 'until/till' when an ongoing state stops at that time.",
+          "linkedTokenIds": ["ps4c-t11"]
+        },
+        {
+          "id": "ps4c-t11",
+          "text": "four",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Stop Time",
+          "meaningInSentence": "Closing hour.",
+          "grammaticalRoleExplanation": "Object of 'until'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps4c-t10"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps4c-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps4c-t7"],
+          "questionPrompt": "Who stays open?",
+          "plainExplanation": "'we' is the Subject of the second clause (understood 'you' in the first).",
+          "textbookRule": "Separate one-time deadlines ('by') from continuous states ('until').",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        },
+        {
+          "id": "ps4c-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps4c-t1", "ps4c-t2", "ps4c-t3", "ps4c-t4", "ps4c-t5", "ps4c-t6", "ps4c-t8", "ps4c-t9", "ps4c-t10", "ps4c-t11"],
+          "questionPrompt": "Why 'by Friday' vs 'until four'?",
+          "plainExplanation": "Returning a book is a single act ('by Friday'); staying open continues up to a stop point ('until four').",
+          "textbookRule": "'by' = not later than; 'until / till' = continuing up to.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "we (and understood you)",
+        "subjectHeadWord": "we",
+        "predicateText": "Return ... by Friday; stay open until four.",
+        "predicateHeadWord": "Return",
+        "patternNote": "by Friday (Deadline: on or before) vs until four (Continuous up to stop time)."
+      }
+    },
+    {
+      "id": "prep-s5-place",
+      "title": "Starter Sentence · Static Place (at / in / on)",
+      "rawText": "Arjun waited at the gate while models sat in a box on the table.",
+      "contextTag": "Science Fair",
+      "note": "Picture the space at rest: 'at' = specific point, 'in' = enclosed 3D space or city, 'on' = touching a flat surface!",
+      "tokens": [
+        {
+          "id": "ps5-t1",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who waited.",
+          "grammaticalRoleExplanation": "Main Subject.",
+          "linkedTokenIds": ["ps5-t2"]
+        },
+        {
+          "id": "ps5-t2",
+          "text": "waited",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Static waiting action.",
+          "grammaticalRoleExplanation": "Paired with meeting point 'at the gate'.",
+          "linkedTokenIds": ["ps5-t1"]
+        },
+        {
+          "id": "ps5-t3",
+          "text": "at",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Point (at)",
+          "meaningInSentence": "Marks the exact meeting spot.",
+          "grammaticalRoleExplanation": "Use 'at' for spots, gates, bus stops, desks, and events.",
+          "linkedTokenIds": ["ps5-t5"]
+        },
+        {
+          "id": "ps5-t4",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the gate.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps5-t5"]
+        },
+        {
+          "id": "ps5-t5",
+          "text": "gate",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Location Point",
+          "meaningInSentence": "The school entrance spot.",
+          "grammaticalRoleExplanation": "Object of 'at'.",
+          "linkedTokenIds": ["ps5-t3"]
+        },
+        {
+          "id": "ps5-t6",
+          "text": "while",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "roleLabel": "Linker",
+          "meaningInSentence": "Joins the second scene.",
+          "grammaticalRoleExplanation": "Subordinating conjunction.",
+          "linkedTokenIds": ["ps5-t7"]
+        },
+        {
+          "id": "ps5-t7",
+          "text": "models",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Subject (Clause 2)",
+          "meaningInSentence": "Science fair exhibits.",
+          "grammaticalRoleExplanation": "Subject of 'sat'.",
+          "linkedTokenIds": ["ps5-t8"]
+        },
+        {
+          "id": "ps5-t8",
+          "text": "sat",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Verb (Clause 2)",
+          "meaningInSentence": "Resting position.",
+          "grammaticalRoleExplanation": "Verb of second clause.",
+          "linkedTokenIds": ["ps5-t7"]
+        },
+        {
+          "id": "ps5-t9",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Enclosure (in)",
+          "meaningInSentence": "Inside a 3D container.",
+          "grammaticalRoleExplanation": "Use 'in' for boxes, rooms, cities, and countries.",
+          "linkedTokenIds": ["ps5-t11"]
+        },
+        {
+          "id": "ps5-t10",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Article",
+          "meaningInSentence": "One box.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps5-t11"]
+        },
+        {
+          "id": "ps5-t11",
+          "text": "box",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "3D Container",
+          "meaningInSentence": "Enclosed space.",
+          "grammaticalRoleExplanation": "Object of 'in'.",
+          "linkedTokenIds": ["ps5-t9"]
+        },
+        {
+          "id": "ps5-t12",
+          "text": "on",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Surface (on)",
+          "meaningInSentence": "Resting on top of a flat surface.",
+          "grammaticalRoleExplanation": "Use 'on' for tables, walls, shelves, and floors.",
+          "linkedTokenIds": ["ps5-t14"]
+        },
+        {
+          "id": "ps5-t13",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the table.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps5-t14"]
+        },
+        {
+          "id": "ps5-t14",
+          "text": "table",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Surface Noun",
+          "meaningInSentence": "Top surface supporting the box.",
+          "grammaticalRoleExplanation": "Object of 'on'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps5-t12"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps5-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps5-t1"],
+          "questionPrompt": "Who waited?",
+          "plainExplanation": "'Arjun' is the main Subject.",
+          "textbookRule": "Choose 'at, in, on' by how you picture the place: point, 3D interior, or surface.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions"]
+        },
+        {
+          "id": "ps5-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps5-t2", "ps5-t3", "ps5-t4", "ps5-t5", "ps5-t6", "ps5-t7", "ps5-t8", "ps5-t9", "ps5-t10", "ps5-t11", "ps5-t12", "ps5-t13", "ps5-t14"],
+          "questionPrompt": "How do 'at, in, on' picture space?",
+          "plainExplanation": "'at the gate' (point), 'in a box' (inside), 'on the table' (on a surface).",
+          "textbookRule": "Walls and charts take 'on' ('a notice on the wall', not 'in the wall').",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-pseb9-ch3-prepositions", "src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Arjun",
+        "subjectHeadWord": "Arjun",
+        "predicateText": "waited at the gate while models sat in a box on the table.",
+        "predicateHeadWord": "waited",
+        "patternNote": "Static Place: at (point: gate) · in (enclosure: box) · on (surface: table)."
+      }
+    },
+    {
+      "id": "prep-s6-between",
+      "title": "Starter Sentence · Spatial Pairs (between / among)",
+      "rawText": "The sapling stands between two trees among tall ferns.",
+      "contextTag": "Orchard Map",
+      "note": "Use 'between' for two distinct items, and 'among' inside a larger group of three or more!",
+      "tokens": [
+        {
+          "id": "ps6-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the sapling.",
+          "grammaticalRoleExplanation": "Opens Subject.",
+          "linkedTokenIds": ["ps6-t2"]
+        },
+        {
+          "id": "ps6-t2",
+          "text": "sapling",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the young plant.",
+          "grammaticalRoleExplanation": "Singular Subject.",
+          "linkedTokenIds": ["ps6-t3"]
+        },
+        {
+          "id": "ps6-t3",
+          "text": "stands",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb",
+          "meaningInSentence": "Shows static position.",
+          "grammaticalRoleExplanation": "Finite verb.",
+          "linkedTokenIds": ["ps6-t2"]
+        },
+        {
+          "id": "ps6-t4",
+          "text": "between",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Between (Two)",
+          "meaningInSentence": "Places the sapling with one tree on each side.",
+          "grammaticalRoleExplanation": "Used for two distinct items (or individually named items).",
+          "linkedTokenIds": ["ps6-t6"]
+        },
+        {
+          "id": "ps6-t5",
+          "text": "two",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Numeral",
+          "meaningInSentence": "Confirms two trees.",
+          "grammaticalRoleExplanation": "Matches 'between'.",
+          "linkedTokenIds": ["ps6-t6"]
+        },
+        {
+          "id": "ps6-t6",
+          "text": "trees",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Object of between",
+          "meaningInSentence": "Two distinct landmarks.",
+          "grammaticalRoleExplanation": "Object of 'between'.",
+          "linkedTokenIds": ["ps6-t4"]
+        },
+        {
+          "id": "ps6-t7",
+          "text": "among",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Among (Group)",
+          "meaningInSentence": "Surrounded by many ferns.",
+          "grammaticalRoleExplanation": "Used inside a group of three or more.",
+          "linkedTokenIds": ["ps6-t9"]
+        },
+        {
+          "id": "ps6-t8",
+          "text": "tall",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the ferns.",
+          "grammaticalRoleExplanation": "Modifies 'ferns'.",
+          "linkedTokenIds": ["ps6-t9"]
+        },
+        {
+          "id": "ps6-t9",
+          "text": "ferns",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Object of among",
+          "meaningInSentence": "A surrounding group.",
+          "grammaticalRoleExplanation": "Plural group after 'among'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps6-t7"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps6-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps6-t1", "ps6-t2"],
+          "questionPrompt": "What stands there?",
+          "plainExplanation": "'The sapling' is the Subject.",
+          "textbookRule": "Use 'between' for two items and 'among' inside a larger group.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions"]
+        },
+        {
+          "id": "ps6-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps6-t3", "ps6-t4", "ps6-t5", "ps6-t6", "ps6-t7", "ps6-t8", "ps6-t9"],
+          "questionPrompt": "Why 'between two trees' but 'among tall ferns'?",
+          "plainExplanation": "'two trees' gives two landmarks ('between'); 'tall ferns' is a whole surrounding group ('among').",
+          "textbookRule": "Also separate 'beside' (next to) from 'besides' (in addition to), and 'in front of' from 'opposite' (facing across).",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The sapling",
+        "subjectHeadWord": "sapling",
+        "predicateText": "stands between two trees among tall ferns.",
+        "predicateHeadWord": "stands",
+        "patternNote": "between (two distinct landmarks) vs among (surrounded by a group)."
+      }
+    },
+    {
+      "id": "prep-s7-into",
+      "title": "Starter Sentence · Entry Motion ('into')",
+      "rawText": "Mira poured warm milk into the steel tumbler.",
+      "contextTag": "Healthy Kitchen",
+      "note": "'poured ... into' shows movement from outside to inside! Once it finishes moving, it rests 'in' the tumbler.",
+      "tokens": [
+        {
+          "id": "ps7-t1",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who poured the milk.",
+          "grammaticalRoleExplanation": "Subject.",
+          "linkedTokenIds": ["ps7-t2"]
+        },
+        {
+          "id": "ps7-t2",
+          "text": "poured",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Motion Verb",
+          "meaningInSentence": "Moves liquid from jug to tumbler.",
+          "grammaticalRoleExplanation": "Action of moving inside calls for 'into'.",
+          "linkedTokenIds": ["ps7-t5"]
+        },
+        {
+          "id": "ps7-t3",
+          "text": "warm",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the milk.",
+          "grammaticalRoleExplanation": "Modifies 'milk'.",
+          "linkedTokenIds": ["ps7-t4"]
+        },
+        {
+          "id": "ps7-t4",
+          "text": "milk",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Names what was poured.",
+          "grammaticalRoleExplanation": "Object of 'poured'.",
+          "linkedTokenIds": ["ps7-t2"]
+        },
+        {
+          "id": "ps7-t5",
+          "text": "into",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Entry Motion (into)",
+          "meaningInSentence": "Shows movement across the rim into the inside.",
+          "grammaticalRoleExplanation": "Use 'into' (not 'in') for entry motion from outside to inside.",
+          "linkedTokenIds": ["ps7-t8"]
+        },
+        {
+          "id": "ps7-t6",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the tumbler.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps7-t8"]
+        },
+        {
+          "id": "ps7-t7",
+          "text": "steel",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes the tumbler.",
+          "grammaticalRoleExplanation": "Modifies 'tumbler'.",
+          "linkedTokenIds": ["ps7-t8"]
+        },
+        {
+          "id": "ps7-t8",
+          "text": "tumbler",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Destination Container",
+          "meaningInSentence": "Where the milk enters.",
+          "grammaticalRoleExplanation": "Object of 'into'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps7-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps7-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps7-t1"],
+          "questionPrompt": "Who poured the milk?",
+          "plainExplanation": "'Mira' is the Subject.",
+          "textbookRule": "Pair entry motion verbs with 'into' and surface-landing motion with 'onto'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions"]
+        },
+        {
+          "id": "ps7-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps7-t2", "ps7-t3", "ps7-t4", "ps7-t5", "ps7-t6", "ps7-t7", "ps7-t8"],
+          "questionPrompt": "Why 'into' instead of 'in'?",
+          "plainExplanation": "'poured' describes motion from outside to inside, so English marks that crossing with 'into'.",
+          "textbookRule": "Separate destination reached ('to') from heading in a direction ('towards').",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "poured warm milk into the steel tumbler.",
+        "predicateHeadWord": "poured",
+        "patternNote": "Motion Entry: poured (motion) + into the steel tumbler (outside -> inside)."
+      }
+    },
+    {
+      "id": "prep-s7-in",
+      "title": "Compare Sentence · Static Rest ('in')",
+      "rawText": "Now the warm milk is in the steel tumbler.",
+      "contextTag": "Healthy Kitchen",
+      "note": "No movement now—just resting inside! So static location uses 'in', not 'into'.",
+      "tokens": [
+        {
+          "id": "ps7s-t1",
+          "text": "Now",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Time Adverb",
+          "meaningInSentence": "After pouring.",
+          "grammaticalRoleExplanation": "Sets present moment.",
+          "linkedTokenIds": ["ps7s-t5"]
+        },
+        {
+          "id": "ps7s-t2",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the milk.",
+          "grammaticalRoleExplanation": "Opens Subject.",
+          "linkedTokenIds": ["ps7s-t4"]
+        },
+        {
+          "id": "ps7s-t3",
+          "text": "warm",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes the milk.",
+          "grammaticalRoleExplanation": "Modifies 'milk'.",
+          "linkedTokenIds": ["ps7s-t4"]
+        },
+        {
+          "id": "ps7s-t4",
+          "text": "milk",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the liquid at rest.",
+          "grammaticalRoleExplanation": "Singular uncountable Subject.",
+          "linkedTokenIds": ["ps7s-t5"]
+        },
+        {
+          "id": "ps7s-t5",
+          "text": "is",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Static Verb (be)",
+          "meaningInSentence": "Shows resting position.",
+          "grammaticalRoleExplanation": "No motion—pairs with static 'in'.",
+          "linkedTokenIds": ["ps7s-t4", "ps7s-t6"]
+        },
+        {
+          "id": "ps7s-t6",
+          "text": "in",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Static Inside (in)",
+          "meaningInSentence": "Resting inside the container.",
+          "grammaticalRoleExplanation": "Use 'in' for resting inside.",
+          "linkedTokenIds": ["ps7s-t9"]
+        },
+        {
+          "id": "ps7s-t7",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the tumbler.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps7s-t9"]
+        },
+        {
+          "id": "ps7s-t8",
+          "text": "steel",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes the tumbler.",
+          "grammaticalRoleExplanation": "Modifies 'tumbler'.",
+          "linkedTokenIds": ["ps7s-t9"]
+        },
+        {
+          "id": "ps7s-t9",
+          "text": "tumbler",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Container",
+          "meaningInSentence": "Inside location.",
+          "grammaticalRoleExplanation": "Object of 'in'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps7s-t6"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps7s-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps7s-t2", "ps7s-t3", "ps7s-t4"],
+          "questionPrompt": "What is inside?",
+          "plainExplanation": "'the warm milk' is the Subject.",
+          "textbookRule": "Use 'in' and 'on' for rest; 'into' and 'onto' for movement.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        },
+        {
+          "id": "ps7s-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps7s-t1", "ps7s-t5", "ps7s-t6", "ps7s-t7", "ps7s-t8", "ps7s-t9"],
+          "questionPrompt": "Why 'in' here?",
+          "plainExplanation": "'is' expresses a quiet state of rest inside, so 'in' (not 'into') fits.",
+          "textbookRule": "Motion verbs take 'into'; resting states take 'in'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "the warm milk",
+        "subjectHeadWord": "milk",
+        "predicateText": "is in the steel tumbler now.",
+        "predicateHeadWord": "is",
+        "patternNote": "Static Rest: is (rest) + in the steel tumbler (already inside)."
+      }
+    },
+    {
+      "id": "prep-s8-paths",
+      "title": "Starter Sentence · Path Shapes (across / through)",
+      "rawText": "The cyclists rode across the bridge and through the forest.",
+      "contextTag": "Morning Ride",
+      "note": "Picture the shape: 'across' crosses a flat surface from side to side; 'through' enters and passes inside a 3D space!",
+      "tokens": [
+        {
+          "id": "ps8-t1",
+          "text": "The",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the cyclists.",
+          "grammaticalRoleExplanation": "Opens Subject.",
+          "linkedTokenIds": ["ps8-t2"]
+        },
+        {
+          "id": "ps8-t2",
+          "text": "cyclists",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the riders.",
+          "grammaticalRoleExplanation": "Plural Subject.",
+          "linkedTokenIds": ["ps8-t3"]
+        },
+        {
+          "id": "ps8-t3",
+          "text": "rode",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Motion Verb",
+          "meaningInSentence": "Past cycling movement.",
+          "grammaticalRoleExplanation": "Verb describing travel along a route.",
+          "linkedTokenIds": ["ps8-t2"]
+        },
+        {
+          "id": "ps8-t4",
+          "text": "across",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Surface Path (across)",
+          "meaningInSentence": "From one side to the other over a surface.",
+          "grammaticalRoleExplanation": "Use 'across' for bridges, roads, fields, and rivers.",
+          "linkedTokenIds": ["ps8-t6"]
+        },
+        {
+          "id": "ps8-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the bridge.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps8-t6"]
+        },
+        {
+          "id": "ps8-t6",
+          "text": "bridge",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "2D Surface",
+          "meaningInSentence": "Spans the river.",
+          "grammaticalRoleExplanation": "Object of 'across'.",
+          "linkedTokenIds": ["ps8-t4"]
+        },
+        {
+          "id": "ps8-t7",
+          "text": "and",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "roleLabel": "Conjunction",
+          "meaningInSentence": "Joins the two route legs.",
+          "grammaticalRoleExplanation": "Coordinates two prepositional phrases.",
+          "linkedTokenIds": ["ps8-t4", "ps8-t8"]
+        },
+        {
+          "id": "ps8-t8",
+          "text": "through",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "3D Path (through)",
+          "meaningInSentence": "Enters, moves inside, and exits a 3D space.",
+          "grammaticalRoleExplanation": "Use 'through' for tunnels, forests, crowds, and open windows.",
+          "linkedTokenIds": ["ps8-t10"]
+        },
+        {
+          "id": "ps8-t9",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the forest.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps8-t10"]
+        },
+        {
+          "id": "ps8-t10",
+          "text": "forest",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "3D Volume",
+          "meaningInSentence": "Trees surrounding the path.",
+          "grammaticalRoleExplanation": "Object of 'through'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps8-t8"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps8-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps8-t1", "ps8-t2"],
+          "questionPrompt": "Who rode?",
+          "plainExplanation": "'The cyclists' is the Subject.",
+          "textbookRule": "Match path prepositions to geometry: surface ('across'), 3D tunnel/trees ('through'), or line ('along').",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions"]
+        },
+        {
+          "id": "ps8-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps8-t3", "ps8-t4", "ps8-t5", "ps8-t6", "ps8-t7", "ps8-t8", "ps8-t9", "ps8-t10"],
+          "questionPrompt": "How do 'across' and 'through' differ?",
+          "plainExplanation": "'across the bridge' goes over an open surface; 'through the forest' goes inside surrounded by trees.",
+          "textbookRule": "Use 'along' when following the length of a road, canal, or river bank.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "The cyclists",
+        "subjectHeadWord": "cyclists",
+        "predicateText": "rode across the bridge and through the forest.",
+        "predicateHeadWord": "rode",
+        "patternNote": "Paths: across (2D surface: bridge) · through (3D volume: forest)."
+      }
+    },
+    {
+      "id": "prep-s8-along",
+      "title": "Compare Sentence · Linear Path ('along')",
+      "rawText": "Evening walkers strolled slowly along the river bank.",
+      "contextTag": "Evening Walk",
+      "note": "Instead of crossing side-to-side ('across'), 'along' follows the length of a line or edge!",
+      "tokens": [
+        {
+          "id": "ps8a-t1",
+          "text": "Evening",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Tells when they walk.",
+          "grammaticalRoleExplanation": "Modifies 'walkers'.",
+          "linkedTokenIds": ["ps8a-t2"]
+        },
+        {
+          "id": "ps8a-t2",
+          "text": "walkers",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the people strolling.",
+          "grammaticalRoleExplanation": "Plural Subject.",
+          "linkedTokenIds": ["ps8a-t3"]
+        },
+        {
+          "id": "ps8a-t3",
+          "text": "strolled",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Motion Verb",
+          "meaningInSentence": "Walked calmly.",
+          "grammaticalRoleExplanation": "Finite past verb.",
+          "linkedTokenIds": ["ps8a-t2"]
+        },
+        {
+          "id": "ps8a-t4",
+          "text": "slowly",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Manner Adverb",
+          "meaningInSentence": "How they walked.",
+          "grammaticalRoleExplanation": "Modifies 'strolled'.",
+          "linkedTokenIds": ["ps8a-t3"]
+        },
+        {
+          "id": "ps8a-t5",
+          "text": "along",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Line Path (along)",
+          "meaningInSentence": "Follows the edge lengthwise.",
+          "grammaticalRoleExplanation": "Use 'along' for paths, corridors, canals, and river banks.",
+          "linkedTokenIds": ["ps8a-t8"]
+        },
+        {
+          "id": "ps8a-t6",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the bank.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps8a-t8"]
+        },
+        {
+          "id": "ps8a-t7",
+          "text": "river",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Specifies the river bank.",
+          "grammaticalRoleExplanation": "Modifies 'bank'.",
+          "linkedTokenIds": ["ps8a-t8"]
+        },
+        {
+          "id": "ps8a-t8",
+          "text": "bank",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Linear Path",
+          "meaningInSentence": "Edge beside the river.",
+          "grammaticalRoleExplanation": "Object of 'along'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps8a-t5"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps8a-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps8a-t1", "ps8a-t2"],
+          "questionPrompt": "Who strolled?",
+          "plainExplanation": "'Evening walkers' is the Subject.",
+          "textbookRule": "'along' follows a line; 'across' goes from one side to the other.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        },
+        {
+          "id": "ps8a-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps8a-t3", "ps8a-t4", "ps8a-t5", "ps8a-t6", "ps8a-t7", "ps8a-t8"],
+          "questionPrompt": "Why 'along'?",
+          "plainExplanation": "Walkers stay on the bank following its length ('along the river bank'), not crossing over water ('across').",
+          "textbookRule": "Pair linear paths (corridors, roads, shores) with 'along'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Evening walkers",
+        "subjectHeadWord": "walkers",
+        "predicateText": "strolled slowly along the river bank.",
+        "predicateHeadWord": "strolled",
+        "patternNote": "Linear Path: along the river bank (following the line lengthwise)."
+      }
+    },
+    {
+      "id": "prep-s9-with-by",
+      "title": "Starter Sentence · Tool ('with') & Means ('by')",
+      "rawText": "Arjun sliced fresh papaya with a knife and rode home by bus.",
+      "contextTag": "Everyday Means",
+      "note": "Use 'with' for physical tools ('with a knife'), 'by + vehicle' (no 'a/the') for travel—except 'on foot' and 'in a car'!",
+      "tokens": [
+        {
+          "id": "ps9-t1",
+          "text": "Arjun",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who sliced and rode.",
+          "grammaticalRoleExplanation": "Subject.",
+          "linkedTokenIds": ["ps9-t2"]
+        },
+        {
+          "id": "ps9-t2",
+          "text": "sliced",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Finite Verb 1",
+          "meaningInSentence": "Cutting action.",
+          "grammaticalRoleExplanation": "Paired with tool phrase 'with a knife'.",
+          "linkedTokenIds": ["ps9-t4"]
+        },
+        {
+          "id": "ps9-t3",
+          "text": "fresh",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Adjective",
+          "meaningInSentence": "Describes papaya.",
+          "grammaticalRoleExplanation": "Modifies 'papaya'.",
+          "linkedTokenIds": ["ps9-t4"]
+        },
+        {
+          "id": "ps9-t4",
+          "text": "papaya",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Healthy fruit.",
+          "grammaticalRoleExplanation": "Object of 'sliced'.",
+          "linkedTokenIds": ["ps9-t2"]
+        },
+        {
+          "id": "ps9-t5",
+          "text": "with",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Tool (with)",
+          "meaningInSentence": "Marks the cutting instrument.",
+          "grammaticalRoleExplanation": "Always 'with' (never 'by') before a tool like 'a knife'.",
+          "linkedTokenIds": ["ps9-t7"]
+        },
+        {
+          "id": "ps9-t6",
+          "text": "a",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Article",
+          "meaningInSentence": "One knife.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps9-t7"]
+        },
+        {
+          "id": "ps9-t7",
+          "text": "knife",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Instrument",
+          "meaningInSentence": "Physical tool used.",
+          "grammaticalRoleExplanation": "Object of 'with'.",
+          "linkedTokenIds": ["ps9-t5"]
+        },
+        {
+          "id": "ps9-t8",
+          "text": "and",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "roleLabel": "Conjunction",
+          "meaningInSentence": "Joins second action.",
+          "grammaticalRoleExplanation": "Compound predicate linker.",
+          "linkedTokenIds": ["ps9-t2", "ps9-t9"]
+        },
+        {
+          "id": "ps9-t9",
+          "text": "rode",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Finite Verb 2",
+          "meaningInSentence": "Travelled.",
+          "grammaticalRoleExplanation": "Second verb.",
+          "linkedTokenIds": ["ps9-t11"]
+        },
+        {
+          "id": "ps9-t10",
+          "text": "home",
+          "category": "adverb",
+          "groupRole": "predicate",
+          "roleLabel": "Place Adverb",
+          "meaningInSentence": "Destination without 'to'.",
+          "grammaticalRoleExplanation": "'home' works adverbially without 'to'.",
+          "linkedTokenIds": ["ps9-t9"]
+        },
+        {
+          "id": "ps9-t11",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Transport (by)",
+          "meaningInSentence": "Shows mode of travel.",
+          "grammaticalRoleExplanation": "Use 'by + vehicle' with NO article ('by bus, by train'), and 'on foot' for walking.",
+          "linkedTokenIds": ["ps9-t12"]
+        },
+        {
+          "id": "ps9-t12",
+          "text": "bus",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Transport Mode",
+          "meaningInSentence": "Vehicle category.",
+          "grammaticalRoleExplanation": "Bare noun after 'by'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps9-t11"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps9-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps9-t1"],
+          "questionPrompt": "Who sliced and rode?",
+          "plainExplanation": "'Arjun' is the Subject.",
+          "textbookRule": "Distinguish tool ('with'), transport ('by' vs 'on foot'), and material ('made of / from').",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions"]
+        },
+        {
+          "id": "ps9-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps9-t2", "ps9-t3", "ps9-t4", "ps9-t5", "ps9-t6", "ps9-t7", "ps9-t8", "ps9-t9", "ps9-t10", "ps9-t11", "ps9-t12"],
+          "questionPrompt": "Which prepositions show tool and travel?",
+          "plainExplanation": "'with a knife' (tool) and 'by bus' (transport mode; walking is always 'on foot').",
+          "textbookRule": "Use 'by' for vehicle mode without 'a/the' ('by train'), 'in a car', and 'on foot'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Arjun",
+        "subjectHeadWord": "Arjun",
+        "predicateText": "sliced fresh papaya with a knife and rode home by bus.",
+        "predicateHeadWord": "sliced",
+        "patternNote": "with (Tool: a knife) · by (Transport: bus; walking = on foot)."
+      }
+    },
+    {
+      "id": "prep-s9-material",
+      "title": "Compare Sentence · Material ('made of' vs 'made from')",
+      "rawText": "School benches are made of wood while curd is made from milk.",
+      "contextTag": "Craft & Food",
+      "note": "If you can still see the original material -> 'made of' (wood). If it transforms into something new -> 'made from' (milk -> curd)!",
+      "tokens": [
+        {
+          "id": "ps9m-t1",
+          "text": "School",
+          "category": "adjective",
+          "groupRole": "subject",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes benches.",
+          "grammaticalRoleExplanation": "Modifies 'benches'.",
+          "linkedTokenIds": ["ps9m-t2"]
+        },
+        {
+          "id": "ps9m-t2",
+          "text": "benches",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names the furniture.",
+          "grammaticalRoleExplanation": "Plural Subject.",
+          "linkedTokenIds": ["ps9m-t4"]
+        },
+        {
+          "id": "ps9m-t3",
+          "text": "are",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Helper",
+          "meaningInSentence": "Matches plural 'benches'.",
+          "grammaticalRoleExplanation": "Present 'be'.",
+          "linkedTokenIds": ["ps9m-t4"]
+        },
+        {
+          "id": "ps9m-t4",
+          "text": "made",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Participle",
+          "meaningInSentence": "Formed/built.",
+          "grammaticalRoleExplanation": "Paired with 'of' (visible material).",
+          "linkedTokenIds": ["ps9m-t5"]
+        },
+        {
+          "id": "ps9m-t5",
+          "text": "of",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Visible Material (of)",
+          "meaningInSentence": "Wood stays visible inside the bench.",
+          "grammaticalRoleExplanation": "Use 'made of' when physical material stays recognisable.",
+          "linkedTokenIds": ["ps9m-t6"]
+        },
+        {
+          "id": "ps9m-t6",
+          "text": "wood",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Material",
+          "meaningInSentence": "Raw timber.",
+          "grammaticalRoleExplanation": "Object of 'of'.",
+          "linkedTokenIds": ["ps9m-t5"]
+        },
+        {
+          "id": "ps9m-t7",
+          "text": "while",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "roleLabel": "Conjunction",
+          "meaningInSentence": "Contrasts the two examples.",
+          "grammaticalRoleExplanation": "Joins second clause.",
+          "linkedTokenIds": ["ps9m-t8"]
+        },
+        {
+          "id": "ps9m-t8",
+          "text": "curd",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Subject (Clause 2)",
+          "meaningInSentence": "Healthy dairy food.",
+          "grammaticalRoleExplanation": "Singular Subject of clause 2.",
+          "linkedTokenIds": ["ps9m-t10"]
+        },
+        {
+          "id": "ps9m-t9",
+          "text": "is",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Helper",
+          "meaningInSentence": "Matches singular 'curd'.",
+          "grammaticalRoleExplanation": "Present 'be'.",
+          "linkedTokenIds": ["ps9m-t10"]
+        },
+        {
+          "id": "ps9m-t10",
+          "text": "made",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Participle",
+          "meaningInSentence": "Transformed.",
+          "grammaticalRoleExplanation": "Paired with 'from' (transformed origin).",
+          "linkedTokenIds": ["ps9m-t11"]
+        },
+        {
+          "id": "ps9m-t11",
+          "text": "from",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Transformed (from)",
+          "meaningInSentence": "Milk changes form completely into curd.",
+          "grammaticalRoleExplanation": "Use 'made from' when original substance changes form/nature.",
+          "linkedTokenIds": ["ps9m-t12"]
+        },
+        {
+          "id": "ps9m-t12",
+          "text": "milk",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Origin Substance",
+          "meaningInSentence": "Starting ingredient.",
+          "grammaticalRoleExplanation": "Object of 'from'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps9m-t11"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps9m-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps9m-t1", "ps9m-t2"],
+          "questionPrompt": "What are made of wood?",
+          "plainExplanation": "'School benches' is the Subject.",
+          "textbookRule": "Use 'made of' for unchanged visible materials and 'made from' for transformed ingredients.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        },
+        {
+          "id": "ps9m-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps9m-t3", "ps9m-t4", "ps9m-t5", "ps9m-t6", "ps9m-t7", "ps9m-t8", "ps9m-t9", "ps9m-t10", "ps9m-t11", "ps9m-t12"],
+          "questionPrompt": "Why 'of wood' vs 'from milk'?",
+          "plainExplanation": "Wood still looks like wood in a bench ('made of'); milk ferments into curd ('made from').",
+          "textbookRule": "Physical preservation -> 'of'; transformation -> 'from'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "School benches",
+        "subjectHeadWord": "benches",
+        "predicateText": "are made of wood while curd is made from milk.",
+        "predicateHeadWord": "made",
+        "patternNote": "made of (visible: wood) vs made from (transformed: milk -> curd)."
+      }
+    },
+    {
+      "id": "prep-s10-context",
+      "title": "Starter Sentence · One Preposition, Shifting Contexts",
+      "rawText": "By noon we reached the garden by the river by bicycle.",
+      "contextTag": "Context Spotlight",
+      "note": "Watch 'by' change jobs three times in one sentence: Time ('by noon'), Place ('by the river'), and Transport ('by bicycle')!",
+      "tokens": [
+        {
+          "id": "ps10-t1",
+          "text": "By",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Time Deadline (By)",
+          "meaningInSentence": "Means 'not later than noon'.",
+          "grammaticalRoleExplanation": "Same word 'by', here expressing Time deadline.",
+          "linkedTokenIds": ["ps10-t2"]
+        },
+        {
+          "id": "ps10-t2",
+          "text": "noon",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Time Noun",
+          "meaningInSentence": "12:00 p.m.",
+          "grammaticalRoleExplanation": "Object of time 'By'.",
+          "linkedTokenIds": ["ps10-t1"]
+        },
+        {
+          "id": "ps10-t3",
+          "text": "we",
+          "category": "pronoun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Pronoun",
+          "meaningInSentence": "The group cycling.",
+          "grammaticalRoleExplanation": "Subject.",
+          "linkedTokenIds": ["ps10-t4"]
+        },
+        {
+          "id": "ps10-t4",
+          "text": "reached",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Transitive Verb",
+          "meaningInSentence": "Arrived at (without 'at/to'!).",
+          "grammaticalRoleExplanation": "Takes 'the garden' directly.",
+          "linkedTokenIds": ["ps10-t6"]
+        },
+        {
+          "id": "ps10-t5",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the garden.",
+          "grammaticalRoleExplanation": "Opens Direct Object.",
+          "linkedTokenIds": ["ps10-t6"]
+        },
+        {
+          "id": "ps10-t6",
+          "text": "garden",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Destination.",
+          "grammaticalRoleExplanation": "Object of 'reached'.",
+          "linkedTokenIds": ["ps10-t4"]
+        },
+        {
+          "id": "ps10-t7",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Place (by = beside)",
+          "meaningInSentence": "Means 'next to the river'.",
+          "grammaticalRoleExplanation": "Second 'by' here means Place (beside).",
+          "linkedTokenIds": ["ps10-t9"]
+        },
+        {
+          "id": "ps10-t8",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Points to the river.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps10-t9"]
+        },
+        {
+          "id": "ps10-t9",
+          "text": "river",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Place Noun",
+          "meaningInSentence": "Landmark beside the garden.",
+          "grammaticalRoleExplanation": "Object of place 'by'.",
+          "linkedTokenIds": ["ps10-t7"]
+        },
+        {
+          "id": "ps10-t10",
+          "text": "by",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Means (by = via)",
+          "meaningInSentence": "Shows travel method.",
+          "grammaticalRoleExplanation": "Third 'by' here means Means / Transport.",
+          "linkedTokenIds": ["ps10-t11"]
+        },
+        {
+          "id": "ps10-t11",
+          "text": "bicycle",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Vehicle",
+          "meaningInSentence": "Mode of travel.",
+          "grammaticalRoleExplanation": "Bare noun after means 'by'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps10-t10"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps10-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps10-t3"],
+          "questionPrompt": "Who reached the garden?",
+          "plainExplanation": "'we' is the Subject.",
+          "textbookRule": "Prepositions do not have one rigid meaning—always read the surrounding context.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-prep-bridge"]
+        },
+        {
+          "id": "ps10-pred",
+          "role": "predicate",
+          "label": "Predicate (3 Roles of 'by')",
+          "tokenIds": ["ps10-t1", "ps10-t2", "ps10-t4", "ps10-t5", "ps10-t6", "ps10-t7", "ps10-t8", "ps10-t9", "ps10-t10", "ps10-t11"],
+          "questionPrompt": "How does 'by' change across the sentence?",
+          "plainExplanation": "1) 'By noon' (Time deadline), 2) 'by the river' (Place beside), 3) 'by bicycle' (Transport means).",
+          "textbookRule": "Context also determines whether 'in' means place ('in the box'), time ('in July'), medium ('in ink'), or state ('in a hurry').",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "we",
+        "subjectHeadWord": "we",
+        "predicateText": "reached the garden by the river by bicycle by noon.",
+        "predicateHeadWord": "reached",
+        "patternNote": "Context Chameleon: By noon (Time) · by the river (Place) · by bicycle (Means)."
+      }
+    },
+    {
+      "id": "prep-s11-zero",
+      "title": "Starter Sentence · Zero-Preposition Verbs & 'within'",
+      "rawText": "Our team discussed the rainwater plan and reached the hall within ten minutes.",
+      "contextTag": "Proofreading",
+      "note": "Do NOT write 'discussed about' or 'reached to/at'! And 'within ten minutes' means before 10 minutes pass.",
+      "tokens": [
+        {
+          "id": "ps11-t1",
+          "text": "Our",
+          "category": "determiner",
+          "groupRole": "subject",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Shows our team.",
+          "grammaticalRoleExplanation": "Opens Subject.",
+          "linkedTokenIds": ["ps11-t2"]
+        },
+        {
+          "id": "ps11-t2",
+          "text": "team",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "The student group.",
+          "grammaticalRoleExplanation": "Subject.",
+          "linkedTokenIds": ["ps11-t3"]
+        },
+        {
+          "id": "ps11-t3",
+          "text": "discussed",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Zero-Prep Verb 1",
+          "meaningInSentence": "Talked about (NO 'about' after!).",
+          "grammaticalRoleExplanation": "Transitive verb taking 'the rainwater plan' directly.",
+          "linkedTokenIds": ["ps11-t6"]
+        },
+        {
+          "id": "ps11-t4",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the plan.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps11-t6"]
+        },
+        {
+          "id": "ps11-t5",
+          "text": "rainwater",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Project topic.",
+          "grammaticalRoleExplanation": "Modifies 'plan'.",
+          "linkedTokenIds": ["ps11-t6"]
+        },
+        {
+          "id": "ps11-t6",
+          "text": "plan",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "What we discussed.",
+          "grammaticalRoleExplanation": "Direct Object with no preposition.",
+          "linkedTokenIds": ["ps11-t3"]
+        },
+        {
+          "id": "ps11-t7",
+          "text": "and",
+          "category": "conjunction",
+          "groupRole": "predicate",
+          "roleLabel": "Conjunction",
+          "meaningInSentence": "Joins second verb.",
+          "grammaticalRoleExplanation": "Links predicates.",
+          "linkedTokenIds": ["ps11-t3", "ps11-t8"]
+        },
+        {
+          "id": "ps11-t8",
+          "text": "reached",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Zero-Prep Verb 2",
+          "meaningInSentence": "Arrived at (NO 'to/at' after!).",
+          "grammaticalRoleExplanation": "Transitive verb taking 'the hall' directly.",
+          "linkedTokenIds": ["ps11-t10"]
+        },
+        {
+          "id": "ps11-t9",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the hall.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps11-t10"]
+        },
+        {
+          "id": "ps11-t10",
+          "text": "hall",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Destination.",
+          "grammaticalRoleExplanation": "Direct Object with no preposition.",
+          "linkedTokenIds": ["ps11-t8"]
+        },
+        {
+          "id": "ps11-t11",
+          "text": "within",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "Upper Limit (within)",
+          "meaningInSentence": "Before 10 minutes pass.",
+          "grammaticalRoleExplanation": "Contrast: 'within' = anytime before the end; 'in' = at the end of.",
+          "linkedTokenIds": ["ps11-t13"]
+        },
+        {
+          "id": "ps11-t12",
+          "text": "ten",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Numeral",
+          "meaningInSentence": "10.",
+          "grammaticalRoleExplanation": "Counts minutes.",
+          "linkedTokenIds": ["ps11-t13"]
+        },
+        {
+          "id": "ps11-t13",
+          "text": "minutes",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Time Limit",
+          "meaningInSentence": "Time window.",
+          "grammaticalRoleExplanation": "Object of 'within'.",
+          "punctuationAfter": ".",
+          "linkedTokenIds": ["ps11-t11"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps11-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps11-t1", "ps11-t2"],
+          "questionPrompt": "Who discussed and reached?",
+          "plainExplanation": "'Our team' is the Subject.",
+          "textbookRule": "Transitive verbs like 'discuss, enter, reach, order, await, resemble' take Direct Objects without prepositions.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-assam-ch14-prepositions", "src-prep-bridge"]
+        },
+        {
+          "id": "ps11-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps11-t3", "ps11-t4", "ps11-t5", "ps11-t6", "ps11-t7", "ps11-t8", "ps11-t9", "ps11-t10", "ps11-t11", "ps11-t12", "ps11-t13"],
+          "questionPrompt": "Which verbs skip prepositions here?",
+          "plainExplanation": "'discussed the rainwater plan' (no 'about') and 'reached the hall' (no 'to/at').",
+          "textbookRule": "Use 'within' for 'before the end of a period' vs 'in' for 'at the end of'.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-od10-ch5-prepositions", "src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Our team",
+        "subjectHeadWord": "team",
+        "predicateText": "discussed the rainwater plan and reached the hall within ten minutes.",
+        "predicateHeadWord": "discussed",
+        "patternNote": "Zero-Prep Verbs: discussed + plan | reached + hall (not 'about/to')."
+      }
+    },
+    {
+      "id": "prep-s11-end",
+      "title": "Compare Sentence · Natural Question Placement",
+      "rawText": "Which laboratory shelf did Mira leave the microscope on?",
+      "contextTag": "Natural Questions",
+      "note": "Even though prepositions usually precede their objects, ending a Wh-question with 'on?' is completely natural English!",
+      "tokens": [
+        {
+          "id": "ps11q-t1",
+          "text": "Which",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Wh-Determiner",
+          "meaningInSentence": "Asks which shelf.",
+          "grammaticalRoleExplanation": "Fronted Object of 'on'.",
+          "linkedTokenIds": ["ps11q-t3", "ps11q-t9"]
+        },
+        {
+          "id": "ps11q-t2",
+          "text": "laboratory",
+          "category": "adjective",
+          "groupRole": "predicate",
+          "roleLabel": "Modifier",
+          "meaningInSentence": "Describes the shelf.",
+          "grammaticalRoleExplanation": "Modifies 'shelf'.",
+          "linkedTokenIds": ["ps11q-t3"]
+        },
+        {
+          "id": "ps11q-t3",
+          "text": "shelf",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Fronted Object",
+          "meaningInSentence": "The object belonging to 'on'.",
+          "grammaticalRoleExplanation": "Moved to the front to form the Wh-question.",
+          "linkedTokenIds": ["ps11q-t9"]
+        },
+        {
+          "id": "ps11q-t4",
+          "text": "did",
+          "category": "verb",
+          "groupRole": "predicate",
+          "roleLabel": "Question Helper",
+          "meaningInSentence": "Past question auxiliary.",
+          "grammaticalRoleExplanation": "Inverts before Subject 'Mira'.",
+          "linkedTokenIds": ["ps11q-t5", "ps11q-t6"]
+        },
+        {
+          "id": "ps11q-t5",
+          "text": "Mira",
+          "category": "noun",
+          "groupRole": "subject",
+          "isHeadWord": true,
+          "roleLabel": "Subject Head-Noun",
+          "meaningInSentence": "Names who left the microscope.",
+          "grammaticalRoleExplanation": "Subject.",
+          "linkedTokenIds": ["ps11q-t6"]
+        },
+        {
+          "id": "ps11q-t6",
+          "text": "leave",
+          "category": "verb",
+          "groupRole": "predicate",
+          "isHeadWord": true,
+          "roleLabel": "Main Verb",
+          "meaningInSentence": "Placed.",
+          "grammaticalRoleExplanation": "Base verb after 'did'.",
+          "linkedTokenIds": ["ps11q-t8"]
+        },
+        {
+          "id": "ps11q-t7",
+          "text": "the",
+          "category": "determiner",
+          "groupRole": "predicate",
+          "roleLabel": "Determiner",
+          "meaningInSentence": "Specifies the microscope.",
+          "grammaticalRoleExplanation": "Determiner.",
+          "linkedTokenIds": ["ps11q-t8"]
+        },
+        {
+          "id": "ps11q-t8",
+          "text": "microscope",
+          "category": "noun",
+          "groupRole": "predicate",
+          "roleLabel": "Direct Object",
+          "meaningInSentence": "Science instrument.",
+          "grammaticalRoleExplanation": "Object of 'leave'.",
+          "linkedTokenIds": ["ps11q-t6"]
+        },
+        {
+          "id": "ps11q-t9",
+          "text": "on",
+          "category": "preposition",
+          "groupRole": "predicate",
+          "roleLabel": "End Preposition",
+          "meaningInSentence": "Connects back to 'Which laboratory shelf'.",
+          "grammaticalRoleExplanation": "Natural end-placed preposition in Wh-questions (never drop 'on'!).",
+          "punctuationAfter": "?",
+          "linkedTokenIds": ["ps11q-t3"]
+        }
+      ],
+      "groups": [
+        {
+          "id": "ps11q-subj",
+          "role": "subject",
+          "label": "Subject",
+          "tokenIds": ["ps11q-t5"],
+          "questionPrompt": "Who left the microscope?",
+          "plainExplanation": "'Mira' is the Subject.",
+          "textbookRule": "Prepositions normally precede their objects, but move naturally to the end in Wh-questions and relative clauses.",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-assam-ch14-prepositions", "src-prep-bridge"]
+        },
+        {
+          "id": "ps11q-pred",
+          "role": "predicate",
+          "label": "Predicate",
+          "tokenIds": ["ps11q-t1", "ps11q-t2", "ps11q-t3", "ps11q-t4", "ps11q-t6", "ps11q-t7", "ps11q-t8", "ps11q-t9"],
+          "questionPrompt": "Why is 'on' at the end?",
+          "plainExplanation": "Its object ('Which laboratory shelf') moved to the front of the question, leaving 'on?' cleanly at the end.",
+          "textbookRule": "Do not omit the preposition at the end of a question like 'What are you writing with?'",
+          "provenance": "supplementary-bridge",
+          "sourceRefIds": ["src-assam-ch14-prepositions", "src-prep-bridge"]
+        }
+      ],
+      "relationships": [],
+      "structureSummary": {
+        "subjectText": "Mira",
+        "subjectHeadWord": "Mira",
+        "predicateText": "Which laboratory shelf did ... leave the microscope on?",
+        "predicateHeadWord": "leave",
+        "patternNote": "Natural Placement: 'Which ... shelf' (Object) + '... on?' (Preposition)."
+      }
+    }
+  ],
+  "teachingSequence": [
+    {
+      "id": "prep-step-01",
+      "stepNumber": 1,
+      "type": "show-sentence",
+      "visualMode": "compare-dual",
+      "title": "What Prepositions Do: Relation Bridges",
+      "badgeLabel": "Topic 1 · Relation Bridges",
+      "shortPrompt": "A preposition bridges a noun or pronoun to the rest of the sentence—swapping one preposition changes the whole scene!",
+      "explanation": "Prepositions show how things relate in space, time, direction, or means. Compare 'on the wooden bench' with 'under the wooden bench' using the Compare Sentence tab.",
+      "characterId": "mira",
+      "characterExpression": "curious",
+      "sentenceId": "prep-s1-on",
+      "comparisonSentenceId": "prep-s1-under",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-od9-wordclass-prep", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 1 · Preposition + Meaning Control",
+        "whyItWorks": "Without 'on', 'sits' and 'the wooden bench' cannot connect cleanly. The preposition acts as a directional bridge between the action ('sits') and the landmark ('the wooden bench').",
+        "ruleSummary": "A preposition links a noun or pronoun to another word; changing the preposition changes the relationship and meaning.",
+        "keyTerms": [
+          {
+            "term": "Preposition",
+            "meaning": "A small bridge word ('on, under, in, near, by, with') placed before a noun/pronoun to show relation."
+          },
+          {
+            "term": "Object of Preposition",
+            "meaning": "The noun, noun group, or object pronoun that completes the preposition ('the wooden bench')."
+          }
+        ],
+        "segments": [
+          {
+            "label": "Action / Head",
+            "text": "sits",
+            "tone": "verb",
+            "subLabel": "Word being linked"
+          },
+          {
+            "label": "Preposition",
+            "text": "on / under / beside",
+            "tone": "linker",
+            "subLabel": "Relation bridge word"
+          },
+          {
+            "label": "Object",
+            "text": "the wooden bench",
+            "tone": "object",
+            "subLabel": "Noun group after bridge"
+          }
+        ],
+        "relationDiagram": {
+          "relationType": "dependent",
+          "leftLabel": "Verb / Clause",
+          "leftText": "The brass bottle sits...",
+          "connectorLabel": "on / under / beside",
+          "rightLabel": "Object Noun Group",
+          "rightText": "the wooden bench",
+          "caption": "Changing only the bridge word moves the bottle from top to underneath to next to the bench."
+        },
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "The mango sits on / under / beside the wooden table.",
+            "highlightBadge": "Spatial Control",
+            "stepByStep": "1) Keep 'mango' and 'table' identical. 2) Swap 'on' (top) -> 'under' (below) -> 'beside' (next to).",
+            "whyCorrect": "Every swap paints a new real-world picture."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Mira waited for / with / near Arjun.",
+            "highlightBadge": "Abstract & Social Shift",
+            "stepByStep": "1) 'waited for Arjun' = expecting him. 2) 'waited with Arjun' = waiting together. 3) 'waited near Arjun' = distance.",
+            "whyCorrect": "Prepositions control abstract social meanings too, not just space."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "The wooden basket of ripe guavas sat behind the kitchen door.",
+            "highlightBadge": "Noun Modifier vs Adverbial",
+            "stepByStep": "1) 'of ripe guavas' attaches to noun 'basket'. 2) 'behind the kitchen door' tells where it 'sat'.",
+            "whyCorrect": "Prepositional phrases can describe nouns OR verbs."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Treating prepositions as meaningless filler words that can be guessed randomly.",
+          "correctText": "Picture the exact relation ('on' vs 'under', 'for' vs 'with') before choosing.",
+          "whyWrong": "Changing one tiny preposition reverses or breaks the sentence's meaning."
+        }
+      }
+    },
+    {
+      "id": "prep-step-02",
+      "stepNumber": 2,
+      "type": "show-relationship",
+      "visualMode": "relationship-arcs",
+      "title": "Prepositional Phrases, Object Pronouns & Clause Test",
+      "badgeLabel": "Topic 1 · Phrase Team",
+      "shortPrompt": "Always group [Preposition + full Noun Group / Object Pronoun] into one Prepositional Phrase—and test words like 'before / after' to see if a clause follows!",
+      "explanation": "A Prepositional Phrase never has a finite verb. When a pronoun follows a preposition, use Object case ('between Arjun and me'). And if a finite verb follows 'before/after', it acts as a clause linker instead!",
+      "characterId": "mira",
+      "characterExpression": "explaining",
+      "sentenceId": "prep-s2-phrase",
+      "comparisonSentenceId": "prep-s2-pronoun",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "phrase-vs-clause",
+        "categoryBadge": "Topic 1 · Complete Prepositional Phrases",
+        "whyItWorks": "Determiners and adjectives inside a noun group ('the school water tank') belong strictly inside the Prepositional Phrase. After any preposition, pronouns take Object case ('me, us, him, her, them').",
+        "ruleSummary": "Group Preposition + full Noun Group or Object Pronoun ('between you and me'); Preposition + Noun != Conjunction + Clause.",
+        "segments": [
+          {
+            "label": "Preposition + Noun Group",
+            "text": "near the water tank",
+            "tone": "phrase",
+            "subLabel": "Keep modifiers attached"
+          },
+          {
+            "label": "Object Pronoun",
+            "text": "between Arjun and me",
+            "tone": "object",
+            "subLabel": "Never 'between Arjun and I'"
+          },
+          {
+            "label": "Before + Clause",
+            "text": "after assembly ended",
+            "tone": "dependent",
+            "subLabel": "Has finite verb -> Conjunction"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "She placed the clay pot under the cool neem tree.",
+            "highlightBadge": "Full Phrase",
+            "stepByStep": "1) Preposition: 'under'. 2) Full noun-group object: 'the cool neem tree'.",
+            "whyCorrect": "The complete phrase is 'under the cool neem tree'—never stop at 'under' alone."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The coach divided the oranges between Priya and him.",
+            "highlightBadge": "Object Pronoun",
+            "stepByStep": "1) Spot preposition 'between'. 2) Choose Object case 'him' (never 'he').",
+            "whyCorrect": "Every pronoun after a preposition sits in the Object slot."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "After morning assembly (Preposition) vs After morning assembly ended (Conjunction).",
+            "highlightBadge": "Noun vs Finite Clause Test",
+            "stepByStep": "1) 'after morning assembly' -> noun phrase only (no finite verb) = Preposition. 2) 'ended' = finite verb -> Conjunction!",
+            "whyCorrect": "Works for before, after, since, and until."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Please keep this secret between you and I.",
+          "correctText": "Please keep this secret between you and me.",
+          "whyWrong": "'between' is a preposition, so both pronouns are its objects -> 'you and me'."
+        },
+        "boardNote": {
+          "label": "Grammar Note · Prepositional Phrases Have No Finite Verb",
+          "text": "An '-ing' verbal noun can also follow a preposition ('by reading carefully', 'before leaving'), but a Prepositional Phrase itself never contains a finite verb."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 1 · Quick Check",
+        "prompt": "In 'Fresh spinach grows well near the school water tank', which group of words is the complete Prepositional Phrase?",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "near",
+            "isCorrect": false,
+            "explanation": "The preposition alone is incomplete without its object."
+          },
+          {
+            "id": "opt-b",
+            "label": "grows well near",
+            "isCorrect": false,
+            "explanation": "A Prepositional Phrase never grabs the verb ('grows')."
+          },
+          {
+            "id": "opt-c",
+            "label": "near the school water tank",
+            "isCorrect": true,
+            "explanation": "Begins with preposition 'near' and ends at the end of its noun-group object 'the school water tank'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "prep-step-03",
+      "stepNumber": 3,
+      "type": "explain-role",
+      "visualMode": "timeline-shift",
+      "title": "Prepositions of Time: 'at', 'on', 'in' & Zero-Preposition Words",
+      "badgeLabel": "Topic 2 · Time Scale",
+      "shortPrompt": "Match time prepositions to size: 'at' (clock point), 'on' (day/date), 'in' (month/season/year)—and NEVER add them before yesterday, today, tomorrow, or next/last + day!",
+      "explanation": "Instead of memorising random phrases, picture time as zooming out: exact point ('at 8 a.m.'), single calendar day ('on Monday'), or broad span ('in July').",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "prep-s3-time",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 2 · The Time Scale + Zero Trap",
+        "whyItWorks": "English scales time like geometry: a 0D point takes 'at' (at noon, at night), a 1-day surface takes 'on' (on 15 August), and a 3D container span takes 'in' (in July, in 2024, in the morning).",
+        "ruleSummary": "at = clock points & night; on = days & dates; in = months, seasons, years & morning/evening; NONE before yesterday/today/tomorrow/next/last.",
+        "segments": [
+          {
+            "label": "AT · Point",
+            "text": "at eight, at noon, at night",
+            "tone": "verb",
+            "subLabel": "Exact clock / moment"
+          },
+          {
+            "label": "ON · Day / Date",
+            "text": "on Mondays, on 15 August",
+            "tone": "subject",
+            "subLabel": "Specific calendar day"
+          },
+          {
+            "label": "IN · Longer Span",
+            "text": "in July, in 2024, in the morning",
+            "tone": "object",
+            "subLabel": "Months, years, parts of day"
+          },
+          {
+            "label": "Zero Preposition",
+            "text": "yesterday, tomorrow, next week",
+            "tone": "adverbial",
+            "subLabel": "Drop at / on / in"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "We eat a healthy breakfast at 7:30 a.m. in the morning.",
+            "highlightBadge": "at (Clock) + in (Part of Day)",
+            "stepByStep": "1) Clock time '7:30 a.m.' -> 'at'. 2) Span 'the morning' -> 'in' (note exception: 'at night').",
+            "whyCorrect": "Watch 'in the morning/evening' vs 'at night'."
+          },
+          {
+            "level": "Medium",
+            "sentence": "India celebrates Independence Day on 15 August.",
+            "highlightBadge": "Calendar Date = on",
+            "stepByStep": "1) Even though 'August' alone takes 'in August', adding day number '15' makes it a specific date -> 'on 15 August'.",
+            "whyCorrect": "Any specific day or date takes 'on' (even 'on Friday morning')."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "The eco-club will plant saplings next Saturday (NOT 'on next Saturday').",
+            "highlightBadge": "Zero-Preposition Trap",
+            "stepByStep": "1) Spot 'next', 'last', 'this', 'every', 'yesterday', 'today', or 'tomorrow'. 2) Leave out 'on / in / at' completely.",
+            "whyCorrect": "Time adverbs with this/next/last/every replace the preposition."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "We will meet for garden duty on tomorrow in Monday.",
+          "correctText": "We will meet for garden duty tomorrow on Monday.",
+          "whyWrong": "'tomorrow' takes NO preposition, and days of the week take 'on' (never 'in Monday')."
+        }
+      }
+    },
+    {
+      "id": "prep-step-04",
+      "stepNumber": 4,
+      "type": "compare-example",
+      "visualMode": "compare-dual",
+      "title": "Duration & Time Limits: 'since', 'for', 'during', 'by' & 'until'",
+      "badgeLabel": "Topic 2 · Spans & Limits",
+      "shortPrompt": "Use 'since' for starting points, 'for' for total length, 'during' inside a named event, 'by' for deadlines, and 'until' for continuous endpoints.",
+      "explanation": "Even when two sentences talk about time, a starting point ('since 2021') needs a different bridge from a length ('for three years')—and a one-shot deadline ('by Friday') differs from staying open ('until four').",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "prep-s4-since-for",
+      "comparisonSentenceId": "prep-s4-by-until",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 2 · Start, Duration & Limits",
+        "whyItWorks": "'since' pins the start date on the timeline (2021 -> now); 'for' measures the bar's length (3 years). Meanwhile, 'by' sets a finish line for a single action, whereas 'until' stretches an ongoing state up to a stop point.",
+        "ruleSummary": "since + start point | for + duration | during + named event | by + deadline | until + continuous stop point.",
+        "segments": [
+          {
+            "label": "SINCE · Start",
+            "text": "since June / since 2021",
+            "tone": "independent",
+            "subLabel": "Point when it began"
+          },
+          {
+            "label": "FOR · Length",
+            "text": "for one hour / for 3 years",
+            "tone": "object",
+            "subLabel": "Total duration measured"
+          },
+          {
+            "label": "BY · Deadline",
+            "text": "Submit by Friday",
+            "tone": "subject",
+            "subLabel": "On or before Friday"
+          },
+          {
+            "label": "UNTIL · Endpoint",
+            "text": "Stay open until four",
+            "tone": "complement",
+            "subLabel": "Continuous up to 4 p.m."
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "The eco-club has watered the orchard for five years, since 2021.",
+            "highlightBadge": "for vs since",
+            "stepByStep": "1) 'five years' = how long (duration) -> 'for'. 2) '2021' = starting point -> 'since'.",
+            "whyCorrect": "Never write 'since five years' or 'for 2021'."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Students read astronomy charts during the winter camp.",
+            "highlightBadge": "during + Event",
+            "stepByStep": "1) 'the winter camp' is a named period/event (not a number of hours). 2) Use 'during' (not 'for the winter camp' if telling when).",
+            "whyCorrect": "'during' answers 'when/inside what event?'; 'for' answers 'how long?'"
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Finish your science poster by Thursday; the art room stays open until 5 p.m.",
+            "highlightBadge": "by vs until",
+            "stepByStep": "1) Finishing the poster happens by a deadline -> 'by Thursday'. 2) Staying open continues -> 'until 5 p.m.'.",
+            "whyCorrect": "'Return the book until Friday' is wrong because returning happens once, not continuously."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The eco-club has planted saplings since three years; return tools until Friday.",
+          "correctText": "The eco-club has planted saplings for three years; return tools by Friday.",
+          "whyWrong": "'three years' is a length ('for'), and returning tools is a deadline ('by')."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 2 · Quick Check",
+        "prompt": "Choose the accurate completion: 'Mira has practised classical music ___ 2021, and she practises ___ an hour every evening.'",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "for ... since",
+            "isCorrect": false,
+            "explanation": "'2021' is a starting point, not a count of years."
+          },
+          {
+            "id": "opt-b",
+            "label": "since ... for",
+            "isCorrect": true,
+            "explanation": "'2021' is the starting point ('since 2021'), whereas 'an hour' measures duration ('for an hour')."
+          },
+          {
+            "id": "opt-c",
+            "label": "by ... until",
+            "isCorrect": false,
+            "explanation": "'by 2021' and 'until an hour' do not express start point and duration."
+          }
+        ]
+      }
+    },
+    {
+      "id": "prep-step-05",
+      "stepNumber": 5,
+      "type": "explain-meaning",
+      "visualMode": "meaning-callout",
+      "title": "Static Place: Point ('at'), Enclosure ('in') & Surface ('on')",
+      "badgeLabel": "Topic 3 · Static Place",
+      "shortPrompt": "For places at rest, picture the space: 'at' = specific point or stop, 'in' = inside a box, room, or city, 'on' = touching a flat surface.",
+      "explanation": "Once you picture how a speaker views a place—as a map dot ('at'), an enclosed 3D space ('in'), or a flat surface ('on')—choosing place prepositions becomes visual and clear.",
+      "characterId": "mira",
+      "characterExpression": "explaining",
+      "sentenceId": "prep-s5-place",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 3 · Picturing Places at Rest",
+        "whyItWorks": "In 'at the gate', the gate is a pinpoint meeting spot. In 'in a box', the models are enclosed inside walls. In 'on the table', the box rests directly on the flat top surface.",
+        "ruleSummary": "at = point or address; in = enclosed container, room, city, or country; on = touching a surface or line.",
+        "keyTerms": [
+          {
+            "term": "AT · Point / Spot",
+            "meaning": "Pinpoints a spot, meeting place, or address: at the school gate, at the bus stop, at desk 4."
+          },
+          {
+            "term": "IN · Enclosure / Area",
+            "meaning": "Inside boundaries: in the tiffin box, in the library, in Jaipur, in Kerala, in India."
+          },
+          {
+            "term": "ON · Surface / Line",
+            "meaning": "Touching a surface or street/bank: on the table, on the chalkboard, on the wall, on the first floor."
+          }
+        ],
+        "segments": [
+          {
+            "label": "AT · Point",
+            "text": "at the school gate",
+            "tone": "verb",
+            "subLabel": "Specific meeting dot"
+          },
+          {
+            "label": "IN · Enclosure",
+            "text": "in a wooden box",
+            "tone": "object",
+            "subLabel": "Inside boundaries"
+          },
+          {
+            "label": "ON · Surface",
+            "text": "on the table",
+            "tone": "subject",
+            "subLabel": "Touching top/wall surface"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Fresh sprouts are packed in the clean tiffin box on the kitchen shelf.",
+            "highlightBadge": "in + on",
+            "stepByStep": "1) Inside a container -> 'in the clean tiffin box'. 2) Resting on a shelf surface -> 'on the kitchen shelf'.",
+            "whyCorrect": "Distinguishes interior from surface."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Wait at the bus stop; our friends live in Guwahati.",
+            "highlightBadge": "Spot (at) vs City (in)",
+            "stepByStep": "1) A bus stop along a route is a meeting point -> 'at'. 2) A whole city encloses streets -> 'in'.",
+            "whyCorrect": "Matches scale cleanly."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Compare: 'A student sits at a desk' (position near) vs 'The notebook lies on the desk' (surface) vs 'A pen is in the desk drawer' (inside).",
+            "highlightBadge": "Same Desk, Three Roles",
+            "stepByStep": "1) Sitting to study = 'at'. 2) Touching desktop = 'on'. 3) Inside drawer = 'in'.",
+            "whyCorrect": "Shows why you choose by relation, not by noun!"
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The science poster was pinned in the classroom wall.",
+          "correctText": "The science poster was pinned on the classroom wall.",
+          "whyWrong": "A wall is a flat surface, so notices and posters sit 'on' the wall—not buried inside it."
+        }
+      }
+    },
+    {
+      "id": "prep-step-06",
+      "stepNumber": 6,
+      "type": "explain-meaning",
+      "visualMode": "meaning-callout",
+      "title": "Spatial Pairs: between / among, beside / besides & opposite",
+      "badgeLabel": "Topic 3 · Spatial Pairs",
+      "shortPrompt": "Keep high-confusion pairs sharp: 'between' (two) vs 'among' (group), 'beside' (next to) vs 'besides' (in addition to), and 'in front of' vs 'opposite'.",
+      "explanation": "A single letter ('beside' vs 'besides') or group size ('between' vs 'among') completely shifts meaning when describing people and landmarks.",
+      "characterId": "mira",
+      "characterExpression": "thinking",
+      "sentenceId": "prep-s6-between",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 3 · High-Confusion Position Pairs",
+        "whyItWorks": "'between' marks a space separating two clear items (or individually named partners), while 'among' surrounds something inside a crowd of three or more. Meanwhile, 'beside' is spatial ('next to'), while 'besides' adds another item ('apart from').",
+        "ruleSummary": "between = two (or named items); among = group of 3+; beside = next to; besides = in addition to; opposite = facing across.",
+        "segments": [
+          {
+            "label": "between",
+            "text": "between two trees",
+            "tone": "independent",
+            "subLabel": "Two distinct landmarks"
+          },
+          {
+            "label": "among",
+            "text": "among tall ferns",
+            "tone": "object",
+            "subLabel": "Inside a group of 3+"
+          },
+          {
+            "label": "beside vs besides",
+            "text": "beside (next) / besides (plus)",
+            "tone": "complement",
+            "subLabel": "Do not add extra -s for place"
+          },
+          {
+            "label": "over / under",
+            "text": "above/over vs below/under",
+            "tone": "subject",
+            "subLabel": "Higher vs lower position"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Mira sat beside Arjun during the science quiz.",
+            "highlightBadge": "beside = next to",
+            "stepByStep": "1) 'next to' -> 'beside' (without -s). 2) Reserve 'besides' for 'Besides Arjun, two girls also presented charts.'",
+            "whyCorrect": "Removes the common extra '-s' error."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The library sits opposite the main playground (across facing it), right in front of the mango grove.",
+            "highlightBadge": "opposite vs in front of",
+            "stepByStep": "1) 'opposite' = across a courtyard/road facing each other. 2) 'in front of' = ahead in the same line/order.",
+            "whyCorrect": "Separates facing across from lining ahead."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Notice: 'over' often implies directly covering ('a roof over our heads'), while 'above' simply means higher on a scale/level ('above sea level').",
+            "highlightBadge": "above/over & below/under",
+            "stepByStep": "1) Vertical cover -> 'over' / 'under' ('under the shade of the tree'). 2) Higher/lower level -> 'above' / 'below' ('below zero').",
+            "whyCorrect": "Matches both physical shelter and measurement scales."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The coach divided the fresh oranges between all twenty players; Mira sat besides Arjun.",
+          "correctText": "The coach divided the fresh oranges among all twenty players; Mira sat beside Arjun.",
+          "whyWrong": "'twenty players' is a group ('among'), and 'next to' is 'beside' (without -s)."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 3 · Quick Check",
+        "prompt": "Which sentence uses 'between', 'among', or 'beside' accurately?",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "The coach divided the fresh oranges between all twenty players.",
+            "isCorrect": false,
+            "explanation": "A group of twenty players requires 'among', not 'between'."
+          },
+          {
+            "id": "opt-b",
+            "label": "Mira sat besides Arjun during the astronomy quiz.",
+            "isCorrect": false,
+            "explanation": "'besides' means 'in addition to'; 'next to' is 'beside'."
+          },
+          {
+            "id": "opt-c",
+            "label": "The library sits between the science laboratory and the art room.",
+            "isCorrect": true,
+            "explanation": "'between' accurately links two distinct named locations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "prep-step-07",
+      "stepNumber": 7,
+      "type": "compare-example",
+      "visualMode": "compare-dual",
+      "title": "Direction & Motion: Static ('in / on') vs Entry ('into / onto') & 'to / towards'",
+      "badgeLabel": "Topic 4 · Motion vs Rest",
+      "shortPrompt": "Separate resting inside/on ('in, on') from moving from outside to inside/top ('into, onto'), and goal reached ('to') from heading in that direction ('towards').",
+      "explanation": "Compare 'poured warm milk into the tumbler' (entry motion) with 'milk is in the tumbler' (quiet rest) using the Compare Sentence tab!",
+      "characterId": "arjun",
+      "characterExpression": "curious",
+      "sentenceId": "prep-s7-into",
+      "comparisonSentenceId": "prep-s7-in",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 4 · Rest vs Boundary Crossing",
+        "whyItWorks": "Action verbs like 'pour, walk, jump, step' cross a boundary from outside to inside ('into') or onto a surface ('onto'). Static verbs like 'is, sits, rests' stay inside ('in') or on top ('on').",
+        "ruleSummary": "Use into / onto for movement across a boundary; use in / on for resting location; use to (goal) vs towards (direction).",
+        "segments": [
+          {
+            "label": "INTO · Motion",
+            "text": "poured milk into the tumbler",
+            "tone": "verb",
+            "subLabel": "Outside -> inside"
+          },
+          {
+            "label": "IN · Rest",
+            "text": "milk is in the tumbler",
+            "tone": "object",
+            "subLabel": "Already resting inside"
+          },
+          {
+            "label": "ONTO · Landing",
+            "text": "jumped onto the low wall",
+            "tone": "subject",
+            "subLabel": "Movement onto top surface"
+          },
+          {
+            "label": "TO vs TOWARDS",
+            "text": "to museum vs towards hills",
+            "tone": "complement",
+            "subLabel": "Endpoint vs direction only"
+          }
+        ],
+        "relationDiagram": {
+          "relationType": "dependent",
+          "leftLabel": "Motion (Entry)",
+          "leftText": "poured ... into the tumbler",
+          "connectorLabel": "Then at Rest",
+          "rightLabel": "Static Location",
+          "rightText": "is ... in the tumbler",
+          "caption": "Motion verbs cross the boundary ('into'); resting states stay inside ('in')."
+        },
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "The frog jumped into the pond (entry) and now swims in the pond (inside).",
+            "highlightBadge": "into vs in",
+            "stepByStep": "1) Jumping from bank to water crosses the boundary -> 'into'. 2) Swimming already inside the water -> 'in'.",
+            "whyCorrect": "Clearly separates crossing from staying inside."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The cat climbed onto the garden wall, and now sleeps on the wall.",
+            "highlightBadge": "onto vs on",
+            "stepByStep": "1) Climbing up onto a surface -> 'onto'. 2) Sleeping already at rest there -> 'on'.",
+            "whyCorrect": "'onto' marks the landing movement."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "We cycled to the museum (reached it), while monsoon clouds drifted towards the hills (heading in that direction).",
+            "highlightBadge": "to vs towards",
+            "stepByStep": "1) 'to' signals reaching the destination. 2) 'towards' signals direction without claiming arrival.",
+            "whyCorrect": "Even 'from ... to' marks start origin to final endpoint."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Mira poured warm milk in the glass and walked in the hall.",
+          "correctText": "Mira poured warm milk into the glass and walked into the hall.",
+          "whyWrong": "Both pouring and walking from outside to inside express entry motion, so they take 'into'."
+        }
+      }
+    },
+    {
+      "id": "prep-step-08",
+      "stepNumber": 8,
+      "type": "interact-explore",
+      "visualMode": "compare-dual",
+      "title": "Path Shapes: 'across', 'through' & 'along'",
+      "badgeLabel": "Topic 4 · Path Geometry",
+      "shortPrompt": "Picture the shape of the path: 'across' crosses an open 2D surface, 'through' moves inside a 3D space or opening, and 'along' follows a line!",
+      "explanation": "Don't mix up 'across' and 'through'—a bridge goes across a river surface, whereas a tunnel or forest wraps around you on all sides ('through')!",
+      "characterId": "arjun",
+      "characterExpression": "explaining",
+      "sentenceId": "prep-s8-paths",
+      "comparisonSentenceId": "prep-s8-along",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 4 · Three Path Shapes",
+        "whyItWorks": "'across' travels from edge A to edge B over an open surface (bridge, playground, road). 'through' enters, passes inside, and exits a surrounded 3D volume (tunnel, forest, doorway). 'along' follows a narrow line or bank.",
+        "ruleSummary": "across = side-to-side over a 2D surface; through = inside a 3D volume or opening; along = following a line/edge.",
+        "segments": [
+          {
+            "label": "ACROSS · Surface",
+            "text": "across the stone bridge",
+            "tone": "object",
+            "subLabel": "Side A to side B (2D)"
+          },
+          {
+            "label": "THROUGH · 3D",
+            "text": "through the forest / tunnel",
+            "tone": "independent",
+            "subLabel": "Inside & out the other side"
+          },
+          {
+            "label": "ALONG · Line",
+            "text": "along the river bank",
+            "tone": "subject",
+            "subLabel": "Following length / edge"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Cool monsoon breeze entered through the open window.",
+            "highlightBadge": "Opening = through",
+            "stepByStep": "1) Air passes inside a framed opening from outside to inside. 2) Use 'through' (never 'across the window').",
+            "whyCorrect": "Openings and frames take 'through'."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Arjun walked across the playground to hand Mira the whistle.",
+            "highlightBadge": "Open Ground = across",
+            "stepByStep": "1) A playground is an open flat surface from one side to the other. 2) Use 'across'.",
+            "whyCorrect": "No surrounding tunnel/trees."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Cyclists rode along the canal path, across the stone bridge, and through the pine grove.",
+            "highlightBadge": "All 3 Paths Together",
+            "stepByStep": "1) Edge of canal = 'along'. 2) Crossing bridge surface = 'across'. 3) Inside trees = 'through'.",
+            "whyCorrect": "Each preposition matches its physical path."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "The train sped across the dark mountain tunnel.",
+          "correctText": "The train sped through the dark mountain tunnel.",
+          "whyWrong": "A tunnel encloses the train on top and both sides (3D volume), so it requires 'through', not 'across'."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 4 · Quick Check",
+        "prompt": "Fill the blanks accurately: 'The train passed ___ a long tunnel and then crossed a bridge ___ the Godavari River.'",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "across ... through",
+            "isCorrect": false,
+            "explanation": "A tunnel is enclosed in 3D ('through'), and a bridge spans a surface ('across')."
+          },
+          {
+            "id": "opt-b",
+            "label": "through ... across",
+            "isCorrect": true,
+            "explanation": "Trains move inside a tunnel ('through') and over a bridge from bank to bank ('across')."
+          },
+          {
+            "id": "opt-c",
+            "label": "along ... into",
+            "isCorrect": false,
+            "explanation": "'along a tunnel' and 'into the river' distort the train's route."
+          }
+        ]
+      }
+    },
+    {
+      "id": "prep-step-09",
+      "stepNumber": 9,
+      "type": "explain-meaning",
+      "visualMode": "compare-dual",
+      "title": "Tools ('with'), Transport ('by / on foot') & Material ('of / from')",
+      "badgeLabel": "Topic 5 · Tools, Travel & Material",
+      "shortPrompt": "Use 'with' for physical tools, 'by + vehicle' (no 'a/the') for travel—except 'on foot' and 'in a car'—and 'made of' (visible) vs 'made from' (transformed).",
+      "explanation": "Prepositions don't just mark time and space! They also show what tool you held, how you travelled, and whether an ingredient changed form.",
+      "characterId": "gyan",
+      "characterExpression": "explaining",
+      "sentenceId": "prep-s9-with-by",
+      "comparisonSentenceId": "prep-s9-material",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-pseb9-ch3-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 5 · Means, Agency & Origin",
+        "whyItWorks": "'with' connects a hand-held tool ('with a knife'), while 'by' connects a general mode of travel ('by bus, by train') or human doer ('by Arjun'). For materials, 'of' keeps raw form visible ('of wood'), while 'from' signals transformation ('from milk').",
+        "ruleSummary": "Tool = with; Vehicle mode (no article) = by (but walking = on foot, private car = in a car); Material = made of (visible) vs made from (changed).",
+        "segments": [
+          {
+            "label": "TOOL · WITH",
+            "text": "sliced with a knife",
+            "tone": "independent",
+            "subLabel": "Physical instrument"
+          },
+          {
+            "label": "TRAVEL · BY / ON",
+            "text": "by bus / in a car / on foot",
+            "tone": "object",
+            "subLabel": "Note 'on foot'!"
+          },
+          {
+            "label": "MADE OF",
+            "text": "benches made of wood",
+            "tone": "subject",
+            "subLabel": "Original material visible"
+          },
+          {
+            "label": "MADE FROM",
+            "text": "curd made from milk",
+            "tone": "complement",
+            "subLabel": "Transformed into new form"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "Most students come to our village school on foot, while others arrive by bicycle.",
+            "highlightBadge": "on foot vs by bicycle",
+            "stepByStep": "1) Walking is ALWAYS 'on foot' (never 'by foot'). 2) Vehicle without 'a/the' -> 'by bicycle / by bus'.",
+            "whyCorrect": "Fixes one of the most frequent travel slips."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Write your lab observations in blue ink with a neat pen.",
+            "highlightBadge": "Medium (in) vs Tool (with)",
+            "stepByStep": "1) Liquid/colour medium -> 'in blue ink' (or 'in pencil'). 2) Physical object held -> 'with a pen'.",
+            "whyCorrect": "Separates writing medium from writing instrument."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Clay pots are made of clay (still clay), whereas fresh cheese is made from warm milk (changed substance).",
+            "highlightBadge": "of vs from",
+            "stepByStep": "1) You still see and touch clay -> 'made of'. 2) Milk transforms completely -> 'made from'.",
+            "whyCorrect": "Clear visual test for material prepositions."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Arjun sliced the papaya by a knife and walked to school by foot.",
+          "correctText": "Arjun sliced the papaya with a knife and walked to school on foot.",
+          "whyWrong": "Instruments take 'with' (not 'by'), and walking always takes 'on foot' (not 'by foot')."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 5 · Quick Check",
+        "prompt": "Which sentence uses means, tool, or material prepositions accurately?",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "She tightened the telescope screw by a small screwdriver.",
+            "isCorrect": false,
+            "explanation": "A screwdriver is a tool -> use 'with a small screwdriver'."
+          },
+          {
+            "id": "opt-b",
+            "label": "Butter is churned from fresh cream, and many pupils walk to school on foot.",
+            "isCorrect": true,
+            "explanation": "'from' marks transformed origin (cream -> butter), and walking is always 'on foot'."
+          },
+          {
+            "id": "opt-c",
+            "label": "Mira came to the library in bus this morning.",
+            "isCorrect": false,
+            "explanation": "Use 'by bus' (no article) or 'on a bus' (with article)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "prep-step-10",
+      "stepNumber": 10,
+      "type": "show-relationship",
+      "visualMode": "meaning-callout",
+      "title": "Context Chameleons: How One Preposition Shifts Meaning",
+      "badgeLabel": "Topic 5 · Context Shifts",
+      "shortPrompt": "Never memorise one single meaning for a preposition! Context decides whether 'by' or 'in' marks Place, Time, Means, Medium, or State.",
+      "explanation": "Watch one sentence use 'by' three ways: 'By noon' (Time), 'by the river' (Place), and 'by bicycle' (Means). Always read the words beside the preposition!",
+      "characterId": "gyan",
+      "characterExpression": "curious",
+      "sentenceId": "prep-s10-context",
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 5 · Context Determines Meaning",
+        "whyItWorks": "The word 'by' has no single fixed meaning on its own. Paired with a clock time ('noon'), it marks a deadline; paired with a landmark ('the river'), it means beside; paired with a vehicle ('bicycle'), it marks transport; paired with an author ('Tagore'), it marks the creator.",
+        "ruleSummary": "Do not assign one rigid rule per preposition; check context (Time, Place, Means, Medium, Doer, or State).",
+        "segments": [
+          {
+            "label": "BY · Time",
+            "text": "by noon",
+            "tone": "verb",
+            "subLabel": "Not later than 12 p.m."
+          },
+          {
+            "label": "BY · Place",
+            "text": "by the river",
+            "tone": "subject",
+            "subLabel": "Next to / beside"
+          },
+          {
+            "label": "BY · Means",
+            "text": "by bicycle",
+            "tone": "object",
+            "subLabel": "Travel mode"
+          },
+          {
+            "label": "BY · Creator",
+            "text": "written by Tagore",
+            "tone": "complement",
+            "subLabel": "Person / doer"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "'in' shifts too: in the box (Place) · in July (Time) · in blue ink (Medium) · in a hurry (State).",
+            "highlightBadge": "Four Roles of 'in'",
+            "stepByStep": "1) Box = space inside. 2) July = time span. 3) Blue ink = writing medium. 4) A hurry = state/manner.",
+            "whyCorrect": "Every meaning follows cleanly from the object noun."
+          },
+          {
+            "level": "Medium",
+            "sentence": "Compare verb + preposition pairs: care for saplings · look at the chart · wait for the train · listen to the guide.",
+            "highlightBadge": "Verb + Preposition Match",
+            "stepByStep": "1) Look + 'at' (focus gaze) vs Look + 'for' (search). 2) Listen ALWAYS pairs with 'to' before what you hear.",
+            "whyCorrect": "Meaning lives in the partnership between verb and preposition."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Compare 'agree with a person/idea' vs 'agree to a plan/proposal' vs 'agree on a date'.",
+            "highlightBadge": "Partner Changes Preposition",
+            "stepByStep": "1) Person/opinion -> 'agree with Mira'. 2) Proposal/terms -> 'agree to the plan'. 3) Shared decision -> 'agree on Monday'.",
+            "whyCorrect": "Choosing by context prevents common exam mistakes."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Assuming 'by' only belongs in Passive Voice or 'in' only means physical inside-ness.",
+          "correctText": "Read the noun after the preposition to identify Time, Place, Means, Medium, or State.",
+          "whyWrong": "High-frequency prepositions carry multiple contextual meanings across everyday English."
+        }
+      }
+    },
+    {
+      "id": "prep-step-11",
+      "stepNumber": 11,
+      "type": "guided-practice",
+      "visualMode": "compare-dual",
+      "title": "Zero-Preposition Verbs, 'in / within', Placement & Phrasal Boundary",
+      "badgeLabel": "Topic 6 · Final Polish",
+      "shortPrompt": "Drop extra prepositions after 'discuss, enter, reach, order, resemble'; split 'in' (at end) vs 'within' (before end); and keep question-end prepositions natural!",
+      "explanation": "Finish strong by clearing four classic exam and everyday traps—including knowing when a word like 'up' is a real Preposition vs part of an idiomatic Phrasal Verb.",
+      "characterId": "arjun",
+      "characterExpression": "happy",
+      "sentenceId": "prep-s11-zero",
+      "comparisonSentenceId": "prep-s11-end",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch5-prepositions", "src-assam-ch14-prepositions", "src-prep-bridge"],
+      "clausePatternData": {
+        "mode": "clause-elements",
+        "categoryBadge": "Topic 6 · Avoiding Common Traps",
+        "whyItWorks": "Verbs like 'discuss' (= talk about), 'enter' (= go into), and 'reach' (= arrive at) already carry the relation inside the verb itself—so adding 'about / into / to' repeats it twice! Meanwhile, in Wh-questions ('Which shelf did Mira leave it on?'), moving the object to the front naturally strands 'on?' at the end.",
+        "ruleSummary": "Never add about/into/to after discuss, enter, reach, order; 'within' = before period ends; ending a Wh-question with a preposition is natural.",
+        "segments": [
+          {
+            "label": "Zero-Prep Verbs",
+            "text": "discussed the plan / reached the hall",
+            "tone": "independent",
+            "subLabel": "No about / into / to"
+          },
+          {
+            "label": "IN vs WITHIN",
+            "text": "in 10 min vs within 10 min",
+            "tone": "object",
+            "subLabel": "At end vs before end"
+          },
+          {
+            "label": "Question End",
+            "text": "Which shelf ... on?",
+            "tone": "complement",
+            "subLabel": "Natural Wh-question order"
+          },
+          {
+            "label": "Phrasal Boundary",
+            "text": "look up chimney vs look up word",
+            "tone": "phrase",
+            "subLabel": "Literal space vs idiom"
+          }
+        ],
+        "progressiveExamples": [
+          {
+            "level": "Easy",
+            "sentence": "The students entered the hall quietly (NOT 'entered into the hall') and ordered fresh fruit.",
+            "highlightBadge": "Zero-Preposition Trap",
+            "stepByStep": "1) 'enter' + physical room takes NO 'into' (save 'enter into' for abstract agreements/contracts). 2) 'order' takes NO 'for'.",
+            "whyCorrect": "Contrast with 'arrive at/in' and 'listen to', which DO need prepositions."
+          },
+          {
+            "level": "Medium",
+            "sentence": "The parcel arrives within two days (anytime before 2 days end) vs in two days (at the 2-day mark).",
+            "highlightBadge": "in vs within",
+            "stepByStep": "1) Upper limit before deadline expires -> 'within'. 2) Exact period until completion -> 'in'.",
+            "whyCorrect": "Gives precision in schedules and promises."
+          },
+          {
+            "level": "Challenging",
+            "sentence": "Look up the chimney (Preposition + noun) vs Look up a word in a dictionary (Phrasal Verb = search).",
+            "highlightBadge": "Phrasal Verb Boundary",
+            "stepByStep": "1) 'up the chimney' keeps literal upward direction. 2) 'look up' meaning 'search' is a single idiomatic Phrasal Verb.",
+            "whyCorrect": "Keeps Prepositions cleanly separated from Phrasal Verbs."
+          }
+        ],
+        "commonMistake": {
+          "incorrectText": "Our team discussed about the rainwater project and reached to the hall.",
+          "correctText": "Our team discussed the rainwater project and reached the hall.",
+          "whyWrong": "'discuss' and 'reach' are transitive verbs that connect directly to their objects without 'about' or 'to'."
+        },
+        "boardNote": {
+          "label": "Grammar Note · Formal vs Everyday Question Placement",
+          "text": "Everyday English naturally places the preposition at the end of a question ('What are you writing with?'). Formal writing sometimes fronts it before 'whom/which' ('With what are you writing?' / 'The shelf on which...')."
+        }
+      },
+      "checkpointData": {
+        "topicLabel": "Topic 6 · Quick Check",
+        "prompt": "Which sentence is completely free of preposition errors?",
+        "options": [
+          {
+            "id": "opt-a",
+            "label": "Our team discussed about the rainwater project after lunch.",
+            "isCorrect": false,
+            "explanation": "'discuss' takes a direct object without 'about'."
+          },
+          {
+            "id": "opt-b",
+            "label": "Arjun reached at the railway station ten minutes early.",
+            "isCorrect": false,
+            "explanation": "'reach' takes a direct object without 'at/to' (compare 'arrived at')."
+          },
+          {
+            "id": "opt-c",
+            "label": "Which laboratory shelf did Mira leave the microscope on?",
+            "isCorrect": true,
+            "explanation": "Question-end placement ('leave the microscope on?') is natural English and keeps the required preposition!"
+          }
+        ]
+      }
+    }
+  ],
+  "wordLabActivities": []
+}

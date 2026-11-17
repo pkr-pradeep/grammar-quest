@@ -45,6 +45,10 @@ const GUIDE_CONCEPT_NOTES: Record<string, string> = {
     'Time (Past, Present, Future) and Tense work together to show when an action happens and whether it is habitual, ongoing, or completed.',
   'c9-mission-03':
     'A finite verb agrees with the true Subject head-word in Number and Person, ignoring intervening phrases.',
+  'c9-mission-05':
+    'Active Voice puts the doer in Subject position; Passive Voice promotes the receiver using matching be + Past Participle (V-en / V3).',
+  'c9-mission-06':
+    'Prepositions bridge nouns and pronouns to show time, place, direction, and means—with context shaping every choice.',
 };
 
 function getPrimaryActionText(status: UnifiedLessonStatus): string {

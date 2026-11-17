@@ -1,0 +1,721 @@
+{
+  "metadata": {
+    "lessonId": "lesson-active-passive-voice",
+    "catalogTopicId": "topic-voice",
+    "categoryId": "cat-voice-speech",
+    "categoryTitle": "Voice, Speech & Mechanics",
+    "lessonTitle": "Active and Passive Voice",
+    "phase": "phase-1-curriculum-and-learning-design",
+    "categorisationPolicy": "Independent English grammar curriculum; no academic class, board, or mission labels in student-facing content.",
+    "estimatedDurationMinutes": 9,
+    "status": "design-pending-approval",
+    "architectureCompatibility": {
+      "stack": ["React", "Vite", "TypeScript", "Tailwind CSS"],
+      "characters": ["mira", "arjun", "gyan"],
+      "engineComponents": [
+        "GrammarTeachingEngine",
+        "TeachingSequence",
+        "GuideNotePopup",
+        "SentenceVisualizer",
+        "WordLaboratory",
+        "IndependentPracticeStage",
+        "AssessmentRunner"
+      ],
+      "storage": ["IndexedDB (progressRepository, assessmentRepository)"]
+    },
+    "verificationBoundaryNote": "Internal textbook citations (titles, chapters, book pages, PDF pages, and high-level summaries) are strictly derived from curriculum-source-map.json, curriculum-overview.md, content-gaps.md, and src/content/curriculumCatalog.ts. Raw PDF binaries are not present in this runtime container; no unverified sub-section headings or textbook exercises have been invented."
+  },
+  "prerequisites": [
+    {
+      "id": "prereq-voice-subject-predicate",
+      "concept": "Subject vs Predicate, Subject head-word, and finite verbs",
+      "sourceCatalogTopicId": "topic-subject-predicate",
+      "sourceLessonTitle": "Subject and Predicate",
+      "availabilityStatus": "Already available",
+      "handlingInLesson": "Assumed foundation; reactivated visually in Topic 1 when contrasting who sits in the Subject slot."
+    },
+    {
+      "id": "prereq-voice-tenses",
+      "concept": "Time vs verb forms (Present/Past/Future time, Simple/Progressive/Perfect aspects, and helper verbs be/have/will)",
+      "sourceCatalogTopicId": "topic-tenses",
+      "sourceLessonTitle": "Tenses: Time and Verb Forms",
+      "availabilityStatus": "Already available",
+      "handlingInLesson": "Activated in Topic 3 so tense and aspect stay constant during Active-to-Passive conversion."
+    },
+    {
+      "id": "prereq-voice-sva",
+      "concept": "Subject-Verb Agreement in Number and Person (is/are, was/were, has/have)",
+      "sourceCatalogTopicId": "topic-sva",
+      "sourceLessonTitle": "Subject–Verb Agreement",
+      "availabilityStatus": "Already available",
+      "handlingInLesson": "Activated in Topic 2 whenever a singular/plural Object becomes the new Passive Subject."
+    },
+    {
+      "id": "prereq-voice-clause-patterns",
+      "concept": "Sentence purpose (Questions & Imperatives) and Transitive (SVO/SVOO/SVOC) vs Intransitive/Linking (SV/SVA/SVC) patterns",
+      "sourceCatalogTopicId": "topic-sentence-types",
+      "sourceLessonTitle": "Sentence Types & Clause Patterns",
+      "availabilityStatus": "Requires a short revision",
+      "handlingInLesson": "Includes a quick 1-step revision on spotting the Direct Object (Verb + what/whom?) before Topic 2 and before blocking non-passivisable sentences in Topic 6."
+    },
+    {
+      "id": "prereq-voice-past-participle",
+      "concept": "Isolating regular and irregular Past Participle (V-en / V3) verb forms vs Past Simple (V2)",
+      "sourceCatalogTopicId": "topic-tenses",
+      "sourceLessonTitle": "Tenses: Time and Verb Forms (used inside Perfect forms)",
+      "availabilityStatus": "Requires a short revision",
+      "handlingInLesson": "Includes a concise V2 vs Past Participle (V-en / V3) refresher card inside Topic 2."
+    },
+    {
+      "id": "prereq-voice-pronoun-case",
+      "concept": "Subject vs Object pronoun case shifts (I/me, we/us, he/him, she/her, they/them, who/whom)",
+      "sourceCatalogTopicId": "topic-pronouns",
+      "sourceLessonTitle": "Pronouns & Case",
+      "availabilityStatus": "Not yet available",
+      "handlingInLesson": "Teach a self-contained Subject-to-Object Pronoun Swap mini-chart directly inside Topic 4."
+    },
+    {
+      "id": "prereq-voice-modals",
+      "concept": "Modal auxiliaries (can, may, must, should, will)",
+      "sourceCatalogTopicId": "topic-auxiliaries-modals",
+      "sourceLessonTitle": "Auxiliaries, Modals & Special Verbs",
+      "availabilityStatus": "Not yet available",
+      "handlingInLesson": "Include a self-contained 'Modal + be + Past Participle' pattern card inside Topic 3."
+    }
+  ],
+  "scopeBoundaries": {
+    "includedAreas": [
+      "Meaning of Voice: Active (doer focus) vs Passive (receiver focus)",
+      "Core Active (S+V+O) to Passive (New S + be + Past Participle + optional by-phrase) transformation",
+      "Verb form, agreement, and auxiliary changes across tenses, aspects, and modals (including Perfect Continuous / Future Continuous boundary)",
+      "Pronoun case changes (I/me, he/him, she/her, they/them, who/whom)",
+      "Double-object (SVOO) passives, Questions, and Imperatives",
+      "Using vs omitting the by-phrase, natural contexts for Passive Voice, and non-by prepositions (with/to/in) where relevant",
+      "Sentences that cannot be made passive (Intransitive SV/SVA, Linking SVC, and stative possession verbs; adjectives ending in -ed)",
+      "Common transformation errors and 5-point Passive audit"
+    ],
+    "excludedOrDeferredToOtherLessons": [
+      {
+        "lessonTitle": "Direct and Indirect Speech",
+        "catalogTopicId": "topic-speech",
+        "reason": "Tense backshift and reporting speech across clauses belong in the dedicated Speech lesson."
+      },
+      {
+        "lessonTitle": "Phrasal Verbs",
+        "catalogTopicId": "topic-phrasal-verbs",
+        "reason": "Idiomatic multi-word verb + particle combinations and their passive behaviour belong in Phrasal Verbs."
+      },
+      {
+        "lessonTitle": "Pronouns & Case (full taxonomy)",
+        "catalogTopicId": "topic-pronouns",
+        "reason": "Reflexive, relative, distributive, and possessive pronoun rules belong in Pronouns & Case; only personal/interrogative subject-object swaps are bridged here."
+      },
+      {
+        "lessonTitle": "Auxiliaries, Modals & Special Verbs (full modal meanings)",
+        "catalogTopicId": "topic-auxiliaries-modals",
+        "reason": "Nuances of ability, permission, obligation, and Assam 24 Anomalous Finites belong in their dedicated lesson; only structural 'Modal + be + V-en' is taught here."
+      }
+    ]
+  },
+  "sourceReferences": [
+    {
+      "id": "src-od10-ch9-passive",
+      "sourceTextbookId": "odisha-learn-practise-10",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "Learn and Practise Grammar Class - X",
+      "chapter": "Chapter 9: The Passive",
+      "bookPages": "90-105",
+      "pdfPages": "96-111",
+      "provenance": "textbook-derived",
+      "note": "Dedicated 16-page chapter on Passive Voice using 'be + en' notation. Recorded print glitches in content-gaps.md: p. 93 'an opposition' (for 'an apposition') and p. 100 'be blamed' / (1) numbering glitch."
+    },
+    {
+      "id": "src-pseb9-ch6-voice",
+      "sourceTextbookId": "pseb-grammar-in-use-9",
+      "board": "Punjab School Education Board (PSEB)",
+      "bookTitle": "A Practice Book of ENGLISH GRAMMAR & COMPOSITION (GRAMMAR IN USE) for Class IX",
+      "chapter": "Chapter 6: Voice",
+      "bookPages": "61-73",
+      "pdfPages": "67-79",
+      "provenance": "textbook-derived",
+      "note": "Active and Passive rules across tenses and modals using V1/V2/V3 notation and 12-tense framework."
+    },
+    {
+      "id": "src-assam-ch11-voice",
+      "sourceTextbookId": "assam-new-method-9-10",
+      "board": "Board of Secondary Education, Assam (SEBA)",
+      "bookTitle": "A NEW METHOD English Grammar For Class IX & X",
+      "chapter": "Chapter 11: Voice",
+      "bookPages": "186-193",
+      "pdfPages": "195-202",
+      "provenance": "textbook-derived",
+      "note": "Core Voice chapter supported by Ch. 1 L5 Transitive/Intransitive verbs (pp. 6-8), Ch. 5 Pronouns (pp. 64-73), and Ch. 9 Strong/Weak/Mixed past participles (pp. 126-133)."
+    },
+    {
+      "id": "src-od9-prereq-verbs",
+      "sourceTextbookId": "odisha-learn-practise-9",
+      "board": "Board of Secondary Education, Odisha",
+      "bookTitle": "LEARN AND PRACTISE GRAMMAR CLASS - IX",
+      "chapter": "Ch. 2 Verbs (pp. 27-32), Ch. 3 Time and Tense (pp. 33-61), Ch. 4 Auxiliaries (pp. 62-73), Ch. 12 Predicate Phrase (pp. 141-146)",
+      "bookPages": "27-73, 141-146",
+      "pdfPages": "33-79, 147-152",
+      "provenance": "textbook-derived",
+      "note": "Contains no standalone Voice chapter; supplies prerequisite finite/non-finite (-ed/-en) forms, auxiliaries, and SVO/SVOO/SVC/SVA patterns."
+    },
+    {
+      "id": "src-voice-bridge",
+      "sourceTextbookId": "grammar-quest-supplementary",
+      "board": "Grammar Quest Original Bridge",
+      "bookTitle": "Visual Voice Spotlight, Pronoun Case & Tense-Chain Bridge (Supplementary)",
+      "chapter": "Active and Passive Voice Blueprint",
+      "bookPages": "N/A",
+      "pdfPages": "N/A",
+      "provenance": "supplementary-bridge",
+      "note": "Provides unified Doer-vs-Receiver visual framing, V-en/V3 notation bridge, self-contained Pronoun Case and Modal Passive mini-tables, and compliant Indian school/nutrition examples."
+    }
+  ],
+  "topics": [
+    {
+      "id": "voice-topic-01",
+      "order": 1,
+      "title": "Meaning of Voice: Doer Focus vs Receiver Focus",
+      "broadArea": "Meaning of voice & Doer vs receiver focus",
+      "difficultyLevel": "Beginner",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "prerequisites": [
+        "Subject and Predicate (Already available)",
+        "Clause elements S, V, O (Requires a short revision)"
+      ],
+      "learningObjectives": {
+        "understand": [
+          "Voice shows whether the grammatical Subject is the doer (Active) or the receiver (Passive) of the verb's action.",
+          "Shifting between Active and Passive changes focus/topic, not the real-world event or time."
+        ],
+        "identify": [
+          "Classify sentences as Active Voice or Passive Voice by asking whether the Subject performs or receives the action."
+        ],
+        "construct": [
+          "Pair an Active sentence with its matching Passive perspective for the same event."
+        ],
+        "commonMisconceptions": [
+          "Thinking every Passive sentence describes the past because of -ed/-en verb forms.",
+          "Assuming the first noun (Subject) is always the doer of the action."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "mira",
+        "shortExplanation": "In Active Voice, the Subject does the action ('Mira waters the saplings'). In Passive Voice, the receiver moves into the Subject spotlight ('The saplings are watered by Mira'). The event stays the same—only the camera spotlight moves!",
+        "examples": [
+          {
+            "text": "Mira waters the mango saplings every morning.",
+            "label": "Active Voice (Doer Focus)",
+            "note": "Subject 'Mira' performs the action of watering."
+          },
+          {
+            "text": "The mango saplings are watered by Mira every morning.",
+            "label": "Passive Voice (Receiver Focus)",
+            "note": "Subject 'The mango saplings' receives the action; time is still present habit."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Thinking 'Fresh rice is grown in Odisha' is in Past Time because 'grown' is a past participle.",
+          "correction": "Look at the helper verb 'is': Present helper + Past Participle shows a regular present-time passive fact."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "categorise",
+          "title": "Who Is in the Subject Spotlight?",
+          "description": "Students sort 6 school and nature sentences into 'Active (Subject = Doer)' and 'Passive (Subject = Receiver)' buckets."
+        },
+        "checkpointQuestion": {
+          "prompt": "In 'Fresh guavas are packed in bamboo baskets every morning', what role does 'Fresh guavas' play?",
+          "options": [
+            { "id": "a", "label": "The Subject and the doer packing the baskets", "isCorrect": false },
+            { "id": "b", "label": "The Subject and the receiver of the packing action (Passive Voice)", "isCorrect": true },
+            { "id": "c", "label": "An adverbial telling when the action happens", "isCorrect": false },
+            { "id": "d", "label": "A past-time action completed yesterday", "isCorrect": false }
+          ],
+          "explanation": "'Fresh guavas' is the grammatical Subject, but it receives the action ('are packed')—so the sentence is in Passive Voice."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["show-sentence", "compare-example"],
+        "visualModes": ["split-blueprint", "compare-dual"]
+      }
+    },
+    {
+      "id": "voice-topic-02",
+      "order": 2,
+      "title": "The Core Transformation Pattern (New Subject + be + Past Participle)",
+      "broadArea": "Subject/object movement & be + past participle structure",
+      "difficultyLevel": "Beginner",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "prerequisites": [
+        "Topic 1: Doer vs Receiver focus",
+        "Subject-Verb Agreement (Already available)",
+        "Past Participle V-en / V3 forms (Requires a short revision)"
+      ],
+      "learningObjectives": {
+        "understand": [
+          "Every Passive verb group contains two working parts: a form of 'be' (carrying tense and matching the new Subject) plus a Past Participle (V-en / V3).",
+          "Moving the Object into Subject position shifts Subject-Verb Agreement onto the new Subject."
+        ],
+        "identify": [
+          "Locate the 'be' auxiliary and Past Participle inside a Passive sentence and verify new-Subject agreement."
+        ],
+        "construct": [
+          "Convert simple Present and simple Past S+V+O sentences between Active and Passive Voice."
+        ],
+        "commonMisconceptions": [
+          "Matching 'be' to the original doer instead of the new Subject ('The saplings is watered').",
+          "Dropping 'be' completely ('The kite flown by Arjun').",
+          "Using Simple Past V2 ('wrote', 'ate') instead of Past Participle V-en/V3 ('written', 'eaten')."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "gyan",
+        "shortExplanation": "Follow 4 clear moves: (1) Bring the Object to the Subject spot, (2) Add the matching form of 'be' for the time AND the new Subject, (3) Change the main verb to its Past Participle (V-en / V3), and (4) add 'by + original Subject' when helpful.",
+        "examples": [
+          {
+            "text": "Arjun wrote two science notes. -> Two science notes were written by Arjun.",
+            "label": "Singular-to-Plural Agreement + Irregular V-en",
+            "note": "New plural Subject 'Two science notes' requires 'were', and 'wrote' (V2) becomes 'written' (V-en/V3)."
+          },
+          {
+            "text": "The students clean the laboratory. -> The laboratory is cleaned by the students.",
+            "label": "Plural-to-Singular Agreement",
+            "note": "New singular Subject 'The laboratory' takes singular 'is', not 'are'."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Writing 'The crisp dosas was served by our school canteen.'",
+          "correction": "The new Subject 'The crisp dosas' is plural, so 'be' must shift from 'was' to 'were'."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "sentence-construction",
+          "title": "Build the Passive Transformation",
+          "description": "Students rearrange colour-coded tiles (New Subject + matching 'be' + Past Participle + 'by' phrase) to convert an Active S+V+O sentence accurately."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which sentence correctly converts 'The gardener planted three neem saplings' into Passive Voice?",
+          "options": [
+            { "id": "a", "label": "Three neem saplings was planted by the gardener.", "isCorrect": false },
+            { "id": "b", "label": "Three neem saplings planted by the gardener.", "isCorrect": false },
+            { "id": "c", "label": "Three neem saplings were planted by the gardener.", "isCorrect": true },
+            { "id": "d", "label": "Three neem saplings are planted by the gardener.", "isCorrect": false }
+          ],
+          "explanation": "'Three neem saplings' is plural and 'planted' is past time, so the verb needs plural past 'were' + Past Participle 'planted'."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["reveal-structure", "interact-explore"],
+        "visualModes": ["structure-split", "agreement-lock"]
+      }
+    },
+    {
+      "id": "voice-topic-03",
+      "order": 3,
+      "title": "Voice Across Verb Tenses, Aspects & Modals",
+      "broadArea": "Verb form and auxiliary changes across tenses and modals",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "prerequisites": [
+        "Topic 2: Core Passive pattern",
+        "Tenses: Time and Verb Forms (Already available)",
+        "Modals structure bridge (Not yet available as standalone lesson)"
+      ],
+      "learningObjectives": {
+        "understand": [
+          "The original tense, aspect, or modal stays on the helping verb chain, while 'be / being / been + V-en' adds the passive layer.",
+          "Progressive passives require 'being'; Perfect passives require 'been'; Modals and 'will/going to' take bare 'be'.",
+          "Perfect Continuous and Future Continuous tenses do not have natural standard passive forms."
+        ],
+        "identify": [
+          "Recognise whether a Passive verb chain expresses Simple, Progressive/Continuous, Perfect, Future-time, or Modal meaning."
+        ],
+        "construct": [
+          "Transform Active sentences in Present/Past Simple, Present/Past Progressive, Present/Past Perfect, Future Time ('will', 'going to'), and Modals ('can, must, should') without shifting time."
+        ],
+        "commonMisconceptions": [
+          "Dropping 'being' in ongoing passive actions ('The wall is painted right now' instead of 'is being painted').",
+          "Dropping 'been' in perfect passive actions ('The fruit has washed').",
+          "Changing Present Simple Active into Past Simple Passive."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "gyan",
+        "shortExplanation": "Never change the sentence's time when changing Voice! Keep the tense or modal at the front of the verb chain, add the matching passive helper ('is/was', 'being' for -ing actions, 'been' for have/has/had, or 'be' after modals/will), and finish with the Past Participle.",
+        "examples": [
+          {
+            "text": "The students are painting a solar chart. -> A solar chart is being painted by the students.",
+            "label": "Present Progressive / Continuous Passive",
+            "note": "'are painting' stays ongoing via 'is being' + 'painted'."
+          },
+          {
+            "text": "Mira has prepared fresh lemon water. -> Fresh lemon water has been prepared by Mira.",
+            "label": "Present Perfect Passive",
+            "note": "Singular 'water' takes 'has', plus 'been' + 'prepared'."
+          },
+          {
+            "text": "Everyone must follow library rules. -> Library rules must be followed by everyone.",
+            "label": "Modal Passive",
+            "note": "Modal 'must' + base 'be' + Past Participle 'followed'."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Converting 'Arjun is checking the rain gauge' into 'The rain gauge is checked by Arjun.'",
+          "correction": "'is checking' means right now (ongoing). To preserve ongoing aspect, insert 'being': 'is being checked'."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "missing-words",
+          "title": "Match the Tense-Aspect Passive Verb Chain",
+          "description": "Students select the exact passive verb chain ('is being watered' vs 'is watered' vs 'has been watered' vs 'must be watered') to preserve the time clue in an Active sentence."
+        },
+        "checkpointQuestion": {
+          "prompt": "Choose the accurate Passive version of 'ISRO has launched the weather satellite.'",
+          "options": [
+            { "id": "a", "label": "The weather satellite was launched by ISRO.", "isCorrect": false },
+            { "id": "b", "label": "The weather satellite has launched by ISRO.", "isCorrect": false },
+            { "id": "c", "label": "The weather satellite has been launched by ISRO.", "isCorrect": true },
+            { "id": "d", "label": "The weather satellite is being launched by ISRO.", "isCorrect": false }
+          ],
+          "explanation": "'has launched' is Present Perfect; its passive keeps 'has' and adds 'been' before Past Participle 'launched'."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["explain-role", "compare-example"],
+        "visualModes": ["timeline-shift", "compare-dual"]
+      }
+    },
+    {
+      "id": "voice-topic-04",
+      "order": 4,
+      "title": "Pronoun Case Swaps, Two Objects (SVOO), Questions & Imperatives",
+      "broadArea": "Pronoun changes, double objects, questions, and imperatives",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "prerequisites": [
+        "Topic 2 & Topic 3",
+        "Pronoun Case mini-bridge (Not yet available as standalone lesson)",
+        "SVOO, Interrogative, and Imperative patterns (Requires a short revision)"
+      ],
+      "learningObjectives": {
+        "understand": [
+          "Personal and interrogative pronouns change form between Subject and Object/by-phrase slots (I<->me, we<->us, he<->him, she<->her, they<->them, who<->whom).",
+          "Sentences with Indirect + Direct Objects (SVOO) can promote either Object to Subject (using 'to'/'for' before the retained Indirect Object).",
+          "Passive questions keep auxiliary-before-Subject inversion (replacing do/does/did with be); passive imperatives use 'Let + Object + be + V-en' or polite request frames."
+        ],
+        "identify": [
+          "Spot accurate pronoun cases, valid dual SVOO passives, and inverted question word order."
+        ],
+        "construct": [
+          "Convert sentences with pronouns, double objects, Yes/No or Wh- questions, and instructions into Passive Voice."
+        ],
+        "commonMisconceptions": [
+          "Leaving Subject-case pronouns after 'by' ('by he', 'by they').",
+          "Leaving 'did/do/does' in a Passive question ('Did the chart drawn by Mira?').",
+          "Forgetting 'to'/'for' when promoting the Direct Object of an SVOO verb ('A glass of milk was handed Arjun')."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "arjun",
+        "shortExplanation": "When a pronoun crosses the verb, swap its case (I <-> me, she <-> her, they <-> them, who <-> whom). If a verb has two Objects ('gave Mira a medal'), either Object can lead! For questions, drop 'do/does/did' and place 'is/are/was/were' before the new Subject; for commands, use 'Let + Object + be + V-en'.",
+        "examples": [
+          {
+            "text": "She praised them. -> They were praised by her.",
+            "label": "Pronoun Case Swap",
+            "note": "'them' becomes Subject 'They'; 'She' becomes Object 'her' after 'by'."
+          },
+          {
+            "text": "The coach gave Mira a certificate. -> (A) Mira was given a certificate by the coach. / (B) A certificate was given to Mira by the coach.",
+            "label": "Two-Object (SVOO) Dual Passive",
+            "note": "Promoting the Indirect Object ('Mira') is most natural; promoting the Direct Object adds 'to'."
+          },
+          {
+            "text": "Did the students clean the courtyard? -> Was the courtyard cleaned by the students?",
+            "label": "Yes/No Question Passive",
+            "note": "'Did' is replaced by 'Was' placed before the new singular Subject 'the courtyard'."
+          },
+          {
+            "text": "Water the saplings daily. -> Let the saplings be watered daily.",
+            "label": "Imperative Passive",
+            "note": "Uses 'Let + Object + be + V-en' for instructions."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Converting 'Did Mira bring the globe?' into 'Did the globe brought by Mira?'",
+          "correction": "Passive questions never use 'do/does/did'; use past 'be' ('Was') before 'the globe' + Past Participle 'brought': 'Was the globe brought by Mira?'."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "word-replacement",
+          "title": "Swap Pronoun Cases & Question Openers",
+          "description": "Students swap mismatched pronouns ('by they' -> 'by them') and replace 'Did' with 'Was/Were' to fix Passive questions and SVOO sentences."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which is the correct Passive form of 'Who planted this banyan tree?'",
+          "options": [
+            { "id": "a", "label": "By who was this banyan tree planted?", "isCorrect": false },
+            { "id": "b", "label": "By whom was this banyan tree planted?", "isCorrect": true },
+            { "id": "c", "label": "Who this banyan tree was planted by?", "isCorrect": false },
+            { "id": "d", "label": "By whom this banyan tree planted?", "isCorrect": false }
+          ],
+          "explanation": "After the preposition 'By', 'Who' changes to object form 'whom', and auxiliary 'was' precedes the Subject 'this banyan tree'."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["show-relationship", "interact-explore"],
+        "visualModes": ["relationship-arcs", "guided-explore"]
+      }
+    },
+    {
+      "id": "voice-topic-05",
+      "order": 5,
+      "title": "Using vs Omitting the 'by'-Phrase & Natural Passive Contexts",
+      "broadArea": "Use/omission of 'by' phrases & when passive is natural/useful",
+      "difficultyLevel": "Intermediate",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "prerequisites": ["Topics 1-4"],
+      "learningObjectives": {
+        "understand": [
+          "The 'by + agent' phrase is omitted when the doer is unknown, obvious, or general ('someone, people, everybody, they').",
+          "Passive Voice is the natural grammatical choice in science processes, public notices, historical records, and result-focused writing.",
+          "Recognise 'by' (agent) vs 'with' (instrument/tool) or fixed state prepositions ('filled with', 'known to')."
+        ],
+        "identify": [
+          "Decide whether a 'by'-phrase is informative and necessary or redundant and better omitted."
+        ],
+        "construct": [
+          "Rewrite vague-subject Active sentences ('Someone...', 'People...') into concise agentless Passive sentences."
+        ],
+        "commonMisconceptions": [
+          "Mechanically adding '...by someone' or '...by people' to every Passive sentence.",
+          "Using 'by' before an inanimate tool ('cut by a knife' instead of 'cut with a knife')."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "gyan",
+        "shortExplanation": "Do not glue 'by...' onto every passive sentence! Drop 'by + doer' when the doer is unknown ('Someone left a scarf'), general ('People speak Odia here'), or obvious. Keep 'by + doer' only when naming the doer adds real meaning ('discovered by C.V. Raman'). Use 'with'—not 'by'—for tools ('sliced with a clean knife').",
+        "examples": [
+          {
+            "text": "Someone swept the library steps before dawn. -> The library steps were swept before dawn.",
+            "label": "Agent Omitted (Unknown Doer)",
+            "note": "'by someone' adds zero information and sounds unnatural."
+          },
+          {
+            "text": "The Konark Sun Temple was built in the thirteenth century.",
+            "label": "Natural Historical Passive",
+            "note": "Focuses smoothly on the heritage monument rather than a vague subject."
+          },
+          {
+            "text": "The ripe mangoes were sliced with a clean steel knife by the cook.",
+            "label": "Tool ('with') vs Doer ('by')",
+            "note": "'with' marks the instrument (knife); 'by' marks the human doer (cook)."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Converting 'People grow spices in Kerala' into 'Spices are grown in Kerala by people.'",
+          "correction": "'by people' is redundant because only people cultivate crops. Write simply: 'Spices are grown in Kerala.'"
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "error-identification",
+          "title": "Trim Unnecessary 'by'-Phrases & Fix Tool Prepositions",
+          "description": "Students edit drafts with clunky '...by someone / ...by people' endings or '...by a spoon' tool errors into crisp natural Passive sentences."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which Passive sentence sounds most natural for 'Someone has returned the missing science book'?",
+          "options": [
+            { "id": "a", "label": "The missing science book has been returned by someone.", "isCorrect": false },
+            { "id": "b", "label": "The missing science book has returned.", "isCorrect": false },
+            { "id": "c", "label": "The missing science book has been returned.", "isCorrect": true },
+            { "id": "d", "label": "The missing science book was returned by people.", "isCorrect": false }
+          ],
+          "explanation": "Because the doer ('Someone') is unknown, omitting 'by someone' makes the Passive sentence natural while preserving 'has been returned'."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["compare-example", "explain-meaning"],
+        "visualModes": ["compare-dual", "meaning-callout"]
+      }
+    },
+    {
+      "id": "voice-topic-06",
+      "order": 6,
+      "title": "Sentences That Cannot Be Made Passive (Intransitive & Linking Verbs)",
+      "broadArea": "Sentences that cannot be made passive",
+      "difficultyLevel": "Advanced",
+      "provenance": "textbook-derived",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-assam-ch11-voice", "src-voice-bridge"],
+      "prerequisites": [
+        "Topic 2: Object-to-Subject shift",
+        "Clause patterns SV, SVA, SVC vs SVO (Requires a short revision)"
+      ],
+      "learningObjectives": {
+        "understand": [
+          "Only Transitive clauses containing an Object (SVO, SVOO, SVOC) can form a standard Passive sentence.",
+          "Intransitive clauses (SV, SVA) and Linking clauses (SVC) have no Object to move into Subject position.",
+          "Not every 'be + -ed' form is Passive: descriptive adjectives ('was excited', 'is closed') express a state rather than an action."
+        ],
+        "identify": [
+          "Distinguish sentences that can become Passive from Intransitive, Linking, and state-verb sentences that cannot."
+        ],
+        "construct": [
+          "Justify why an SVA or SVC sentence fails the 'Verb + what/whom?' Object test."
+        ],
+        "commonMisconceptions": [
+          "Treating an Adverbial of place/time ('in the garden', 'at noon') as an Object.",
+          "Attempting to passivise linking verbs ('became', 'seems', 'looks') or state verbs ('resembles', 'belongs to').",
+          "Labelling 'The players were tired after practice' as Passive Voice."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "mira",
+        "shortExplanation": "Before converting any sentence, ask: 'Verb + what or whom?' If there is no Object—only a place/time phrase ('arrived at dawn', 'slept on the mat') or a Subject Complement ('is sweet', 'became captain')—there is nothing to move to the Subject spot, so NO Passive exists!",
+        "examples": [
+          {
+            "text": "The train arrived at six o'clock.",
+            "label": "Cannot Be Passive (Intransitive SVA)",
+            "note": "'at six o'clock' tells when, not what the train 'arrived'."
+          },
+          {
+            "text": "The ripe mangoes taste sweet.",
+            "label": "Cannot Be Passive (Linking SVC)",
+            "note": "'sweet' describes 'The ripe mangoes', so there is no separate Object."
+          },
+          {
+            "text": "The students were excited about the science fair.",
+            "label": "Not Passive (be + Adjective State)",
+            "note": "'excited' describes how the students felt (compare 'very excited'), not an action done to them."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Trying to convert 'Arjun sat on the wooden bench' into 'The wooden bench was sat on by Arjun' as a standard basic SVO passive.",
+          "correction": "'sat' is intransitive and 'on the wooden bench' is an adverbial of place, not a Direct Object."
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "categorise",
+          "title": "Passive-Possible or No-Object Trap?",
+          "description": "Students sort 6 mixed sentences into 'Can Be Passive (Has Object)' vs 'Cannot Be Passive (No Object / Linking)'."
+        },
+        "checkpointQuestion": {
+          "prompt": "Which sentence CANNOT be changed into Passive Voice?",
+          "options": [
+            { "id": "a", "label": "The eco-club planted fifty bamboo saplings.", "isCorrect": false },
+            { "id": "b", "label": "Warm sunlight filled the courtyard.", "isCorrect": false },
+            { "id": "c", "label": "The morning breeze felt cool and fresh.", "isCorrect": true },
+            { "id": "d", "label": "The teacher gave every runner a banana.", "isCorrect": false }
+          ],
+          "explanation": "'felt' here is a linking verb followed by adjectives ('cool and fresh' describing the breeze). Without an Object, no Passive exists."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["explain-role", "compare-example"],
+        "visualModes": ["headword-spotlight", "compare-dual"]
+      }
+    },
+    {
+      "id": "voice-topic-07",
+      "order": 7,
+      "title": "Spotting and Fixing Common Voice Errors",
+      "broadArea": "Common transformation errors",
+      "difficultyLevel": "Advanced",
+      "provenance": "supplementary-bridge",
+      "sourceRefIds": ["src-od10-ch9-passive", "src-pseb9-ch6-voice", "src-assam-ch11-voice", "src-voice-bridge"],
+      "prerequisites": ["Topics 1-6"],
+      "learningObjectives": {
+        "understand": [
+          "Most Active-Passive mistakes break one of five rules: Object availability, Pronoun case, 'be' tense/agreement match, Past Participle V-en form, or unnecessary 'by'-phrases."
+        ],
+        "identify": [
+          "Pinpoint the exact structural error inside an incorrect Passive or Active transformation."
+        ],
+        "construct": [
+          "Repair flawed Passive sentences cleanly so tense, aspect, agreement, participle form, and pronoun case all align."
+        ],
+        "commonMisconceptions": [
+          "Fixing one part of a passive error (like 'was' -> 'were') while overlooking another ('wrote' -> 'written' or 'by he' -> 'by him')."
+        ]
+      },
+      "teachingProposal": {
+        "speakerCharacterId": "arjun",
+        "shortExplanation": "Run every passive sentence through the 5-Point Voice Check: (1) Real Object? (2) Right pronoun case? (3) 'be' matches original tense AND new Subject? (4) Past Participle (V-en/V3) used? (5) Drop vague 'by someone/people'!",
+        "examples": [
+          {
+            "text": "Broken: 'The science posters was drew by they.' -> Fixed: 'The science posters were drawn by them.'",
+            "label": "3-Fix Audit (Agreement + Participle + Pronoun)",
+            "note": "Plural 'posters' -> 'were'; V-en -> 'drawn'; object pronoun -> 'them'."
+          },
+          {
+            "text": "Broken: 'Did the broken chair repaired yesterday?' -> Fixed: 'Was the broken chair repaired yesterday?'",
+            "label": "Question Auxiliary Fix",
+            "note": "Replace 'Did' with 'Was' to supply passive 'be'."
+          }
+        ],
+        "commonMistakeToAddress": {
+          "incorrectInterpretation": "Writing 'A new library has built near our school.'",
+          "correction": "A library cannot build itself; insert 'been' between 'has' and 'built' -> 'A new library has been built near our school.'"
+        },
+        "interactiveActivity": {
+          "recommendedEngineKind": "error-identification",
+          "title": "5-Point Voice Detective Audit",
+          "description": "Students inspect flawed noticeboard and report sentences, diagnose which rule failed, and verify the repaired sentence."
+        },
+        "checkpointQuestion": {
+          "prompt": "Find the error in: 'The fresh vegetables is being washed by she before lunch.'",
+          "options": [
+            { "id": "a", "label": "Missing 'been' after 'is'", "isCorrect": false },
+            { "id": "b", "label": "'is' should be 'are' (plural 'vegetables') and 'she' should be 'her'", "isCorrect": true },
+            { "id": "c", "label": "'washed' should be 'wash'", "isCorrect": false },
+            { "id": "d", "label": "The sentence cannot be passive because 'vegetables' is a noun", "isCorrect": false }
+          ],
+          "explanation": "Plural Subject 'The fresh vegetables' requires 'are being washed', and object position after 'by' requires 'her'."
+        }
+      },
+      "visualEngineMapping": {
+        "stepTypes": ["guided-practice"],
+        "visualModes": ["practice-ready"]
+      }
+    }
+  ],
+  "conflictsAndCoverageGaps": [
+    {
+      "id": "gap-voice-odisha9-omission",
+      "severity": "medium",
+      "summary": "Odisha Class IX grammar textbook contains no standalone Voice chapter; Voice is deferred to Class X Ch. 9.",
+      "mitigation": "Include self-contained Past Participle (V-en) and SVO-object revision steps in Topics 1-2 so every learner has the required foundation immediately."
+    },
+    {
+      "id": "gap-voice-pseb10-missing",
+      "severity": "medium",
+      "summary": "No PSEB Class X textbook is present in the uploaded set (PSEB IX covers Voice in Ch. 6 pp. 61-73).",
+      "mitigation": "Combine PSEB IX Ch. 6 with Odisha X Ch. 9 and Assam Ch. 11 for advanced SVOO, agent-omission, and non-passivisable verb boundaries."
+    },
+    {
+      "id": "conflict-voice-tense-and-notation",
+      "severity": "medium",
+      "summary": "Textbooks split between Odisha's 2-tense + Future Time model with 'be + en' notation and PSEB/Assam's 12-tense model with 'be + V3' / Strong-Weak labels.",
+      "mitigation": "Teach Past Participle (V-en / V3) transparently and group passive chains by time + aspect + modal without forcing single-board labels or trick tense-count questions."
+    },
+    {
+      "id": "gap-voice-upcoming-prereqs",
+      "severity": "medium",
+      "summary": "Pronouns & Case (topic-pronouns) and Auxiliaries/Modals (topic-auxiliaries-modals) are not yet implemented in Grammar Quest.",
+      "mitigation": "Provide compact self-contained Pronoun Case and Modal Passive bridges inside Topics 3 and 4."
+    },
+    {
+      "id": "gap-voice-odisha10-typos",
+      "severity": "low",
+      "summary": "content-gaps.md records minor print typos in Odisha X Ch. 9 (p. 93 'an opposition' for 'an apposition'; p. 100 'be blamed' / (1) numbering glitch).",
+      "mitigation": "Flagged internally so Phase 2 authoring uses clean, proofread terminology and copy."
+    },
+    {
+      "id": "gap-voice-raw-pdfs-absent",
+      "severity": "transparency",
+      "summary": "Raw PDF files are absent from the runtime container; exact sub-section headings and verbatim exercises inside Odisha X Ch. 9, PSEB IX Ch. 6, and Assam Ch. 11 are not expanded in curriculum-source-map.json.",
+      "mitigation": "Cite only verified chapter titles, page ranges, and recorded summaries; mark all Phase 2 teaching sentences as supplementary-bridge or original-practice unless verified directly against the raw PDFs."
+    }
+  ]
+}

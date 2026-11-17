@@ -277,7 +277,14 @@ export const CURRICULUM_TOPIC_CATALOG: CurriculumCategoryGroup[] = [
         classLevels: [9, 10],
         sourceSummary: 'Odisha X Ch. 5 · PSEB IX Ch. 3 · Assam Ch. 14',
         conceptSummary: 'Showing relationships of place, time, direction, and means',
-        status: 'upcoming',
+        status: 'ready',
+        missionIdByClass: {
+          9: 'c9-mission-06',
+          10: 'c10-mission-06',
+        },
+        missionTitle: 'Prepositions',
+        estimatedMinutes: 9,
+        iconKind: 'magnifier',
       },
       {
         id: 'topic-conjunctions',
@@ -303,7 +310,14 @@ export const CURRICULUM_TOPIC_CATALOG: CurriculumCategoryGroup[] = [
         classLevels: [9, 10],
         sourceSummary: 'Odisha X Ch. 9 · PSEB IX Ch. 6 · Assam Ch. 11',
         conceptSummary: 'Shifting focus between the doer and the receiver of an action',
-        status: 'upcoming',
+        status: 'ready',
+        missionIdByClass: {
+          9: 'c9-mission-05',
+          10: 'c10-mission-05',
+        },
+        missionTitle: 'Active and Passive Voice',
+        estimatedMinutes: 9,
+        iconKind: 'scroll',
       },
       {
         id: 'topic-speech',

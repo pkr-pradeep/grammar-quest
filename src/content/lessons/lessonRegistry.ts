@@ -16,6 +16,8 @@ import class10Tenses from '../class10/tensesLesson.json';
 import class9SubjectVerbAgreement from '../class9/subjectVerbAgreementLesson.json';
 import class10SubjectVerbAgreement from '../class10/subjectVerbAgreementLesson.json';
 import class9SentenceTypes from '../class9/sentenceTypesLesson.json';
+import class9ActivePassiveVoice from '../class9/activePassiveVoiceLesson.json';
+import class9Prepositions from '../class9/prepositionsLesson.json';
 
 const LESSONS_BY_MISSION_ID: Record<string, GrammarLessonDefinition> = {
   'c9-mission-01': class9SentenceBasics as GrammarLessonDefinition,
@@ -26,6 +28,10 @@ const LESSONS_BY_MISSION_ID: Record<string, GrammarLessonDefinition> = {
   'c10-mission-03': class10SubjectVerbAgreement as GrammarLessonDefinition,
   'c9-mission-04': class9SentenceTypes as GrammarLessonDefinition,
   'c10-mission-04': class9SentenceTypes as GrammarLessonDefinition,
+  'c9-mission-05': class9ActivePassiveVoice as GrammarLessonDefinition,
+  'c10-mission-05': class9ActivePassiveVoice as GrammarLessonDefinition,
+  'c9-mission-06': class9Prepositions as GrammarLessonDefinition,
+  'c10-mission-06': class9Prepositions as GrammarLessonDefinition,
 };
 
 export function getLessonForMission(missionId: string): GrammarLessonDefinition | null {
