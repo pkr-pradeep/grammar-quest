@@ -72,7 +72,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onStartLearning }) => 
         style={{ top: 'calc(env(safe-area-inset-top) + 14svh)' }}
       >
         <p className="rounded-[22px] bg-white px-4 py-4 text-center text-[16px] font-extrabold leading-tight text-[#1F2A68] shadow-lg">
-          Namaste! I&apos;m ShukaJi.
+          namaskāraḥ, learner! I'm Śukadeva, <br /> call me Śukaji.
         </p>
         <span
           aria-hidden="true"
@@ -112,7 +112,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onStartLearning }) => 
         </button>
 
         <p className="text-center text-[13px] font-bold leading-snug text-[#D9DDFF]">
-          English grammar for Class IX and X
+          English grammar for all
         </p>
       </div>
     </div>

@@ -56,7 +56,7 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
         isPopupOpen ? 'opacity-0' : 'opacity-100',
       ].join(' ')}
       style={{
-        bottom: 'calc(84px + env(safe-area-inset-bottom, 0px))',
+        bottom: 'calc(80px + env(safe-area-inset-bottom, 0px))',
       }}
     >
       {/* 4.5s Post-Dismiss Label Hint (renders above the button, clear of bottom-center scroll cue) */}

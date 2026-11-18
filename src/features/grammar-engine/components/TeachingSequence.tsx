@@ -467,8 +467,8 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
           </div>
         </div>
 
-        {/* Scrollable Lesson Workspace (with ~112px bottom clearance above fixed controls) */}
-        <div className="flex-1 w-full max-w-[920px] mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-4 pb-[calc(112px+env(safe-area-inset-bottom,0px))]">
+        {/* Scrollable Lesson Workspace (with ~172px bottom clearance below the last line for fixed nav + guide button) */}
+        <div className="flex-1 w-full max-w-[920px] mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-4 pb-[calc(172px+env(safe-area-inset-bottom,0px))]">
           {lesson.missionId === 'c9-mission-04' || Boolean(currentStep.clausePatternData) ? (
             <SentenceTypesStepView
               stepId={currentStep.id}
