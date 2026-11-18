@@ -83,7 +83,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onStartLearning }) => 
       <div className="flex w-full flex-1 flex-col items-center justify-center pt-[clamp(48px,9svh,88px)]">
         <img
           src={shukaMainArtwork}
-          alt="ShukaJi, the Grammar Quest parrot guide, perched on a branch"
+          alt="Śukaji, the Grammar Quest parrot guide, perched on a branch"
           draggable={false}
           className="gq-welcome-mascot block h-[clamp(160px,28svh,240px)] w-[min(64vw,270px)] object-contain"
         />

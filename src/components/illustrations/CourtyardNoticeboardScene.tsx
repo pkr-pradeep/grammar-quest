@@ -49,7 +49,7 @@ const SPEAKER_COLOR: Record<CharacterId, string> = {
 const SPEAKER_NAME: Record<CharacterId, string> = {
   mira: 'Mira',
   arjun: 'Arjun',
-  shuka: 'ShukaJi',
+  shuka: 'Śukaji',
 };
 
 const SCENE_ARIA_LABEL: Record<
@@ -60,9 +60,9 @@ const SCENE_ARIA_LABEL: Record<
     'mira-notices':
       'Indian school courtyard where Mira points at the wooden noticeboard as a breeze scatters six paper scraps.',
     'arjun-picks-up':
-      'Indian school courtyard where Arjun picks up a scattered "... plays cricket." scrap from the ground while Mira and ShukaJi watch.',
+      'Indian school courtyard where Arjun picks up a scattered "... plays cricket." scrap from the ground while Mira and Śukaji watch.',
     'shuka-explains':
-      'Indian school courtyard where ShukaJi guides learners through Subject and Predicate strips on the noticeboard.',
+      'Indian school courtyard where Śukaji guides learners through Subject and Predicate strips on the noticeboard.',
   },
   'records-timeline': {
     'mira-notices':
@@ -70,7 +70,7 @@ const SCENE_ARIA_LABEL: Record<
     'arjun-picks-up':
       'Indian school courtyard where Arjun holds up a school activity record card with a mismatched verb form.',
     'shuka-explains':
-      'Indian school courtyard where ShukaJi explains the Past, Present, and Future Time timeline on the school board.',
+      'Indian school courtyard where Śukaji explains the Past, Present, and Future Time timeline on the school board.',
   },
   'detective-board': {
     'mira-notices':
@@ -78,7 +78,7 @@ const SCENE_ARIA_LABEL: Record<
     'arjun-picks-up':
       'Indian school courtyard where Arjun examines a poster strip where a plural verb clashes with a singular Subject.',
     'shuka-explains':
-      'Indian school courtyard where ShukaJi explains how the Subject head-noun connects to the agreeing Verb.',
+      'Indian school courtyard where Śukaji explains how the Subject head-noun connects to the agreeing Verb.',
   },
 };
 

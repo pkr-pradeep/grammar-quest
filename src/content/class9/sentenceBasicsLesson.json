@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "A Torn Noticeboard at School",
-    "description": "A gust of wind blew across the school courtyard and scattered the noticeboard cards. Help Mira, Arjun, and ShukaJi put every message back together.",
+    "description": "A gust of wind blew across the school courtyard and scattered the noticeboard cards. Help Mira, Arjun, and Śukaji put every message back together.",
     "characterId": "mira",
     "characterExpression": "curious"
   },
@@ -1327,7 +1327,7 @@
   ],
   "completionSummary": {
     "headline": "The Noticeboard Is Restored!",
-    "celebrationMessage": "Mira, Arjun, and ShukaJi pinned every repaired sentence back onto the courtyard noticeboard. All school messages are clear again!",
+    "celebrationMessage": "Mira, Arjun, and Śukaji pinned every repaired sentence back onto the courtyard noticeboard. All school messages are clear again!",
     "learnedPoints": [
       "A complete sentence expresses one clear thought using a Subject and a Predicate.",
       "The Subject names who or what we are talking about, centred on its head-noun (or understood 'You' in commands).",

@@ -136,7 +136,7 @@ export const CHARACTER_MASTERS: Record<CharacterId, CharacterMasterSpec> = {
   },
   shuka: {
     id: 'shuka',
-    name: 'ShukaJi',
+    name: 'Śukaji',
     roleTitle: 'The Wise Parrot Guide',
     summary:
       'A friendly green parrot with round glasses, three crest feathers, a patterned yellow scarf, teal wings, orange beak and feet, perched on a branch.',

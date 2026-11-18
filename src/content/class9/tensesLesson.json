@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "The School Activity Logbook Mystery",
-    "description": "Mira, Arjun, and ShukaJi discovered an old school activity folder with entries from yesterday, today, and tomorrow—but several verb forms are mixed up. Help repair the timeline!",
+    "description": "Mira, Arjun, and Śukaji discovered an old school activity folder with entries from yesterday, today, and tomorrow—but several verb forms are mixed up. Help repair the timeline!",
     "characterId": "mira",
     "characterExpression": "curious"
   },
@@ -1552,7 +1552,7 @@
   "completionSummary": {
     "sceneVariant": "records-timeline",
     "headline": "Timeline Repaired! Lesson Complete!",
-    "celebrationMessage": "Mira, Arjun, and ShukaJi placed every school logbook entry onto its true Past, Present, or Future spot.",
+    "celebrationMessage": "Mira, Arjun, and Śukaji placed every school logbook entry onto its true Past, Present, or Future spot.",
     "learnedPoints": [
       "Time (Past, Present, Future) is when an event happens; Tense is the verb form used to express it.",
       "Present Simple fits daily habits, facts, timetables, and stative verbs ('knows', 'belongs'); Present Progressive ('is writing') fits actions happening now.",

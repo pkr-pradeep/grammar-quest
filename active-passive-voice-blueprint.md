@@ -245,7 +245,7 @@ All examples adhere to Grammar Quest's Indian school, science, nature, heritage,
 
 When approved for Phase 2, **Active and Passive Voice** will plug into Grammar Quest's existing JSON-driven engine with **zero new libraries** and **zero changes to existing lessons or Home/Lessons layout**:
 - **Catalogue Link:** Activate existing `topic-voice` in `src/content/curriculumCatalog.ts` (`cat-voice-speech`: `"Voice, Speech & Mechanics"`).
-- **Characters:** **Mira** (notices focus shifts & broken drafts), **Arjun** (hands-on swaps & pronoun/agreement traps), and **ShukaJi** (concise rules & checklists in `GuideNotePopup`).
+- **Characters:** **Mira** (notices focus shifts & broken drafts), **Arjun** (hands-on swaps & pronoun/agreement traps), and **Śukaji** (concise rules & checklists in `GuideNotePopup`).
 - **Teaching Stage (`GrammarTeachingEngine` + `TeachingSequence`):** Uses `compare-dual` (Active vs Passive spotlight), `split-blueprint`, `WordInspectorPopup` (`be` auxiliary vs `V-en` participle), and `guided-explore`.
 - **Guided Practice (`WordLaboratory` A–F):** Uses existing `categorise` (Doer vs Receiver; Can vs Cannot Become Passive), `sentence-construction` (assembling passive word order), `word-replacement` (pronoun case & `be` agreement swaps), `missing-words` (tense/aspect/modal `be + V-en` chains), and `error-identification` (5-point error repair & redundant `by someone` fixes).
 - **Independent Practice (`IndependentPracticeStage`) & Formal Assessment (`AssessmentRunner`):** Uses existing `dual-identify`, `token-and-choice`, `choice-diagnose`, and a 10-MCQ post-submit assessment persisted in IndexedDB.

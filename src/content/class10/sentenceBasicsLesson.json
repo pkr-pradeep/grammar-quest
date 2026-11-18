@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "Repairing Class 10 Assembly Notices",
-    "description": "Wind scattered the notices for the Class 10 Science and Heritage Exhibition across the courtyard. Help Mira, Arjun, and ShukaJi rebuild every message.",
+    "description": "Wind scattered the notices for the Class 10 Science and Heritage Exhibition across the courtyard. Help Mira, Arjun, and Śukaji rebuild every message.",
     "characterId": "arjun",
     "characterExpression": "curious"
   },
@@ -1360,7 +1360,7 @@
   ],
   "completionSummary": {
     "headline": "Class 10 Noticeboard Restored!",
-    "celebrationMessage": "Mira, Arjun, and ShukaJi have pinned every repaired notice back on the courtyard board. You mastered Subject, Predicate, and finite verbs across simple and enlarged sentences!",
+    "celebrationMessage": "Mira, Arjun, and Śukaji have pinned every repaired notice back on the courtyard board. You mastered Subject, Predicate, and finite verbs across simple and enlarged sentences!",
     "learnedPoints": [
       "A complete clause pairs a Subject (who/what we talk about) with a Predicate containing a finite verb.",
       "Prepositional modifiers after a noun stay inside the Subject, while the Subject head-noun controls the finite verb.",

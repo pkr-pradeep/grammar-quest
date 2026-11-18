@@ -70,7 +70,7 @@ export const CharacterReferenceSheet: React.FC<CharacterReferenceSheetProps> = (
             Character Reference Sheet
           </h1>
           <p className="text-sm text-[#4B5C8A]">
-            Master character specifications for Mira, Arjun, and ShukaJi. One active pose, one active expression, and independent animation state.
+            Master character specifications for Mira, Arjun, and Śukaji. One active pose, one active expression, and independent animation state.
           </p>
         </div>
 

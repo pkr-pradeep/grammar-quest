@@ -53,7 +53,7 @@ export const SPEAKER_THEMES: Record<CharacterId, SpeakerTheme> = {
   },
   shuka: {
     id: 'shuka',
-    name: 'ShukaJi',
+    name: 'Śukaji',
     solid: '#26734D',
     tint: '#E5F4E9',
     border: '#A8D4B5',

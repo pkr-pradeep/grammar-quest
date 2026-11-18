@@ -272,7 +272,7 @@ export function getAchievementMessage(
   if (percentage === 100) {
     return {
       headline: 'Outstanding Mastery!',
-      message: `You answered every question accurately. Mira, Arjun, and ShukaJi say you have mastered ${topicLabel}!`,
+      message: `You answered every question accurately. Mira, Arjun, and Śukaji say you have mastered ${topicLabel}!`,
     };
   }
   if (percentage >= 80) {

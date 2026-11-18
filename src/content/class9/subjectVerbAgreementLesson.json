@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "The Case of the Mismatched Verbs",
-    "description": "Mira, Arjun, and ShukaJi are checking school club reports and event posters. Words squeezed between the Subject and verb are tricking students into picking the wrong verb!",
+    "description": "Mira, Arjun, and Śukaji are checking school club reports and event posters. Words squeezed between the Subject and verb are tricking students into picking the wrong verb!",
     "characterId": "mira",
     "characterExpression": "curious"
   },
@@ -1206,7 +1206,7 @@
   "completionSummary": {
     "sceneVariant": "detective-board",
     "headline": "Case Solved! Lesson Complete!",
-    "celebrationMessage": "You helped Mira, Arjun, and ShukaJi lock every Subject head-noun to its true verb!",
+    "celebrationMessage": "You helped Mira, Arjun, and Śukaji lock every Subject head-noun to its true verb!",
     "learnedPoints": [
       "Finite verbs agree with the TRUE Subject head-word in Number and Person, ignoring prepositional phrases like 'of ripe mangoes'.",
       "Normal 'and' pairs are plural, while single-idea pairs ('Rice and dal is') and single-determiner titles take singular verbs.",

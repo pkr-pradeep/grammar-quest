@@ -40,7 +40,7 @@ export const WelcomeTrioIllustration: React.FC<TrioIllustrationProps> = ({ class
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       role="img"
-      aria-label="Mira, Arjun, and their parrot guide ShukaJi welcoming you to Grammar Quest"
+      aria-label="Mira, Arjun, and their parrot guide Śukaji welcoming you to Grammar Quest"
     >
       {/* Subtle warm cream & sunshine backdrop arc */}
       <path

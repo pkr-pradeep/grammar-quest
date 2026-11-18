@@ -122,12 +122,12 @@ Before starting **Sentence Types & Clause Patterns**, learners benefit from havi
 
 ## 5. Proposed Learning Sequence (6 Scaffolded Topics)
 
-All examples and activities below adhere to Grammar Quest's **Healthy Food & Lifestyle Rule**, **Explicit Content Exclusions**, and Indian school/science/heritage themes, while aligning with **Mira, Arjun, and ShukaJi** and the existing **Visual Grammar Teaching Engine**.
+All examples and activities below adhere to Grammar Quest's **Healthy Food & Lifestyle Rule**, **Explicit Content Exclusions**, and Indian school/science/heritage themes, while aligning with **Mira, Arjun, and Śukaji** and the existing **Visual Grammar Teaching Engine**.
 
 ---
 
 ### Topic 1: Functional Sentence Types (Beginner)
-- **Short Explanation (ShukaJi):** Every sentence has a job to do. **Declarative** sentences state a fact or idea (`.`), **Interrogative** sentences ask a question (`?`), **Imperative** sentences give an instruction or polite request (`.` with understood *You*), and **Exclamatory** sentences express sudden wonder or strong feeling (`!` — often starting with *What* or *How* without *is/are*). *(Note: Wishes like "May our garden bloom!" are called **Optative** in Assam SEBA Ch. 1 L9.)*
+- **Short Explanation (Śukaji):** Every sentence has a job to do. **Declarative** sentences state a fact or idea (`.`), **Interrogative** sentences ask a question (`?`), **Imperative** sentences give an instruction or polite request (`.` with understood *You*), and **Exclamatory** sentences express sudden wonder or strong feeling (`!` — often starting with *What* or *How* without *is/are*). *(Note: Wishes like "May our garden bloom!" are called **Optative** in Assam SEBA Ch. 1 L9.)*
 - **Examples:**
   1. *"Fresh guavas grow in our school orchard."* (**Declarative** — states a fact)
   2. *"Did you wash the fruit before lunch?"* (**Interrogative** — asks a question)
@@ -145,7 +145,7 @@ All examples and activities below adhere to Grammar Quest's **Healthy Food & Lif
 ---
 
 ### Topic 2: Phrases vs Clauses — The Finite Verb Test (Beginner → Intermediate)
-- **Short Explanation (Mira & ShukaJi):** Both phrases and clauses are teams of words, but there is one fast test: look for a **finite verb** (a verb locked to a Subject in tense and number). A **Phrase** has *no* finite verb (`in the morning assembly`, `fresh green spinach`, `to check the rain gauge`). A **Clause** has a **Subject + finite verb** (`the morning assembly begins`, `when the rain stopped`).
+- **Short Explanation (Mira & Śukaji):** Both phrases and clauses are teams of words, but there is one fast test: look for a **finite verb** (a verb locked to a Subject in tense and number). A **Phrase** has *no* finite verb (`in the morning assembly`, `fresh green spinach`, `to check the rain gauge`). A **Clause** has a **Subject + finite verb** (`the morning assembly begins`, `when the rain stopped`).
 - **Examples:**
   1. *"under the old neem tree"* (**Phrase** — preposition + noun group, no verb)
   2. *"reading a book on ISRO"* (**Phrase** — `-ing` participle without a helping verb or tense-bearing finite verb)
@@ -162,7 +162,7 @@ All examples and activities below adhere to Grammar Quest's **Healthy Food & Lif
 ---
 
 ### Topic 3: Clause Elements Inside the Predicate (`S, V, O, C, A`) (Intermediate)
-- **Short Explanation (Arjun & ShukaJi):** In Mission 1 you split every sentence into Subject and Predicate. Now zoom inside the Predicate to see each word group's job: the **Verb (`V`)** is the engine; an **Object (`O`)** receives the action (*direct* `DO` or *indirect* `IO` recipient); a **Complement (`C`)** describes or renames the Subject or Object after linking/naming verbs (`is`, `became`, `named`); and an **Adverbial (`A`)** tells *where, when, or how*.
+- **Short Explanation (Arjun & Śukaji):** In Mission 1 you split every sentence into Subject and Predicate. Now zoom inside the Predicate to see each word group's job: the **Verb (`V`)** is the engine; an **Object (`O`)** receives the action (*direct* `DO` or *indirect* `IO` recipient); a **Complement (`C`)** describes or renames the Subject or Object after linking/naming verbs (`is`, `became`, `named`); and an **Adverbial (`A`)** tells *where, when, or how*.
 - **Examples:**
   1. *"Mira (`S`) / handed (`V`) / Arjun (`IO`) / a warm glass of milk (`DO`)."* (Verb + two Objects)
   2. *"The night (`S`) / is (`V`) / dark (`C`)."* (Odisha X Ch. 2 p. 14 — `dark` describes the Subject `The night`, not a separate object)
@@ -179,7 +179,7 @@ All examples and activities below adhere to Grammar Quest's **Healthy Food & Lif
 ---
 
 ### Topic 4: Basic Clause Patterns (`SV`, `SVA`, `SVC`, `SVO`, `SVOO`, `SVOC`) (Intermediate)
-- **Short Explanation (ShukaJi):** Verbs decide which pattern a simple clause follows. Odisha Class IX & X identify 6 everyday patterns:
+- **Short Explanation (Śukaji):** Verbs decide which pattern a simple clause follows. Odisha Class IX & X identify 6 everyday patterns:
   1. **`S + V`** (*Birds fly.*)
   2. **`S + V + A`** (*The cyclists rode along the canal.*)
   3. **`S + V + C`** (*The river water feels cool.*)
@@ -202,7 +202,7 @@ All examples and activities below adhere to Grammar Quest's **Healthy Food & Lif
 ---
 
 ### Topic 5: Independent vs Dependent Clauses (Intermediate → Advanced)
-- **Short Explanation (Mira & ShukaJi):** An **Independent (Main) Clause** makes complete sense on its own (`The monsoon clouds gathered over Kerala.`). A **Dependent (Subordinate) Clause** has a Subject and finite verb, *but* starts with a subordinating word (*because, when, if, although, that, who, which*) so it leans on a main clause (`...because the monsoon clouds gathered over Kerala`). Left alone, a dependent clause is a broken fragment!
+- **Short Explanation (Mira & Śukaji):** An **Independent (Main) Clause** makes complete sense on its own (`The monsoon clouds gathered over Kerala.`). A **Dependent (Subordinate) Clause** has a Subject and finite verb, *but* starts with a subordinating word (*because, when, if, although, that, who, which*) so it leans on a main clause (`...because the monsoon clouds gathered over Kerala`). Left alone, a dependent clause is a broken fragment!
 - **Examples:**
   1. *"We watered the saplings early"* (**Independent Clause** — complete on its own) + *"before the afternoon heat arrived."* (**Dependent Clause** — starts with subordinator `before`)
   2. *"The scientist who designed the weather balloon visited our school."* (`who designed the weather balloon` is a **Dependent Clause** tucked inside the Subject!)
@@ -218,7 +218,7 @@ All examples and activities below adhere to Grammar Quest's **Healthy Food & Lif
 ---
 
 ### Topic 6: Clause Relationships — Coordination vs Subordination (Advanced — Boundary Bridge)
-- **Short Explanation (ShukaJi):** When two clauses work together, look at the bridge word between them:
+- **Short Explanation (Śukaji):** When two clauses work together, look at the bridge word between them:
   - **Coordination (Equal Partners):** Coordinators like **`and, but, or, so`** join two **Independent Clauses** of equal grammatical rank (`IC + Coordinator + IC`). Neither clause depends on the other.
   - **Subordination (Main + Helper):** Subordinators like **`because, when, if, although, that, which`** attach a **Dependent Clause** to a Main Clause (`IC + Subordinator + DC`), making one clause explain *why, when, under what condition, which one,* or *what* inside the main sentence.
   *(Full transformation practice between Simple, Compound, and Complex sentences continues in the dedicated **Simple, Compound & Complex Sentences** chapter!)*
@@ -241,7 +241,7 @@ All examples and activities below adhere to Grammar Quest's **Healthy Food & Lif
 
 When approved for Phase 2 implementation, this chapter maps cleanly onto Grammar Quest's existing codebase with **zero new libraries** and **zero redesign of existing screens**:
 - **Frontend Stack:** React, Vite, TypeScript, Tailwind CSS, Inter + Plus Jakarta Sans typography, and established cream/navy/sunshine/turquoise/violet palette tokens (`src/styles/tokens.css`).
-- **Characters:** **Mira** (observations & worked structural notices), **Arjun** (hands-on sentence swaps & common-mistake checks), and **ShukaJi** (concise textbook notes & rules in `GuideNotePopup`).
+- **Characters:** **Mira** (observations & worked structural notices), **Arjun** (hands-on sentence swaps & common-mistake checks), and **Śukaji** (concise textbook notes & rules in `GuideNotePopup`).
 - **Reusable Engine Mapping:**
   - `TeachingSequence` + `GuideNotePopup` + `SentenceVisualizer` handle Topics 1–6 step-by-step using `compare-dual`, `structure-split`, `guided-explore`, and `WordInspectorPopup`.
   - `WordLaboratory` (`A–F`) supports `identify-group`, `identify-both`, `categorise` (already supports custom category ids/labels for 2+ buckets), `sentence-construction` (`part1Label`/`part2Label` already customizable), `word-replacement` (`SVO` vs `SVC` live swap), `missing-words`, and `error-identification` (dependent-fragment trap).
@@ -257,7 +257,7 @@ When approved for Phase 2 implementation, this chapter maps cleanly onto Grammar
 | :--- | :--- | :--- |
 | **GAP-1: Zero Coverage in PSEB Class IX & Missing PSEB Class X** | Punjab PSEB Class IX (`pseb-grammar-in-use-9`) does **not** teach functional sentence types, `SV–SVOC` clause patterns, or standalone Phrases vs Clauses (only a 1-line simple-sentence mention on Ch. 5 p. 53). No PSEB Class X textbook is present in the uploaded set. | Topics 1–4 are explicitly tagged with `supplementary-bridge` provenance notes alongside Odisha IX/X and Assam sources so learners from any board receive full step-by-step instruction. |
 | **GAP-2: Odisha Class IX Omits Standalone Phrase vs Clause Unit** | Odisha IX jumps from Ch. 1 (*Parts of a Sentence*) to word/phrase chapters, deferring explicit *finite verb & clause* definitions until Odisha X Ch. 2 (p. 13+) and Ch. 4 (p. 31). Only Assam Ch. 2 (*Phrases and Clauses*, pp. 18–24) explicitly pairs them early. | Topic 2 explicitly builds the Phrase-vs-Clause Finite Verb test using Odisha X Ch. 2/4 and Assam Ch. 2 so Class 9 learners are ready before Topics 4–6. |
-| **GAP-3: 4 vs 5 Functional Sentence Types (`Optative`)** | Odisha IX (Ch. 1 Sec. D) and Odisha X (Ch. 2) teach **4** functional types (*Declarative, Interrogative, Imperative, Exclamatory*). Assam SEBA (Ch. 1 L9 pp. 12–17) adds a **5th type: Optative** (*"May..."* wishes). | Core interactive practice tests the **4 universal types**, while ShukaJi's note includes **Optative** as a clearly labelled *Assam SEBA / Supplementary* note—never creating contradictory MCQ traps. |
+| **GAP-3: 4 vs 5 Functional Sentence Types (`Optative`)** | Odisha IX (Ch. 1 Sec. D) and Odisha X (Ch. 2) teach **4** functional types (*Declarative, Interrogative, Imperative, Exclamatory*). Assam SEBA (Ch. 1 L9 pp. 12–17) adds a **5th type: Optative** (*"May..."* wishes). | Core interactive practice tests the **4 universal types**, while Śukaji's note includes **Optative** as a clearly labelled *Assam SEBA / Supplementary* note—never creating contradictory MCQ traps. |
 | **GAP-4: Predicate `Complement` vs `Adjunct / Adverbial` Labelling** | Odisha IX Ch. 12 (pp. 141, 144) labels required locative phrases (*"in the garage"* in *"He kept the car in the garage"*) as **Complement (`C`)** inside `VG+O+C+(Adjunct)`, whereas Assam Ch. 1 L3 & Ch. 13 classify place/time phrases as **Adjuncts / Adverbials (`A`)**, and Odisha X Ch. 2 (pp. 14–15) lists `SV, SVO, SVOO, SVC, SVOC` without `SVA`. | Topic 3–4 avoid ambiguous edge sentences (*kept in the garage*) in graded checks; we use unambiguous `SVC` (*is dark*, *became captain*), `SVOC` (*elected him president*), and `SVA` (*sat in the courtyard*) examples and document the notation difference transparently. |
 | **GAP-5: Assam Over-Granular Taxonomy (`6 Subjects`, `9 Adjuncts`, `7 Objects`)** | Assam Ch. 1 L4–L5 classifies 6 Subject types, 9 Subject Adjuncts, and 6/7 Object subtypes (*Cognate, Retained, Dative of Interest, Reflexive, Factive*). Odisha and PSEB do not require these labels. | Excluded from core Class 9–10 mastery to prevent cognitive overload; retained only in `sourceReferences` provenance notes. |
 | **GAP-6: Raw PDF Granularity Boundary** | Direct raw `.pdf` binaries are absent from the current container; sub-page line numbers and verbatim textbook exercise sentences inside Odisha IX Ch. 1 Sec. D (pp. 23–26), Odisha X Ch. 2 (pp. 16–22), and Assam Ch. 2 (pp. 18–24) are only summarised in `curriculum-source-map.json`. | Only rules, patterns, and sample sentences explicitly recorded in `curriculum-source-map.json` / `curriculum-overview.md` are cited as textbook-derived; all new teaching sentences in Grammar Quest will be tagged `original-practice` or `supplementary-bridge` and verified against the raw PDFs before any verbatim textbook quotation is claimed. |
