@@ -817,6 +817,70 @@ a {
   animation-fill-mode: forwards;
 }
 
+.gq-welcome {
+  font-family: 'Nunito', var(--gq-font-sans);
+}
+
+.gq-welcome-title {
+  font-family: 'Baloo 2', var(--gq-font-sans);
+}
+
+@keyframes gq-welcome-bob {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@keyframes gq-welcome-chip-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+@keyframes gq-welcome-sparkle {
+  0%, 100% {
+    opacity: 0.15;
+    scale: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+    scale: 1.2;
+  }
+}
+
+@keyframes gq-welcome-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.gq-welcome-mascot {
+  animation: gq-welcome-bob 2.4s ease-in-out infinite;
+}
+
+.gq-welcome-chip {
+  animation: gq-welcome-chip-float 4.4s ease-in-out infinite;
+}
+
+.gq-welcome-spark {
+  animation: gq-welcome-sparkle 2.6s ease-in-out infinite;
+}
+
+.gq-welcome-enter {
+  animation: gq-welcome-rise 0.7s cubic-bezier(0.2, 1, 0.4, 1) both;
+}
+
 /* Respect user reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

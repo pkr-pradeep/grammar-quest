@@ -27,6 +27,7 @@ import {
 import { loadAllAssessmentAttempts } from './storage/assessmentRepository';
 import { Header, ScrollMoreHint } from './components';
 import { Dashboard } from './features/home/Dashboard';
+import { WelcomePage } from './features/home/WelcomePage';
 import { FoundationSectionView } from './features/placeholders/FoundationSectionView';
 import { getLessonForMission } from './content/lessons/lessonRegistry';
 import {
@@ -131,6 +132,9 @@ export default function App() {
   );
   const [isDevSheetOpen, setIsDevSheetOpen] = useState<boolean>(
     isDevCharacterSheetRoute,
+  );
+  const [hasStartedLearning, setHasStartedLearning] = useState<boolean>(
+    () => isDevCharacterSheetRoute() || Boolean(parseMissionHash()),
   );
 
   useEffect(() => {
@@ -303,7 +307,9 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      {resolvedLesson ? (
+      {!hasStartedLearning && !resolvedLesson ? (
+        <WelcomePage onStartLearning={() => setHasStartedLearning(true)} />
+      ) : resolvedLesson ? (
         <GrammarTeachingEngine
           key={resolvedLesson.missionId}
           lesson={resolvedLesson}
