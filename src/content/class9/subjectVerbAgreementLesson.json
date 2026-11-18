@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "The Case of the Mismatched Verbs",
-    "description": "Mira, Arjun, and Gyan are checking school club reports and event posters. Words squeezed between the Subject and verb are tricking students into picking the wrong verb!",
+    "description": "Mira, Arjun, and ShukaJi are checking school club reports and event posters. Words squeezed between the Subject and verb are tricking students into picking the wrong verb!",
     "characterId": "mira",
     "characterExpression": "curious"
   },
@@ -53,10 +53,10 @@
       },
       {
         "id": "c9-m3-beat-3",
-        "speaker": "gyan",
+        "speaker": "shuka",
         "expression": "explaining",
         "pose": "explaining",
-        "sceneFocus": "gyan-explains",
+        "sceneFocus": "shuka-explains",
         "actionLabel": "Activates the Concord Magnifier",
         "dialogue": "A finite verb must match the TRUE Subject head-word in Number and Person—never the nearby nouns in between! Grab your magnifying glass and solve all six clues!"
       }
@@ -710,7 +710,7 @@
       "badgeLabel": "Core Concord",
       "shortPrompt": "A finite verb locks onto the true Subject head-noun—never nearby trap words!",
       "explanation": "Every detective begins here: find the TRUE Subject head-noun and lock the verb to its Number (singular vs plural) and Person. In 'The basket of ripe mangoes is on the table', 'of ripe mangoes' is just extra description—the real Subject is ONE 'basket', so the verb is 'is'!",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m3c9-sent-intervening",
       "focusTokenIds": ["m3c9s1-t2", "m3c9s1-t6"],
@@ -786,7 +786,7 @@
       "badgeLabel": "Nearest Subject",
       "shortPrompt": "With 'or / nor', the verb locks onto the subject closest to it!",
       "explanation": "Compare joiners carefully: 'with / as well as' follows the FIRST subject, whereas 'either...or' and 'neither...nor' follow the NEAREST subject! Here, plural 'players' stands right before the verb, so we choose 'were'.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m3c9-sent-correlative",
       "comparisonSentenceId": "m3c9-sent-intervening",
@@ -863,7 +863,7 @@
       "badgeLabel": "'There' & Units",
       "shortPrompt": "With 'There is / There are', look AFTER the verb to find the real Subject!",
       "explanation": "In 'There are twenty benches in the room', 'There' is only an introducer—the real Subject 'twenty benches' sits after the verb! Meanwhile, plural amounts seen as ONE whole unit—'Five hundred rupees is enough' or 'Ten kilometres is a long walk'—take a singular verb.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m3c9-sent-single-idea",
       "focusTokenIds": ["m3c9s2-t1", "m3c9s2-t3", "m3c9s2-t4"],
@@ -887,7 +887,7 @@
       "badgeLabel": "Explore",
       "shortPrompt": "Tap 'Each', 'students', or 'has' above to see the lock note, then enter Guided Practice.",
       "explanation": "Tap any word above to inspect its role and Subject-Verb lock. When ready, head into the Grammar Detective Lab to catch every verb trap!",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "celebrating",
       "sentenceId": "m3c9-sent-each-of",
       "focusTokenIds": ["m3c9s4-t1", "m3c9s4-t5"],
@@ -1206,7 +1206,7 @@
   "completionSummary": {
     "sceneVariant": "detective-board",
     "headline": "Case Solved! Lesson Complete!",
-    "celebrationMessage": "You helped Mira, Arjun, and Gyan lock every Subject head-noun to its true verb!",
+    "celebrationMessage": "You helped Mira, Arjun, and ShukaJi lock every Subject head-noun to its true verb!",
     "learnedPoints": [
       "Finite verbs agree with the TRUE Subject head-word in Number and Person, ignoring prepositional phrases like 'of ripe mangoes'.",
       "Normal 'and' pairs are plural, while single-idea pairs ('Rice and dal is') and single-determiner titles take singular verbs.",

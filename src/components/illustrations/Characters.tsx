@@ -1,11 +1,11 @@
 /**
  * ============================================================================
- * GRAMMAR QUEST — MASTER 2D CHARACTER ILLUSTRATIONS (MIRA, ARJUN & GYAN)
+ * GRAMMAR QUEST — MASTER 2D CHARACTER ILLUSTRATIONS (MIRA, ARJUN & SHUKA)
  * ============================================================================
- * Master character specifications (strictly 2D flat/vector SVG):
- * - Outline colour: Deep Navy #263A70, consistent stroke weight (2.5px).
- * - Line caps/joins: round.
- * - Shading: controlled flat cel-shading with soft warm highlights, zero 3D.
+ * Master character specifications:
+ * - Mira and Arjun use deep navy outlines with round line caps and joins.
+ * - ShukaJi uses the supplied image artwork and expression variants.
+ * - Flat illustrations and soft highlights keep the trio cohesive, with zero 3D.
  * - Zero text baked into artwork; all labels remain real React HTML elements.
  *
  * Character Masters:
@@ -16,13 +16,13 @@
  * 2. ARJUN: Indian Class 9/10 student. Warm medium-deep skin (#DD9768), wavy
  *    dark hair (#1F2437), turquoise overshirt (#4ED2C3 / #8DECE0) over a
  *    cream tee (#FFF8EB), navy backpack strap (#263A70).
- * 3. GYAN: Compact 2D study companion. Cream body (#FFFDF7), deep navy visor
- *    (#263A70) with turquoise smiling eyes (#8DECE0), orange ear discs
- *    (#F59B19), and a small green/turquoise leaf-sprout crest.
+ * 3. SHUKAJI: Supplied parrot artwork with round glasses, a patterned scarf,
+ *    teal wings, three crest feathers, and a branch.
  * ============================================================================
  */
 
 import React from 'react';
+import { ShukaJiArtwork } from '../Character/ShukaJiSvg';
 
 interface TrioIllustrationProps {
   className?: string;
@@ -30,7 +30,7 @@ interface TrioIllustrationProps {
 
 /**
  * Welcoming trio illustration for the Grammar Quest Dashboard.
- * Positioned as a cohesive 2D flat-vector scene on a warm cream backdrop arc.
+ * Positioned as a cohesive character scene on a warm cream backdrop arc.
  */
 export const WelcomeTrioIllustration: React.FC<TrioIllustrationProps> = ({ className = '' }) => {
   return (
@@ -40,7 +40,7 @@ export const WelcomeTrioIllustration: React.FC<TrioIllustrationProps> = ({ class
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       role="img"
-      aria-label="Mira, Arjun, and study companion Gyan welcoming you to Grammar Quest"
+      aria-label="Mira, Arjun, and their parrot guide ShukaJi welcoming you to Grammar Quest"
     >
       {/* Subtle warm cream & sunshine backdrop arc */}
       <path
@@ -278,98 +278,12 @@ export const WelcomeTrioIllustration: React.FC<TrioIllustrationProps> = ({ class
       </g>
 
       {/* ================================================================
-          GYAN (Right — Friendly 2D Study Companion Bot)
+          SHUKAJI (Right — Parrot guide)
          ================================================================ */}
-      <g id="character-gyan" className="gq-story-gyan-float">
-        {/* Leaf-sprout Antenna */}
-        <line x1="274" y1="88" x2="274" y2="73" stroke="#263A70" strokeWidth="2.6" strokeLinecap="round" />
-        <path
-          d="M274 73C274 63 285 59 290 65C292 71 282 76 274 73Z"
-          fill="#8DECE0"
-          stroke="#263A70"
-          strokeWidth="2.2"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M274 73C270 64 261 62 258 68C257 73 267 76 274 73Z"
-          fill="#FFC64B"
-          stroke="#263A70"
-          strokeWidth="2.2"
-          strokeLinejoin="round"
-        />
-
-        {/* Ear Discs */}
-        <rect x="234" y="105" width="9" height="22" rx="4.5" fill="#F59B19" stroke="#263A70" strokeWidth="2.3" />
-        <rect x="305" y="105" width="9" height="22" rx="4.5" fill="#F59B19" stroke="#263A70" strokeWidth="2.3" />
-
-        {/* Head Shell */}
-        <rect
-          x="241"
-          y="87"
-          width="66"
-          height="54"
-          rx="20"
-          fill="#FFFFFF"
-          stroke="#263A70"
-          strokeWidth="2.5"
-        />
-        {/* Visor */}
-        <rect x="249" y="96" width="50" height="36" rx="12" fill="#263A70" />
-        {/* Friendly Smiling Eyes */}
-        <path
-          d="M259 112C261 108 266 108 268 112"
-          stroke="#8DECE0"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-        <path
-          d="M280 112C282 108 287 108 289 112"
-          stroke="#8DECE0"
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-        <path
-          d="M268 121C271 124 277 124 280 121"
-          stroke="#FFC64B"
-          strokeWidth="2.6"
-          strokeLinecap="round"
-        />
-
-        {/* Waving Left Arm */}
-        <path
-          d="M245 152L231 137"
-          stroke="#263A70"
-          strokeWidth="6"
-          strokeLinecap="round"
-        />
-        <circle cx="229" cy="135" r="6" fill="#FFC64B" stroke="#263A70" strokeWidth="2.2" />
-
-        {/* Right Arm */}
-        <path
-          d="M303 154L315 169"
-          stroke="#263A70"
-          strokeWidth="6"
-          strokeLinecap="round"
-        />
-        <circle cx="316" cy="171" r="6" fill="#FFC64B" stroke="#263A70" strokeWidth="2.2" />
-
-        {/* Body */}
-        <rect
-          x="247"
-          y="144"
-          width="54"
-          height="46"
-          rx="16"
-          fill="#FFFFFF"
-          stroke="#263A70"
-          strokeWidth="2.5"
-        />
-        {/* Chest Badge Crest */}
-        <circle cx="274" cy="167" r="10" fill="#FFF1D5" stroke="#F59B19" strokeWidth="2" />
-        <path
-          d="M274 161L276 165.5L280.5 166L277 169L278 173.5L274 171L270 173.5L271 169L267.5 166L272 165.5Z"
-          fill="#F59B19"
-        />
+      <g transform="translate(220 72) scale(0.62)">
+        <g id="character-shuka" className="gq-story-shuka-float">
+          <ShukaJiArtwork pose="waving" expression="happy" />
+        </g>
       </g>
 
       {/* Clean Ground Line */}

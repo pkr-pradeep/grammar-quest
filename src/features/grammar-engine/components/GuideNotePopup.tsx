@@ -35,7 +35,7 @@ export interface GuideNotePopupProps {
 export const GuideNotePopup: React.FC<GuideNotePopupProps> = ({
   isOpen,
   isAutoOpened = false,
-  characterId = 'gyan',
+  characterId = 'shuka',
   characterExpression = 'explaining',
   badgeLabel,
   title,
@@ -73,7 +73,7 @@ export const GuideNotePopup: React.FC<GuideNotePopupProps> = ({
       dialogClassName="w-full max-w-[400px] max-h-[82dvh] rounded-[26px] flex flex-col overflow-hidden select-text"
     >
       {/* Scrollable body ONLY when a note is unusually long */}
-      <div className="flex-1 overflow-y-auto overscroll-contain px-4 pt-4 pb-3 sm:px-6 sm:pt-6 space-y-3.5">
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pt-4 pb-3 sm:px-6 sm:pt-6 space-y-3.5">
         {/* Guide Portrait + Name + Role + Stage */}
         <div className="flex items-center gap-3.5">
           <SpeakerPortrait

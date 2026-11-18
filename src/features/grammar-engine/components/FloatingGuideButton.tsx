@@ -2,9 +2,8 @@
  * ============================================================================
  * GRAMMAR QUEST — FLOATING CORNER GUIDE BUTTON (LEARN STEP)
  * ============================================================================
- * 60px round bottom-right guide button displaying the active character's face
- * from the existing SVG artwork with an amber "i" badge, landing pop, and
- * 4.5s post-dismiss pulsing hint ("Tap to hear <Guide> again").
+ * 56px round bottom-right guide button displaying the active character with
+ * an amber "i" badge, landing pop, and a post-dismiss pulsing hint.
  * ============================================================================
  */
 
@@ -12,6 +11,7 @@ import React from 'react';
 import { Character } from '../../../components';
 import type { CharacterExpression, CharacterId } from '../../../components';
 import { SPEAKER_THEMES } from '../speakerTheme';
+import shukaNotificationArtwork from '../../../assets/shukaji/notification.png';
 
 export interface FloatingGuideButtonProps {
   characterId?: CharacterId;
@@ -26,7 +26,7 @@ export interface FloatingGuideButtonProps {
 }
 
 export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
-  characterId = 'gyan',
+  characterId = 'shuka',
   characterExpression = 'explaining',
   noteTitle,
   buttonRef,
@@ -45,9 +45,8 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
         : 'explaining';
 
   // Proportional crop framing inside the 50px inner circle (56px outer with 3px ring)
-  const charSizePx = characterId === 'gyan' ? 96 : 112;
-  const topOffsetPx =
-    characterId === 'mira' ? -22 : characterId === 'arjun' ? -18 : -40;
+  const charSizePx = 112;
+  const topOffsetPx = characterId === 'mira' ? -22 : -18;
 
   return (
     <div
@@ -110,24 +109,32 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
             .filter(Boolean)
             .join(' ')}
         >
-          {/* Inner cropped artwork */}
+          {/* Inner character artwork */}
           <span
             aria-hidden="true"
             className="relative w-full h-full rounded-full overflow-hidden block"
           >
-            <span
-              className="absolute left-1/2 -translate-x-1/2 block"
-              style={{ top: `${topOffsetPx}px` }}
-            >
-              <Character
-                characterId={characterId}
-                pose={resolvedPose}
-                expression={characterExpression}
-                animationState="none"
-                size={charSizePx}
-                flipHorizontal={characterId === 'gyan'}
+            {characterId === 'shuka' ? (
+              <img
+                src={shukaNotificationArtwork}
+                alt=""
+                draggable={false}
+                className="h-full w-full object-contain"
               />
-            </span>
+            ) : (
+              <span
+                className="absolute left-1/2 -translate-x-1/2 block"
+                style={{ top: `${topOffsetPx}px` }}
+              >
+                <Character
+                  characterId={characterId}
+                  pose={resolvedPose}
+                  expression={characterExpression}
+                  animationState="none"
+                  size={charSizePx}
+                />
+              </span>
+            )}
           </span>
 
           {/* Top-right Amber "i" Badge (22px) */}

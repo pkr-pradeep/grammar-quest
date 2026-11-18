@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "The School Activity Logbook Mystery",
-    "description": "Mira, Arjun, and Gyan discovered an old school activity folder with entries from yesterday, today, and tomorrow—but several verb forms are mixed up. Help repair the timeline!",
+    "description": "Mira, Arjun, and ShukaJi discovered an old school activity folder with entries from yesterday, today, and tomorrow—but several verb forms are mixed up. Help repair the timeline!",
     "characterId": "mira",
     "characterExpression": "curious"
   },
@@ -53,10 +53,10 @@
       },
       {
         "id": "c9-m2-beat-3",
-        "speaker": "gyan",
+        "speaker": "shuka",
         "expression": "explaining",
         "pose": "explaining",
-        "sceneFocus": "gyan-explains",
+        "sceneFocus": "shuka-explains",
         "actionLabel": "Maps verbs onto a timeline",
         "dialogue": "Time is when an event happens—Past, Present, or Future. Tense is the grammatical verb form we choose to match that time and how the action unfolds. Let us travel across the timeline together!"
       }
@@ -891,7 +891,7 @@
       "badgeLabel": "Core Idea",
       "shortPrompt": "When does it happen vs how does the verb show it?",
       "explanation": "Time tells us when an event happens—Past, Present, or Future. Tense is the verb form that helps communicate that time and whether the action is habitual, ongoing, or completed. Notice how 'rises' expresses a truth valid every day.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m2-sent-habit",
       "focusTokenIds": ["m2s1-t3", "m2s1-t7", "m2s1-t8"],
@@ -974,7 +974,7 @@
       "badgeLabel": "Stative Trap",
       "shortPrompt": "Verbs of thinking, feeling, and owning stay simple!",
       "explanation": "Some verbs express a state of mind or belonging rather than a physical activity—such as 'know', 'understand', 'believe', 'like', 'own', and 'belong'. Even if true right now, say 'Riya knows', never 'is knowing'.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m2-sent-stative",
       "focusTokenIds": ["m2s3-t2"],
@@ -1059,7 +1059,7 @@
       "badgeLabel": "Future Time",
       "shortPrompt": "English uses 'will', 'going to', and present forms for future events.",
       "explanation": "For tomorrow's planetarium visit, 'will visit' clearly points ahead of now. English can also show future time with 'are going to visit', or a fixed school timetable like 'The train leaves at 6 a.m. tomorrow.'",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m2-sent-future",
       "focusTokenIds": ["m2s6-t3", "m2s6-t4", "m2s6-t7"],
@@ -1086,7 +1086,7 @@
       "badgeLabel": "Explore",
       "shortPrompt": "Tap any word to see its time meaning and verb link, then start Guided Practice.",
       "explanation": "Tap 'will', 'visit', or 'tomorrow' above to inspect how time clues and verb forms lock together. When you are ready, enter the Interactive Word Laboratory to sort, build, and fix logbook sentences!",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "celebrating",
       "sentenceId": "m2-sent-future",
       "focusTokenIds": ["m2s6-t3", "m2s6-t4", "m2s6-t7"],
@@ -1552,7 +1552,7 @@
   "completionSummary": {
     "sceneVariant": "records-timeline",
     "headline": "Timeline Repaired! Lesson Complete!",
-    "celebrationMessage": "Mira, Arjun, and Gyan placed every school logbook entry onto its true Past, Present, or Future spot.",
+    "celebrationMessage": "Mira, Arjun, and ShukaJi placed every school logbook entry onto its true Past, Present, or Future spot.",
     "learnedPoints": [
       "Time (Past, Present, Future) is when an event happens; Tense is the verb form used to express it.",
       "Present Simple fits daily habits, facts, timetables, and stative verbs ('knows', 'belongs'); Present Progressive ('is writing') fits actions happening now.",

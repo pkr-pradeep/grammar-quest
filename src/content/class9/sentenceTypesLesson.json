@@ -10,7 +10,7 @@
   "situationBrief": {
     "title": "Sentence Types & Clause Patterns",
     "description": "Learn how sentence purpose shapes word order, how to separate Phrases from Clauses using the finite verb test, how S-V-O-C-A patterns work, and how clauses connect.",
-    "characterId": "gyan",
+    "characterId": "shuka",
     "characterExpression": "explaining"
   },
   "learningObjectives": {
@@ -1969,7 +1969,7 @@
       "badgeLabel": "Topic 1 · Functional Types",
       "shortPrompt": "Look at any school noticeboard: one line shares news, another asks a question, another gives instructions.",
       "explanation": "Why learn sentence types? Recognising a sentence's purpose helps you read notices accurately and write with the right word order and punctuation. Declarative sentences state facts (.), Interrogative sentences ask questions (?), Imperative sentences give instructions or requests (understood 'You'), and Exclamatory sentences show strong feeling (!).",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "stcp-s1-declarative",
       "focusTokenIds": ["s1-t2", "s1-t3"],
@@ -2154,7 +2154,7 @@
       "badgeLabel": "Topic 2 · The Finite Verb Test",
       "shortPrompt": "Imagine checking two lines from a nature-walk diary: why is one only a Phrase while the other is a Clause?",
       "explanation": "Why learn this difference? Knowing Phrases from Clauses stops you from turning descriptive word groups into unfinished sentences. A Phrase is a word team WITHOUT a finite verb ('under the old neem tree'). A Clause ALWAYS pairs a Subject with a finite verb showing tense and Subject agreement ('The students rested').",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "stcp-s3-phrase-clause",
       "focusTokenIds": ["s3-t2", "s3-t3"],
@@ -2350,7 +2350,7 @@
       "badgeLabel": "Topic 3 · Equals Test",
       "shortPrompt": "Does the noun after the verb RENAME the Subject, or name someone DIFFERENT?",
       "explanation": "Compare 'Rani Lakshmibai was a brave leader.' with 'Mira met the team captain.'. Put '=' between the Subject and the post-verb noun: Rani Lakshmibai = a brave leader (Complement C!), whereas Mira ≠ the team captain (Direct Object O!).",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "stcp-s6-complement",
       "comparisonSentenceId": "stcp-s6b-object-compare",
@@ -2421,7 +2421,7 @@
       "badgeLabel": "Topic 4 · SV to SVOC",
       "shortPrompt": "When reporting an eco-club planting drive, why does 'Our eco-club planted' feel unfinished without 'fifty saplings'?",
       "explanation": "Why learn clause patterns? Every main verb acts like a blueprint deciding which slots must follow it so your sentences never feel cut short. Single-clause sentences follow six dependable patterns: SV, SVA, SVC, SVO, SVOO, and SVOC.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "stcp-s7-svo-pattern",
       "focusTokenIds": ["s7-t2", "s7-t3", "s7-t5"],
@@ -2705,7 +2705,7 @@
       "badgeLabel": "Topic 6 · Clause Relationships",
       "shortPrompt": "When Arjun and Mira planned a night-sky club checklist, how did their bridge word decide the clause relationship?",
       "explanation": "Why learn clause relationships? Choosing the right bridge word shows whether two ideas stand as equal partners or whether one supports the other. Coordinators ('and, but, or, so') link two equal Independent Clauses (Coordination). Subordinators ('because, when, if, although, that') attach a Dependent helper Clause to a Main Clause (Subordination).",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "stcp-s11-coordination",
       "focusTokenIds": ["s11-t2", "s11-t5", "s11-t7"],
@@ -3157,7 +3157,7 @@
       "promptContext": "Pattern order: Subject (S) → Verb (V) → Direct Object (O) → Object Complement (C).",
       "hint": "Put the doer first ('The villagers'), then the verb ('kept'), then the thing acted on ('the pond'), and end with the word describing its condition ('clean.').",
       "characterTip": {
-        "characterId": "gyan",
+        "characterId": "shuka",
         "expression": "explaining",
         "quote": "Notice that 'clean' is NOT a second gift given to the pond—it describes the condition of the pond (the pond = clean)!"
       },
@@ -3235,7 +3235,7 @@
       "instruction": "Complete this two-clause school note so the second clause gives the CAUSE (reason) for moving indoors.",
       "hint": "Coordinators ('and, but, or') link two equal Independent Clauses for addition, contrast, or choice. Which subordinator introduces a REASON?",
       "characterTip": {
-        "characterId": "gyan",
+        "characterId": "shuka",
         "expression": "explaining",
         "quote": "Check whether both clauses carry equal weight (Coordination) or whether the second explains WHY the first happened (Subordination)."
       },
@@ -3802,7 +3802,7 @@
   "completionSummary": {
     "sceneVariant": "detective-board",
     "headline": "Clause Detective Board Complete!",
-    "celebrationMessage": "Mira, Arjun, and Gyan pinned every sorted notice, finite-verb check, clause pattern, and bridge link cleanly onto the detective board!",
+    "celebrationMessage": "Mira, Arjun, and ShukaJi pinned every sorted notice, finite-verb check, clause pattern, and bridge link cleanly onto the detective board!",
     "learnedPoints": [
       "Sentences follow four core purposes—Declarative, Interrogative, Imperative, and Exclamatory—signalled by both word order and punctuation.",
       "A Clause always pairs a Subject with a finite verb, whereas a Phrase has no finite verb (even when it includes '-ing' or 'to + verb' forms).",

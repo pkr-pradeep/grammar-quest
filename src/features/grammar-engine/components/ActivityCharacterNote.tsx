@@ -3,7 +3,7 @@
  * GRAMMAR QUEST — ACTIVITY CHARACTER NOTE & HINT CONTROLS
  * ============================================================================
  * Compact, accessible helper strips used inside interactive Guided & Practice
- * activities so Mira, Arjun, and Gyan provide natural encouragement and hints.
+ * activities so Mira, Arjun, and ShukaJi provide natural encouragement and hints.
  * ============================================================================
  */
 

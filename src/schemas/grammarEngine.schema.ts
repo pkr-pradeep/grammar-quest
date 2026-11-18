@@ -495,7 +495,7 @@ export interface StoryBeat {
   speaker: CharacterId;
   expression: CharacterExpression;
   pose: CharacterPose;
-  sceneFocus: 'mira-notices' | 'arjun-picks-up' | 'gyan-explains';
+  sceneFocus: 'mira-notices' | 'arjun-picks-up' | 'shuka-explains';
   actionLabel: string;
   dialogue: string;
   cardPreviewText?: string;

@@ -3,7 +3,7 @@
  * GRAMMAR QUEST — EXPLANATION PANEL (CONVERSATIONAL TEACHING CUE)
  * ============================================================================
  * Zone B of the focused mobile lesson workspace: displays the speaking
- * character (Mira, Arjun, or Gyan) with their signature colour palette,
+ * character (Mira, Arjun, or ShukaJi) with their signature colour palette,
  * 44px cropped portrait, step title, short prompt, pausable typewriter
  * explanation, and an optional textbook-reference accordion collapsed by default.
  * ============================================================================
@@ -52,7 +52,7 @@ export const ExplanationPanel: React.FC<ExplanationPanelProps> = ({
   title,
   shortPrompt,
   explanation,
-  characterId = 'gyan',
+  characterId = 'shuka',
   characterExpression = 'explaining',
   provenance = 'textbook-derived',
   sourceReferences = [],

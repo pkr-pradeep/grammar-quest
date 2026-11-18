@@ -53,10 +53,10 @@
       },
       {
         "id": "c10-m2-beat-3",
-        "speaker": "gyan",
+        "speaker": "shuka",
         "expression": "explaining",
         "pose": "explaining",
-        "sceneFocus": "gyan-explains",
+        "sceneFocus": "shuka-explains",
         "actionLabel": "Unlocks Class 10 timeline mastery",
         "dialogue": "In Class 10, we master how Past Simple differs from Present Perfect and Past Perfect ('earlier past'), how Sequence of Tenses handles universal truths, and how five future forms express plans, timetables, and predictions!"
       }
@@ -760,7 +760,7 @@
       "badgeLabel": "Stage 1 · Earlier Past",
       "shortPrompt": "When two actions happen in the past, which happened first?",
       "explanation": "Odisha Class X 'Tense Revisited' highlights 6 ways to express Past Time. When one past event ('the quiz began') finished BEFORE another past event ('we reached the hall'), use Past Perfect ('had begun') for the earlier event and Past Simple ('reached') for the later one.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m2c10-sent-past-perfect",
       "focusTokenIds": ["c10s1-t3", "c10s1-t8", "c10s1-t10"],
@@ -845,7 +845,7 @@
       "badgeLabel": "Stage 4 · Sequence Rule",
       "shortPrompt": "When does a past main verb NOT pull the next verb into the past?",
       "explanation": "Usually, a past reporting verb ('explained', 'said') pulls the subordinate clause into past tense. HOWEVER, if the subordinate clause states a universal truth or scientific fact—like 'the earth moves round the sun'—it stays in Present Simple!",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m2c10-sent-sequence",
       "focusTokenIds": ["c10s3-t3", "c10s3-t7"],
@@ -926,7 +926,7 @@
       "badgeLabel": "Stage 7 · Form Check",
       "shortPrompt": "Watch out for V3 forms ('begun', 'written', 'eaten') and stative verbs.",
       "explanation": "After 'had', 'has/have', or 'will have', always use the V3 past participle—'had begun' (never 'had began'), 'has written' (never 'has wrote'). And keep stative verbs ('belong', 'know', 'own') out of '-ing'.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m2c10-sent-past-perfect",
       "focusTokenIds": ["c10s1-t8", "c10s1-t10"],
@@ -956,7 +956,7 @@
       "badgeLabel": "Stage 8 · Explore",
       "shortPrompt": "Tap any word to inspect its role and verb-form note, then open Guided Practice.",
       "explanation": "Tap 'reached', 'had', or 'begun' above to review how each word locks into the past timeline. Next, head to the Word Laboratory to practise Class 10 timeline repairs!",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "celebrating",
       "sentenceId": "m2c10-sent-past-perfect",
       "focusTokenIds": ["c10s1-t3", "c10s1-t8", "c10s1-t10"],
@@ -1285,7 +1285,7 @@
   "completionSummary": {
     "sceneVariant": "records-timeline",
     "headline": "Archive Timeline Verified! Mission 2 Complete!",
-    "celebrationMessage": "You helped Mira, Arjun, and Gyan restore every Class 10 archive record across Past, Present, and Future!",
+    "celebrationMessage": "You helped Mira, Arjun, and ShukaJi restore every Class 10 archive record across Past, Present, and Future!",
     "learnedPoints": [
       "Earlier of two past actions takes Past Perfect ('had + V3'); duration continuing to now with 'for/since' takes Present Perfect / Perfect Continuous.",
       "Under Sequence of Tenses, universal truths and scientific laws remain in Present Simple even after a past reporting verb.",

@@ -3,7 +3,7 @@
  * GRAMMAR QUEST — STAGE 1: STORY INTRODUCTION (COURTYARD & NOTICEBOARD)
  * ============================================================================
  * Introduces the broken noticeboard problem in an Indian school courtyard with
- * Mira, Arjun, and Gyan. Features speaker colour-coding, cropped master
+ * Mira, Arjun, and ShukaJi. Features speaker colour-coding, cropped master
  * character portraits, sliding diamond pointer, pausable typewriter dialogue,
  * per-scene courtyard animations, and full reduced-motion accessibility.
  * ============================================================================
@@ -201,7 +201,7 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
                 activeBeat.sceneFocus === 'arjun-picks-up' &&
                 (isCricketChip || isCustomMatch);
               const pulseInScene3 =
-                activeBeat.sceneFocus === 'gyan-explains' &&
+                activeBeat.sceneFocus === 'shuka-explains' &&
                 (isCricketChip || isSubjectChip || isCustomMatch);
 
               const pulseClass =

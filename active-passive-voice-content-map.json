@@ -11,7 +11,7 @@
     "status": "design-pending-approval",
     "architectureCompatibility": {
       "stack": ["React", "Vite", "TypeScript", "Tailwind CSS"],
-      "characters": ["mira", "arjun", "gyan"],
+      "characters": ["mira", "arjun", "shuka"],
       "engineComponents": [
         "GrammarTeachingEngine",
         "TeachingSequence",
@@ -274,7 +274,7 @@
         ]
       },
       "teachingProposal": {
-        "speakerCharacterId": "gyan",
+        "speakerCharacterId": "shuka",
         "shortExplanation": "Follow 4 clear moves: (1) Bring the Object to the Subject spot, (2) Add the matching form of 'be' for the time AND the new Subject, (3) Change the main verb to its Past Participle (V-en / V3), and (4) add 'by + original Subject' when helpful.",
         "examples": [
           {
@@ -345,7 +345,7 @@
         ]
       },
       "teachingProposal": {
-        "speakerCharacterId": "gyan",
+        "speakerCharacterId": "shuka",
         "shortExplanation": "Never change the sentence's time when changing Voice! Keep the tense or modal at the front of the verb chain, add the matching passive helper ('is/was', 'being' for -ing actions, 'been' for have/has/had, or 'be' after modals/will), and finish with the Past Participle.",
         "examples": [
           {
@@ -497,7 +497,7 @@
         ]
       },
       "teachingProposal": {
-        "speakerCharacterId": "gyan",
+        "speakerCharacterId": "shuka",
         "shortExplanation": "Do not glue 'by...' onto every passive sentence! Drop 'by + doer' when the doer is unknown ('Someone left a scarf'), general ('People speak Odia here'), or obvious. Keep 'by + doer' only when naming the doer adds real meaning ('discovered by C.V. Raman'). Use 'with'—not 'by'—for tools ('sliced with a clean knife').",
         "examples": [
           {

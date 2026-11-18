@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "The Class 10 Concord Casebook",
-    "description": "Senior editors Mira, Arjun, and Gyan are auditing complex school notices packed with 'the number of vs a number of', collective nouns, fractions, and relative pronoun antecedents.",
+    "description": "Senior editors Mira, Arjun, and ShukaJi are auditing complex school notices packed with 'the number of vs a number of', collective nouns, fractions, and relative pronoun antecedents.",
     "characterId": "mira",
     "characterExpression": "curious"
   },
@@ -53,10 +53,10 @@
       },
       {
         "id": "c10-m3-beat-3",
-        "speaker": "gyan",
+        "speaker": "shuka",
         "expression": "explaining",
         "pose": "explaining",
-        "sceneFocus": "gyan-explains",
+        "sceneFocus": "shuka-explains",
         "actionLabel": "Opens Odisha X 16-rule detective toolkit",
         "dialogue": "In Class 10, every verb still locks onto its true head—whether that is 'number' vs 'a number of', an undivided vs divided collective, a fraction's 'of'-noun, or a relative pronoun's antecedent. Let us crack every case!"
       }
@@ -718,7 +718,7 @@
       "badgeLabel": "Stage 1 · Number Contrast",
       "shortPrompt": "'The number of...' = ONE single figure (singular); 'A number of...' = MANY (plural).",
       "explanation": "Odisha Class X Rule 9c sets a classic exam trap: 'The number of science projects is growing' (focuses on ONE rising figure → 'is'), whereas 'A number of science projects are ready' means 'several projects' → 'are'. One small article ('The' vs 'A') flips the verb!",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m3c10-sent-number-of",
       "focusTokenIds": ["c10m3s1-t1", "c10m3s1-t2", "c10m3s1-t8"],
@@ -791,7 +791,7 @@
       "badgeLabel": "Stage 4 · Antecedent Trace",
       "shortPrompt": "In 'one of the students who...', trace 'who' back to 'students', NOT 'one'!",
       "explanation": "Odisha Class X Rule 16 solves one of the trickiest Class 10 questions! In 'Riya is one of the students who have won medals', several students won medals and Riya is one of them. So 'who' points to plural 'students', locking onto 'have'.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m3c10-sent-relative-antecedent",
       "focusTokenIds": ["c10m3s3-t6", "c10m3s3-t7", "c10m3s3-t8"],
@@ -866,7 +866,7 @@
       "badgeLabel": "Stage 7 · Checklist",
       "shortPrompt": "1. Cross out modifiers. 2. Check rule family. 3. Lock the finite verb.",
       "explanation": "Before answering any Class 10 SVA question: (1) Identify whether the Subject is a normal head-noun ('The number of'), a fraction/portion ('Two-thirds of'), a collective ('jury'), or a relative antecedent ('students who...'). (2) Match Number and Person precisely!",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "m3c10-sent-fractions",
       "focusTokenIds": ["c10m3s4-t5", "c10m3s4-t6"],
@@ -890,7 +890,7 @@
       "badgeLabel": "Stage 8 · Explore",
       "shortPrompt": "Tap 'Two-thirds', 'books', or 'are' above to inspect how they lock, then enter Guided Practice.",
       "explanation": "Tap any token above to verify its role, then open Guided Practice to solve all 6 Class 10 detective cases!",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "celebrating",
       "sentenceId": "m3c10-sent-fractions",
       "focusTokenIds": ["c10m3s4-t5", "c10m3s4-t6"],
@@ -1209,7 +1209,7 @@
   "completionSummary": {
     "sceneVariant": "detective-board",
     "headline": "Senior Casebook Solved! Mission 3 Complete!",
-    "celebrationMessage": "You helped Mira, Arjun, and Gyan crack Class 10's toughest Subject–Verb Agreement cases!",
+    "celebrationMessage": "You helped Mira, Arjun, and ShukaJi crack Class 10's toughest Subject–Verb Agreement cases!",
     "learnedPoints": [
       "'The number of + plural noun' takes a singular verb (one count), whereas 'A number of + plural noun' takes a plural verb (= many).",
       "Fractions and percentages agree with the noun after 'of'; collective nouns take singular when united and plural when divided.",

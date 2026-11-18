@@ -1,7 +1,7 @@
 export { Character, type CharacterProps } from './Character';
 export { MiraSvg } from './MiraSvg';
 export { ArjunSvg } from './ArjunSvg';
-export { GyanSvg } from './GyanSvg';
+export { ShukaJiSvg } from './ShukaJiSvg';
 export {
   ALL_ANIMATION_STATES,
   ALL_POSES,

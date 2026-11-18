@@ -3,7 +3,7 @@
  * GRAMMAR QUEST — 2D INDIAN SCHOOL COURTYARD & NOTICEBOARD SCENE
  * ============================================================================
  * Strictly 2D flat-vector SVG backdrop paired with the immutable master
- * designs of Mira, Arjun, and Gyan. Supports:
+ * designs of Mira, Arjun, and ShukaJi. Supports:
  *  - 'scattered': Wind-blown noticeboard cards in the school courtyard (Stage 1)
  *    with speaker spotlighting, name tags, ambient life, and per-scene effects
  *  - 'repaired': Neatly pinned Subject + Predicate strips on the board (Stage 10)
@@ -24,7 +24,7 @@ import type { StorySceneVariant } from '../../schemas/grammarEngine.schema';
 export interface CourtyardNoticeboardSceneProps {
   mode: 'scattered' | 'repaired';
   sceneVariant?: StorySceneVariant;
-  sceneFocus?: 'mira-notices' | 'arjun-picks-up' | 'gyan-explains';
+  sceneFocus?: 'mira-notices' | 'arjun-picks-up' | 'shuka-explains';
   isPaused?: boolean;
   isTyping?: boolean;
   animationSeed?: number;
@@ -37,19 +37,19 @@ const SPEAKER_BY_FOCUS: Record<
 > = {
   'mira-notices': 'mira',
   'arjun-picks-up': 'arjun',
-  'gyan-explains': 'gyan',
+  'shuka-explains': 'shuka',
 };
 
 const SPEAKER_COLOR: Record<CharacterId, string> = {
   mira: '#C94A3A',
   arjun: '#0F7F76',
-  gyan: '#5B43C2',
+  shuka: '#26734D',
 };
 
 const SPEAKER_NAME: Record<CharacterId, string> = {
   mira: 'Mira',
   arjun: 'Arjun',
-  gyan: 'Gyan',
+  shuka: 'ShukaJi',
 };
 
 const SCENE_ARIA_LABEL: Record<
@@ -60,25 +60,25 @@ const SCENE_ARIA_LABEL: Record<
     'mira-notices':
       'Indian school courtyard where Mira points at the wooden noticeboard as a breeze scatters six paper scraps.',
     'arjun-picks-up':
-      'Indian school courtyard where Arjun picks up a scattered "... plays cricket." scrap from the ground while Mira and Gyan watch.',
-    'gyan-explains':
-      'Indian school courtyard where Gyan projects Subject and Predicate strips onto the noticeboard to repair the sentence.',
+      'Indian school courtyard where Arjun picks up a scattered "... plays cricket." scrap from the ground while Mira and ShukaJi watch.',
+    'shuka-explains':
+      'Indian school courtyard where ShukaJi guides learners through Subject and Predicate strips on the noticeboard.',
   },
   'records-timeline': {
     'mira-notices':
       'Indian school courtyard where Mira points at old school activity record pages fluttering out of order beside the timeline board.',
     'arjun-picks-up':
       'Indian school courtyard where Arjun holds up a school activity record card with a mismatched verb form.',
-    'gyan-explains':
-      'Indian school courtyard where Gyan projects a Past, Present, and Future Time timeline onto the school board.',
+    'shuka-explains':
+      'Indian school courtyard where ShukaJi explains the Past, Present, and Future Time timeline on the school board.',
   },
   'detective-board': {
     'mira-notices':
       'Indian school courtyard where Mira inspects the school heritage fair board with mismatched Subject and Verb cards.',
     'arjun-picks-up':
       'Indian school courtyard where Arjun examines a poster strip where a plural verb clashes with a singular Subject.',
-    'gyan-explains':
-      'Indian school courtyard where Gyan projects a lock connecting the Subject head-noun directly to the agreeing Verb.',
+    'shuka-explains':
+      'Indian school courtyard where ShukaJi explains how the Subject head-noun connects to the agreeing Verb.',
   },
 };
 
@@ -214,7 +214,7 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
       ? 'celebrating'
       : sceneFocus === 'arjun-picks-up'
         ? 'reading'
-        : sceneFocus === 'gyan-explains'
+        : sceneFocus === 'shuka-explains'
           ? 'encouraging'
           : 'thinking';
 
@@ -223,21 +223,21 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
       ? 'happy'
       : sceneFocus === 'arjun-picks-up'
         ? 'curious'
-        : sceneFocus === 'gyan-explains'
+        : sceneFocus === 'shuka-explains'
           ? 'happy'
           : 'confused';
 
-  const gyanPose =
+  const shukaPose =
     mode === 'repaired'
       ? 'celebrating'
-      : sceneFocus === 'gyan-explains'
+      : sceneFocus === 'shuka-explains'
         ? 'explaining'
         : 'pointing';
 
-  const gyanExpr =
+  const shukaExpr =
     mode === 'repaired'
       ? 'celebrating'
-      : sceneFocus === 'gyan-explains'
+      : sceneFocus === 'shuka-explains'
         ? 'explaining'
         : 'curious';
 
@@ -307,11 +307,11 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
         {/* Active speaker floating name tag */}
         {renderSpeakerTag(characterId)}
 
-        {/* Ambient float (Gyan) -> Breathe -> Talking bob */}
+        {/* Ambient float (ShukaJi) -> Breathe -> Talking bob */}
         <div
           className={
-            characterId === 'gyan' && !prefersReducedMotion
-              ? 'gq-story-gyan-float'
+            characterId === 'shuka' && !prefersReducedMotion
+              ? 'gq-story-shuka-float'
               : ''
           }
         >
@@ -330,21 +330,6 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
                 className="sm:scale-110 origin-bottom"
               />
 
-              {/* Gyan blinking antenna beacon overlay */}
-              {characterId === 'gyan' ? (
-                <span
-                  aria-hidden="true"
-                  className={[
-                    'pointer-events-none absolute left-1/2 -translate-x-1/2 top-[33%] w-[7px] h-[7px] rounded-full bg-[#8DECE0]',
-                    !prefersReducedMotion ? 'gq-story-antenna-blink' : '',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  style={{
-                    boxShadow: '0 0 6px 2px rgba(91, 67, 194, 0.55)',
-                  }}
-                />
-              ) : null}
             </div>
           </div>
         </div>
@@ -383,14 +368,6 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
         aria-hidden="true"
         className="w-full h-[186px] sm:h-[224px] block select-none"
       >
-        <defs>
-          <linearGradient id="gq-story-violet-beam" x1="1" y1="0.8" x2="0" y2="0.2">
-            <stop offset="0%" stopColor="#5B43C2" stopOpacity="0.62" />
-            <stop offset="55%" stopColor="#5B43C2" stopOpacity="0.28" />
-            <stop offset="100%" stopColor="#5B43C2" stopOpacity="0.06" />
-          </linearGradient>
-        </defs>
-
         {/* Subtle Drifting Clouds in Sky (Story & Repaired ambient life) */}
         <g className={!prefersReducedMotion ? 'gq-story-cloud' : ''} opacity="0.78">
           <path
@@ -582,9 +559,8 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
               </g>
             ) : null}
 
-            {sceneFocus === 'gyan-explains' ? (
+            {sceneFocus === 'shuka-explains' ? (
               <g>
-                <polygon points="564,174 328,56 328,154 510,152" fill="url(#gq-story-violet-beam)" className={!prefersReducedMotion ? 'gq-story-beam' : ''} />
                 <g className={!prefersReducedMotion ? 'gq-story-slide-left' : ''}>
                   <rect x="336" y="64" width="76" height="24" rx="6" fill="#FFC64B" stroke="#263A70" strokeWidth="2" />
                   <text x="374" y="79" textAnchor="middle" fill="#263A70" fontSize="8.5" fontWeight="700">TIME: Past</text>
@@ -624,9 +600,8 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
               </g>
             ) : null}
 
-            {sceneFocus === 'gyan-explains' ? (
+            {sceneFocus === 'shuka-explains' ? (
               <g>
-                <polygon points="564,174 328,56 328,154 510,152" fill="url(#gq-story-violet-beam)" className={!prefersReducedMotion ? 'gq-story-beam' : ''} />
                 <g className={!prefersReducedMotion ? 'gq-story-slide-left' : ''}>
                   <rect x="336" y="72" width="78" height="26" rx="6" fill="#FFC64B" stroke="#263A70" strokeWidth="2" />
                   <text x="375" y="88" textAnchor="middle" fill="#263A70" fontSize="8.8" fontWeight="700">basket (Sg)</text>
@@ -929,8 +904,8 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
               </g>
             ) : null}
 
-            {/* SCENE 3: Gyan Explains — Violet beam, Subject + Predicate + "+" + Green Check */}
-            {sceneFocus === 'gyan-explains' ? (
+            {/* SCENE 3: ShukaJi explains Subject + Predicate with a matching check. */}
+            {sceneFocus === 'shuka-explains' ? (
               <g>
                 {/* Faint fallen ground scraps */}
                 <g transform="rotate(8 529 148)" opacity="0.6">
@@ -945,14 +920,6 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
                     strokeWidth="1.8"
                   />
                 </g>
-
-                {/* Translucent Violet Projection Beam from Gyan to Noticeboard */}
-                <polygon
-                  points="564,174 328,56 328,154 510,152"
-                  fill="url(#gq-story-violet-beam)"
-                  className={!prefersReducedMotion ? 'gq-story-beam' : ''}
-                  style={{ opacity: prefersReducedMotion ? 0.5 : undefined }}
-                />
 
                 {/* Amber SUBJECT chip sliding from left */}
                 <g className={!prefersReducedMotion ? 'gq-story-slide-left' : ''}>
@@ -1189,7 +1156,7 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
             {renderStoryCharacter('mira', 68, miraPose, miraExpr)}
             {renderStoryCharacter('arjun', 68, arjunPose, arjunExpr)}
           </div>
-          {renderStoryCharacter('gyan', 64, gyanPose, gyanExpr, true)}
+          {renderStoryCharacter('shuka', 64, shukaPose, shukaExpr, true)}
         </div>
       ) : (
         <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
@@ -1239,34 +1206,24 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
               ]
                 .filter(Boolean)
                 .join(' ')}
-              style={{ backgroundColor: SPEAKER_COLOR.gyan, animationDelay: '220ms' }}
+              style={{ backgroundColor: SPEAKER_COLOR.shuka, animationDelay: '220ms' }}
             >
-              {SPEAKER_NAME.gyan}
+              {SPEAKER_NAME.shuka}
             </div>
-            <div className={!prefersReducedMotion ? 'gq-story-gyan-float relative' : 'relative'}>
+            <div className={!prefersReducedMotion ? 'gq-story-shuka-float relative' : 'relative'}>
               <Character
-                characterId="gyan"
-                pose={gyanPose}
-                expression={gyanExpr}
+                characterId="shuka"
+                pose={shukaPose}
+                expression={shukaExpr}
                 animationState={isPaused ? 'none' : 'celebrate'}
                 size={64}
                 flipHorizontal
                 className="sm:scale-110 origin-bottom"
               />
-              <span
-                aria-hidden="true"
-                className={[
-                  'pointer-events-none absolute left-1/2 -translate-x-1/2 top-[33%] w-[7px] h-[7px] rounded-full bg-[#8DECE0]',
-                  !prefersReducedMotion ? 'gq-story-antenna-blink' : '',
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
-                style={{ boxShadow: '0 0 6px 2px rgba(91, 67, 194, 0.55)' }}
-              />
             </div>
             <div
               className="pointer-events-none -mt-1.5 w-12 h-2 rounded-full blur-[1px] opacity-35"
-              style={{ backgroundColor: SPEAKER_COLOR.gyan }}
+              style={{ backgroundColor: SPEAKER_COLOR.shuka }}
             />
           </div>
         </div>

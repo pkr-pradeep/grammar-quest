@@ -706,7 +706,7 @@ export const TopicExplorer: React.FC<TopicExplorerProps> = ({
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-5 py-4 space-y-4">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 sm:px-5 py-4 space-y-4">
           <div>
             <p className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#6B6557] mb-2">
               LESSON GROUP

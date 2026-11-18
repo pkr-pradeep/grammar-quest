@@ -11,7 +11,7 @@
     "status": "design-pending-approval",
     "architectureCompatibility": {
       "stack": ["React", "Vite", "TypeScript", "Tailwind CSS"],
-      "characters": ["mira", "arjun", "gyan"],
+      "characters": ["mira", "arjun", "shuka"],
       "engineComponents": [
         "GrammarTeachingEngine",
         "TeachingSequence",
@@ -262,7 +262,7 @@
         ]
       },
       "teachingProposal": {
-        "speakerCharacterId": "gyan",
+        "speakerCharacterId": "shuka",
         "shortExplanation": "Think of time size: 'at' hits an exact clock point (at 8 a.m., at noon, at night), 'on' lands on a day or date (on Monday, on 14 November), and 'in' sits inside a longer span (in July, in summer, in 2024, in the morning). Never put on/in/at before yesterday, today, tomorrow, or next week!",
         "examples": [
           {
@@ -459,7 +459,7 @@
         ]
       },
       "teachingProposal": {
-        "speakerCharacterId": "gyan",
+        "speakerCharacterId": "shuka",
         "shortExplanation": "Prepositions are context chameleons! Watch 'by': 'by the river' (place), 'by 5 p.m.' (time deadline), 'by train' (transport), and 'painted by Mira' (doer). Remember: people/transport modes take 'by' ('by bicycle', EXCEPT 'on foot' and 'in a car'), while physical tools take 'with' ('cut with a knife').",
         "examples": [
           {

@@ -227,7 +227,7 @@ All examples adhere to Grammar Quest's Indian school, science, nature, heritage,
 
 When approved for Phase 2, **Prepositions** will integrate cleanly into Grammar Quest's existing JSON-driven architecture with **zero new libraries** and **zero redesign of existing screens**:
 - **Catalogue Link:** Activate existing `topic-prepositions` in `src/content/curriculumCatalog.ts` (`cat-connectors`: `"Connectors & Prepositions"`).
-- **Characters:** **Mira** (visual scenes & courtyard/map observations), **Arjun** (hands-on preposition swaps & everyday errors), and **Gyan** (concise patterns & boundary notes in `GuideNotePopup`).
+- **Characters:** **Mira** (visual scenes & courtyard/map observations), **Arjun** (hands-on preposition swaps & everyday errors), and **ShukaJi** (concise patterns & boundary notes in `GuideNotePopup`).
 - **Teaching Stage (`GrammarTeachingEngine` + `TeachingSequence`):** Uses `preposition-relation` arcs (`WordRelationship`), `WordInspectorPopup` (showing `Preposition` + `Object of Preposition`), `compare-dual` (static vs motion; context shifts), and `guided-explore`.
 - **Guided Practice (`WordLaboratory` A–F):** Uses `identify-group` (spot the full Prepositional Phrase), `categorise` (`at/on/in` time sorting; static vs motion), `word-replacement` (live spatial/context swap), `missing-words` (`since/for/by/until`, `across/through/along`, `by/with`), `sentence-construction` (assembling prepositional questions & clauses), and `error-identification` (`discuss about`, `by a knife`, `on tomorrow` traps).
 - **Independent Practice (`IndependentPracticeStage`) & Formal Assessment (`AssessmentRunner`):** Uses existing `dual-identify`, `token-and-choice`, `choice-diagnose`, and a 10-MCQ post-submit assessment stored in IndexedDB.

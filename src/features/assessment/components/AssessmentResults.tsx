@@ -5,7 +5,7 @@
  * Presents formal post-submission summary:
  *  - Total score out of 10 and percentage (tabular numerals)
  *  - Correct, incorrect, and unanswered breakdown
- *  - Encouraging, non-shaming achievement feedback with Mira, Arjun & Gyan
+ *  - Encouraging, non-shaming achievement feedback with Mira, Arjun & ShukaJi
  *  - Targeted RevisionRecommendations derived strictly from mistakes
  *  - Full Question-by-Question AnswerReview
  *  - Strict read-only persistence notice
@@ -119,7 +119,7 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
               popDelayMs={90}
             />
             <SpeakerPortrait
-              characterId="gyan"
+              characterId="shuka"
               expression={evaluation.percentage >= 80 ? 'celebrating' : 'explaining'}
               pose={evaluation.percentage >= 80 ? 'celebrating' : 'explaining'}
               animatePop={!prefersReducedMotion}

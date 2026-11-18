@@ -6,7 +6,7 @@
  * Not exposed in student-facing navigation or Grammar Guide.
  *
  * Verifies:
- * - Standard appearance lineup for Mira, Arjun, and Gyan together
+ * - Standard appearance lineup for Mira, Arjun, and ShukaJi together
  * - Colour palette hex references and proportions
  * - Isolated expression verification (fixed standing-idle pose)
  * - Isolated 10-pose verification (fixed happy expression)
@@ -35,7 +35,7 @@ interface CharacterReferenceSheetProps {
   onBack?: () => void;
 }
 
-const CHARACTER_IDS: CharacterId[] = ['mira', 'arjun', 'gyan'];
+const CHARACTER_IDS: CharacterId[] = ['mira', 'arjun', 'shuka'];
 const INSPECTOR_SIZES: CharacterSize[] = ['sm', 'md', 'lg'];
 
 export const CharacterReferenceSheet: React.FC<CharacterReferenceSheetProps> = ({
@@ -70,7 +70,7 @@ export const CharacterReferenceSheet: React.FC<CharacterReferenceSheetProps> = (
             Character Reference Sheet
           </h1>
           <p className="text-sm text-[#4B5C8A]">
-            Master 2D specifications for Mira, Arjun, and Gyan. One active pose, one active expression, and independent animation state.
+            Master character specifications for Mira, Arjun, and ShukaJi. One active pose, one active expression, and independent animation state.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export const CharacterReferenceSheet: React.FC<CharacterReferenceSheetProps> = (
             1. Standard Appearance — Trio Lineup
           </h2>
           <span className="text-xs font-medium text-[#4B5C8A]">
-            180×240 viewBox • 2.5px #263A70 stroke
+            Character-specific artwork and expression variants
           </span>
         </div>
 

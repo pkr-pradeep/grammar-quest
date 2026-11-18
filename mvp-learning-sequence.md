@@ -50,7 +50,7 @@ All interactive highlights pair colour with an explicit grammatical tag badge (s
 ### 2. Knowledge Provenance Breakdown
 - **Textbook-Taught Knowledge:** Meaningful word order; Subject as who/what the sentence is about; Predicate as what is said about the Subject (always containing the finite verb); head-word identification; understood *(You)* in imperatives; split predicates in questions (`Do the students read... ?`).
 - **Inferred Prerequisites (Not Re-Taught in Full):** Basic recognition of naming words (Nouns/Pronouns) and action/being words (Verbs) from middle school.
-- **Original / Supplementary Content:** School noticeboard repair story with Mira, Arjun, and Gyan; Visual Teaching Engine word-tile separation into Subject Zone and Predicate Zone; Class 10 bridge extending multi-word predicates into basic clause patterns (`SV`, `SVO`, `SVC`); all healthy-food/heritage sentences and 10-MCQ bank.
+- **Original / Supplementary Content:** School noticeboard repair story with Mira, Arjun, and ShukaJi; Visual Teaching Engine word-tile separation into Subject Zone and Predicate Zone; Class 10 bridge extending multi-word predicates into basic clause patterns (`SV`, `SVO`, `SVC`); all healthy-food/heritage sentences and 10-MCQ bank.
 
 ### 3. Learning & Assessment Objectives
 - **Grammar Outcome:** Separate complete sentences into Subject and Predicate, identify the core head-noun in an enlarged Subject, and recognise non-standard Subjects (imperatives and inverted questions).
@@ -63,7 +63,7 @@ All interactive highlights pair colour with an explicit grammatical tag badge (s
 - Quick 2-tap warm-up: Students unscramble 4 word tiles (`water` / `drink` / `Children` / `clean`) into `"Children drink clean water."` (citing Odisha IX Ch. 1 Sec. A Act. 1 word-order pattern) and tap the naming word (`Children`) and action word (`drink`).
 
 #### Step 2 — Situation & Challenge (45 sec)
-- **Scene:** At school, wind tears Gyan's noticeboard announcements in half, leaving fragments like *"Fresh mangoes from the orchard..."* and *"...carry heavy books to the library."*
+- **Scene:** At school, wind scatters the noticeboard announcements, leaving fragments like *"Fresh mangoes from the orchard..."* and *"...carry heavy books to the library."* ShukaJi helps the learners put them back together.
 - **Challenge (Before Rule Explanation):** Mira asks the student to pick which missing half completes *"Fresh mangoes from the orchard"* into a clear sentence (`taste sweet and healthy` vs `in yellow baskets`).
 
 #### Step 3 — Simple Explanation + Textbook-Checked Rule (60 sec)
@@ -194,7 +194,7 @@ All interactive highlights pair colour with an explicit grammatical tag badge (s
 ### 2. Knowledge Provenance Breakdown
 - **Textbook-Taught Knowledge:** Verb must agree with the **Subject (head-noun)** in **Number** (singular/plural) and **Person** (1st/2nd/3rd); intervening phrases do not change the Subject's number; `and` (two distinct items = plural; single idea/one person with one determiner = singular); `each/every/either/neither/one of` + singular verb; `or/either...or/neither...nor/not only...but also` agree with the **nearer subject**; `with/as well as/together with` follow the **first subject**; `-s`-ending singular subjects (`Mathematics, Physics, news, measles`); plural-only nouns (`police, cattle, people, scissors`) vs `a pair of...`; single-unit measurements/sums; `a number of` (plural) vs `the number of` (singular); relative pronoun antecedent (`who/which/that`).
 - **Inferred Prerequisites:** Locating the **Subject** and its **head-word** even when followed by a prepositional phrase (Module 1), and knowing singular/plural verb forms such as `is/are`, `was/were`, `has/have`, `v+s/v` (Module 2).
-- **Original / Supplementary Content:** School festival announcement detective storyline with Mira, Arjun, and Gyan; lock-and-magnet visual pairing between Subject head-noun card and Verb card; explicit **Class 9 vs Class 10 staged scope** (resolving the gap where Odisha Class IX only previews SVA while PSEB IX teaches 13 rules); transparent notes on Odisha X's informal plural note for `neither of/none of` vs standard exam singular; healthy-food/heritage sentences and 10-MCQ bank.
+- **Original / Supplementary Content:** School festival announcement detective storyline with Mira, Arjun, and ShukaJi; lock-and-magnet visual pairing between Subject head-noun card and Verb card; explicit **Class 9 vs Class 10 staged scope** (resolving the gap where Odisha Class IX only previews SVA while PSEB IX teaches 13 rules); transparent notes on Odisha X's informal plural note for `neither of/none of` vs standard exam singular; healthy-food/heritage sentences and 10-MCQ bank.
 
 ### 3. Learning & Assessment Objectives
 - **Grammar Outcome:** Detect and fix Subject–Verb mismatches by tracing past intervening words, compound joiners, collective/measurement nouns, and tricky `-s` subjects back to the true grammatical Subject.
@@ -208,7 +208,7 @@ All interactive highlights pair colour with an explicit grammatical tag badge (s
 
 #### Step 2 — Situation & Challenge (45 sec)
 - **Scene:** Posters for the School Heritage & Health Fair contain detective clues—several verbs clash with their Subjects (`"A basket of fresh mangoes are ready"`).
-- **Challenge (Before Rule Explanation):** Gyan points at `"The quality of these apples (is / are) excellent."` Student chooses before seeing the rule.
+- **Challenge (Before Rule Explanation):** ShukaJi points at `"The quality of these apples (is / are) excellent."` Student chooses before seeing the rule.
 
 #### Step 3 — Simple Explanation + Textbook-Checked Rule (75 sec)
 - **Plain Language:** A verb does **not** agree with the nearest noun by accident—it locks onto the **true Subject (the head-word)**.

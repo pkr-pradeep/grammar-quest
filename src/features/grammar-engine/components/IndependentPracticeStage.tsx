@@ -599,7 +599,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
         >
           <div className="flex items-center gap-3 min-w-0">
             <SpeakerPortrait
-              characterId="gyan"
+              characterId="shuka"
               expression="celebrating"
               pose="celebrating"
               sizePx={44}

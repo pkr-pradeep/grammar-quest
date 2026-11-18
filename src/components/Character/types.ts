@@ -5,15 +5,15 @@
  * Permanent 2D character definitions for:
  * - Mira (The Curious Learner)
  * - Arjun (The Grammar Explorer)
- * - Gyan (The Learning Robot)
+ * - ShukaJi (The Wise Parrot Guide)
  *
  * Every pose and expression variant derives from these immutable master
- * specifications so proportions, colours, hairstyles, and outlines remain
- * identical across every screen in Grammar Quest.
+ * specifications so silhouettes, colours, attire, and expressions remain
+ * consistent across every screen in Grammar Quest.
  * ============================================================================
  */
 
-export type CharacterId = 'mira' | 'arjun' | 'gyan';
+export type CharacterId = 'mira' | 'arjun' | 'shuka';
 
 export type CharacterPose =
   | 'standing-idle'
@@ -134,18 +134,19 @@ export const CHARACTER_MASTERS: Record<CharacterId, CharacterMasterSpec> = {
       'celebrating',
     ],
   },
-  gyan: {
-    id: 'gyan',
-    name: 'Gyan',
-    roleTitle: 'The Learning Robot',
+  shuka: {
+    id: 'shuka',
+    name: 'ShukaJi',
+    roleTitle: 'The Wise Parrot Guide',
     summary:
-      'Compact rounded 2D educational robot in turquoise, white, orange, and deep navy with a dark screen visor and expressive glowing eyes.',
-    proportions: 'Compact 2D companion (180×240 canvas, 2.5px #263A70 outline)',
+      'A friendly green parrot with round glasses, three crest feathers, a patterned yellow scarf, teal wings, orange beak and feet, perched on a branch.',
+    proportions: 'Image-based parrot guide (180×200 display frame)',
     palette: [
-      { label: 'White Shell', hex: '#FFFFFF' },
-      { label: 'Turquoise', hex: '#8DECE0' },
-      { label: 'Orange Accent', hex: '#F59B19' },
-      { label: 'Navy Visor', hex: '#263A70' },
+      { label: 'Parrot Green', hex: '#0DA64B' },
+      { label: 'Scarf Yellow', hex: '#F5C831' },
+      { label: 'Teal Wings', hex: '#008D8B' },
+      { label: 'Beak Orange', hex: '#EA4E24' },
+      { label: 'Glasses Brown', hex: '#805334' },
     ],
     supportedExpressions: [
       'happy',

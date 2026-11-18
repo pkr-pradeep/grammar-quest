@@ -2,15 +2,15 @@
  * ============================================================================
  * GRAMMAR QUEST — REUSABLE CHARACTER COMPONENT
  * ============================================================================
- * Renders any of the three permanent master characters (Mira, Arjun, Gyan)
- * with consistent face, hairstyle, clothing, palette, and proportions.
+ * Renders any of the three permanent master characters (Mira, Arjun, ShukaJi)
+ * with character-specific anatomy, expression, pose, and proportions.
  *
  * Props:
- * - characterId: 'mira' | 'arjun' | 'gyan'
+ * - characterId: 'mira' | 'arjun' | 'shuka'
  * - pose: 10 required poses ('standing-idle' through 'encouraging')
- * - expression: facial / visor expression
+ * - expression: facial expression
  * - animationState: 'idle' | 'blink' | 'talk' | 'point' | 'wave' | 'celebrate' | 'enter' | 'none'
- * - size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number (width in px; 3:4 aspect ratio)
+ * - size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number (width in px; artwork-native aspect ratio)
  * - flipHorizontal: mirror horizontally if character faces left
  *
  * Motion & Accessibility:
@@ -32,7 +32,7 @@ import type {
 import { CHARACTER_MASTERS } from './types';
 import { MiraSvg } from './MiraSvg';
 import { ArjunSvg } from './ArjunSvg';
-import { GyanSvg } from './GyanSvg';
+import { ShukaJiSvg } from './ShukaJiSvg';
 
 export interface CharacterProps {
   characterId: CharacterId;
@@ -70,7 +70,9 @@ export const Character: React.FC<CharacterProps> = ({
 }) => {
   const prefersReducedMotion = useReducedMotion();
   const widthPx = resolveWidth(size);
-  const heightPx = Math.round((widthPx * 240) / 180);
+  const heightPx = Math.round(
+    (widthPx * (characterId === 'shuka' ? 200 : 240)) / 180,
+  );
 
   const effectiveAnimation: CharacterAnimationState = prefersReducedMotion
     ? 'none'
@@ -137,10 +139,9 @@ export const Character: React.FC<CharacterProps> = ({
       );
     }
     return (
-      <GyanSvg
+      <ShukaJiSvg
         pose={pose}
         expression={expression}
-        isTalking={isTalking}
         className={svgClass}
       />
     );

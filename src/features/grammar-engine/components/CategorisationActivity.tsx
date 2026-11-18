@@ -3,7 +3,7 @@
  * GRAMMAR QUEST — INTERACTIVE CATEGORISATION ACTIVITY (LAB B: SORT)
  * ============================================================================
  * Tap-to-select + tap-to-place + optional pointer drag-and-drop sorting
- * workspace with instant checking, live 3-star scoring, Gyan guide reactions
+ * workspace with instant checking, live 3-star scoring, ShukaJi guide reactions
  * & hints, celebration confetti, and full-sentence pair reveal.
  * ============================================================================
  */
@@ -306,7 +306,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
     return counts;
   }, [activity]);
 
-  const triggerGyanHop = () => {
+  const triggerShukaJiHop = () => {
     setHopNonce((n) => n + 1);
   };
 
@@ -359,7 +359,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       setFlashCorrectGroupId(categoryId);
       setBadgeStatus('correct');
       setBubbleMood('success');
-      triggerGyanHop();
+      triggerShukaJiHop();
 
       registerTimer(() => {
         setFlashCorrectGroupId((curr) => (curr === categoryId ? null : curr));
@@ -406,7 +406,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
     setShakeNonce((n) => n + 1);
     setBadgeStatus('wrong');
     setBubbleMood('wrong');
-    triggerGyanHop();
+    triggerShukaJiHop();
 
     if (categoryId === 'subject') {
       setBubbleText(
@@ -434,7 +434,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       setBubbleMood('neutral');
       setBadgeStatus('none');
       setBubbleText('Tap a card first, then tap the group it belongs to.');
-      triggerGyanHop();
+      triggerShukaJiHop();
       return;
     }
     attemptPlaceCard(selectedItemId, categoryId);
@@ -457,7 +457,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
     setBadgeStatus('none');
     setBubbleMood('neutral');
     setBubbleText(`Hint: ${buildFallbackHint(targetItem, activity)}`);
-    triggerGyanHop();
+    triggerShukaJiHop();
   };
 
   // Optional pointer drag-and-drop without interfering with tap-to-place
@@ -550,23 +550,23 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       ? 'bg-[#DDF6E7] border-[#8FD9AE] text-[#144D2E]'
       : bubbleMood === 'wrong'
         ? 'bg-[#FFEBDD] border-[#F2B79A] text-[#6E2C0E]'
-        : 'bg-[#ECE6FB] border-[#CBBDF3] text-[#1B2559]';
+        : 'bg-[#E5F4E9] border-[#A8D4B5] text-[#1D4932]';
 
   const bubbleArrowFill =
     bubbleMood === 'success'
       ? '#DDF6E7'
       : bubbleMood === 'wrong'
         ? '#FFEBDD'
-        : '#ECE6FB';
+        : '#E5F4E9';
 
   const bubbleArrowBorder =
     bubbleMood === 'success'
       ? '#8FD9AE'
       : bubbleMood === 'wrong'
         ? '#F2B79A'
-        : '#CBBDF3';
+        : '#A8D4B5';
 
-  const gyanExpression = isFinished
+  const shukaExpression = isFinished
     ? 'celebrating'
     : bubbleMood === 'wrong'
       ? 'encouraging'
@@ -677,20 +677,20 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
         </div>
       </div>
 
-      {/* 2. Gyan Guide Strip + Hint Button */}
+      {/* 2. ShukaJi Guide Strip + Hint Button */}
       <div className="flex items-center gap-2.5">
         <div
-          key={`gyan-hop-${hopNonce}`}
+          key={`shuka-hop-${hopNonce}`}
           className={[
             'relative shrink-0',
-            hopNonce > 0 && !prefersReducedMotion ? 'gq-sort-gyan-hop' : '',
+            hopNonce > 0 && !prefersReducedMotion ? 'gq-sort-shuka-hop' : '',
           ]
             .filter(Boolean)
             .join(' ')}
         >
           <SpeakerPortrait
-            characterId="gyan"
-            expression={gyanExpression}
+            characterId="shuka"
+            expression={shukaExpression}
             pose={isFinished ? 'celebrating' : 'explaining'}
             sizePx={48}
             ringWidthPx={3}
@@ -720,7 +720,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
             bubbleColors,
           ].join(' ')}
         >
-          {/* Speech bubble pointer toward Gyan */}
+          {/* Speech bubble pointer toward ShukaJi */}
           <span
             aria-hidden="true"
             className="absolute -left-[7px] top-1/2 -translate-y-1/2 w-3 h-3 rotate-45 border-l-[1.5px] border-b-[1.5px] transition-colors duration-250"

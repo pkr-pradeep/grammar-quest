@@ -79,7 +79,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
   solvedIdsRef.current = solvedIds;
   const [categoriseResetNonce, setCategoriseResetNonce] = useState(0);
   const [categoriseHasProgress, setCategoriseHasProgress] = useState(false);
-  const gyanTheme = SPEAKER_THEMES.gyan;
+  const shukaTheme = SPEAKER_THEMES.shuka;
 
   const currentActivity = activities[activeIndex] ?? activities[0];
   const allSolved = activities.length > 0 && activities.every((a) => solvedIds.includes(a.id));
@@ -261,13 +261,13 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-[18px] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
           style={{
-            backgroundColor: gyanTheme.tint,
-            border: `1.5px solid ${gyanTheme.solid}`,
+            backgroundColor: shukaTheme.tint,
+            border: `1.5px solid ${shukaTheme.solid}`,
           }}
         >
           <div className="flex items-start sm:items-center gap-3">
             <SpeakerPortrait
-              characterId="gyan"
+              characterId="shuka"
               expression="celebrating"
               pose="celebrating"
               animatePop={!prefersReducedMotion}
@@ -277,15 +277,15 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
               <div className="flex flex-wrap items-center gap-1.5">
                 <span
                   className="px-2 py-0.5 rounded-[8px] text-white text-[11px] font-bold leading-snug"
-                  style={{ backgroundColor: gyanTheme.solid }}
+                  style={{ backgroundColor: shukaTheme.solid }}
                 >
-                  {gyanTheme.name}
+                  {shukaTheme.name}
                 </span>
                 <span
                   className="text-[11px] font-semibold"
-                  style={{ color: gyanTheme.solid }}
+                  style={{ color: shukaTheme.solid }}
                 >
-                  {gyanTheme.roleLabel}
+                  {shukaTheme.roleLabel}
                 </span>
                 <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#263A70]">
                   <Award className="w-3.5 h-3.5 text-[#5B43C2]" aria-hidden="true" />

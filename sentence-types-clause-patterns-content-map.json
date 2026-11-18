@@ -11,7 +11,7 @@
     "status": "design-pending-approval",
     "architectureCompatibility": {
       "stack": ["React", "Vite", "TypeScript", "Tailwind CSS"],
-      "characters": ["mira", "arjun", "gyan"],
+      "characters": ["mira", "arjun", "shuka"],
       "engineComponents": [
         "GrammarTeachingEngine",
         "TeachingSequence",
@@ -195,7 +195,7 @@
         ]
       },
       "teachingProposal": {
-        "speakerCharacterId": "gyan",
+        "speakerCharacterId": "shuka",
         "shortExplanation": "Sentences do four main jobs: Declarative sentences state a fact (.), Interrogative sentences ask a question (?), Imperative sentences give an instruction or request (understood 'You'), and Exclamatory sentences express strong wonder (!). Wishes beginning with 'May...' are noted as Optative in Assam SEBA.",
         "examples": [
           {
@@ -412,7 +412,7 @@
         ]
       },
       "teachingProposal": {
-        "speakerCharacterId": "gyan",
+        "speakerCharacterId": "shuka",
         "shortExplanation": "Odisha Class IX & X group single-clause sentences into core patterns shaped by the verb: SV ('Birds fly'), SVA ('Students sat in the courtyard'), SVC ('The night is dark'), SVO ('Farmers grow millet'), SVOO ('Mira gave Arjun a mango'), and SVOC ('They elected him president').",
         "examples": [
           {
@@ -550,7 +550,7 @@
         ]
       },
       "teachingProposal": {
-        "speakerCharacterId": "gyan",
+        "speakerCharacterId": "shuka",
         "shortExplanation": "When two clauses meet, count the finite verbs and check the bridge word. Coordinators (and, but, or, so) link two equal Independent Clauses (Coordination). Subordinators (because, when, if, although, that) tuck a Dependent helper Clause onto a Main Clause (Subordination). Watch out: 'Mira and Arjun' joins nouns in ONE clause, not two clauses!",
         "examples": [
           {

@@ -198,21 +198,12 @@ a {
   }
 }
 
-@keyframes gq-story-gyan-float {
+@keyframes gq-story-shuka-float {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
     transform: translateY(-5px);
-  }
-}
-
-@keyframes gq-story-antenna-blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.35;
   }
 }
 
@@ -370,15 +361,6 @@ a {
   }
 }
 
-@keyframes gq-story-beam-pulse {
-  0%, 100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
 @keyframes gq-story-slide-left {
   0% {
     opacity: 0;
@@ -430,12 +412,8 @@ a {
   transform-origin: bottom center;
 }
 
-.gq-story-gyan-float {
-  animation: gq-story-gyan-float 2.6s ease-in-out infinite;
-}
-
-.gq-story-antenna-blink {
-  animation: gq-story-antenna-blink 1.4s ease-in-out infinite;
+.gq-story-shuka-float {
+  animation: gq-story-shuka-float 2.6s ease-in-out infinite;
 }
 
 .gq-story-talk-bob {
@@ -494,10 +472,6 @@ a {
 
 .gq-story-chip-glow-amber {
   animation: gq-story-chip-glow-amber 1.6s ease-in-out infinite;
-}
-
-.gq-story-beam {
-  animation: gq-story-beam-pulse 1.8s ease-in-out infinite;
 }
 
 .gq-story-slide-left {
@@ -760,7 +734,7 @@ a {
   }
 }
 
-@keyframes gq-sort-gyan-hop {
+@keyframes gq-sort-shuka-hop {
   0% {
     transform: translateY(0px) scale(1);
   }
@@ -825,8 +799,8 @@ a {
   animation: gq-sort-slot-pulse 1.3s ease-out infinite;
 }
 
-.gq-sort-gyan-hop {
-  animation: gq-sort-gyan-hop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+.gq-sort-shuka-hop {
+  animation: gq-sort-shuka-hop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 .gq-sort-star-pop {
@@ -861,8 +835,7 @@ a {
   .gq-story-cloud,
   .gq-story-tree,
   .gq-story-breathe,
-  .gq-story-gyan-float,
-  .gq-story-antenna-blink,
+  .gq-story-shuka-float,
   .gq-story-talk-bob,
   .gq-story-caret,
   .gq-story-arrow-nudge,
@@ -877,7 +850,7 @@ a {
   .gq-sort-slot-pulse,
   .gq-sort-next-pulse,
   .gq-sort-shake,
-  .gq-sort-gyan-hop {
+  .gq-sort-shuka-hop {
     animation: none !important;
   }
 
@@ -914,11 +887,6 @@ a {
   .gq-modal-content-exit {
     animation: gq-modal-backdrop-out 0.14s ease-out forwards !important;
     animation-duration: 0.14s !important;
-  }
-
-  .gq-story-beam {
-    animation: none !important;
-    opacity: 0.52 !important;
   }
 
   .gq-story-portrait-pop,

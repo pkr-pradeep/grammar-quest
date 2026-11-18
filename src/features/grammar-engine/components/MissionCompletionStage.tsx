@@ -2,7 +2,7 @@
  * ============================================================================
  * GRAMMAR QUEST — STAGE 10: MISSION COMPLETION CELEBRATION
  * ============================================================================
- * Displays Mira, Arjun, and Gyan celebrating beside the repaired noticeboard,
+ * Displays Mira, Arjun, and ShukaJi celebrating beside the repaired noticeboard,
  * summarises what the learner mastered, shows the healthy reward milestone,
  * and confirms local IndexedDB progress persistence.
  * ============================================================================
@@ -72,7 +72,7 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
                 popDelayMs={110}
               />
               <SpeakerPortrait
-                characterId="gyan"
+                characterId="shuka"
                 expression="celebrating"
                 pose="celebrating"
                 animatePop={!prefersReducedMotion}

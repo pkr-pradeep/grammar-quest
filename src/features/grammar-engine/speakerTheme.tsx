@@ -2,10 +2,10 @@
  * ============================================================================
  * GRAMMAR QUEST — SPEAKER SIGNATURE PALETTE & CROPPED PORTRAIT
  * ============================================================================
- * Single source of truth for Mira, Arjun, and Gyan conversation cues across
+ * Single source of truth for Mira, Arjun, and ShukaJi conversation cues across
  * Story, Learn, Guided Practice, and Mission Completion screens:
  *  - Consistent accessible solid/tint colours (>= 4.5:1 white text contrast)
- *  - Role labels ('Student' / 'Robot guide')
+ *  - Role labels ('Student' / 'Wise parrot guide')
  *  - 44px round portrait cropped directly from the immutable SVG Character masters
  * ============================================================================
  */
@@ -17,6 +17,7 @@ import type {
   CharacterId,
   CharacterPose,
 } from '../../components';
+import shukaNotificationArtwork from '../../assets/shukaji/notification.png';
 
 export interface SpeakerTheme {
   id: CharacterId;
@@ -50,14 +51,14 @@ export const SPEAKER_THEMES: Record<CharacterId, SpeakerTheme> = {
     roleLabel: 'Student',
     pointerLeft: '28%',
   },
-  gyan: {
-    id: 'gyan',
-    name: 'Gyan',
-    solid: '#5B43C2',
-    tint: '#ECE6FB',
-    border: '#CBBDF3',
-    ringRgba: 'rgba(91, 67, 194, 0.42)',
-    roleLabel: 'Robot guide',
+  shuka: {
+    id: 'shuka',
+    name: 'ShukaJi',
+    solid: '#26734D',
+    tint: '#E5F4E9',
+    border: '#A8D4B5',
+    ringRgba: 'rgba(38, 115, 77, 0.42)',
+    roleLabel: 'Wise parrot guide',
     pointerLeft: '87%',
   },
 };
@@ -97,9 +98,9 @@ export const SpeakerPortrait: React.FC<SpeakerPortraitProps> = ({
         : 'explaining');
 
   const scale = circleSizePx / 44;
-  const charSizePx = Math.round((characterId === 'gyan' ? 82 : 96) * scale);
+  const charSizePx = Math.round((characterId === 'shuka' ? 64 : 96) * scale);
   const topOffsetPx = Math.round(
-    (characterId === 'mira' ? -20 : characterId === 'arjun' ? -16 : -36) * scale,
+    (characterId === 'mira' ? -20 : characterId === 'arjun' ? -16 : -5) * scale,
   );
 
   return (
@@ -128,19 +129,27 @@ export const SpeakerPortrait: React.FC<SpeakerPortraitProps> = ({
           animationDelay: animatePop && popDelayMs > 0 ? `${popDelayMs}ms` : undefined,
         }}
       >
-        <div
-          className="absolute left-1/2 -translate-x-1/2"
-          style={{ top: `${topOffsetPx}px` }}
-        >
-          <Character
-            characterId={characterId}
-            pose={resolvedPose}
-            expression={expression}
-            animationState="none"
-            size={charSizePx}
-            flipHorizontal={characterId === 'gyan'}
+        {characterId === 'shuka' ? (
+          <img
+            src={shukaNotificationArtwork}
+            alt=""
+            draggable={false}
+            className="h-full w-full object-contain"
           />
-        </div>
+        ) : (
+          <div
+            className="absolute left-1/2 -translate-x-1/2"
+            style={{ top: `${topOffsetPx}px` }}
+          >
+            <Character
+              characterId={characterId}
+              pose={resolvedPose}
+              expression={expression}
+              animationState="none"
+              size={charSizePx}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

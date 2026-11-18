@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "A Torn Noticeboard at School",
-    "description": "A gust of wind blew across the school courtyard and scattered the noticeboard cards. Help Mira, Arjun, and Gyan put every message back together.",
+    "description": "A gust of wind blew across the school courtyard and scattered the noticeboard cards. Help Mira, Arjun, and ShukaJi put every message back together.",
     "characterId": "mira",
     "characterExpression": "curious"
   },
@@ -44,10 +44,10 @@
       },
       {
         "id": "c9-beat-3",
-        "speaker": "gyan",
+        "speaker": "shuka",
         "expression": "explaining",
         "pose": "explaining",
-        "sceneFocus": "gyan-explains",
+        "sceneFocus": "shuka-explains",
         "actionLabel": "Shows how messages work",
         "dialogue": "Every complete message needs two parts working together: a Subject (who we talk about) and a Predicate (what is said about them). Let us repair them!"
       }
@@ -535,7 +535,7 @@
       "badgeLabel": "Discover Predicate",
       "shortPrompt": "Ask: What is said about the little boy?",
       "explanation": "'plays cricket' is the Predicate. It always contains the verb ('plays') and tells us what the Subject does.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "sent-boy-cricket",
       "focusGroupRole": "predicate",
@@ -592,7 +592,7 @@
       "badgeLabel": "Compare",
       "shortPrompt": "Even longer Subjects stop right before the finite verb.",
       "explanation": "Compare both sentences: in 'The tall girl from Odisha eats fresh mangoes.', 'from Odisha' stays inside the Subject before 'eats'.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "sent-boy-cricket",
       "comparisonSentenceId": "sent-girl-mangoes",
@@ -1327,7 +1327,7 @@
   ],
   "completionSummary": {
     "headline": "The Noticeboard Is Restored!",
-    "celebrationMessage": "Mira, Arjun, and Gyan pinned every repaired sentence back onto the courtyard noticeboard. All school messages are clear again!",
+    "celebrationMessage": "Mira, Arjun, and ShukaJi pinned every repaired sentence back onto the courtyard noticeboard. All school messages are clear again!",
     "learnedPoints": [
       "A complete sentence expresses one clear thought using a Subject and a Predicate.",
       "The Subject names who or what we are talking about, centred on its head-noun (or understood 'You' in commands).",

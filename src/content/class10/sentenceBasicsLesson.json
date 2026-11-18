@@ -9,7 +9,7 @@
   "estimatedMinutes": 8,
   "situationBrief": {
     "title": "Repairing Class 10 Assembly Notices",
-    "description": "Wind scattered the notices for the Class 10 Science and Heritage Exhibition across the courtyard. Help Mira, Arjun, and Gyan rebuild every message.",
+    "description": "Wind scattered the notices for the Class 10 Science and Heritage Exhibition across the courtyard. Help Mira, Arjun, and ShukaJi rebuild every message.",
     "characterId": "arjun",
     "characterExpression": "curious"
   },
@@ -44,10 +44,10 @@
       },
       {
         "id": "c10-beat-3",
-        "speaker": "gyan",
+        "speaker": "shuka",
         "expression": "explaining",
         "pose": "explaining",
-        "sceneFocus": "gyan-explains",
+        "sceneFocus": "shuka-explains",
         "actionLabel": "Sets the structure goal",
         "dialogue": "To restore every notice accurately, let us pair each Subject head-noun with its finite-verb Predicate. Ready to rebuild the board?"
       }
@@ -515,7 +515,7 @@
       "badgeLabel": "Stage 4 · Subject Meaning",
       "shortPrompt": "Spotting the true Subject head-noun prepares you for Agreement and Tenses.",
       "explanation": "'The' and 'little' modify 'boy', keeping the whole phrase anchored as the Subject.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "thinking",
       "sentenceId": "sent-boy-cricket-10",
       "focusGroupRole": "subject",
@@ -589,7 +589,7 @@
       "badgeLabel": "Stage 7 · Compare",
       "shortPrompt": "Post-modifiers after a noun stay inside the Subject.",
       "explanation": "Compare with 'The diligent students in Class 10 read science books.' Notice plural 'students' (not 'Class 10') governs 'read'.",
-      "characterId": "gyan",
+      "characterId": "shuka",
       "characterExpression": "explaining",
       "sentenceId": "sent-boy-cricket-10",
       "comparisonSentenceId": "sent-students-science-10",
@@ -1360,7 +1360,7 @@
   ],
   "completionSummary": {
     "headline": "Class 10 Noticeboard Restored!",
-    "celebrationMessage": "Mira, Arjun, and Gyan have pinned every repaired notice back on the courtyard board. You mastered Subject, Predicate, and finite verbs across simple and enlarged sentences!",
+    "celebrationMessage": "Mira, Arjun, and ShukaJi have pinned every repaired notice back on the courtyard board. You mastered Subject, Predicate, and finite verbs across simple and enlarged sentences!",
     "learnedPoints": [
       "A complete clause pairs a Subject (who/what we talk about) with a Predicate containing a finite verb.",
       "Prepositional modifiers after a noun stay inside the Subject, while the Subject head-noun controls the finite verb.",
