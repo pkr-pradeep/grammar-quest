@@ -63,7 +63,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onStartLearning }) => 
         >
           {chip.label}
         </span>
-      ))}
+      ))} 
     </div>
 
     <div className="gq-welcome-enter relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[430px] flex-col items-center pt-[max(28px,env(safe-area-inset-top))] pb-[max(22px,env(safe-area-inset-bottom))]">
