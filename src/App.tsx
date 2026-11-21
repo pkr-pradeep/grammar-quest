@@ -362,8 +362,13 @@ export default function App() {
             />
           }
           utilityMaxWidthClassName="max-w-[1120px]"
-          scrollHintAriaLabel="Scroll back to top"
-          scrollHintMinOverflowPx={48}
+          scrollHintAriaLabel={
+            activeSection === 'missions' && !previewMission
+              ? 'Scroll down to see more lessons'
+              : 'Scroll down to see more content'
+          }
+          scrollHintReturnToTopAriaLabel="Scroll back to top"
+          scrollHintMinOverflowPx={24}
           scrollRecheckKey={`${activeSection}-${previewMission?.id ?? 'none'}`}
         >
           <div className="min-h-full flex flex-col">

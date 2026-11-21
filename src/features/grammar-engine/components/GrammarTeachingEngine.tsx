@@ -306,8 +306,9 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
       utilityMaxWidthClassName="max-w-[920px]"
       scrollContainerRef={lessonScrollRef}
       showScrollHint={!(phase === 'learn' && isLearnModalOpen)}
-      scrollHintAriaLabel="Scroll back to top"
-      scrollHintMinOverflowPx={24}
+      scrollHintAriaLabel="Scroll down to see more content"
+      scrollHintReturnToTopAriaLabel="Scroll back to top"
+      scrollHintMinOverflowPx={16}
       scrollRecheckKey={`${lesson.missionId}-${phase}-${activeWordLabKind ?? ''}-${learnStepNumber}-${isLearnModalOpen}`}
     >
       <motion.div

@@ -7,11 +7,10 @@
  *   A. Device-safe application boundary (100dvh with 100vh fallback)
  *   B. Screen header (shrink-0, top safe-area aware)
  *   C. Optional sub-header / stage tabs / step bar (prop or portal slot)
- *   D. Main content region with ONE primary vertical scrolling container
- *      (100% unobstructed — floating controls never overlap cards or text)
- *   D2. Reserved bottom utility area (outside scrollable content, strictly
- *       between scroll container and bottom action footer, holding the
- *       right-aligned circular Back-to-Top button and optional stage controls)
+ *   D. Main content region with ONE primary vertical scrolling container,
+ *      automatic bottom clearance spacer when floating controls are visible,
+ *      and a transparent pointer-events-none floating control layer (zero
+ *      ivory horizontal strip / zero gradient fade)
  *   E. Reserved screen-specific bottom action region (prop or portal slot)
  *   F. Application bottom navigation (shrink-0, mobile only, bottom safe-area)
  * ============================================================================
@@ -102,9 +101,9 @@ export const AppShellSubHeader: React.FC<AppShellSlotProps> = ({
 };
 
 /**
- * Portals screen-specific bottom utility controls (e.g. Learn Guide Button)
- * into Region D2 — the reserved non-overlapping utility area strictly between
- * the scrollable content and the bottom action footer.
+ * Portals screen-specific floating bottom controls (e.g. Learn Guide Button)
+ * into Region D's transparent bottom-right control layer, paired cleanly
+ * beside the persistent circular scroll indicator.
  */
 export const AppShellUtilityBar: React.FC<AppShellSlotProps> = ({
   isActive = true,
@@ -123,8 +122,7 @@ export const AppShellUtilityBar: React.FC<AppShellSlotProps> = ({
 };
 
 /**
- * Backwards-compatible alias routing floating controls into the non-overlapping
- * reserved utility bar so controls never cover page text or cards.
+ * Alias for placing floating controls into Region D's transparent control layer.
  */
 export const AppShellFloatingOverlay = AppShellUtilityBar;
 
@@ -170,15 +168,17 @@ export interface AppShellProps {
   className?: string;
   /** Classes applied directly to the single primary scrolling container. */
   scrollContainerClassName?: string;
-  /** Max-width alignment class for the reserved utility bar (matches screen content column). */
+  /** Max-width alignment class for floating bottom controls (matches content column). */
   utilityMaxWidthClassName?: string;
   /** Optional external ref forwarded to the primary scroll container. */
   scrollContainerRef?: React.RefObject<HTMLDivElement | null>;
-  /** Whether to enable the Back-to-Top button in the reserved utility area. Defaults to true. */
+  /** Whether to enable the two-direction floating scroll indicator. Defaults to true. */
   showScrollHint?: boolean;
-  /** Accessible label for the Back-to-Top button. */
+  /** Accessible label for the downward scroll indicator button. */
   scrollHintAriaLabel?: string;
-  /** Minimum pixel overflow before Back-to-Top activates. */
+  /** Accessible label for the upward return-to-top button. */
+  scrollHintReturnToTopAriaLabel?: string;
+  /** Minimum pixel overflow before showing the scroll indicator. */
   scrollHintMinOverflowPx?: number;
   /** Key whose change immediately re-measures scroll state. */
   scrollRecheckKey?: string | number;
@@ -198,21 +198,35 @@ export const AppShell: React.FC<AppShellProps> = ({
   utilityMaxWidthClassName = 'max-w-[1120px]',
   scrollContainerRef: externalScrollRef,
   showScrollHint = true,
-  scrollHintAriaLabel = 'Scroll back to top',
-  scrollHintMinOverflowPx = 24,
+  scrollHintAriaLabel = 'Scroll down to see more content',
+  scrollHintReturnToTopAriaLabel = 'Scroll back to top',
+  scrollHintMinOverflowPx = 16,
   scrollRecheckKey,
   ariaLabelledBy,
 }) => {
   const internalScrollRef = useRef<HTMLDivElement | null>(null);
   const activeScrollRef = externalScrollRef ?? internalScrollRef;
+  const clearanceSpacerRef = useRef<HTMLDivElement | null>(null);
 
+  const [scrollContainerEl, setScrollContainerEl] = useState<HTMLDivElement | null>(
+    null,
+  );
   const [subHeaderHost, setSubHeaderHost] = useState<HTMLDivElement | null>(null);
   const [utilityBarHost, setUtilityBarHost] = useState<HTMLDivElement | null>(null);
   const [footerHost, setFooterHost] = useState<HTMLDivElement | null>(null);
   const [layoutRevision, setLayoutRevision] = useState(0);
   const [utilityPortalCount, setUtilityPortalCount] = useState(0);
   const [footerPortalCount, setFooterPortalCount] = useState(0);
-  const [isBackToTopSlotOpen, setIsBackToTopSlotOpen] = useState(false);
+  const [isScrollIndicatorVisible, setIsScrollIndicatorVisible] = useState(false);
+
+  const handleScrollContainerNode = useCallback(
+    (node: HTMLDivElement | null) => {
+      (activeScrollRef as React.MutableRefObject<HTMLDivElement | null>).current =
+        node;
+      setScrollContainerEl(node);
+    },
+    [activeScrollRef],
+  );
 
   const notifyLayoutChange = useCallback(() => {
     setLayoutRevision((r) => r + 1);
@@ -274,8 +288,8 @@ export const AppShell: React.FC<AppShellProps> = ({
   const hasBottomNav = Boolean(bottomNav);
   const hasFooter = Boolean(footer) || footerPortalCount > 0;
   const hasPersistentUtility = utilityPortalCount > 0;
-  const isUtilityBarOpen =
-    hasPersistentUtility || (showScrollHint && isBackToTopSlotOpen);
+  const needsBottomClearance =
+    hasPersistentUtility || (showScrollHint && isScrollIndicatorVisible);
 
   return (
     <AppShellContext.Provider value={contextValue}>
@@ -302,10 +316,10 @@ export const AppShell: React.FC<AppShellProps> = ({
         {subHeader ? <div className="relative shrink-0 z-30">{subHeader}</div> : null}
         <div ref={setSubHeaderHost} className="relative shrink-0 z-30 empty:hidden" />
 
-        {/* D. Main Content Region (ONE primary vertical scrolling container — unobstructed) */}
+        {/* D. Main Content Region (ONE primary scrolling container + transparent floating control layer) */}
         <div className="relative flex-1 min-h-0 flex flex-col">
           <div
-            ref={activeScrollRef}
+            ref={handleScrollContainerNode}
             data-gq-scroll-container="true"
             className={[
               'flex-1 min-h-0 overflow-y-auto overflow-x-clip overscroll-y-contain',
@@ -315,46 +329,49 @@ export const AppShell: React.FC<AppShellProps> = ({
               .join(' ')}
           >
             {children}
+            {/* Bottom clearance spacer so final cards/questions scroll completely above floating controls */}
+            <div
+              ref={clearanceSpacerRef}
+              aria-hidden="true"
+              className={needsBottomClearance ? 'h-14 shrink-0' : 'hidden'}
+            />
           </div>
-        </div>
 
-        {/* D2. Reserved Utility Area (OUTSIDE scrollable content, strictly above footer & nav) */}
-        <div
-          data-gq-utility-bar="true"
-          className={[
-            'shrink-0 z-20 w-full',
-            isUtilityBarOpen ? 'block' : 'hidden',
-            !hasFooter && !hasBottomNav
-              ? 'pb-[env(safe-area-inset-bottom,0px)]'
-              : '',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-        >
+          {/* Transparent Floating Control Layer (no background, no ivory strip, no gradient fade) */}
           <div
             className={[
-              'mx-auto w-full px-3 sm:px-6 py-1 flex items-center justify-end gap-2.5',
-              utilityMaxWidthClassName,
-            ]
-              .filter(Boolean)
-              .join(' ')}
+              'pointer-events-none absolute inset-x-0 z-20',
+              hasFooter || hasBottomNav
+                ? 'bottom-3'
+                : 'bottom-[calc(12px+env(safe-area-inset-bottom,0px))]',
+            ].join(' ')}
           >
-            {/* Right-aligned circular Back-to-Top button (always mounted when enabled so scroll listener stays active) */}
-            {showScrollHint ? (
-              <ScrollMoreHint
-                ariaLabel={scrollHintAriaLabel}
-                minOverflowPx={scrollHintMinOverflowPx}
-                scrollTargetRef={activeScrollRef}
-                recheckKey={`${scrollRecheckKey ?? ''}-${layoutRevision}`}
-                onSlotActiveChange={setIsBackToTopSlotOpen}
-              />
-            ) : null}
-
-            {/* Optional persistent stage utility control (e.g. Learn Guide Button) */}
             <div
-              ref={setUtilityBarHost}
-              className="flex items-center justify-end gap-2 empty:hidden"
-            />
+              className={[
+                'mx-auto w-full px-3 sm:px-6 flex items-center justify-end gap-2.5',
+                utilityMaxWidthClassName,
+              ]
+                .filter(Boolean)
+                .join(' ')}
+            >
+              {showScrollHint ? (
+                <ScrollMoreHint
+                  ariaLabel={scrollHintAriaLabel}
+                  returnToTopAriaLabel={scrollHintReturnToTopAriaLabel}
+                  minOverflowPx={scrollHintMinOverflowPx}
+                  scrollContainerEl={scrollContainerEl}
+                  scrollTargetRef={activeScrollRef}
+                  clearanceSpacerRef={clearanceSpacerRef}
+                  recheckKey={`${scrollRecheckKey ?? ''}-${layoutRevision}`}
+                  onVisibleChange={setIsScrollIndicatorVisible}
+                />
+              ) : null}
+
+              <div
+                ref={setUtilityBarHost}
+                className="pointer-events-none flex items-center justify-end gap-2 empty:hidden"
+              />
+            </div>
           </div>
         </div>
 

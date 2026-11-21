@@ -31,7 +31,8 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onStartLearning }) => 
     className="gq-welcome bg-[#1F2A68] text-white"
     showScrollHint={true}
     utilityMaxWidthClassName="max-w-[430px]"
-    scrollHintAriaLabel="Scroll back to top"
+    scrollHintAriaLabel="Scroll down to start learning"
+    scrollHintReturnToTopAriaLabel="Scroll back to top"
   >
     <main className="relative isolate flex min-h-full w-full flex-col overflow-x-clip px-5">
       <div
