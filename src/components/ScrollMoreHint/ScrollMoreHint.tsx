@@ -24,8 +24,6 @@ export interface ScrollMoreHintProps {
   minOverflowPx?: number;
   /** Distance from the bottom of the page (px) at which the cue hides */
   bottomBufferPx?: number;
-  /** Smooth scroll step distance in pixels */
-  scrollStepPx?: number;
   /** Optional custom scrollable container ref; defaults to window / document */
   scrollTargetRef?: React.RefObject<HTMLElement | null>;
   /** Key whose change immediately recalculates overflow state */
@@ -34,7 +32,6 @@ export interface ScrollMoreHintProps {
 
 const DEFAULT_MIN_OVERFLOW_PX = 24;
 const DEFAULT_BOTTOM_BUFFER_PX = 24;
-const DEFAULT_SCROLL_STEP_PX = 380;
 
 export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
   ariaLabel = 'Scroll down to see more content',
@@ -42,7 +39,6 @@ export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
   bottomOffsetMode = 'app-nav',
   minOverflowPx = DEFAULT_MIN_OVERFLOW_PX,
   bottomBufferPx = DEFAULT_BOTTOM_BUFFER_PX,
-  scrollStepPx = DEFAULT_SCROLL_STEP_PX,
   scrollTargetRef,
   recheckKey,
 }) => {
@@ -110,9 +106,16 @@ export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
 
     const customEl = scrollTargetRef?.current ?? null;
     if (customEl) {
-      customEl.scrollBy({ top: scrollStepPx, behavior });
+      customEl.scrollTo({
+        top: Math.max(0, customEl.scrollHeight - customEl.clientHeight),
+        behavior,
+      });
     } else {
-      window.scrollBy({ top: scrollStepPx, behavior });
+      const docEl = document.scrollingElement || document.documentElement;
+      window.scrollTo({
+        top: Math.max(0, docEl.scrollHeight - window.innerHeight),
+        behavior,
+      });
     }
   };
 
@@ -125,7 +128,7 @@ export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
 
   const gradientBottomClass =
     bottomOffsetMode === 'app-nav'
-      ? 'bottom-[calc(56px+env(safe-area-inset-bottom,0px))] md:bottom-0'
+      ? 'bottom-[var(--gq-app-nav-height,48px)] md:bottom-0'
       : '';
 
   const buttonBottomStyle =
@@ -137,7 +140,7 @@ export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
 
   const buttonBottomClass =
     bottomOffsetMode === 'app-nav'
-      ? 'bottom-[calc(68px+env(safe-area-inset-bottom,0px))] md:bottom-4'
+      ? 'bottom-[calc(var(--gq-app-nav-height,48px)+12px)] md:bottom-4'
       : '';
 
   return (

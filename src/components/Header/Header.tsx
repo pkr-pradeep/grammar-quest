@@ -3,13 +3,13 @@
  * GRAMMAR QUEST — SHARED HEADER & RESPONSIVE NAVIGATION
  * ============================================================================
  * Desktop: Clean 64px top bar (Brand wordmark and 4 concise single-line links).
- * Mobile: Compact 48px top header + fixed 56px bottom tab bar (104px combined,
+ * Mobile: Compact 48px top header + fixed compact bottom tab bar
  * staying comfortably below the 15% mobile sticky-height cap while preserving
  * 44px+ touch targets in the natural thumb zone).
  * ============================================================================
  */
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BookOpen, Compass, Home, BarChart3 } from 'lucide-react';
 import type { AppSection } from '../../schemas/lesson.schema';
 import { GrammarQuestEmblem } from '../illustrations/Characters';
@@ -36,6 +36,35 @@ export const Header: React.FC<HeaderProps> = ({
   activeSection,
   onNavigate,
 }) => {
+  const mobileNavRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const nav = mobileNavRef.current;
+    if (!nav) return;
+
+    const measureNav = () => {
+      const rect = nav.getBoundingClientRect();
+      document.documentElement.style.setProperty(
+        '--gq-app-nav-height',
+        `${Math.round(rect.height)}px`,
+      );
+    };
+
+    measureNav();
+    const observer =
+      typeof ResizeObserver !== 'undefined'
+        ? new ResizeObserver(measureNav)
+        : null;
+    observer?.observe(nav);
+    window.addEventListener('resize', measureNav, { passive: true });
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener('resize', measureNav);
+      document.documentElement.style.removeProperty('--gq-app-nav-height');
+    };
+  }, []);
+
   return (
     <>
       {/* Top Application Bar */}
@@ -83,10 +112,11 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Bottom Navigation Bar */}
       <nav
+        ref={mobileNavRef}
         aria-label="Mobile navigation"
-        className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-[#E5E2D9] px-2 pb-[env(safe-area-inset-bottom)]"
+        className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-[#E5E2D9] px-2 pb-[env(safe-area-inset-bottom,0px)]"
       >
-        <div className="grid grid-cols-4 h-14 max-w-md mx-auto items-center">
+        <div className="grid grid-cols-4 h-12 max-w-md mx-auto items-center">
           {NAV_ITEMS.map(({ id, label, Icon }) => {
             const isActive = activeSection === id;
             return (

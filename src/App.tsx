@@ -357,7 +357,7 @@ export default function App() {
 
           <main
             className={[
-              'flex-1 w-full max-w-[1120px] mx-auto pb-[96px] md:pb-[120px]',
+              'flex-1 w-full max-w-[1120px] mx-auto pb-[calc(var(--gq-app-nav-height,48px)+16px)] md:pb-[120px]',
               (activeSection === 'home' || activeSection === 'missions') && !previewMission
                 ? 'px-3.5 sm:px-6 pt-3 sm:pt-6'
                 : 'px-3.5 sm:px-6 pt-4 sm:pt-7',
