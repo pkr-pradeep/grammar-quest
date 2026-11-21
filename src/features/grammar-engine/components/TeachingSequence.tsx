@@ -20,6 +20,12 @@ import type {
   WordGroupRole,
   WordRelationship,
 } from '../../../schemas/grammarEngine.schema';
+import {
+  AppShellFooter,
+  AppShellSubHeader,
+  AppShellUtilityBar,
+  useAppScroll,
+} from '../../../components';
 import { GuideNotePopup } from './GuideNotePopup';
 import { FloatingGuideButton } from './FloatingGuideButton';
 import { SentenceVisualizer, type SelectedTokenState } from './SentenceVisualizer';
@@ -75,6 +81,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   onUserEngage,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
+  const { scrollToTop } = useAppScroll();
   const steps = lesson.teachingSequence;
   const resolveStepIndex = (stepNum?: number) => {
     if (!stepNum || steps.length === 0) return 0;
@@ -176,10 +183,8 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
     setStepsDrawerOpen(false);
     setAnimationSeed((s) => s + 1);
     onStepChange?.(currentStep.stepNumber);
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    }
-  }, [stepIndex, currentStep, onStepChange]);
+    scrollToTop('auto');
+  }, [stepIndex, currentStep, onStepChange, scrollToTop]);
 
   // Auto-open guide note popup ONCE per step per session (with immediate blurred backdrop)
   useEffect(() => {
@@ -376,19 +381,9 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
 
   return (
     <>
-      <div
-        className={[
-          'gq-story-stage flex-1 flex flex-col justify-between min-h-0',
-          isPaused ? 'gq-story-paused' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        {/* Fixed / Sticky Step Progress Row + Expandable Step Switcher */}
-        <div
-          style={{ top: 'var(--gq-lesson-header-h, 110px)' }}
-          className="sticky z-20 bg-white/95 backdrop-blur-md border-b border-[#E5E2D9] px-3 sm:px-6 py-2"
-        >
+      {/* Region C: Step Progress Row + Expandable Step Switcher */}
+      <AppShellSubHeader>
+        <div className="bg-white/95 backdrop-blur-md border-b border-[#E5E2D9] px-3 sm:px-6 py-2">
           <div className="max-w-[920px] mx-auto relative">
             <div className="flex items-center justify-between gap-2.5">
               <div className="flex items-center gap-2.5 min-w-0 flex-1">
@@ -432,7 +427,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
                 id="lesson-steps-popover"
                 role="region"
                 aria-label="Jump to lesson step"
-                className="mt-2 max-h-[55dvh] overflow-y-auto rounded-[14px] bg-white border border-[#CFC9BA] shadow-md p-2.5 grid grid-cols-1 sm:grid-cols-2 gap-1.5"
+                className="absolute left-0 right-0 top-full mt-2 max-h-[50dvh] overflow-y-auto overscroll-contain rounded-[14px] bg-white border border-[#CFC9BA] shadow-lg p-2.5 grid grid-cols-1 sm:grid-cols-2 gap-1.5"
               >
                 {steps.map((s, idx) => {
                   const isCurrent = idx === stepIndex;
@@ -466,9 +461,18 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
             ) : null}
           </div>
         </div>
+      </AppShellSubHeader>
 
-        {/* Scrollable Lesson Workspace (with ~172px bottom clearance below the last line for fixed nav + guide button) */}
-        <div className="flex-1 w-full max-w-[920px] mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-4 pb-[calc(172px+env(safe-area-inset-bottom,0px))]">
+      <div
+        className={[
+          'gq-story-stage',
+          isPaused ? 'gq-story-paused' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        {/* Scrollable Lesson Workspace (unobstructed above reserved utility bar + footer) */}
+        <div className="w-full max-w-[920px] mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-4 pb-6">
           {lesson.missionId === 'c9-mission-04' || Boolean(currentStep.clausePatternData) ? (
             <SentenceTypesStepView
               stepId={currentStep.id}
@@ -518,10 +522,26 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
             />
           )}
         </div>
+      </div>
 
-        {/* Fixed Bottom Lesson Control Bar */}
+      {/* Region D2 Reserved Utility Bar: Guide Button (outside scroll region, never overlaps text) */}
+      <AppShellUtilityBar>
+        <FloatingGuideButton
+          characterId={currentStep.characterId}
+          characterExpression={currentStep.characterExpression}
+          noteTitle={currentStep.title}
+          buttonRef={guideButtonRef}
+          isPopupOpen={isPopupVisible}
+          isPopping={isButtonPopping}
+          showHint={showHint}
+          hintFadingOut={hintFadingOut}
+          onOpenPopup={handleReopenPopup}
+        />
+      </AppShellUtilityBar>
+
+      {/* Region E: Reserved Bottom Lesson Control Bar */}
+      <AppShellFooter>
         <LessonNavigation
-          fixed
           currentStepIndex={stepIndex}
           totalSteps={steps.length}
           isPaused={isPaused}
@@ -532,20 +552,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
           nextLabel={stepIndex === steps.length - 1 ? finalNextLabel : 'Next'}
           nudgeNextArrow={!isPaused && !prefersReducedMotion}
         />
-      </div>
-
-      {/* Bottom-Right Floating Guide Button */}
-      <FloatingGuideButton
-        characterId={currentStep.characterId}
-        characterExpression={currentStep.characterExpression}
-        noteTitle={currentStep.title}
-        buttonRef={guideButtonRef}
-        isPopupOpen={isPopupVisible}
-        isPopping={isButtonPopping}
-        showHint={showHint}
-        hintFadingOut={hintFadingOut}
-        onOpenPopup={handleReopenPopup}
-      />
+      </AppShellFooter>
 
       {/* Centred Guide Note Modal Popup (Portal) */}
       <GuideNotePopup

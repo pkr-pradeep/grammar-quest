@@ -52,20 +52,17 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
     <div
       aria-hidden={isPopupOpen || undefined}
       className={[
-        'fixed right-4 z-30 pointer-events-none flex flex-col items-end gap-2 transition-opacity duration-150',
-        isPopupOpen ? 'opacity-0' : 'opacity-100',
+        'flex items-center gap-2 transition-opacity duration-150',
+        isPopupOpen ? 'opacity-0 pointer-events-none' : 'opacity-100',
       ].join(' ')}
-      style={{
-        bottom: 'calc(80px + env(safe-area-inset-bottom, 0px))',
-      }}
     >
-      {/* 4.5s Post-Dismiss Label Hint (renders above the button, clear of bottom-center scroll cue) */}
+      {/* 4.5s Post-Dismiss Label Hint (renders inline inside reserved utility bar, never over page text) */}
       {showHint && !isPopupOpen ? (
         <div
           role="status"
           aria-live="polite"
           className={[
-            'px-3 py-1.5 rounded-full bg-[#1B2559] text-white text-xs font-semibold shadow-md whitespace-nowrap transition-opacity duration-300',
+            'px-3 py-1.5 rounded-full bg-[#1B2559] text-white text-xs font-semibold shadow-md whitespace-nowrap truncate max-w-[200px] sm:max-w-none transition-opacity duration-300',
             hintFadingOut ? 'opacity-0' : 'opacity-100',
           ].join(' ')}
         >
@@ -73,7 +70,7 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
         </div>
       ) : null}
 
-      <div className="relative pointer-events-auto">
+      <div className="relative shrink-0">
         {/* Expanding Guide-Coloured Pulsing Ring (disabled under reduced-motion via CSS) */}
         {showHint && !isPopupOpen ? (
           <span

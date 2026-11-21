@@ -33,19 +33,12 @@ export const LessonNavigation: React.FC<LessonNavigationProps> = ({
   onReplay,
   nextLabel,
   nudgeNextArrow = false,
-  fixed = false,
 }) => {
   const isFirst = currentStepIndex === 0;
   const isLast = currentStepIndex >= totalSteps - 1;
 
   return (
-    <nav
-      aria-label="Lesson step navigation"
-      className={[
-        fixed ? 'fixed bottom-0 left-0 right-0 z-30' : 'sticky bottom-0 z-20',
-        'bg-white/95 backdrop-blur-md border-t border-[#E5E2D9] pb-[max(0.5rem,env(safe-area-inset-bottom))]',
-      ].join(' ')}
-    >
+    <nav aria-label="Lesson step navigation">
       <div className="max-w-[920px] mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-2">
         {/* Back */}
         <button

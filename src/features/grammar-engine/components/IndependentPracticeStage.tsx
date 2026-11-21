@@ -14,7 +14,13 @@ import React, { useEffect, useState } from 'react';
 import { useReducedMotion } from 'motion/react';
 import { ArrowLeft, ArrowRight, Check, Layers, MessageSquare, RotateCcw } from 'lucide-react';
 import type { IndependentPracticeItem } from '../../../schemas/grammarEngine.schema';
-import { Button, CelebrationStars } from '../../../components';
+import {
+  AppShellFooter,
+  AppShellSubHeader,
+  Button,
+  CelebrationStars,
+  useAppScroll,
+} from '../../../components';
 import { SpeakerPortrait } from '../speakerTheme';
 import { WordToken } from './WordToken';
 import { WordGroup } from './WordGroup';
@@ -22,6 +28,7 @@ import { PracticeFeedback } from './PracticeFeedback';
 import { ActivityHintBox } from './ActivityCharacterNote';
 
 export interface IndependentPracticeStageProps {
+  isActive?: boolean;
   items: IndependentPracticeItem[];
   initialSolvedIds?: string[];
   onSolvedIdsChange?: (solvedIds: string[]) => void;
@@ -36,6 +43,7 @@ function sameIds(a: string[], b: string[]): boolean {
 }
 
 export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> = ({
+  isActive = true,
   items,
   initialSolvedIds,
   onSolvedIdsChange,
@@ -43,6 +51,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   onFinishIndependentPractice,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
+  const { scrollToTop } = useAppScroll();
   const [itemIndex, setItemIndex] = useState(0);
   const [solvedIds, setSolvedIds] = useState<string[]>(() => initialSolvedIds ?? []);
   const solvedIdsRef = React.useRef<string[]>(solvedIds);
@@ -67,6 +76,12 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
       return merged.length === prev.length ? prev : merged;
     });
   }, [initialSolvedIds]);
+
+  useEffect(() => {
+    if (isActive) {
+      scrollToTop('auto');
+    }
+  }, [itemIndex, isActive, scrollToTop]);
 
   const currentItem = items[itemIndex] ?? items[0];
   if (!currentItem) return null;
@@ -241,38 +256,42 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
 
   return (
     <div className="space-y-4">
-      {/* Compact Progress Pills */}
-      <div className="flex items-center justify-between gap-2 flex-wrap">
-        <div className="flex items-center gap-1.5" aria-label="Independent practice challenges">
-          {items.map((item, idx) => {
-            const isCurrent = idx === itemIndex;
-            const isDone = solvedIds.includes(item.id);
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setItemIndex(idx)}
-                aria-current={isCurrent ? 'step' : undefined}
-                className={[
-                  'inline-flex items-center gap-1 min-h-[38px] px-3 py-1.5 rounded-[10px] text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap',
-                  isCurrent
-                    ? 'bg-[#263A70] text-white'
-                    : isDone
-                      ? 'bg-[#D9FAF5] text-[#263A70] border border-[#65D8CA]'
-                      : 'bg-white text-[#4B5C8A] border border-[#E5E2D9] hover:border-[#263A70]',
-                ].join(' ')}
-              >
-                {isDone ? <Check className="w-3.5 h-3.5 shrink-0" aria-hidden="true" /> : null}
-                <span>Try {idx + 1}</span>
-              </button>
-            );
-          })}
-        </div>
+      {/* Region C: Compact Progress Pills */}
+      <AppShellSubHeader isActive={isActive}>
+        <div className="bg-white/95 backdrop-blur-md border-b border-[#E5E2D9] px-3 sm:px-6 py-2">
+          <div className="max-w-[920px] mx-auto flex items-center justify-between gap-2 flex-wrap">
+            <div className="flex items-center gap-1.5 flex-wrap" aria-label="Independent practice challenges">
+              {items.map((item, idx) => {
+                const isCurrent = idx === itemIndex;
+                const isDone = solvedIds.includes(item.id);
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setItemIndex(idx)}
+                    aria-current={isCurrent ? 'step' : undefined}
+                    className={[
+                      'inline-flex items-center gap-1 min-h-[38px] px-3 py-1.5 rounded-[10px] text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap',
+                      isCurrent
+                        ? 'bg-[#263A70] text-white'
+                        : isDone
+                          ? 'bg-[#D9FAF5] text-[#263A70] border border-[#65D8CA]'
+                          : 'bg-white text-[#4B5C8A] border border-[#E5E2D9] hover:border-[#263A70]',
+                    ].join(' ')}
+                  >
+                    {isDone ? <Check className="w-3.5 h-3.5 shrink-0" aria-hidden="true" /> : null}
+                    <span>Try {idx + 1}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-        <span className="text-xs font-medium text-[#4B5C8A] tabular-nums">
-          {solvedIds.length} of {items.length} solved
-        </span>
-      </div>
+            <span className="text-xs font-medium text-[#4B5C8A] tabular-nums">
+              {solvedIds.length} of {items.length} solved
+            </span>
+          </div>
+        </div>
+      </AppShellSubHeader>
 
       {/* Main Independent Practice Card */}
       <div className="rounded-[20px] bg-white border border-[#E5E2D9] p-4 sm:p-5 space-y-4">
@@ -624,44 +643,46 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
         </div>
       ) : null}
 
-      {/* Bottom Controls */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={() => {
-            if (itemIndex > 0) {
-              setItemIndex((i) => i - 1);
-            } else {
-              onBackToGuided();
-            }
-          }}
-          leftIcon={<ArrowLeft className="w-4 h-4" />}
-        >
-          {itemIndex === 0 ? 'Back to Guided Practice' : 'Previous'}
-        </Button>
+      {/* Region E: Reserved Bottom Controls */}
+      <AppShellFooter isActive={isActive}>
+        <div className="max-w-[920px] mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-2">
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => {
+              if (itemIndex > 0) {
+                setItemIndex((i) => i - 1);
+              } else {
+                onBackToGuided();
+              }
+            }}
+            leftIcon={<ArrowLeft className="w-4 h-4" />}
+          >
+            {itemIndex === 0 ? 'Back to Guided' : 'Previous'}
+          </Button>
 
-        {itemIndex < items.length - 1 ? (
-          <Button
-            variant={isCurrentSolved ? 'primary' : 'navy'}
-            size="sm"
-            onClick={() => setItemIndex((i) => i + 1)}
-            rightIcon={<ArrowRight className="w-4 h-4" />}
-          >
-            Next Sentence
-          </Button>
-        ) : (
-          <Button
-            variant="primary"
-            size="sm"
-            disabled={!allSolved}
-            onClick={onFinishIndependentPractice}
-            rightIcon={<ArrowRight className="w-4 h-4" />}
-          >
-            {allSolved ? 'Complete Lesson' : `Solve all ${items.length} to finish`}
-          </Button>
-        )}
-      </div>
+          {itemIndex < items.length - 1 ? (
+            <Button
+              variant={isCurrentSolved ? 'primary' : 'navy'}
+              size="sm"
+              onClick={() => setItemIndex((i) => i + 1)}
+              rightIcon={<ArrowRight className="w-4 h-4" />}
+            >
+              Next Sentence
+            </Button>
+          ) : (
+            <Button
+              variant="primary"
+              size="sm"
+              disabled={!allSolved}
+              onClick={onFinishIndependentPractice}
+              rightIcon={<ArrowRight className="w-4 h-4" />}
+            >
+              {allSolved ? 'Complete Lesson' : `Solve all ${items.length} to finish`}
+            </Button>
+          )}
+        </div>
+      </AppShellFooter>
     </div>
   );
 };

@@ -460,7 +460,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
     triggerShukaJiHop();
   };
 
-  // Optional pointer drag-and-drop without interfering with tap-to-place
+  // Optional pointer drag-and-drop without interfering with tap-to-place or mobile vertical touch scroll
   const handleCardPointerDown = (
     e: React.PointerEvent<HTMLButtonElement>,
     item: CategoriseItem,
@@ -468,9 +468,11 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
     if (placedMap[item.id] || isFinished) return;
     if (e.pointerType === 'mouse' && e.button !== 0) return;
 
+    const isTouch = e.pointerType === 'touch';
     const startX = e.clientX;
     const startY = e.clientY;
     let dragging = false;
+    let cancelledForScroll = false;
 
     const findGroupUnderPoint = (cx: number, cy: number): string | null => {
       const els = document.elementsFromPoint(cx, cy);
@@ -485,14 +487,38 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       return null;
     };
 
+    const cleanup = () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerup', handlePointerUp);
+      window.removeEventListener('pointercancel', handlePointerCancel);
+    };
+
     const handlePointerMove = (moveEvent: PointerEvent) => {
+      if (cancelledForScroll) return;
       const dx = moveEvent.clientX - startX;
       const dy = moveEvent.clientY - startY;
-      if (!dragging && Math.hypot(dx, dy) > 9) {
-        dragging = true;
-        setSelectedItemId(item.id);
-        setWrongTagGroupId(null);
+
+      if (!dragging) {
+        if (isTouch) {
+          // Yield to native vertical scroll whenever vertical motion dominates
+          if (Math.abs(dy) > 8 && Math.abs(dy) >= Math.abs(dx)) {
+            cancelledForScroll = true;
+            cleanup();
+            return;
+          }
+          // Only enter drag on touch when deliberately dragging horizontally
+          if (Math.abs(dx) > 14 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+            dragging = true;
+            setSelectedItemId(item.id);
+            setWrongTagGroupId(null);
+          }
+        } else if (Math.hypot(dx, dy) > 9) {
+          dragging = true;
+          setSelectedItemId(item.id);
+          setWrongTagGroupId(null);
+        }
       }
+
       if (dragging) {
         const hoverGroupId = findGroupUnderPoint(moveEvent.clientX, moveEvent.clientY);
         setDragState({
@@ -505,10 +531,14 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       }
     };
 
+    const handlePointerCancel = () => {
+      cleanup();
+      dragging = false;
+      setDragState(null);
+    };
+
     const handlePointerUp = (upEvent: PointerEvent) => {
-      window.removeEventListener('pointermove', handlePointerMove);
-      window.removeEventListener('pointerup', handlePointerUp);
-      window.removeEventListener('pointercancel', handlePointerUp);
+      cleanup();
 
       if (dragging) {
         suppressNextClickRef.current = true;
@@ -525,7 +555,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
 
     window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('pointerup', handlePointerUp);
-    window.addEventListener('pointercancel', handlePointerUp);
+    window.addEventListener('pointercancel', handlePointerCancel);
   };
 
   // Derive sentence pairs for completion display (explicit in JSON or fallback pairing)
@@ -776,7 +806,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
                   onPointerDown={(e) => handleCardPointerDown(e, item)}
                   onClick={() => handleCardSelect(item)}
                   className={[
-                    'min-h-[44px] rounded-[16px] px-[14px] py-[9px] text-[13.5px] font-bold text-[#1B2559] text-left leading-tight cursor-pointer select-none touch-none transition-all duration-200',
+                    'min-h-[44px] rounded-[16px] px-[14px] py-[9px] text-[13.5px] font-bold text-[#1B2559] text-left leading-tight cursor-pointer select-none touch-pan-y transition-all duration-200',
                     isShaking
                       ? 'gq-sort-shake bg-[#FFEBDD] border-[2.5px] border-[#D95D24] -translate-y-[3px]'
                       : isSelected

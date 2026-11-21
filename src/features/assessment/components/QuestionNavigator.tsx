@@ -16,6 +16,7 @@ export interface QuestionNavigatorProps {
   questionIds: string[];
   currentIndex: number;
   selectedAnswers: Record<string, string>;
+  hidePrimaryControls?: boolean;
   onJumpToQuestion: (index: number) => void;
   onPrevious: () => void;
   onNext: () => void;
@@ -26,6 +27,7 @@ export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
   questionIds,
   currentIndex,
   selectedAnswers,
+  hidePrimaryControls = false,
   onJumpToQuestion,
   onPrevious,
   onNext,
@@ -41,44 +43,46 @@ export const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
       aria-label="Question navigation and submission"
       className="rounded-[20px] bg-white border border-[#E5E2D9] p-4 sm:p-5 space-y-4 shadow-[var(--gq-shadow-card)]"
     >
-      {/* Previous / Next Row */}
-      <div className="flex items-center justify-between gap-2.5">
-        <Button
-          variant="secondary"
-          size="md"
-          disabled={isFirst}
-          onClick={onPrevious}
-          leftIcon={<ArrowLeft className="w-4 h-4" />}
-          className="flex-1 sm:flex-initial"
-        >
-          Previous
-        </Button>
+      {/* Previous / Next Row (hidden when rendered in AppShellFooter) */}
+      {!hidePrimaryControls ? (
+        <div className="flex items-center justify-between gap-2.5">
+          <Button
+            variant="secondary"
+            size="md"
+            disabled={isFirst}
+            onClick={onPrevious}
+            leftIcon={<ArrowLeft className="w-4 h-4" />}
+            className="flex-1 sm:flex-initial"
+          >
+            Previous
+          </Button>
 
-        {isLast ? (
-          <Button
-            variant="navy"
-            size="md"
-            onClick={onRequestSubmit}
-            leftIcon={<Send className="w-4 h-4" />}
-            className="flex-1 sm:flex-initial"
-          >
-            Review &amp; Submit
-          </Button>
-        ) : (
-          <Button
-            variant="primary"
-            size="md"
-            onClick={onNext}
-            rightIcon={<ArrowRight className="w-4 h-4" />}
-            className="flex-1 sm:flex-initial"
-          >
-            Next
-          </Button>
-        )}
-      </div>
+          {isLast ? (
+            <Button
+              variant="navy"
+              size="md"
+              onClick={onRequestSubmit}
+              leftIcon={<Send className="w-4 h-4" />}
+              className="flex-1 sm:flex-initial"
+            >
+              Review &amp; Submit
+            </Button>
+          ) : (
+            <Button
+              variant="primary"
+              size="md"
+              onClick={onNext}
+              rightIcon={<ArrowRight className="w-4 h-4" />}
+              className="flex-1 sm:flex-initial"
+            >
+              Next
+            </Button>
+          )}
+        </div>
+      ) : null}
 
       {/* Numbered Jump Grid (5 columns x 2 rows = 360px mobile-safe with >= 44px targets) */}
-      <div className="space-y-2 pt-2 border-t border-[#E5E2D9]">
+      <div className={hidePrimaryControls ? 'space-y-2' : 'space-y-2 pt-2 border-t border-[#E5E2D9]'}>
         <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#4B5C8A]">
           <span className="font-semibold text-[#263A70]">Jump to question</span>
           <div className="flex items-center gap-3">

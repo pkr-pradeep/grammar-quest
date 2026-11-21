@@ -2,14 +2,15 @@
  * ============================================================================
  * GRAMMAR QUEST — SHARED HEADER & RESPONSIVE NAVIGATION
  * ============================================================================
+ * Provides separate, non-fixed shell slot components:
+ *  - TopAppBar: Placed in AppShell Region B (Screen Header)
+ *  - MobileBottomNav: Placed in AppShell Region F (Application Bottom Nav)
  * Desktop: Clean 64px top bar (Brand wordmark and 4 concise single-line links).
- * Mobile: Compact 48px top header + fixed compact bottom tab bar
- * staying comfortably below the 15% mobile sticky-height cap while preserving
- * 44px+ touch targets in the natural thumb zone).
+ * Mobile: Compact 48px top header + reserved bottom tab bar with >=44px targets.
  * ============================================================================
  */
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { BookOpen, Compass, Home, BarChart3 } from 'lucide-react';
 import type { AppSection } from '../../schemas/lesson.schema';
 import { GrammarQuestEmblem } from '../illustrations/Characters';
@@ -32,115 +33,88 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'progress', label: 'Progress', Icon: BarChart3 },
 ];
 
-export const Header: React.FC<HeaderProps> = ({
+export const TopAppBar: React.FC<HeaderProps> = ({
   activeSection,
   onNavigate,
-}) => {
-  const mobileNavRef = useRef<HTMLElement>(null);
+}) => (
+  <header>
+    <div className="max-w-[1120px] mx-auto px-4 sm:px-6 h-12 md:h-16 flex items-center justify-between gap-4">
+      {/* Brand */}
+      <button
+        type="button"
+        onClick={() => onNavigate('home')}
+        className="inline-flex items-center gap-2.5 min-h-[44px] text-left cursor-pointer rounded-[12px] pr-2"
+        aria-label="Grammar Quest Home"
+      >
+        <GrammarQuestEmblem className="w-8 h-8 md:w-9 md:h-9 shrink-0" />
+        <span className="text-lg md:text-xl font-semibold tracking-tight whitespace-nowrap text-[#263A70]">
+          Grammar <span className="text-[#E07F07]">Quest</span>
+        </span>
+      </button>
 
-  useEffect(() => {
-    const nav = mobileNavRef.current;
-    if (!nav) return;
+      {/* Desktop Navigation */}
+      <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1.5">
+        {NAV_ITEMS.map(({ id, label, Icon }) => {
+          const isActive = activeSection === id;
+          return (
+            <button
+              key={id}
+              type="button"
+              onClick={() => onNavigate(id)}
+              aria-current={isActive ? 'page' : undefined}
+              className={[
+                'inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 rounded-[12px]',
+                'text-sm font-medium whitespace-nowrap transition-colors duration-150 cursor-pointer',
+                isActive
+                  ? 'bg-[#FFF1D5] text-[#263A70]'
+                  : 'text-[#4B5C8A] hover:text-[#263A70] hover:bg-[#F7F5EE]',
+              ].join(' ')}
+            >
+              <Icon className="w-4 h-4 shrink-0" strokeWidth={2.2} />
+              <span>{label}</span>
+            </button>
+          );
+        })}
+      </nav>
+    </div>
+  </header>
+);
 
-    const measureNav = () => {
-      const rect = nav.getBoundingClientRect();
-      document.documentElement.style.setProperty(
-        '--gq-app-nav-height',
-        `${Math.round(rect.height)}px`,
-      );
-    };
-
-    measureNav();
-    const observer =
-      typeof ResizeObserver !== 'undefined'
-        ? new ResizeObserver(measureNav)
-        : null;
-    observer?.observe(nav);
-    window.addEventListener('resize', measureNav, { passive: true });
-
-    return () => {
-      observer?.disconnect();
-      window.removeEventListener('resize', measureNav);
-      document.documentElement.style.removeProperty('--gq-app-nav-height');
-    };
-  }, []);
-
-  return (
-    <>
-      {/* Top Application Bar */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-[#E5E2D9]">
-        <div className="max-w-[1120px] mx-auto px-4 sm:px-6 h-12 md:h-16 flex items-center justify-between gap-4">
-          {/* Brand */}
+export const MobileBottomNav: React.FC<HeaderProps> = ({
+  activeSection,
+  onNavigate,
+}) => (
+  <nav aria-label="Mobile navigation" className="px-2">
+    <div className="grid grid-cols-4 h-12 max-w-md mx-auto items-center">
+      {NAV_ITEMS.map(({ id, label, Icon }) => {
+        const isActive = activeSection === id;
+        return (
           <button
+            key={id}
             type="button"
-            onClick={() => onNavigate('home')}
-            className="inline-flex items-center gap-2.5 min-h-[44px] text-left cursor-pointer rounded-[12px] pr-2"
-            aria-label="Grammar Quest Home"
+            onClick={() => onNavigate(id)}
+            aria-current={isActive ? 'page' : undefined}
+            className={[
+              'flex flex-col items-center justify-center min-h-[44px] rounded-[12px] mx-0.5 transition-colors duration-150 cursor-pointer',
+              isActive
+                ? 'bg-[#FCE9BE] text-[#1B2559]'
+                : 'text-[#4B5C8A] hover:text-[#263A70]',
+            ].join(' ')}
           >
-            <GrammarQuestEmblem className="w-8 h-8 md:w-9 md:h-9 shrink-0" />
-            <span className="text-lg md:text-xl font-semibold tracking-tight whitespace-nowrap text-[#263A70]">
-              Grammar <span className="text-[#E07F07]">Quest</span>
+            <Icon className="w-5 h-5" strokeWidth={isActive ? 2.4 : 2} />
+            <span className="text-[11px] font-medium leading-tight mt-0.5 whitespace-nowrap">
+              {label}
             </span>
           </button>
+        );
+      })}
+    </div>
+  </nav>
+);
 
-          {/* Desktop Navigation */}
-          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1.5">
-            {NAV_ITEMS.map(({ id, label, Icon }) => {
-              const isActive = activeSection === id;
-              return (
-                <button
-                  key={id}
-                  type="button"
-                  onClick={() => onNavigate(id)}
-                  aria-current={isActive ? 'page' : undefined}
-                  className={[
-                    'inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 rounded-[12px]',
-                    'text-sm font-medium whitespace-nowrap transition-colors duration-150 cursor-pointer',
-                    isActive
-                      ? 'bg-[#FFF1D5] text-[#263A70]'
-                      : 'text-[#4B5C8A] hover:text-[#263A70] hover:bg-[#F7F5EE]',
-                  ].join(' ')}
-                >
-                  <Icon className="w-4 h-4 shrink-0" strokeWidth={2.2} />
-                  <span>{label}</span>
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-      </header>
-
-      {/* Mobile Bottom Navigation Bar */}
-      <nav
-        ref={mobileNavRef}
-        aria-label="Mobile navigation"
-        className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-[#E5E2D9] px-2 pb-[env(safe-area-inset-bottom,0px)]"
-      >
-        <div className="grid grid-cols-4 h-12 max-w-md mx-auto items-center">
-          {NAV_ITEMS.map(({ id, label, Icon }) => {
-            const isActive = activeSection === id;
-            return (
-              <button
-                key={id}
-                type="button"
-                onClick={() => onNavigate(id)}
-                aria-current={isActive ? 'page' : undefined}
-                className={[
-                  'flex flex-col items-center justify-center min-h-[44px] rounded-[12px] mx-0.5 transition-colors duration-150 cursor-pointer',
-                  isActive
-                    ? 'bg-[#FCE9BE] text-[#1B2559]'
-                    : 'text-[#4B5C8A] hover:text-[#263A70]',
-                ].join(' ')}
-              >
-                <Icon className="w-5 h-5" strokeWidth={isActive ? 2.4 : 2} />
-                <span className="text-[11px] font-medium leading-tight mt-0.5 whitespace-nowrap">
-                  {label}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </nav>
-    </>
-  );
-};
+export const Header: React.FC<HeaderProps> = (props) => (
+  <>
+    <TopAppBar {...props} />
+    <MobileBottomNav {...props} />
+  </>
+);

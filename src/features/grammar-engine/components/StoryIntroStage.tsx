@@ -14,8 +14,10 @@ import { useReducedMotion } from 'motion/react';
 import { FastForward, Wind } from 'lucide-react';
 import type { MissionStoryIntro } from '../../../schemas/grammarEngine.schema';
 import {
+  AppShellFooter,
   CHARACTER_MASTERS,
   CourtyardNoticeboardScene,
+  useAppScroll,
 } from '../../../components';
 import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
 import { LessonNavigation } from './LessonNavigation';
@@ -37,9 +39,14 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
   onAdvanceStory,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
+  const { scrollToTop } = useAppScroll();
   const [beatIndex, setBeatIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [animationSeed, setAnimationSeed] = useState(0);
+
+  useEffect(() => {
+    scrollToTop('auto');
+  }, [beatIndex, scrollToTop]);
 
   const beats = storyIntro.beats;
   const activeBeat = beats[beatIndex] ?? beats[0];
@@ -134,13 +141,13 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
   return (
     <div
       className={[
-        'gq-story-stage flex-1 flex flex-col justify-between min-h-0',
+        'gq-story-stage',
         isPaused ? 'gq-story-paused' : '',
       ]
         .filter(Boolean)
         .join(' ')}
     >
-      <div className="flex-1 w-full max-w-[920px] mx-auto px-3 sm:px-6 py-3 sm:py-4 space-y-3">
+      <div className="w-full max-w-[920px] mx-auto px-3 sm:px-6 py-3 sm:py-4 pb-6 space-y-3">
         {/* Compact Scene Header */}
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0">
@@ -376,18 +383,20 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
         </section>
       </div>
 
-      {/* Persistent Bottom Navigation */}
-      <LessonNavigation
-        currentStepIndex={beatIndex}
-        totalSteps={beats.length}
-        isPaused={isPaused}
-        onPrevious={handlePrevious}
-        onNext={handleNext}
-        onTogglePause={() => setIsPaused((p) => !p)}
-        onReplay={handleReplay}
-        nextLabel={isLastBeat ? 'Start Lesson' : 'Next'}
-        nudgeNextArrow={isTypingComplete && !isPaused && !prefersReducedMotion}
-      />
+      {/* Reserved Bottom Action Region */}
+      <AppShellFooter>
+        <LessonNavigation
+          currentStepIndex={beatIndex}
+          totalSteps={beats.length}
+          isPaused={isPaused}
+          onPrevious={handlePrevious}
+          onNext={handleNext}
+          onTogglePause={() => setIsPaused((p) => !p)}
+          onReplay={handleReplay}
+          nextLabel={isLastBeat ? 'Start Lesson' : 'Next'}
+          nudgeNextArrow={isTypingComplete && !isPaused && !prefersReducedMotion}
+        />
+      </AppShellFooter>
     </div>
   );
 };

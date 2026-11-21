@@ -13,7 +13,7 @@ import { useReducedMotion } from 'motion/react';
 import { Award, CheckCircle2, ClipboardCheck, Home, ShieldCheck, Sparkles } from 'lucide-react';
 import type { MissionCompletionSummary } from '../../../schemas/grammarEngine.schema';
 import type { AssessmentAttemptRecord } from '../../../schemas/assessment.schema';
-import { Button, CourtyardNoticeboardScene } from '../../../components';
+import { AppShellFooter, Button, CourtyardNoticeboardScene } from '../../../components';
 import { SpeakerPortrait } from '../speakerTheme';
 
 export interface MissionCompletionStageProps {
@@ -139,12 +139,29 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
           <span>Your lesson progress is saved locally on this device.</span>
         </div>
 
-        {/* Actions */}
-        <div className="flex flex-wrap items-center gap-2.5 pt-1">
+      </section>
+
+      {/* Region E: Reserved Bottom Action Region */}
+      <AppShellFooter>
+        <div className="max-w-[920px] mx-auto px-3 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={onReturnHome}
+              leftIcon={<Home className="w-4 h-4" />}
+            >
+              Back to Home
+            </Button>
+            <Button variant="secondary" size="sm" onClick={onReviewLesson}>
+              Review Lesson
+            </Button>
+          </div>
+
           {onStartAssessment ? (
             <Button
               variant="navy"
-              size="md"
+              size="sm"
               onClick={onStartAssessment}
               leftIcon={<ClipboardCheck className="w-4 h-4" />}
             >
@@ -153,19 +170,8 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
                 : 'Take Lesson Test'}
             </Button>
           ) : null}
-          <Button
-            variant="primary"
-            size="md"
-            onClick={onReturnHome}
-            leftIcon={<Home className="w-4 h-4" />}
-          >
-            Back to Home
-          </Button>
-          <Button variant="secondary" size="md" onClick={onReviewLesson}>
-            Review Lesson
-          </Button>
         </div>
-      </section>
+      </AppShellFooter>
     </div>
   );
 };

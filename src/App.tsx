@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { MotionConfig } from 'motion/react';
 import { AlertCircle } from 'lucide-react';
 import type {
@@ -25,7 +25,7 @@ import {
   saveWordLabSolvedIds,
 } from './storage/progressRepository';
 import { loadAllAssessmentAttempts } from './storage/assessmentRepository';
-import { Header, ScrollMoreHint } from './components';
+import { AppShell, MobileBottomNav, TopAppBar } from './components';
 import { Dashboard } from './features/home/Dashboard';
 import { WelcomePage } from './features/home/WelcomePage';
 import { FoundationSectionView } from './features/placeholders/FoundationSectionView';
@@ -136,6 +136,7 @@ export default function App() {
   const [hasStartedLearning, setHasStartedLearning] = useState<boolean>(
     () => isDevCharacterSheetRoute() || Boolean(parseMissionHash()),
   );
+  const mainScrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!(import.meta.env && import.meta.env.DEV)) return;
@@ -187,9 +188,7 @@ export default function App() {
     writeMissionHash(null);
     if (isDevSheetOpen) closeDevSheet();
     setActiveSection(section);
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    }
+    mainScrollRef.current?.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const handleStartLesson = (
@@ -339,9 +338,10 @@ export default function App() {
           onCompleteLessonPractice={(lesson) => void handleCompleteLessonPractice(lesson)}
         />
       ) : (
-        <div
+        <AppShell
+          scrollContainerRef={mainScrollRef}
           className={[
-            'min-h-screen flex flex-col text-[#333333] overflow-x-clip',
+            'text-[#333333]',
             (activeSection === 'home' ||
               activeSection === 'missions' ||
               activeSection === 'guide') &&
@@ -349,83 +349,80 @@ export default function App() {
               ? 'bg-[#FBF6EA]'
               : 'bg-[#FDFCF9]',
           ].join(' ')}
+          header={
+            <TopAppBar
+              activeSection={activeSection}
+              onNavigate={handleNavigate}
+            />
+          }
+          bottomNav={
+            <MobileBottomNav
+              activeSection={activeSection}
+              onNavigate={handleNavigate}
+            />
+          }
+          utilityMaxWidthClassName="max-w-[1120px]"
+          scrollHintAriaLabel="Scroll back to top"
+          scrollHintMinOverflowPx={48}
+          scrollRecheckKey={`${activeSection}-${previewMission?.id ?? 'none'}`}
         >
-          <Header
-            activeSection={activeSection}
-            onNavigate={handleNavigate}
-          />
+          <div className="min-h-full flex flex-col">
+            <main
+              className={[
+                'flex-1 w-full max-w-[1120px] mx-auto pb-8 md:pb-12',
+                (activeSection === 'home' || activeSection === 'missions') && !previewMission
+                  ? 'px-3.5 sm:px-6 pt-3 sm:pt-6'
+                  : 'px-3.5 sm:px-6 pt-4 sm:pt-7',
+              ].join(' ')}
+            >
+              {storageWarning ? (
+                <div
+                  role="status"
+                  className="mb-5 flex items-start gap-2.5 rounded-[14px] bg-[#FEE8E7] border border-[#F7C2BF] px-4 py-3 text-sm text-[#263A70]"
+                >
+                  <AlertCircle className="w-4 h-4 shrink-0 text-[#9E2A25] mt-0.5" aria-hidden="true" />
+                  <span>{storageWarning}</span>
+                </div>
+              ) : null}
 
-          <main
-            className={[
-              'flex-1 w-full max-w-[1120px] mx-auto pb-[calc(var(--gq-app-nav-height,48px)+16px)] md:pb-[120px]',
-              (activeSection === 'home' || activeSection === 'missions') && !previewMission
-                ? 'px-3.5 sm:px-6 pt-3 sm:pt-6'
-                : 'px-3.5 sm:px-6 pt-4 sm:pt-7',
-            ].join(' ')}
-          >
-            {storageWarning ? (
-              <div
-                role="status"
-                className="mb-5 flex items-start gap-2.5 rounded-[14px] bg-[#FEE8E7] border border-[#F7C2BF] px-4 py-3 text-sm text-[#263A70]"
-              >
-                <AlertCircle className="w-4 h-4 shrink-0 text-[#9E2A25] mt-0.5" aria-hidden="true" />
-                <span>{storageWarning}</span>
+              {import.meta.env && import.meta.env.DEV && isDevSheetOpen && DevCharacterReferenceSheet ? (
+                <Suspense
+                  fallback={
+                    <div className="py-8 text-sm text-[#4B5C8A]">Loading developer sheet…</div>
+                  }
+                >
+                  <DevCharacterReferenceSheet onBack={closeDevSheet} />
+                </Suspense>
+              ) : activeSection === 'home' ? (
+                <Dashboard
+                  progress={progress}
+                  onStartLesson={(missionId) => handleStartLesson(missionId)}
+                  onPreviewMission={handlePreviewMission}
+                  onOpenMissions={() => handleNavigate('missions')}
+                />
+              ) : (
+                <FoundationSectionView
+                  section={activeSection}
+                  progress={progress}
+                  assessmentAttemptsByMission={assessmentAttemptsByMission}
+                  previewMission={previewMission}
+                  onClearPreview={() => setPreviewMission(null)}
+                  onSelectPreview={(mission) => setPreviewMission(mission)}
+                  onStartLesson={(missionId) => handleStartLesson(missionId)}
+                  onOpenAssessment={(missionId) => handleStartLesson(missionId, 'assess')}
+                  onBackHome={() => handleNavigate('home')}
+                />
+              )}
+            </main>
+
+            <footer className="hidden md:block border-t border-[#E5E2D9] bg-white/70 shrink-0">
+              <div className="max-w-[1120px] mx-auto px-6 py-4 flex items-center justify-between text-xs text-[#4B5C8A]">
+                <span>Grammar Quest — Interactive English Grammar</span>
+                <span>Saved on this device • No sign-in required</span>
               </div>
-            ) : null}
-
-            {import.meta.env && import.meta.env.DEV && isDevSheetOpen && DevCharacterReferenceSheet ? (
-              <Suspense
-                fallback={
-                  <div className="py-8 text-sm text-[#4B5C8A]">Loading developer sheet…</div>
-                }
-              >
-                <DevCharacterReferenceSheet onBack={closeDevSheet} />
-              </Suspense>
-            ) : activeSection === 'home' ? (
-              <Dashboard
-                progress={progress}
-                onStartLesson={(missionId) => handleStartLesson(missionId)}
-                onPreviewMission={handlePreviewMission}
-                onOpenMissions={() => handleNavigate('missions')}
-              />
-            ) : (
-              <FoundationSectionView
-                section={activeSection}
-                progress={progress}
-                assessmentAttemptsByMission={assessmentAttemptsByMission}
-                previewMission={previewMission}
-                onClearPreview={() => setPreviewMission(null)}
-                onSelectPreview={(mission) => setPreviewMission(mission)}
-                onStartLesson={(missionId) => handleStartLesson(missionId)}
-                onOpenAssessment={(missionId) => handleStartLesson(missionId, 'assess')}
-                onBackHome={() => handleNavigate('home')}
-              />
-            )}
-          </main>
-
-          <footer className="hidden md:block border-t border-[#E5E2D9] bg-white/70">
-            <div className="max-w-[1120px] mx-auto px-6 py-4 flex items-center justify-between text-xs text-[#4B5C8A]">
-              <span>Grammar Quest — Interactive English Grammar</span>
-              <span>Saved on this device • No sign-in required</span>
-            </div>
-          </footer>
-
-          <ScrollMoreHint
-            ariaLabel={
-              activeSection === 'missions' && !previewMission
-                ? 'Scroll down to see more lessons'
-                : 'Scroll down to see more content'
-            }
-            fadeColor={
-              (activeSection === 'missions' || activeSection === 'guide') && !previewMission
-                ? '#FBF6EA'
-                : '#FDFCF9'
-            }
-            bottomOffsetMode="app-nav"
-            minOverflowPx={48}
-            recheckKey={`${activeSection}-${previewMission?.id ?? 'none'}`}
-          />
-        </div>
+            </footer>
+          </div>
+        </AppShell>
       )}
     </MotionConfig>
   );

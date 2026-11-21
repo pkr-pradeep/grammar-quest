@@ -2,7 +2,22 @@ export { Button, type ButtonProps, type ButtonSize, type ButtonVariant } from '.
 export { Card, type CardPadding, type CardProps, type CardSurface } from './Card/Card';
 export { Badge, type BadgeProps, type BadgeTone } from './Badge/Badge';
 export { Progress, type ProgressProps } from './Progress/Progress';
-export { Header, type HeaderProps } from './Header/Header';
+export {
+  Header,
+  TopAppBar,
+  MobileBottomNav,
+  type HeaderProps,
+} from './Header/Header';
+export {
+  AppShell,
+  AppShellSubHeader,
+  AppShellUtilityBar,
+  AppShellFloatingOverlay,
+  AppShellFooter,
+  useAppScroll,
+  type AppShellProps,
+  type AppShellSlotProps,
+} from './AppShell/AppShell';
 export { ScrollMoreHint, type ScrollMoreHintProps } from './ScrollMoreHint/ScrollMoreHint';
 export {
   ModalDialog,

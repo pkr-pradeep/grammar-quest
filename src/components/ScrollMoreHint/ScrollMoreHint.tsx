@@ -1,200 +1,242 @@
 /**
  * ============================================================================
- * GRAMMAR QUEST — SHARED ICON-ONLY SCROLL CUE
+ * GRAMMAR QUEST — SHARED BACK-TO-TOP UTILITY CONTROL
  * ============================================================================
- * Unified 44px circular navy button with animated chevron-down icon centred
- * above the active bottom navigation bar, backed by a subtle 90px bottom fade.
- * Stays visible whenever more scrollable content remains below, hides cleanly
- * once the user reaches the end of the page, and reappears when scrolling up.
- * Respects prefers-reduced-motion.
+ * Circular 44px navy Back-to-Top button rendered inside AppShell's reserved
+ * bottom utility area (strictly outside scrollable content so it never
+ * overlaps cards, category labels, questions, or feedback):
+ *  - Hidden at the top of the screen.
+ *  - Shows after scrolling down a meaningful distance once scrolling settles.
+ *  - Hides immediately while actively scrolling, then reappears after
+ *    scrolling settles if still away from the top.
+ *  - Hides again when returning to the top (with hysteresis to avoid flicker).
+ *  - Respects prefers-reduced-motion.
  * ============================================================================
  */
 
-import React, { useCallback, useEffect, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { ChevronUp } from 'lucide-react';
 
 export interface ScrollMoreHintProps {
   /** Accessible button label */
   ariaLabel?: string;
-  /** Page canvas hex colour at the bottom fade gradient */
-  fadeColor?: string;
-  /** Positions the overlay/button above mobile tab bar, lesson nav, or viewport bottom */
-  bottomOffsetMode?: 'app-nav' | 'lesson-nav' | 'none';
-  /** Minimum overflow in pixels required before showing the cue */
+  /** Minimum total overflow (px) before Back-to-Top can activate */
   minOverflowPx?: number;
-  /** Distance from the bottom of the page (px) at which the cue hides */
-  bottomBufferPx?: number;
-  /** Optional custom scrollable container ref; defaults to window / document */
+  /** Distance scrolled down from top (px) required before showing Back-to-Top */
+  showThresholdPx?: number;
+  /** Scroll distance near top (px) at which Back-to-Top hides again (hysteresis) */
+  hideThresholdPx?: number;
+  /** Primary scrollable container ref owned by AppShell */
   scrollTargetRef?: React.RefObject<HTMLElement | null>;
-  /** Key whose change immediately recalculates overflow state */
+  /** Key whose change immediately resets/recalculates scroll state */
   recheckKey?: string | number;
+  /** Callback notifying AppShell whether the reserved utility slot should stay open */
+  onSlotActiveChange?: (isOpen: boolean) => void;
 }
 
 const DEFAULT_MIN_OVERFLOW_PX = 24;
-const DEFAULT_BOTTOM_BUFFER_PX = 24;
+const DEFAULT_SHOW_THRESHOLD_PX = 120;
+const DEFAULT_HIDE_THRESHOLD_PX = 48;
+const SCROLL_SETTLE_DELAY_MS = 240;
+const UTILITY_BAR_HEIGHT_PX = 52;
 
 export const ScrollMoreHint: React.FC<ScrollMoreHintProps> = ({
-  ariaLabel = 'Scroll down to see more content',
-  fadeColor = '#FDFCF9',
-  bottomOffsetMode = 'app-nav',
+  ariaLabel = 'Scroll back to top',
   minOverflowPx = DEFAULT_MIN_OVERFLOW_PX,
-  bottomBufferPx = DEFAULT_BOTTOM_BUFFER_PX,
+  showThresholdPx = DEFAULT_SHOW_THRESHOLD_PX,
+  hideThresholdPx = DEFAULT_HIDE_THRESHOLD_PX,
   scrollTargetRef,
   recheckKey,
+  onSlotActiveChange,
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isAwayFromTop, setIsAwayFromTop] = useState(false);
+  const [isActivelyScrolling, setIsActivelyScrolling] = useState(false);
 
-  const measure = useCallback(() => {
-    if (typeof window === 'undefined') return;
+  const isAwayRef = useRef(false);
+  const settleTimerRef = useRef<number | null>(null);
+  const ignoreScrollUntilRef = useRef<number>(0);
 
-    const customEl = scrollTargetRef?.current ?? null;
-    if (customEl) {
-      const hasOverflow =
-        customEl.scrollHeight > customEl.clientHeight + minOverflowPx;
-      const remaining =
-        customEl.scrollHeight - (customEl.scrollTop + customEl.clientHeight);
-      setIsVisible(hasOverflow && remaining > bottomBufferPx);
-      return;
-    }
+  const updateAwayState = useCallback(
+    (nextAway: boolean) => {
+      if (isAwayRef.current !== nextAway) {
+        isAwayRef.current = nextAway;
+        setIsAwayFromTop(nextAway);
+        onSlotActiveChange?.(nextAway);
+      }
+    },
+    [onSlotActiveChange],
+  );
 
-    const docEl = document.scrollingElement || document.documentElement;
-    const scrollTop = window.scrollY ?? docEl.scrollTop ?? 0;
-    const clientHeight = window.innerHeight || docEl.clientHeight;
-    const scrollHeight = docEl.scrollHeight;
-    const remaining = scrollHeight - (scrollTop + clientHeight);
+  const evaluatePosition = useCallback(
+    (allowBottomCompensation: boolean) => {
+      if (typeof window === 'undefined') return;
+      const target = scrollTargetRef?.current ?? null;
+      if (!target) {
+        updateAwayState(false);
+        return;
+      }
 
-    const hasOverflow = scrollHeight > clientHeight + minOverflowPx;
-    setIsVisible(hasOverflow && remaining > bottomBufferPx);
-  }, [scrollTargetRef, minOverflowPx, bottomBufferPx]);
+      const { scrollTop, clientHeight, scrollHeight } = target;
+      const hasOverflow = scrollHeight > clientHeight + minOverflowPx;
+      if (!hasOverflow) {
+        updateAwayState(false);
+        return;
+      }
+
+      const wasAway = isAwayRef.current;
+      const nextAway = wasAway
+        ? scrollTop > hideThresholdPx
+        : scrollTop >= showThresholdPx;
+
+      // If opening the utility bar right when the user settled at the very bottom,
+      // gently keep the final card in view without triggering a scroll-hide flicker.
+      if (allowBottomCompensation && !wasAway && nextAway) {
+        const remaining = scrollHeight - (scrollTop + clientHeight);
+        if (remaining < UTILITY_BAR_HEIGHT_PX) {
+          const compensation = Math.max(0, UTILITY_BAR_HEIGHT_PX - remaining);
+          ignoreScrollUntilRef.current = performance.now() + 120;
+          requestAnimationFrame(() => {
+            const el = scrollTargetRef?.current;
+            if (!el) return;
+            ignoreScrollUntilRef.current = performance.now() + 120;
+            el.scrollTop = Math.min(
+              Math.max(0, el.scrollHeight - el.clientHeight),
+              el.scrollTop + compensation,
+            );
+          });
+        }
+      }
+
+      updateAwayState(nextAway);
+    },
+    [
+      scrollTargetRef,
+      minOverflowPx,
+      showThresholdPx,
+      hideThresholdPx,
+      updateAwayState,
+    ],
+  );
 
   useEffect(() => {
     let rafId = 0;
 
-    const scheduleMeasure = () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(measure);
+    const clearSettleTimer = () => {
+      if (settleTimerRef.current !== null) {
+        window.clearTimeout(settleTimerRef.current);
+        settleTimerRef.current = null;
+      }
     };
 
-    scheduleMeasure();
+    const scheduleEvaluate = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        evaluatePosition(false);
+      });
+    };
 
-    const customEl = scrollTargetRef?.current ?? null;
-    const scrollTarget: EventTarget = customEl ?? window;
+    const handleScroll = () => {
+      if (performance.now() < ignoreScrollUntilRef.current) {
+        return;
+      }
 
-    scrollTarget.addEventListener('scroll', scheduleMeasure, { passive: true });
-    window.addEventListener('resize', scheduleMeasure, { passive: true });
+      setIsActivelyScrolling(true);
+      clearSettleTimer();
+      settleTimerRef.current = window.setTimeout(() => {
+        settleTimerRef.current = null;
+        evaluatePosition(true);
+        setIsActivelyScrolling(false);
+      }, SCROLL_SETTLE_DELAY_MS);
+    };
 
-    let observer: ResizeObserver | null = null;
-    if (typeof ResizeObserver !== 'undefined') {
-      observer = new ResizeObserver(scheduleMeasure);
-      observer.observe(customEl ?? document.body);
+    // Reset active scroll state on screen/stage/tab change and measure immediately
+    setIsActivelyScrolling(false);
+    scheduleEvaluate();
+
+    const target = scrollTargetRef?.current ?? null;
+    if (target) {
+      target.addEventListener('scroll', handleScroll, { passive: true });
+    }
+    window.addEventListener('resize', scheduleEvaluate, { passive: true });
+
+    let resizeObserver: ResizeObserver | null = null;
+    if (target && typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(scheduleEvaluate);
+      resizeObserver.observe(target);
+      if (target.firstElementChild) {
+        resizeObserver.observe(target.firstElementChild);
+      }
     }
 
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
-      scrollTarget.removeEventListener('scroll', scheduleMeasure);
-      window.removeEventListener('resize', scheduleMeasure);
-      observer?.disconnect();
+      clearSettleTimer();
+      if (target) {
+        target.removeEventListener('scroll', handleScroll);
+      }
+      window.removeEventListener('resize', scheduleEvaluate);
+      resizeObserver?.disconnect();
     };
-  }, [measure, scrollTargetRef, recheckKey]);
+  }, [evaluatePosition, scrollTargetRef, recheckKey]);
 
-  const handleScrollDown = () => {
+  // Cleanly notify parent if unmounted while open
+  useEffect(() => {
+    return () => {
+      if (isAwayRef.current) {
+        isAwayRef.current = false;
+        onSlotActiveChange?.(false);
+      }
+    };
+  }, [onSlotActiveChange]);
+
+  const handleBackToTop = () => {
     if (typeof window === 'undefined') return;
+    const target = scrollTargetRef?.current ?? null;
+    if (!target) return;
+
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches;
-    const behavior: ScrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
 
-    const customEl = scrollTargetRef?.current ?? null;
-    if (customEl) {
-      customEl.scrollTo({
-        top: Math.max(0, customEl.scrollHeight - customEl.clientHeight),
-        behavior,
-      });
-    } else {
-      const docEl = document.scrollingElement || document.documentElement;
-      window.scrollTo({
-        top: Math.max(0, docEl.scrollHeight - window.innerHeight),
-        behavior,
-      });
+    setIsActivelyScrolling(true);
+    target.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
+
+    if (settleTimerRef.current !== null) {
+      window.clearTimeout(settleTimerRef.current);
     }
+    settleTimerRef.current = window.setTimeout(
+      () => {
+        settleTimerRef.current = null;
+        evaluatePosition(false);
+        setIsActivelyScrolling(false);
+      },
+      prefersReducedMotion ? 50 : SCROLL_SETTLE_DELAY_MS,
+    );
   };
 
-  const gradientBottomStyle =
-    bottomOffsetMode === 'app-nav'
-      ? undefined
-      : bottomOffsetMode === 'lesson-nav'
-        ? { bottom: 'calc(68px + env(safe-area-inset-bottom, 0px))' }
-        : { bottom: '0px' };
-
-  const gradientBottomClass =
-    bottomOffsetMode === 'app-nav'
-      ? 'bottom-[var(--gq-app-nav-height,48px)] md:bottom-0'
-      : '';
-
-  const buttonBottomStyle =
-    bottomOffsetMode === 'app-nav'
-      ? undefined
-      : bottomOffsetMode === 'lesson-nav'
-        ? { bottom: 'calc(80px + env(safe-area-inset-bottom, 0px))' }
-        : { bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))' };
-
-  const buttonBottomClass =
-    bottomOffsetMode === 'app-nav'
-      ? 'bottom-[calc(var(--gq-app-nav-height,48px)+12px)] md:bottom-4'
-      : '';
+  const isVisible = isAwayFromTop && !isActivelyScrolling;
 
   return (
-    <>
-      {/* Subtle 90px Bottom Gradient Fade */}
-      <div
-        aria-hidden="true"
-        className={[
-          'fixed left-0 right-0 h-[90px] pointer-events-none z-10 transition-opacity duration-200',
-          gradientBottomClass,
-          isVisible ? 'opacity-100' : 'opacity-0',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        style={{
-          ...gradientBottomStyle,
-          background: `linear-gradient(to bottom, transparent 0%, ${fadeColor} 100%)`,
-        }}
-      />
-
-      {/* 44px Circular Navy Icon-Only Scroll Cue */}
-      <div
-        aria-hidden={!isVisible || undefined}
-        className={[
-          'fixed left-0 right-0 z-20 flex justify-center pointer-events-none',
-          buttonBottomClass,
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        style={buttonBottomStyle}
-      >
-        <button
-          type="button"
-          onClick={handleScrollDown}
-          aria-label={ariaLabel}
-          aria-hidden={!isVisible}
-          tabIndex={isVisible ? 0 : -1}
-          className={[
-            'w-11 h-11 rounded-full bg-[#1B2559] hover:bg-[#141D47] text-white',
-            'inline-flex items-center justify-center shadow-[0_6px_16px_rgba(27,37,89,0.28)]',
-            'transition-opacity duration-200 cursor-pointer',
-            'focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]',
-            isVisible
-              ? 'opacity-100 pointer-events-auto'
-              : 'opacity-0 pointer-events-none',
-          ].join(' ')}
-        >
-          <ChevronDown
-            className="gq-scroll-chevron w-5 h-5"
-            strokeWidth={2.75}
-            aria-hidden="true"
-          />
-        </button>
-      </div>
-    </>
+    <button
+      type="button"
+      onClick={handleBackToTop}
+      aria-label={ariaLabel}
+      aria-hidden={!isVisible}
+      tabIndex={isVisible ? 0 : -1}
+      className={[
+        'w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#1B2559] hover:bg-[#141D47] text-white shrink-0',
+        'inline-flex items-center justify-center shadow-[0_6px_16px_rgba(27,37,89,0.28)]',
+        'transition-opacity duration-200 cursor-pointer',
+        'focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]',
+        isVisible
+          ? 'opacity-100 pointer-events-auto'
+          : 'opacity-0 pointer-events-none',
+      ].join(' ')}
+    >
+      <ChevronUp className="w-5 h-5" strokeWidth={2.75} aria-hidden="true" />
+    </button>
   );
 };

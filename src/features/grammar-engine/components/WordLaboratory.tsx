@@ -12,7 +12,12 @@ import React, { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowLeft, ArrowRight, Award, Check, RotateCcw } from 'lucide-react';
 import type { WordLabActivity } from '../../../schemas/grammarEngine.schema';
-import { Button } from '../../../components';
+import {
+  AppShellFooter,
+  AppShellSubHeader,
+  Button,
+  useAppScroll,
+} from '../../../components';
 import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
 import { IdentifyGroupActivity } from './IdentifyGroupActivity';
 import { IdentifyBothActivity } from './IdentifyBothActivity';
@@ -25,6 +30,7 @@ import {
 } from './WordLabChallengeActivity';
 
 export interface WordLaboratoryProps {
+  isActive?: boolean;
   activities: WordLabActivity[];
   initialSolvedIds?: string[];
   hasIndependentPractice?: boolean;
@@ -62,6 +68,7 @@ function getActivityTabParts(
 }
 
 export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
+  isActive = true,
   activities,
   initialSolvedIds,
   hasIndependentPractice = false,
@@ -73,6 +80,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
   onFinishMissionPractice,
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
+  const { scrollToTop } = useAppScroll();
   const [activeIndex, setActiveIndex] = useState(0);
   const [solvedIds, setSolvedIds] = useState<string[]>(() => initialSolvedIds ?? []);
   const solvedIdsRef = React.useRef<string[]>(solvedIds);
@@ -96,7 +104,10 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
     if (currentActivity) {
       onActiveActivityChange?.(currentActivity);
     }
-  }, [currentActivity, onActiveActivityChange]);
+    if (isActive) {
+      scrollToTop('auto');
+    }
+  }, [currentActivity, onActiveActivityChange, isActive, scrollToTop]);
 
   const markSolved = (id: string) => {
     const prev = solvedIdsRef.current;
@@ -130,56 +141,60 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
 
   return (
     <div className={isSortActivity ? 'space-y-2' : 'space-y-4'}>
-      {/* Equal-Width Guided Practice Activity Tab Grid */}
-      <div
-        className="grid gap-1"
-        style={{
-          gridTemplateColumns: `repeat(${Math.max(activities.length, 1)}, minmax(0, 1fr))`,
-        }}
-        role="tablist"
-        aria-label="Guided practice activities"
-      >
-        {activities.map((act, idx) => {
-          const isCurrent = idx === activeIndex;
-          const isDone = solvedIds.includes(act.id);
-          const { letter, shortName } = getActivityTabParts(act, idx);
+      {/* Region C: Equal-Width Guided Practice Activity Tab Grid */}
+      <AppShellSubHeader isActive={isActive}>
+        <div className="bg-white/95 backdrop-blur-md border-b border-[#E5E2D9] px-3 sm:px-6 py-2">
+          <div
+            className="max-w-[920px] mx-auto grid gap-1"
+            style={{
+              gridTemplateColumns: `repeat(${Math.max(activities.length, 1)}, minmax(0, 1fr))`,
+            }}
+            role="tablist"
+            aria-label="Guided practice activities"
+          >
+            {activities.map((act, idx) => {
+              const isCurrent = idx === activeIndex;
+              const isDone = solvedIds.includes(act.id);
+              const { letter, shortName } = getActivityTabParts(act, idx);
 
-          return (
-            <button
-              key={act.id}
-              type="button"
-              role="tab"
-              aria-selected={isCurrent}
-              aria-current={isCurrent ? 'step' : undefined}
-              onClick={() => setActiveIndex(idx)}
-              className={[
-                'h-[48px] min-h-[48px] px-0.5 rounded-[11px] border flex flex-col items-center justify-center gap-0.5 transition-colors cursor-pointer min-w-0',
-                isCurrent
-                  ? 'bg-[#1B2559] text-white border-[#1B2559] shadow-xs'
-                  : isDone
-                    ? 'bg-[#D7F5EE] text-[#1B2559] border-[#65D8CA]'
-                    : 'bg-white text-[#4A5170] border-[#E5E2D9] hover:border-[#1B2559]/40 hover:text-[#1B2559]',
-              ].join(' ')}
-            >
-              <span className="inline-flex items-center gap-0.5 text-[14px] font-extrabold leading-none">
-                <span>{letter}</span>
-                {isDone ? (
-                  <Check
-                    className={[
-                      'w-3 h-3 shrink-0 stroke-[2.75]',
-                      isCurrent ? 'text-[#8FD9AE]' : 'text-[#0F7F76]',
-                    ].join(' ')}
-                    aria-hidden="true"
-                  />
-                ) : null}
-              </span>
-              <span className="text-[10.5px] font-semibold leading-none tracking-tight truncate max-w-full px-0.5">
-                {shortName}
-              </span>
-            </button>
-          );
-        })}
-      </div>
+              return (
+                <button
+                  key={act.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isCurrent}
+                  aria-current={isCurrent ? 'step' : undefined}
+                  onClick={() => setActiveIndex(idx)}
+                  className={[
+                    'h-[48px] min-h-[48px] px-0.5 rounded-[11px] border flex flex-col items-center justify-center gap-0.5 transition-colors cursor-pointer min-w-0',
+                    isCurrent
+                      ? 'bg-[#1B2559] text-white border-[#1B2559] shadow-xs'
+                      : isDone
+                        ? 'bg-[#D7F5EE] text-[#1B2559] border-[#65D8CA]'
+                        : 'bg-white text-[#4A5170] border-[#E5E2D9] hover:border-[#1B2559]/40 hover:text-[#1B2559]',
+                  ].join(' ')}
+                >
+                  <span className="inline-flex items-center gap-0.5 text-[14px] font-extrabold leading-none">
+                    <span>{letter}</span>
+                    {isDone ? (
+                      <Check
+                        className={[
+                          'w-3 h-3 shrink-0 stroke-[2.75]',
+                          isCurrent ? 'text-[#8FD9AE]' : 'text-[#0F7F76]',
+                        ].join(' ')}
+                        aria-hidden="true"
+                      />
+                    ) : null}
+                  </span>
+                  <span className="text-[10.5px] font-semibold leading-none tracking-tight truncate max-w-full px-0.5">
+                    {shortName}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </AppShellSubHeader>
 
       {/* Guided Practice Views (kept mounted so switching A–F preserves task state) */}
       {activities.map((act, idx) => {
@@ -310,8 +325,8 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
         </motion.div>
       ) : null}
 
-      {/* Pinned Bottom Navigation & Controls Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-20 bg-white/95 backdrop-blur-md border-t border-[#E5E2D9]">
+      {/* Region E: Reserved Bottom Navigation & Controls Bar */}
+      <AppShellFooter isActive={isActive}>
         <div className="max-w-[920px] mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-1.5 sm:gap-2">
           <div className="flex items-center gap-1.5 shrink-0">
             <button
@@ -397,7 +412,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
             </Button>
           )}
         </div>
-      </div>
+      </AppShellFooter>
     </div>
   );
 };

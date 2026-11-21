@@ -9,7 +9,7 @@
  */
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, ArrowLeft, ArrowRight, Send } from 'lucide-react';
 import type {
   AssessmentAttemptRecord,
   AssessmentDefinition,
@@ -20,6 +20,7 @@ import {
   saveInProgressAssessmentAttempt,
   submitAssessmentAttempt,
 } from '../../../storage/assessmentRepository';
+import { AppShellFooter, Button, useAppScroll } from '../../../components';
 import { evaluateAssessment, sanitizeQuestionForStudent } from '../scoring';
 import { AssessmentHeader } from './AssessmentHeader';
 import { QuestionCard } from './QuestionCard';
@@ -44,6 +45,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
   onBackToHome,
   onAssessmentSubmitted,
 }) => {
+  const { scrollToTop } = useAppScroll();
   const [isLoading, setIsLoading] = useState(true);
   const [attempt, setAttempt] = useState<AssessmentAttemptRecord | null>(null);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
@@ -143,6 +145,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
     const clamped = Math.max(0, Math.min(nextIndex, sanitizedQuestions.length - 1));
     setCurrentIndex(clamped);
     void persistDraft(selectedAnswers, clamped);
+    scrollToTop('auto');
   };
 
   const handleConfirmSubmit = async () => {
@@ -161,9 +164,7 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
     if (!result.storageAvailable && result.storageMessage) {
       setStorageWarning(result.storageMessage);
     }
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    scrollToTop('smooth');
   };
 
   if (isLoading) {
@@ -225,11 +226,51 @@ export const AssessmentRunner: React.FC<AssessmentRunnerProps> = ({
             questionIds={questionIds}
             currentIndex={currentIndex}
             selectedAnswers={selectedAnswers}
+            hidePrimaryControls={true}
             onJumpToQuestion={handleMoveToQuestion}
             onPrevious={() => handleMoveToQuestion(currentIndex - 1)}
             onNext={() => handleMoveToQuestion(currentIndex + 1)}
             onRequestSubmit={() => setIsConfirmOpen(true)}
           />
+
+          {/* Region E: Reserved Test Action Bar */}
+          <AppShellFooter>
+            <div className="max-w-[920px] mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-2.5">
+              <Button
+                variant="secondary"
+                size="sm"
+                disabled={currentIndex === 0}
+                onClick={() => handleMoveToQuestion(currentIndex - 1)}
+                leftIcon={<ArrowLeft className="w-4 h-4" />}
+              >
+                Previous
+              </Button>
+
+              <span className="text-xs font-semibold text-[#4B5C8A] tabular-nums">
+                Q{currentIndex + 1} / {sanitizedQuestions.length}
+              </span>
+
+              {currentIndex >= sanitizedQuestions.length - 1 ? (
+                <Button
+                  variant="navy"
+                  size="sm"
+                  onClick={() => setIsConfirmOpen(true)}
+                  leftIcon={<Send className="w-4 h-4" />}
+                >
+                  Review &amp; Submit
+                </Button>
+              ) : (
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={() => handleMoveToQuestion(currentIndex + 1)}
+                  rightIcon={<ArrowRight className="w-4 h-4" />}
+                >
+                  Next
+                </Button>
+              )}
+            </div>
+          </AppShellFooter>
 
           <SubmissionConfirmation
             isOpen={isConfirmOpen}

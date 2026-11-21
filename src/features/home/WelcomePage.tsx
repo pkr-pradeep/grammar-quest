@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { AppShell } from '../../components';
 import shukaMainArtwork from '../../assets/shukaji/main.png';
 
 interface WelcomePageProps {
@@ -25,96 +26,101 @@ const SPARKLES = [
 ];
 
 export const WelcomePage: React.FC<WelcomePageProps> = ({ onStartLearning }) => (
-  <main
-    aria-labelledby="welcome-title"
-    className="gq-welcome relative isolate min-h-[100svh] overflow-hidden bg-[#1F2A68] px-5 text-white"
+  <AppShell
+    ariaLabelledBy="welcome-title"
+    className="gq-welcome bg-[#1F2A68] text-white"
+    showScrollHint={true}
+    utilityMaxWidthClassName="max-w-[430px]"
+    scrollHintAriaLabel="Scroll back to top"
   >
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-      <span className="absolute -bottom-[115px] -left-[70px] h-[200px] w-[330px] rounded-[50%] bg-[#2E3B8E]" />
-      <span className="absolute -bottom-[130px] left-[150px] h-[200px] w-[330px] rounded-[50%] bg-[#3B49A8]" />
-
-      {SPARKLES.map((sparkle, index) => (
-        <span
-          key={`spark-${index}`}
-          className="gq-welcome-spark absolute rounded-full bg-white"
-          style={{
-            top: sparkle.top,
-            left: sparkle.left,
-            right: sparkle.right,
-            width: `${sparkle.size}px`,
-            height: `${sparkle.size}px`,
-            animationDelay: sparkle.delay,
-          }}
-        />
-      ))}
-
-      {TOPIC_CHIPS.map((chip, index) => (
-        <span
-          key={chip.label}
-          className="gq-welcome-chip absolute hidden rounded-full px-3.5 py-2 text-[14px] font-extrabold leading-none text-[#1F2A68] min-[360px]:inline-flex"
-          style={{
-            top: chip.top,
-            left: chip.left,
-            right: chip.right,
-            backgroundColor: chip.color,
-            transform: `rotate(${chip.rotation})`,
-            animationDelay: `${index * 0.2}s`,
-          }}
-        >
-          {chip.label}
-        </span>
-      ))} 
-    </div>
-
-    <div className="gq-welcome-enter relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[430px] flex-col items-center pt-[max(28px,env(safe-area-inset-top))] pb-[max(22px,env(safe-area-inset-bottom))]">
+    <main className="relative isolate flex min-h-full w-full flex-col overflow-x-clip px-5">
       <div
-        className="absolute left-1/2 z-20 w-[min(260px,calc(100vw-80px))] -translate-x-1/2"
-        style={{ top: 'calc(env(safe-area-inset-top) + 14svh)' }}
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        <p className="rounded-[22px] bg-white px-4 py-4 text-center text-[16px] font-extrabold leading-tight text-[#1F2A68] shadow-lg">
-          namaskāraḥ, learner! I'm Śukadeva, <br /> call me Śukaji.
-        </p>
-        <span
-          aria-hidden="true"
-          className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-white"
-        />
+        <span className="absolute -bottom-[115px] -left-[70px] h-[200px] w-[330px] rounded-[50%] bg-[#2E3B8E]" />
+        <span className="absolute -bottom-[130px] left-[150px] h-[200px] w-[330px] rounded-[50%] bg-[#3B49A8]" />
+
+        {SPARKLES.map((sparkle, index) => (
+          <span
+            key={`spark-${index}`}
+            className="gq-welcome-spark absolute rounded-full bg-white"
+            style={{
+              top: sparkle.top,
+              left: sparkle.left,
+              right: sparkle.right,
+              width: `${sparkle.size}px`,
+              height: `${sparkle.size}px`,
+              animationDelay: sparkle.delay,
+            }}
+          />
+        ))}
+
+        {TOPIC_CHIPS.map((chip, index) => (
+          <span
+            key={chip.label}
+            className="gq-welcome-chip absolute hidden rounded-full px-3.5 py-2 text-[14px] font-extrabold leading-none text-[#1F2A68] min-[360px]:inline-flex"
+            style={{
+              top: chip.top,
+              left: chip.left,
+              right: chip.right,
+              backgroundColor: chip.color,
+              transform: `rotate(${chip.rotation})`,
+              animationDelay: `${index * 0.2}s`,
+            }}
+          >
+            {chip.label}
+          </span>
+        ))}
       </div>
 
-      <div className="flex w-full flex-1 flex-col items-center justify-center pt-[clamp(48px,9svh,88px)]">
-        <img
-          src={shukaMainArtwork}
-          alt="Śukaji, the Grammar Quest parrot guide, perched on a branch"
-          draggable={false}
-          className="gq-welcome-mascot block h-[clamp(160px,28svh,240px)] w-[min(64vw,270px)] object-contain"
-        />
+      <div className="gq-welcome-enter relative z-10 mx-auto flex flex-1 w-full max-w-[430px] flex-col items-center justify-between pt-[max(28px,env(safe-area-inset-top,0px))] pb-[max(24px,env(safe-area-inset-bottom,0px))]">
+        <div className="flex w-full flex-1 flex-col items-center justify-center pt-6 pb-2">
+          <div className="relative z-20 mb-3 w-[min(260px,calc(100vw-80px))]">
+            <p className="rounded-[22px] bg-white px-4 py-4 text-center text-[16px] font-extrabold leading-tight text-[#1F2A68] shadow-lg">
+              namaskāraḥ, learner! I'm Śukadeva, <br /> call me Śukaji.
+            </p>
+            <span
+              aria-hidden="true"
+              className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-white"
+            />
+          </div>
 
-        <h1
-          id="welcome-title"
-          className="gq-welcome-title mt-2 whitespace-nowrap text-[40px] font-extrabold leading-[1.05] tracking-normal min-[360px]:text-[44px] sm:text-[52px]"
-        >
-          <span className="text-white">Grammar</span>{' '}
-          <span className="text-[#FFC83D]">Quest</span>
-        </h1>
+          <img
+            src={shukaMainArtwork}
+            alt="Śukaji, the Grammar Quest parrot guide, perched on a branch"
+            draggable={false}
+            className="gq-welcome-mascot block h-[clamp(150px,26dvh,235px)] w-[min(64vw,270px)] object-contain"
+          />
 
-        <p className="mt-2 text-center text-[16px] font-bold leading-snug text-[#D9DDFF] sm:text-[18px]">
-          Grammar that makes you giggle.
-        </p>
+          <h1
+            id="welcome-title"
+            className="gq-welcome-title mt-2 whitespace-nowrap text-[40px] font-extrabold leading-[1.05] tracking-normal min-[360px]:text-[44px] sm:text-[52px]"
+          >
+            <span className="text-white">Grammar</span>{' '}
+            <span className="text-[#FFC83D]">Quest</span>
+          </h1>
+
+          <p className="mt-2 text-center text-[16px] font-bold leading-snug text-[#D9DDFF] sm:text-[18px]">
+            Grammar that makes you giggle.
+          </p>
+        </div>
+
+        <div className="flex w-full flex-col items-center gap-4 pt-4">
+          <button
+            type="button"
+            onClick={onStartLearning}
+            className="gq-welcome-button inline-flex h-[58px] min-h-[44px] w-full max-w-[280px] items-center justify-center gap-2.5 rounded-full bg-[#FFC83D] px-5 text-[20px] font-extrabold text-[#1F2A68] shadow-[0_6px_0_#C9970A] transition-[filter,transform,box-shadow] hover:brightness-105 active:translate-y-1 active:shadow-[0_2px_0_#C9970A] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-white cursor-pointer"
+          >
+            Start learning
+            <ArrowRight className="h-[22px] w-[22px]" strokeWidth={3} aria-hidden="true" />
+          </button>
+
+          <p className="text-center text-[13px] font-bold leading-snug text-[#D9DDFF]">
+            English grammar for all
+          </p>
+        </div>
       </div>
-
-      <div className="flex w-full flex-col items-center gap-5 pt-5">
-        <button
-          type="button"
-          onClick={onStartLearning}
-          className="gq-welcome-button inline-flex h-[58px] min-h-[44px] w-full max-w-[280px] items-center justify-center gap-2.5 rounded-full bg-[#FFC83D] px-5 text-[20px] font-extrabold text-[#1F2A68] shadow-[0_6px_0_#C9970A] transition-[filter,transform,box-shadow] hover:brightness-105 active:translate-y-1 active:shadow-[0_2px_0_#C9970A] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-white"
-        >
-          Start learning
-          <ArrowRight className="h-[22px] w-[22px]" strokeWidth={3} aria-hidden="true" />
-        </button>
-
-        <p className="text-center text-[13px] font-bold leading-snug text-[#D9DDFF]">
-          English grammar for all
-        </p>
-      </div>
-    </div>
-  </main>
+    </main>
+  </AppShell>
 );

@@ -27,7 +27,7 @@ import type {
   AssessmentEvaluationSummary,
   RecommendedMissionStage,
 } from '../../../schemas/assessment.schema';
-import { Button, CelebrationStars } from '../../../components';
+import { AppShellFooter, Button, CelebrationStars } from '../../../components';
 import { SpeakerPortrait } from '../../grammar-engine/speakerTheme';
 import { getAchievementMessage } from '../scoring';
 import { RevisionRecommendations } from './RevisionRecommendations';
@@ -189,29 +189,35 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
       {/* Per-Question Answer Review */}
       <AnswerReview questionResults={evaluation.questionResults} />
 
-      {/* Bottom Navigation Actions */}
-      <div className="flex flex-wrap items-center gap-2.5 pt-1">
-        {onReviewLesson || onBackToMission ? (
-          <Button
-            variant="secondary"
-            size="md"
-            leftIcon={<RotateCcw className="w-4 h-4" />}
-            onClick={onReviewLesson ?? onBackToMission}
-          >
-            Review Lesson
-          </Button>
-        ) : null}
-        {onBackToHome ? (
-          <Button
-            variant="primary"
-            size="md"
-            leftIcon={<Home className="w-4 h-4" />}
-            onClick={onBackToHome}
-          >
-            Back to Home
-          </Button>
-        ) : null}
-      </div>
+      {/* Region E: Reserved Bottom Navigation Actions */}
+      {onReviewLesson || onBackToMission || onBackToHome ? (
+        <AppShellFooter>
+          <div className="max-w-[920px] mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-2">
+            {onReviewLesson || onBackToMission ? (
+              <Button
+                variant="secondary"
+                size="sm"
+                leftIcon={<RotateCcw className="w-4 h-4" />}
+                onClick={onReviewLesson ?? onBackToMission}
+              >
+                Review Lesson
+              </Button>
+            ) : (
+              <span />
+            )}
+            {onBackToHome ? (
+              <Button
+                variant="primary"
+                size="sm"
+                leftIcon={<Home className="w-4 h-4" />}
+                onClick={onBackToHome}
+              >
+                Back to Home
+              </Button>
+            ) : null}
+          </div>
+        </AppShellFooter>
+      ) : null}
     </div>
   );
 };
