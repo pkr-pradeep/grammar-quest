@@ -104,7 +104,7 @@ export const WordToken: React.FC<WordTokenProps> = ({
       className={[
         'group relative inline-flex flex-col items-center justify-center',
         'min-h-[44px] min-w-[44px] px-2.5 sm:px-3 py-1.5 rounded-[12px] border-2',
-        'transition-colors duration-150 select-none cursor-pointer',
+        'transition-colors duration-150 select-none cursor-pointer touch-manipulation',
         isSpotlightHead
           ? 'ring-3 ring-[#F59B19]/45 shadow-sm'
           : isSelected || isHighlighted

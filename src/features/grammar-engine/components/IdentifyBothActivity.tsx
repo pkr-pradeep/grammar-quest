@@ -171,7 +171,7 @@ export const IdentifyBothActivity: React.FC<IdentifyBothActivityProps> = ({
           <button
             type="button"
             onClick={() => setShowHint((h) => !h)}
-            className="inline-flex items-center gap-1 font-medium text-[#263A70] hover:underline min-h-[36px] cursor-pointer"
+            className="inline-flex items-center gap-1 font-medium text-[#263A70] hover:underline min-h-[44px] px-1.5 cursor-pointer touch-manipulation"
           >
             <HelpCircle className="w-3.5 h-3.5" aria-hidden="true" />
             <span>{showHint ? 'Hide hint' : 'Need a hint?'}</span>

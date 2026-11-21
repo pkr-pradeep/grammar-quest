@@ -64,7 +64,7 @@ export const ActivityHintBox: React.FC<{
       type="button"
       onClick={onToggle}
       aria-expanded={isOpen}
-      className="inline-flex items-center gap-1.5 min-h-[44px] px-2 rounded-[10px] text-xs font-semibold text-[#263A70] hover:bg-[#FFF1D5]/70 hover:underline cursor-pointer transition-colors"
+      className="inline-flex items-center gap-1.5 min-h-[44px] px-2 rounded-[10px] text-xs font-semibold text-[#263A70] hover:bg-[#FFF1D5]/70 hover:underline cursor-pointer transition-colors touch-manipulation"
     >
       <HelpCircle className="w-4 h-4 shrink-0 text-[#A15C00]" aria-hidden="true" />
       <span>{isOpen ? 'Hide hint' : 'Need a hint?'}</span>

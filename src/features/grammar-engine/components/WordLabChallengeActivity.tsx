@@ -165,7 +165,7 @@ export const MissingWordsView: React.FC<{
                 onClick={() => handlePick(opt.id, opt.isCorrect)}
                 aria-pressed={isSelected}
                 className={[
-                  'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm sm:text-base font-medium transition-colors',
+                  'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm sm:text-base font-medium transition-colors touch-manipulation',
                   isSolved ? 'cursor-default' : 'cursor-pointer',
                   isSelected
                     ? opt.isCorrect
@@ -263,7 +263,7 @@ export const ErrorIdentificationView: React.FC<{
                 onClick={() => handlePick(opt.id, opt.isCorrect)}
                 aria-pressed={isSelected}
                 className={[
-                  'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors',
+                  'w-full text-left rounded-[12px] border-2 px-3.5 py-3 min-h-[44px] text-sm font-medium transition-colors touch-manipulation',
                   isSolved ? 'cursor-default' : 'cursor-pointer',
                   isSelected
                     ? opt.isCorrect

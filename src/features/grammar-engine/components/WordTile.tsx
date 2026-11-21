@@ -67,7 +67,7 @@ export const WordTile: React.FC<WordTileProps> = ({
       transition={{ duration: 0.14 }}
       className={[
         'inline-flex items-center gap-2 min-h-[44px] px-3.5 py-2 rounded-[14px] border-2',
-        'text-sm sm:text-base font-medium transition-colors duration-150 select-none',
+        'text-sm sm:text-base font-medium transition-colors duration-150 select-none touch-manipulation',
         isDisabled ? 'opacity-45 cursor-not-allowed' : 'cursor-pointer',
         isSelected ? 'ring-2 ring-[#263A70]/30 border-[#263A70] bg-[#FFF4D6] text-[#263A70]' : TONE_CLASSES[tone],
       ].join(' ')}

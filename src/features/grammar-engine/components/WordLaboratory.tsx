@@ -11,7 +11,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowLeft, ArrowRight, Award, Check, RotateCcw } from 'lucide-react';
-import type { WordLabActivity } from '../../../schemas/grammarEngine.schema';
+import type {
+  CategoriseActivity,
+  WordLabActivity,
+} from '../../../schemas/grammarEngine.schema';
 import {
   AppShellFooter,
   AppShellSubHeader,
@@ -22,6 +25,7 @@ import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
 import { IdentifyGroupActivity } from './IdentifyGroupActivity';
 import { IdentifyBothActivity } from './IdentifyBothActivity';
 import { CategorisationActivity } from './CategorisationActivity';
+import { SortSentencesMcqActivity } from './SortSentencesMcqActivity';
 import { SentenceBuilder } from './SentenceBuilder';
 import {
   ErrorIdentificationView,
@@ -65,6 +69,21 @@ function getActivityTabParts(
     letter: defaultLetter,
     shortName: activity.tabLabel.trim(),
   };
+}
+
+function isSentencePurposeCategories(act: CategoriseActivity): boolean {
+  const ids = new Set(act.categories.map((c) => c.id));
+  return (
+    ids.size === 4 &&
+    ids.has('declarative') &&
+    ids.has('interrogative') &&
+    ids.has('imperative') &&
+    ids.has('exclamatory')
+  );
+}
+
+function isSentencePurposeSort(act: WordLabActivity): boolean {
+  return act.kind === 'categorise' && isSentencePurposeCategories(act);
 }
 
 export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
@@ -121,17 +140,9 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
     }
   };
 
-  if (!currentActivity) return null;
-
-  const isSortActivity = currentActivity.kind === 'categorise';
-  const isCurrentSolved = solvedIds.includes(currentActivity.id);
-  const isNextBlocked = !isCurrentSolved;
-
-  const handleResetSort = () => {
-    setCategoriseResetNonce((n) => n + 1);
-    setCategoriseHasProgress(false);
+  const unmarkSolved = (id: string) => {
     const prev = solvedIdsRef.current;
-    const next = prev.filter((id) => id !== currentActivity.id);
+    const next = prev.filter((item) => item !== id);
     if (next.length !== prev.length) {
       solvedIdsRef.current = next;
       setSolvedIds(next);
@@ -139,16 +150,26 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
     }
   };
 
+  if (!currentActivity) return null;
+
+  const isSequentialMcqActive = isSentencePurposeSort(currentActivity);
+  const isLegacySortActivity = currentActivity.kind === 'categorise' && !isSequentialMcqActive;
+  const isCurrentSolved = solvedIds.includes(currentActivity.id);
+  const isNextBlocked = !isCurrentSolved;
+
+  const handleResetSort = () => {
+    setCategoriseResetNonce((n) => n + 1);
+    setCategoriseHasProgress(false);
+    unmarkSolved(currentActivity.id);
+  };
+
   return (
-    <div className={isSortActivity ? 'space-y-2' : 'space-y-4'}>
-      {/* Region C: Equal-Width Guided Practice Activity Tab Grid */}
+    <div className={isLegacySortActivity ? 'space-y-2' : 'space-y-4'}>
+      {/* Region C: Single-Row Activity Navigation (active wider navy tab, compact letter/check tabs) */}
       <AppShellSubHeader isActive={isActive}>
         <div className="bg-white/95 backdrop-blur-md border-b border-[#E5E2D9] px-3 sm:px-6 py-2">
           <div
-            className="max-w-[920px] mx-auto grid gap-1"
-            style={{
-              gridTemplateColumns: `repeat(${Math.max(activities.length, 1)}, minmax(0, 1fr))`,
-            }}
+            className="max-w-[920px] mx-auto flex items-center gap-1 sm:gap-1.5 w-full"
             role="tablist"
             aria-label="Guided practice activities"
           >
@@ -164,31 +185,40 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
                   role="tab"
                   aria-selected={isCurrent}
                   aria-current={isCurrent ? 'step' : undefined}
+                  aria-label={`${letter}. ${shortName}${isDone ? ' — completed' : ''}`}
+                  title={`${letter}. ${shortName}`}
                   onClick={() => setActiveIndex(idx)}
                   className={[
-                    'h-[48px] min-h-[48px] px-0.5 rounded-[11px] border flex flex-col items-center justify-center gap-0.5 transition-colors cursor-pointer min-w-0',
+                    'h-[44px] min-h-[44px] min-w-[44px] rounded-[11px] border flex items-center justify-center transition-colors cursor-pointer touch-manipulation',
                     isCurrent
-                      ? 'bg-[#1B2559] text-white border-[#1B2559] shadow-xs'
+                      ? 'flex-1 min-w-0 px-2.5 sm:px-3.5 gap-1.5 bg-[#1B2559] text-white border-[#1B2559] shadow-xs'
                       : isDone
-                        ? 'bg-[#D7F5EE] text-[#1B2559] border-[#65D8CA]'
-                        : 'bg-white text-[#4A5170] border-[#E5E2D9] hover:border-[#1B2559]/40 hover:text-[#1B2559]',
+                        ? 'w-11 sm:w-12 shrink-0 bg-[#D7F5EE] text-[#0E5A42] border-[#65D8CA] hover:border-[#1FA89A]'
+                        : 'w-11 sm:w-12 shrink-0 bg-white text-[#4A5170] border-[#E4DCC8] hover:border-[#1B2559]/45 hover:text-[#1B2559]',
                   ].join(' ')}
                 >
-                  <span className="inline-flex items-center gap-0.5 text-[14px] font-extrabold leading-none">
-                    <span>{letter}</span>
-                    {isDone ? (
-                      <Check
-                        className={[
-                          'w-3 h-3 shrink-0 stroke-[2.75]',
-                          isCurrent ? 'text-[#8FD9AE]' : 'text-[#0F7F76]',
-                        ].join(' ')}
-                        aria-hidden="true"
-                      />
-                    ) : null}
-                  </span>
-                  <span className="text-[10.5px] font-semibold leading-none tracking-tight truncate max-w-full px-0.5">
-                    {shortName}
-                  </span>
+                  {isCurrent ? (
+                    <>
+                      <span className="text-[13px] font-bold leading-none whitespace-nowrap truncate">
+                        {letter} {shortName}
+                      </span>
+                      {isDone ? (
+                        <Check
+                          className="w-3.5 h-3.5 shrink-0 stroke-[2.75] text-[#8FD9AE]"
+                          aria-hidden="true"
+                        />
+                      ) : null}
+                    </>
+                  ) : isDone ? (
+                    <Check
+                      className="w-4 h-4 shrink-0 stroke-[2.75]"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <span className="text-[14px] font-extrabold leading-none">
+                      {letter}
+                    </span>
+                  )}
                 </button>
               );
             })}
@@ -199,18 +229,35 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
       {/* Guided Practice Views (kept mounted so switching A–F preserves task state) */}
       {activities.map((act, idx) => {
         const isVisible = idx === activeIndex;
+
         return (
           <div key={act.id} className={isVisible ? '' : 'hidden'} aria-hidden={!isVisible}>
             {act.kind === 'categorise' ? (
-              <CategorisationActivity
-                activity={act}
-                resetNonce={categoriseResetNonce}
-                onProgressChange={isVisible ? setCategoriseHasProgress : undefined}
-                onSolved={(stars) => {
-                  markSolved(act.id);
-                  onRecordActivityStars?.(act.id, stars);
-                }}
-              />
+              isSentencePurposeCategories(act) ? (
+                <SortSentencesMcqActivity
+                  activity={act}
+                  isActive={isActive && isVisible}
+                  onSolved={(stars) => {
+                    markSolved(act.id);
+                    onRecordActivityStars?.(act.id, stars);
+                  }}
+                  onRetryReset={() => unmarkSolved(act.id)}
+                  onBackToLesson={onBackToLesson}
+                  onNextActivity={
+                    idx < activities.length - 1 ? () => setActiveIndex(idx + 1) : undefined
+                  }
+                />
+              ) : (
+                <CategorisationActivity
+                  activity={act}
+                  resetNonce={categoriseResetNonce}
+                  onProgressChange={isVisible ? setCategoriseHasProgress : undefined}
+                  onSolved={(stars) => {
+                    markSolved(act.id);
+                    onRecordActivityStars?.(act.id, stars);
+                  }}
+                />
+              )
             ) : (
               <div className="rounded-[20px] bg-[#FDFCF9] border border-[#E5E2D9] p-4 sm:p-5 space-y-3">
                 {solvedIds.includes(act.id) ? (
@@ -325,8 +372,8 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
         </motion.div>
       ) : null}
 
-      {/* Region E: Reserved Bottom Navigation & Controls Bar */}
-      <AppShellFooter isActive={isActive}>
+      {/* Region E: Reserved Bottom Navigation & Controls Bar (delegated for Sequential MCQ Activity A) */}
+      <AppShellFooter isActive={isActive && !isSequentialMcqActive}>
         <div className="max-w-[920px] mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-1.5 sm:gap-2">
           <div className="flex items-center gap-1.5 shrink-0">
             <button
@@ -338,7 +385,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
                   onBackToLesson();
                 }
               }}
-              className="inline-flex items-center justify-center gap-1 min-h-[44px] px-2.5 sm:px-3.5 rounded-[12px] border border-[#E5E2D9] bg-[#FDFCF9] hover:bg-[#F5EFE0] text-[#1B2559] text-[12px] sm:text-xs font-bold whitespace-nowrap cursor-pointer transition-colors"
+              className="inline-flex items-center justify-center gap-1 min-h-[44px] px-2.5 sm:px-3.5 rounded-[12px] border border-[#E5E2D9] bg-[#FDFCF9] hover:bg-[#F5EFE0] text-[#1B2559] text-[12px] sm:text-xs font-bold whitespace-nowrap cursor-pointer transition-colors touch-manipulation"
             >
               <ArrowLeft className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
               {activeIndex === 0 ? (
@@ -350,14 +397,14 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
               )}
             </button>
 
-            {isSortActivity ? (
+            {isLegacySortActivity ? (
               <button
                 type="button"
                 onClick={handleResetSort}
                 disabled={!categoriseHasProgress && !isCurrentSolved}
                 aria-label="Reset this activity"
                 className={[
-                  'inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-[12px] border transition-colors shrink-0',
+                  'inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-[12px] border transition-colors shrink-0 touch-manipulation',
                   categoriseHasProgress || isCurrentSolved
                     ? 'border-[#E5E2D9] bg-[#FDFCF9] text-[#1B2559] hover:bg-[#F5EFE0] cursor-pointer'
                     : 'border-[#EDE8DA] bg-[#F8F5EC] text-[#8E93A6] cursor-not-allowed',
@@ -378,11 +425,11 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
               disabled={isNextBlocked}
               onClick={() => setActiveIndex((i) => i + 1)}
               className={[
-                'inline-flex items-center justify-center gap-1 min-h-[44px] px-3 sm:px-4 rounded-[12px] text-[12px] sm:text-xs font-bold whitespace-nowrap shrink-0 transition-all',
+                'inline-flex items-center justify-center gap-1 min-h-[44px] px-3 sm:px-4 rounded-[12px] text-[12px] sm:text-xs font-bold whitespace-nowrap shrink-0 transition-all touch-manipulation',
                 isNextBlocked
                   ? 'bg-[#C9CDDC] text-[#2B3554] cursor-not-allowed'
                   : 'bg-[#1B2559] text-white hover:bg-[#263A70] cursor-pointer',
-                isSortActivity && isCurrentSolved && !prefersReducedMotion
+                isLegacySortActivity && isCurrentSolved && !prefersReducedMotion
                   ? 'gq-sort-next-pulse'
                   : '',
               ]
