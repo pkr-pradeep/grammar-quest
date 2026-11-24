@@ -10,9 +10,11 @@
  * ============================================================================
  */
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
+import { ZoomIn } from 'lucide-react';
 import { Character } from '../Character';
+import { ModalDialog } from '../Modal/ModalDialog';
 import type {
   CharacterExpression,
   CharacterId,
@@ -29,6 +31,7 @@ export interface CourtyardNoticeboardSceneProps {
   isTyping?: boolean;
   animationSeed?: number;
   className?: string;
+  zoomedView?: boolean;
 }
 
 const SPEAKER_BY_FOCUS: Record<
@@ -185,8 +188,12 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
   isTyping = false,
   animationSeed = 0,
   className = '',
+  zoomedView = false,
 }) => {
   const prefersReducedMotion = useReducedMotion();
+  const [isBoardZoomOpen, setIsBoardZoomOpen] = useState(false);
+  const zoomTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const zoomOkayRef = useRef<HTMLButtonElement | null>(null);
   const shouldAnimate = !prefersReducedMotion && !isPaused;
   const activeSpeaker = SPEAKER_BY_FOCUS[sceneFocus];
   const isStoryMode = mode === 'scattered';
@@ -353,7 +360,7 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
 
   return (
     <div
-      role="img"
+      role="group"
       aria-label={sceneAriaLabel}
       className={[
         'relative w-full overflow-hidden rounded-[18px] border border-[#E5E2D9] bg-gradient-to-b from-[#F4FBF9] via-[#FFF9EC] to-[#FFF1D5]',
@@ -364,9 +371,13 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
     >
       {/* 2D Courtyard & Wooden Noticeboard SVG Backdrop */}
       <svg
-        viewBox="0 0 640 250"
+        viewBox={zoomedView ? '304 28 236 154' : '0 0 640 250'}
         aria-hidden="true"
-        className="w-full h-[186px] sm:h-[224px] block select-none"
+        className={
+          zoomedView
+            ? 'mx-auto block h-auto max-h-[46dvh] w-full max-w-full select-none'
+            : 'w-full h-[186px] sm:h-[224px] block select-none'
+        }
       >
         {/* Subtle Drifting Clouds in Sky (Story & Repaired ambient life) */}
         <g className={!prefersReducedMotion ? 'gq-story-cloud' : ''} opacity="0.78">
@@ -1147,10 +1158,25 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
             </g>
           </g>
         )}
+        {!zoomedView ? (
+          <g
+            onClick={() => setIsBoardZoomOpen(true)}
+            style={{ cursor: 'zoom-in' }}
+          >
+            <rect
+              x="314"
+              y="42"
+              width="212"
+              height="124"
+              fill="transparent"
+              pointerEvents="all"
+            />
+          </g>
+        ) : null}
       </svg>
 
       {/* Foreground Master Characters Overlay (Immutable SVG Masters) */}
-      {isStoryMode ? (
+      {!zoomedView && isStoryMode ? (
         <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
           <div className="flex items-end gap-2 sm:gap-4">
             {renderStoryCharacter('mira', 68, miraPose, miraExpr)}
@@ -1158,7 +1184,7 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
           </div>
           {renderStoryCharacter('shuka', 64, shukaPose, shukaExpr, true)}
         </div>
-      ) : (
+      ) : !zoomedView ? (
         <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
           <div className="flex items-end gap-2 sm:gap-4">
             {(
@@ -1227,7 +1253,63 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
             />
           </div>
         </div>
-      )}
+      ) : null}
+
+      {!zoomedView ? (
+        <>
+          <button
+            ref={zoomTriggerRef}
+            type="button"
+            onClick={() => setIsBoardZoomOpen(true)}
+            className="absolute bottom-2 left-1/2 z-20 inline-flex min-h-[44px] -translate-x-1/2 items-center gap-1.5 rounded-full border border-[#D8D2C5] bg-white/95 px-3.5 text-sm font-bold text-[#263A70] shadow-md hover:bg-white focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#263A70]"
+          >
+            <ZoomIn className="h-4 w-4" aria-hidden="true" />
+            <span>Read board</span>
+          </button>
+
+          <ModalDialog
+            isOpen={isBoardZoomOpen}
+            onClose={() => setIsBoardZoomOpen(false)}
+            ariaLabel="Noticeboard close-up"
+            placement="center"
+            closeOnBackdropClick={false}
+            initialFocusRef={zoomOkayRef}
+            returnFocusRef={zoomTriggerRef}
+            dialogClassName="flex w-full max-w-[720px] max-h-[90dvh] flex-col overflow-hidden rounded-[24px] bg-white shadow-xl"
+          >
+            <div className="flex max-h-[90dvh] min-h-0 flex-col gap-3 p-4 sm:gap-4 sm:p-6">
+              <div className="shrink-0">
+                <h2 className="font-heading text-xl font-extrabold text-[#263A70] sm:text-2xl">
+                  Noticeboard close-up
+                </h2>
+                <p className="mt-1 text-sm leading-relaxed text-[#4B5C8A]">
+                  Take a closer look at the board. Select Okay to return to the scene.
+                </p>
+              </div>
+
+              <div className="flex min-h-0 flex-1 items-center justify-center">
+                <CourtyardNoticeboardScene
+                  mode={mode}
+                  sceneVariant={sceneVariant}
+                  sceneFocus={sceneFocus}
+                  isPaused
+                  animationSeed={animationSeed}
+                  zoomedView
+                />
+              </div>
+
+              <button
+                ref={zoomOkayRef}
+                type="button"
+                onClick={() => setIsBoardZoomOpen(false)}
+                className="min-h-[48px] w-full shrink-0 rounded-full bg-[#263A70] px-6 text-base font-bold text-white shadow-sm hover:bg-[#1D2D59] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#263A70]"
+              >
+                Okay
+              </button>
+            </div>
+          </ModalDialog>
+        </>
+      ) : null}
     </div>
   );
 };

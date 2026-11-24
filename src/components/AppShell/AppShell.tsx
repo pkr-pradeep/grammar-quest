@@ -26,6 +26,7 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { Capacitor } from '@capacitor/core';
 import { ScrollMoreHint } from '../ScrollMoreHint/ScrollMoreHint';
 
 interface AppShellContextValue {
@@ -290,6 +291,8 @@ export const AppShell: React.FC<AppShellProps> = ({
   const hasPersistentUtility = utilityPortalCount > 0;
   const needsBottomClearance =
     hasPersistentUtility || (showScrollHint && isScrollIndicatorVisible);
+  const headerSafeAreaClassName =
+    Capacitor.getPlatform() === 'android' ? '' : 'pt-[env(safe-area-inset-top,0px)]';
 
   return (
     <AppShellContext.Provider value={contextValue}>
@@ -298,11 +301,12 @@ export const AppShell: React.FC<AppShellProps> = ({
         aria-labelledby={ariaLabelledBy}
         className={['gq-app-shell', className].filter(Boolean).join(' ')}
       >
-        {/* B. Screen Header (with top safe-area inset for Android status bars/cutouts) */}
+        {/* B. Screen Header (Android's top system inset is already applied natively) */}
         {header ? (
           <div
             className={[
-              'relative shrink-0 z-40 pt-[env(safe-area-inset-top,0px)]',
+              'relative shrink-0 z-40',
+              headerSafeAreaClassName,
               headerWrapperClassName,
             ]
               .filter(Boolean)
