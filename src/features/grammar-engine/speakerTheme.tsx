@@ -6,7 +6,7 @@
  * Story, Learn, Guided Practice, and Mission Completion screens:
  *  - Consistent accessible solid/tint colours (>= 4.5:1 white text contrast)
  *  - Role labels ('Student' / 'Wise parrot guide')
- *  - 44px round portrait cropped directly from the immutable SVG Character masters
+ *  - 44px round portrait cropped directly from the master character artwork
  * ============================================================================
  */
 

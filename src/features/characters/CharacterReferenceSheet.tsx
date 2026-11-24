@@ -9,13 +9,14 @@
  * - Standard appearance lineup for Mira, Arjun, and ShukaJi together
  * - Colour palette hex references and proportions
  * - Isolated expression verification (fixed standing-idle pose)
- * - Isolated 10-pose verification (fixed happy expression)
+ * - Isolated pose verification (fixed happy expression)
  * - Interactive single-state inspector separating Pose, Expression, and Motion
  * ============================================================================
  */
 
-import React, { useState } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ArrowLeft, Pause, Volume2 } from 'lucide-react';
+import miraIntroSpeech from '../../assets/audio/mira_intro_speech.mp3';
 import {
   ALL_ANIMATION_STATES,
   ALL_POSES,
@@ -37,6 +38,280 @@ interface CharacterReferenceSheetProps {
 
 const CHARACTER_IDS: CharacterId[] = ['mira', 'arjun', 'shuka'];
 const INSPECTOR_SIZES: CharacterSize[] = ['sm', 'md', 'lg'];
+
+const VOICE_SAMPLES: Record<
+  CharacterId,
+  { line: string | null; accent: string; pitch: number; rate: number }
+> = {
+  mira: {
+    line: null,
+    accent: 'Provided Mira recording',
+    pitch: 1.08,
+    rate: 0.94,
+  },
+  arjun: {
+    line: "Hello, I'm Arjun. Ready to solve a grammar puzzle? Let's figure it out together!",
+    accent: 'Youthful English; Odia-influenced Indian accent requested',
+    pitch: 1.04,
+    rate: 0.94,
+  },
+  shuka: {
+    line: "Namaste, learners! I'm Śukaji. Come along—English is more fun when we learn together!",
+    accent: 'Warm feminine Indian English requested',
+    pitch: 1.02,
+    rate: 0.98,
+  },
+};
+
+const voiceKey = (voice: SpeechSynthesisVoice) =>
+  voice.voiceURI || `${voice.name}-${voice.lang}`;
+
+const preferredVoice = (
+  id: CharacterId,
+  voices: SpeechSynthesisVoice[],
+): SpeechSynthesisVoice | undefined => {
+  const indianEnglishVoices = voices.filter((voice) =>
+    voice.lang.toLowerCase().startsWith('en-in'),
+  );
+  const candidates = indianEnglishVoices.length ? indianEnglishVoices : voices;
+  const preference =
+    id === 'arjun'
+      ? /ravi|male|man|david|mark|hemant/i
+      : /heera|female|woman|zira|samantha|karen|kalpana/i;
+
+  return candidates.find((voice) => preference.test(voice.name)) ?? candidates[0];
+};
+
+const VoiceSamplePreview: React.FC = () => {
+  const [activeSample, setActiveSample] = useState<CharacterId | null>(null);
+  const [status, setStatus] = useState('');
+  const [deviceVoices, setDeviceVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [selectedVoices, setSelectedVoices] = useState<
+    Partial<Record<CharacterId, string>>
+  >({});
+  const activeSampleRef = useRef<CharacterId | null>(null);
+  const activeAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const speech = 'speechSynthesis' in window ? window.speechSynthesis : null;
+    const loadVoices = () => {
+      if (!speech) return;
+      setDeviceVoices(
+        speech
+          .getVoices()
+          .filter((voice) => voice.lang.toLowerCase().startsWith('en')),
+      );
+    };
+
+    if (speech) {
+      loadVoices();
+      speech.addEventListener('voiceschanged', loadVoices);
+    }
+
+    return () => {
+      speech?.removeEventListener('voiceschanged', loadVoices);
+      speech?.cancel();
+      activeAudioRef.current?.pause();
+      activeAudioRef.current = null;
+    };
+  }, []);
+
+  const playSample = (id: CharacterId) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const speech =
+      'speechSynthesis' in window ? window.speechSynthesis : null;
+    if (activeSampleRef.current === id) {
+      activeSampleRef.current = null;
+      speech?.cancel();
+      activeAudioRef.current?.pause();
+      activeAudioRef.current = null;
+      setActiveSample(null);
+      setStatus('Voice sample stopped.');
+      return;
+    }
+
+    speech?.cancel();
+    activeAudioRef.current?.pause();
+    activeAudioRef.current = null;
+
+    if (id === 'mira') {
+      const audio = new Audio(miraIntroSpeech);
+      activeAudioRef.current = audio;
+      activeSampleRef.current = id;
+      setActiveSample(id);
+      setStatus('Playing the provided Mira voice recording.');
+      audio.onended = () => {
+        if (activeSampleRef.current === id) {
+          activeSampleRef.current = null;
+          activeAudioRef.current = null;
+          setActiveSample(null);
+          setStatus('Voice sample finished.');
+        }
+      };
+      audio.onerror = () => {
+        if (activeSampleRef.current === id) {
+          activeSampleRef.current = null;
+          activeAudioRef.current = null;
+          setActiveSample(null);
+          setStatus('Mira’s audio sample could not be played.');
+        }
+      };
+      void audio.play().catch(() => {
+        if (activeSampleRef.current === id) {
+          activeSampleRef.current = null;
+          activeAudioRef.current = null;
+          setActiveSample(null);
+          setStatus('Mira’s audio sample could not be played.');
+        }
+      });
+      return;
+    }
+
+    if (!speech) {
+      setStatus('Speech playback is not supported by this browser.');
+      return;
+    }
+
+    const availableVoices = speech
+      .getVoices()
+      .filter((candidate) => candidate.lang.toLowerCase().startsWith('en'));
+    const voice =
+      availableVoices.find(
+        (candidate) => voiceKey(candidate) === selectedVoices[id],
+      ) ?? preferredVoice(id, availableVoices);
+
+    if (!voice) {
+      setStatus(
+        'No English voice is available. Install an English voice in your device speech settings and try again.',
+      );
+      return;
+    }
+    const line = VOICE_SAMPLES[id].line;
+    if (!line) {
+      setStatus('No text sample is available for this character.');
+      return;
+    }
+
+    speech.cancel();
+    activeSampleRef.current = id;
+    setActiveSample(id);
+    setStatus(`Playing ${CHARACTER_MASTERS[id].name} with the device voice (${voice.lang}).`);
+
+    const utterance = new SpeechSynthesisUtterance(line);
+    utterance.voice = voice;
+    utterance.lang = voice.lang;
+    utterance.pitch = VOICE_SAMPLES[id].pitch;
+    utterance.rate = VOICE_SAMPLES[id].rate;
+    utterance.onend = () => {
+      if (activeSampleRef.current === id) {
+        activeSampleRef.current = null;
+        setActiveSample(null);
+        setStatus('Voice sample finished.');
+      }
+    };
+    utterance.onerror = () => {
+      if (activeSampleRef.current === id) {
+        activeSampleRef.current = null;
+        setActiveSample(null);
+        setStatus('Voice playback failed. Check your device speech settings.');
+      }
+    };
+
+    speech.speak(utterance);
+  };
+
+  return (
+    <Card surface="white" padding="md" className="sm:p-6 space-y-4">
+      <div className="space-y-1">
+        <h2 className="font-heading text-lg font-semibold text-[#263A70]">
+          Voice Sample Preview
+        </h2>
+        <p className="text-xs leading-relaxed text-[#4B5C8A]">
+          Mira plays the supplied recording. Arjun and Śukaji use installed device
+          voices; their age and regional accent are not guaranteed.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+        {CHARACTER_IDS.map((id) => {
+          const sample = VOICE_SAMPLES[id];
+          const defaultVoice = preferredVoice(id, deviceVoices);
+          const isActive = activeSample === id;
+          return (
+            <Card key={id} surface="cream" padding="sm" className="space-y-3">
+              <div>
+                <h3 className="font-heading text-base font-semibold text-[#263A70]">
+                  {CHARACTER_MASTERS[id].name}
+                </h3>
+                <p className="text-[11px] text-[#A15C00]">{sample.accent}</p>
+              </div>
+              {sample.line ? (
+                <p className="text-sm leading-relaxed text-[#333333]">{sample.line}</p>
+              ) : null}
+              {id === 'mira' ? (
+                <p className="text-xs text-[#4B5C8A]">
+                  Plays the supplied MP3 recording.
+                </p>
+              ) : (
+                <label className="block space-y-1 text-xs font-medium text-[#4B5C8A]">
+                  <span>Installed English voice</span>
+                  <select
+                    value={
+                      selectedVoices[id] ??
+                      (defaultVoice ? voiceKey(defaultVoice) : '')
+                    }
+                    onChange={(event) =>
+                      setSelectedVoices((current) => ({
+                        ...current,
+                        [id]: event.target.value,
+                      }))
+                    }
+                    disabled={deviceVoices.length === 0}
+                    className="min-h-[44px] w-full rounded-[10px] border border-[#E5E2D9] bg-white px-3 text-sm text-[#263A70] disabled:opacity-60"
+                  >
+                    {deviceVoices.length === 0 ? (
+                      <option value="">Loading device voices…</option>
+                    ) : null}
+                    {deviceVoices.map((voice) => (
+                      <option key={voiceKey(voice)} value={voiceKey(voice)}>
+                        {voice.name} ({voice.lang})
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+              <button
+                type="button"
+                onClick={() => playSample(id)}
+                aria-label={`${isActive ? 'Stop' : 'Play'} ${CHARACTER_MASTERS[id].name} voice sample`}
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-[10px] bg-[#263A70] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#1B2559] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#263A70]"
+              >
+                {isActive ? (
+                  <Pause className="h-4 w-4" aria-hidden="true" />
+                ) : (
+                  <Volume2 className="h-4 w-4" aria-hidden="true" />
+                )}
+                {isActive ? 'Stop sample' : 'Play sample'}
+              </button>
+            </Card>
+          );
+        })}
+      </div>
+      <p className="min-h-5 text-xs text-[#4B5C8A]" role="status" aria-live="polite">
+        {status}
+      </p>
+      <p className="text-[11px] leading-relaxed text-[#4B5C8A]">
+        For Arjun and Śukaji, automatic choices prefer Indian English and a voice-name
+        hint when available. Choose an installed voice above and compare by listening.
+        Device TTS does not expose gender or Telugu/Odia-specific English accents.
+      </p>
+    </Card>
+  );
+};
 
 export const CharacterReferenceSheet: React.FC<CharacterReferenceSheetProps> = ({
   onBack,
@@ -152,6 +427,8 @@ export const CharacterReferenceSheet: React.FC<CharacterReferenceSheetProps> = (
         </div>
       </Card>
 
+      <VoiceSamplePreview />
+
       {/* 2. Interactive Single-State Inspector */}
       <Card surface="white" padding="md" className="sm:p-6 space-y-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -264,7 +541,7 @@ export const CharacterReferenceSheet: React.FC<CharacterReferenceSheetProps> = (
             {/* Active Pose (1 at a time) */}
             <div>
               <span className="block text-xs font-semibold text-[#4B5C8A] mb-1.5">
-                Active Pose (1 of 10)
+                Active Pose (1 of {ALL_POSES.length})
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {ALL_POSES.map((p) => (
@@ -356,14 +633,14 @@ export const CharacterReferenceSheet: React.FC<CharacterReferenceSheetProps> = (
         </div>
       </Card>
 
-      {/* 4. Isolated 10-Pose Consistency Matrix (happy expression fixed) */}
+      {/* 4. Pose Consistency Matrix (happy expression fixed) */}
       <Card surface="white" padding="md" className="sm:p-6 space-y-5">
         <div className="space-y-1">
           <h2 className="font-heading text-lg font-semibold text-[#263A70]">
-            4. Complete 10-Pose Consistency Matrix (Neutral Happy Expression)
+            4. Complete Pose Consistency Matrix (Neutral Happy Expression)
           </h2>
           <p className="text-xs text-[#4B5C8A]">
-            Rendered in fixed happy expression so posture, clothing, and proportions are verified across all 10 poses.
+            Rendered in a fixed happy expression so the available poses can be compared consistently.
           </p>
         </div>
 

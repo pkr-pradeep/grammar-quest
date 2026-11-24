@@ -25,7 +25,8 @@ export type CharacterPose =
   | 'thinking'
   | 'confused'
   | 'celebrating'
-  | 'encouraging';
+  | 'encouraging'
+  | 'listening';
 
 export type CharacterExpression =
   | 'happy'
@@ -70,6 +71,7 @@ export const ALL_POSES: { id: CharacterPose; label: string }[] = [
   { id: 'confused', label: 'Looking confused' },
   { id: 'celebrating', label: 'Celebrating' },
   { id: 'encouraging', label: 'Encouraging' },
+  { id: 'listening', label: 'Listening' },
 ];
 
 export const ALL_ANIMATION_STATES: { id: CharacterAnimationState; label: string }[] = [
@@ -90,7 +92,7 @@ export const CHARACTER_MASTERS: Record<CharacterId, CharacterMasterSpec> = {
     roleTitle: 'The Curious Learner',
     summary:
       'Indian Class 9–10 schoolgirl with dark brown centre-parted braided hair, sunshine-yellow collared kurti, navy satchel, and turquoise notebook.',
-    proportions: 'Full-body 2D vector (180×240 canvas, 2.5px #263A70 outline)',
+    proportions: 'Full-body illustrated character with 11 transparent pose images.',
     palette: [
       { label: 'Dark Brown Hair', hex: '#3A241D' },
       { label: 'Skin', hex: '#F2B488' },
@@ -115,7 +117,7 @@ export const CHARACTER_MASTERS: Record<CharacterId, CharacterMasterSpec> = {
     roleTitle: 'The Grammar Explorer',
     summary:
       'Indian Class 9–10 schoolboy with wavy dark hair, turquoise overshirt over a cream tee, navy backpack, and field study pencil/notebook.',
-    proportions: 'Full-body 2D vector (180×240 canvas, 2.5px #263A70 outline)',
+    proportions: 'Full-body illustrated character with 11 transparent pose images.',
     palette: [
       { label: 'Dark Hair', hex: '#1F2437' },
       { label: 'Skin', hex: '#DD9768' },

@@ -7,10 +7,10 @@
  *
  * Props:
  * - characterId: 'mira' | 'arjun' | 'shuka'
- * - pose: 10 required poses ('standing-idle' through 'encouraging')
+ * - pose: character poses, including the image-backed listening pose
  * - expression: facial expression
  * - animationState: 'idle' | 'blink' | 'talk' | 'point' | 'wave' | 'celebrate' | 'enter' | 'none'
- * - size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number (width in px; artwork-native aspect ratio)
+ * - size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number (width in px; artwork is contained)
  * - flipHorizontal: mirror horizontally if character faces left
  *
  * Motion & Accessibility:
@@ -30,8 +30,7 @@ import type {
   CharacterSize,
 } from './types';
 import { CHARACTER_MASTERS } from './types';
-import { MiraSvg } from './MiraSvg';
-import { ArjunSvg } from './ArjunSvg';
+import { getCharacterArtwork } from './characterArtwork';
 import { ShukaJiSvg } from './ShukaJiSvg';
 
 export interface CharacterProps {
@@ -78,8 +77,6 @@ export const Character: React.FC<CharacterProps> = ({
     ? 'none'
     : animationState;
 
-  const isTalking = effectiveAnimation === 'talk';
-
   const animClass =
     effectiveAnimation === 'idle'
       ? 'gq-anim-idle'
@@ -116,25 +113,15 @@ export const Character: React.FC<CharacterProps> = ({
   const label =
     ariaLabel ?? `${master.name}, ${master.roleTitle}, ${pose.replace('-', ' ')} (${expression})`;
 
-  const renderSvg = () => {
+  const renderArtwork = () => {
     const svgClass = 'w-full h-full block';
-    if (characterId === 'mira') {
+    if (characterId !== 'shuka') {
       return (
-        <MiraSvg
-          pose={pose}
-          expression={expression}
-          isTalking={isTalking}
-          className={svgClass}
-        />
-      );
-    }
-    if (characterId === 'arjun') {
-      return (
-        <ArjunSvg
-          pose={pose}
-          expression={expression}
-          isTalking={isTalking}
-          className={svgClass}
+        <img
+          src={getCharacterArtwork(characterId, pose, expression, effectiveAnimation)}
+          alt=""
+          draggable={false}
+          className={`${svgClass} object-contain`}
         />
       );
     }
@@ -174,7 +161,7 @@ export const Character: React.FC<CharacterProps> = ({
           .filter(Boolean)
           .join(' ')}
       >
-        {renderSvg()}
+        {renderArtwork()}
       </div>
     </motion.div>
   );
