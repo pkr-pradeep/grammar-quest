@@ -1,4 +1,5 @@
 export { Character, type CharacterProps } from './Character';
+export { CharacterPortrait, type CharacterPortraitProps } from './CharacterPortrait';
 export { MiraSvg } from './MiraSvg';
 export { ArjunSvg } from './ArjunSvg';
 export { ShukaJiSvg } from './ShukaJiSvg';

@@ -29,7 +29,8 @@ export {
   type CelebrationStarsProps,
   type CelebrationStarsSize,
 } from './CelebrationStars/CelebrationStars';
-export { WelcomeTrioIllustration, GrammarQuestEmblem } from './illustrations/Characters';
+export { GrammarQuestEmblem } from './illustrations/Characters';
+export { WelcomeTrioIllustration } from './illustrations/WelcomeTrioIllustration';
 export {
   CourtyardNoticeboardScene,
   type CourtyardNoticeboardSceneProps,
@@ -37,10 +38,12 @@ export {
 export { MissionIllustration } from './illustrations/MissionIcons';
 export {
   Character,
+  CharacterPortrait,
   ALL_ANIMATION_STATES,
   ALL_POSES,
   CHARACTER_MASTERS,
   type CharacterProps,
+  type CharacterPortraitProps,
   type CharacterId,
   type CharacterPose,
   type CharacterExpression,

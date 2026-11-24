@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { Character } from '../../../components';
+import { CharacterPortrait } from '../../../components';
 import type { CharacterExpression, CharacterId } from '../../../components';
 import { SPEAKER_THEMES } from '../speakerTheme';
 import shukaNotificationArtwork from '../../../assets/shukaji/notification.png';
@@ -43,10 +43,6 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
       : characterId === 'arjun'
         ? 'reading'
         : 'explaining';
-
-  // Proportional crop framing inside the 50px inner circle (56px outer with 3px ring)
-  const charSizePx = 112;
-  const topOffsetPx = characterId === 'mira' ? -22 : -18;
 
   return (
     <div
@@ -124,18 +120,12 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
                 className="h-full w-full object-contain"
               />
             ) : (
-              <span
-                className="absolute left-1/2 -translate-x-1/2 block"
-                style={{ top: `${topOffsetPx}px` }}
-              >
-                <Character
+                <CharacterPortrait
                   characterId={characterId}
                   pose={resolvedPose}
                   expression={characterExpression}
                   animationState="none"
-                  size={charSizePx}
                 />
-              </span>
             )}
           </span>
 

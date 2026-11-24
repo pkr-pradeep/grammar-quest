@@ -11,7 +11,7 @@
  */
 
 import React from 'react';
-import { Character } from '../../components';
+import { CharacterPortrait } from '../../components';
 import type {
   CharacterExpression,
   CharacterId,
@@ -97,12 +97,6 @@ export const SpeakerPortrait: React.FC<SpeakerPortraitProps> = ({
         ? 'reading'
         : 'explaining');
 
-  const scale = circleSizePx / 44;
-  const charSizePx = Math.round((characterId === 'shuka' ? 64 : 96) * scale);
-  const topOffsetPx = Math.round(
-    (characterId === 'mira' ? -20 : characterId === 'arjun' ? -16 : -5) * scale,
-  );
-
   return (
     <div
       aria-hidden="true"
@@ -137,18 +131,12 @@ export const SpeakerPortrait: React.FC<SpeakerPortraitProps> = ({
             className="h-full w-full object-contain"
           />
         ) : (
-          <div
-            className="absolute left-1/2 -translate-x-1/2"
-            style={{ top: `${topOffsetPx}px` }}
-          >
-            <Character
+            <CharacterPortrait
               characterId={characterId}
               pose={resolvedPose}
               expression={expression}
-              animationState="none"
-              size={charSizePx}
+              animationState={isTalking ? 'talk' : 'none'}
             />
-          </div>
         )}
       </div>
     </div>
