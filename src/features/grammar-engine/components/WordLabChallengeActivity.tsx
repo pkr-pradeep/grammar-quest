@@ -20,14 +20,16 @@ import { GROUP_ROLE_META } from '../categoryMeta';
 import { WordTile } from './WordTile';
 import { PracticeFeedback } from './PracticeFeedback';
 import { ActivityCharacterNote, ActivityHintBox } from './ActivityCharacterNote';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 /* --------------------------------------------------------------------------
    D. Word Replacement Activity
    -------------------------------------------------------------------------- */
 export const WordReplacementView: React.FC<{
   activity: WordReplacementActivity;
+  isActive?: boolean;
   onSolved?: () => void;
-}> = ({ activity, onSolved }) => {
+}> = ({ activity, isActive = true, onSolved }) => {
   const prefersReducedMotion = useReducedMotion();
   const [selectedOptId, setSelectedOptId] = useState<string>(activity.options[0]?.id ?? '');
   const [exploredIds, setExploredIds] = useState<string[]>([]);
@@ -42,6 +44,9 @@ export const WordReplacementView: React.FC<{
     const nextExplored = exploredIds.includes(optId)
       ? exploredIds
       : [...exploredIds, optId];
+    if (selectedOptId !== optId && nextExplored.length >= 2) {
+      playLearningFeedback('correct');
+    }
     setExploredIds(nextExplored);
     if (nextExplored.length >= 2) {
       onSolved?.();
@@ -61,6 +66,7 @@ export const WordReplacementView: React.FC<{
         <ActivityCharacterNote
           tip={activity.characterTip}
           eventId={`activity:${activity.id}:character-tip`}
+          isActive={isActive}
         />
       ) : null}
 
@@ -124,8 +130,9 @@ export const WordReplacementView: React.FC<{
    -------------------------------------------------------------------------- */
 export const MissingWordsView: React.FC<{
   activity: MissingWordsActivity;
+  isActive?: boolean;
   onSolved?: () => void;
-}> = ({ activity, onSolved }) => {
+}> = ({ activity, isActive = true, onSolved }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showHint, setShowHint] = useState(false);
   const selectedOption = activity.options.find((o) => o.id === selectedId) ?? null;
@@ -133,6 +140,7 @@ export const MissingWordsView: React.FC<{
 
   const handlePick = (optId: string, isCorrect: boolean) => {
     if (isSolved) return;
+    playLearningFeedback(isCorrect ? 'correct' : 'incorrect');
     setSelectedId(optId);
     if (isCorrect) {
       onSolved?.();
@@ -152,6 +160,7 @@ export const MissingWordsView: React.FC<{
         <ActivityCharacterNote
           tip={activity.characterTip}
           eventId={`activity:${activity.id}:character-tip`}
+          isActive={isActive}
         />
       ) : null}
 
@@ -224,8 +233,9 @@ export const MissingWordsView: React.FC<{
    -------------------------------------------------------------------------- */
 export const ErrorIdentificationView: React.FC<{
   activity: ErrorIdentificationActivity;
+  isActive?: boolean;
   onSolved?: () => void;
-}> = ({ activity, onSolved }) => {
+}> = ({ activity, isActive = true, onSolved }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showHint, setShowHint] = useState(false);
   const selectedOption = activity.options.find((o) => o.id === selectedId) ?? null;
@@ -233,6 +243,7 @@ export const ErrorIdentificationView: React.FC<{
 
   const handlePick = (optId: string, isCorrect: boolean) => {
     if (isSolved) return;
+    playLearningFeedback(isCorrect ? 'correct' : 'incorrect');
     setSelectedId(optId);
     if (isCorrect) {
       onSolved?.();
@@ -252,6 +263,7 @@ export const ErrorIdentificationView: React.FC<{
         <ActivityCharacterNote
           tip={activity.characterTip}
           eventId={`activity:${activity.id}:character-tip`}
+          isActive={isActive}
         />
       ) : null}
 

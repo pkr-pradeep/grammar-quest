@@ -30,6 +30,7 @@ import {
   playCharacterDialogue,
   playLearningFeedback,
 } from '../../../services/feedback/feedbackService';
+import { useFeedbackEvent } from '../../../hooks/useFeedbackEvent';
 
 export interface IndependentPracticeStageProps {
   isActive?: boolean;
@@ -88,14 +89,19 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   }, [itemIndex, isActive, scrollToTop]);
 
   const currentItem = items[itemIndex] ?? items[0];
-  useEffect(() => {
-    if (isActive && currentItem?.speakerCharacterId) {
-      playCharacterDialogue(
-        currentItem.speakerCharacterId,
-        `independent-practice:${currentItem.id}:speaker`,
-      );
-    }
-  }, [currentItem?.id, currentItem?.speakerCharacterId, isActive]);
+  useFeedbackEvent(
+    isActive && currentItem?.speakerCharacterId
+      ? `independent-practice:${currentItem.id}:speaker`
+      : null,
+    () => {
+      if (currentItem?.speakerCharacterId) {
+        playCharacterDialogue(
+          currentItem.speakerCharacterId,
+          `independent-practice:${currentItem.id}:speaker`,
+        );
+      }
+    },
+  );
 
   if (!currentItem) return null;
 
@@ -155,6 +161,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   const handleCheckTargetTokens = () => {
     const expected = currentItem.targetTokenIds ?? [];
     if (sameIds(targetSel, expected)) {
+      playLearningFeedback('correct');
       setTargetConfirmedById((prev) => ({ ...prev, [currentItem.id]: true }));
       setFeedbackById((prev) => ({
         ...prev,
@@ -165,6 +172,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
         },
       }));
     } else {
+      playLearningFeedback('incorrect');
       setFeedbackById((prev) => ({
         ...prev,
         [currentItem.id]: {
@@ -184,6 +192,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
         setPhaseById((prev) => ({ ...prev, [currentItem.id]: 'predicate' }));
         setFeedbackById((prev) => ({ ...prev, [currentItem.id]: null }));
       } else {
+        playLearningFeedback('incorrect');
         setFeedbackById((prev) => ({
           ...prev,
           [currentItem.id]: {
@@ -202,6 +211,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
 
     if (currentPhase === 'predicate') {
       if (sameIds(predSel, currentItem.predicateTokenIds)) {
+        playLearningFeedback('correct');
         setPhaseById((prev) => ({ ...prev, [currentItem.id]: 'done' }));
         setFeedbackById((prev) => ({
           ...prev,
@@ -213,6 +223,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
         }));
         markSolved(currentItem.id);
       } else {
+        playLearningFeedback('incorrect');
         setFeedbackById((prev) => ({
           ...prev,
           [currentItem.id]: {
@@ -235,6 +246,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
     if (!opt) return;
     setImpChoiceById((prev) => ({ ...prev, [currentItem.id]: optionId }));
     if (opt.isCorrect) {
+      playLearningFeedback('correct');
       setPhaseById((prev) => ({ ...prev, [currentItem.id]: 'done' }));
       setFeedbackById((prev) => ({
         ...prev,
@@ -246,6 +258,7 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
       }));
       markSolved(currentItem.id);
     } else {
+      playLearningFeedback('incorrect');
       setFeedbackById((prev) => ({
         ...prev,
         [currentItem.id]: {

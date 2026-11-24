@@ -7,20 +7,23 @@
  * ============================================================================
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { HelpCircle } from 'lucide-react';
 import type { ActivityCharacterTip } from '../../../schemas/grammarEngine.schema';
 import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
 import { playCharacterDialogue, playLearningFeedback } from '../../../services/feedback/feedbackService';
+import { useFeedbackEvent } from '../../../hooks/useFeedbackEvent';
 
 export const ActivityCharacterNote: React.FC<{
   tip: ActivityCharacterTip;
   eventId: string;
-}> = ({ tip, eventId }) => {
+  isActive?: boolean;
+}> = ({ tip, eventId, isActive = true }) => {
   const theme = SPEAKER_THEMES[tip.characterId];
-  useEffect(() => {
-    playCharacterDialogue(tip.characterId, eventId);
-  }, [eventId, tip.characterId]);
+  useFeedbackEvent(
+    isActive ? `${eventId}:${tip.characterId}` : null,
+    () => playCharacterDialogue(tip.characterId, eventId),
+  );
 
   return (
     <div

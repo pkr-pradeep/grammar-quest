@@ -255,6 +255,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
               ) : (
                 <CategorisationActivity
                   activity={act}
+                  isActive={isActive && isVisible}
                   resetNonce={categoriseResetNonce}
                   onProgressChange={isVisible ? setCategoriseHasProgress : undefined}
                   onSolved={(stars) => {
@@ -276,6 +277,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
                 {act.kind === 'identify-group' ? (
                   <IdentifyGroupActivity
                     activity={act}
+                    isActive={isActive && isVisible}
                     onSolved={() => markSolved(act.id)}
                   />
                 ) : null}
@@ -290,6 +292,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
                 {act.kind === 'sentence-construction' ? (
                   <SentenceBuilder
                     activity={act}
+                    isActive={isActive && isVisible}
                     onSolved={() => markSolved(act.id)}
                   />
                 ) : null}
@@ -297,6 +300,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
                 {act.kind === 'word-replacement' ? (
                   <WordReplacementView
                     activity={act}
+                    isActive={isActive && isVisible}
                     onSolved={() => markSolved(act.id)}
                   />
                 ) : null}
@@ -304,6 +308,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
                 {act.kind === 'missing-words' ? (
                   <MissingWordsView
                     activity={act}
+                    isActive={isActive && isVisible}
                     onSolved={() => markSolved(act.id)}
                   />
                 ) : null}
@@ -311,6 +316,7 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
                 {act.kind === 'error-identification' ? (
                   <ErrorIdentificationView
                     activity={act}
+                    isActive={isActive && isVisible}
                     onSolved={() => markSolved(act.id)}
                   />
                 ) : null}

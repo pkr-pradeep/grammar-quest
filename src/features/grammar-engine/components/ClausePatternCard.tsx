@@ -30,6 +30,7 @@ import type {
   TeachingCheckpointData,
 } from '../../../schemas/grammarEngine.schema';
 import { PracticeFeedback } from './PracticeFeedback';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface ClausePatternCardProps {
   stepId: string;
@@ -438,7 +439,10 @@ export const ClausePatternCard: React.FC<ClausePatternCardProps> = ({
                   type="button"
                   role="radio"
                   aria-checked={isSelected}
-                  onClick={() => setSelectedOptionId(opt.id)}
+                  onClick={() => {
+                    setSelectedOptionId(opt.id);
+                    playLearningFeedback(opt.isCorrect ? 'correct' : 'incorrect');
+                  }}
                   className={[
                     'w-full min-h-[44px] px-3 py-2 rounded-[11px] border-2 text-left text-xs sm:text-[13px] font-semibold transition-colors cursor-pointer',
                     isCorrectChoice

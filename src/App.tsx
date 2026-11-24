@@ -93,7 +93,10 @@ function parseMissionHash(): ActiveLessonState | null {
   return { missionId, phase };
 }
 
-function writeMissionHash(state: ActiveLessonState | null): void {
+function writeMissionHash(
+  state: ActiveLessonState | null,
+  historyMode: 'push' | 'replace' = 'replace',
+): void {
   if (typeof window === 'undefined') return;
   if (!state) {
     if (window.location.hash.startsWith('#mission=')) {
@@ -110,11 +113,12 @@ function writeMissionHash(state: ActiveLessonState | null): void {
   if (state.phase) {
     params.set('phase', state.phase);
   }
-  window.history.replaceState(
-    null,
-    '',
-    `${window.location.pathname}${window.location.search}#${params.toString()}`,
-  );
+  const url = `${window.location.pathname}${window.location.search}#${params.toString()}`;
+  if (historyMode === 'push') {
+    window.history.pushState(null, '', url);
+  } else {
+    window.history.replaceState(null, '', url);
+  }
 }
 
 export default function App() {
@@ -148,6 +152,19 @@ export default function App() {
     };
     window.addEventListener('hashchange', syncRoute);
     return () => window.removeEventListener('hashchange', syncRoute);
+  }, []);
+
+  useEffect(() => {
+    const syncMissionRoute = () => {
+      const nextLesson = parseMissionHash();
+      setActiveLesson(nextLesson);
+      if (nextLesson) {
+        setHasStartedLearning(true);
+        setPreviewMission(null);
+      }
+    };
+    window.addEventListener('popstate', syncMissionRoute);
+    return () => window.removeEventListener('popstate', syncMissionRoute);
   }, []);
 
   useEffect(() => {
@@ -206,7 +223,7 @@ export default function App() {
       phase: initialPhase,
     };
     setActiveLesson(nextState);
-    writeMissionHash(nextState);
+    writeMissionHash(nextState, 'push');
   };
 
   const handleExitLesson = () => {

@@ -14,14 +14,17 @@ import { Button } from '../../../components';
 import { WordTile } from './WordTile';
 import { PracticeFeedback } from './PracticeFeedback';
 import { ActivityCharacterNote, ActivityHintBox } from './ActivityCharacterNote';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface SentenceBuilderProps {
   activity: SentenceConstructionActivity;
+  isActive?: boolean;
   onSolved?: () => void;
 }
 
 export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
   activity,
+  isActive = true,
   onSolved,
 }) => {
   const [placedIds, setPlacedIds] = useState<string[]>([]);
@@ -47,9 +50,11 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
       activity.correctOrderIds.every((id, idx) => placedIds[idx] === id);
 
     if (isExact) {
+      playLearningFeedback('correct');
       setCheckedState('correct');
       onSolved?.();
     } else {
+      playLearningFeedback('incorrect');
       setCheckedState('incorrect');
     }
   };
@@ -75,6 +80,7 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
         <ActivityCharacterNote
           tip={activity.characterTip}
           eventId={`activity:${activity.id}:character-tip`}
+          isActive={isActive}
         />
       ) : null}
 

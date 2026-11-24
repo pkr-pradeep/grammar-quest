@@ -44,6 +44,7 @@ import { WordGroup } from './WordGroup';
 import { PracticeFeedback } from './PracticeFeedback';
 import { WordInspectorPopup } from './WordInspectorPopup';
 import { ClausePatternCard } from './ClausePatternCard';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 import {
   RelationshipConnectorOverlay,
   RelationshipList,
@@ -218,12 +219,14 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
     if (!guidedChallenge) return;
     if (guidedPhase === 'subject') {
       if (sameTokenIds(guidedSubjIds, guidedChallenge.subjectTokenIds)) {
+        playLearningFeedback('correct');
         setGuidedPhase('predicate');
         setGuidedFeedback({
           status: 'correct',
           text: 'Yes! You found the Subject. Now select the Predicate.',
         });
       } else {
+        playLearningFeedback('incorrect');
         setGuidedFeedback({
           status: 'try-again',
           text: guidedChallenge.subjectFeedback,
@@ -234,12 +237,14 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
 
     if (guidedPhase === 'predicate') {
       if (sameTokenIds(guidedPredIds, guidedChallenge.predicateTokenIds)) {
+        playLearningFeedback('correct');
         setGuidedPhase('unlocked');
         setGuidedFeedback({
           status: 'correct',
           text: guidedChallenge.unlockedExplanation,
         });
       } else {
+        playLearningFeedback('incorrect');
         setGuidedFeedback({
           status: 'try-again',
           text: guidedChallenge.predicateFeedback,

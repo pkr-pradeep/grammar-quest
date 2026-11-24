@@ -11,8 +11,6 @@ const DEFAULT_PREFERENCES: FeedbackPreferences = {
   soundEnabled: true,
   hapticsEnabled: true,
 };
-const MAX_REMEMBERED_EVENTS = 500;
-
 interface Tone {
   frequency: number;
   endFrequency?: number;
@@ -28,8 +26,8 @@ const CHARACTER_TONES: Record<CharacterFeedbackId, Tone[]> = {
     { frequency: 1175, endFrequency: 1397, startAfter: 0.07, duration: 0.2, volume: 0.012, waveform: 'sine' },
   ],
   arjun: [
-    { frequency: 330, endFrequency: 540, startAfter: 0, duration: 0.17, volume: 0.025, waveform: 'triangle' },
-    { frequency: 620, endFrequency: 440, startAfter: 0.035, duration: 0.2, volume: 0.01, waveform: 'sine' },
+    { frequency: 330, endFrequency: 540, startAfter: 0, duration: 0.17, volume: 0.04, waveform: 'triangle' },
+    { frequency: 620, endFrequency: 440, startAfter: 0.035, duration: 0.2, volume: 0.016, waveform: 'sine' },
   ],
   shuka: [
     { frequency: 392, startAfter: 0, duration: 0.43, volume: 0.018, waveform: 'sine' },
@@ -98,10 +96,10 @@ function readPreferences(): FeedbackPreferences {
 
 let preferences = readPreferences();
 const preferenceListeners = new Set<() => void>();
-const playedEventIds = new Set<string>();
 let audioContext: AudioContext | null = null;
 let activeOscillators: OscillatorNode[] = [];
-let audioPlaybackId = 0;
+let queuedCueTones: Tone[][] = [];
+let nextCueStartTime = 0;
 
 function notifyPreferenceListeners(): void {
   preferenceListeners.forEach((listener) => listener());
@@ -142,16 +140,6 @@ export function updateFeedbackPreferences(
   notifyPreferenceListeners();
 }
 
-function rememberEvent(eventId: string): boolean {
-  if (playedEventIds.has(eventId)) return false;
-  playedEventIds.add(eventId);
-  if (playedEventIds.size > MAX_REMEMBERED_EVENTS) {
-    const oldestEventId = playedEventIds.values().next().value;
-    if (oldestEventId) playedEventIds.delete(oldestEventId);
-  }
-  return true;
-}
-
 function getAudioContext(): AudioContext | null {
   if (audioContext) return audioContext;
   if (typeof window === 'undefined' || typeof window.AudioContext === 'undefined') {
@@ -169,9 +157,10 @@ function getAudioContext(): AudioContext | null {
 }
 
 function stopActiveAudio(): void {
-  audioPlaybackId += 1;
+  queuedCueTones = [];
   if (!audioContext) return;
   const now = audioContext.currentTime;
+  nextCueStartTime = now;
   activeOscillators.forEach((oscillator) => {
     try {
       oscillator.stop(now + 0.015);
@@ -182,54 +171,67 @@ function stopActiveAudio(): void {
   activeOscillators = [];
 }
 
+function scheduleTones(context: AudioContext, tones: Tone[]): void {
+  const startTime = Math.max(context.currentTime, nextCueStartTime);
+  const cueDuration = Math.max(...tones.map((tone) => tone.startAfter + tone.duration));
+  nextCueStartTime = startTime + cueDuration;
+
+  tones.forEach((tone) => {
+    const oscillator = context.createOscillator();
+    const gain = context.createGain();
+    const startAt = startTime + tone.startAfter;
+    const endAt = startAt + tone.duration;
+    oscillator.type = tone.waveform;
+    oscillator.frequency.setValueAtTime(tone.frequency, startAt);
+    if (tone.endFrequency) {
+      oscillator.frequency.exponentialRampToValueAtTime(tone.endFrequency, endAt);
+    }
+    gain.gain.setValueAtTime(0.0001, startAt);
+    gain.gain.linearRampToValueAtTime(tone.volume, startAt + 0.015);
+    gain.gain.setValueAtTime(tone.volume, Math.max(startAt + 0.02, endAt - 0.045));
+    gain.gain.exponentialRampToValueAtTime(0.0001, endAt);
+    oscillator.connect(gain);
+    gain.connect(context.destination);
+    oscillator.onended = () => {
+      activeOscillators = activeOscillators.filter((active) => active !== oscillator);
+      oscillator.disconnect();
+      gain.disconnect();
+    };
+    activeOscillators.push(oscillator);
+    oscillator.start(startAt);
+    oscillator.stop(endAt + 0.01);
+  });
+}
+
+function flushQueuedTones(context: AudioContext): void {
+  if (!preferences.soundEnabled || context.state !== 'running') return;
+  const queuedCues = queuedCueTones;
+  queuedCueTones = [];
+  queuedCues.forEach((tones) => scheduleTones(context, tones));
+}
+
+function resumeAudioContext(context: AudioContext): void {
+  if (context.state === 'running') {
+    flushQueuedTones(context);
+    return;
+  }
+
+  void context.resume().then(() => {
+    flushQueuedTones(context);
+  }).catch((error: unknown) => {
+    if (import.meta.env?.DEV) {
+      console.warn('Feedback sound could not be started by the browser.', error);
+    }
+  });
+}
+
 function playTones(tones: Tone[]): void {
   if (!preferences.soundEnabled) return;
   const context = getAudioContext();
   if (!context) return;
 
-  stopActiveAudio();
-  const playbackId = audioPlaybackId;
-  const startPlayback = () => {
-    if (!preferences.soundEnabled || playbackId !== audioPlaybackId) return;
-    const now = context.currentTime;
-
-    tones.forEach((tone) => {
-      const oscillator = context.createOscillator();
-      const gain = context.createGain();
-      const startAt = now + tone.startAfter;
-      const endAt = startAt + tone.duration;
-      oscillator.type = tone.waveform;
-      oscillator.frequency.setValueAtTime(tone.frequency, startAt);
-      if (tone.endFrequency) {
-        oscillator.frequency.exponentialRampToValueAtTime(tone.endFrequency, endAt);
-      }
-      gain.gain.setValueAtTime(0.0001, startAt);
-      gain.gain.linearRampToValueAtTime(tone.volume, startAt + 0.015);
-      gain.gain.setValueAtTime(tone.volume, Math.max(startAt + 0.02, endAt - 0.045));
-      gain.gain.exponentialRampToValueAtTime(0.0001, endAt);
-      oscillator.connect(gain);
-      gain.connect(context.destination);
-      oscillator.onended = () => {
-        activeOscillators = activeOscillators.filter((active) => active !== oscillator);
-        oscillator.disconnect();
-        gain.disconnect();
-      };
-      activeOscillators.push(oscillator);
-      oscillator.start(startAt);
-      oscillator.stop(endAt + 0.01);
-    });
-  };
-
-  if (context.state === 'running') {
-    startPlayback();
-    return;
-  }
-
-  void context.resume().then(startPlayback).catch((error: unknown) => {
-    if (import.meta.env?.DEV) {
-      console.warn('Feedback sound could not be started by the browser.', error);
-    }
-  });
+  queuedCueTones.push(tones);
+  resumeAudioContext(context);
 }
 
 function vibrate(pattern: number[]): void {
@@ -262,18 +264,16 @@ function vibrate(pattern: number[]): void {
 
 export function playCharacterDialogue(
   characterId: CharacterFeedbackId,
-  eventId: string,
+  _eventId: string,
 ): void {
-  if (!rememberEvent(`dialogue:${eventId}`)) return;
   vibrate(HAPTIC_PATTERNS[characterId]);
   playTones(CHARACTER_TONES[characterId]);
 }
 
 export function playLearningFeedback(
   kind: LearningFeedbackKind,
-  eventId?: string,
+  _eventId?: string,
 ): void {
-  if (eventId && !rememberEvent(`learning:${eventId}`)) return;
   vibrate(HAPTIC_PATTERNS[kind]);
   playTones(LEARNING_TONES[kind]);
 }
@@ -283,13 +283,7 @@ export function installAudioGestureUnlock(): () => void {
   const unlock = () => {
     if (!preferences.soundEnabled) return;
     const context = getAudioContext();
-    if (context?.state === 'suspended') {
-      void context.resume().catch((error: unknown) => {
-        if (import.meta.env?.DEV) {
-          console.warn('Browser audio could not be enabled.', error);
-        }
-      });
-    }
+    if (context) resumeAudioContext(context);
   };
 
   window.addEventListener('click', unlock, true);

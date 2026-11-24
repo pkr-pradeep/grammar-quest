@@ -671,8 +671,9 @@ Direct inspection of `src/styles/tokens.css` versus newer components (`Dashboard
 
 ### 10.3 Optional Sound & Haptic Feedback
 - The Guide page owns the compact **Sound effects** and **Haptic feedback** preferences; each setting is independent and persisted locally.
-- Character sounds are short synthesized cues, keyed to stable dialogue events. Answer, hint, and completion cues occur only at meaningful learning transitions—not on scrolling, ordinary navigation, or unrelated re-renders.
-- Sound uses the Web Audio API and must remain optional, low-volume, and non-blocking. If audio is unsupported or browser playback is blocked, do not replay the missed cue later.
+- Character and learning sounds are short synthesized cues attached to explicit dialogue, popup, activity, answer, hint, and completion events. Every occurrence of a tagged event triggers its cue; ordinary renders and untagged navigation do not.
+- Lifecycle-triggered cues use component-scoped event guards to prevent Strict Mode effect replay without retaining page or cue history.
+- Sound uses the Web Audio API and remains optional, low-volume, and non-blocking. If playback requires a user gesture, retain queued cues and schedule each after audio is unlocked; disabling sound clears queued and active cues.
 - Haptics use feature-detected `navigator.vibrate`, require an active user gesture where the browser enforces one, and are skipped under reduced-motion preference. Unsupported devices must continue normally.
 - Sound and vibration supplement, never replace, visible text and visual feedback. Browser support and OS-level silent-mode behavior vary; verify vibration only on a physical supported device.
 

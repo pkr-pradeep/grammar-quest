@@ -31,9 +31,11 @@ import {
   playCharacterDialogue,
   playLearningFeedback,
 } from '../../../services/feedback/feedbackService';
+import { useFeedbackEvent } from '../../../hooks/useFeedbackEvent';
 
 export interface CategorisationActivityProps {
   activity: CategoriseActivityData;
+  isActive?: boolean;
   resetNonce?: number;
   onSolved?: (stars: 1 | 2 | 3) => void;
   onProgressChange?: (hasProgress: boolean) => void;
@@ -215,6 +217,7 @@ function getDefaultBubbleText(activity: CategoriseActivityData): string {
 
 export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
   activity,
+  isActive = true,
   resetNonce = 0,
   onSolved,
   onProgressChange,
@@ -251,9 +254,10 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
   } | null>(null);
   const suppressNextClickRef = useRef(false);
 
-  useEffect(() => {
-    playCharacterDialogue('shuka', `categorisation:${activity.id}:guide`);
-  }, [activity.id]);
+  useFeedbackEvent(
+    isActive ? `categorisation:${activity.id}:guide` : null,
+    () => playCharacterDialogue('shuka', `categorisation:${activity.id}:guide`),
+  );
 
   const timersRef = useRef<number[]>([]);
   const registerTimer = (fn: () => void, ms: number) => {

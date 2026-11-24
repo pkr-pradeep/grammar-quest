@@ -8,7 +8,7 @@
  * ============================================================================
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { BookOpen } from 'lucide-react';
 import {
   ModalDialog,
@@ -17,6 +17,7 @@ import {
 } from '../../../components';
 import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
 import { playCharacterDialogue } from '../../../services/feedback/feedbackService';
+import { useFeedbackEvent } from '../../../hooks/useFeedbackEvent';
 
 export interface GuideNotePopupProps {
   isOpen: boolean;
@@ -52,9 +53,10 @@ export const GuideNotePopup: React.FC<GuideNotePopupProps> = ({
   const gotItBtnRef = useRef<HTMLButtonElement | null>(null);
   const theme = SPEAKER_THEMES[characterId];
 
-  useEffect(() => {
-    if (isOpen) playCharacterDialogue(characterId, dialogueEventId);
-  }, [characterId, dialogueEventId, isOpen]);
+  useFeedbackEvent(
+    isOpen ? `popup:${dialogueEventId}:${characterId}` : null,
+    () => playCharacterDialogue(characterId, dialogueEventId),
+  );
 
   const showSecondParagraph =
     Boolean(explanation.trim()) && explanation.trim() !== shortPrompt.trim();

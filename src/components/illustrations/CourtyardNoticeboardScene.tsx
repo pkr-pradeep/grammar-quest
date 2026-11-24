@@ -1177,7 +1177,7 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
 
       {/* Foreground Master Characters Overlay (Immutable SVG Masters) */}
       {!zoomedView && isStoryMode ? (
-        <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
+        <div className="pointer-events-none flex items-end justify-between pl-3 pr-6 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
           <div className="flex items-end gap-2 sm:gap-4">
             {renderStoryCharacter('mira', 68, miraPose, miraExpr)}
             {renderStoryCharacter('arjun', 68, arjunPose, arjunExpr)}
@@ -1185,7 +1185,7 @@ export const CourtyardNoticeboardScene: React.FC<CourtyardNoticeboardSceneProps>
           {renderStoryCharacter('shuka', 64, shukaPose, shukaExpr, true)}
         </div>
       ) : !zoomedView ? (
-        <div className="pointer-events-none flex items-end justify-between px-3 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
+        <div className="pointer-events-none flex items-end justify-between pl-3 pr-6 sm:px-8 -mt-[76px] sm:-mt-[92px] pb-2 relative z-10">
           <div className="flex items-end gap-2 sm:gap-4">
             {(
               [

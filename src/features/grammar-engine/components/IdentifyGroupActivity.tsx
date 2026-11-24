@@ -20,11 +20,13 @@ import { playLearningFeedback } from '../../../services/feedback/feedbackService
 
 export interface IdentifyGroupActivityProps {
   activity: IdentifyGroupActivityData;
+  isActive?: boolean;
   onSolved?: () => void;
 }
 
 export const IdentifyGroupActivity: React.FC<IdentifyGroupActivityProps> = ({
   activity,
+  isActive = true,
   onSolved,
 }) => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -46,9 +48,11 @@ export const IdentifyGroupActivity: React.FC<IdentifyGroupActivityProps> = ({
       [...correctSet].every((id) => selectedSet.has(id));
 
     if (isExactMatch) {
+      playLearningFeedback('correct');
       setCheckedState('correct');
       onSolved?.();
     } else {
+      playLearningFeedback('incorrect');
       setCheckedState('incorrect');
     }
   };
@@ -74,6 +78,7 @@ export const IdentifyGroupActivity: React.FC<IdentifyGroupActivityProps> = ({
         <ActivityCharacterNote
           tip={activity.characterTip}
           eventId={`activity:${activity.id}:character-tip`}
+          isActive={isActive}
         />
       ) : null}
 
