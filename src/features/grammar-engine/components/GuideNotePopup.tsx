@@ -8,7 +8,7 @@
  * ============================================================================
  */
 
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BookOpen } from 'lucide-react';
 import {
   ModalDialog,
@@ -16,12 +16,14 @@ import {
   type CharacterId,
 } from '../../../components';
 import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
+import { playCharacterDialogue } from '../../../services/feedback/feedbackService';
 
 export interface GuideNotePopupProps {
   isOpen: boolean;
   isAutoOpened?: boolean;
   characterId?: CharacterId;
   characterExpression?: CharacterExpression;
+  dialogueEventId: string;
   badgeLabel: string;
   title: string;
   shortPrompt: string;
@@ -37,6 +39,7 @@ export const GuideNotePopup: React.FC<GuideNotePopupProps> = ({
   isAutoOpened = false,
   characterId = 'shuka',
   characterExpression = 'explaining',
+  dialogueEventId,
   badgeLabel,
   title,
   shortPrompt,
@@ -48,6 +51,10 @@ export const GuideNotePopup: React.FC<GuideNotePopupProps> = ({
 }) => {
   const gotItBtnRef = useRef<HTMLButtonElement | null>(null);
   const theme = SPEAKER_THEMES[characterId];
+
+  useEffect(() => {
+    if (isOpen) playCharacterDialogue(characterId, dialogueEventId);
+  }, [characterId, dialogueEventId, isOpen]);
 
   const showSecondParagraph =
     Boolean(explanation.trim()) && explanation.trim() !== shortPrompt.trim();

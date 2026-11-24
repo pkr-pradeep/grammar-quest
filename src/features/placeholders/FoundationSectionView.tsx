@@ -35,6 +35,7 @@ import { getLessonForMission } from '../../content/lessons/lessonRegistry';
 import { getMissionProgressDetail } from '../../storage/progressRepository';
 import { Badge, Button, Card, MissionIllustration, Progress } from '../../components';
 import { TopicExplorer } from '../missions/TopicExplorer';
+import { FeedbackPreferences } from '../preferences/FeedbackPreferences';
 
 const GUIDE_CONCEPT_NOTES: Record<string, string> = {
   'c9-mission-01':
@@ -197,6 +198,8 @@ export const FoundationSectionView: React.FC<FoundationSectionViewProps> = ({
               Explore clear explanations and interactive sentences step by step.
             </p>
           </Card>
+
+          <FeedbackPreferences />
 
           <div className="flex flex-col gap-3">
             {availableLessons.map((lesson) => {

@@ -71,7 +71,12 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
         <p className="text-xs font-medium text-[#4B5C8A]">{activity.promptContext}</p>
       </div>
 
-      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
+      {activity.characterTip ? (
+        <ActivityCharacterNote
+          tip={activity.characterTip}
+          eventId={`activity:${activity.id}:character-tip`}
+        />
+      ) : null}
 
       {/* Sentence Assembly Tray */}
       <div className="rounded-[16px] bg-white border-2 border-dashed border-[#CFC9BA] p-4 min-h-[76px] flex flex-wrap items-center gap-2">

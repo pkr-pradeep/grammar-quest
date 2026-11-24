@@ -21,8 +21,10 @@ import {
 } from '../../../components';
 import { SPEAKER_THEMES, SpeakerPortrait } from '../speakerTheme';
 import { LessonNavigation } from './LessonNavigation';
+import { playCharacterDialogue } from '../../../services/feedback/feedbackService';
 
 export interface StoryIntroStageProps {
+  missionId: string;
   missionTitle: string;
   storyIntro: MissionStoryIntro;
   onStartTeaching: () => void;
@@ -33,6 +35,7 @@ const TYPEWRITER_CHAR_MS = 26;
 const PORTRAIT_LEAD_MS = 320;
 
 export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
+  missionId,
   missionTitle,
   storyIntro,
   onStartTeaching,
@@ -54,6 +57,10 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
   const speakerSpec = CHARACTER_MASTERS[activeBeat.speaker];
   const theme = SPEAKER_THEMES[activeBeat.speaker];
   const isLastBeat = beatIndex >= beats.length - 1;
+
+  useEffect(() => {
+    playCharacterDialogue(activeBeat.speaker, `story:${missionId}:${activeBeat.id}`);
+  }, [activeBeat.id, activeBeat.speaker, missionId]);
 
   const [typedCount, setTypedCount] = useState<number>(() =>
     prefersReducedMotion ? fullDialogue.length : 0,

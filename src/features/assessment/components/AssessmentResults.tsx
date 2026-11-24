@@ -12,7 +12,7 @@
  * ============================================================================
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useReducedMotion } from 'motion/react';
 import {
   CheckCircle2,
@@ -32,6 +32,7 @@ import { SpeakerPortrait } from '../../grammar-engine/speakerTheme';
 import { getAchievementMessage } from '../scoring';
 import { RevisionRecommendations } from './RevisionRecommendations';
 import { AnswerReview } from './AnswerReview';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface AssessmentResultsProps {
   evaluation: AssessmentEvaluationSummary;
@@ -73,6 +74,12 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
   const feedback = getAchievementMessage(evaluation.percentage, attempt.topic);
   const formattedTime = formatSubmittedTimestamp(attempt.submittedAt);
   const earnedStars = computeAssessmentStars(evaluation.percentage);
+
+  useEffect(() => {
+    if (attempt.status === 'submitted') {
+      playLearningFeedback('complete', `assessment:${attempt.attemptId}:submitted`);
+    }
+  }, [attempt.attemptId, attempt.status]);
 
   return (
     <div className="space-y-4">

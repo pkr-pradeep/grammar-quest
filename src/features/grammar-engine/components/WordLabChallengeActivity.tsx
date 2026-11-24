@@ -57,7 +57,12 @@ export const WordReplacementView: React.FC<{
         <p className="text-sm text-[#333333]">{activity.instruction}</p>
       </div>
 
-      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
+      {activity.characterTip ? (
+        <ActivityCharacterNote
+          tip={activity.characterTip}
+          eventId={`activity:${activity.id}:character-tip`}
+        />
+      ) : null}
 
       {/* Live Sentence Preview */}
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
@@ -143,7 +148,12 @@ export const MissingWordsView: React.FC<{
         <p className="text-sm text-[#333333]">{activity.instruction}</p>
       </div>
 
-      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
+      {activity.characterTip ? (
+        <ActivityCharacterNote
+          tip={activity.characterTip}
+          eventId={`activity:${activity.id}:character-tip`}
+        />
+      ) : null}
 
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
         <p className="text-base sm:text-lg font-semibold text-[#263A70] leading-relaxed">
@@ -238,7 +248,12 @@ export const ErrorIdentificationView: React.FC<{
         <p className="text-sm text-[#333333]">{activity.instruction}</p>
       </div>
 
-      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
+      {activity.characterTip ? (
+        <ActivityCharacterNote
+          tip={activity.characterTip}
+          eventId={`activity:${activity.id}:character-tip`}
+        />
+      ) : null}
 
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
         <div className="rounded-[12px] bg-[#FEE8E7] border border-[#F7C2BF] px-3.5 py-2.5">

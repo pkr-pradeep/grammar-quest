@@ -667,6 +667,13 @@ Direct inspection of `src/styles/tokens.css` versus newer components (`Dashboard
 6. **Accessible Names on Icon-Only Controls**: Every icon-only control (including the `RotateCcw` reset button in `WordLaboratory.tsx`, Pause/Replay in `LessonNavigation.tsx`, Filter button in `TopicExplorer.tsx`) must provide a clear `aria-label` and visible label wherever space allows.
 7. **Reduced Motion**: Every animation (shake on wrong answer, star pop, accordion grid expansion, typewriter reveal, scroll smooth behaviour) must gracefully disable or instant-complete under `prefers-reduced-motion: reduce`.
 
+### 10.3 Optional Sound & Haptic Feedback
+- The Guide page owns the compact **Sound effects** and **Haptic feedback** preferences; each setting is independent and persisted locally.
+- Character sounds are short synthesized cues, keyed to stable dialogue events. Answer, hint, and completion cues occur only at meaningful learning transitions—not on scrolling, ordinary navigation, or unrelated re-renders.
+- Sound uses the Web Audio API and must remain optional, low-volume, and non-blocking. If audio is unsupported or browser playback is blocked, do not replay the missed cue later.
+- Haptics use feature-detected `navigator.vibrate`, require an active user gesture where the browser enforces one, and are skipped under reduced-motion preference. Unsupported devices must continue normally.
+- Sound and vibration supplement, never replace, visible text and visual feedback. Browser support and OS-level silent-mode behavior vary; verify vibration only on a physical supported device.
+
 ---
 
 ## 11. Confirmed UX Problems (Evidence-Based From Code Inspection)

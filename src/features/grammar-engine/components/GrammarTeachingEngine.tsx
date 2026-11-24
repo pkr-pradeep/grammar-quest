@@ -320,6 +320,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
         {/* Active Lesson Stage */}
         {phase === 'story' && lesson.storyIntro ? (
           <StoryIntroStage
+            missionId={lesson.missionId}
             missionTitle={lesson.missionTitle}
             storyIntro={lesson.storyIntro}
             onAdvanceStory={markStartedOnce}
@@ -415,6 +416,7 @@ export const GrammarTeachingEngine: React.FC<GrammarTeachingEngineProps> = ({
         {phase === 'complete' && lesson.completionSummary ? (
           <div className="w-full max-w-[920px] mx-auto px-3 sm:px-6 py-3 sm:py-4 pb-6">
             <MissionCompletionStage
+              missionId={lesson.missionId}
               missionTitle={lesson.missionTitle}
               summary={lesson.completionSummary}
               assessmentAttempt={assessmentAttempt}

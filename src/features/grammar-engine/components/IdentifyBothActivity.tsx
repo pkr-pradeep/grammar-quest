@@ -17,6 +17,7 @@ import { Button } from '../../../components';
 import { WordToken } from './WordToken';
 import { WordGroup } from './WordGroup';
 import { PracticeFeedback } from './PracticeFeedback';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface IdentifyBothActivityProps {
   activity: IdentifyBothActivityData;
@@ -57,9 +58,11 @@ export const IdentifyBothActivity: React.FC<IdentifyBothActivityProps> = ({
   const handleCheck = () => {
     if (phase === 'subject') {
       if (sameTokenSet(subjectSelection, activity.subjectTokenIds)) {
+        playLearningFeedback('correct');
         setErrorMsg(null);
         setPhase('predicate');
       } else {
+        playLearningFeedback('incorrect');
         setErrorMsg(activity.incorrectSubjectFeedback);
       }
       return;
@@ -67,10 +70,12 @@ export const IdentifyBothActivity: React.FC<IdentifyBothActivityProps> = ({
 
     if (phase === 'predicate') {
       if (sameTokenSet(predicateSelection, activity.predicateTokenIds)) {
+        playLearningFeedback('correct');
         setErrorMsg(null);
         setPhase('done');
         onSolved?.();
       } else {
+        playLearningFeedback('incorrect');
         setErrorMsg(activity.incorrectPredicateFeedback);
       }
     }
@@ -170,7 +175,10 @@ export const IdentifyBothActivity: React.FC<IdentifyBothActivityProps> = ({
 
           <button
             type="button"
-            onClick={() => setShowHint((h) => !h)}
+            onClick={() => {
+              if (!showHint) playLearningFeedback('hint');
+              setShowHint((h) => !h);
+            }}
             className="inline-flex items-center gap-1 font-medium text-[#263A70] hover:underline min-h-[44px] px-1.5 cursor-pointer touch-manipulation"
           >
             <HelpCircle className="w-3.5 h-3.5" aria-hidden="true" />

@@ -31,6 +31,7 @@ import type {
 } from '../../../schemas/grammarEngine.schema';
 import { AppShellFooter, useAppScroll } from '../../../components';
 import { computeSortStars } from './CategorisationActivity';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 type CategoriseCategory = CategoriseActivity['categories'][number];
 
@@ -153,12 +154,14 @@ export const SortSentencesMcqActivity: React.FC<SortSentencesMcqActivityProps> =
     if (wrongSelectedIds.includes(category.id)) return;
 
     if (category.id === currentItem.correctCategory) {
+      playLearningFeedback('correct');
       setSolvedCategoryId(category.id);
       setLastWrongCategoryId(null);
       setShakingCategoryId(null);
       return;
     }
 
+    playLearningFeedback('incorrect');
     setWrongSelectedIds((prev) => [...prev, category.id]);
     setLastWrongCategoryId(category.id);
     setMistakes((prev) => prev + 1);
@@ -176,6 +179,7 @@ export const SortSentencesMcqActivity: React.FC<SortSentencesMcqActivityProps> =
     if (!isAnsweredCorrectly) return;
 
     if (isLastSentence) {
+      playLearningFeedback('complete', `sort:${activity.id}:${attemptId}:complete`);
       setShowCompletion(true);
       onSolved(earnedStars);
       scrollToTop('auto');

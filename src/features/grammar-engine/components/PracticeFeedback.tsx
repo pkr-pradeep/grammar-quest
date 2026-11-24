@@ -7,9 +7,10 @@
  * ============================================================================
  */
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { CheckCircle2, Info } from 'lucide-react';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface PracticeFeedbackProps {
   status: 'correct' | 'try-again' | 'info';
@@ -23,6 +24,15 @@ export const PracticeFeedback: React.FC<PracticeFeedbackProps> = ({
   message,
 }) => {
   const prefersReducedMotion = useReducedMotion();
+  const lastCueRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (status === 'info') return;
+    const cueKey = `${status}:${title}:${message}`;
+    if (lastCueRef.current === cueKey) return;
+    lastCueRef.current = cueKey;
+    playLearningFeedback(status === 'correct' ? 'correct' : 'incorrect');
+  }, [message, status, title]);
 
   const styles =
     status === 'correct'

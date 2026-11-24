@@ -26,6 +26,7 @@ import {
 } from './storage/progressRepository';
 import { loadAllAssessmentAttempts } from './storage/assessmentRepository';
 import { AppShell, MobileBottomNav, TopAppBar } from './components';
+import { installAudioGestureUnlock } from './services/feedback/feedbackService';
 import { Dashboard } from './features/home/Dashboard';
 import { WelcomePage } from './features/home/WelcomePage';
 import { FoundationSectionView } from './features/placeholders/FoundationSectionView';
@@ -137,6 +138,8 @@ export default function App() {
     () => isDevCharacterSheetRoute() || Boolean(parseMissionHash()),
   );
   const mainScrollRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => installAudioGestureUnlock(), []);
 
   useEffect(() => {
     if (!(import.meta.env && import.meta.env.DEV)) return;

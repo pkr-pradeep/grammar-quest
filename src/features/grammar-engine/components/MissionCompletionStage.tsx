@@ -8,15 +8,17 @@
  * ============================================================================
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useReducedMotion } from 'motion/react';
 import { Award, CheckCircle2, ClipboardCheck, Home, ShieldCheck, Sparkles } from 'lucide-react';
 import type { MissionCompletionSummary } from '../../../schemas/grammarEngine.schema';
 import type { AssessmentAttemptRecord } from '../../../schemas/assessment.schema';
 import { AppShellFooter, Button, CourtyardNoticeboardScene } from '../../../components';
 import { SpeakerPortrait } from '../speakerTheme';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface MissionCompletionStageProps {
+  missionId: string;
   missionTitle: string;
   summary: MissionCompletionSummary;
   assessmentAttempt?: AssessmentAttemptRecord | null;
@@ -26,6 +28,7 @@ export interface MissionCompletionStageProps {
 }
 
 export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
+  missionId,
   missionTitle,
   summary,
   assessmentAttempt,
@@ -35,6 +38,10 @@ export const MissionCompletionStage: React.FC<MissionCompletionStageProps> = ({
 }) => {
   const prefersReducedMotion = Boolean(useReducedMotion());
   const isAssessmentSubmitted = assessmentAttempt?.status === 'submitted';
+
+  useEffect(() => {
+    playLearningFeedback('complete', `mission:${missionId}:complete`);
+  }, [missionId]);
 
   return (
     <div className="space-y-4">

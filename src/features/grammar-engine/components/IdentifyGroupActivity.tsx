@@ -16,6 +16,7 @@ import { WordToken } from './WordToken';
 import { WordGroup } from './WordGroup';
 import { PracticeFeedback } from './PracticeFeedback';
 import { ActivityCharacterNote } from './ActivityCharacterNote';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface IdentifyGroupActivityProps {
   activity: IdentifyGroupActivityData;
@@ -69,7 +70,12 @@ export const IdentifyGroupActivity: React.FC<IdentifyGroupActivityProps> = ({
         <p className="text-sm text-[#333333]">{activity.instruction}</p>
       </div>
 
-      {activity.characterTip ? <ActivityCharacterNote tip={activity.characterTip} /> : null}
+      {activity.characterTip ? (
+        <ActivityCharacterNote
+          tip={activity.characterTip}
+          eventId={`activity:${activity.id}:character-tip`}
+        />
+      ) : null}
 
       {/* Tap-to-select sentence tokens */}
       <div className="rounded-[16px] bg-white border border-[#E5E2D9] p-4 space-y-3">
@@ -94,7 +100,10 @@ export const IdentifyGroupActivity: React.FC<IdentifyGroupActivityProps> = ({
           </span>
           <button
             type="button"
-            onClick={() => setShowHint((h) => !h)}
+            onClick={() => {
+              if (!showHint) playLearningFeedback('hint');
+              setShowHint((h) => !h);
+            }}
             className="inline-flex items-center gap-1 font-medium text-[#263A70] hover:underline min-h-[44px] px-1.5 cursor-pointer touch-manipulation"
           >
             <HelpCircle className="w-3.5 h-3.5" aria-hidden="true" />

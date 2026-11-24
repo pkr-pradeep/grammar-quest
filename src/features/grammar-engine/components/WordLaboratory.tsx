@@ -32,6 +32,7 @@ import {
   MissingWordsView,
   WordReplacementView,
 } from './WordLabChallengeActivity';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface WordLaboratoryProps {
   isActive?: boolean;
@@ -136,6 +137,10 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
     setSolvedIds(next);
     onSolvedIdsChange?.(next);
     if (activities.length > 0 && activities.every((a) => next.includes(a.id))) {
+      playLearningFeedback(
+        'complete',
+        `guided:${activities.map((activity) => activity.id).join(',')}:complete`,
+      );
       onAllSolved?.();
     }
   };

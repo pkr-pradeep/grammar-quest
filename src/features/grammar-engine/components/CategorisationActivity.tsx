@@ -27,6 +27,10 @@ import type {
   CategoriseItem,
 } from '../../../schemas/grammarEngine.schema';
 import { SpeakerPortrait } from '../speakerTheme';
+import {
+  playCharacterDialogue,
+  playLearningFeedback,
+} from '../../../services/feedback/feedbackService';
 
 export interface CategorisationActivityProps {
   activity: CategoriseActivityData;
@@ -247,6 +251,10 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
   } | null>(null);
   const suppressNextClickRef = useRef(false);
 
+  useEffect(() => {
+    playCharacterDialogue('shuka', `categorisation:${activity.id}:guide`);
+  }, [activity.id]);
+
   const timersRef = useRef<number[]>([]);
   const registerTimer = (fn: () => void, ms: number) => {
     const id = window.setTimeout(fn, ms);
@@ -349,6 +357,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       const nextPlaced = { ...placedMap, [item.id]: categoryId };
       const nextPlacedCount = Object.keys(nextPlaced).length;
       const finishedNow = nextPlacedCount === totalCount;
+      playLearningFeedback('correct');
 
       setPlacedMap(nextPlaced);
       setSelectedItemId(null);
@@ -398,6 +407,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
     }
 
     // Wrong placement
+    playLearningFeedback('incorrect');
     setMistakes((m) => m + 1);
     setSelectedItemId(item.id);
     setShakingCardId(item.id);
@@ -447,6 +457,7 @@ export const CategorisationActivity: React.FC<CategorisationActivityProps> = ({
       unplacedItems[0];
     if (!targetItem) return;
 
+    playLearningFeedback('hint');
     if (!selectedItemId) {
       setSelectedItemId(targetItem.id);
     }

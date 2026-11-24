@@ -560,6 +560,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
         isAutoOpened={isAutoOpened}
         characterId={currentStep.characterId}
         characterExpression={currentStep.characterExpression}
+        dialogueEventId={`learn:${lesson.missionId}:${currentStep.id}`}
         badgeLabel={currentStep.badgeLabel}
         title={currentStep.title}
         shortPrompt={currentStep.shortPrompt}

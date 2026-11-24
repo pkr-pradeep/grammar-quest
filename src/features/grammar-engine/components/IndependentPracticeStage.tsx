@@ -26,6 +26,10 @@ import { WordToken } from './WordToken';
 import { WordGroup } from './WordGroup';
 import { PracticeFeedback } from './PracticeFeedback';
 import { ActivityHintBox } from './ActivityCharacterNote';
+import {
+  playCharacterDialogue,
+  playLearningFeedback,
+} from '../../../services/feedback/feedbackService';
 
 export interface IndependentPracticeStageProps {
   isActive?: boolean;
@@ -84,6 +88,15 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
   }, [itemIndex, isActive, scrollToTop]);
 
   const currentItem = items[itemIndex] ?? items[0];
+  useEffect(() => {
+    if (isActive && currentItem?.speakerCharacterId) {
+      playCharacterDialogue(
+        currentItem.speakerCharacterId,
+        `independent-practice:${currentItem.id}:speaker`,
+      );
+    }
+  }, [currentItem?.id, currentItem?.speakerCharacterId, isActive]);
+
   if (!currentItem) return null;
 
   const currentPhase = phaseById[currentItem.id] ?? 'subject';
@@ -103,6 +116,12 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
     solvedIdsRef.current = next;
     setSolvedIds(next);
     onSolvedIdsChange?.(next);
+    if (items.every((item) => next.includes(item.id))) {
+      playLearningFeedback(
+        'complete',
+        `independent-practice:${items.map((item) => item.id).join(',')}:complete`,
+      );
+    }
   };
 
   const toggleToken = (tokenId: string) => {

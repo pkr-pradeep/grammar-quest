@@ -40,6 +40,7 @@ import type {
   TeachingCheckpointData,
 } from '../../../schemas/grammarEngine.schema';
 import { GRAMMATICAL_CATEGORY_META } from '../categoryMeta';
+import { playLearningFeedback } from '../../../services/feedback/feedbackService';
 
 export interface SentenceTypesStepViewProps {
   stepId: string;
@@ -1079,7 +1080,9 @@ export const SentenceTypesStepView: React.FC<SentenceTypesStepViewProps> = ({
                   aria-checked={isSelected}
                   onClick={() => {
                     onUserEngage?.();
+                    if (selectedCheckpointId === opt.id) return;
                     setSelectedCheckpointId(opt.id);
+                    playLearningFeedback(opt.isCorrect ? 'correct' : 'incorrect');
                   }}
                   className={[
                     'w-full min-h-[44px] px-3.5 py-2.5 rounded-[14px] border-[1.5px] text-left text-[13px] font-bold flex items-center justify-between gap-2.5 transition-colors cursor-pointer',
