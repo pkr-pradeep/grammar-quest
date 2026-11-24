@@ -106,7 +106,7 @@ export const WordInspectorPopup: React.FC<WordInspectorPopupProps> = ({
           {/* Meaning & Grammatical Role Explanation */}
           <div
             className={[
-              'rounded-[14px] border p-3.5 text-sm text-[#333333] leading-relaxed',
+              'rounded-[14px] border p-3.5 text-[15px] sm:text-base text-[#333333] leading-relaxed',
               groupMeta.bgClass,
               groupMeta.borderClass,
             ].join(' ')}
@@ -116,7 +116,7 @@ export const WordInspectorPopup: React.FC<WordInspectorPopupProps> = ({
 
           {/* Optional Tense / Agreement Breakdown (Missions 2 & 3) */}
           {activeToken.verbMeta ? (
-            <div className="rounded-[14px] bg-[#FDFCF9] border border-[#E5E2D9] p-3 space-y-1.5 text-xs">
+            <div className="rounded-[14px] bg-[#FDFCF9] border border-[#E5E2D9] p-3 space-y-1.5 text-[13px] sm:text-sm">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="font-semibold text-[#4B5C8A]">Time communicated:</span>
                 <span className="font-bold text-[#263A70]">

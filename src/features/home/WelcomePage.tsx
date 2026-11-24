@@ -60,7 +60,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onStartLearning }) => 
         {TOPIC_CHIPS.map((chip, index) => (
           <span
             key={chip.label}
-            className="gq-welcome-chip absolute hidden rounded-full px-3.5 py-2 text-[14px] font-extrabold leading-none text-[#1F2A68] min-[360px]:inline-flex"
+            className="font-expressive gq-welcome-chip absolute hidden rounded-full px-3.5 py-2 text-[14px] leading-none text-[#1F2A68] min-[360px]:inline-flex"
             style={{
               top: chip.top,
               left: chip.left,
@@ -96,7 +96,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ onStartLearning }) => 
 
           <h1
             id="welcome-title"
-            className="gq-welcome-title mt-2 whitespace-nowrap text-[40px] font-extrabold leading-[1.05] tracking-normal min-[360px]:text-[44px] sm:text-[52px]"
+            className="gq-welcome-title mt-2 whitespace-nowrap text-[36px] font-semibold leading-[1.1] tracking-normal min-[360px]:text-[36px] sm:text-[44px]"
           >
             <span className="text-white">Grammar</span>{' '}
             <span className="text-[#FFC83D]">Quest</span>

@@ -151,13 +151,13 @@ export const ExplanationPanel: React.FC<ExplanationPanelProps> = ({
           <div className="flex flex-wrap items-center justify-between gap-1.5">
             <div className="flex flex-wrap items-center gap-1.5 min-w-0">
               <span
-                className="px-2 py-0.5 rounded-[8px] text-white text-[11px] font-bold leading-snug"
+                className="font-character px-2 py-0.5 rounded-[8px] text-white text-[13px] leading-snug"
                 style={{ backgroundColor: theme.solid }}
               >
                 {theme.name}
               </span>
               <span
-                className="text-[11px] font-semibold"
+                className="text-xs font-semibold"
                 style={{ color: theme.solid }}
               >
                 {theme.roleLabel}
@@ -191,7 +191,7 @@ export const ExplanationPanel: React.FC<ExplanationPanelProps> = ({
           <h2 className="font-heading text-base sm:text-lg font-semibold text-[#263A70] leading-snug">
             {title}
           </h2>
-          <p className="text-xs sm:text-sm font-medium text-[#263A70] leading-snug">
+          <p className="text-[15px] sm:text-base font-medium text-[#263A70] leading-[1.5]">
             {shortPrompt}
           </p>
 
@@ -199,13 +199,13 @@ export const ExplanationPanel: React.FC<ExplanationPanelProps> = ({
           <div className="grid pt-0.5">
             <p
               aria-hidden="true"
-              className="col-start-1 row-start-1 invisible pointer-events-none select-none text-xs sm:text-sm text-[#333333] leading-snug"
+              className="col-start-1 row-start-1 invisible pointer-events-none select-none text-[15px] sm:text-base text-[#333333] leading-[1.5]"
             >
               {explanation}
             </p>
             <p
               aria-live="polite"
-              className="col-start-1 row-start-1 text-xs sm:text-sm text-[#333333] leading-snug"
+              className="col-start-1 row-start-1 text-[15px] sm:text-base text-[#333333] leading-[1.5]"
             >
               {displayedExplanation}
               {isActivelyTyping ? (

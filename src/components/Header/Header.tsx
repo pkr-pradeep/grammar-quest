@@ -47,7 +47,7 @@ export const TopAppBar: React.FC<HeaderProps> = ({
         aria-label="Grammar Quest Home"
       >
         <GrammarQuestEmblem className="w-8 h-8 md:w-9 md:h-9 shrink-0" />
-        <span className="text-lg md:text-xl font-semibold tracking-tight whitespace-nowrap text-[#263A70]">
+        <span className="font-heading text-lg md:text-xl font-semibold tracking-tight whitespace-nowrap text-[#263A70]">
           Grammar <span className="text-[#E07F07]">Quest</span>
         </span>
       </button>
@@ -102,7 +102,7 @@ export const MobileBottomNav: React.FC<HeaderProps> = ({
             ].join(' ')}
           >
             <Icon className="w-5 h-5" strokeWidth={isActive ? 2.4 : 2} />
-            <span className="text-[11px] font-medium leading-tight mt-0.5 whitespace-nowrap">
+            <span className="text-xs font-medium leading-tight mt-0.5 whitespace-nowrap">
               {label}
             </span>
           </button>

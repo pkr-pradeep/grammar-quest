@@ -96,13 +96,13 @@ export const GuideNotePopup: React.FC<GuideNotePopupProps> = ({
           <div className="min-w-0 space-y-1">
             <div className="flex flex-wrap items-center gap-2">
               <span
-                className="px-2.5 py-0.5 rounded-full text-white text-xs font-bold leading-snug"
+                className="font-character px-2.5 py-0.5 rounded-full text-white text-[13px] leading-snug"
                 style={{ backgroundColor: theme.solid }}
               >
                 {theme.name}
               </span>
               <span
-                className="text-xs font-semibold"
+                className="text-[13px] font-semibold"
                 style={{ color: theme.solid }}
               >
                 {theme.roleLabel}
@@ -130,11 +130,11 @@ export const GuideNotePopup: React.FC<GuideNotePopupProps> = ({
           </h2>
 
           <div className="space-y-2.5 pt-0.5">
-            <p className="text-[15px] sm:text-[15.5px] font-semibold text-[#1B2559] leading-[1.5]">
+            <p className="text-[15px] sm:text-base font-semibold text-[#1B2559] leading-[1.5]">
               {shortPrompt}
             </p>
             {showSecondParagraph ? (
-              <p className="text-[15px] sm:text-[15.5px] font-normal text-[#3B446B] leading-[1.5]">
+              <p className="text-[15px] sm:text-base font-normal text-[#3B446B] leading-[1.5]">
                 {explanation}
               </p>
             ) : null}

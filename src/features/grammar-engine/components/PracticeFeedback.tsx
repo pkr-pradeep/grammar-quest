@@ -61,7 +61,7 @@ export const PracticeFeedback: React.FC<PracticeFeedbackProps> = ({
       <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${iconColor}`} aria-hidden="true" />
       <div className="space-y-0.5 min-w-0">
         <p className="text-sm font-semibold text-[#263A70]">{title}</p>
-        <p className="text-xs sm:text-sm text-[#333333] leading-snug">{message}</p>
+        <p className="text-sm sm:text-[15px] text-[#333333] leading-relaxed">{message}</p>
       </div>
     </motion.div>
   );

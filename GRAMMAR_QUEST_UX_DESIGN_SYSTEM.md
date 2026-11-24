@@ -549,7 +549,7 @@ Every existing screen, stage, sub-activity, and overlay mapped directly to its a
 
 | Screen ID | Screen / Stage / Overlay | Actual Source File(s) | Applicable Patterns | Alignment Status | Key Discrepancies vs Target Pattern |
 |---|---|---|---|---|---|
-| `S01` | Welcome Splash | `src/features/home/WelcomePage.tsx` | *Standalone Onboarding (exempt from `A1`)* | **Preserve (Intentional)** | Isolated palette (`#1F2A68`) & fonts (`Baloo 2`/`Nunito`); document as explicit Splash Token Sub-palette. |
+| `S01` | Welcome Splash | `src/features/home/WelcomePage.tsx` | *Standalone Onboarding (exempt from `A1`)* | **Preserve (Intentional)** | Isolated palette (`#1F2A68`); shares the app-wide Fredoka / Nunito Sans typography pairing. |
 | `S02` | Home Dashboard | `src/features/home/Dashboard.tsx` | `A1`, `E1`, `F2` | **Partial** | Inline `#1B2559` buttons bypass `Button.tsx`; inline `h-2.5` progress bar bypasses `Progress.tsx`. |
 | `S03` | Lessons Explorer | `src/features/missions/TopicExplorer.tsx` | `A1`, `A3`, `B3`, `F1`, `F2` | **High** | Active group chip is `36px`; pill CTAs bypass `Button.tsx`; redundant `"Back to Home"` link at top. |
 | `S04` | Grammar Guide | `src/features/placeholders/FoundationSectionView.tsx` | `A1`, `B2` | **Partial** | Legacy `#263A70`/`#E5E2D9` cards on `#FBF6EA` canvas; redundant `"Back to Home"` button at top. |
@@ -603,16 +603,18 @@ Direct inspection of `src/styles/tokens.css` versus newer components (`Dashboard
 
 ### 8.3 Typography Scale
 
-- **Primary Font Stack** (all post-welcome screens): Existing clean geometric sans stack (`Plus Jakarta Sans` / `Inter` / system sans from `tokens.css`).
-- **Splash Display Stack** (`S01` only): `Baloo 2` (headings) + `Nunito` (body).
+- **Display / Heading Font**: Fredoka 600, used for page and section headings, the app brand, the Welcome title, and short character-name labels.
+- **Interface / Body Font**: Nunito Sans 400–800, used for explanations, dialogue, questions, answer choices, buttons, and supporting copy.
+- **Loading**: Google Fonts stylesheet with `display=swap` and preconnect hints. System sans-serif fallbacks keep text available if the remote fonts cannot load.
 - **Scale & Usage**:
-  - **Screen Title**: `20px–24px` (`font-extrabold`, `leading-tight`, `#1B2559`)
-  - **Lesson Compact Header Title**: `15px–16px` (`font-extrabold`, `truncate`) + `12px` module subtitle
-  - **Section / Card Heading**: `15px–16px` (`font-extrabold`)
-  - **Target Grammar Sentence (Prompt)**: `18px–20px` (`font-bold` / `font-extrabold`, `leading-snug`, high-contrast `#1B1B1F` / `#1B2559`)
-  - **Body / Explanation Copy**: `14px` (`font-medium`, `leading-relaxed`)
-  - **Option Label**: `14px–15px` (`font-bold`, `leading-snug`) + optional `12px` helper text
-  - **Metadata / Micro Labels / Counters**: `12px` (`font-bold`, `tabular-nums` for all numeric progress counters) — avoid going below `11.5px` anywhere.
+  - **Welcome App Title**: `36px` mobile / `44px` desktop, Fredoka 600.
+  - **Page / Section / Card Heading**: typically `16px–24px`, Fredoka 600; retain component-specific sizing and existing layout.
+  - **Lesson Compact Header Title**: `16px`, Fredoka 600, truncated when needed; `12px` Nunito Sans module subtitle.
+  - **Character Name**: `13px`, Fredoka 600; **dialogue**: `16px`, Nunito Sans 500 with `1.5` line height.
+  - **Grammar / Explanation Copy**: `15px` mobile / `16px` desktop, Nunito Sans 400–500 with approximately `1.5` line height.
+  - **Questions / Answer Choices**: Nunito Sans, generally `14px–18px` with clear weight contrast and comfortable line spacing.
+  - **Buttons / Supporting Copy**: Nunito Sans, generally `14px–16px`; compact supporting labels should remain at least `12px`.
+  - **Metadata / Counters**: `12px` Nunito Sans 600–700; use `tabular-nums` for numeric progress counters.
 
 ### 8.4 Spacing, Border Radii, Shadows, Icons & Touch Targets
 

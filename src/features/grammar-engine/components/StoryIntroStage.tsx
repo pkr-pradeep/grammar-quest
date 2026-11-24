@@ -301,13 +301,13 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-1.5">
                   <span
-                    className="px-2.5 py-0.5 rounded-[8px] text-white text-xs font-bold leading-snug"
+                    className="font-character px-2.5 py-0.5 rounded-[8px] text-white text-[13px] leading-snug"
                     style={{ backgroundColor: theme.solid }}
                   >
                     {speakerSpec.name}
                   </span>
                   <span
-                    className="text-[11px] font-semibold"
+                    className="text-xs font-semibold"
                     style={{ color: theme.solid }}
                   >
                     {theme.roleLabel}
@@ -351,13 +351,13 @@ export const StoryIntroStage: React.FC<StoryIntroStageProps> = ({
           <div className="grid">
             <p
               aria-hidden="true"
-              className="col-start-1 row-start-1 invisible pointer-events-none select-none text-sm sm:text-base font-medium text-[#263A70] leading-snug"
+              className="col-start-1 row-start-1 invisible pointer-events-none select-none text-base font-medium text-[#263A70] leading-[1.5]"
             >
               “{fullDialogue}”
             </p>
             <p
               aria-live="polite"
-              className="col-start-1 row-start-1 text-sm sm:text-base font-medium text-[#263A70] leading-snug"
+              className="col-start-1 row-start-1 text-base font-medium text-[#263A70] leading-[1.5]"
             >
               “{displayedDialogue}
               {isActivelyTyping ? (

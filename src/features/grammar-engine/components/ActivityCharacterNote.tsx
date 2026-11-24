@@ -40,19 +40,19 @@ export const ActivityCharacterNote: React.FC<{
       <div className="min-w-0 space-y-0.5">
         <div className="flex flex-wrap items-center gap-1.5">
           <span
-            className="px-1.5 py-0.5 rounded-[6px] text-white text-[10px] font-bold leading-none"
+            className="font-character px-1.5 py-0.5 rounded-[6px] text-white text-[13px] leading-none"
             style={{ backgroundColor: theme.solid }}
           >
             {theme.name}
           </span>
           <span
-            className="text-[10.5px] font-semibold leading-none"
+            className="text-xs font-semibold leading-none"
             style={{ color: theme.solid }}
           >
             {theme.roleLabel}
           </span>
         </div>
-        <p className="text-xs sm:text-[13px] text-[#263A70] leading-snug font-medium">
+        <p className="text-sm sm:text-[15px] text-[#263A70] leading-[1.45] font-medium">
           {tip.quote}
         </p>
       </div>
@@ -83,7 +83,7 @@ export const ActivityHintBox: React.FC<{
       </button>
 
       {isOpen ? (
-        <p className="text-xs sm:text-sm rounded-[10px] bg-[#FFF1D5] border border-[#F2DFB6] px-3 py-2 text-[#333333] leading-snug">
+        <p className="text-sm sm:text-[15px] rounded-[10px] bg-[#FFF1D5] border border-[#F2DFB6] px-3 py-2 text-[#333333] leading-snug">
           {hint}
         </p>
       ) : null}

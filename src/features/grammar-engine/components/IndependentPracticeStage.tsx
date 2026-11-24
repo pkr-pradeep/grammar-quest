@@ -339,10 +339,10 @@ export const IndependentPracticeStage: React.FC<IndependentPracticeStageProps> =
           <h2 className="font-heading text-base sm:text-lg font-semibold text-[#263A70]">
             {currentItem.title}
           </h2>
-          <p className="text-sm text-[#333333]">{currentItem.instruction}</p>
+          <p className="text-[15px] sm:text-base text-[#333333]">{currentItem.instruction}</p>
 
           {currentItem.cueText && currentItem.cueLevel !== 'none' ? (
-            <p className="text-xs rounded-[10px] bg-[#FFF9EC] border border-[#F2DFB6] px-3 py-1.5 text-[#4B5C8A]">
+            <p className="text-[13px] sm:text-sm rounded-[10px] bg-[#FFF9EC] border border-[#F2DFB6] px-3 py-1.5 text-[#4B5C8A]">
               {currentItem.cueText}
             </p>
           ) : null}

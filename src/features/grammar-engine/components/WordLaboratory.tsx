@@ -343,13 +343,13 @@ export const WordLaboratory: React.FC<WordLaboratoryProps> = ({
             <div className="space-y-1">
               <div className="flex flex-wrap items-center gap-1.5">
                 <span
-                  className="px-2 py-0.5 rounded-[8px] text-white text-[11px] font-bold leading-snug"
+                  className="font-character px-2 py-0.5 rounded-[8px] text-white text-[13px] leading-snug"
                   style={{ backgroundColor: shukaTheme.solid }}
                 >
                   {shukaTheme.name}
                 </span>
                 <span
-                  className="text-[11px] font-semibold"
+                  className="text-xs font-semibold"
                   style={{ color: shukaTheme.solid }}
                 >
                   {shukaTheme.roleLabel}

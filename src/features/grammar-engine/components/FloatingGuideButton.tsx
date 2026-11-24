@@ -62,7 +62,7 @@ export const FloatingGuideButton: React.FC<FloatingGuideButtonProps> = ({
             hintFadingOut ? 'opacity-0' : 'opacity-100',
           ].join(' ')}
         >
-          Tap to hear {theme.name} again
+          Tap to hear <span className="font-character">{theme.name}</span> again
         </div>
       ) : null}
 
