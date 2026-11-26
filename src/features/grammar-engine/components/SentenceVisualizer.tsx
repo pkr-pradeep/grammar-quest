@@ -402,6 +402,8 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
       {/* Zone C: Interactive Starter Sentence Workspace */}
       <section
         aria-label="Interactive sentence workspace"
+        data-paginate-block
+        data-paginate-name={sentence.title}
         className="rounded-[18px] bg-white border border-[#E5E2D9] p-3.5 sm:p-4 space-y-3 shadow-[var(--gq-shadow-card)]"
       >
         {/* Header Title */}
@@ -949,6 +951,8 @@ export const SentenceVisualizer: React.FC<SentenceVisualizerProps> = ({
       {!isGuidedLocked ? (
         <section
           aria-label="Sentence breakdown result"
+          data-paginate-block
+          data-paginate-name="Sentence breakdown"
           className="rounded-[18px] bg-white border border-[#E5E2D9] p-3.5 sm:p-4 space-y-2 shadow-[var(--gq-shadow-card)]"
         >
           <p className="text-[11px] font-bold uppercase tracking-[0.06em] text-[#4B5C8A]">

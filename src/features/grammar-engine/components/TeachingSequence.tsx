@@ -31,6 +31,12 @@ import { FloatingGuideButton } from './FloatingGuideButton';
 import { SentenceVisualizer, type SelectedTokenState } from './SentenceVisualizer';
 import { SentenceTypesStepView } from './SentenceTypesStepView';
 import { LessonNavigation } from './LessonNavigation';
+import { PaginatedContent } from '../pagination/PaginatedContent';
+import {
+  getNextPageTarget,
+  getPreviousPageTarget,
+  type PaginationPage,
+} from '../pagination/pagination';
 
 export interface TeachingSequenceProps {
   lesson: GrammarLessonDefinition;
@@ -91,6 +97,15 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   };
 
   const [stepIndex, setStepIndex] = useState(() => resolveStepIndex(initialStepNumber));
+  const [pageIndex, setPageIndex] = useState(0);
+  const [paginationByStep, setPaginationByStep] = useState<
+    Record<string, PaginationPage[]>
+  >({});
+  const [visitedPagesByStep, setVisitedPagesByStep] = useState<
+    Record<string, number[]>
+  >({});
+  const previousStepJumpNonceRef = useRef(stepJumpNonce);
+  const pendingLastPageStepRef = useRef<string | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [animationSeed, setAnimationSeed] = useState(0);
   const [stepsDrawerOpen, setStepsDrawerOpen] = useState(false);
@@ -141,6 +156,10 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
     if (initialStepNumber) {
       const nextIdx = resolveStepIndex(initialStepNumber);
       setStepIndex(nextIdx);
+      if (previousStepJumpNonceRef.current !== stepJumpNonce) {
+        previousStepJumpNonceRef.current = stepJumpNonce;
+        setPageIndex(0);
+      }
       const targetStep = steps[nextIdx];
       if (targetStep && !hasSeenStepPopup(lesson.lessonId, targetStep.id)) {
         markStepPopupSeen(lesson.lessonId, targetStep.id);
@@ -155,6 +174,60 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   }, [initialStepNumber, stepJumpNonce]);
 
   const currentStep = steps[stepIndex] ?? steps[0];
+  const currentPages = paginationByStep[currentStep.id] ?? [];
+  const currentPageCount = currentPages.length || 1;
+  const currentPageIndex = Math.max(0, Math.min(pageIndex, currentPageCount - 1));
+  const currentPage = currentPages[currentPageIndex];
+
+  const handlePagesChange = useCallback(
+    (contentKey: string, pages: PaginationPage[]) => {
+      setPaginationByStep((previous) => {
+        const existing = previous[contentKey];
+        const isUnchanged =
+          existing?.length === pages.length &&
+          existing.every(
+            (page, index) =>
+              page.name === pages[index].name &&
+              Math.abs(page.height - pages[index].height) < 1 &&
+              page.blockIndexes.length === pages[index].blockIndexes.length &&
+              page.blockIndexes.every(
+                (blockIndex, blockPosition) =>
+                  blockIndex === pages[index].blockIndexes[blockPosition],
+              ),
+          );
+        return isUnchanged ? previous : { ...previous, [contentKey]: pages };
+      });
+      if (pendingLastPageStepRef.current === contentKey) {
+        pendingLastPageStepRef.current = null;
+        const lastPageIndex = Math.max(0, pages.length - 1);
+        setPageIndex(lastPageIndex);
+        setVisitedPagesByStep((previous) => {
+          const visited = previous[contentKey] ?? [];
+          return visited.includes(lastPageIndex)
+            ? previous
+            : { ...previous, [contentKey]: [...visited, lastPageIndex] };
+        });
+      }
+    },
+    [],
+  );
+
+  useEffect(() => {
+    if (pageIndex >= currentPageCount) {
+      setPageIndex(currentPageCount - 1);
+    }
+  }, [currentPageCount, pageIndex]);
+
+  useEffect(() => {
+    setVisitedPagesByStep((previous) => {
+      const visited = previous[currentStep.id] ?? [];
+      if (visited.includes(currentPageIndex)) return previous;
+      return {
+        ...previous,
+        [currentStep.id]: [...visited, currentPageIndex],
+      };
+    });
+  }, [currentPageIndex, currentStep.id]);
 
   const [selectedTokenInfo, setSelectedTokenInfo] = useState<SelectedTokenState | null>(
     null,
@@ -329,10 +402,22 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
   };
 
   const goToStepIndex = useCallback(
-    (nextIdx: number) => {
+    (nextIdx: number, requestedPageIndex = 0) => {
       const bounded = Math.max(0, Math.min(nextIdx, steps.length - 1));
       const nextStep = steps[bounded];
       setStepIndex(bounded);
+      const nextPageCount = paginationByStep[nextStep.id]?.length ?? 1;
+      const nextPageIndex = Math.max(
+        0,
+        Math.min(requestedPageIndex, nextPageCount - 1),
+      );
+      setPageIndex(nextPageIndex);
+      setVisitedPagesByStep((previous) => {
+        const visited = previous[nextStep.id] ?? [];
+        return visited.includes(nextPageIndex)
+          ? previous
+          : { ...previous, [nextStep.id]: [...visited, nextPageIndex] };
+      });
       if (nextStep) {
         const key = `${lesson.lessonId}:${nextStep.id}`;
         activeStepPopupRef.current = key;
@@ -354,22 +439,68 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
         }
       }
     },
-    [steps, lesson.lessonId, clearAllGuideTimers],
+    [steps, lesson.lessonId, clearAllGuideTimers, paginationByStep],
+  );
+
+  const goToPageIndex = useCallback(
+    (nextPageIndex: number) => {
+      const bounded = Math.max(0, Math.min(nextPageIndex, currentPageCount - 1));
+      setPageIndex(bounded);
+      setVisitedPagesByStep((previous) => {
+        const visited = previous[currentStep.id] ?? [];
+        return visited.includes(bounded)
+          ? previous
+          : { ...previous, [currentStep.id]: [...visited, bounded] };
+      });
+      scrollToTop('auto');
+    },
+    [currentPageCount, currentStep.id, scrollToTop],
   );
 
   const handleNext = () => {
     onUserEngage?.();
-    if (stepIndex < steps.length - 1) {
-      goToStepIndex(stepIndex + 1);
-    } else {
+    const target = getNextPageTarget(
+      currentPageIndex,
+      currentPageCount,
+      stepIndex,
+      steps.length,
+    );
+    if (target.type === 'page') {
+      goToPageIndex(target.pageIndex);
+    } else if (target.type === 'step') {
+      goToStepIndex(target.stepIndex, target.pageIndex);
+    } else if (target.type === 'complete') {
       onCompleteSequence();
     }
   };
 
   const handlePrevious = () => {
-    if (stepIndex > 0) {
-      goToStepIndex(stepIndex - 1);
+    const previousStep = stepIndex > 0 ? steps[stepIndex - 1] : undefined;
+    const previousPages = previousStep
+      ? paginationByStep[previousStep.id]
+      : undefined;
+    const previousVisitedPages = previousStep
+      ? visitedPagesByStep[previousStep.id] ?? []
+      : [];
+    if (
+      currentPageIndex === 0 &&
+      previousStep &&
+      !previousPages &&
+      previousVisitedPages.length === 0
+    ) {
+      pendingLastPageStepRef.current = previousStep.id;
+      goToStepIndex(stepIndex - 1, 0);
+      return;
     }
+    const previousStepPageCount = previousPages?.length
+      ?? Math.max(1, ...previousVisitedPages.map((visitedIndex) => visitedIndex + 1));
+    const target = getPreviousPageTarget(
+      currentPageIndex,
+      stepIndex,
+      previousStepPageCount,
+    );
+    if (target.type === 'page') goToPageIndex(target.pageIndex);
+    if (target.type === 'step') goToStepIndex(target.stepIndex, target.pageIndex);
   };
 
   const handleReplay = () => {
@@ -399,6 +530,7 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
                     style={{ width: `${percent}%` }}
                   />
                 </div>
+
                 <span className="text-xs font-semibold text-[#4B5C8A] tabular-nums">
                   {percent}%
                 </span>
@@ -420,6 +552,41 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
                 )}
               </button>
             </div>
+
+            {currentPageCount > 1 ? (
+              <div className="mt-1 flex min-h-8 items-center justify-between gap-2 rounded-[10px] border-[1.5px] border-[#E9E1CB] bg-white px-2.5 py-1">
+                <span
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  className="min-w-0 truncate text-[11px] font-semibold text-[#4B5C8A]"
+                >
+                  Page {currentPageIndex + 1} of {currentPageCount} ·{' '}
+                  {currentPage?.name ?? 'Content'}
+                </span>
+                <span className="flex shrink-0 items-center gap-1.5" aria-hidden="true">
+                  {currentPages.map((_, index) => {
+                    const isCurrent = index === currentPageIndex;
+                    const isVisited = (
+                      visitedPagesByStep[currentStep.id] ?? []
+                    ).includes(index);
+                    return (
+                      <span
+                        key={`${currentStep.id}-page-${index}`}
+                        className={[
+                          'h-2 rounded-full transition-all',
+                          isCurrent
+                            ? 'w-5 bg-[#1B2559]'
+                            : isVisited
+                              ? 'w-2 bg-[#1FA89A]'
+                              : 'w-2 border border-[#A69C85] bg-transparent',
+                        ].join(' ')}
+                      />
+                    );
+                  })}
+                </span>
+              </div>
+            ) : null}
 
             {/* Expandable Compact All-Steps Popover */}
             {stepsDrawerOpen ? (
@@ -472,56 +639,65 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
           .join(' ')}
       >
         {/* Scrollable Lesson Workspace (unobstructed above reserved utility bar + footer) */}
-        <div className="w-full max-w-[920px] mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-4 pb-6">
-          {lesson.missionId === 'c9-mission-04' || Boolean(currentStep.clausePatternData) ? (
-            <SentenceTypesStepView
-              stepId={currentStep.id}
-              sentence={activeSentence}
-              comparisonSentence={comparisonSentence}
-              clausePatternData={currentStep.clausePatternData}
-              checkpointData={currentStep.checkpointData}
-              isPaused={isPaused}
-              animationSeed={animationSeed}
-              onUserEngage={onUserEngage}
-            />
-          ) : (
-            <SentenceVisualizer
-              stepId={currentStep.id}
-              visualMode={currentStep.visualMode}
-              visualCallout={currentStep.visualCallout}
-              guidedChallenge={currentStep.guidedChallenge}
-              timelineData={currentStep.timelineData}
-              agreementData={currentStep.agreementData}
-              clausePatternData={currentStep.clausePatternData}
-              checkpointData={currentStep.checkpointData}
-              dimmedTokenIds={currentStep.dimmedTokenIds}
-              sentence={activeSentence}
-              comparisonSentence={comparisonSentence}
-              allowedRelationshipTypes={lesson.activeRelationshipTypes}
-              selectedTokenInfo={selectedTokenInfo}
-              highlightedGroupRole={highlightedGroupRole}
-              focusTokenIds={currentStep.focusTokenIds ?? []}
-              focusRelationshipIds={currentStep.focusRelationshipIds ?? []}
-              selectedRelationshipId={selectedRelationshipId}
-              showStructureSplit={showStructureSplit}
-              showCompare={showCompare}
-              showRelationships={
-                currentStep.type === 'show-relationship' ||
-                currentStep.type === 'interact-explore' ||
-                currentStep.allowFreeExplore === true
-              }
-              allowFreeExplore={currentStep.allowFreeExplore === true}
-              isPaused={isPaused}
-              animationSeed={animationSeed}
-              onSelectToken={handleSelectToken}
-              onCloseTokenPopup={() => setSelectedTokenInfo(null)}
-              onSelectGroup={handleSelectGroup}
-              onToggleStructureSplit={handleToggleStructure}
-              onToggleCompare={comparisonSentence ? handleToggleCompare : undefined}
-              onSelectRelationship={handleSelectRelationship}
-            />
-          )}
-        </div>
+        <PaginatedContent
+          contentKey={currentStep.id}
+          pageIndex={currentPageIndex}
+          onPagesChange={handlePagesChange}
+        >
+          <div
+            data-paginate-content
+            className="w-full max-w-[920px] mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-4 pb-6"
+          >
+            {lesson.missionId === 'c9-mission-04' || Boolean(currentStep.clausePatternData) ? (
+              <SentenceTypesStepView
+                stepId={currentStep.id}
+                sentence={activeSentence}
+                comparisonSentence={comparisonSentence}
+                clausePatternData={currentStep.clausePatternData}
+                checkpointData={currentStep.checkpointData}
+                isPaused={isPaused}
+                animationSeed={animationSeed}
+                onUserEngage={onUserEngage}
+              />
+            ) : (
+              <SentenceVisualizer
+                stepId={currentStep.id}
+                visualMode={currentStep.visualMode}
+                visualCallout={currentStep.visualCallout}
+                guidedChallenge={currentStep.guidedChallenge}
+                timelineData={currentStep.timelineData}
+                agreementData={currentStep.agreementData}
+                clausePatternData={currentStep.clausePatternData}
+                checkpointData={currentStep.checkpointData}
+                dimmedTokenIds={currentStep.dimmedTokenIds}
+                sentence={activeSentence}
+                comparisonSentence={comparisonSentence}
+                allowedRelationshipTypes={lesson.activeRelationshipTypes}
+                selectedTokenInfo={selectedTokenInfo}
+                highlightedGroupRole={highlightedGroupRole}
+                focusTokenIds={currentStep.focusTokenIds ?? []}
+                focusRelationshipIds={currentStep.focusRelationshipIds ?? []}
+                selectedRelationshipId={selectedRelationshipId}
+                showStructureSplit={showStructureSplit}
+                showCompare={showCompare}
+                showRelationships={
+                  currentStep.type === 'show-relationship' ||
+                  currentStep.type === 'interact-explore' ||
+                  currentStep.allowFreeExplore === true
+                }
+                allowFreeExplore={currentStep.allowFreeExplore === true}
+                isPaused={isPaused}
+                animationSeed={animationSeed}
+                onSelectToken={handleSelectToken}
+                onCloseTokenPopup={() => setSelectedTokenInfo(null)}
+                onSelectGroup={handleSelectGroup}
+                onToggleStructureSplit={handleToggleStructure}
+                onToggleCompare={comparisonSentence ? handleToggleCompare : undefined}
+                onSelectRelationship={handleSelectRelationship}
+              />
+            )}
+          </div>
+        </PaginatedContent>
       </div>
 
       {/* Region D2 Reserved Utility Bar: Guide Button (outside scroll region, never overlaps text) */}
@@ -549,7 +725,24 @@ export const TeachingSequence: React.FC<TeachingSequenceProps> = ({
           onNext={handleNext}
           onTogglePause={() => setIsPaused((p) => !p)}
           onReplay={handleReplay}
-          nextLabel={stepIndex === steps.length - 1 ? finalNextLabel : 'Next'}
+          canGoPrevious={stepIndex > 0 || currentPageIndex > 0}
+          previousAriaLabel={currentPageIndex > 0 ? 'Previous page' : 'Previous step'}
+          nextLabel={
+            currentPageCount > 1 && currentPageIndex < currentPageCount - 1
+              ? 'Next page'
+              : currentPageCount > 1 && stepIndex < steps.length - 1
+                ? 'Next step'
+                : stepIndex === steps.length - 1
+                  ? finalNextLabel
+                  : 'Next'
+          }
+          nextAriaLabel={
+            currentPageCount > 1 && currentPageIndex < currentPageCount - 1
+              ? 'Next page'
+              : currentPageCount > 1 && stepIndex < steps.length - 1
+                ? 'Next step'
+                : undefined
+          }
           nudgeNextArrow={!isPaused && !prefersReducedMotion}
         />
       </AppShellFooter>

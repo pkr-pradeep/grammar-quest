@@ -19,6 +19,9 @@ export interface LessonNavigationProps {
   onTogglePause: () => void;
   onReplay: () => void;
   nextLabel?: string;
+  nextAriaLabel?: string;
+  previousAriaLabel?: string;
+  canGoPrevious?: boolean;
   nudgeNextArrow?: boolean;
   fixed?: boolean;
 }
@@ -32,9 +35,14 @@ export const LessonNavigation: React.FC<LessonNavigationProps> = ({
   onTogglePause,
   onReplay,
   nextLabel,
+  nextAriaLabel,
+  previousAriaLabel,
+  canGoPrevious,
   nudgeNextArrow = false,
 }) => {
-  const isFirst = currentStepIndex === 0;
+  const isFirst = canGoPrevious === undefined
+    ? currentStepIndex === 0
+    : !canGoPrevious;
   const isLast = currentStepIndex >= totalSteps - 1;
 
   return (
@@ -45,7 +53,7 @@ export const LessonNavigation: React.FC<LessonNavigationProps> = ({
           type="button"
           onClick={onPrevious}
           disabled={isFirst}
-          aria-label="Previous step"
+          aria-label={previousAriaLabel ?? 'Previous step'}
           className={[
             'inline-flex items-center justify-center gap-1.5 min-h-[52px] px-3.5 rounded-[14px] border text-sm font-bold whitespace-nowrap transition-colors',
             'focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]',
@@ -94,6 +102,7 @@ export const LessonNavigation: React.FC<LessonNavigationProps> = ({
         <button
           type="button"
           onClick={onNext}
+          aria-label={nextAriaLabel}
           className="inline-flex items-center justify-center gap-1.5 min-h-[52px] px-3.5 sm:px-5 rounded-[14px] bg-[#1B2559] hover:bg-[#141D47] text-white text-sm font-extrabold whitespace-nowrap transition-colors cursor-pointer focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]"
         >
           <span>{nextLabel ?? (isLast ? 'Word Lab' : 'Next')}</span>

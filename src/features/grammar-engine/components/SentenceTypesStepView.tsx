@@ -31,6 +31,7 @@ import {
   Lightbulb,
   ListTree,
   MessageSquare,
+  Search,
 } from 'lucide-react';
 import type {
   ClausePatternVisualData,
@@ -511,6 +512,8 @@ export const SentenceTypesStepView: React.FC<SentenceTypesStepViewProps> = ({
       {/* A. Starter Sentence Card */}
       <section
         aria-labelledby={`${baseId}-starter-heading`}
+        data-paginate-block
+        data-paginate-name="Starter Sentence"
         className="rounded-[22px] bg-white border border-[#E9E1CB] p-3.5 sm:p-4 space-y-3 shadow-[var(--gq-shadow-card)]"
       >
         <div className="flex items-center justify-between gap-2">
@@ -740,6 +743,8 @@ export const SentenceTypesStepView: React.FC<SentenceTypesStepViewProps> = ({
       {segmentData.tiles.length > 0 ? (
         <section
           aria-labelledby={`${baseId}-types-heading`}
+          data-paginate-block
+          data-paginate-name={sectionBHeading || 'Grammar concepts'}
           className="space-y-2.5"
         >
           {sectionBHeading ? (
@@ -751,78 +756,123 @@ export const SentenceTypesStepView: React.FC<SentenceTypesStepViewProps> = ({
             </h2>
           ) : null}
 
-          <div className={`grid ${gridColumnsClass} gap-[10px]`}>
-            {segmentData.tiles.map((tile, idx) => {
-              const isSelected = idx === selectedSegmentIdx;
-              const { body, punctuation } = splitTrailingPunctuation(tile.exampleText);
-              const isLastOddMobile =
-                (segmentData.tiles.length === 3 || segmentData.tiles.length === 5) &&
-                idx === segmentData.tiles.length - 1;
-
-              return (
-                <button
-                  key={tile.key}
-                  type="button"
-                  onClick={() => {
-                    onUserEngage?.();
-                    setSelectedSegmentIdx(idx);
-                  }}
-                  aria-pressed={isSelected}
-                  style={{
-                    backgroundColor: tile.bgHex,
-                    borderColor: tile.borderHex,
-                    boxShadow: isSelected
-                      ? `0 0 0 3px ${tile.ringRgba}`
-                      : undefined,
-                  }}
-                  className={[
-                    'relative rounded-[18px] border-[1.5px] p-3 text-left flex flex-col justify-between gap-2 transition-shadow cursor-pointer focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]',
-                    isLastOddMobile
-                      ? 'col-span-2 sm:col-span-1 min-h-[78px] sm:min-h-[116px]'
-                      : 'min-h-[116px]',
-                  ].join(' ')}
-                >
-                  <div className="space-y-1.5">
-                    <span
-                      style={{ backgroundColor: tile.badgeHex }}
-                      className="inline-flex items-center px-2 py-0.5 rounded-[7px] text-white text-[10px] font-extrabold tracking-[0.04em] uppercase leading-tight max-w-full"
-                    >
-                      {tile.badgeLabel}
+          {clausePatternData?.categoryBadge === 'Exclamatory vs Interrogative Check' ? (
+            <div className="rounded-[14px] border-2 border-dashed border-[#CFC9BA] bg-white px-3.5 py-3 space-y-2.5">
+              <div className="flex items-center gap-2 text-[#1B2559]">
+                <Search className="w-4 h-4 shrink-0" aria-hidden="true" />
+                <h3 className="text-sm font-extrabold">Quick check: is it a question?</h3>
+              </div>
+              {segmentData.tiles[0] ? (
+                <p className="text-[13px] text-[#4B5C8A] leading-snug">
+                  <strong className="font-bold text-[#1B2559]">
+                    {segmentData.tiles[0].badgeLabel}:{' '}
+                  </strong>
+                  “{segmentData.tiles[0].exampleText}”
+                  {segmentData.tiles[0].caption
+                    ? ` — ${segmentData.tiles[0].caption}`
+                    : ''}
+                </p>
+              ) : null}
+              <ul className="space-y-2">
+                {segmentData.tiles.slice(1, 3).map((tile) => (
+                  <li
+                    key={tile.key}
+                    className="flex items-start gap-2 text-[13px] text-[#333333] leading-snug"
+                  >
+                    <CheckCircle2
+                      className="w-4 h-4 shrink-0 mt-0.5 text-[#0F7F76]"
+                      aria-hidden="true"
+                    />
+                    <span>
+                      <strong className="font-bold text-[#1B2559]">{tile.badgeLabel}: </strong>
+                      {tile.exampleText}
+                      {tile.caption ? ` — ${tile.caption}` : ''}
                     </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[12.5px] text-[#4B5C8A] leading-snug">
+                {clausePatternData.ruleSummary}
+              </p>
+              <p className="font-extrabold text-[#1B2559] text-[13px] leading-snug">
+                So it is Exclamatory (!), not Interrogative (?).
+              </p>
+            </div>
+          ) : (
+            <div className={`grid ${gridColumnsClass} gap-[10px]`}>
+              {segmentData.tiles.map((tile, idx) => {
+                const isSelected = idx === selectedSegmentIdx;
+                const { body, punctuation } = splitTrailingPunctuation(tile.exampleText);
+                const isLastOddMobile =
+                  (segmentData.tiles.length === 3 || segmentData.tiles.length === 5) &&
+                  idx === segmentData.tiles.length - 1;
 
-                    <p className="text-[13.5px] font-bold text-[#1B2559] leading-snug break-words">
-                      {body}
-                      {punctuation ? (
+                return (
+                  <button
+                    key={tile.key}
+                    type="button"
+                    onClick={() => {
+                      onUserEngage?.();
+                      setSelectedSegmentIdx(idx);
+                    }}
+                    aria-pressed={isSelected}
+                    style={{
+                      backgroundColor: tile.bgHex,
+                      borderColor: tile.borderHex,
+                      boxShadow: isSelected
+                        ? `0 0 0 3px ${tile.ringRgba}`
+                        : undefined,
+                    }}
+                    className={[
+                      'relative rounded-[18px] border-[1.5px] p-3 text-left flex flex-col justify-between gap-2 transition-shadow cursor-pointer focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#1B2559]',
+                      isLastOddMobile
+                        ? 'col-span-2 sm:col-span-1 min-h-[78px] sm:min-h-[116px]'
+                        : 'min-h-[116px]',
+                    ].join(' ')}
+                  >
+                    <div className="space-y-1.5">
+                      <span
+                        style={{ backgroundColor: tile.badgeHex }}
+                        className="inline-flex items-center px-2 py-0.5 rounded-[7px] text-white text-[10px] font-extrabold tracking-[0.04em] uppercase leading-tight max-w-full"
+                      >
+                        {tile.badgeLabel}
+                      </span>
+
+                      <p className="text-[13.5px] font-bold text-[#1B2559] leading-snug break-words">
+                        {body}
+                        {punctuation ? (
+                          <span
+                            style={{ color: tile.badgeHex }}
+                            className="text-[17px] font-extrabold leading-none ml-0.5"
+                          >
+                            {punctuation}
+                          </span>
+                        ) : null}
+                      </p>
+                    </div>
+
+                    <div className="flex items-end justify-between gap-2">
+                      <span className="text-[11.5px] font-semibold text-[#3B446B] leading-tight">
+                        {tile.caption}
+                      </span>
+                      {isSelected ? (
                         <span
-                          style={{ color: tile.badgeHex }}
-                          className="text-[17px] font-extrabold leading-none ml-0.5"
+                          aria-hidden="true"
+                          className="w-5 h-5 rounded-full bg-[#1B2559] text-white inline-flex items-center justify-center shrink-0"
                         >
-                          {punctuation}
+                          <Check className="w-3 h-3" strokeWidth={3} />
                         </span>
                       ) : null}
-                    </p>
-                  </div>
-
-                  <div className="flex items-end justify-between gap-2">
-                    <span className="text-[11.5px] font-semibold text-[#3B446B] leading-tight">
-                      {tile.caption}
-                    </span>
-                    {isSelected ? (
-                      <span
-                        aria-hidden="true"
-                        className="w-5 h-5 rounded-full bg-[#1B2559] text-white inline-flex items-center justify-center shrink-0"
-                      >
-                        <Check className="w-3 h-3" strokeWidth={3} />
-                      </span>
-                    ) : null}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           {/* Single Live Definition Strip directly beneath grid */}
-          {activeSegmentTile?.stripBody ? (
+          {clausePatternData?.categoryBadge !== 'Exclamatory vs Interrogative Check' &&
+          activeSegmentTile?.stripBody ? (
             <div
               aria-live="polite"
               style={{
@@ -941,6 +991,8 @@ export const SentenceTypesStepView: React.FC<SentenceTypesStepViewProps> = ({
       {progressiveExamples.length > 0 && activeExample ? (
         <section
           aria-labelledby={`${baseId}-examples-heading`}
+          data-paginate-block
+          data-paginate-name="Examples"
           className="rounded-[22px] bg-white border border-[#E9E1CB] p-3.5 sm:p-4 space-y-3 shadow-[var(--gq-shadow-card)]"
         >
           <h2
@@ -1043,6 +1095,8 @@ export const SentenceTypesStepView: React.FC<SentenceTypesStepViewProps> = ({
       {checkpointData ? (
         <section
           aria-labelledby={`${baseId}-checkpoint-heading`}
+          data-paginate-block
+          data-paginate-name="Quick Check"
           className="rounded-[22px] bg-white border border-[#E9E1CB] p-3.5 sm:p-4 space-y-3 shadow-[var(--gq-shadow-card)]"
         >
           <div className="flex items-center justify-between gap-2">
@@ -1149,6 +1203,8 @@ export const SentenceTypesStepView: React.FC<SentenceTypesStepViewProps> = ({
       {rememberText ? (
         <aside
           aria-label="Remember"
+          data-paginate-block
+          data-paginate-name="Remember"
           className="rounded-[18px] bg-[#ECE6FB] border border-[#CBBDF3] px-3.5 py-3 flex items-start gap-2.5"
         >
           <Lightbulb
@@ -1162,7 +1218,7 @@ export const SentenceTypesStepView: React.FC<SentenceTypesStepViewProps> = ({
       ) : null}
 
       {/* E. Independent Collapsible Explanations (collapsed by default) */}
-      <div className="space-y-2.5">
+      <div className="space-y-2.5" data-paginate-block data-paginate-name="Grammar notes">
         {/* Row 1: Why does this work? */}
         {clausePatternData?.whyItWorks ? (
           <div className="rounded-[20px] bg-white border border-[#E9E1CB] overflow-hidden">
